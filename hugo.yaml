@@ -1,0 +1,107 @@
+baseURL: "https://finlab-se.com/"
+languageCode: "ja"
+title: "金融エンジニアの資産実験室"
+theme: "PaperMod"
+paginate: 10
+
+# 日本語設定
+defaultContentLanguage: "ja"
+hasCJKLanguage: true
+
+# SEO
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+
+# 出力設定
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  # サイト基本情報
+  author: "おんじ"
+  description: "金融SE（銀行・クレカシステム担当）×高配当株投資家×Claude Code活用者が、お金の仕組みと資産形成の実践を解説するブログ"
+  keywords: ["高配当株", "資産形成", "クレジットカード", "金融エンジニア", "家計改善", "AI投資管理"]
+
+  # PaperMod設定
+  env: production
+  defaultTheme: light
+  ShowShareButtons: true
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableScrollToTop: false
+  comments: false
+
+  # プロフィール（トップページ）
+  profileMode:
+    enabled: true
+    title: "金融エンジニアの資産実験室"
+    subtitle: "銀行・クレカのシステムを知るSEが、高配当株投資とAI活用で資産形成を実践中"
+    imageUrl: ""
+    imageWidth: 120
+    imageHeight: 120
+    buttons:
+      - name: "記事一覧"
+        url: "/posts"
+      - name: "カテゴリ"
+        url: "/categories"
+
+  # ソーシャルリンク
+  socialIcons: []
+
+  # 検索機能
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10
+    keys: ["title", "permalink", "summary", "content"]
+
+# メニュー
+menu:
+  main:
+    - identifier: posts
+      name: "記事一覧"
+      url: /posts/
+      weight: 10
+    - identifier: categories
+      name: "カテゴリ"
+      url: /categories/
+      weight: 20
+    - identifier: tags
+      name: "タグ"
+      url: /tags/
+      weight: 30
+    - identifier: about
+      name: "このブログについて"
+      url: /about/
+      weight: 40
+    - identifier: search
+      name: "検索"
+      url: /search/
+      weight: 50
+
+# タクソノミー
+taxonomies:
+  category: categories
+  tag: tags
+
+# マークダウン設定
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    style: monokai
