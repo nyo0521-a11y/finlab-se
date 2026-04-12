@@ -1,3 +1,24 @@
+/* ヒーローバナー */
+.hero-banner {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px !important;
+    /* .profile img の border-radius: 50% を解除 */
+}
+
+/* profileのデフォルトスタイルを上書き */
+.profile .hero-banner ~ * {
+    text-align: center;
+}
+
 /* サムネイル画像の高さ制限（一覧・記事ページ共通） */
 .entry-cover img {
     max-height: 300px;

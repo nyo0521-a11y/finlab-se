@@ -43,6 +43,9 @@ params:
   disableScrollToTop: false
   comments: false
 
+  # トップページ ヒーロー画像
+  heroImage: "/images/hero-candidate-1_1.png"
+
   # プロフィール（トップページ）
   profileMode:
     enabled: true
