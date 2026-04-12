@@ -35,6 +35,9 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowWordCount: false
+  cover:
+    linkFullImages: true
+    responsiveImages: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   disableScrollToTop: false
