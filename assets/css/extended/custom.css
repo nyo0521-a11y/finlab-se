@@ -1,0 +1,10 @@
+/* サムネイル画像の高さ制限（一覧・記事ページ共通） */
+.entry-cover img {
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* 最初の記事（大きく表示）は少し高めに */
+.first-entry .entry-cover img {
+    max-height: 420px;
+}
