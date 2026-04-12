@@ -6,6 +6,11 @@ categories: ["AI × マネー管理術"]
 tags: ["Claude Code", "Hugo", "Cloudflare Pages", "ブログ開設", "個人開発"]
 description: "投資シミュレーターをClaude Codeで自作していたら、気づけばブログまで作っていた話。Hugo + Cloudflare Pagesでの構築過程と、ハマった失敗談をまとめます。"
 showToc: true
+cover:
+  image: "/images/thumb-claude-code-blog.jpg"
+  alt: "Claude Codeでブログを作ったイメージ"
+  relative: false
+  hiddenInList: false
 ---
 
 このブログがどうやって生まれたのか、を残しておこうと思います。

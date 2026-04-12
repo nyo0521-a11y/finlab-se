@@ -6,6 +6,11 @@ categories: ["AI × マネー管理術"]
 tags: ["モンテカルロシミュレーション", "FIRE", "4%ルール", "取り崩し", "インデックス投資", "シミュレーションツール"]
 description: "資産額・取崩し額・運用条件を入力するだけで、最大100万通りの未来をシミュレーションし成功率を算出する無料ツールの使い方を解説します。"
 showToc: true
+cover:
+  image: "/images/thumb-montecarlo-tool-usage.jpg"
+  alt: "インデックス投資取崩しシミュレーターのイメージ"
+  relative: false
+  hiddenInList: false
 ---
 
 「4%ルールで本当に自分は大丈夫なのか」——この疑問を、金融SEとして**数字で答えたい**と思い、モンテカルロシミュレーターを自作しました。
