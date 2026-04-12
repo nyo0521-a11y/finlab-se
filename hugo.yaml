@@ -48,9 +48,10 @@ params:
     enabled: true
     title: "金融エンジニアの資産実験室"
     subtitle: "銀行・クレカのシステムを知るSEが、高配当株投資とAI活用で資産形成を実践中"
-    imageUrl: ""
+    imageUrl: "/images/profile.png"
     imageWidth: 120
     imageHeight: 120
+    imageTitle: "金融エンジニアの資産実験室"
     buttons:
       - name: "記事一覧"
         url: "/posts"
