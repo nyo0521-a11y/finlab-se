@@ -1,6 +1,6 @@
 baseURL: "https://finlab-se.com/"
 languageCode: "ja"
-title: "金融エンジニアの資産実験室"
+title: "金融エンジニアの資産運用実験室"
 theme: "PaperMod"
 paginate: 10
 
@@ -49,12 +49,12 @@ params:
   # プロフィール（トップページ）
   profileMode:
     enabled: true
-    title: "金融エンジニアの資産実験室"
+    title: "金融エンジニアの資産運用実験室"
     subtitle: "銀行・クレカのシステムを知るSEが、高配当株投資とAI活用で資産形成を実践中"
     imageUrl: "/images/profile.png"
     imageWidth: 120
     imageHeight: 120
-    imageTitle: "金融エンジニアの資産実験室"
+    imageTitle: "金融エンジニアの資産運用実験室"
     buttons:
       - name: "記事一覧"
         url: "/posts"
