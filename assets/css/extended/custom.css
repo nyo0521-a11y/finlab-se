@@ -1,3 +1,8 @@
+/* 全ページ共通：記事一覧と同じ背景色を適用 */
+body {
+    background: var(--code-bg);
+}
+
 /* ヒーローバナー */
 .hero-banner {
     width: 100%;
