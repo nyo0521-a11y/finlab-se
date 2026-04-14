@@ -44,7 +44,7 @@ cover:
 
 ## インターチェンジフィー（IRF）とは何か
 
-加盟店手数料の内訳で、最も大きな割合を占めるのが**インターチェンジフィー（IRF：Interchange Reimbursement Fee）**です。
+加盟店手数料の内訳で、最も大きな割合を占めるのが**インターチェンジフィー**（IRF：Interchange Reimbursement Fee）です。
 
 | 手数料の種類 | 受け取る相手 | 目安 |
 |---|---|---|
