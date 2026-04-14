@@ -1,6 +1,6 @@
 ---
 title: "Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記"
-date: 2026-04-12
+date: 2026-04-12T20:35:00+09:00
 draft: false
 categories: ["AI × マネー管理術"]
 tags: ["Claude Code", "Hugo", "Cloudflare Pages", "ブログ開設", "個人開発"]

@@ -1,6 +1,6 @@
 ---
 title: "ブログを始めました"
-date: 2026-04-12
+date: 2026-04-12T07:07:00+09:00
 draft: false
 categories: ["お知らせ"]
 tags: ["自己紹介"]
