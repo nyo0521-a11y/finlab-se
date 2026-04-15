@@ -1,0 +1,51 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - master
+      - draft
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.160.1'
+          extended: true
+
+      - name: Build (master → production)
+        if: github.ref == 'refs/heads/master'
+        run: hugo --baseURL "https://finlab-se.com"
+
+      - name: Build (draft → staging)
+        if: github.ref == 'refs/heads/draft'
+        run: hugo --buildFuture --baseURL "https://draft.finlab-se.pages.dev"
+
+      - name: Deploy to Cloudflare Pages (production)
+        if: github.ref == 'refs/heads/master'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 75e7d9321a61105da05ceb29523b8a30
+          command: pages deploy public --project-name finlab-se --branch master
+
+      - name: Deploy to Cloudflare Pages (draft)
+        if: github.ref == 'refs/heads/draft'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 75e7d9321a61105da05ceb29523b8a30
+          command: pages deploy public --project-name finlab-se --branch draft
