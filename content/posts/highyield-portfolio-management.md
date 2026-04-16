@@ -1,7 +1,7 @@
 ---
 title: "高配当株ポートフォリオの管理方法を公開｜Googleスプレッドシート×Claude Codeで買い増し候補まで自動抽出"
 date: 2026-04-13
-draft: true
+draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "ポートフォリオ管理", "Googleスプレッドシート", "Claude Code", "MoneyForward"]
 description: "MoneyForwardからスプレッドシートへの株式データ連携、利回り3.8%以上・比率1%未満の買い増し候補抽出をClaude Codeで自動化している管理フローを公開します。"

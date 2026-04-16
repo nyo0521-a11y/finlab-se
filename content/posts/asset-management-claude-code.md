@@ -1,7 +1,7 @@
 ---
 title: "Claude Codeで毎月の資産記録を自動化した｜金融SEが作る個人版バランスシート管理術"
 date: 2026-04-13
-draft: true
+draft: false
 categories: ["AI × マネー管理術"]
 tags: ["Claude Code", "家計管理", "MoneyForward", "Googleスプレッドシート", "資産管理自動化"]
 description: "MoneyForward→スプレッドシート→貸借対照表Excelという月次資産管理フローを、Claude Codeへの自然言語指示で半自動化した話。作業時間が30分以上から15分以内に短縮されました。"
