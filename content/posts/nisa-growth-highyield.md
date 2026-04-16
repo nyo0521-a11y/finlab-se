@@ -1,6 +1,6 @@
 ---
 title: "新NISAの成長投資枠で高配当株を買う戦略｜インデックス投資との使い分け方"
-date: 2026-04-13
+date: 2026-04-16
 draft: false
 categories: ["NISA・iDeCo"]
 tags: ["新NISA", "高配当株", "成長投資枠", "インデックス投資", "資産形成"]
