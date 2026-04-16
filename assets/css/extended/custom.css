@@ -37,6 +37,11 @@ body {
     white-space: normal;
 }
 
+/* カテゴリ・タグページでもサムネイルを表示（テーマデフォルトの非表示を上書き） */
+.tag-entry .entry-cover {
+    display: block;
+}
+
 /* サムネイル画像の高さ制限（一覧・記事ページ共通） */
 .entry-cover img {
     max-height: 300px;
