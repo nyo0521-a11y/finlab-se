@@ -200,7 +200,7 @@ cover:
 
 ## 参考
 
-- [リベラルアーツ大学（YouTube）](https://www.youtube.com/@RyoLiberty)
+- [リベラルアーツ大学（YouTube）](https://www.youtube.com/@ryogakucho)
 
 ---
 
