@@ -48,6 +48,8 @@ cover:
 
 なぜこのような分け方をしているのか、それぞれの理由を説明します。
 
+![米国株と日本株の組み合わせで安定した配当を目指す](/images/highyield-investment-strategy2.png)
+
 ---
 
 ## 米国株はETFで十分な理由
