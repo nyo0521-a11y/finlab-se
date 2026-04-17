@@ -32,7 +32,7 @@ jobs:
 
       - name: Build (draft → staging)
         if: github.ref == 'refs/heads/draft'
-        run: hugo --buildFuture --baseURL "https://draft.finlab-se.pages.dev"
+        run: hugo --buildFuture --buildDrafts --baseURL "https://draft.finlab-se.pages.dev"
 
       - name: Deploy to Cloudflare Pages (production)
         if: github.ref == 'refs/heads/master'
