@@ -1,7 +1,7 @@
 ---
 title: "クレカ改悪2026年まとめ：楽天・三井住友の改定内容と、振り回されないための判断軸"
-date: 2026-04-17
-draft: true
+date: 2026-04-17T18:00:00+09:00
+draft: false
 categories: ["クレジットカード"]
 tags: ["クレカ改悪", "楽天カード", "三井住友カード", "ポイント還元", "クレカ選び"]
 description: "2026年に相次いだ楽天・三井住友カードの改定内容を整理し、SNSで話題の「また改悪か」に振り回されないための3つの判断軸を金融SE視点で解説します。"
@@ -129,6 +129,20 @@ cover:
 改定情報を完全に無視するのも違いますが、ニュースが出るたびに慌てて動く必要もありません。今回お伝えした判断軸を持っておくと、次の「改悪ニュース」が来たときも、少し落ち着いて判断できると思います。
 
 何かの参考になれば幸いです。
+
+---
+
+## この記事で紹介したカード
+
+### 楽天カード
+
+年会費永年無料で還元率1.0%。楽天市場での利用時はさらにポイントアップ。楽天経済圏を活用している方に特に相性が良いカードです。
+
+<div class="affiliate-link">
+<a href="https://hb.afl.rakuten.co.jp/hgc/52ed1828.d82f3379.52ed1829.d96d83a8/?pc=https%3A%2F%2Fwww.rakuten-card.co.jp%2Fcard%2Frakuten-card%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9" target="_blank" rel="nofollow sponsored noopener">楽天カード（年会費永年無料・新規入会でポイントプレゼント）</a>
+</div>
+
+*※本記事のリンクはアフィリエイトリンクを含みます。詳細は[プライバシーポリシー](/about/)をご確認ください。*
 
 ---
 
