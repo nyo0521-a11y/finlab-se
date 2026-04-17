@@ -1,0 +1,5 @@
+baseURL: "https://draft.finlab-se.pages.dev/"
+buildDrafts: true
+
+params:
+  env: draft

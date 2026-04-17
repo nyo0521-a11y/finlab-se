@@ -20,10 +20,6 @@ outputs:
     - RSS
     - JSON
 
-services:
-  googleAnalytics:
-    ID: G-6R6V4S79VV
-
 params:
   # サイト基本情報
   author: "やさぐれSE"
