@@ -3,292 +3,387 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>取崩し戦略 モンテカルロシミュレーター</title>
+  <title>取崩し戦略 モンテカルロシミュレーター｜finlab-se</title>
+  <meta name="description" content="リタイア後の資産取崩し戦略を最大100万通りの未来でテストする、モンテカルロ・シミュレーター。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Caveat:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root{
+      --ink:#1d2430;
+      --ink-2:#374050;
+      --muted:#6b7280;
+      --paper:#f7f5ef;
+      --paper-2:#fffdf7;
+      --line:#1d2430;
+      --accent:#4ade80;
+      --accent-2:#22c55e;
+      --accent-3:#16a34a;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --ok:#10b981;
+      --orange:#fb923c;
+      --card:#ffffff;
+      --hand: 'Kalam','Caveat','Zen Kaku Gothic New',sans-serif;
+      --gothic:'Zen Kaku Gothic New','Hiragino Sans','Noto Sans JP',sans-serif;
+      --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{background:var(--paper);color:var(--ink);font-family:var(--gothic);min-height:100vh;}
+    body{
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(74,222,128,.06), transparent 40%),
+        radial-gradient(circle at 88% 92%, rgba(59,130,246,.05), transparent 40%),
+        repeating-linear-gradient(0deg, rgba(29,36,48,.04) 0 1px, transparent 1px 28px);
+    }
+    a{color:inherit}
 
-    body {
-      font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic', sans-serif;
-      background: #f0f4f8;
-      color: #2d3748;
-      min-height: 100vh;
+    /* ---------- top bar ---------- */
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      background:rgba(247,245,239,.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1.5px dashed var(--ink);
+      padding:14px 24px;
+      display:flex;align-items:center;gap:18px;flex-wrap:wrap;
     }
+    .logo{
+      display:flex;align-items:center;gap:10px;
+      font-family:var(--hand);font-weight:700;font-size:22px;letter-spacing:.5px;
+    }
+    .logo .mark{
+      width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;
+      display:grid;place-items:center;background:var(--accent);
+      transform:rotate(-4deg);
+      font-family:var(--mono);font-weight:700;font-size:14px;
+    }
+    .logo small{font-family:var(--gothic);font-weight:500;color:var(--muted);font-size:12px;margin-left:6px}
+    .pill{
+      font-family:var(--mono);font-size:11px;padding:3px 9px;border:1.5px solid var(--ink);
+      border-radius:999px;background:#fff;
+    }
+    .topbar-actions{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 
-    header {
-      background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-      color: white;
-      padding: 20px 32px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    /* ---------- intro strip ---------- */
+    .intro{
+      padding:22px 28px 4px;max-width:1440px;margin:0 auto;
     }
-    header h1 { font-size: 1.5rem; font-weight: 700; }
-    header p  { font-size: 0.85rem; opacity: 0.8; margin-top: 4px; }
+    .intro h1{font-family:var(--hand);font-size:34px;margin:0 0 6px;}
+    .intro p{color:var(--ink-2);margin:0;max-width:880px;line-height:1.7;}
+    .intro .note{
+      margin-top:12px;font-family:var(--hand);color:var(--muted);font-size:15px;
+      display:flex;gap:14px;flex-wrap:wrap;
+    }
+    .intro .note span{display:inline-flex;align-items:center;gap:6px}
+    .dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);display:inline-block}
 
-    .main {
-      display: flex;
-      gap: 20px;
-      padding: 20px;
-      max-width: 1440px;
-      margin: 0 auto;
+    /* ---------- main frame ---------- */
+    .main{
+      max-width:1440px;margin:18px auto 40px;padding:0 24px;
+      display:grid;grid-template-columns:minmax(340px, 380px) 1fr;gap:20px;
     }
+    .panel-left{display:flex;flex-direction:column;gap:14px}
+    .panel-right{display:flex;flex-direction:column;gap:16px;min-width:0}
 
-    .panel-left {
-      width: 340px;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    /* ---------- sketch card ---------- */
+    .sketch-card{
+      background:var(--card);
+      border:1.5px solid var(--ink);
+      border-radius:14px;
+      padding:18px;
+      position:relative;
+      box-shadow:3px 3px 0 rgba(29,36,48,.08);
     }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    .sketch-card.dashed{border-style:dashed}
+    .sketch-card h3, .card-title{
+      font-family:var(--hand);font-size:20px;margin:0 0 12px;display:flex;align-items:center;gap:8px;color:var(--ink);
+      font-weight:700;letter-spacing:0;text-transform:none;
+      border:none;padding:0;
     }
-
-    .card-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #718096;
-      margin-bottom: 14px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #ebf4ff;
-    }
-
-    .field { margin-bottom: 14px; }
-    .field:last-child { margin-bottom: 0; }
-
-    label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #4a5568;
-      margin-bottom: 4px;
-    }
-    label .hint {
-      font-weight: 400;
-      color: #a0aec0;
-      font-size: 0.75rem;
-    }
-
-    input[type="number"], select {
-      width: 100%;
-      padding: 8px 10px;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      color: #2d3748;
-      transition: border-color 0.2s;
-      background: #f7fafc;
-    }
-    input[type="number"]:focus, select:focus {
-      outline: none;
-      border-color: #3182ce;
-      background: white;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .two-col .field { margin-bottom: 0; }
-
-    .toggle-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .toggle-btn {
-      flex: 1;
-      padding: 7px;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 8px;
-      background: #f7fafc;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      color: #718096;
-      transition: all 0.2s;
-      white-space: normal;
-      line-height: 1.3;
-    }
-    .toggle-btn.active {
-      background: #3182ce;
-      border-color: #3182ce;
-      color: white;
-    }
-    .toggle-btn.active-green {
-      background: #276749;
-      border-color: #276749;
-      color: white;
+    .sketch-card h3 .num, .card-title .num{
+      font-family:var(--mono);font-size:11px;padding:2px 7px;
+      border:1.2px solid var(--ink);border-radius:6px;background:var(--paper);font-weight:700;
     }
 
-    .run-btn {
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #2b6cb0, #3182ce);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: 0 4px 12px rgba(49,130,206,0.35);
+    /* ---------- details (collapsible) ---------- */
+    details.sketch-card{padding:0}
+    details.sketch-card > summary{
+      list-style:none;cursor:pointer;padding:18px;
+      display:flex;align-items:center;gap:8px;
+      font-family:var(--hand);font-size:20px;color:var(--ink);font-weight:700;
     }
-    .run-btn:hover {
-      background: linear-gradient(135deg, #1a4f8c, #2b6cb0);
-      box-shadow: 0 6px 16px rgba(49,130,206,0.45);
-      transform: translateY(-1px);
+    details.sketch-card > summary::-webkit-details-marker{display:none}
+    details.sketch-card > summary .num{
+      font-family:var(--mono);font-size:11px;padding:2px 7px;
+      border:1.2px solid var(--ink);border-radius:6px;background:var(--paper);font-weight:700;
     }
-    .run-btn:active { transform: translateY(0); }
-    .run-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-    .panel-right {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    details.sketch-card > summary .chev{
+      margin-left:auto;font-family:var(--mono);font-size:13px;
+      transition:transform .2s;color:var(--muted);
     }
+    details.sketch-card[open] > summary .chev{transform:rotate(90deg)}
+    details.sketch-card > .body{padding:0 18px 18px}
 
-    .success-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+    /* ---------- field ---------- */
+    .field{margin-bottom:14px}
+    .field:last-child{margin-bottom:0}
+    label{
+      display:block;font-size:12px;font-weight:500;color:var(--ink-2);margin-bottom:4px;
     }
-
-    .metric-card {
-      background: white;
-      border-radius: 12px;
-      padding: 18px;
-      text-align: center;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    label .hint{font-weight:400;color:var(--muted);font-size:11px;margin-left:4px}
+    input[type="number"], select{
+      width:100%;
+      font-family:var(--mono);font-size:15px;
+      padding:9px 12px;border:1.5px solid var(--ink);border-radius:8px;background:#fff;
+      color:var(--ink);
     }
-    .metric-label { font-size: 0.75rem; font-weight: 600; color: #718096; margin-bottom: 6px; }
-    .metric-value { font-size: 1.8rem; font-weight: 800; line-height: 1; }
-    .metric-sub { font-size: 0.75rem; color: #a0aec0; margin-top: 4px; }
-
-    .success-rate { color: #2f855a; }
-    .success-rate.warn { color: #c05621; }
-    .success-rate.danger { color: #c53030; }
-
-    .charts-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+    input[type="number"]:focus, select:focus{
+      outline:2px solid var(--accent);outline-offset:1px;background:#fff;
     }
 
-    .chart-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-    .chart-title { font-size: 0.85rem; font-weight: 700; color: #4a5568; margin-bottom: 12px; }
-    .chart-wrap { position: relative; height: 240px; }
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .two-col .field{margin-bottom:0}
 
-    .stats-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.83rem;
+    /* ---------- toggle ---------- */
+    .toggle-row{display:flex;gap:6px;margin-bottom:8px}
+    .toggle-btn{
+      flex:1;padding:8px;
+      border:1.5px solid var(--ink);border-radius:8px;background:#fff;
+      font-family:var(--gothic);font-size:13px;font-weight:600;
+      cursor:pointer;color:var(--ink-2);
+      transition:all .15s;white-space:normal;line-height:1.3;
     }
-    .stats-table th {
-      background: #ebf4ff;
-      color: #2b6cb0;
-      padding: 8px 12px;
-      text-align: left;
-      font-weight: 700;
-    }
-    .stats-table td {
-      padding: 8px 12px;
-      border-bottom: 1px solid #f0f4f8;
-      color: #4a5568;
-    }
-    .stats-table tr:last-child td { border-bottom: none; }
-    .stats-table td:last-child { text-align: right; font-weight: 600; color: #2d3748; }
+    .toggle-btn:hover{background:var(--paper)}
+    .toggle-btn.active{background:var(--ink);border-color:var(--ink);color:var(--paper-2)}
+    .toggle-btn.active-green{background:var(--accent-3);border-color:var(--accent-3);color:#fff}
 
-    .placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 300px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      color: #a0aec0;
-      font-size: 0.9rem;
-      text-align: center;
-      line-height: 1.6;
+    /* ---------- run button ---------- */
+    .run-btn{
+      width:100%;padding:14px;
+      background:var(--accent);
+      color:var(--ink);
+      border:1.8px solid var(--ink);
+      border-radius:12px;
+      font-family:var(--hand);font-size:20px;font-weight:700;
+      cursor:pointer;
+      box-shadow:3px 3px 0 rgba(29,36,48,.18);
+      transition:all .12s;
+      letter-spacing:.5px;
+    }
+    .run-btn:hover{background:var(--accent-2);transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(29,36,48,.22)}
+    .run-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 rgba(29,36,48,.18)}
+    .run-btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:3px 3px 0 rgba(29,36,48,.12)}
+    .run-btn.compact{padding:11px;font-size:17px}
+
+    /* ---------- divider / hint / note ---------- */
+    .divider{border:none;border-top:1.5px dashed var(--ink);opacity:.35;margin:12px 0}
+    .small-hint{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5}
+    .small-hint.blue{color:var(--accent-3);font-weight:500}
+    .small-hint.orange{color:#c2410c;font-weight:500}
+    .small-hint.green{color:var(--accent-3);font-weight:500}
+    .note{
+      font-size:12px;color:var(--ink-2);
+      padding:10px 14px;background:var(--paper);
+      border:1.2px solid var(--ink);border-radius:8px;
+      line-height:1.65;
+    }
+    .note.accent{border-left:4px solid var(--accent-3)}
+
+    /* ---------- placeholder (empty state) ---------- */
+    .placeholder{
+      display:flex;align-items:center;justify-content:center;
+      min-height:380px;background:#fff;
+      border:1.8px solid var(--ink);border-radius:16px;
+      box-shadow:3px 3px 0 rgba(29,36,48,.08);
+      text-align:center;padding:40px 24px;
+    }
+    .placeholder .ph-inner{max-width:480px}
+    .placeholder .ph-icon{
+      width:84px;height:84px;border:2px solid var(--ink);border-radius:50%;
+      background:var(--accent);margin:0 auto 18px;
+      display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:32px;
+      transform:rotate(-4deg);
+      box-shadow:3px 3px 0 rgba(29,36,48,.12);
+    }
+    .placeholder h2{
+      font-family:var(--hand);font-size:26px;margin:0 0 10px;color:var(--ink);font-weight:700;
+    }
+    .placeholder p{
+      color:var(--ink-2);font-size:14px;line-height:1.75;margin:0 0 8px;
+    }
+    .placeholder .ph-tags{
+      margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+    }
+    .placeholder .ph-tag{
+      font-family:var(--mono);font-size:11px;padding:4px 10px;
+      border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);
     }
 
-    .progress-bar {
-      height: 6px;
-      background: #ebf4ff;
-      border-radius: 3px;
-      margin-top: 8px;
-      overflow: hidden;
+    /* ---------- progress ---------- */
+    .progress-bar{
+      height:8px;background:#fff;border:1.2px solid var(--ink);
+      border-radius:999px;margin-top:8px;overflow:hidden;
     }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #3182ce, #63b3ed);
-      border-radius: 3px;
-      transition: width 0.3s;
+    .progress-fill{
+      height:100%;background:var(--accent);
+      transition:width .3s;
     }
 
-    .note {
-      font-size: 0.75rem;
-      color: #718096;
-      padding: 10px 14px;
-      background: #f7fafc;
-      border-radius: 8px;
-      border-left: 3px solid #bee3f8;
-      line-height: 1.6;
+    /* ---------- mode banner ---------- */
+    .mode-banner{
+      text-align:center;padding:8px 14px;
+      border:1.5px solid var(--ink);border-radius:10px;
+      font-family:var(--hand);font-size:16px;font-weight:700;
+      background:#fff;
+    }
+    .mode-banner.annual{background:#eff6ff;color:#1e40af}
+    .mode-banner.monthly{background:#f0fdf4;color:#166534}
+
+    /* ---------- metrics ---------- */
+    .success-row{
+      display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:14px;
+    }
+    .metric-card{
+      background:#fff;
+      border:1.5px solid var(--ink);border-radius:14px;
+      padding:18px 16px;text-align:center;
+      box-shadow:3px 3px 0 rgba(29,36,48,.08);
+      position:relative;overflow:hidden;
+    }
+    .metric-card.hero{
+      background:linear-gradient(180deg,#fff,#f3fff7);
+      border-width:1.8px;
+    }
+    .metric-card .metric-label{
+      font-family:var(--hand);font-size:14px;font-weight:700;color:var(--ink-2);margin-bottom:8px;
+      letter-spacing:0;text-transform:none;
+    }
+    .metric-card .metric-value{
+      font-family:var(--mono);font-weight:700;line-height:1;color:var(--ink);
+    }
+    .metric-card.hero .metric-value{font-size:3.4rem;letter-spacing:-1px}
+    .metric-card .metric-value.small{font-size:1.4rem}
+    .metric-card .metric-sub{
+      font-family:var(--gothic);font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.5;
+    }
+    .success-rate{color:var(--accent-3)}
+    .success-rate.warn{color:#c2410c}
+    .success-rate.danger{color:var(--danger)}
+
+    /* color band under hero metric */
+    .metric-card.hero .band{
+      display:flex;height:8px;border:1.2px solid var(--ink);border-radius:999px;
+      overflow:hidden;background:#fff;margin-top:14px;position:relative;
+    }
+    .metric-card.hero .band .seg{flex:1}
+    .metric-card.hero .band .seg.s-danger{background:#fca5a5}
+    .metric-card.hero .band .seg.s-warn{background:#fde68a}
+    .metric-card.hero .band .seg.s-ok{background:#86efac}
+    .metric-card.hero .band .marker{
+      position:absolute;top:-5px;width:2px;height:18px;background:var(--ink);
+      transition:left .35s ease-out;
+    }
+    .metric-card.hero .band .marker::after{
+      content:"";position:absolute;top:-5px;left:-5px;width:12px;height:12px;
+      border:1.5px solid var(--ink);background:#fff;border-radius:50%;
+    }
+    .metric-card.hero .band-legend{
+      display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;
+      color:var(--muted);margin-top:6px;
     }
 
-    .small-hint {
-      font-size: 0.72rem;
-      color: #a0aec0;
-      margin-top: 4px;
-      line-height: 1.4;
+    /* ---------- charts ---------- */
+    .charts-row{
+      display:grid;grid-template-columns:1fr 1fr;gap:16px;
     }
-    .small-hint.blue   { color: #3182ce; font-weight: 500; }
-    .small-hint.orange { color: #c05621; font-weight: 500; }
-    .small-hint.green  { color: #276749; font-weight: 500; }
-
-    .divider { border: none; border-top: 1px solid #e2e8f0; margin: 10px 0; }
-
-    /* シミュレーションモードバナー */
-    .mode-banner {
-      text-align: center;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 2px;
+    .chart-card{
+      background:#fff;border:1.5px solid var(--ink);border-radius:14px;
+      padding:18px;box-shadow:3px 3px 0 rgba(29,36,48,.08);
     }
-    .mode-banner.annual  { background: #ebf4ff; color: #2b6cb0; }
-    .mode-banner.monthly { background: #f0fff4; color: #276749; }
+    .chart-card .chart-title{
+      font-family:var(--hand);font-size:18px;color:var(--ink);margin-bottom:12px;font-weight:700;
+      display:flex;align-items:center;gap:8px;
+    }
+    .chart-card .chart-title .num{
+      font-family:var(--mono);font-size:11px;padding:2px 7px;
+      border:1.2px solid var(--ink);border-radius:6px;background:var(--paper);font-weight:700;
+    }
+    .chart-wrap{
+      position:relative;height:260px;
+      border:1.2px dashed var(--ink);border-radius:10px;padding:8px;background:#fff;
+    }
 
-    @media (max-width: 960px) {
-      .main { flex-direction: column; }
-      .panel-left { width: 100%; }
-      .success-row { grid-template-columns: repeat(2, 1fr); }
-      .charts-row { grid-template-columns: 1fr; }
+    /* ---------- stats table ---------- */
+    .stats-table{
+      width:100%;border-collapse:collapse;font-size:13px;font-family:var(--gothic);
+    }
+    .stats-table th{
+      background:var(--paper);color:var(--ink);
+      padding:9px 12px;text-align:left;font-family:var(--hand);font-weight:700;font-size:14px;
+      border-bottom:1.5px solid var(--ink);
+    }
+    .stats-table td{
+      padding:9px 12px;border-bottom:1px dashed rgba(29,36,48,.18);color:var(--ink-2);
+    }
+    .stats-table tr:last-child td{border-bottom:none}
+    .stats-table td:last-child{
+      text-align:right;font-family:var(--mono);font-weight:600;color:var(--ink);
+    }
+    .stats-table tr.section-row td{
+      background:var(--paper);font-family:var(--hand);font-weight:700;font-size:13px;
+      color:var(--ink);text-align:left;
+    }
+
+    /* ---------- footer ---------- */
+    .disclaimer{
+      max-width:1440px;margin:0 auto;padding:0 24px 10px;
+      font-family:var(--hand);font-size:13px;color:var(--muted);
+    }
+    footer{
+      border-top:1.5px dashed var(--ink);margin-top:20px;padding:18px 24px;text-align:center;
+      font-family:var(--mono);font-size:11px;color:var(--muted);
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width:960px){
+      .main{grid-template-columns:1fr}
+      .panel-left{width:100%}
+      .success-row{grid-template-columns:1fr 1fr}
+      .charts-row{grid-template-columns:1fr}
+    }
+    @media (max-width:760px){
+      .topbar{padding:10px 14px}
+      .logo{font-size:18px}
+      .intro{padding:16px 14px 4px}
+      .intro h1{font-size:26px}
+      .main{padding:0 14px}
+      .metric-card.hero .metric-value{font-size:2.6rem}
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>📊 取崩し戦略 モンテカルロシミュレーター</h1>
-  <p>年次・月次シミュレーション切り替え対応。現金バッファは「初期資産からの下落率」で判定します</p>
-</header>
+<div class="topbar">
+  <div class="logo">
+    <div class="mark">MC</div>
+    <span>取崩し戦略 モンテカルロ</span>
+    <small>by <b style="color:var(--ink)">finlab-se</b>（金融エンジニアの資産実験室）</small>
+  </div>
+  <span class="pill">MONTECARLO v2</span>
+</div>
 
-<div class="main">
+<div class="intro">
+  <h1>あなたのリタイア計画を、最大100万通りの未来でテストする。</h1>
+  <p>株価・インフレ・為替の不確実性を取り込んだモンテカルロ・シミュレーションで、取崩し戦略の <b>成功率</b> と <b>資産推移</b> を可視化します。年次・月次の切替、現金バッファ運用、デフレ時の取扱いまで指定可能です。</p>
+  <div class="note" style="background:transparent;border:none;padding:0;">
+    <span><span class="dot" style="background:var(--accent)"></span> 緑=成功率80%以上</span>
+    <span><span class="dot" style="background:#fde68a"></span> 黄=60〜80%</span>
+    <span><span class="dot" style="background:#fca5a5"></span> 赤=60%未満</span>
+  </div>
+</div>
+
+<section class="main">
 
   <!-- ── 左パネル ── -->
   <div class="panel-left">
@@ -297,9 +392,9 @@
       ▶ シミュレーション実行
     </button>
 
-    <!-- 資産・取崩し設定 -->
-    <div class="card">
-      <div class="card-title">📁 資産・取崩し設定</div>
+    <!-- 01 資産・取崩し設定（常時オープン） -->
+    <div class="sketch-card">
+      <h3><span class="num">01</span> 資産・取崩し設定</h3>
 
       <div class="field">
         <label>初期資産額 <span class="hint">（万円）</span></label>
@@ -346,9 +441,9 @@
       </div>
     </div>
 
-    <!-- シミュレーション設定 -->
-    <div class="card">
-      <div class="card-title">⚙️ シミュレーション設定</div>
+    <!-- 02 シミュレーション設定（常時オープン） -->
+    <div class="sketch-card">
+      <h3><span class="num">02</span> シミュレーション設定</h3>
 
       <div class="field">
         <label>計算モード</label>
@@ -375,9 +470,9 @@
       </div>
     </div>
 
-    <!-- 現金バッファ設定 -->
-    <div class="card">
-      <div class="card-title">🏦 現金バッファ設定</div>
+    <!-- 03 現金バッファ設定（常時オープン） -->
+    <div class="sketch-card">
+      <h3><span class="num">03</span> 現金バッファ設定</h3>
 
       <div class="field">
         <label>現金バッファ <span class="hint">（年分）</span></label>
@@ -387,98 +482,106 @@
       </div>
 
       <div class="field">
-        <label>現金バッファ発動ライン <span class="hint">（初期ポートフォリオからの下落率 %）</span></label>
+        <label>現金バッファ発動ライン <span class="hint">（初期からの下落率 %）</span></label>
         <input type="number" id="dropThreshold" value="10" min="0" max="100" step="1"
                oninput="updateCashHint()">
         <div class="small-hint" style="margin-top:3px">例：10 と入力 → ポートフォリオが初期から <strong>10%以上</strong> 下落したとき現金を使用</div>
       </div>
 
-      <div id="cash-hint" class="note" style="margin-top:4px;"></div>
+      <div id="cash-hint" class="note" style="margin-top:10px;"></div>
     </div>
 
-    <!-- リターン・インフレ設定 -->
-    <div class="card">
-      <div class="card-title">📈 リターン・インフレ設定（年率）</div>
+    <!-- 04 リターン・インフレ設定（折り畳み） -->
+    <details class="sketch-card">
+      <summary>
+        <span class="num">04</span> リターン・インフレ設定
+        <span class="chev">▶</span>
+      </summary>
+      <div class="body">
+        <div class="two-col">
+          <div class="field">
+            <label>期待リターン <span class="hint">（%）</span></label>
+            <input type="number" id="expectedReturn" value="11.79" min="-5" max="20" step="0.01">
+          </div>
+          <div class="field">
+            <label>リスク <span class="hint">（標準偏差%）</span></label>
+            <input type="number" id="stdDev" value="19.50" min="1" max="50" step="0.01">
+          </div>
+        </div>
+        <div id="monthly-convert-hint" class="small-hint blue" style="margin-top:4px;display:none">月次変換：μ/12, σ/√12 を自動適用します</div>
 
-      <div class="two-col">
+        <hr class="divider">
+
+        <div class="two-col" style="margin-bottom:6px">
+          <div class="field">
+            <label>インフレ率 <span class="hint">（平均 %）</span></label>
+            <input type="number" id="inflationRate" value="1.6" min="-2" max="10" step="0.1"
+                   oninput="updateInflHint()">
+          </div>
+          <div class="field">
+            <label>標準偏差 <span class="hint">（%、0=固定）</span></label>
+            <input type="number" id="inflationStdDev" value="1.0" min="0" max="5" step="0.1"
+                   oninput="updateInflHint()">
+          </div>
+        </div>
+        <div id="infl-hint" class="small-hint"></div>
+
+        <hr class="divider">
+
+        <div id="field-defl-mode" class="field">
+          <label>デフレ時（インフレ率がマイナス）の取崩額</label>
+          <div class="toggle-row">
+            <button class="toggle-btn active" id="btn-defl-keep"   onclick="setDeflMode('keep')">減らさない</button>
+            <button class="toggle-btn"        id="btn-defl-reduce" onclick="setDeflMode('reduce')">減らす</button>
+          </div>
+          <div class="small-hint">インフレ時は常に増額。デフレ時の扱いを選択（定率取崩しモードでは最低取崩額に適用）</div>
+        </div>
+
+        <div class="note accent" style="margin-top:10px;">
+          S&amp;P500参考値（Damodaran, 1928-2024）：リターン11.79%・リスク19.50%<br>
+          一般的に言われる「7〜9%」はインフレ調整後（実質）の値。ここでは名目リターンを入力します。
+        </div>
+      </div>
+    </details>
+
+    <!-- 05 為替設定（折り畳み） -->
+    <details class="sketch-card">
+      <summary>
+        <span class="num">05</span> 為替設定
+        <span class="chev">▶</span>
+      </summary>
+      <div class="body">
         <div class="field">
-          <label>期待リターン <span class="hint">（%）</span></label>
-          <input type="number" id="expectedReturn" value="11.79" min="-5" max="20" step="0.01">
+          <label>外貨建て資産比率 <span class="hint">（%、0=為替影響なし）</span></label>
+          <input type="number" id="fxRatio" value="100" min="0" max="100" step="10">
+          <div class="small-hint">100%=全額外貨建て（S&amp;P500等）、0%=国内資産のみ</div>
         </div>
-        <div class="field">
-          <label>リスク <span class="hint">（標準偏差%）</span></label>
-          <input type="number" id="stdDev" value="19.50" min="1" max="50" step="0.01">
+
+        <div class="two-col">
+          <div class="field">
+            <label>為替変動率 <span class="hint">（平均 %）</span></label>
+            <input type="number" id="fxMean" value="0" min="-10" max="10" step="0.1">
+          </div>
+          <div class="field">
+            <label>標準偏差 <span class="hint">（%）</span></label>
+            <input type="number" id="fxStd" value="10.0" min="0" max="30" step="0.5">
+          </div>
         </div>
-      </div>
-      <div id="monthly-convert-hint" class="small-hint blue" style="margin-top:4px;display:none">月次変換：μ/12, σ/√12 を自動適用します</div>
 
-      <hr class="divider">
-
-      <div class="two-col" style="margin-bottom:6px">
-        <div class="field">
-          <label>インフレ率 <span class="hint">（平均 %）</span></label>
-          <input type="number" id="inflationRate" value="1.6" min="-2" max="10" step="0.1"
-                 oninput="updateInflHint()">
+        <div class="field" style="margin-top:10px">
+          <label>株式リターンとの相関係数</label>
+          <input type="number" id="fxCorr" value="0.3" min="-1" max="1" step="0.1">
+          <div class="small-hint">正の値：株高時に円安（外貨資産に有利）。S&amp;P500参考値：約0.3</div>
         </div>
-        <div class="field">
-          <label>標準偏差 <span class="hint">（%、0=固定）</span></label>
-          <input type="number" id="inflationStdDev" value="1.0" min="0" max="5" step="0.1"
-                 oninput="updateInflHint()">
-        </div>
-      </div>
-      <div id="infl-hint" class="small-hint"></div>
 
-      <hr class="divider">
-
-      <div id="field-defl-mode" class="field">
-        <label>デフレ時（インフレ率がマイナス）の取崩額</label>
-        <div class="toggle-row">
-          <button class="toggle-btn active" id="btn-defl-keep"   onclick="setDeflMode('keep')">減らさない</button>
-          <button class="toggle-btn"        id="btn-defl-reduce" onclick="setDeflMode('reduce')">減らす</button>
-        </div>
-        <div class="small-hint">インフレ時は常に増額。デフレ時の扱いを選択（定率取崩しモードでは最低取崩額に適用）</div>
-      </div>
-
-      <div class="note" style="margin-top:8px;">
-        💡 S&amp;P500参考値（Damodaran, 1928-2024）：リターン11.79%・リスク19.50%<br>
-        ⚠️ 一般的に言われる「7〜9%」はインフレ調整後（実質）の値。ここでは名目リターンを入力します。
-      </div>
-    </div>
-
-    <!-- 為替設定 -->
-    <div class="card">
-      <div class="card-title">💱 為替設定</div>
-
-      <div class="field">
-        <label>外貨建て資産比率 <span class="hint">（%、0=為替影響なし）</span></label>
-        <input type="number" id="fxRatio" value="100" min="0" max="100" step="10">
-        <div class="small-hint">100%=全額外貨建て（S&amp;P500等）、0%=国内資産のみ</div>
-      </div>
-
-      <div class="two-col">
-        <div class="field">
-          <label>為替変動率 <span class="hint">（平均 %）</span></label>
-          <input type="number" id="fxMean" value="0" min="-10" max="10" step="0.1">
-        </div>
-        <div class="field">
-          <label>標準偏差 <span class="hint">（%）</span></label>
-          <input type="number" id="fxStd" value="10.0" min="0" max="30" step="0.5">
+        <div class="note accent" style="margin-top:10px;">
+          為替変動率（平均）：円安予想なら＋、円高予想なら－。標準偏差は概ね8〜12%<br>
+          相関係数：S&amp;P500 ≒ 0.3、オルカン ≒ 0.2〜0.3（時期により変動）
         </div>
       </div>
+    </details>
 
-      <div class="field" style="margin-top:10px">
-        <label>株式リターンとの相関係数</label>
-        <input type="number" id="fxCorr" value="0.3" min="-1" max="1" step="0.1">
-        <div class="small-hint">正の値：株高時に円安（外貨資産に有利）。S&amp;P500参考値：約0.3</div>
-      </div>
-
-      <div class="note" style="margin-top:8px;">
-        💡 為替変動率（平均）：円安予想なら＋、円高予想なら－。標準偏差は概ね8〜12%<br>
-        相関係数：S&amp;P500 ≒ 0.3、オルカン ≒ 0.2〜0.3（時期により変動）
-      </div>
-    </div>
-
-    <button class="run-btn" onclick="runSimulation()">
+    <button class="run-btn compact" onclick="runSimulation()">
       ▶ シミュレーション実行
     </button>
 
@@ -494,16 +597,29 @@
 
     <div id="resultPanel">
       <div class="placeholder">
-        <div>
-          ← 左のパラメーターを設定して<br>
-          「シミュレーション実行」を押してください<br><br>
-          <span style="font-size:2rem">📊</span>
+        <div class="ph-inner">
+          <div class="ph-icon">▶</div>
+          <h2>あなたのリタイア計画を、最大100万通りの未来でテスト</h2>
+          <p>左のパラメーターを設定して<br><b>「シミュレーション実行」</b>を押してください。</p>
+          <p style="font-size:13px;color:var(--muted);margin-top:12px">株価・インフレ・為替のランダム変動を取り込み、<br>取崩し戦略の<b>成功率</b>と<b>資産推移</b>を可視化します。</p>
+          <div class="ph-tags">
+            <span class="ph-tag">SUCCESS RATE</span>
+            <span class="ph-tag">PERCENTILES</span>
+            <span class="ph-tag">SURVIVAL CURVE</span>
+            <span class="ph-tag">REAL VALUE</span>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
+</section>
+
+<div class="disclaimer">
+  ※ シミュレーション結果は将来の運用成果を保証するものではありません。投資判断は自己責任でお願いします。
 </div>
+
+<footer>© finlab-se / 金融エンジニアの資産実験室 · 数値はシミュレーションです</footer>
 
 <script>
 // ────────────────────────────────────────────────────
@@ -609,19 +725,19 @@ function updateCashHint() {
   if (!el) return;
   if (bufYears === 0) {
     el.textContent = `現金バッファが 0年分 のため、${simMode === 'annual' ? '初年度' : '初月'}からポートフォリオから取り崩します。`;
-    el.style.borderLeftColor = '#e2e8f0';
+    el.style.borderLeftColor = '#1d2430';
   } else if (dropPct === 0) {
     el.innerHTML =
       `現金バッファ <strong>${bufYears}年分（${cashAmt.toLocaleString()}万円）</strong>：` +
       `${simMode === 'annual' ? '初年度' : '初月'}は現金から。${periodLabel}、ポートフォリオが初期（${initPortfolio.toLocaleString()}万円）を<strong>少しでも</strong>下回れば現金を使用。`;
-    el.style.borderLeftColor = '#f6ad55';
+    el.style.borderLeftColor = '#f59e0b';
   } else {
     el.innerHTML =
       `現金バッファ <strong>${bufYears}年分（${cashAmt.toLocaleString()}万円）</strong>：` +
       `${simMode === 'annual' ? '初年度' : '初月'}は必ず現金から。${periodLabel}、ポートフォリオが初期（${initPortfolio.toLocaleString()}万円）から` +
       ` <strong style="color:#c53030">${dropPct}%下落</strong>（${triggerAmt.toLocaleString()}万円以下）で現金を優先使用。` +
       `現金枯渇後は通常取崩しに戻ります。`;
-    el.style.borderLeftColor = '#fc8181';
+    el.style.borderLeftColor = '#ef4444';
   }
 }
 
@@ -935,68 +1051,73 @@ function renderResults(d) {
   const modeLabel  = d.simMode === 'annual' ? '年次（年初取崩し・年間リターン）' : '月次（月初取崩し・月次リターン）';
   const periodUnit = d.simMode === 'annual' ? '年' : 'ヶ月';
 
+  // success rate marker position (0-100% on band)
+  const markerPos = Math.max(0, Math.min(100, d.successRate));
+
   const html = `
-    <div class="mode-banner ${d.simMode}">${d.simMode === 'annual' ? '📅 年次シミュレーション' : '🗓️ 月次シミュレーション'}</div>
+    <div class="mode-banner ${d.simMode}">${d.simMode === 'annual' ? '年次シミュレーション' : '月次シミュレーション'}</div>
+
     <div class="success-row">
-      <div class="metric-card">
-        <div class="metric-label">✅ 成功率</div>
-        <div class="metric-value ${rateClass}">${d.successRate.toFixed(1)}<span style="font-size:1rem">%</span></div>
-        <div class="metric-sub">${d.successCount.toLocaleString()} / ${d.numSims.toLocaleString()} 回</div>
+      <div class="metric-card hero">
+        <div class="metric-label">成功率</div>
+        <div class="metric-value ${rateClass}">${d.successRate.toFixed(1)}<span style="font-size:1.5rem">%</span></div>
+        <div class="metric-sub">${d.successCount.toLocaleString()} / ${d.numSims.toLocaleString()} 回が成功</div>
+        <div class="band">
+          <div class="seg s-danger"></div><div class="seg s-danger"></div><div class="seg s-danger"></div>
+          <div class="seg s-warn"></div><div class="seg s-warn"></div>
+          <div class="seg s-ok"></div><div class="seg s-ok"></div><div class="seg s-ok"></div><div class="seg s-ok"></div><div class="seg s-ok"></div>
+          <div class="marker" style="left:${markerPos}%"></div>
+        </div>
+        <div class="band-legend"><span>0%</span><span>60%</span><span>80%</span><span>100%</span></div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">❌ 失敗率</div>
-        <div class="metric-value" style="font-size:1.8rem;color:#c53030">${(100-d.successRate).toFixed(1)}<span style="font-size:1rem">%</span></div>
-        <div class="metric-sub">残高 &lt; ${thresholdLabel} になった割合</div>
+        <div class="metric-label">失敗率</div>
+        <div class="metric-value small" style="color:var(--danger)">${(100-d.successRate).toFixed(1)}<span style="font-size:.85rem">%</span></div>
+        <div class="metric-sub">残高 &lt; ${thresholdLabel}</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">📍 名目中央値（最終）</div>
-        <div class="metric-value" style="font-size:1.3rem;color:#2b6cb0">${d.medianFinal}</div>
-        <div class="metric-sub">50%tile・額面金額</div>
+        <div class="metric-label">名目中央値</div>
+        <div class="metric-value small" style="color:var(--ink)">${d.medianFinal}</div>
+        <div class="metric-sub">最終時点・額面</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">💴 実質中央値（最終）</div>
-        <div class="metric-value" style="font-size:1.3rem;color:#6b46c1">${d.realMedian}</div>
-        <div class="metric-sub">50%tile・今日の購買力ベース</div>
+        <div class="metric-label">実質中央値</div>
+        <div class="metric-value small" style="color:#7c3aed">${d.realMedian}</div>
+        <div class="metric-sub">最終時点・購買力ベース</div>
       </div>
     </div>
 
     <div class="charts-row">
       <div class="chart-card">
-        <div class="chart-title">📉 資産推移（パーセンタイル帯）</div>
+        <div class="chart-title"><span class="num">A</span> 資産推移（パーセンタイル帯）</div>
         <div class="chart-wrap"><canvas id="chartPortfolio"></canvas></div>
       </div>
       <div class="chart-card">
-        <div class="chart-title">📊 年別資産生存率（残高 ≥ ${thresholdLabel}）</div>
+        <div class="chart-title"><span class="num">B</span> 年別資産生存率（残高 ≥ ${thresholdLabel}）</div>
         <div class="chart-wrap"><canvas id="chartSurvival"></canvas></div>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title">📋 シミュレーション統計サマリー</div>
+    <div class="sketch-card">
+      <h3><span class="num">C</span> シミュレーション統計サマリー</h3>
       <table class="stats-table">
-        <tr><th>指標</th><th>値</th></tr>
+        <tr><th>指標</th><th style="text-align:right">値</th></tr>
         <tr><td>成功率（総資産が常に ${thresholdLabel} 以上）</td><td>${d.successRate.toFixed(2)}%</td></tr>
         <tr><td>失敗率</td><td>${(100 - d.successRate).toFixed(2)}%</td></tr>
-        <tr style="background:#ebf4ff">
-          <td colspan="2" style="font-weight:700;color:#2b6cb0;font-size:0.8rem;">── 最終資産分布 ──</td>
-        </tr>
-        <tr><td>最終資産 上位10%（楽観・名目）</td><td>${d.p90Final}</td></tr>
-        <tr><td>最終資産 中央値（名目）</td><td>${d.medianFinal}</td></tr>
-        <tr><td>最終資産 下位25%（悲観・名目）</td><td>${d.p25Final}</td></tr>
-        <tr><td>最終資産 下位10%（最悲観・名目）</td><td>${d.p10Final}</td></tr>
-        <tr style="background:#f7f0ff">
-          <td colspan="2" style="font-weight:700;color:#553c9a;font-size:0.8rem;">── 実質額（平均インフレ ${(d.inflMean*100).toFixed(1)}% で換算）──</td>
-        </tr>
-        <tr><td>最終資産 上位10%（実質）</td><td>${d.realP90}</td></tr>
-        <tr><td>最終資産 中央値（実質）</td><td>${d.realMedian}</td></tr>
-        <tr><td>最終資産 下位10%（実質）</td><td>${d.realP10}</td></tr>
+        <tr class="section-row"><td colspan="2">── 最終資産分布（名目）──</td></tr>
+        <tr><td>上位10%（楽観）</td><td>${d.p90Final}</td></tr>
+        <tr><td>中央値</td><td>${d.medianFinal}</td></tr>
+        <tr><td>下位25%（悲観）</td><td>${d.p25Final}</td></tr>
+        <tr><td>下位10%（最悲観）</td><td>${d.p10Final}</td></tr>
+        <tr class="section-row"><td colspan="2">── 実質額（平均インフレ ${(d.inflMean*100).toFixed(1)}% で換算）──</td></tr>
+        <tr><td>上位10%（実質）</td><td>${d.realP90}</td></tr>
+        <tr><td>中央値（実質）</td><td>${d.realMedian}</td></tr>
+        <tr><td>下位10%（実質）</td><td>${d.realP10}</td></tr>
         <tr><td>生存率50%割れのタイミング</td><td>${d.depletionYear}</td></tr>
         ${d.cashBuffer > 0 ? `
-        <tr style="background:#fff5f5">
-          <td colspan="2" style="font-weight:700;color:#c53030;font-size:0.8rem;">── 現金バッファ ──</td>
-        </tr>
+        <tr class="section-row"><td colspan="2">── 現金バッファ ──</td></tr>
         <tr><td>初期現金バッファ</td><td>${fmtMan(d.cashBuffer / 10000)}</td></tr>
-        <tr><td>発動ライン</td><td>初期ポートフォリオ（${fmtMan(d.initialPortfolio / 10000)}）から ${(d.dropThreshold*100).toFixed(0)}% 下落時</td></tr>
+        <tr><td>発動ライン</td><td>初期（${fmtMan(d.initialPortfolio / 10000)}）から ${(d.dropThreshold*100).toFixed(0)}% 下落時</td></tr>
         <tr><td>発動閾値</td><td>${fmtMan(d.initialPortfolio * (1 - d.dropThreshold) / 10000)} 以下</td></tr>
         <tr><td>平均現金使用期間（1試行あたり）</td><td>${d.avgCashPeriods.toFixed(1)} ${periodUnit}</td></tr>
         ${d.avgCashCoverRate !== null ? `<tr><td>現金使用期間の平均カバー率</td><td>${d.avgCashCoverRate.toFixed(1)}%</td></tr>` : ''}
@@ -1006,8 +1127,8 @@ function renderResults(d) {
       </table>
     </div>
 
-    <div class="note">
-      <strong>📌 計算条件：</strong><br>
+    <div class="note accent">
+      <strong>計算条件：</strong><br>
       • 計算モード：${modeLabel}<br>
       • 株式リターン ${(d.mu*100).toFixed(2)}%（年率算術平均）・リスク ${(d.sigma*100).toFixed(2)}%（年率）${d.simMode === 'monthly' ? `→ 月次 ${(d.sigma/Math.sqrt(12)*100).toFixed(2)}%` : ''}<br>
       • 為替：${fxNote}<br>
@@ -1018,11 +1139,14 @@ function renderResults(d) {
       }
       • 成功基準：総資産（投資＋現金）≥ <strong>${thresholdLabel}</strong><br>
       ${d.cashBuffer > 0 ? `• 現金バッファ ${fmtMan(d.cashBuffer/10000)}：ポートフォリオが初期から${(d.dropThreshold*100).toFixed(0)}%下落で現金優先取崩し<br>` : ''}
-      • ⚠️ 本ツールは参考目的です。各${d.simMode === 'annual' ? '年' : '月'}のリターン独立性を仮定（自己相関は非考慮）
+      • 本ツールは参考目的です。各${d.simMode === 'annual' ? '年' : '月'}のリターン独立性を仮定（自己相関は非考慮）
     </div>
   `;
 
   document.getElementById('resultPanel').innerHTML = html;
+  document.getElementById('resultPanel').style.display = 'flex';
+  document.getElementById('resultPanel').style.flexDirection = 'column';
+  document.getElementById('resultPanel').style.gap = '16px';
   drawPortfolioChart(d.labels, d.pctLines, d.realP50);
   drawSurvivalChart(d.labels, d.survivalRates);
 }
@@ -1037,23 +1161,27 @@ function drawPortfolioChart(labels, pct, realP50Line) {
   chartPortfolio = new Chart(ctx, {
     type: 'line',
     data: { labels, datasets: [
-      { label:'上位10%',      data:pct.p90, borderColor:'#68d391', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
-      { label:'上位25%',      data:pct.p75, borderColor:'#90cdf4', backgroundColor:'rgba(144,205,244,0.15)', borderWidth:1.5, pointRadius:0, fill:'+1', tension:0.3 },
-      { label:'中央値（名目）', data:pct.p50, borderColor:'#3182ce', borderWidth:2.5, pointRadius:0, fill:false, tension:0.3 },
-      { label:'実質中央値',    data:realP50Line, borderColor:'#9f7aea', borderWidth:2, borderDash:[6,4], pointRadius:0, fill:false, tension:0.3 },
-      { label:'下位25%',      data:pct.p25, borderColor:'#fc8181', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
-      { label:'下位10%',      data:pct.p10, borderColor:'#c53030', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
+      { label:'上位10%',      data:pct.p90, borderColor:'#16a34a', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
+      { label:'上位25%',      data:pct.p75, borderColor:'#86efac', backgroundColor:'rgba(134,239,172,0.18)', borderWidth:1.5, pointRadius:0, fill:'+1', tension:0.3 },
+      { label:'中央値（名目）', data:pct.p50, borderColor:'#1d2430', borderWidth:2.5, pointRadius:0, fill:false, tension:0.3 },
+      { label:'実質中央値',    data:realP50Line, borderColor:'#7c3aed', borderWidth:2, borderDash:[6,4], pointRadius:0, fill:false, tension:0.3 },
+      { label:'下位25%',      data:pct.p25, borderColor:'#fca5a5', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
+      { label:'下位10%',      data:pct.p10, borderColor:'#ef4444', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
     ]},
     options: {
       responsive:true, maintainAspectRatio:false,
       interaction:{ mode:'index', intersect:false },
       plugins:{
-        legend:{ position:'bottom', labels:{ font:{size:11}, boxWidth:14 } },
-        tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${fmtMan(ctx.parsed.y)}` } }
+        legend:{ position:'bottom', labels:{ font:{family:'JetBrains Mono', size:10}, boxWidth:14 } },
+        tooltip:{
+          bodyFont:{family:'JetBrains Mono'},
+          titleFont:{family:'Kalam'},
+          callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${fmtMan(ctx.parsed.y)}` }
+        }
       },
       scales:{
-        x:{ ticks:{ maxTicksLimit:10, font:{size:11} }, grid:{display:false} },
-        y:{ max:Math.max(...pct.p75), ticks:{ font:{size:11}, callback: v => fmtMan(v) }, grid:{color:'rgba(0,0,0,0.05)'} }
+        x:{ ticks:{ maxTicksLimit:10, font:{family:'JetBrains Mono', size:10} }, grid:{display:false} },
+        y:{ max:Math.max(...pct.p75), ticks:{ font:{family:'JetBrains Mono', size:10}, callback: v => fmtMan(v) }, grid:{color:'rgba(29,36,48,0.06)'} }
       }
     }
   });
@@ -1068,29 +1196,33 @@ function drawSurvivalChart(labels, rates) {
     data: { labels, datasets: [
       {
         label:'資産生存率', data:rates,
-        borderColor:'#3182ce',
+        borderColor:'#16a34a',
         backgroundColor: ctx => {
           const {ctx:c, chartArea} = ctx.chart;
-          if (!chartArea) return 'rgba(49,130,206,0.15)';
+          if (!chartArea) return 'rgba(74,222,128,0.18)';
           const g = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-          g.addColorStop(0,'rgba(49,130,206,0.3)'); g.addColorStop(1,'rgba(49,130,206,0.02)');
+          g.addColorStop(0,'rgba(74,222,128,0.35)'); g.addColorStop(1,'rgba(74,222,128,0.02)');
           return g;
         },
         fill:true, borderWidth:2.5, pointRadius:0, tension:0.3
       },
-      { label:'80%ライン', data:Array(labels.length).fill(80), borderColor:'#48bb78', borderDash:[5,4], borderWidth:1.5, pointRadius:0, fill:false },
-      { label:'60%ライン', data:Array(labels.length).fill(60), borderColor:'#f6ad55', borderDash:[5,4], borderWidth:1.5, pointRadius:0, fill:false },
+      { label:'80%ライン', data:Array(labels.length).fill(80), borderColor:'#22c55e', borderDash:[5,4], borderWidth:1.5, pointRadius:0, fill:false },
+      { label:'60%ライン', data:Array(labels.length).fill(60), borderColor:'#f59e0b', borderDash:[5,4], borderWidth:1.5, pointRadius:0, fill:false },
     ]},
     options: {
       responsive:true, maintainAspectRatio:false,
       interaction:{ mode:'index', intersect:false },
       plugins:{
-        legend:{ position:'bottom', labels:{ font:{size:11}, boxWidth:14 } },
-        tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%` } }
+        legend:{ position:'bottom', labels:{ font:{family:'JetBrains Mono', size:10}, boxWidth:14 } },
+        tooltip:{
+          bodyFont:{family:'JetBrains Mono'},
+          titleFont:{family:'Kalam'},
+          callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%` }
+        }
       },
       scales:{
-        x:{ ticks:{ maxTicksLimit:10, font:{size:11} }, grid:{display:false} },
-        y:{ min:0, max:100, ticks:{ font:{size:11}, callback: v => v+'%' }, grid:{color:'rgba(0,0,0,0.05)'} }
+        x:{ ticks:{ maxTicksLimit:10, font:{family:'JetBrains Mono', size:10} }, grid:{display:false} },
+        y:{ min:0, max:100, ticks:{ font:{family:'JetBrains Mono', size:10}, callback: v => v+'%' }, grid:{color:'rgba(29,36,48,0.06)'} }
       }
     }
   });
