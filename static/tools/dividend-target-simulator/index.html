@@ -541,6 +541,14 @@ let animHandle = null;
 let displayedYield = 4.8;
 function animateYield(target){
   if(animHandle) cancelAnimationFrame(animHandle);
+  // 直前値が非有限（∞/NaN）だとアニメ計算が NaN に固着するのでリセット
+  if(!isFinite(displayedYield)) displayedYield = isFinite(target) ? target : 0;
+  // 目標が非有限なら即座に ∞ 表示してアニメスキップ
+  if(!isFinite(target)){
+    displayedYield = Infinity;
+    document.getElementById('yieldVal').textContent = '∞';
+    return;
+  }
   const start = displayedYield;
   const delta = target - start;
   const dur = 350; // ms
