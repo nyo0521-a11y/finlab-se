@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>取崩し戦略 モンテカルロシミュレーター</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      background: #f0f4f8;
+      color: #2d3748;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+      color: white;
+      padding: 20px 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header p  { font-size: 0.85rem; opacity: 0.8; margin-top: 4px; }
+
+    .main {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .panel-left {
+      width: 340px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .card-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #718096;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #ebf4ff;
+    }
+
+    .field { margin-bottom: 14px; }
+    .field:last-child { margin-bottom: 0; }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 4px;
+    }
+    label .hint {
+      font-weight: 400;
+      color: #a0aec0;
+      font-size: 0.75rem;
+    }
+
+    input[type="number"], select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #2d3748;
+      transition: border-color 0.2s;
+      background: #f7fafc;
+    }
+    input[type="number"]:focus, select:focus {
+      outline: none;
+      border-color: #3182ce;
+      background: white;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .two-col .field { margin-bottom: 0; }
+
+    .toggle-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .toggle-btn {
+      flex: 1;
+      padding: 7px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      background: #f7fafc;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #718096;
+      transition: all 0.2s;
+      white-space: normal;
+      line-height: 1.3;
+    }
+    .toggle-btn.active {
+      background: #3182ce;
+      border-color: #3182ce;
+      color: white;
+    }
+    .toggle-btn.active-green {
+      background: #276749;
+      border-color: #276749;
+      color: white;
+    }
+
+    .run-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #2b6cb0, #3182ce);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(49,130,206,0.35);
+    }
+    .run-btn:hover {
+      background: linear-gradient(135deg, #1a4f8c, #2b6cb0);
+      box-shadow: 0 6px 16px rgba(49,130,206,0.45);
+      transform: translateY(-1px);
+    }
+    .run-btn:active { transform: translateY(0); }
+    .run-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .panel-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .success-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .metric-card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .metric-label { font-size: 0.75rem; font-weight: 600; color: #718096; margin-bottom: 6px; }
+    .metric-value { font-size: 1.8rem; font-weight: 800; line-height: 1; }
+    .metric-sub { font-size: 0.75rem; color: #a0aec0; margin-top: 4px; }
+
+    .success-rate { color: #2f855a; }
+    .success-rate.warn { color: #c05621; }
+    .success-rate.danger { color: #c53030; }
+
+    .charts-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .chart-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .chart-title { font-size: 0.85rem; font-weight: 700; color: #4a5568; margin-bottom: 12px; }
+    .chart-wrap { position: relative; height: 240px; }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+    }
+    .stats-table th {
+      background: #ebf4ff;
+      color: #2b6cb0;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 700;
+    }
+    .stats-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f0f4f8;
+      color: #4a5568;
+    }
+    .stats-table tr:last-child td { border-bottom: none; }
+    .stats-table td:last-child { text-align: right; font-weight: 600; color: #2d3748; }
+
+    .placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      color: #a0aec0;
+      font-size: 0.9rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: #ebf4ff;
+      border-radius: 3px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3182ce, #63b3ed);
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+
+    .note {
+      font-size: 0.75rem;
+      color: #718096;
+      padding: 10px 14px;
+      background: #f7fafc;
+      border-radius: 8px;
+      border-left: 3px solid #bee3f8;
+      line-height: 1.6;
+    }
+
+    .small-hint {
+      font-size: 0.72rem;
+      color: #a0aec0;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .small-hint.blue   { color: #3182ce; font-weight: 500; }
+    .small-hint.orange { color: #c05621; font-weight: 500; }
+    .small-hint.green  { color: #276749; font-weight: 500; }
+
+    .divider { border: none; border-top: 1px solid #e2e8f0; margin: 10px 0; }
+
+    /* シミュレーションモードバナー */
+    .mode-banner {
+      text-align: center;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .mode-banner.annual  { background: #ebf4ff; color: #2b6cb0; }
+    .mode-banner.monthly { background: #f0fff4; color: #276749; }
+
+    @media (max-width: 960px) {
+      .main { flex-direction: column; }
+      .panel-left { width: 100%; }
+      .success-row { grid-template-columns: repeat(2, 1fr); }
+      .charts-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📊 取崩し戦略 モンテカルロシミュレーター</h1>
+  <p>年次・月次シミュレーション切り替え対応。現金バッファは「初期資産からの下落率」で判定します</p>
+</header>
+
+<div class="main">
+
+  <!-- ── 左パネル ── -->
+  <div class="panel-left">
+
+    <button class="run-btn" onclick="runSimulation()">
+      ▶ シミュレーション実行
+    </button>
+
+    <!-- 資産・取崩し設定 -->
+    <div class="card">
+      <div class="card-title">📁 資産・取崩し設定</div>
+
+      <div class="field">
+        <label>初期資産額 <span class="hint">（万円）</span></label>
+        <input type="number" id="initialPortfolio" value="3000" min="100" step="100"
+               oninput="syncWithdrawalDefault()">
+      </div>
+
+      <div class="field">
+        <label>取崩し方式</label>
+        <div class="toggle-row">
+          <button class="toggle-btn active" id="btn-fixed-infl" onclick="setMode('fixed_infl')">定額</button>
+          <button class="toggle-btn"        id="btn-dynamic"    onclick="setMode('dynamic')">定率</button>
+        </div>
+      </div>
+
+      <div id="field-withdrawal-amount" class="field">
+        <label>年間取崩額 <span class="hint">（万円/年）</span></label>
+        <input type="number" id="withdrawalAmount" value="120" min="1" step="10"
+               oninput="updateWdHint()">
+        <div id="wd-hint" class="small-hint blue"></div>
+      </div>
+
+      <div id="field-withdrawal-rate" class="field" style="display:none">
+        <label>年間取崩率 <span class="hint">（%）</span></label>
+        <input type="number" id="withdrawalRate" value="4" min="0.1" max="20" step="0.1"
+               oninput="updateWdHint()">
+        <div id="wd-hint-rate" class="small-hint blue"></div>
+      </div>
+
+      <div id="field-min-wd" style="display:none">
+        <div class="field">
+          <label>最低取崩額 <span class="hint">（万円/年）</span></label>
+          <input type="number" id="minWithdrawal" value="120" min="0" step="10">
+          <div class="small-hint orange">残高×取崩率がこの金額を下回っても、この金額は必ず取り崩します</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="field">
+        <label>成功判定金額 <span class="hint">（万円）</span></label>
+        <input type="number" id="successThreshold" value="0" min="0" step="100">
+        <div class="small-hint orange">総資産（投資＋現金バッファ）がこの金額を下回ったら「失敗」とみなします</div>
+      </div>
+    </div>
+
+    <!-- シミュレーション設定 -->
+    <div class="card">
+      <div class="card-title">⚙️ シミュレーション設定</div>
+
+      <div class="field">
+        <label>計算モード</label>
+        <div class="toggle-row">
+          <button class="toggle-btn" id="btn-sim-annual"  onclick="setSimMode('annual')">年次</button>
+          <button class="toggle-btn active" id="btn-sim-monthly" onclick="setSimMode('monthly')">月次</button>
+        </div>
+        <div id="sim-mode-hint" class="small-hint"></div>
+      </div>
+
+      <div class="field">
+        <label>シミュレーション期間 <span class="hint">（年）</span></label>
+        <input type="number" id="simYears" value="30" min="5" max="80" step="1">
+        <div class="small-hint">例：46歳〜100歳 → 54年間</div>
+      </div>
+
+      <div class="field">
+        <label>シミュレーション回数</label>
+        <select id="numSims">
+          <option value="10000">1万回（高速）</option>
+          <option value="100000" selected>10万回（標準）</option>
+          <option value="1000000">100万回（高精度）</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 現金バッファ設定 -->
+    <div class="card">
+      <div class="card-title">🏦 現金バッファ設定</div>
+
+      <div class="field">
+        <label>現金バッファ <span class="hint">（年分）</span></label>
+        <input type="number" id="cashBufferYears" value="1" min="0" max="10" step="0.5"
+               oninput="updateCashHint()">
+        <div id="cash-buffer-sub" class="small-hint">初年度（初月）の取崩しは必ず現金から。以降は資産下落時に現金優先。<br>金額は「年間取崩額 × 年数」で自動計算します。</div>
+      </div>
+
+      <div class="field">
+        <label>現金バッファ発動ライン <span class="hint">（初期ポートフォリオからの下落率 %）</span></label>
+        <input type="number" id="dropThreshold" value="10" min="0" max="100" step="1"
+               oninput="updateCashHint()">
+        <div class="small-hint" style="margin-top:3px">例：10 と入力 → ポートフォリオが初期から <strong>10%以上</strong> 下落したとき現金を使用</div>
+      </div>
+
+      <div id="cash-hint" class="note" style="margin-top:4px;"></div>
+    </div>
+
+    <!-- リターン・インフレ設定 -->
+    <div class="card">
+      <div class="card-title">📈 リターン・インフレ設定（年率）</div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>期待リターン <span class="hint">（%）</span></label>
+          <input type="number" id="expectedReturn" value="11.79" min="-5" max="20" step="0.01">
+        </div>
+        <div class="field">
+          <label>リスク <span class="hint">（標準偏差%）</span></label>
+          <input type="number" id="stdDev" value="19.50" min="1" max="50" step="0.01">
+        </div>
+      </div>
+      <div id="monthly-convert-hint" class="small-hint blue" style="margin-top:4px;display:none">月次変換：μ/12, σ/√12 を自動適用します</div>
+
+      <hr class="divider">
+
+      <div class="two-col" style="margin-bottom:6px">
+        <div class="field">
+          <label>インフレ率 <span class="hint">（平均 %）</span></label>
+          <input type="number" id="inflationRate" value="1.6" min="-2" max="10" step="0.1"
+                 oninput="updateInflHint()">
+        </div>
+        <div class="field">
+          <label>標準偏差 <span class="hint">（%、0=固定）</span></label>
+          <input type="number" id="inflationStdDev" value="1.0" min="0" max="5" step="0.1"
+                 oninput="updateInflHint()">
+        </div>
+      </div>
+      <div id="infl-hint" class="small-hint"></div>
+
+      <hr class="divider">
+
+      <div id="field-defl-mode" class="field">
+        <label>デフレ時（インフレ率がマイナス）の取崩額</label>
+        <div class="toggle-row">
+          <button class="toggle-btn active" id="btn-defl-keep"   onclick="setDeflMode('keep')">減らさない</button>
+          <button class="toggle-btn"        id="btn-defl-reduce" onclick="setDeflMode('reduce')">減らす</button>
+        </div>
+        <div class="small-hint">インフレ時は常に増額。デフレ時の扱いを選択（定率取崩しモードでは最低取崩額に適用）</div>
+      </div>
+
+      <div class="note" style="margin-top:8px;">
+        💡 S&amp;P500参考値（Damodaran, 1928-2024）：リターン11.79%・リスク19.50%<br>
+        ⚠️ 一般的に言われる「7〜9%」はインフレ調整後（実質）の値。ここでは名目リターンを入力します。
+      </div>
+    </div>
+
+    <!-- 為替設定 -->
+    <div class="card">
+      <div class="card-title">💱 為替設定</div>
+
+      <div class="field">
+        <label>外貨建て資産比率 <span class="hint">（%、0=為替影響なし）</span></label>
+        <input type="number" id="fxRatio" value="100" min="0" max="100" step="10">
+        <div class="small-hint">100%=全額外貨建て（S&amp;P500等）、0%=国内資産のみ</div>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>為替変動率 <span class="hint">（平均 %）</span></label>
+          <input type="number" id="fxMean" value="0" min="-10" max="10" step="0.1">
+        </div>
+        <div class="field">
+          <label>標準偏差 <span class="hint">（%）</span></label>
+          <input type="number" id="fxStd" value="10.0" min="0" max="30" step="0.5">
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:10px">
+        <label>株式リターンとの相関係数</label>
+        <input type="number" id="fxCorr" value="0.3" min="-1" max="1" step="0.1">
+        <div class="small-hint">正の値：株高時に円安（外貨資産に有利）。S&amp;P500参考値：約0.3</div>
+      </div>
+
+      <div class="note" style="margin-top:8px;">
+        💡 為替変動率（平均）：円安予想なら＋、円高予想なら－。標準偏差は概ね8〜12%<br>
+        相関係数：S&amp;P500 ≒ 0.3、オルカン ≒ 0.2〜0.3（時期により変動）
+      </div>
+    </div>
+
+    <button class="run-btn" onclick="runSimulation()">
+      ▶ シミュレーション実行
+    </button>
+
+  </div>
+
+  <!-- ── 右パネル ── -->
+  <div class="panel-right">
+
+    <div id="progressArea" style="display:none">
+      <div class="note" id="progressText">計算中...</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+
+    <div id="resultPanel">
+      <div class="placeholder">
+        <div>
+          ← 左のパラメーターを設定して<br>
+          「シミュレーション実行」を押してください<br><br>
+          <span style="font-size:2rem">📊</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ────────────────────────────────────────────────────
+// グローバル状態
+// ────────────────────────────────────────────────────
+let withdrawalMode = 'fixed_infl';
+let deflMode       = 'keep';
+let simMode        = 'monthly'; // 'annual' or 'monthly'
+let chartPortfolio = null;
+let chartSurvival  = null;
+
+// ────────────────────────────────────────────────────
+// UI 制御
+// ────────────────────────────────────────────────────
+function setDeflMode(mode) {
+  deflMode = mode;
+  document.getElementById('btn-defl-keep').classList.toggle('active',   mode === 'keep');
+  document.getElementById('btn-defl-reduce').classList.toggle('active', mode === 'reduce');
+}
+
+function setMode(mode) {
+  withdrawalMode = mode;
+  document.getElementById('btn-fixed-infl').classList.toggle('active', mode === 'fixed_infl');
+  document.getElementById('btn-dynamic').classList.toggle('active',    mode === 'dynamic');
+  document.getElementById('field-withdrawal-amount').style.display = mode === 'fixed_infl' ? '' : 'none';
+  document.getElementById('field-withdrawal-rate').style.display   = mode === 'dynamic'    ? '' : 'none';
+  document.getElementById('field-min-wd').style.display            = mode === 'dynamic'    ? '' : 'none';
+  updateWdHint();
+}
+
+function setSimMode(mode) {
+  simMode = mode;
+  document.getElementById('btn-sim-annual').classList.toggle('active',  mode === 'annual');
+  document.getElementById('btn-sim-monthly').classList.toggle('active', mode === 'monthly');
+  const hint = document.getElementById('sim-mode-hint');
+  const monthlyNote = document.getElementById('monthly-convert-hint');
+  const bufSub = document.getElementById('cash-buffer-sub');
+  if (mode === 'annual') {
+    hint.textContent = '年初に取崩し→年間リターンを適用（1年1回）';
+    hint.className = 'small-hint blue';
+    monthlyNote.style.display = 'none';
+    bufSub.innerHTML = '初年度の取崩しは必ず現金から。以降は資産下落時に現金優先。<br>金額は「年間取崩額 × 年数」で自動計算します。';
+  } else {
+    hint.textContent = '月初に取崩し→月次リターンを適用（年率統計を μ/12, σ/√12 に変換）';
+    hint.className = 'small-hint green';
+    monthlyNote.style.display = '';
+    bufSub.innerHTML = '初月の取崩しは必ず現金から。以降は資産下落時に現金優先。<br>金額は「年間取崩額 × 年数」で自動計算します。';
+  }
+  updateCashHint();
+}
+
+function syncWithdrawalDefault() {
+  const initial = parseFloat(document.getElementById('initialPortfolio').value) || 0;
+  const el = document.getElementById('withdrawalAmount');
+  if (el) el.value = Math.round(initial * 0.04);
+  updateWdHint();
+}
+
+function updateWdHint() {
+  if (withdrawalMode === 'fixed_infl') {
+    const amount = parseFloat(document.getElementById('withdrawalAmount').value) || 0;
+    const el = document.getElementById('wd-hint');
+    if (el) el.textContent = `${amount.toLocaleString()}万円/年（月${Math.round(amount/12*10)/10}万円）、以降インフレ分増額`;
+  } else {
+    const initial = parseFloat(document.getElementById('initialPortfolio').value) || 0;
+    const rate    = parseFloat(document.getElementById('withdrawalRate').value)    || 0;
+    const el = document.getElementById('wd-hint-rate');
+    if (el) el.textContent = `毎年の残高 × ${rate}% を取り崩します`;
+  }
+  updateCashHint();
+}
+
+function updateInflHint() {
+  const mean = parseFloat(document.getElementById('inflationRate').value)   || 0;
+  const std  = parseFloat(document.getElementById('inflationStdDev').value) || 0;
+  const el = document.getElementById('infl-hint');
+  if (!el) return;
+  if (std === 0) {
+    el.textContent = '固定インフレ率（毎年一定）';
+    el.className = 'small-hint';
+  } else {
+    el.textContent = `68%確率で ${(mean-std).toFixed(1)}%〜${(mean+std).toFixed(1)}% の範囲でランダム変動`;
+    el.className = 'small-hint blue';
+  }
+}
+
+function updateCashHint() {
+  const bufYears = parseFloat(document.getElementById('cashBufferYears').value) || 0;
+  const dropPct  = parseFloat(document.getElementById('dropThreshold').value)   || 0;
+  let annualWd;
+  if (withdrawalMode === 'fixed_infl') {
+    annualWd = parseFloat(document.getElementById('withdrawalAmount').value) || 0;
+  } else {
+    const initial = parseFloat(document.getElementById('initialPortfolio').value) || 0;
+    const rate    = parseFloat(document.getElementById('withdrawalRate').value)   || 0;
+    annualWd = Math.round(initial * rate / 100);
+  }
+  const initPortfolio = parseFloat(document.getElementById('initialPortfolio').value) || 0;
+  const cashAmt    = Math.round(annualWd * bufYears);
+  const triggerAmt = Math.round(initPortfolio * (1 - dropPct / 100));
+  const periodLabel = simMode === 'annual' ? '2年目以降' : '2ヶ月目以降';
+  const el = document.getElementById('cash-hint');
+  if (!el) return;
+  if (bufYears === 0) {
+    el.textContent = `現金バッファが 0年分 のため、${simMode === 'annual' ? '初年度' : '初月'}からポートフォリオから取り崩します。`;
+    el.style.borderLeftColor = '#e2e8f0';
+  } else if (dropPct === 0) {
+    el.innerHTML =
+      `現金バッファ <strong>${bufYears}年分（${cashAmt.toLocaleString()}万円）</strong>：` +
+      `${simMode === 'annual' ? '初年度' : '初月'}は現金から。${periodLabel}、ポートフォリオが初期（${initPortfolio.toLocaleString()}万円）を<strong>少しでも</strong>下回れば現金を使用。`;
+    el.style.borderLeftColor = '#f6ad55';
+  } else {
+    el.innerHTML =
+      `現金バッファ <strong>${bufYears}年分（${cashAmt.toLocaleString()}万円）</strong>：` +
+      `${simMode === 'annual' ? '初年度' : '初月'}は必ず現金から。${periodLabel}、ポートフォリオが初期（${initPortfolio.toLocaleString()}万円）から` +
+      ` <strong style="color:#c53030">${dropPct}%下落</strong>（${triggerAmt.toLocaleString()}万円以下）で現金を優先使用。` +
+      `現金枯渇後は通常取崩しに戻ります。`;
+    el.style.borderLeftColor = '#fc8181';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  syncWithdrawalDefault();
+  updateInflHint();
+  setSimMode('monthly'); // デフォルト：月次
+});
+
+// ────────────────────────────────────────────────────
+// 乱数・ユーティリティ
+// ────────────────────────────────────────────────────
+function randNorm(mean, std) {
+  let u1;
+  do { u1 = Math.random(); } while (u1 === 0);
+  return mean + std * Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * Math.random());
+}
+
+function randNorm2() {
+  let u1;
+  do { u1 = Math.random(); } while (u1 === 0);
+  const r = Math.sqrt(-2 * Math.log(u1)), th = 2 * Math.PI * Math.random();
+  return [r * Math.cos(th), r * Math.sin(th)];
+}
+
+function percentile(sorted, p) {
+  return sorted[Math.min(Math.floor(p / 100 * sorted.length), sorted.length - 1)];
+}
+
+function fmtMan(val) {
+  if (val < 0) return '−' + fmtMan(-val);
+  if (val >= 10000) return (val / 10000).toFixed(2) + '億円';
+  return Math.round(val).toLocaleString() + '万円';
+}
+
+// ────────────────────────────────────────────────────
+// メインシミュレーション
+// ────────────────────────────────────────────────────
+async function runSimulation() {
+  const initialPortfolio = parseFloat(document.getElementById('initialPortfolio').value) * 10000;
+  const wdRate           = parseFloat(document.getElementById('withdrawalRate').value)    / 100;
+  const wdAmount         = parseFloat(document.getElementById('withdrawalAmount').value || 0) * 10000;
+  const minWithdrawal    = parseFloat(document.getElementById('minWithdrawal').value  || 0) * 10000;
+  const mu               = parseFloat(document.getElementById('expectedReturn').value)   / 100;
+  const sigma            = parseFloat(document.getElementById('stdDev').value)           / 100;
+  const inflMean         = parseFloat(document.getElementById('inflationRate').value)    / 100;
+  const inflStd          = parseFloat(document.getElementById('inflationStdDev').value)  / 100;
+  const successThreshold = parseFloat(document.getElementById('successThreshold').value) * 10000;
+  const cashBufferYears  = parseFloat(document.getElementById('cashBufferYears').value)   || 0;
+  const dropThreshold    = parseFloat(document.getElementById('dropThreshold').value)     / 100;
+  const fxRatio          = parseFloat(document.getElementById('fxRatio').value)           / 100;
+  const fxMean           = parseFloat(document.getElementById('fxMean').value)            / 100;
+  const fxStd            = parseFloat(document.getElementById('fxStd').value)             / 100;
+  const fxCorr           = parseFloat(document.getElementById('fxCorr').value);
+  const years            = parseInt(document.getElementById('simYears').value);
+  const numSims          = parseInt(document.getElementById('numSims').value);
+
+  // ── 年次パラメータ（対数正規） ──
+  const muLog    = Math.log(1 + mu)    - 0.5 * sigma  * sigma;
+  const muFxLog  = Math.log(1 + fxMean) - 0.5 * fxStd * fxStd;
+  const fxActive = fxRatio > 0 && fxStd >= 0;
+  const sqrtRho2 = Math.sqrt(Math.max(0, 1 - fxCorr * fxCorr));
+
+  // ── 月次パラメータ（年次を変換） ──
+  const muLogM   = muLog   / 12;
+  const sigmaM   = sigma   / Math.sqrt(12);
+  const muFxLogM = muFxLog / 12;
+  const fxStdM   = fxStd   / Math.sqrt(12);
+
+  const initialWd    = withdrawalMode === 'fixed_infl' ? wdAmount : initialPortfolio * wdRate;
+  const cashBuffer   = cashBufferYears * initialWd;
+  const triggerLevel = initialPortfolio * (1 - dropThreshold); // 現金バッファ発動ライン
+
+  document.querySelectorAll('.run-btn').forEach(b => b.disabled = true);
+  document.getElementById('progressArea').style.display = '';
+
+  const CHUNK    = 2000;
+  const allPaths = [];
+  let successCount        = 0;
+  let totalCashPeriods    = 0;
+  let totalCashCoverRatio = 0;
+
+  await new Promise(r => setTimeout(r, 30));
+
+  // ════════════════════════════════════════════
+  // 年次シミュレーション
+  // ════════════════════════════════════════════
+  if (simMode === 'annual') {
+    for (let s = 0; s < numSims; s++) {
+      let portfolio    = initialPortfolio;
+      let cash         = cashBuffer;
+      let wd           = initialWd;
+      let currentMinWd = minWithdrawal;
+      const path       = [(portfolio + cash) / 10000];
+      let alive        = true;
+
+      for (let y = 0; y < years; y++) {
+        if (!alive) { path.push(0); continue; }
+
+        const inflThisYear = (inflStd > 0) ? randNorm(inflMean, inflStd) : inflMean;
+
+        // 年間取崩額
+        let wdThisYear;
+        if (withdrawalMode === 'dynamic') {
+          wdThisYear = Math.max(portfolio * wdRate, currentMinWd);
+        } else {
+          wdThisYear = wd;
+        }
+
+        // 現金バッファ判定：初年度 or ポートフォリオが発動ラインを下回る
+        const useCash = (cash > 0) && (y === 0 || portfolio < triggerLevel);
+
+        if (useCash) {
+          totalCashPeriods++;
+          const fromCash = Math.min(cash, wdThisYear);
+          totalCashCoverRatio += wdThisYear > 0 ? fromCash / wdThisYear : 1;
+          cash      -= fromCash;
+          portfolio -= (wdThisYear - fromCash);
+        } else {
+          portfolio -= wdThisYear;
+          if (portfolio < 0 && cash > 0) {
+            const fromCash = Math.min(cash, -portfolio);
+            cash      -= fromCash;
+            portfolio += fromCash;
+          }
+        }
+
+        // 年間リターン適用
+        const [Z1, Z2] = randNorm2();
+        const stockLogReturn = muLog + sigma * Z1;
+        let totalLogReturn = stockLogReturn;
+        if (fxActive) {
+          const Zfx = fxCorr * Z1 + sqrtRho2 * Z2;
+          totalLogReturn = stockLogReturn + fxRatio * (muFxLog + fxStd * Zfx);
+        }
+        portfolio = Math.max(portfolio, 0) * Math.exp(totalLogReturn);
+
+        // インフレ調整
+        if (withdrawalMode === 'fixed_infl') {
+          if (inflThisYear > 0 || deflMode === 'reduce') wd *= (1 + inflThisYear);
+        } else {
+          if (inflThisYear > 0 || deflMode === 'reduce') currentMinWd *= (1 + inflThisYear);
+        }
+
+        const total = portfolio + cash;
+        if (total <= 0 || total < successThreshold) { portfolio = 0; cash = 0; alive = false; }
+        path.push((portfolio + cash) / 10000);
+      }
+
+      if (alive) successCount++;
+      allPaths.push(path);
+      if ((s + 1) % CHUNK === 0) {
+        const pct = Math.round((s + 1) / numSims * 100);
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressText').textContent = `計算中… ${pct}% (${(s+1).toLocaleString()} / ${numSims.toLocaleString()} 回)`;
+        await new Promise(r => setTimeout(r, 0));
+      }
+    }
+
+  // ════════════════════════════════════════════
+  // 月次シミュレーション
+  // ════════════════════════════════════════════
+  } else {
+    const totalMonths = years * 12;
+
+    for (let s = 0; s < numSims; s++) {
+      let portfolio     = initialPortfolio;
+      let cash          = cashBuffer;
+      let annualWd      = initialWd;
+      let monthlyWd     = initialWd / 12;
+      let currentMinWdM = minWithdrawal / 12;
+      const path        = [(portfolio + cash) / 10000];
+      let alive         = true;
+
+      for (let m = 0; m < totalMonths; m++) {
+        if (!alive) {
+          if ((m + 1) % 12 === 0) path.push(0);
+          continue;
+        }
+
+        // 月間取崩額
+        let wdThisMonth;
+        if (withdrawalMode === 'dynamic') {
+          wdThisMonth = Math.max(portfolio * wdRate / 12, currentMinWdM);
+        } else {
+          wdThisMonth = monthlyWd;
+        }
+
+        // 現金バッファ判定：初月 or ポートフォリオが発動ラインを下回る
+        const useCash = (cash > 0) && (m === 0 || portfolio < triggerLevel);
+
+        if (useCash) {
+          totalCashPeriods++;
+          const fromCash = Math.min(cash, wdThisMonth);
+          totalCashCoverRatio += wdThisMonth > 0 ? fromCash / wdThisMonth : 1;
+          cash      -= fromCash;
+          portfolio -= (wdThisMonth - fromCash);
+        } else {
+          portfolio -= wdThisMonth;
+          if (portfolio < 0 && cash > 0) {
+            const fromCash = Math.min(cash, -portfolio);
+            cash      -= fromCash;
+            portfolio += fromCash;
+          }
+        }
+
+        // 月次リターン適用
+        const [Z1, Z2] = randNorm2();
+        const stockLogReturn = muLogM + sigmaM * Z1;
+        let totalLogReturn = stockLogReturn;
+        if (fxActive) {
+          const Zfx = fxCorr * Z1 + sqrtRho2 * Z2;
+          totalLogReturn = stockLogReturn + fxRatio * (muFxLogM + fxStdM * Zfx);
+        }
+        portfolio = Math.max(portfolio, 0) * Math.exp(totalLogReturn);
+
+        // 年末処理：インフレ調整＆パス記録
+        if ((m + 1) % 12 === 0) {
+          const inflThisYear = (inflStd > 0) ? randNorm(inflMean, inflStd) : inflMean;
+          if (withdrawalMode === 'fixed_infl') {
+            if (inflThisYear > 0 || deflMode === 'reduce') { annualWd *= (1 + inflThisYear); monthlyWd = annualWd / 12; }
+          } else {
+            if (inflThisYear > 0 || deflMode === 'reduce') currentMinWdM *= (1 + inflThisYear);
+          }
+          const total = portfolio + cash;
+          if (total <= 0 || total < successThreshold) { portfolio = 0; cash = 0; alive = false; }
+          path.push((portfolio + cash) / 10000);
+        }
+      }
+
+      if (alive) successCount++;
+      allPaths.push(path);
+      if ((s + 1) % CHUNK === 0) {
+        const pct = Math.round((s + 1) / numSims * 100);
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressText').textContent = `計算中… ${pct}% (${(s+1).toLocaleString()} / ${numSims.toLocaleString()} 回)`;
+        await new Promise(r => setTimeout(r, 0));
+      }
+    }
+  }
+
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('progressText').textContent  = '完了！';
+
+  // ── 統計計算 ──
+  const successRate = successCount / numSims * 100;
+  const labels      = Array.from({length: years + 1}, (_, i) => i + '年');
+  const pctLines    = { p10:[], p25:[], p50:[], p75:[], p90:[] };
+  const realP50     = [];
+  const survivalRates = [];
+
+  for (let y = 0; y <= years; y++) {
+    const deflator  = Math.pow(1 + inflMean, y);
+    const vals      = allPaths.map(p => p[y]).sort((a, b) => a - b);
+    pctLines.p10.push(percentile(vals, 10));
+    pctLines.p25.push(percentile(vals, 25));
+    pctLines.p50.push(percentile(vals, 50));
+    pctLines.p75.push(percentile(vals, 75));
+    pctLines.p90.push(percentile(vals, 90));
+    realP50.push(percentile(vals, 50) / deflator);
+    survivalRates.push(vals.filter(v => v > 0).length / numSims * 100);
+  }
+
+  const finalVals   = allPaths.map(p => p[years]).sort((a, b) => a - b);
+  const medianFinal = percentile(finalVals, 50);
+  const p10Final    = percentile(finalVals, 10);
+  const p25Final    = percentile(finalVals, 25);
+  const p90Final    = percentile(finalVals, 90);
+  const defFinal    = Math.pow(1 + inflMean, years);
+
+  let depletionYear = '期間内に枯渇なし';
+  for (let y = 0; y <= years; y++) {
+    if (survivalRates[y] < 50) { depletionYear = y + '年目以降で50%を下回る'; break; }
+  }
+
+  const avgCashPeriods   = totalCashPeriods / numSims;
+  const avgCashCoverRate = totalCashPeriods > 0 ? totalCashCoverRatio / totalCashPeriods * 100 : null;
+
+  renderResults({
+    successRate, successCount, numSims, labels, years,
+    pctLines, realP50, survivalRates,
+    medianFinal: fmtMan(medianFinal),
+    p10Final: fmtMan(p10Final), p25Final: fmtMan(p25Final), p90Final: fmtMan(p90Final),
+    realMedian: fmtMan(medianFinal / defFinal),
+    realP10: fmtMan(p10Final / defFinal), realP90: fmtMan(p90Final / defFinal),
+    depletionYear, inflMean, inflStd, successThreshold,
+    mu, sigma, initialPortfolio, initialWd, wdRate, minWithdrawal,
+    wdMode: withdrawalMode, cashBuffer, dropThreshold,
+    avgCashPeriods, avgCashCoverRate, fxRatio, fxMean, fxStd, fxCorr,
+    simMode,
+  });
+
+  document.querySelectorAll('.run-btn').forEach(b => b.disabled = false);
+  setTimeout(() => { document.getElementById('progressArea').style.display = 'none'; }, 2000);
+}
+
+// ────────────────────────────────────────────────────
+// 結果レンダリング
+// ────────────────────────────────────────────────────
+function renderResults(d) {
+  const rateClass = d.successRate >= 80 ? 'success-rate'
+                  : d.successRate >= 60 ? 'success-rate warn'
+                  : 'success-rate danger';
+  const thresholdLabel = fmtMan(d.successThreshold / 10000);
+  const inflNote = d.inflStd > 0
+    ? `平均 ${(d.inflMean*100).toFixed(1)}%・標準偏差 ${(d.inflStd*100).toFixed(1)}%（変動）`
+    : `${(d.inflMean*100).toFixed(1)}%（固定）`;
+  const fxNote = d.fxRatio > 0
+    ? `外貨比率${(d.fxRatio*100).toFixed(0)}%・平均${(d.fxMean*100).toFixed(1)}%・標準偏差${(d.fxStd*100).toFixed(1)}%・相関${d.fxCorr}`
+    : '為替影響なし（外貨比率0%）';
+  const modeLabel  = d.simMode === 'annual' ? '年次（年初取崩し・年間リターン）' : '月次（月初取崩し・月次リターン）';
+  const periodUnit = d.simMode === 'annual' ? '年' : 'ヶ月';
+
+  const html = `
+    <div class="mode-banner ${d.simMode}">${d.simMode === 'annual' ? '📅 年次シミュレーション' : '🗓️ 月次シミュレーション'}</div>
+    <div class="success-row">
+      <div class="metric-card">
+        <div class="metric-label">✅ 成功率</div>
+        <div class="metric-value ${rateClass}">${d.successRate.toFixed(1)}<span style="font-size:1rem">%</span></div>
+        <div class="metric-sub">${d.successCount.toLocaleString()} / ${d.numSims.toLocaleString()} 回</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">❌ 失敗率</div>
+        <div class="metric-value" style="font-size:1.8rem;color:#c53030">${(100-d.successRate).toFixed(1)}<span style="font-size:1rem">%</span></div>
+        <div class="metric-sub">残高 &lt; ${thresholdLabel} になった割合</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">📍 名目中央値（最終）</div>
+        <div class="metric-value" style="font-size:1.3rem;color:#2b6cb0">${d.medianFinal}</div>
+        <div class="metric-sub">50%tile・額面金額</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">💴 実質中央値（最終）</div>
+        <div class="metric-value" style="font-size:1.3rem;color:#6b46c1">${d.realMedian}</div>
+        <div class="metric-sub">50%tile・今日の購買力ベース</div>
+      </div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-title">📉 資産推移（パーセンタイル帯）</div>
+        <div class="chart-wrap"><canvas id="chartPortfolio"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">📊 年別資産生存率（残高 ≥ ${thresholdLabel}）</div>
+        <div class="chart-wrap"><canvas id="chartSurvival"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📋 シミュレーション統計サマリー</div>
+      <table class="stats-table">
+        <tr><th>指標</th><th>値</th></tr>
+        <tr><td>成功率（総資産が常に ${thresholdLabel} 以上）</td><td>${d.successRate.toFixed(2)}%</td></tr>
+        <tr><td>失敗率</td><td>${(100 - d.successRate).toFixed(2)}%</td></tr>
+        <tr style="background:#ebf4ff">
+          <td colspan="2" style="font-weight:700;color:#2b6cb0;font-size:0.8rem;">── 最終資産分布 ──</td>
+        </tr>
+        <tr><td>最終資産 上位10%（楽観・名目）</td><td>${d.p90Final}</td></tr>
+        <tr><td>最終資産 中央値（名目）</td><td>${d.medianFinal}</td></tr>
+        <tr><td>最終資産 下位25%（悲観・名目）</td><td>${d.p25Final}</td></tr>
+        <tr><td>最終資産 下位10%（最悲観・名目）</td><td>${d.p10Final}</td></tr>
+        <tr style="background:#f7f0ff">
+          <td colspan="2" style="font-weight:700;color:#553c9a;font-size:0.8rem;">── 実質額（平均インフレ ${(d.inflMean*100).toFixed(1)}% で換算）──</td>
+        </tr>
+        <tr><td>最終資産 上位10%（実質）</td><td>${d.realP90}</td></tr>
+        <tr><td>最終資産 中央値（実質）</td><td>${d.realMedian}</td></tr>
+        <tr><td>最終資産 下位10%（実質）</td><td>${d.realP10}</td></tr>
+        <tr><td>生存率50%割れのタイミング</td><td>${d.depletionYear}</td></tr>
+        ${d.cashBuffer > 0 ? `
+        <tr style="background:#fff5f5">
+          <td colspan="2" style="font-weight:700;color:#c53030;font-size:0.8rem;">── 現金バッファ ──</td>
+        </tr>
+        <tr><td>初期現金バッファ</td><td>${fmtMan(d.cashBuffer / 10000)}</td></tr>
+        <tr><td>発動ライン</td><td>初期ポートフォリオ（${fmtMan(d.initialPortfolio / 10000)}）から ${(d.dropThreshold*100).toFixed(0)}% 下落時</td></tr>
+        <tr><td>発動閾値</td><td>${fmtMan(d.initialPortfolio * (1 - d.dropThreshold) / 10000)} 以下</td></tr>
+        <tr><td>平均現金使用期間（1試行あたり）</td><td>${d.avgCashPeriods.toFixed(1)} ${periodUnit}</td></tr>
+        ${d.avgCashCoverRate !== null ? `<tr><td>現金使用期間の平均カバー率</td><td>${d.avgCashCoverRate.toFixed(1)}%</td></tr>` : ''}
+        ` : ''}
+        <tr><td>計算モード</td><td>${modeLabel}</td></tr>
+        <tr><td>シミュレーション回数</td><td>${d.numSims.toLocaleString()} 回</td></tr>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>📌 計算条件：</strong><br>
+      • 計算モード：${modeLabel}<br>
+      • 株式リターン ${(d.mu*100).toFixed(2)}%（年率算術平均）・リスク ${(d.sigma*100).toFixed(2)}%（年率）${d.simMode === 'monthly' ? `→ 月次 ${(d.sigma/Math.sqrt(12)*100).toFixed(2)}%` : ''}<br>
+      • 為替：${fxNote}<br>
+      • インフレ率：${inflNote}（年末に一括調整）<br>
+      ${d.wdMode === 'fixed_infl'
+        ? `• 取崩額：初年度 ${fmtMan(d.initialWd/10000)}/年${d.simMode === 'monthly' ? `（月${fmtMan(d.initialWd/12/10000)}）` : ''}、以降インフレ時に増額、デフレ時は${deflMode === 'reduce' ? '減額' : '変更なし'}<br>`
+        : `• 取崩額：${d.simMode === 'monthly' ? '毎月' : '毎年'}の残高 × ${d.simMode === 'monthly' ? (d.wdRate/12*100).toFixed(3)+'%（年率'+(d.wdRate*100).toFixed(1)+'%の1/12）' : (d.wdRate*100).toFixed(1)+'%'}、インフレ連動、デフレ時は${deflMode === 'reduce' ? '減額' : '変更なし'}<br>`
+      }
+      • 成功基準：総資産（投資＋現金）≥ <strong>${thresholdLabel}</strong><br>
+      ${d.cashBuffer > 0 ? `• 現金バッファ ${fmtMan(d.cashBuffer/10000)}：ポートフォリオが初期から${(d.dropThreshold*100).toFixed(0)}%下落で現金優先取崩し<br>` : ''}
+      • ⚠️ 本ツールは参考目的です。各${d.simMode === 'annual' ? '年' : '月'}のリターン独立性を仮定（自己相関は非考慮）
+    </div>
+  `;
+
+  document.getElementById('resultPanel').innerHTML = html;
+  drawPortfolioChart(d.labels, d.pctLines, d.realP50);
+  drawSurvivalChart(d.labels, d.survivalRates);
+}
+
+// ────────────────────────────────────────────────────
+// グラフ描画
+// ────────────────────────────────────────────────────
+function drawPortfolioChart(labels, pct, realP50Line) {
+  const ctx = document.getElementById('chartPortfolio').getContext('2d');
+  if (chartPortfolio) chartPortfolio.destroy();
+
+  chartPortfolio = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets: [
+      { label:'上位10%',      data:pct.p90, borderColor:'#68d391', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
+      { label:'上位25%',      data:pct.p75, borderColor:'#90cdf4', backgroundColor:'rgba(144,205,244,0.15)', borderWidth:1.5, pointRadius:0, fill:'+1', tension:0.3 },
+      { label:'中央値（名目）', data:pct.p50, borderColor:'#3182ce', borderWidth:2.5, pointRadius:0, fill:false, tension:0.3 },
+      { label:'実質中央値',    data:realP50Line, borderColor:'#9f7aea', borderWidth:2, borderDash:[6,4], pointRadius:0, fill:false, tension:0.3 },
+      { label:'下位25%',      data:pct.p25, borderColor:'#fc8181', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
+      { label:'下位10%',      data:pct.p10, borderColor:'#c53030', borderWidth:1.5, pointRadius:0, fill:false, tension:0.3 },
+    ]},
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{
+        legend:{ position:'bottom', labels:{ font:{size:11}, boxWidth:14 } },
+        tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${fmtMan(ctx.parsed.y)}` } }
+      },
+      scales:{
+        x:{ ticks:{ maxTicksLimit:10, font:{size:11} }, grid:{display:false} },
+        y:{ max:Math.max(...pct.p75), ticks:{ font:{size:11}, callback: v => fmtMan(v) }, grid:{color:'rgba(0,0,0,0.05)'} }
+      }
+    }
+  });
+}
+
+function drawSurvivalChart(labels, rates) {
+  const ctx = document.getElementById('chartSurvival').getContext('2d');
+  if (chartSurvival) chartSurvival.destroy();
+
+  chartSurvival = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets: [
+      {
+        label:'資産生存率', data:rates,
+        borderColor:'#3182ce',
+        backgroundColor: ctx => {
+          const {ctx:c, chartArea} = ctx.chart;
+          if (!chartArea) return 'rgba(49,130,206,0.15)';
+          const g = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+          g.addColorStop(0,'rgba(49,130,206,0.3)'); g.addColorStop(1,'rgba(49,130,206,0.02)');
+          return g;
+        },
+        fill:true, borderWidth:2.5, pointRadius:0, tension:0.3
+      },
+      { label:'80%ライン', data:Array(labels.length).fill(80), borderColor:'#48bb78', borderDash:[5,4], borderWidth:1.5, pointRadius:0, fill:false },
+      { label:'60%ライン', data:Array(labels.length).fill(60), borderColor:'#f6ad55', borderDash:[5,4], borderWidth:1.5, pointRadius:0, fill:false },
+    ]},
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{
+        legend:{ position:'bottom', labels:{ font:{size:11}, boxWidth:14 } },
+        tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%` } }
+      },
+      scales:{
+        x:{ ticks:{ maxTicksLimit:10, font:{size:11} }, grid:{display:false} },
+        y:{ min:0, max:100, ticks:{ font:{size:11}, callback: v => v+'%' }, grid:{color:'rgba(0,0,0,0.05)'} }
+      }
+    }
+  });
+}
+</script>
+</body>
+</html>
