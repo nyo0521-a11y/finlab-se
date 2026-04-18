@@ -1,2 +1,29 @@
 {{- /* Site favicon: apple-touch-icon (PNG-based brand favicon set) */ -}}
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absURL }}">
+
+{{- /* Draft preview environment: swap favicon to DRAFT-stamped variant.
+       Runs synchronously after PaperMod head.html so it mutates link hrefs
+       before the browser fetches the icon. */ -}}
+<script>
+(function(){
+  var host = location.hostname;
+  var isDraft = host.indexOf('draft.') === 0 || host.indexOf('.pages.dev') !== -1;
+  if (!isDraft) return;
+  var map = {
+    'apple-touch-icon.png':   'apple-touch-icon-draft.png',
+    'favicon-32x32.png':      'favicon-draft-32x32.png',
+    'favicon-16x16.png':      'favicon-draft-16x16.png',
+    'favicon.ico':            'favicon-draft.ico'
+  };
+  document.querySelectorAll('link[rel*="icon"]').forEach(function(l){
+    var h = l.getAttribute('href') || '';
+    Object.keys(map).forEach(function(k){
+      if (h.endsWith('/' + k) || h === k) l.href = h.replace(k, map[k]);
+    });
+  });
+  // also stamp the title so the tab text differentiates
+  if (document.title && document.title.indexOf('[DRAFT]') === -1) {
+    document.title = '[DRAFT] ' + document.title;
+  }
+})();
+</script>
