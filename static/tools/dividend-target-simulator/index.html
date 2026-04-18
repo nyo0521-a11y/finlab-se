@@ -325,16 +325,8 @@
       </div>
 
       <div class="sketch-card">
-        <h3><span class="num">02</span> 現状・積立</h3>
+        <h3><span class="num">02</span> 入金・期間</h3>
         <label class="field">
-          <span class="lbl">既存ポートフォリオ評価額</span>
-          <div class="suffix">
-            <input type="number" id="n_existing" value="0" min="0" max="10000" step="10" />
-            <span class="unit">万円</span>
-          </div>
-        </label>
-
-        <label class="field" style="margin-top:14px">
           <span class="lbl">今後の入金額（累計）</span>
           <div class="suffix">
             <input type="number" id="n_future" value="1800" min="0" max="100000" step="10" />
@@ -467,7 +459,6 @@
 const state = {
   target: 240,        // 目標年間配当額（万円）
   isAfterTax: false,  // 税引後入力か
-  existing: 0,        // 既存PF（万円）
   future: 1800,       // 今後の入金額・累計（万円）
   years: 15,          // 投資期間（年）
   growth: 4,          // 想定増配率（%）
@@ -479,12 +470,12 @@ const NET_FACTOR = 1 - TAX_RATE; // 0.79685
 // ----- core calculation -----
 // 必要利回りを逆算する：
 //   targetPretax = 税引前換算の目標額（万円）
-//   totalInvested = 期間終了時の累計元本（万円） = existing + future
+//   totalInvested = 期間終了時の累計元本（万円） = future
 //   yieldAtYearN = targetPretax / totalInvested * 100 (%)
 //   requiredYieldNow = yieldAtYearN / (1 + g) ^ years （増配考慮で「今買うべき利回り」）
 function calcRequiredYield(s){
   const targetPretax = s.isAfterTax ? s.target / NET_FACTOR : s.target;
-  const totalInvested = s.existing + s.future;
+  const totalInvested = s.future;
   if(totalInvested <= 0){
     return { y: Infinity, yAtN: Infinity, totalInvested, targetPretax };
   }
@@ -577,7 +568,6 @@ const els = {
   nTarget: document.getElementById('n_target'),
   vTarget: document.getElementById('v_target'),
   taxToggle: document.getElementById('taxToggle'),
-  nExisting: document.getElementById('n_existing'),
   nFuture: document.getElementById('n_future'),
   rYears: document.getElementById('r_years'),
   vYears: document.getElementById('v_years'),
@@ -671,7 +661,7 @@ function buildChartData(){
     labels.push('Y' + t);
     // 今後の入金額は期間にわたって等速で投入される前提
     const ratio = state.years > 0 ? t / state.years : 0;
-    const principal = state.existing + state.future * ratio; // 万円
+    const principal = state.future * ratio; // 万円
     // その時点の利回りは増配で yNow * (1+g)^t、配当 = principal * 利回り
     const yieldAtT = yNow * Math.pow(1 + g, t);
     const div = principal * yieldAtT; // 万円
@@ -776,12 +766,6 @@ els.taxToggle.addEventListener('click', e => {
   els.taxToggle.querySelectorAll('button').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
   state.isAfterTax = b.dataset.val === 'post';
-  update();
-});
-
-// existing
-els.nExisting.addEventListener('input', () => {
-  state.existing = clamp(+els.nExisting.value || 0, 0, 10000);
   update();
 });
 
