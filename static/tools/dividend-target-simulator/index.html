@@ -154,10 +154,10 @@
     display:flex;height:14px;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;background:#fff;position:relative;
   }
   .band .seg{flex:1}
-  .band .seg.s1{background:#86efac}
-  .band .seg.s2{background:#4ade80}
-  .band .seg.s3{background:#facc15}
-  .band .seg.s4{background:#f59e0b}
+  .band .seg.s1{background:#4ade80}
+  .band .seg.s2{background:#86efac}
+  .band .seg.s3{background:#fb923c}
+  .band .seg.s4{background:#fb923c}
   .band .seg.s5{background:#ef4444}
   .band .marker{
     position:absolute;top:-6px;width:2px;height:26px;background:var(--ink);transition:left .35s ease-out;
@@ -176,10 +176,10 @@
     width:56px;height:56px;border-radius:12px;border:1.5px solid var(--ink);
     display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:22px;
   }
-  .badge.ok .swatch{background:#bbf7d0}
-  .badge.mid .swatch{background:#fde68a}
-  .badge.hi  .swatch{background:#fed7aa}
-  .badge.danger .swatch{background:#fecaca}
+  .badge.ok .swatch{background:#4ade80}
+  .badge.mid .swatch{background:#86efac}
+  .badge.hi  .swatch{background:#fb923c}
+  .badge.danger .swatch{background:#ef4444}
   .badge .t{font-family:var(--hand);font-size:20px;font-weight:700;margin-bottom:2px}
   .badge .s{color:var(--ink-2);font-size:13px;line-height:1.55}
 
@@ -198,10 +198,10 @@
     font-family:var(--hand);font-size:13px;color:var(--ink-2);
     display:flex;align-items:center;justify-content:center;
   }
-  .heat .hcell.h-ok{background:#bbf7d0}
-  .heat .hcell.h-mid{background:#fde68a}
-  .heat .hcell.h-hi{background:#fed7aa}
-  .heat .hcell.h-dn{background:#fca5a5}
+  .heat .hcell.h-ok{background:#4ade80}
+  .heat .hcell.h-mid{background:#86efac}
+  .heat .hcell.h-hi{background:#fb923c}
+  .heat .hcell.h-dn{background:#ef4444}
   .heat .hcell.center{outline:3px solid var(--ink);outline-offset:-1px;box-shadow:2px 2px 0 rgba(29,36,48,.18)}
   .heat-wrap{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center}
   .hyl{writing-mode:vertical-rl;font-family:var(--hand);font-size:13px;color:var(--ink-2);text-align:center}
@@ -514,7 +514,7 @@ function judge(y){
     cls:'ok', label:'達成済み', swatch:'✓',
     sub:'現在の配当だけで増配により目標到達見込みです。',
     advice:'現在保有銘柄の増配だけで目標達成が見込めます。今後の入金は別目標やリスク分散にも活用できます。',
-    color:'#10b981'
+    color:'#4ade80'
   };
   if(!isFinite(y) || y >= 7) return {
     cls:'danger', label:'達成困難', swatch:'×',
@@ -532,13 +532,13 @@ function judge(y){
     cls:'mid', label:'個別株ミックス', swatch:'✓',
     sub:'日本の高配当個別株を組み合わせる必要がある水準。',
     advice:'米国高配当ETFだけでは届かない水準。日本の高配当個別株を組み合わせて利回りを底上げする設計が必要です。',
-    color:'#f59e0b'
+    color:'#86efac'
   };
   return {
     cls:'ok', label:'ETF中心で到達', swatch:'✓',
     sub:'VYM等の米国高配当ETFだけで届く水準です。',
     advice:'VYM（4%前後）など米国高配当ETF中心の構成で届く水準。タイミングに固執せず積立で十分達成可能です。',
-    color:'#10b981'
+    color:'#4ade80'
   };
 }
 
