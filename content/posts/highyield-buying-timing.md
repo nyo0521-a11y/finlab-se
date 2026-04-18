@@ -288,6 +288,10 @@ VYM（Vanguard High Dividend Yield ETF）、HDV（iShares Core High Dividend ETF
 
 という意思決定が、感覚ではなく数字ベースでできるようになります。
 
+この「目標配当額に対していまどれくらいの利回りが必要か」を毎回手計算するのは大変なので、逆算ツールを用意しました。今後の入金額・期間・想定増配率を入れると、必要な平均配当利回りが緑（現実的）／黄（要努力）／橙（利回り罠リスク）／赤（達成困難）の4段階で判定されます。「どこまで割安を待つべきか」のスタンスを決める材料に使ってみてください。
+
+👉 **<a href="https://finlab-se.com/tools/dividend-target-simulator/" target="_blank" rel="noopener">必要配当利回り逆算シミュレータを開く</a>**
+
 ---
 
 ## 暴落に備えて、現金を常に持っておく
