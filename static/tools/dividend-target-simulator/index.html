@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>配当目標逆算シミュレータ｜finlab-se</title>
+<title>必要配当利回り逆算シミュレータ｜finlab-se</title>
 <meta name="description" content="目標配当額から、いま必要な平均配当利回りを逆算するシミュレータ。入金額・投資期間・増配率を変えながら、現実的な達成プランを探せます。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -279,8 +279,8 @@
 
 <div class="topbar">
   <div class="logo">
-    <div class="mark">¥</div>
-    <span>配当目標逆算シミュレータ</span>
+    <div class="mark">DY</div>
+    <span>必要配当利回り逆算シミュレータ</span>
     <small>by <b style="color:var(--ink)">finlab-se</b>（金融エンジニアの資産実験室）</small>
   </div>
   <span class="pill">DIVIDEND TARGET v1</span>
@@ -302,15 +302,15 @@
     <!-- LEFT: inputs -->
     <div class="left">
       <div class="sketch-card">
-        <h3><span class="num">01</span> 目標</h3>
+        <h3><span class="num">01</span> 目標と現状</h3>
         <div class="slider-combo">
           <div class="top">
             <span class="nm">目標年間配当額</span>
-            <span class="val"><span id="v_target">240</span><small>万円/年</small></span>
+            <span class="val"><span id="v_target">120</span><small>万円/年</small></span>
           </div>
-          <input type="range" id="r_target" min="12" max="1200" step="1" value="240" />
+          <input type="range" id="r_target" min="12" max="600" step="1" value="120" />
           <div class="suffix" style="margin-top:4px">
-            <input type="number" id="n_target" value="240" min="12" max="1200" step="1" />
+            <input type="number" id="n_target" value="120" min="12" max="600" step="1" />
             <span class="unit">万円 / 年</span>
           </div>
         </div>
@@ -337,14 +337,14 @@
         <label class="field">
           <span class="lbl">今後の入金額（累計）</span>
           <div class="suffix">
-            <input type="number" id="n_future" value="1800" min="0" max="100000" step="10" />
+            <input type="number" id="n_future" value="2000" min="0" max="100000" step="10" />
             <span class="unit">万円</span>
           </div>
         </label>
 
         <div class="slider-combo" style="margin-top:14px">
           <div class="top">
-            <span class="nm">投資期間</span>
+            <span class="nm">目標達成までの投資期間</span>
             <span class="val"><span id="v_years">15</span><small>年</small></span>
           </div>
           <input type="range" id="r_years" min="1" max="40" step="1" value="15" />
@@ -356,8 +356,11 @@
         <div class="hint" style="margin-bottom:8px">将来の年間増配率の前提（年率）</div>
         <div class="chiprow" id="growthChips">
           <button class="chip" data-val="0">0%</button>
+          <button class="chip" data-val="1">1%</button>
           <button class="chip" data-val="2">2%</button>
-          <button class="chip on" data-val="4">4%</button>
+          <button class="chip on" data-val="3">3%</button>
+          <button class="chip" data-val="4">4%</button>
+          <button class="chip" data-val="5">5%</button>
           <button class="chip" data-val="6">6%</button>
         </div>
         <div class="scribble"></div>
@@ -465,12 +468,12 @@
 
 // ----- state -----
 const state = {
-  target: 240,        // 目標年間配当額（万円）
+  target: 120,        // 目標年間配当額（万円）
   isAfterTax: false,  // 税引後入力か
   current: 0,         // 現在の年間配当額・税引前（万円）
-  future: 1800,       // 今後の入金額・累計（万円）
-  years: 15,          // 投資期間（年）
-  growth: 4,          // 想定増配率（%）
+  future: 2000,       // 今後の入金額・累計（万円）
+  years: 15,          // 目標達成までの投資期間（年）
+  growth: 3,          // 想定増配率（%）
 };
 
 const TAX_RATE = 0.20315;  // 配当課税（所得税15.315%＋住民税5%）
@@ -783,7 +786,7 @@ els.rTarget.addEventListener('input', () => {
   update();
 });
 els.nTarget.addEventListener('input', () => {
-  const v = clamp(+els.nTarget.value || 0, 12, 1200);
+  const v = clamp(+els.nTarget.value || 0, 12, 600);
   state.target = v;
   els.rTarget.value = v;
   update();
