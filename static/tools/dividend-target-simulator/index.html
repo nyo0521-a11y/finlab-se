@@ -322,6 +322,14 @@
           </div>
           <span class="hint">（税率20.315%固定）</span>
         </div>
+        <label class="field" style="margin-top:14px">
+          <span class="lbl">現在の年間配当額（税引前）</span>
+          <div class="suffix">
+            <input type="number" id="n_current" value="0" min="0" max="10000" step="1" />
+            <span class="unit">万円 / 年</span>
+          </div>
+        </label>
+        <div class="hint" style="margin-top:4px">既存ポートフォリオから今すでに受け取っている年間配当額。今後も同じ増配率で伸びる前提で控除します。</div>
       </div>
 
       <div class="sketch-card">
@@ -459,6 +467,7 @@
 const state = {
   target: 240,        // 目標年間配当額（万円）
   isAfterTax: false,  // 税引後入力か
+  current: 0,         // 現在の年間配当額・税引前（万円）
   future: 1800,       // 今後の入金額・累計（万円）
   years: 15,          // 投資期間（年）
   growth: 4,          // 想定増配率（%）
@@ -468,25 +477,41 @@ const TAX_RATE = 0.20315;  // 配当課税（所得税15.315%＋住民税5%）
 const NET_FACTOR = 1 - TAX_RATE; // 0.79685
 
 // ----- core calculation -----
-// 必要利回りを逆算する：
+// 必要利回りを逆算する（現在の配当を控除する版）：
 //   targetPretax = 税引前換算の目標額（万円）
-//   totalInvested = 期間終了時の累計元本（万円） = future
-//   yieldAtYearN = targetPretax / totalInvested * 100 (%)
-//   requiredYieldNow = yieldAtYearN / (1 + g) ^ years （増配考慮で「今買うべき利回り」）
+//   現在配当 c は同じ増配率 g で N年後に c*(1+g)^N に成長
+//   今後入金 F を今買うべき利回り Y0 で買うと、N年後の配当は F * Y0 * (1+g)^N
+//   合計が targetPretax と等しい：(c + F*Y0) * (1+g)^N = targetPretax
+//   → Y0 = (targetPretax / (1+g)^N - c) / F
 function calcRequiredYield(s){
   const targetPretax = s.isAfterTax ? s.target / NET_FACTOR : s.target;
+  const growthFactor = Math.pow(1 + s.growth/100, s.years);
+  const targetTodayBasis = targetPretax / growthFactor; // 今日基準の必要配当
+  const remainingNeeded = targetTodayBasis - s.current; // 今後の入金で稼ぐべき今日基準の配当
   const totalInvested = s.future;
   if(totalInvested <= 0){
+    // 入金なしでも現在配当だけで目標到達なら 0%、そうでなければ達成不可
+    if(remainingNeeded <= 0) return { y: 0, yAtN: 0, totalInvested, targetPretax, achieved: true };
     return { y: Infinity, yAtN: Infinity, totalInvested, targetPretax };
   }
-  const yAtN = (targetPretax / totalInvested) * 100;
-  const y = yAtN / Math.pow(1 + s.growth/100, s.years);
+  if(remainingNeeded <= 0){
+    // 既に現在配当だけで（増配込みで）目標到達
+    return { y: 0, yAtN: 0, totalInvested, targetPretax, achieved: true };
+  }
+  const y = (remainingNeeded / totalInvested) * 100;
+  const yAtN = y * growthFactor;
   return { y, yAtN, totalInvested, targetPretax };
 }
 
 // ----- judgement bands -----
 // < 3.5%: 緑「現実的」 / 3.5〜5%: 黄「要努力」 / 5〜7%: 橙「利回り罠リスク」 / >=7%: 赤「達成困難」
 function judge(y){
+  if(y === 0) return {
+    cls:'ok', label:'達成済み', swatch:'✓',
+    sub:'現在の配当だけで増配により目標到達見込みです。',
+    advice:'現在保有銘柄の増配だけで目標達成が見込めます。今後の入金は別目標やリスク分散にも活用できます。',
+    color:'#10b981'
+  };
   if(!isFinite(y) || y >= 7) return {
     cls:'danger', label:'達成困難', swatch:'×',
     sub:'現状の条件では達成が困難な水準です。',
@@ -568,6 +593,7 @@ const els = {
   nTarget: document.getElementById('n_target'),
   vTarget: document.getElementById('v_target'),
   taxToggle: document.getElementById('taxToggle'),
+  nCurrent: document.getElementById('n_current'),
   nFuture: document.getElementById('n_future'),
   rYears: document.getElementById('r_years'),
   vYears: document.getElementById('v_years'),
@@ -662,9 +688,12 @@ function buildChartData(){
     // 今後の入金額は期間にわたって等速で投入される前提
     const ratio = state.years > 0 ? t / state.years : 0;
     const principal = state.future * ratio; // 万円
-    // その時点の利回りは増配で yNow * (1+g)^t、配当 = principal * 利回り
+    // 今後入金分の配当：その時点の利回りは増配で yNow * (1+g)^t
     const yieldAtT = yNow * Math.pow(1 + g, t);
-    const div = principal * yieldAtT; // 万円
+    const divFuture = principal * yieldAtT; // 万円
+    // 現在配当も同じ増配率で成長
+    const divCurrent = state.current * Math.pow(1 + g, t);
+    const div = divFuture + divCurrent;
     principalArr.push(Math.round(principal));
     divArr.push(Math.round(div * 10) / 10);
   }
@@ -766,6 +795,12 @@ els.taxToggle.addEventListener('click', e => {
   els.taxToggle.querySelectorAll('button').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
   state.isAfterTax = b.dataset.val === 'post';
+  update();
+});
+
+// current dividend (税引前 万円/年)
+els.nCurrent.addEventListener('input', () => {
+  state.current = clamp(+els.nCurrent.value || 0, 0, 10000);
   update();
 });
 
