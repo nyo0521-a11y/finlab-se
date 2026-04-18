@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>配当目標逆算シミュレータ｜finlab-se</title>
+<meta name="description" content="目標配当額から、いま必要な平均配当利回りを逆算するシミュレータ。月入金額・投資期間・増配率を変えながら、現実的な達成プランを探せます。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Caveat:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --ink:#1d2430;
+    --ink-2:#374050;
+    --muted:#6b7280;
+    --paper:#f7f5ef;
+    --paper-2:#fffdf7;
+    --line:#1d2430;
+    --accent:#4ade80;
+    --accent-2:#22c55e;
+    --warn:#f59e0b;
+    --danger:#ef4444;
+    --ok:#10b981;
+    --orange:#fb923c;
+    --card:#ffffff;
+    --hand: 'Kalam','Caveat','Zen Kaku Gothic New',sans-serif;
+    --gothic:'Zen Kaku Gothic New','Hiragino Sans','Noto Sans JP',sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--gothic);}
+  body{
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(74,222,128,.06), transparent 40%),
+      radial-gradient(circle at 88% 92%, rgba(59,130,246,.05), transparent 40%),
+      repeating-linear-gradient(0deg, rgba(29,36,48,.04) 0 1px, transparent 1px 28px);
+  }
+  a{color:inherit}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,245,239,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1.5px dashed #1d2430;
+    padding:14px 24px;
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:var(--hand);font-weight:700;font-size:22px;letter-spacing:.5px;
+  }
+  .logo .mark{
+    width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;
+    display:grid;place-items:center;background:var(--accent);
+    transform:rotate(-4deg);
+    font-family:var(--mono);font-weight:700;font-size:14px;
+  }
+  .logo small{font-family:var(--gothic);font-weight:500;color:var(--muted);font-size:12px;margin-left:6px}
+  .pill{
+    font-family:var(--mono);font-size:11px;padding:3px 9px;border:1.5px solid var(--ink);
+    border-radius:999px;background:#fff;
+  }
+
+  /* ---------- intro strip ---------- */
+  .intro{
+    padding:22px 28px 4px;max-width:1280px;margin:0 auto;
+  }
+  .intro h1{font-family:var(--hand);font-size:34px;margin:0 0 6px;}
+  .intro p{color:var(--ink-2);margin:0;max-width:780px;line-height:1.7;}
+  .intro .note{
+    margin-top:12px;font-family:var(--hand);color:var(--muted);font-size:15px;
+    display:flex;gap:14px;flex-wrap:wrap;
+  }
+  .intro .note span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);display:inline-block}
+
+  /* ---------- main frame ---------- */
+  .main{
+    max-width:1280px;margin:18px auto 40px;padding:0 24px;
+  }
+
+  /* ---------- shared sketch elements ---------- */
+  .sketch-card{
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:14px;
+    padding:18px;
+    position:relative;
+    box-shadow:3px 3px 0 rgba(29,36,48,.08);
+  }
+  .sketch-card.dashed{border-style:dashed}
+  .sketch-card h3{
+    font-family:var(--hand);font-size:20px;margin:0 0 10px;display:flex;align-items:center;gap:8px;
+  }
+  .sketch-card h3 .num{
+    font-family:var(--mono);font-size:11px;padding:2px 7px;
+    border:1.2px solid var(--ink);border-radius:6px;background:var(--paper);
+  }
+  .hint{font-family:var(--hand);color:var(--muted);font-size:14px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .row + .row{margin-top:10px}
+  label.field{display:flex;flex-direction:column;gap:4px;flex:1;min-width:140px}
+  label.field .lbl{font-size:12px;color:var(--ink-2);font-weight:500}
+  label.field .lbl small{color:var(--muted);font-weight:400;margin-left:4px}
+  .ipt{
+    font-family:var(--mono);font-size:16px;
+    padding:10px 12px;border:1.5px solid var(--ink);border-radius:8px;background:#fff;
+    width:100%;
+  }
+  .ipt:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .suffix{
+    display:flex;align-items:center;border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;background:#fff;
+  }
+  .suffix input{border:0;padding:10px 12px;font-family:var(--mono);font-size:16px;flex:1;width:100%;background:transparent;outline:none;min-width:0}
+  .suffix .unit{padding:0 12px;background:var(--paper);border-left:1.5px solid var(--ink);font-family:var(--hand);font-size:15px;white-space:nowrap}
+  input[type="range"]{width:100%;accent-color:var(--accent-2);}
+  .toggle{
+    display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;background:#fff;
+  }
+  .toggle button{
+    border:0;background:transparent;padding:7px 14px;font-family:var(--hand);font-size:15px;cursor:pointer;color:var(--ink-2);
+  }
+  .toggle button.on{background:var(--ink);color:var(--paper-2)}
+  .chiprow{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{
+    font-family:var(--mono);font-size:12px;padding:6px 10px;border:1.5px solid var(--ink);border-radius:999px;background:#fff;cursor:pointer;
+  }
+  .chip.on{background:var(--ink);color:var(--paper-2)}
+
+  /* slider+number combo */
+  .slider-combo{display:flex;flex-direction:column;gap:6px}
+  .slider-combo .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .slider-combo .top .nm{font-size:12px;color:var(--ink-2);font-weight:500}
+  .slider-combo .top .val{font-family:var(--mono);font-weight:700;font-size:16px}
+  .slider-combo .top .val small{font-family:var(--hand);font-size:13px;color:var(--muted);margin-left:2px}
+
+  /* sketchy underlines for section breaks */
+  .scribble{
+    height:10px;margin:12px -4px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10'><path d='M0 6 Q 20 0 40 6 T 80 6 T 120 6 T 160 6 T 200 6' fill='none' stroke='%231d2430' stroke-width='1.2' stroke-linecap='round'/></svg>");
+    background-repeat:repeat-x;background-size:200px 10px;opacity:.6;
+  }
+
+  /* ---------- result tokens ---------- */
+  .yieldNum{
+    font-family:var(--mono);font-weight:700;line-height:1;
+  }
+  .yieldBig{font-size:78px;letter-spacing:-2px}
+
+  .band{
+    display:flex;height:14px;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;background:#fff;position:relative;
+  }
+  .band .seg{flex:1}
+  .band .seg.s1{background:#86efac}
+  .band .seg.s2{background:#4ade80}
+  .band .seg.s3{background:#facc15}
+  .band .seg.s4{background:#f59e0b}
+  .band .seg.s5{background:#ef4444}
+  .band .marker{
+    position:absolute;top:-6px;width:2px;height:26px;background:var(--ink);transition:left .35s ease-out;
+  }
+  .band .marker::after{
+    content:"";position:absolute;top:-7px;left:-5px;width:12px;height:12px;border:1.5px solid var(--ink);background:#fff;border-radius:50%;
+  }
+  .legend{display:flex;justify-content:space-between;margin-top:6px;font-family:var(--mono);font-size:10px;color:var(--muted)}
+
+  /* badge cluster */
+  .badge{
+    border:1.8px solid var(--ink);border-radius:14px;padding:14px 16px;background:#fff;
+    display:flex;align-items:center;gap:14px;transition:background .3s;
+  }
+  .badge .swatch{
+    width:56px;height:56px;border-radius:12px;border:1.5px solid var(--ink);
+    display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:22px;
+  }
+  .badge.ok .swatch{background:#bbf7d0}
+  .badge.mid .swatch{background:#fde68a}
+  .badge.hi  .swatch{background:#fed7aa}
+  .badge.danger .swatch{background:#fecaca}
+  .badge .t{font-family:var(--hand);font-size:20px;font-weight:700;margin-bottom:2px}
+  .badge .s{color:var(--ink-2);font-size:13px;line-height:1.55}
+
+  /* ---------- heatmap ---------- */
+  .heat{
+    display:grid;grid-template-columns:auto repeat(3,1fr);gap:4px;align-items:stretch;
+  }
+  .heat .hcell{
+    border:1.5px solid var(--ink);border-radius:10px;padding:10px;min-height:70px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    font-family:var(--mono);font-size:13px;background:#fff;transition:background .3s;
+  }
+  .heat .hcell .v{font-size:20px;font-weight:700}
+  .heat .hcell .l{font-size:10px;color:var(--muted)}
+  .heat .haxis{
+    font-family:var(--hand);font-size:13px;color:var(--ink-2);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .heat .hcell.h-ok{background:#bbf7d0}
+  .heat .hcell.h-mid{background:#fde68a}
+  .heat .hcell.h-hi{background:#fed7aa}
+  .heat .hcell.h-dn{background:#fca5a5}
+  .heat .hcell.center{outline:3px solid var(--ink);outline-offset:-1px;box-shadow:2px 2px 0 rgba(29,36,48,.18)}
+  .heat-wrap{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center}
+  .hyl{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--hand);font-size:13px;color:var(--ink-2);text-align:center}
+
+  /* ---------- chart frame ---------- */
+  .chartWrap{
+    position:relative;height:280px;border:1.5px solid var(--ink);border-radius:12px;padding:10px;background:#fff;
+  }
+  .legend2{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;margin-top:8px}
+  .legend2 .k{display:inline-flex;align-items:center;gap:6px}
+  .legend2 .sw{width:12px;height:12px;border:1.2px solid var(--ink);border-radius:3px}
+
+  /* ---------- bottom: related ---------- */
+  .related{
+    max-width:1280px;margin:20px auto 50px;padding:0 24px;
+  }
+  .related h4{font-family:var(--hand);font-size:22px;margin:0 0 12px}
+  .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .rel-card{
+    border:1.5px solid var(--ink);border-radius:12px;padding:14px;background:#fff;
+    display:flex;flex-direction:column;gap:8px;min-height:120px;text-decoration:none;
+  }
+  .rel-card:hover{background:var(--paper-2)}
+  .rel-card .kbd{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .rel-card .tt{font-family:var(--hand);font-size:18px;color:var(--ink)}
+  .rel-card .arrow{font-family:var(--mono);font-size:12px;color:var(--accent-2);font-weight:700}
+
+  .disclaimer{
+    max-width:1280px;margin:0 auto;padding:0 24px 10px;
+    font-family:var(--hand);font-size:13px;color:var(--muted);
+  }
+
+  footer{
+    border-top:1.5px dashed var(--ink);margin-top:20px;padding:18px 24px;text-align:center;
+    font-family:var(--mono);font-size:11px;color:var(--muted);
+  }
+
+  /* ---------- 2-col layout ---------- */
+  .grid{
+    display:grid;grid-template-columns:minmax(340px, 420px) 1fr;gap:20px;
+  }
+  .left{display:flex;flex-direction:column;gap:16px}
+  .right{display:flex;flex-direction:column;gap:16px}
+  .hero{
+    background:linear-gradient(180deg,#fff,#f3fff7);
+    border:1.8px solid var(--ink);border-radius:16px;padding:22px;
+    display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+    box-shadow:3px 3px 0 rgba(29,36,48,.08);
+  }
+  .hero .lead{font-family:var(--hand);font-size:18px;color:var(--ink-2)}
+  .hero .headline{font-family:var(--hand);font-size:24px;margin-top:4px}
+  .hero .big{display:flex;align-items:baseline;gap:8px;margin-top:8px}
+  .hero .unit{font-family:var(--hand);font-size:22px;color:var(--ink-2)}
+  .hero .side{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:260px}
+
+  .subgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+  @media (max-width:960px){
+    .grid{grid-template-columns:1fr}
+    .subgrid{grid-template-columns:1fr}
+    .hero{grid-template-columns:1fr}
+    .hero .side{min-width:0}
+  }
+  @media (max-width:760px){
+    .topbar{padding:10px 14px}
+    .logo{font-size:18px}
+    .intro{padding:16px 14px 4px}
+    .intro h1{font-size:26px}
+    .main{padding:0 14px}
+    .rel-grid{grid-template-columns:1fr}
+    .yieldBig{font-size:54px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <div class="mark">¥</div>
+    <span>配当目標逆算シミュレータ</span>
+    <small>by <b style="color:var(--ink)">finlab-se</b>（金融エンジニアの資産実験室）</small>
+  </div>
+  <span class="pill">DIVIDEND TARGET v1</span>
+</div>
+
+<div class="intro">
+  <h1>配当目標 → 必要利回りを逆算する。</h1>
+  <p>「年◯◯万円の配当が欲しい」というゴールから、<b>いま買うべき平均配当利回り</b>を逆算します。月の入金額・投資期間・増配率を動かしながら、現実的な達成プランを探してください。</p>
+  <div class="note">
+    <span><span class="dot" style="background:var(--accent)"></span> 緑=現実的</span>
+    <span><span class="dot" style="background:var(--warn)"></span> 黄=要努力</span>
+    <span><span class="dot" style="background:var(--orange)"></span> 橙=利回り罠リスク</span>
+    <span><span class="dot" style="background:var(--danger)"></span> 赤=達成困難</span>
+  </div>
+</div>
+
+<section class="main">
+  <div class="grid">
+    <!-- LEFT: inputs -->
+    <div class="left">
+      <div class="sketch-card">
+        <h3><span class="num">01</span> 目標</h3>
+        <div class="slider-combo">
+          <div class="top">
+            <span class="nm">目標年間配当額</span>
+            <span class="val"><span id="v_target">240</span><small>万円/年</small></span>
+          </div>
+          <input type="range" id="r_target" min="12" max="1200" step="1" value="240" />
+          <div class="suffix" style="margin-top:4px">
+            <input type="number" id="n_target" value="240" min="12" max="1200" step="1" />
+            <span class="unit">万円 / 年</span>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <span class="hint">税引:</span>
+          <div class="toggle" id="taxToggle">
+            <button class="on" data-val="pre">税引前</button>
+            <button data-val="post">税引後</button>
+          </div>
+          <span class="hint">（税率20.315%固定）</span>
+        </div>
+      </div>
+
+      <div class="sketch-card">
+        <h3><span class="num">02</span> 現状・積立</h3>
+        <label class="field">
+          <span class="lbl">既存ポートフォリオ評価額</span>
+          <div class="suffix">
+            <input type="number" id="n_existing" value="0" min="0" max="10000" step="10" />
+            <span class="unit">万円</span>
+          </div>
+        </label>
+
+        <div class="slider-combo" style="margin-top:14px">
+          <div class="top">
+            <span class="nm">月の入金額</span>
+            <span class="val"><span id="v_monthly">10</span><small>万円/月</small></span>
+          </div>
+          <input type="range" id="r_monthly" min="0" max="100" step="1" value="10" />
+        </div>
+
+        <div class="slider-combo" style="margin-top:14px">
+          <div class="top">
+            <span class="nm">投資期間</span>
+            <span class="val"><span id="v_years">15</span><small>年</small></span>
+          </div>
+          <input type="range" id="r_years" min="1" max="40" step="1" value="15" />
+        </div>
+      </div>
+
+      <div class="sketch-card">
+        <h3><span class="num">03</span> 想定増配率</h3>
+        <div class="hint" style="margin-bottom:8px">将来の年間増配率の前提（年率）</div>
+        <div class="chiprow" id="growthChips">
+          <button class="chip" data-val="0">0%</button>
+          <button class="chip" data-val="2">2%</button>
+          <button class="chip on" data-val="4">4%</button>
+          <button class="chip" data-val="6">6%</button>
+        </div>
+        <div class="scribble"></div>
+        <div class="hint">※ プリセットはあくまで仮定値。セクターや個別銘柄で実際の増配率は大きく異なります。</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: results -->
+    <div class="right">
+      <div class="hero">
+        <div>
+          <div class="lead">あなたの目標に届くために、いま買うべき</div>
+          <div class="headline">平均配当利回りは</div>
+          <div class="big">
+            <span class="yieldNum yieldBig" id="yieldVal">4.8</span>
+            <span class="unit">%</span>
+          </div>
+        </div>
+        <div class="side">
+          <div class="badge mid" id="badge">
+            <div class="swatch" id="badgeSwatch">!</div>
+            <div>
+              <div class="t" id="badgeTitle">要努力</div>
+              <div class="s" id="badgeSub">高配当ETF水準を超える領域。銘柄選定に注意。</div>
+            </div>
+          </div>
+          <div style="width:100%;margin-top:8px">
+            <div class="band">
+              <div class="seg s1"></div><div class="seg s2"></div>
+              <div class="seg s3"></div><div class="seg s4"></div>
+              <div class="seg s5"></div>
+              <div class="marker" id="marker" style="left:50%"></div>
+            </div>
+            <div class="legend"><span>2%</span><span>4%</span><span>6%</span><span>8%</span><span>10%+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sketch-card dashed">
+        <h3><span class="num">04</span> あなたへの一言</h3>
+        <p class="" id="advice" style="margin:0;line-height:1.8;color:var(--ink-2);font-size:15px">
+          主要高配当ETFや厳選個別株で狙える水準。買い時を意識すると有利になります。
+        </p>
+      </div>
+
+      <div class="subgrid">
+        <div class="sketch-card">
+          <h3><span class="num">05</span> 感度マトリクス</h3>
+          <div class="hint" style="margin-bottom:8px">期間 × 月入金額で必要利回りがどう動くか</div>
+          <div class="heat-wrap">
+            <div class="hyl">月入金額 ↓</div>
+            <div>
+              <div class="heat" id="heat">
+                <!-- filled by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sketch-card">
+          <h3><span class="num">06</span> 年次推移</h3>
+          <div class="hint" style="margin-bottom:8px">累計元本（グレー）と年間配当額（緑）の推移</div>
+          <div class="chartWrap"><canvas id="chart"></canvas></div>
+          <div class="legend2">
+            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計投資元本</span>
+            <span class="k"><span class="sw" style="background:#4ade80"></span>年間配当額</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <h4>finlab-se の関連記事</h4>
+  <div class="rel-grid">
+    <a class="rel-card" href="https://finlab-se.com/posts/highyield-buying-timing/">
+      <span class="kbd">ARTICLE · 01</span>
+      <span class="tt">高配当株の買い時、どう判断する？</span>
+      <span class="arrow">読む →</span>
+    </a>
+    <a class="rel-card" href="https://finlab-se.com/posts/highyield-investment-strategy/">
+      <span class="kbd">ARTICLE · 02</span>
+      <span class="tt">減配しない高配当ポートフォリオ戦略</span>
+      <span class="arrow">読む →</span>
+    </a>
+    <a class="rel-card" href="https://finlab-se.com/posts/dividend-life-calculation/">
+      <span class="kbd">ARTICLE · 03</span>
+      <span class="tt">配当だけで暮らす ── 必要資産額の計算</span>
+      <span class="arrow">読む →</span>
+    </a>
+  </div>
+</section>
+
+<div class="disclaimer">
+  ※ 必要利回りはあくまで判断補助です。実際の投資判断は自己責任でお願いします。
+</div>
+
+<footer>© finlab-se / 金融エンジニアの資産実験室 · 数値はシミュレーションです</footer>
+
+<script>
+/* =========================================================
+   Dividend Target Reverse Simulator
+   ========================================================= */
+
+// ----- state -----
+const state = {
+  target: 240,        // 目標年間配当額（万円）
+  isAfterTax: false,  // 税引後入力か
+  existing: 0,        // 既存PF（万円）
+  monthly: 10,        // 月入金（万円）
+  years: 15,          // 投資期間（年）
+  growth: 4,          // 想定増配率（%）
+};
+
+const TAX_RATE = 0.20315;  // 配当課税（所得税15.315%＋住民税5%）
+const NET_FACTOR = 1 - TAX_RATE; // 0.79685
+
+// ----- core calculation -----
+// 必要利回りを逆算する：
+//   targetPretax = 税引前換算の目標額（万円）
+//   totalInvested = 期間終了時の累計元本（万円） = existing + monthly * 12 * years
+//   yieldAtYearN = targetPretax / totalInvested * 100 (%)
+//   requiredYieldNow = yieldAtYearN / (1 + g) ^ years （増配考慮で「今買うべき利回り」）
+function calcRequiredYield(s){
+  const targetPretax = s.isAfterTax ? s.target / NET_FACTOR : s.target;
+  const totalInvested = s.existing + s.monthly * 12 * s.years;
+  if(totalInvested <= 0){
+    return { y: Infinity, yAtN: Infinity, totalInvested, targetPretax };
+  }
+  const yAtN = (targetPretax / totalInvested) * 100;
+  const y = yAtN / Math.pow(1 + s.growth/100, s.years);
+  return { y, yAtN, totalInvested, targetPretax };
+}
+
+// ----- judgement bands -----
+// < 3.5%: 緑「現実的」 / 3.5〜5%: 黄「要努力」 / 5〜7%: 橙「利回り罠リスク」 / >=7%: 赤「達成困難」
+function judge(y){
+  if(!isFinite(y) || y >= 7) return {
+    cls:'danger', label:'達成困難', swatch:'×',
+    sub:'現状の条件では達成が困難な水準です。',
+    advice:'現実的でない水準です。入金額か投資期間を増やす、または目標額を下げてください。',
+    color:'#ef4444'
+  };
+  if(y >= 5) return {
+    cls:'hi', label:'利回り罠リスク', swatch:'!',
+    sub:'5–7%ゾーン：減配リスクが高まる利回り帯です。',
+    advice:'警告：この利回りを継続して出す銘柄は減配リスク・業績悪化銘柄の可能性があります。入金額・期間・目標の見直しを推奨します。',
+    color:'#fb923c'
+  };
+  if(y >= 3.5) return {
+    cls:'mid', label:'要努力', swatch:'!',
+    sub:'高配当ETFや厳選個別株で狙える水準。',
+    advice:'主要高配当ETFや厳選個別株で狙える水準。買い時を意識すると有利になります。',
+    color:'#f59e0b'
+  };
+  return {
+    cls:'ok', label:'現実的', swatch:'✓',
+    sub:'VYM等の高配当ETFでも届きうる水準です。',
+    advice:'VYM（4%前後）でも届く水準。タイミングに固執せず積立で十分達成可能です。',
+    color:'#10b981'
+  };
+}
+
+// heatmap cell color class based on yield
+function heatClass(y){
+  if(!isFinite(y) || y >= 7) return 'h-dn';
+  if(y >= 5) return 'h-hi';
+  if(y >= 3.5) return 'h-mid';
+  return 'h-ok';
+}
+
+// marker position in band (0-100%) — band represents 2% to 10%+
+function markerLeft(y){
+  if(!isFinite(y)) return 100;
+  return Math.max(0, Math.min(100, ((y - 2) / 8) * 100));
+}
+
+// ----- countup animation -----
+let animHandle = null;
+let displayedYield = 4.8;
+function animateYield(target){
+  if(animHandle) cancelAnimationFrame(animHandle);
+  const start = displayedYield;
+  const delta = target - start;
+  const dur = 350; // ms
+  const t0 = performance.now();
+  const el = document.getElementById('yieldVal');
+  function step(now){
+    const t = Math.min(1, (now - t0) / dur);
+    // easeOutCubic
+    const e = 1 - Math.pow(1 - t, 3);
+    const cur = start + delta * e;
+    displayedYield = cur;
+    if(isFinite(cur)){
+      el.textContent = cur.toFixed(1);
+    }else{
+      el.textContent = '∞';
+    }
+    if(t < 1) animHandle = requestAnimationFrame(step);
+  }
+  animHandle = requestAnimationFrame(step);
+}
+
+// ----- DOM refs -----
+const els = {
+  // inputs
+  rTarget: document.getElementById('r_target'),
+  nTarget: document.getElementById('n_target'),
+  vTarget: document.getElementById('v_target'),
+  taxToggle: document.getElementById('taxToggle'),
+  nExisting: document.getElementById('n_existing'),
+  rMonthly: document.getElementById('r_monthly'),
+  vMonthly: document.getElementById('v_monthly'),
+  rYears: document.getElementById('r_years'),
+  vYears: document.getElementById('v_years'),
+  growthChips: document.getElementById('growthChips'),
+  // outputs
+  yieldVal: document.getElementById('yieldVal'),
+  marker: document.getElementById('marker'),
+  badge: document.getElementById('badge'),
+  badgeSwatch: document.getElementById('badgeSwatch'),
+  badgeTitle: document.getElementById('badgeTitle'),
+  badgeSub: document.getElementById('badgeSub'),
+  advice: document.getElementById('advice'),
+  heat: document.getElementById('heat'),
+};
+
+// ----- update UI -----
+function update(){
+  // mirror values
+  els.vTarget.textContent = state.target;
+  els.vMonthly.textContent = state.monthly;
+  els.vYears.textContent = state.years;
+
+  const r = calcRequiredYield(state);
+  const j = judge(r.y);
+
+  // big number animation
+  animateYield(r.y);
+
+  // marker
+  els.marker.style.left = markerLeft(r.y) + '%';
+
+  // badge
+  els.badge.classList.remove('ok','mid','hi','danger');
+  els.badge.classList.add(j.cls);
+  els.badgeSwatch.textContent = j.swatch;
+  els.badgeTitle.textContent = j.label;
+  els.badgeSub.textContent = j.sub;
+  els.advice.textContent = j.advice;
+
+  // heatmap
+  drawHeatmap();
+
+  // chart
+  drawChart();
+}
+
+// ----- heatmap (3x3) -----
+// rows: years: base-3, base, base+3 ; cols: monthly: x0.7, x1.0, x1.3
+function drawHeatmap(){
+  const baseY = state.years;
+  const baseM = state.monthly;
+  const yrsArr = [Math.max(1, baseY - 3), baseY, Math.min(40, baseY + 3)];
+  const moArr  = [Math.max(0, +(baseM * 0.7).toFixed(1)), baseM, +(baseM * 1.3).toFixed(1)];
+
+  let html = '';
+  // header row
+  html += '<div class="haxis"></div>';
+  yrsArr.forEach(y => { html += `<div class="haxis">${y}年</div>`; });
+  // body rows (rows = monthly values)
+  moArr.forEach((mo, ri) => {
+    html += `<div class="haxis">${mo}万</div>`;
+    yrsArr.forEach((yr, ci) => {
+      const r = calcRequiredYield({...state, monthly: mo, years: yr});
+      const cls = heatClass(r.y);
+      const isCenter = (ri === 1 && ci === 1);
+      const yTxt = isFinite(r.y) ? r.y.toFixed(1) + '%' : '∞';
+      const labelText = labelForYield(r.y);
+      html += `<div class="hcell ${cls}${isCenter ? ' center' : ''}">
+        <span class="v">${yTxt}</span>
+        <span class="l">${labelText}</span>
+      </div>`;
+    });
+  });
+  els.heat.innerHTML = html;
+}
+function labelForYield(y){
+  if(!isFinite(y) || y >= 7) return '困難';
+  if(y >= 5) return '罠リスク';
+  if(y >= 3.5) return '要努力';
+  return '現実的';
+}
+
+// ----- chart -----
+let chart = null;
+function buildChartData(){
+  const labels = [], principalArr = [], divArr = [];
+  // 必要利回りでちょうど目標達成するシナリオを描く（増配考慮）
+  const r = calcRequiredYield(state);
+  const yNow = isFinite(r.y) ? r.y / 100 : 0;
+  const g = state.growth / 100;
+  for(let t = 0; t <= state.years; t++){
+    labels.push('Y' + t);
+    const principal = state.existing + state.monthly * 12 * t; // 万円
+    // その時点の利回りは増配で yNow * (1+g)^t、配当 = principal * 利回り
+    const yieldAtT = yNow * Math.pow(1 + g, t);
+    const div = principal * yieldAtT; // 万円
+    principalArr.push(Math.round(principal));
+    divArr.push(Math.round(div * 10) / 10);
+  }
+  return { labels, principalArr, divArr };
+}
+function drawChart(){
+  const d = buildChartData();
+  if(chart){
+    chart.data.labels = d.labels;
+    chart.data.datasets[0].data = d.principalArr;
+    chart.data.datasets[1].data = d.divArr;
+    chart.update('none');
+    return;
+  }
+  const ctx = document.getElementById('chart').getContext('2d');
+  chart = new Chart(ctx, {
+    type:'bar',
+    data:{
+      labels:d.labels,
+      datasets:[
+        {
+          type:'bar',
+          label:'累計投資元本 (万円)',
+          data:d.principalArr,
+          backgroundColor:'rgba(203,213,225,.85)',
+          borderColor:'#475569',
+          borderWidth:1,
+          borderRadius:4,
+          yAxisID:'y',
+        },
+        {
+          type:'line',
+          label:'年間配当額 (万円)',
+          data:d.divArr,
+          borderColor:'#16a34a',
+          backgroundColor:'rgba(74,222,128,.25)',
+          borderWidth:2.5,
+          pointRadius:3,
+          pointBackgroundColor:'#4ade80',
+          tension:.35,
+          fill:true,
+          yAxisID:'y1',
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      interaction:{mode:'index', intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          bodyFont:{family:"JetBrains Mono"},
+          titleFont:{family:"Kalam"},
+          callbacks:{
+            label: c => `${c.dataset.label}: ${c.parsed.y} 万円`
+          }
+        }
+      },
+      scales:{
+        x:{ grid:{color:'rgba(29,36,48,.08)'}, ticks:{font:{family:'JetBrains Mono', size:10}} },
+        y:{
+          position:'left',
+          grid:{color:'rgba(29,36,48,.08)'},
+          ticks:{font:{family:'JetBrains Mono', size:10}, callback:v=>v+'万'},
+          title:{display:true, text:'元本', font:{family:'Kalam', size:12}}
+        },
+        y1:{
+          position:'right',
+          grid:{display:false},
+          ticks:{font:{family:'JetBrains Mono', size:10}, callback:v=>v+'万'},
+          title:{display:true, text:'年間配当', font:{family:'Kalam', size:12}}
+        }
+      }
+    }
+  });
+}
+
+// ----- input bindings -----
+function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
+
+// target: slider <-> number 同期
+els.rTarget.addEventListener('input', () => {
+  state.target = +els.rTarget.value;
+  els.nTarget.value = state.target;
+  update();
+});
+els.nTarget.addEventListener('input', () => {
+  const v = clamp(+els.nTarget.value || 0, 12, 1200);
+  state.target = v;
+  els.rTarget.value = v;
+  update();
+});
+
+// tax toggle
+els.taxToggle.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if(!b) return;
+  els.taxToggle.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  state.isAfterTax = b.dataset.val === 'post';
+  update();
+});
+
+// existing
+els.nExisting.addEventListener('input', () => {
+  state.existing = clamp(+els.nExisting.value || 0, 0, 10000);
+  update();
+});
+
+// monthly
+els.rMonthly.addEventListener('input', () => {
+  state.monthly = +els.rMonthly.value;
+  update();
+});
+
+// years
+els.rYears.addEventListener('input', () => {
+  state.years = +els.rYears.value;
+  update();
+});
+
+// growth chips
+els.growthChips.addEventListener('click', e => {
+  const b = e.target.closest('.chip');
+  if(!b) return;
+  els.growthChips.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  state.growth = +b.dataset.val;
+  update();
+});
+
+// initial render
+update();
+</script>
+</body>
+</html>
