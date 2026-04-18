@@ -239,6 +239,7 @@ cover:
 ## 参考
 
 - [リベラルアーツ大学（YouTube）](https://www.youtube.com/@ryogakucho)
+- [リベシティ公式サイト（入会案内）](https://site.libecity.com/)
 
 ---
 
