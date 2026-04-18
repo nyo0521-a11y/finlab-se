@@ -672,6 +672,7 @@ function labelForYield(y){
   if(!isFinite(y) || y >= 7) return '困難';
   if(y >= 5) return '罠リスク';
   if(y >= 3.5) return '要努力';
+  if(y === 0) return '達成済み';
   return '現実的';
 }
 
