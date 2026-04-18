@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "finlab-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "static", "--listen", "3478", "--no-clipboard"],
+      "port": 3478
+    }
+  ]
+}
