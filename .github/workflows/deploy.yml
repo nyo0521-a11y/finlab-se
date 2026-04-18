@@ -1,18 +1,27 @@
 name: Deploy to Cloudflare Pages
 
+# 単一ブランチ運用：main への push で本番＋ドラフト2サイトを同時デプロイ
+# - content/posts/  → finlab-se.com（本番）
+# - content/drafts/ → draft.finlab-se.pages.dev（確認用）
+#
+# ドラフトはビルド時にだけ content/posts/ にスワップしてレンダリングするため、
+# 本番と全く同じレイアウト/URLで確認できる。
+
 on:
   push:
     branches:
-      - master
-      - draft
+      - main
 
 jobs:
-  deploy:
+  # =========================================
+  # 本番サイト（finlab-se.com）
+  # content/posts/ のみビルド。content/drafts/ は除外。
+  # =========================================
+  production:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,24 +35,56 @@ jobs:
           hugo-version: '0.160.1'
           extended: true
 
-      - name: Build (master → production)
-        if: github.ref == 'refs/heads/master'
+      - name: Remove drafts directory (production must not include drafts)
+        run: rm -rf content/drafts
+
+      - name: Build production
         run: hugo --baseURL "https://finlab-se.com"
 
-      - name: Build (draft → staging)
-        if: github.ref == 'refs/heads/draft'
-        run: hugo --buildFuture --baseURL "https://draft.finlab-se.pages.dev"
-
       - name: Deploy to Cloudflare Pages (production)
-        if: github.ref == 'refs/heads/master'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 75e7d9321a61105da05ceb29523b8a30
           command: pages deploy public --project-name finlab-se --branch master
 
+  # =========================================
+  # ドラフトプレビュー（draft.finlab-se.pages.dev）
+  # content/drafts/ のみをビルド。本番posts/は除外。
+  # ビルド前に drafts/ を posts/ にリネームすることで、
+  # URLレイアウトを本番と完全一致させる。
+  # =========================================
+  draft-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.160.1'
+          extended: true
+
+      - name: Swap drafts → posts (draft preview shows ONLY drafts)
+        run: |
+          rm -rf content/posts
+          if [ -d content/drafts ]; then
+            mv content/drafts content/posts
+          else
+            mkdir -p content/posts
+          fi
+
+      - name: Build draft preview
+        run: hugo --buildDrafts --buildFuture --environment draft
+
       - name: Deploy to Cloudflare Pages (draft)
-        if: github.ref == 'refs/heads/draft'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
