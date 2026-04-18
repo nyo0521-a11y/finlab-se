@@ -334,13 +334,13 @@
           </div>
         </label>
 
-        <div class="slider-combo" style="margin-top:14px">
-          <div class="top">
-            <span class="nm">月の入金額</span>
-            <span class="val"><span id="v_monthly">10</span><small>万円/月</small></span>
+        <label class="field" style="margin-top:14px">
+          <span class="lbl">今後の入金額（累計）</span>
+          <div class="suffix">
+            <input type="number" id="n_future" value="1800" min="0" max="100000" step="10" />
+            <span class="unit">万円</span>
           </div>
-          <input type="range" id="r_monthly" min="0" max="100" step="1" value="10" />
-        </div>
+        </label>
 
         <div class="slider-combo" style="margin-top:14px">
           <div class="top">
@@ -406,7 +406,7 @@
       <div class="subgrid">
         <div class="sketch-card">
           <h3><span class="num">05</span> 感度マトリクス</h3>
-          <div class="hint" style="margin-bottom:8px">期間 × 月入金額で必要利回りがどう動くか</div>
+          <div class="hint" style="margin-bottom:8px">期間 × 今後の入金額で必要利回りがどう動くか</div>
           <div class="heat-wrap">
             <div class="hyl">月入金額 ↓</div>
             <div>
@@ -468,7 +468,7 @@ const state = {
   target: 240,        // 目標年間配当額（万円）
   isAfterTax: false,  // 税引後入力か
   existing: 0,        // 既存PF（万円）
-  monthly: 10,        // 月入金（万円）
+  future: 1800,       // 今後の入金額・累計（万円）
   years: 15,          // 投資期間（年）
   growth: 4,          // 想定増配率（%）
 };
@@ -479,12 +479,12 @@ const NET_FACTOR = 1 - TAX_RATE; // 0.79685
 // ----- core calculation -----
 // 必要利回りを逆算する：
 //   targetPretax = 税引前換算の目標額（万円）
-//   totalInvested = 期間終了時の累計元本（万円） = existing + monthly * 12 * years
+//   totalInvested = 期間終了時の累計元本（万円） = existing + future
 //   yieldAtYearN = targetPretax / totalInvested * 100 (%)
 //   requiredYieldNow = yieldAtYearN / (1 + g) ^ years （増配考慮で「今買うべき利回り」）
 function calcRequiredYield(s){
   const targetPretax = s.isAfterTax ? s.target / NET_FACTOR : s.target;
-  const totalInvested = s.existing + s.monthly * 12 * s.years;
+  const totalInvested = s.existing + s.future;
   if(totalInvested <= 0){
     return { y: Infinity, yAtN: Infinity, totalInvested, targetPretax };
   }
@@ -578,8 +578,7 @@ const els = {
   vTarget: document.getElementById('v_target'),
   taxToggle: document.getElementById('taxToggle'),
   nExisting: document.getElementById('n_existing'),
-  rMonthly: document.getElementById('r_monthly'),
-  vMonthly: document.getElementById('v_monthly'),
+  nFuture: document.getElementById('n_future'),
   rYears: document.getElementById('r_years'),
   vYears: document.getElementById('v_years'),
   growthChips: document.getElementById('growthChips'),
@@ -598,7 +597,6 @@ const els = {
 function update(){
   // mirror values
   els.vTarget.textContent = state.target;
-  els.vMonthly.textContent = state.monthly;
   els.vYears.textContent = state.years;
 
   const r = calcRequiredYield(state);
@@ -626,22 +624,22 @@ function update(){
 }
 
 // ----- heatmap (3x3) -----
-// rows: years: base-3, base, base+3 ; cols: monthly: x0.7, x1.0, x1.3
+// rows: 今後の入金額: x0.7, x1.0, x1.3 ; cols: years: base-3, base, base+3
 function drawHeatmap(){
   const baseY = state.years;
-  const baseM = state.monthly;
+  const baseF = state.future;
   const yrsArr = [Math.max(1, baseY - 3), baseY, Math.min(40, baseY + 3)];
-  const moArr  = [Math.max(0, +(baseM * 0.7).toFixed(1)), baseM, +(baseM * 1.3).toFixed(1)];
+  const fArr   = [Math.max(0, Math.round(baseF * 0.7)), baseF, Math.round(baseF * 1.3)];
 
   let html = '';
   // header row
   html += '<div class="haxis"></div>';
   yrsArr.forEach(y => { html += `<div class="haxis">${y}年</div>`; });
-  // body rows (rows = monthly values)
-  moArr.forEach((mo, ri) => {
-    html += `<div class="haxis">${mo}万</div>`;
+  // body rows (rows = 今後の入金額)
+  fArr.forEach((fv, ri) => {
+    html += `<div class="haxis">${fv}万</div>`;
     yrsArr.forEach((yr, ci) => {
-      const r = calcRequiredYield({...state, monthly: mo, years: yr});
+      const r = calcRequiredYield({...state, future: fv, years: yr});
       const cls = heatClass(r.y);
       const isCenter = (ri === 1 && ci === 1);
       const yTxt = isFinite(r.y) ? r.y.toFixed(1) + '%' : '∞';
@@ -671,7 +669,9 @@ function buildChartData(){
   const g = state.growth / 100;
   for(let t = 0; t <= state.years; t++){
     labels.push('Y' + t);
-    const principal = state.existing + state.monthly * 12 * t; // 万円
+    // 今後の入金額は期間にわたって等速で投入される前提
+    const ratio = state.years > 0 ? t / state.years : 0;
+    const principal = state.existing + state.future * ratio; // 万円
     // その時点の利回りは増配で yNow * (1+g)^t、配当 = principal * 利回り
     const yieldAtT = yNow * Math.pow(1 + g, t);
     const div = principal * yieldAtT; // 万円
@@ -785,9 +785,9 @@ els.nExisting.addEventListener('input', () => {
   update();
 });
 
-// monthly
-els.rMonthly.addEventListener('input', () => {
-  state.monthly = +els.rMonthly.value;
+// future contribution (累計万円)
+els.nFuture.addEventListener('input', () => {
+  state.future = clamp(+els.nFuture.value || 0, 0, 100000);
   update();
 });
 
