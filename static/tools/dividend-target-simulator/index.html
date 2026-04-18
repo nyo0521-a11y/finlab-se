@@ -423,10 +423,10 @@
 
         <div class="sketch-card">
           <h3><span class="num">06</span> 年次推移</h3>
-          <div class="hint" style="margin-bottom:8px">累計元本（グレー）と年間配当額（緑）の推移</div>
+          <div class="hint" style="margin-bottom:8px">投資元本（グレー）と年間配当額（緑）の推移 ※ 今後の入金額を t=0 で一括投入する前提</div>
           <div class="chartWrap"><canvas id="chart"></canvas></div>
           <div class="legend2">
-            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計投資元本</span>
+            <span class="k"><span class="sw" style="background:#cbd5e1"></span>投資元本（一括）</span>
             <span class="k"><span class="sw" style="background:#4ade80"></span>年間配当額</span>
           </div>
         </div>
@@ -684,18 +684,17 @@ function labelForYield(y){
 let chart = null;
 function buildChartData(){
   const labels = [], principalArr = [], divArr = [];
-  // 必要利回りでちょうど目標達成するシナリオを描く（増配考慮）
+  // このツールは「今後の入金額をいま追加投資する」前提で必要利回りを逆算しているので、
+  // チャートも積立ではなく t=0 で一括投入したシナリオを描く。
   const r = calcRequiredYield(state);
   const yNow = isFinite(r.y) ? r.y / 100 : 0;
   const g = state.growth / 100;
   for(let t = 0; t <= state.years; t++){
     labels.push('Y' + t);
-    // 今後の入金額は期間にわたって等速で投入される前提
-    const ratio = state.years > 0 ? t / state.years : 0;
-    const principal = state.future * ratio; // 万円
-    // 今後入金分の配当：その時点の利回りは増配で yNow * (1+g)^t
-    const yieldAtT = yNow * Math.pow(1 + g, t);
-    const divFuture = principal * yieldAtT; // 万円
+    // 元本は t=0 で future を一括投入し、その後は一定（株価変動は描かない）
+    const principal = state.future;
+    // 一括投入分の配当：利回りは増配で yNow * (1+g)^t
+    const divFuture = principal * yNow * Math.pow(1 + g, t);
     // 現在配当も同じ増配率で成長
     const divCurrent = state.current * Math.pow(1 + g, t);
     const div = divFuture + divCurrent;
@@ -721,7 +720,7 @@ function drawChart(){
       datasets:[
         {
           type:'bar',
-          label:'累計投資元本 (万円)',
+          label:'投資元本 (万円)',
           data:d.principalArr,
           backgroundColor:'rgba(203,213,225,.85)',
           borderColor:'#475569',
