@@ -291,8 +291,8 @@
   <h1>配当目標 → 必要利回りを逆算する。</h1>
   <p>「年◯◯万円の配当が欲しい」というゴールから、<b>いま買うべき平均配当利回り</b>を逆算します。月の入金額・投資期間・増配率を動かしながら、現実的な達成プランを探してください。</p>
   <div class="note">
-    <span><span class="dot" style="background:var(--accent)"></span> 緑=現実的</span>
-    <span><span class="dot" style="background:var(--warn)"></span> 黄=要努力</span>
+    <span><span class="dot" style="background:var(--accent)"></span> 緑=ETF中心で到達</span>
+    <span><span class="dot" style="background:var(--warn)"></span> 黄=個別株ミックス</span>
     <span><span class="dot" style="background:var(--orange)"></span> 橙=利回り罠リスク</span>
     <span><span class="dot" style="background:var(--danger)"></span> 赤=達成困難</span>
   </div>
@@ -384,8 +384,8 @@
           <div class="badge mid" id="badge">
             <div class="swatch" id="badgeSwatch">!</div>
             <div>
-              <div class="t" id="badgeTitle">要努力</div>
-              <div class="s" id="badgeSub">高配当ETF水準を超える領域。銘柄選定に注意。</div>
+              <div class="t" id="badgeTitle">個別株ミックス</div>
+              <div class="s" id="badgeSub">日本の高配当個別株を組み合わせる必要がある水準。</div>
             </div>
           </div>
           <div style="width:100%;margin-top:8px">
@@ -508,7 +508,7 @@ function calcRequiredYield(s){
 }
 
 // ----- judgement bands -----
-// < 3.5%: 緑「現実的」 / 3.5〜5%: 黄「要努力」 / 5〜7%: 橙「利回り罠リスク」 / >=7%: 赤「達成困難」
+// < 3.5%: 緑「ETF中心で到達」 / 3.5〜5%: 黄「個別株ミックス」 / 5〜7%: 橙「利回り罠リスク」 / >=7%: 赤「達成困難」
 function judge(y){
   if(y === 0) return {
     cls:'ok', label:'達成済み', swatch:'✓',
@@ -529,15 +529,15 @@ function judge(y){
     color:'#fb923c'
   };
   if(y >= 3.5) return {
-    cls:'mid', label:'要努力', swatch:'!',
-    sub:'高配当ETFや厳選個別株で狙える水準。',
-    advice:'主要高配当ETFや厳選個別株で狙える水準。買い時を意識すると有利になります。',
+    cls:'mid', label:'個別株ミックス', swatch:'!',
+    sub:'日本の高配当個別株を組み合わせる必要がある水準。',
+    advice:'米国高配当ETFだけでは届かない水準。日本の高配当個別株を組み合わせて利回りを底上げする設計が必要です。',
     color:'#f59e0b'
   };
   return {
-    cls:'ok', label:'現実的', swatch:'✓',
-    sub:'VYM等の高配当ETFでも届きうる水準です。',
-    advice:'VYM（4%前後）でも届く水準。タイミングに固執せず積立で十分達成可能です。',
+    cls:'ok', label:'ETF中心で到達', swatch:'✓',
+    sub:'VYM等の米国高配当ETFだけで届く水準です。',
+    advice:'VYM（4%前後）など米国高配当ETF中心の構成で届く水準。タイミングに固執せず積立で十分達成可能です。',
     color:'#10b981'
   };
 }
@@ -675,9 +675,9 @@ function drawHeatmap(){
 function labelForYield(y){
   if(!isFinite(y) || y >= 7) return '困難';
   if(y >= 5) return '罠リスク';
-  if(y >= 3.5) return '要努力';
+  if(y >= 3.5) return '個別株ミックス';
   if(y === 0) return '達成済み';
-  return '現実的';
+  return 'ETF中心';
 }
 
 // ----- chart -----
