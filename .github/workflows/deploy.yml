@@ -11,6 +11,12 @@ on:
   push:
     branches:
       - main
+  # 毎時0分に再ビルド：未来日付で書いた記事を予約時刻以降に自動公開するため
+  # （push がなくても定期的に再ビルドされ、現在時刻 >= date になった記事が公開される）
+  schedule:
+    - cron: '0 * * * *'
+  # 手動トリガー：必要なら GitHub Actions 画面から即時再ビルドできる
+  workflow_dispatch:
 
 jobs:
   # =========================================
@@ -39,9 +45,10 @@ jobs:
         run: rm -rf content/drafts
 
       - name: Build production
-        # --buildFuture: content/posts/ に置いた瞬間=公開という運用のため、
-        # date が未来日付でも除外せず公開する（Hugo標準の予約投稿挙動を無効化）
-        run: hugo --buildFuture --baseURL "https://finlab-se.com"
+        # 本番は --buildFuture を付けない＝Hugo標準の予約投稿挙動を活かす：
+        # date が現在時刻より未来の記事は除外。毎時0分の cron 再ビルドにより、
+        # 予約時刻に達した記事が自動公開される（最大1時間の遅延あり）。
+        run: hugo --baseURL "https://finlab-se.com"
 
       - name: Deploy to Cloudflare Pages (production)
         uses: cloudflare/wrangler-action@v3
