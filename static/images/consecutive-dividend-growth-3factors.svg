@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" role="img" aria-label="連続増配を続けられる企業に共通する3つの要素のベン図">
+  <rect width="800" height="520" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1f2937">連続増配を続けられる企業に共通する3要素</text>
+  <text x="400" y="58" text-anchor="middle" font-size="13" fill="#6b7280">この3つが重なる企業ほど、長期で配当を伸ばし続けやすい</text>
+
+  <!-- Three overlapping circles -->
+  <g opacity="0.55">
+    <!-- 景気耐性 (top-left, blue) -->
+    <circle cx="320" cy="240" r="150" fill="#60a5fa"/>
+    <!-- 参入障壁 (top-right, green) -->
+    <circle cx="480" cy="240" r="150" fill="#34d399"/>
+    <!-- 株主還元方針 (bottom, amber) -->
+    <circle cx="400" cy="360" r="150" fill="#fbbf24"/>
+  </g>
+
+  <!-- Circle labels -->
+  <g font-weight="700" font-size="17" fill="#1f2937" text-anchor="middle">
+    <text x="220" y="170">景気耐性</text>
+    <text x="580" y="170">参入障壁</text>
+    <text x="400" y="490">株主還元方針</text>
+  </g>
+
+  <!-- Sub captions -->
+  <g font-size="11" fill="#374151" text-anchor="middle">
+    <text x="220" y="190">日用品・通信・</text>
+    <text x="220" y="206">インフラなど</text>
+
+    <text x="580" y="190">ニッチトップ・</text>
+    <text x="580" y="206">プラットフォーム</text>
+
+    <text x="400" y="506">累進配当・配当性向の明示</text>
+  </g>
+
+  <!-- Center label -->
+  <g text-anchor="middle">
+    <rect x="320" y="280" width="160" height="48" rx="8" fill="#ffffff" stroke="#1f2937" stroke-width="1.2"/>
+    <text x="400" y="300" font-size="13" font-weight="700" fill="#1f2937">長期増配を</text>
+    <text x="400" y="318" font-size="13" font-weight="700" fill="#1f2937">続けられる企業</text>
+  </g>
+
+  <!-- Examples around -->
+  <g font-size="12" fill="#1e3a8a">
+    <text x="60"  y="290" font-weight="700">例：</text>
+    <text x="60"  y="310">花王</text>
+    <text x="60"  y="328">KDDI</text>
+    <text x="60"  y="346">沖縄セルラー</text>
+  </g>
+  <g font-size="12" fill="#065f46">
+    <text x="700" y="290" text-anchor="end" font-weight="700">例：</text>
+    <text x="700" y="310" text-anchor="end">ユー・エス・エス</text>
+    <text x="700" y="328" text-anchor="end">SPK</text>
+    <text x="700" y="346" text-anchor="end">リコーリース</text>
+  </g>
+  <g font-size="12" fill="#92400e">
+    <text x="120" y="430" font-weight="700">例：</text>
+    <text x="120" y="448">三菱HCキャピタル</text>
+    <text x="120" y="466">三菱商事 など</text>
+  </g>
+</svg>
