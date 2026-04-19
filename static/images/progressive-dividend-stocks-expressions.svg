@@ -52,19 +52,19 @@
     <text x="490" y="235" font-size="13" font-weight="700" fill="#1f2937">累進的配当</text>
     <text x="490" y="252" font-size="11" fill="#6b7280">累進配当とほぼ同義</text>
   </g>
-  <!-- 配当性向○%目安: 中央下 -->
+  <!-- 安定配当: 中央 -->
   <g>
-    <circle cx="380" cy="320" r="14" fill="#fb923c"/>
-    <text x="380" y="325" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">性向</text>
-    <text x="395" y="315" font-size="13" font-weight="700" fill="#1f2937">配当性向○%目安</text>
-    <text x="395" y="332" font-size="11" fill="#6b7280">利益が下がれば配当も下がる</text>
+    <circle cx="370" cy="280" r="14" fill="#fbbf24"/>
+    <text x="370" y="285" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">安</text>
+    <text x="388" y="275" font-size="13" font-weight="700" fill="#1f2937">安定配当</text>
+    <text x="388" y="292" font-size="11" fill="#6b7280">配当額の維持を志向、増配は控えめ</text>
   </g>
-  <!-- 安定配当: 左下 -->
+  <!-- 配当性向○%目安: 左下 -->
   <g>
-    <circle cx="220" cy="370" r="14" fill="#fbbf24"/>
-    <text x="220" y="375" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">安</text>
-    <text x="240" y="365" font-size="13" font-weight="700" fill="#1f2937">安定配当</text>
-    <text x="240" y="382" font-size="11" fill="#6b7280">"努力目標" に近い表現が多い</text>
+    <circle cx="220" cy="360" r="14" fill="#fb923c"/>
+    <text x="220" y="365" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">性向</text>
+    <text x="240" y="355" font-size="13" font-weight="700" fill="#1f2937">配当性向○%目安</text>
+    <text x="240" y="372" font-size="11" fill="#6b7280">利益連動。減配の可能性が残る</text>
   </g>
 
   <!-- Bottom note -->
