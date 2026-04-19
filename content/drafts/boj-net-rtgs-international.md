@@ -13,7 +13,7 @@ cover:
   hiddenInList: false
 ---
 
-別記事「[全銀ネットの仕組み]({{< relref "posts/zengin-net-payment-system.md" >}})」では、他行宛ての振込指示がどう取り次がれるかを解説しました。
+別記事「[全銀ネットの仕組み]({{< relref "drafts/zengin-net-payment-system.md" >}})」では、他行宛ての振込指示がどう取り次がれるかを解説しました。
 
 ただ、あの仕組みだけでは「銀行Aから銀行Bにお金を送りました」という**情報**は流れても、**お金そのもの**は動きません。
 
