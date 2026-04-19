@@ -39,7 +39,9 @@ jobs:
         run: rm -rf content/drafts
 
       - name: Build production
-        run: hugo --baseURL "https://finlab-se.com"
+        # --buildFuture: content/posts/ に置いた瞬間=公開という運用のため、
+        # date が未来日付でも除外せず公開する（Hugo標準の予約投稿挙動を無効化）
+        run: hugo --buildFuture --baseURL "https://finlab-se.com"
 
       - name: Deploy to Cloudflare Pages (production)
         uses: cloudflare/wrangler-action@v3
