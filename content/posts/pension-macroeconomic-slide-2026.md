@@ -8,7 +8,7 @@ cover:
   alt: "2026年度の年金改定率とマクロ経済スライド"
   relative: false
   hiddenInList: false
-draft: true
+draft: false
 ---
 
 「年金の改定率がニュースで出ていたけど、結局自分の手取りは増えるの？減るの？」
