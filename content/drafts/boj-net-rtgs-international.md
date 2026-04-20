@@ -7,7 +7,7 @@ tags: ["日銀ネット", "RTGS", "決済システム", "Fedwire", "CHIPS", "TAR
 description: "他行への振込は全銀ネットを通じて指示が伝わりますが、銀行同士の資金は日銀ネットで実際に動いています。RTGSとネッティングの違い、米国・欧州・英国の決済インフラまで、金融SEがわかりやすく解説します。"
 showToc: true
 cover:
-  image: "/images/thumb-boj-net-rtgs-international.jpg"
+  image: "/images/thumb-boj-net-rtgs-international.png"
   alt: "日銀ネットと海外決済システム（Fedwire・CHIPS・TARGET2・CHAPS）の比較イメージ"
   relative: false
   hiddenInList: false

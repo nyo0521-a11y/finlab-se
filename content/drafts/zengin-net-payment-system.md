@@ -8,7 +8,7 @@ categories: ["金融解説"]
 tags: ["全銀ネット", "銀行", "決済", "送金", "モアタイム", "金融インフラ"]
 showToc: true
 cover:
-  image: "/images/thumb-zengin-net-payment-system.jpg"
+  image: "/images/thumb-zengin-net-payment-system.png"
   alt: "銀行間ネットワークと振込の仕組みを表すイメージ"
 ---
 
