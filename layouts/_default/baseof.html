@@ -22,10 +22,14 @@
     {{- partial "head.html" . }}
 </head>
 
-{{- /* body class 判定: home / list / page */ -}}
+{{- /* body class 判定: home / term / terms / list / page */ -}}
 {{- $bodyClass := "" -}}
 {{- if .IsHome -}}
   {{- $bodyClass = "home" -}}
+{{- else if eq .Kind "term" -}}
+  {{- $bodyClass = "term" -}}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $bodyClass = "terms" -}}
 {{- else if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) -}}
   {{- $bodyClass = "list" -}}
 {{- end -}}

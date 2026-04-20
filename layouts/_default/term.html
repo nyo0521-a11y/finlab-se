@@ -1,0 +1,154 @@
+{{- /*
+  term.html (個別カテゴリページ)
+  - 例: /categories/高配当株投資/
+  - PaperMod 既定の term テンプレを上書き
+  - <body class="term"> + category.css スコープでスタイル適用
+  - 構成: ページヘッダー → 記事カードグリッド → ページネーション
+*/ -}}
+{{- define "main" -}}
+
+{{- /* カテゴリ説明文の辞書（カテゴリ名 → 説明）。未登録は汎用文に fallback */ -}}
+{{- $descMap := dict
+  "高配当株投資"     "配当を軸にした個別株・ETFの戦略、銘柄選定、買い時の判断軸まで。「人生設計から考える」高配当株投資の記録です。"
+  "AI × マネー管理術" "Claude Code を中心に、家計・資産・投資の管理を自動化する実装事例。MoneyForward 連携、スプレッドシート、自作シミュレータの作り方を共有します。"
+  "金融解説"         "銀行・決済システムの裏側を金融SE視点で解説。全銀ネット・日銀ネット・RTGS など、現場で触れた仕組みを言語化しています。"
+  "金融の仕組み"     "クレジットカード・決済・加盟店手数料など、お金が動く裏側のビジネスモデルを金融SE視点で分解します。"
+  "クレジットカード" "クレカ改定・ポイント還元・年会費の設計思想。SNSの「改悪」騒ぎに振り回されないための判断軸を整理します。"
+  "NISA・iDeCo"      "新NISA・iDeCo・企業型DCといった非課税／節税制度の使い分けと、改正の影響を時系列で整理します。"
+  "税制・制度解説"   "年収の壁・社会保険・税制改正など、生活と資産形成に直結する制度を「いつ・誰に・いくら効いてくるか」で解説します。"
+  "資産運用"         "インデックス投資・取り崩し・FIRE設計など、長期の資産運用に関する考え方と数値検証をまとめます。"
+  "家計改善"         "投資の前に効く支出最適化。固定費削減のインパクトを、配当金生活の必要元本と対比して整理します。"
+  "お知らせ"         "ブログ運営に関するお知らせ・更新情報をまとめています。"
+-}}
+{{- $catName := .Title -}}
+{{- $catDesc := index $descMap $catName -}}
+{{- if not $catDesc -}}
+  {{- $catDesc = printf "「%s」カテゴリの記事一覧です。金融SEとしての視点と、自分の口座での実験結果を踏まえて書いています。" $catName -}}
+{{- end -}}
+
+{{- $pages := .Pages -}}
+{{- $paginator := .Paginate $pages 12 -}}
+
+<!-- ================================================== -->
+<!-- TOP BAR (home と共通の見た目) -->
+<!-- ================================================== -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="{{ "/" | relURL }}" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">{{ site.Title }}</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="{{ "/categories/" | relURL }}" class="lk">カテゴリ</a>
+      <a href="{{ "/posts/" | relURL }}" class="lk">記事一覧</a>
+      <a href="{{ "/about/" | relURL }}" class="lk">About</a>
+      <a href="{{ "/search/" | relURL }}" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================== -->
+<!-- カテゴリヘッダー -->
+<!-- ================================================== -->
+<section class="cat-header">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span class="sep">/</span>
+      <a href="{{ "/categories/" | relURL }}">Categories</a>
+      <span class="sep">/</span>
+      <span class="current">{{ $catName }}</span>
+    </nav>
+    <span class="eyebrow">Category</span>
+    <h1 class="cat-title">{{ $catName }}</h1>
+    <p class="cat-lede">{{ $catDesc }}</p>
+    <div class="cat-stats">
+      <span class="stat-pill">
+        <span class="stat-n">{{ len $pages }}</span>
+        <span class="stat-l">articles</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- AdSense slot: category-top -->
+<div class="wrap ad-wrap" aria-label="Advertisement slot">
+  <div class="ad-slot ad-banner"></div>
+</div>
+
+<!-- ================================================== -->
+<!-- 記事カードグリッド -->
+<!-- ================================================== -->
+<section class="cat-posts">
+  <div class="wrap">
+    {{- if $paginator.Pages }}
+    <div class="posts-grid">
+      {{- range $p := $paginator.Pages }}
+      <a href="{{ $p.RelPermalink }}" class="post">
+        <div class="thumb {{ if not $p.Params.cover.image }}no-img{{ end }}">
+          {{- with $p.Params.cover.image }}
+          <img src="{{ . | relURL }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
+          {{- end }}
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-date">{{ $p.Date.Format "2006.01.02" }}</span>
+            <span class="post-read">· {{ $p.ReadingTime }} min</span>
+          </div>
+          <div class="post-title">{{ $p.Title }}</div>
+          {{- with $p.Params.description }}
+          <div class="post-excerpt">{{ . }}</div>
+          {{- end }}
+        </div>
+      </a>
+      {{- end }}
+    </div>
+
+    {{- /* ページネーション */ -}}
+    {{- if gt $paginator.TotalPages 1 }}
+    <nav class="pager" aria-label="ページネーション">
+      {{- if $paginator.HasPrev }}
+      <a class="pager-btn" href="{{ $paginator.Prev.URL }}">← 前へ</a>
+      {{- else }}
+      <span class="pager-btn is-disabled">← 前へ</span>
+      {{- end }}
+      <span class="pager-info">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+      {{- if $paginator.HasNext }}
+      <a class="pager-btn" href="{{ $paginator.Next.URL }}">次へ →</a>
+      {{- else }}
+      <span class="pager-btn is-disabled">次へ →</span>
+      {{- end }}
+    </nav>
+    {{- end }}
+
+    {{- else }}
+    <p class="empty">このカテゴリにはまだ記事がありません。</p>
+    {{- end }}
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="cat-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      {{ site.Title }}
+    </div>
+    <div class="foot-links">
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+      <a href="{{ "/about/" | relURL }}">このブログについて</a>
+      <a href="{{ "/privacy/" | relURL }}">プライバシー</a>
+    </div>
+    <div class="foot-copy">© 2024–{{ now.Year }} finlab-se.com</div>
+  </div>
+</footer>
+
+{{- end -}}

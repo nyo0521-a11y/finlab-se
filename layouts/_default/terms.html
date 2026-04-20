@@ -1,0 +1,112 @@
+{{- /*
+  terms.html (カテゴリ一覧ページ)
+  - URL: /categories/
+  - PaperMod 既定の terms テンプレを上書き
+  - <body class="terms"> + category.css スコープ
+  - 全カテゴリをカードグリッドで一覧。各カードに記事数と代表サムネイル（最新記事のcover.image）を表示
+*/ -}}
+{{- define "main" -}}
+
+{{- $taxonomy := .Data.Singular -}}
+{{- $terms := .Data.Terms -}}
+
+<!-- ================================================== -->
+<!-- TOP BAR -->
+<!-- ================================================== -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="{{ "/" | relURL }}" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">{{ site.Title }}</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="{{ "/categories/" | relURL }}" class="lk">カテゴリ</a>
+      <a href="{{ "/posts/" | relURL }}" class="lk">記事一覧</a>
+      <a href="{{ "/about/" | relURL }}" class="lk">About</a>
+      <a href="{{ "/search/" | relURL }}" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================== -->
+<!-- ヘッダー -->
+<!-- ================================================== -->
+<section class="cat-header">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Categories</span>
+    </nav>
+    <span class="eyebrow">All Categories</span>
+    <h1 class="cat-title">カテゴリ一覧</h1>
+    <p class="cat-lede">記事を分野別に整理しています。気になるテーマから読み進めてください。</p>
+  </div>
+</section>
+
+<!-- AdSense slot: terms-top -->
+<div class="wrap ad-wrap" aria-label="Advertisement slot">
+  <div class="ad-slot ad-banner"></div>
+</div>
+
+<!-- ================================================== -->
+<!-- カテゴリカードグリッド -->
+<!-- ================================================== -->
+<section class="cat-list">
+  <div class="wrap">
+    <div class="terms-grid">
+      {{- /* 記事数の多い順に並べる */ -}}
+      {{- range $name, $taxo := $terms.ByCount }}
+        {{- $latest := index $taxo.Pages 0 -}}
+        {{- $cover := "" -}}
+        {{- with $latest.Params.cover.image }}{{ $cover = . }}{{ end -}}
+        {{- $url := printf "/categories/%s/" (urlize $name) -}}
+      <a href="{{ $url | relURL }}" class="term-card">
+        <div class="term-thumb {{ if not $cover }}no-img{{ end }}">
+          {{- with $cover }}
+          <img src="{{ . | relURL }}" alt="{{ $name }}" loading="lazy">
+          {{- end }}
+          {{- if not $cover }}
+          <span class="term-badge">{{ slicestr $name 0 1 }}</span>
+          {{- end }}
+        </div>
+        <div class="term-body">
+          <div class="term-name">{{ $name }}</div>
+          <div class="term-meta">
+            <span class="term-count">{{ $taxo.Count }}<span class="unit">articles</span></span>
+            <span class="term-arrow">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="cat-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      {{ site.Title }}
+    </div>
+    <div class="foot-links">
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+      <a href="{{ "/about/" | relURL }}">このブログについて</a>
+      <a href="{{ "/privacy/" | relURL }}">プライバシー</a>
+    </div>
+    <div class="foot-copy">© 2024–{{ now.Year }} finlab-se.com</div>
+  </div>
+</footer>
+
+{{- end -}}
