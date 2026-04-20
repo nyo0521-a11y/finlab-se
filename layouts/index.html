@@ -1,0 +1,385 @@
+{{- /*
+  finlab-se トップページ
+  - Claude Design モックアップ（2026-04-21承認版）からの移植
+  - PaperMod の baseof.html を継承し、main ブロックに独自構成を流し込む
+  - PaperMod 既定の header/footer は home.css 側で非表示にし、本テンプレ独自の topbar/footer を表示
+*/ -}}
+{{- define "main" -}}
+
+{{- /* ヘルパー: カテゴリ別 最新記事1件取得 */ -}}
+{{- $allPosts := where site.RegularPages "Section" "posts" -}}
+{{- $catRecord    := first 1 (where $allPosts "Params.categories" "intersect" (slice "資産記録" "資産運用")) -}}
+{{- $catAI        := first 1 (where $allPosts "Params.categories" "intersect" (slice "AI × マネー管理術")) -}}
+{{- $catFinance   := first 1 (where $allPosts "Params.categories" "intersect" (slice "金融解説" "金融の仕組み" "クレジットカード")) -}}
+{{- $catNews      := first 1 (where $allPosts "Params.categories" "intersect" (slice "ニュース深掘り" "税制・制度解説" "NISA・iDeCo")) -}}
+
+{{- /* カテゴリ別 件数 */ -}}
+{{- $cntRecord  := len (where $allPosts "Params.categories" "intersect" (slice "資産記録" "資産運用")) -}}
+{{- $cntAI      := len (where $allPosts "Params.categories" "intersect" (slice "AI × マネー管理術")) -}}
+{{- $cntFinance := len (where $allPosts "Params.categories" "intersect" (slice "金融解説" "金融の仕組み" "クレジットカード")) -}}
+{{- $cntNews    := len (where $allPosts "Params.categories" "intersect" (slice "ニュース深掘り" "税制・制度解説" "NISA・iDeCo")) -}}
+
+{{- /* 最新記事リスト（広告枠を3記事目の後に挟むので6本まで） */ -}}
+{{- $latest := first 6 $allPosts -}}
+
+<!-- ================================================== -->
+<!-- TOP BAR -->
+<!-- ================================================== -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="{{ "/" | relURL }}" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">{{ site.Title }}</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#cat" class="lk">カテゴリ</a>
+      <a href="#tools" class="lk">ツール</a>
+      <a href="#posts" class="lk">最新記事</a>
+      <a href="{{ "/about/" | relURL }}" class="lk">About</a>
+      <a href="{{ "/search/" | relURL }}" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================== -->
+<!-- ① HERO -->
+<!-- ================================================== -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-kicker">
+        <span class="dot"></span>
+        FINANCIAL SE × 高配当株 × CLAUDE CODE
+      </span>
+      <h1>
+        金融業界の中の人が、<br>
+        自分のお金で<span class="green">実験</span>する。
+      </h1>
+      <p class="hero-lede">
+        銀行・クレジットカードシステムを担当する金融系SEが、<br>
+        高配当株投資とClaude Codeを武器に、<br>
+        「自分のお金で検証したこと」だけを書いています。
+      </p>
+      <div class="hero-tags">
+        <span class="tag"><span class="tdot"></span>金融SE（銀行・クレカ・決済）</span>
+        <span class="tag"><span class="tdot"></span>高配当株投資家</span>
+        <span class="tag"><span class="tdot"></span>Claude Code 活用</span>
+      </div>
+      <div class="hero-cta">
+        <a href="{{ "/posts/" | relURL }}" class="btn btn-primary">
+          記事一覧を見る
+          <svg class="ic arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+        <a href="{{ "/about/" | relURL }}" class="btn btn-ghost">
+          このブログについて
+        </a>
+      </div>
+    </div>
+
+    <aside class="author-card" aria-label="著者">
+      <div class="author-top">
+        <div class="avatar" aria-hidden="true">
+          {{- with site.Params.profileMode.imageUrl }}
+          <img src="{{ . | relURL }}" alt="やさぐれSE">
+          {{- end }}
+        </div>
+        <div>
+          <div class="author-name">やさぐれSE</div>
+          <div class="author-handle">@finlab_se</div>
+        </div>
+      </div>
+      <div class="author-role">
+        銀行・クレカのシステム子会社で、金融システムを担当する金融系SE。<br>
+        本業で触れた仕組みを、自分の口座で検証して書く派。
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="n">{{ len $allPosts }}<span class="unit">本</span></div>
+          <div class="l">PUBLISHED</div>
+        </div>
+        <div class="stat">
+          <div class="n">4<span class="unit">領域</span></div>
+          <div class="l">CATEGORY</div>
+        </div>
+        <div class="stat">
+          <div class="n">'24–<span class="unit"></span></div>
+          <div class="l">SINCE</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ~~ Ad Slot A: hero直下 / AdSense承認後にここを差し替え ~~ -->
+  <div class="wrap ad-wrap" aria-label="Advertisement slot">
+    <div class="ad-slot ad-hero">
+      <div class="ad-label">— Advertisement —</div>
+      <div class="ad-size">AdSense: responsive / 728×90 · 320×100</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- ② CATEGORY CARDS -->
+<!-- ================================================== -->
+<section id="cat">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Categories</span>
+        <h2 class="section-title">4つの領域で、金融を解く</h2>
+        <p class="section-sub">現場で触れる仕組み・自分の運用・AIによる実装・制度の裏側。重なり合う4視点で書いています。</p>
+      </div>
+    </div>
+
+    <div class="cat-grid">
+      <a href="{{ "/categories/資産運用/" | relURL }}" class="cat">
+        <div>
+          <div class="cat-icon">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 17l6-6 4 4 8-8"></path><path d="M14 7h7v7"></path></svg>
+          </div>
+          <div class="cat-name">資産記録</div>
+          <div class="cat-desc">毎月の運用結果、配当金、評価損益。自分の口座のリアルな数字を淡々と記録。</div>
+        </div>
+        <div class="cat-meta">
+          <span class="cat-count">{{ $cntRecord }}<span class="unit">articles</span></span>
+          <span class="cat-arrow">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="{{ "/categories/ai-マネー管理術/" | relURL }}" class="cat">
+        <div>
+          <div class="cat-icon">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M9 9h6v6H9z"></path><path d="M4 10h3M4 14h3M17 10h3M17 14h3M10 4v3M14 4v3M10 17v3M14 17v3"></path></svg>
+          </div>
+          <div class="cat-name">AI活用</div>
+          <div class="cat-desc">Claude Codeで金融データを扱う、スクレイピング、資産管理ツール自作の事例集。</div>
+        </div>
+        <div class="cat-meta">
+          <span class="cat-count">{{ $cntAI }}<span class="unit">articles</span></span>
+          <span class="cat-arrow">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="{{ "/categories/金融解説/" | relURL }}" class="cat">
+        <div>
+          <div class="cat-icon">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h4"></path></svg>
+          </div>
+          <div class="cat-name">金融解説</div>
+          <div class="cat-desc">銀行・クレジットカード・決済の裏側。現場のSEから見える「仕組み」を言語化。</div>
+        </div>
+        <div class="cat-meta">
+          <span class="cat-count">{{ $cntFinance }}<span class="unit">articles</span></span>
+          <span class="cat-arrow">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="{{ "/categories/ニュース深掘り/" | relURL }}" class="cat">
+        <div>
+          <div class="cat-icon">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h10"></path><circle cx="19" cy="18" r="2"></circle></svg>
+          </div>
+          <div class="cat-name">ニュース深掘り</div>
+          <div class="cat-desc">制度改正・税制・新NISA・インボイス。速報ではなく「何が効いてくるか」を書く。</div>
+        </div>
+        <div class="cat-meta">
+          <span class="cat-count">{{ $cntNews }}<span class="unit">articles</span></span>
+          <span class="cat-arrow">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- ③ TOOLS -->
+<!-- ================================================== -->
+<section id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Tools</span>
+        <h2 class="section-title">自作ツールを、無料で公開中</h2>
+        <p class="section-sub">記事で解説したロジックを、そのままブラウザで試せるミニツールにしています。会員登録不要・ブラウザ内完結。</p>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+      <a href="{{ "/tools/montecarlo/" | relURL }}" class="tool">
+        <div class="tool-icon">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 20V5M3 20h18"></path><path d="M6 16l4-6 4 3 6-9"></path><circle cx="10" cy="10" r="1.3" fill="currentColor" stroke="none"></circle><circle cx="14" cy="13" r="1.3" fill="currentColor" stroke="none"></circle><circle cx="20" cy="4" r="1.3" fill="currentColor" stroke="none"></circle></svg>
+        </div>
+        <div class="tool-tag">Tool 01 · Retirement</div>
+        <div class="tool-name">モンテカルロシミュレーション</div>
+        <div class="tool-desc">期待リターン・標準偏差・取崩率を入力すると、リタイア後の資産推移を10,000回試算。破綻確率を％で返します。</div>
+        <span class="tool-cta">使ってみる →</span>
+      </a>
+
+      <a href="{{ "/tools/dividend-target-simulator/" | relURL }}" class="tool">
+        <div class="tool-icon">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path><path d="M16 3l2 2"></path></svg>
+        </div>
+        <div class="tool-tag">Tool 02 · Dividend</div>
+        <div class="tool-name">必要配当利回り逆算シミュレータ</div>
+        <div class="tool-desc">「年◯◯万円の配当が欲しい」から、いま買うべき平均配当利回りを逆算。入金額・期間・増配率を動かして達成プランを設計。</div>
+        <span class="tool-cta">使ってみる →</span>
+      </a>
+
+      <span class="tool placeholder" aria-label="Coming soon">
+        <div class="tool-icon">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-dasharray="3 3"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M12 8v8M8 12h8"></path></svg>
+        </div>
+        <div class="tool-tag">Tool 03 · Coming soon</div>
+        <div class="tool-name">次のツール、準備中</div>
+        <div class="tool-desc">作ってほしい計算機・シミュレータがあれば、Xからリクエストください。</div>
+        <span class="tool-cta">リクエストする</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- ④ LATEST POSTS -->
+<!-- ================================================== -->
+<section id="posts" style="background: var(--bg-soft);">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Latest</span>
+        <h2 class="section-title">最新の記事</h2>
+      </div>
+      <a class="section-link" href="{{ "/posts/" | relURL }}">記事一覧へ <span class="arrow">→</span></a>
+    </div>
+
+    <div class="posts-grid">
+      {{- range $i, $p := $latest }}
+        {{- /* カテゴリでバッジ色を切替 */ -}}
+        {{- $cats := $p.Params.categories | default (slice) -}}
+        {{- $badgeClass := "" -}}
+        {{- $badgeLabel := "" -}}
+        {{- if in $cats "AI × マネー管理術" -}}
+          {{- $badgeClass = "b-blue" -}}{{- $badgeLabel = "AI活用" -}}
+        {{- else if or (in $cats "ニュース深掘り") (in $cats "税制・制度解説") (in $cats "NISA・iDeCo") -}}
+          {{- $badgeClass = "b-amber" -}}{{- $badgeLabel = "ニュース深掘り" -}}
+        {{- else if or (in $cats "金融解説") (in $cats "金融の仕組み") (in $cats "クレジットカード") -}}
+          {{- $badgeClass = "b-slate" -}}{{- $badgeLabel = "金融解説" -}}
+        {{- else -}}
+          {{- $badgeLabel = "資産記録" -}}
+        {{- end -}}
+      <a href="{{ $p.RelPermalink }}" class="post">
+        <div class="thumb {{ if not $p.Params.cover.image }}no-img{{ end }}">
+          {{- with $p.Params.cover.image }}
+          <img src="{{ . | relURL }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
+          {{- end }}
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="badge {{ $badgeClass }}">{{ $badgeLabel }}</span>
+            <span class="post-date">{{ $p.Date.Format "2006.01.02" }}</span>
+            <span class="post-read">· {{ $p.ReadingTime }} min</span>
+          </div>
+          <div class="post-title">{{ $p.Title }}</div>
+          {{- with $p.Params.description }}
+          <div class="post-excerpt">{{ . }}</div>
+          {{- end }}
+        </div>
+      </a>
+
+      {{- /* 3記事目の後にインフィード広告枠 */ -}}
+      {{- if eq $i 2 }}
+      <div class="ad-slot ad-infeed" aria-label="Advertisement slot">
+        <div class="ad-meta">
+          <div class="ad-label">— Advertisement · In-feed —</div>
+          <div class="ad-size">AdSense: in-feed / fluid</div>
+        </div>
+      </div>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- ⑤ PROFILE -->
+<!-- ================================================== -->
+<section id="about-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2 class="section-title">このブログを書いている人</h2>
+      </div>
+    </div>
+
+    <div class="profile-wrap">
+      <div class="profile-avatar" aria-hidden="true">
+        {{- with site.Params.profileMode.imageUrl }}
+        <img src="{{ . | relURL }}" alt="やさぐれSE">
+        {{- end }}
+      </div>
+      <div>
+        <div class="profile-name">やさぐれSE</div>
+        <div class="profile-role">BANK &amp; CREDIT SYSTEM ENGINEER · DIVIDEND INVESTOR</div>
+        <p class="profile-bio">
+          金融系SIer（銀行・クレカのシステム子会社）で、決済システムの設計／運用を担当。<br>
+          2024年から個人ブログでリアルな運用記録とClaude Code活用事例を公開中。<br>
+          煽らず、再現可能な形で「自分のお金で試したこと」だけを書きます。
+        </p>
+      </div>
+      <div class="profile-links">
+        <a href="{{ "/about/" | relURL }}" class="plink">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7l8 6 8-6"></path><rect x="4" y="5" width="16" height="14" rx="2"></rect></svg>
+          詳しいプロフィール
+          <span class="chip">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ~~ Ad Slot C: フッター直前 / AdSense承認後にここを差し替え ~~ -->
+<section aria-label="Advertisement slot" style="padding: 24px 0 56px;">
+  <div class="wrap" style="display:flex; justify-content:center;">
+    <div class="ad-slot ad-footer">
+      <div class="ad-label">— Advertisement —</div>
+      <div class="ad-size">AdSense: responsive / 300×250</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="home-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      {{ site.Title }}
+    </div>
+    <div class="foot-links">
+      <a href="{{ "/index.xml" | relURL }}">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.5" fill="currentColor"></circle></svg>
+        RSS
+      </a>
+      <a href="{{ "/about/" | relURL }}">このブログについて</a>
+      <a href="{{ "/privacy/" | relURL }}">プライバシー</a>
+    </div>
+    <div class="foot-copy">© 2024–{{ now.Year }} finlab-se.com</div>
+  </div>
+</footer>
+
+{{- end -}}

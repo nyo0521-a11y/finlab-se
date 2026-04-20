@@ -1,6 +1,14 @@
 {{- /* Site favicon: apple-touch-icon (PNG-based brand favicon set) */ -}}
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absURL }}">
 
+{{- /* トップページ専用CSS + Webフォント (home.css は .home スコープ) */ -}}
+{{- if .IsHome }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="{{ "css/home.css" | relURL }}">
+{{- end }}
+
 {{- /* Draft preview environment: swap favicon to DRAFT-stamped variant.
        Runs synchronously after PaperMod head.html so it mutates link hrefs
        before the browser fetches the icon. */ -}}
