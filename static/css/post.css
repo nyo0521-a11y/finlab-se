@@ -504,5 +504,6 @@
   .post .topbar-inner { height: 56px; }
   .post .brand-name { font-size: 13px; }
   .post .nav { gap: 14px; font-size: 12.5px; }
+  .post .nav .lk { display: none; }
   .post .nav .search-btn { padding: 5px 10px; }
 }
