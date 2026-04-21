@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 620" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif">
+  <!-- Background -->
+  <rect width="1040" height="620" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="520" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1f1a">
+    ネッティング — 双方向フローを相殺し、差額だけが国境を越える
+  </text>
+  <text x="520" y="68" text-anchor="middle" font-size="13" fill="#4a4f4a">
+    例：1日に「日本→シンガポール 1,000万円」「シンガポール→日本 950万円」の送金がある場合
+  </text>
+
+  <!-- ===== Section 1: 双方向フロー（プール内で完結） ===== -->
+  <g transform="translate(0,100)">
+    <rect x="40" y="0" width="960" height="180" rx="10" fill="#f0f7f3" stroke="#c8e0d2" stroke-width="1.5"/>
+    <text x="60" y="28" font-size="14" font-weight="700" fill="#2a7a3a">
+      ① その日の送金は各国内のプールで完結（国境をまたがない）
+    </text>
+
+    <!-- Japan pool -->
+    <rect x="80" y="50" width="280" height="110" rx="8" fill="#ffffff" stroke="#2a7a3a" stroke-width="2"/>
+    <text x="220" y="78" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f1a">🇯🇵 Wise日本プール（円）</text>
+    <text x="220" y="105" text-anchor="middle" font-size="13" fill="#4a4f4a">日本の送金人から</text>
+    <text x="220" y="125" text-anchor="middle" font-size="20" font-weight="700" fill="#2a7a3a">＋1,000万円</text>
+    <text x="220" y="148" text-anchor="middle" font-size="12" fill="#4a4f4a">（受取国向けの送金として入金）</text>
+
+    <!-- Singapore pool -->
+    <rect x="680" y="50" width="280" height="110" rx="8" fill="#ffffff" stroke="#2a7a3a" stroke-width="2"/>
+    <text x="820" y="78" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f1a">🇸🇬 Wise SGプール（SGD）</text>
+    <text x="820" y="105" text-anchor="middle" font-size="13" fill="#4a4f4a">SGの送金人から</text>
+    <text x="820" y="125" text-anchor="middle" font-size="20" font-weight="700" fill="#2a7a3a">＋950万円相当</text>
+    <text x="820" y="148" text-anchor="middle" font-size="12" fill="#4a4f4a">（受取国向けの送金として入金）</text>
+
+    <!-- Bidirectional arrows -->
+    <defs>
+      <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#2a7a3a"/>
+      </marker>
+      <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+      </marker>
+      <marker id="arrGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#9aa19a"/>
+      </marker>
+    </defs>
+
+    <!-- Arrow J→SG (top) "情報のみ" -->
+    <line x1="370" y1="85" x2="670" y2="85" stroke="#2a7a3a" stroke-width="2" marker-end="url(#arrG)"/>
+    <text x="520" y="78" text-anchor="middle" font-size="12" fill="#2a7a3a" font-weight="600">指示：日→SG 1,000万円分（情報のみ）</text>
+
+    <!-- Arrow SG→J (bottom) "情報のみ" -->
+    <line x1="670" y1="125" x2="370" y2="125" stroke="#2a7a3a" stroke-width="2" marker-end="url(#arrG)"/>
+    <text x="520" y="143" text-anchor="middle" font-size="12" fill="#2a7a3a" font-weight="600">指示：SG→日 950万円分（情報のみ）</text>
+  </g>
+
+  <!-- Down arrow + label -->
+  <g transform="translate(0,300)">
+    <text x="520" y="22" text-anchor="middle" font-size="13" font-weight="600" fill="#4a4f4a">↓ 双方向の指示を集計し、相殺（ネッティング）</text>
+  </g>
+
+  <!-- ===== Section 2: 差額だけが国境を越える ===== -->
+  <g transform="translate(0,340)">
+    <rect x="40" y="0" width="960" height="200" rx="10" fill="#fff5f1" stroke="#f0c8b4" stroke-width="1.5"/>
+    <text x="60" y="28" font-size="14" font-weight="700" fill="#c0392b">
+      ② 差額の50万円相当だけが、Wise自身の銀行送金で実際に国境を越える
+    </text>
+
+    <!-- Japan side -->
+    <rect x="80" y="60" width="280" height="100" rx="8" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+    <text x="220" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f1a">🇯🇵 Wise日本プール</text>
+    <text x="220" y="115" text-anchor="middle" font-size="13" fill="#4a4f4a">残高差分</text>
+    <text x="220" y="138" text-anchor="middle" font-size="18" font-weight="700" fill="#c0392b">＋50万円（過剰）</text>
+
+    <!-- Border (vertical dashed) -->
+    <line x1="520" y1="55" x2="520" y2="170" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="520" y="50" text-anchor="middle" font-size="11" font-weight="700" fill="#c0392b">⚠ 国境</text>
+
+    <!-- Singapore side -->
+    <rect x="680" y="60" width="280" height="100" rx="8" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+    <text x="820" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f1a">🇸🇬 Wise SGプール</text>
+    <text x="820" y="115" text-anchor="middle" font-size="13" fill="#4a4f4a">残高差分</text>
+    <text x="820" y="138" text-anchor="middle" font-size="18" font-weight="700" fill="#c0392b">−50万円（不足）</text>
+
+    <!-- Cross-border arrow (実際の資金移動) -->
+    <line x1="370" y1="110" x2="670" y2="110" stroke="#c0392b" stroke-width="3" marker-end="url(#arrR)"/>
+    <text x="520" y="100" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">実際の資金移動：50万円相当のみ（銀行海外送金 or 為替市場）</text>
+
+    <text x="520" y="185" text-anchor="middle" font-size="12" fill="#4a4f4a">→ 残り950万円分は各国内のプール内振替で完了。中継銀行手数料が発生しない</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="520" y="585" text-anchor="middle" font-size="12" fill="#6a706a">
+    主要通貨ペア（USD/EUR/GBP/JPY/SGD等）では双方向フローが拮抗するためネッティング効率が高く、これがWise・Revolutのコスト優位の源泉
+  </text>
+  <text x="1010" y="610" text-anchor="end" font-size="10" fill="#9aa19a">finlab-se.com</text>
+</svg>
