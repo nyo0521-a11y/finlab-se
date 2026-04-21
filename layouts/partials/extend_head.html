@@ -1,4 +1,6 @@
-{{- /* Site favicon: apple-touch-icon (PNG-based brand favicon set) */ -}}
+{{- /* Site favicon: SVG brand-mark (本番) + PNG apple-touch-icon。
+       Draftプレビューでは下のswapスクリプトでSVGリンクを除去し、従来のDRAFT版PNGに戻す */ -}}
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | absURL }}" id="favicon-svg">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absURL }}">
 
 {{- /* Google Search Console: site ownership is verified via DNS TXT record (Cloudflare).
@@ -61,6 +63,9 @@
   var host = location.hostname;
   var isDraft = host.indexOf('draft.') === 0 || host.indexOf('.pages.dev') !== -1;
   if (!isDraft) return;
+  // DraftではSVGファビコン（本番のみ）を除去し、従来のDRAFT版PNGに戻す
+  var svgLink = document.getElementById('favicon-svg');
+  if (svgLink && svgLink.parentNode) svgLink.parentNode.removeChild(svgLink);
   var map = {
     'apple-touch-icon.png':   'apple-touch-icon-draft.png',
     'favicon-32x32.png':      'favicon-draft-32x32.png',
