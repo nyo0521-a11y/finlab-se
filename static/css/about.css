@@ -50,14 +50,15 @@
 }
 .about .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; }
 .about .brand-mark {
-  width: 28px; height: 28px; border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent-600), var(--accent-700));
-  position: relative;
+  width: 30px; height: 30px; border-radius: 9px;
+  background: var(--ink);
+  position: relative; overflow: hidden; flex-shrink: 0;
 }
 .about .brand-mark::before {
-  content: "f"; position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 700; font-size: 16px; font-family: "Inter", sans-serif;
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, transparent 55%, var(--accent-600) 55%, var(--accent-600) 62%, transparent 62%),
+    linear-gradient(180deg, transparent 68%, var(--accent-600) 68%, var(--accent-600) 72%, transparent 72%);
 }
 .about .brand-name { font-size: 14px; letter-spacing: .02em; white-space: nowrap; }
 .about .brand-sub  { font-size: 11px; color: var(--ink-3); font-weight: 400; margin-top: 1px; }

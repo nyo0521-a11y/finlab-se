@@ -22,7 +22,7 @@
     {{- partial "head.html" . }}
 </head>
 
-{{- /* body class 判定: home / term / terms / pillar / about / list / page */ -}}
+{{- /* body class 判定: home / term / terms / pillar / about / posts-list / list / page */ -}}
 {{- $bodyClass := "" -}}
 {{- if .IsHome -}}
   {{- $bodyClass = "home" -}}
@@ -35,6 +35,9 @@
   {{- $bodyClass = "term pillar" -}}
 {{- else if eq .RelPermalink "/about/" -}}
   {{- $bodyClass = "about" -}}
+{{- else if and (eq .Kind "section") (eq .Section "posts") -}}
+  {{- /* /posts/ 記事一覧セクションは新デザイン専用クラス */ -}}
+  {{- $bodyClass = "posts-list" -}}
 {{- else if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) -}}
   {{- $bodyClass = "list" -}}
 {{- end -}}

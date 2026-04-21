@@ -1,0 +1,171 @@
+{{- /*
+  posts/list.html (記事一覧 /posts/)
+  - PaperMod 既定の list テンプレを posts セクションに限り上書き
+  - <body class="posts-list"> + list.css スコープでスタイル適用
+  - 構成: ページヘッダー(統計) → カテゴリピル → 記事カードグリッド → ページネーション
+  - term.html と同じカード HTML 構造を維持し、CSS は list.css 側で再定義
+*/ -}}
+{{- define "main" -}}
+
+{{- $pages      := .Pages -}}
+{{- $totalCount := len $pages -}}
+{{- $paginator  := .Paginate $pages 12 -}}
+
+{{- /* カテゴリ別カウント（ピル絞り込み用）。サイト全体の categories taxonomy を参照 */ -}}
+{{- $cats := .Site.Taxonomies.categories -}}
+
+{{- /* 最終更新月（最新記事の日付）と総カテゴリ数 */ -}}
+{{- $latest := index $pages 0 -}}
+
+<!-- ================================================== -->
+<!-- TOP BAR (home / term と共通) -->
+<!-- ================================================== -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="{{ "/" | relURL }}" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">{{ site.Title }}</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="{{ "/categories/" | relURL }}" class="lk">カテゴリ</a>
+      <a href="{{ "/posts/" | relURL }}" class="lk is-current">記事一覧</a>
+      <a href="{{ "/about/" | relURL }}" class="lk">About</a>
+      <a href="{{ "/search/" | relURL }}" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================== -->
+<!-- ページヒーロー -->
+<!-- ================================================== -->
+<section class="list-header">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span class="sep">/</span>
+      <span class="current">記事一覧</span>
+    </nav>
+    <span class="eyebrow">All Posts</span>
+    <h1 class="list-title">記事一覧</h1>
+    <p class="list-lede">{{ $totalCount }}本の記事を、新しい順にすべて表示しています。カテゴリで絞り込むか、ページ送りで過去記事まで辿れます。</p>
+    <div class="list-stats">
+      <span class="stat-pill">
+        <span class="stat-n">{{ $totalCount }}</span>
+        <span class="stat-l">articles</span>
+      </span>
+      <span class="stat-pill">
+        <span class="stat-n">{{ len $cats }}</span>
+        <span class="stat-l">categories</span>
+      </span>
+      {{- with $latest }}
+      <span class="stat-pill">
+        <span class="stat-n">{{ .Date.Format "2006.01" }}</span>
+        <span class="stat-l">last update</span>
+      </span>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<!-- AdSense slot: posts-top -->
+<div class="wrap ad-wrap" aria-label="Advertisement slot">
+  <div class="ad-slot ad-banner"></div>
+</div>
+
+<!-- ================================================== -->
+<!-- カテゴリ絞り込みピル -->
+<!-- ================================================== -->
+{{- if $cats }}
+<section class="list-filter" aria-label="カテゴリで絞り込む">
+  <div class="wrap">
+    <div class="filter-pills">
+      <span class="filter-label">カテゴリ:</span>
+      <a href="{{ "/posts/" | relURL }}" class="pill is-active" aria-current="page">すべて<span class="pill-n">{{ $totalCount }}</span></a>
+      {{- range $name, $taxonomy := $cats }}
+      <a href="{{ printf "/categories/%s/" ($name | urlize) | relURL }}" class="pill">{{ $name }}<span class="pill-n">{{ len $taxonomy.Pages }}</span></a>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+<!-- ================================================== -->
+<!-- 記事カードグリッド -->
+<!-- ================================================== -->
+<section class="list-posts">
+  <div class="wrap">
+    {{- if $paginator.Pages }}
+    <div class="posts-grid">
+      {{- range $p := $paginator.Pages }}
+      <a href="{{ $p.RelPermalink }}" class="post">
+        <div class="thumb {{ if not $p.Params.cover.image }}no-img{{ end }}">
+          {{- with $p.Params.cover.image }}
+          <img src="{{ . | relURL }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
+          {{- end }}
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-date">{{ $p.Date.Format "2006.01.02" }}</span>
+            <span class="post-read">· {{ $p.ReadingTime }} min</span>
+            {{- with $p.Params.categories }}
+            {{- $first := index . 0 }}
+            <span class="post-cat">{{ $first }}</span>
+            {{- end }}
+          </div>
+          <div class="post-title">{{ $p.Title }}</div>
+          {{- with $p.Params.description }}
+          <div class="post-excerpt">{{ . }}</div>
+          {{- end }}
+        </div>
+      </a>
+      {{- end }}
+    </div>
+
+    {{- /* ページネーション */ -}}
+    {{- if gt $paginator.TotalPages 1 }}
+    <nav class="pager" aria-label="ページネーション">
+      {{- if $paginator.HasPrev }}
+      <a class="pager-btn" href="{{ $paginator.Prev.URL }}" rel="prev">← 前へ</a>
+      {{- else }}
+      <span class="pager-btn is-disabled" aria-disabled="true">← 前へ</span>
+      {{- end }}
+      <span class="pager-info">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+      {{- if $paginator.HasNext }}
+      <a class="pager-btn" href="{{ $paginator.Next.URL }}" rel="next">次へ →</a>
+      {{- else }}
+      <span class="pager-btn is-disabled" aria-disabled="true">次へ →</span>
+      {{- end }}
+    </nav>
+    {{- end }}
+
+    {{- else }}
+    <p class="empty">まだ記事がありません。</p>
+    {{- end }}
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="list-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      {{ site.Title }}
+    </div>
+    <div class="foot-links">
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+      <a href="{{ "/about/" | relURL }}">このブログについて</a>
+      <a href="{{ "/privacy/" | relURL }}">プライバシー</a>
+    </div>
+    <div class="foot-copy">© 2024–{{ now.Year }} finlab-se.com</div>
+  </div>
+</footer>
+
+{{- end -}}
