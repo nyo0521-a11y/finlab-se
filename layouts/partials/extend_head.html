@@ -1,8 +1,17 @@
 {{- /* Site favicon: apple-touch-icon (PNG-based brand favicon set) */ -}}
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absURL }}">
 
-{{- /* Google Search Console: site verification (HTML tag method, fallback for GA-based verification) */ -}}
-<meta name="google-site-verification" content="YrMnBdrTHjsPKetuc1KFrOI8haElmC5GevJXgM-I5D4" />
+{{- /* Google Search Console: site ownership is verified via DNS TXT record (Cloudflare).
+       No HTML tag needed. */ -}}
+
+{{- /* Google Analytics 4 (Property: finlab-se.com / Account: yasagurese@gmail.com) */ -}}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-68K0QJV9JM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-68K0QJV9JM');
+</script>
 
 {{- /* Google AdSense: site verification & auto-ad loader (pub-5743260737982404) */ -}}
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5743260737982404" crossorigin="anonymous"></script>
