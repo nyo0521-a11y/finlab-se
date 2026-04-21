@@ -1,0 +1,147 @@
+{{- /*
+  pillars/single.html
+  - 4本柱（Pillar）の集約ページ
+  - frontmatter の categories_in_scope に含まれるカテゴリを持つ記事を集約表示
+  - URL: /pillars/<slug>/
+  - スタイルは category.css と pillar.css を再利用（<body class="term"> として描画）
+*/ -}}
+{{- define "main" -}}
+
+{{- $scope := .Params.categories_in_scope | default (slice) -}}
+{{- $allPosts := where site.RegularPages "Section" "posts" -}}
+{{- $pages := where $allPosts "Params.categories" "intersect" $scope -}}
+{{- $paginator := .Paginate $pages 12 -}}
+
+<!-- ================================================== -->
+<!-- TOP BAR -->
+<!-- ================================================== -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="{{ "/" | relURL }}" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">{{ site.Title }}</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="{{ "/categories/" | relURL }}" class="lk">カテゴリ</a>
+      <a href="{{ "/posts/" | relURL }}" class="lk">記事一覧</a>
+      <a href="{{ "/about/" | relURL }}" class="lk">About</a>
+      <a href="{{ "/search/" | relURL }}" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================== -->
+<!-- Pillar ヘッダー -->
+<!-- ================================================== -->
+<section class="cat-header">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span class="sep">/</span>
+      <span class="current">{{ .Title }}</span>
+    </nav>
+    <span class="eyebrow">{{ .Params.pillar_eyebrow | default "Pillar" }}</span>
+    <h1 class="cat-title">{{ .Title }}</h1>
+    {{- with .Params.pillar_tagline }}
+    <p class="cat-lede"><strong>{{ . }}</strong></p>
+    {{- end }}
+    <p class="cat-lede">{{ .Params.description }}</p>
+
+    <div class="cat-stats">
+      <span class="stat-pill">
+        <span class="stat-n">{{ len $pages }}</span>
+        <span class="stat-l">articles</span>
+      </span>
+    </div>
+
+    {{- if $scope }}
+    <div class="pillar-scope" aria-label="このPillarに含まれるカテゴリ">
+      <span class="pillar-scope-label">含まれるカテゴリ:</span>
+      {{- range $c := $scope }}
+      <a class="pillar-scope-chip" href="{{ printf "/categories/%s/" (urlize $c) | relURL }}">{{ $c }}</a>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</section>
+
+<!-- AdSense slot: pillar-top -->
+<div class="wrap ad-wrap" aria-label="Advertisement slot">
+  <div class="ad-slot ad-banner"></div>
+</div>
+
+<!-- ================================================== -->
+<!-- 記事カードグリッド -->
+<!-- ================================================== -->
+<section class="cat-posts">
+  <div class="wrap">
+    {{- if $paginator.Pages }}
+    <div class="posts-grid">
+      {{- range $p := $paginator.Pages }}
+      <a href="{{ $p.RelPermalink }}" class="post">
+        <div class="thumb {{ if not $p.Params.cover.image }}no-img{{ end }}">
+          {{- with $p.Params.cover.image }}
+          <img src="{{ . | relURL }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
+          {{- end }}
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-date">{{ $p.Date.Format "2006.01.02" }}</span>
+            <span class="post-read">· {{ $p.ReadingTime }} min</span>
+          </div>
+          <div class="post-title">{{ $p.Title }}</div>
+          {{- with $p.Params.description }}
+          <div class="post-excerpt">{{ . }}</div>
+          {{- end }}
+        </div>
+      </a>
+      {{- end }}
+    </div>
+
+    {{- if gt $paginator.TotalPages 1 }}
+    <nav class="pager" aria-label="ページネーション">
+      {{- if $paginator.HasPrev }}
+      <a class="pager-btn" href="{{ $paginator.Prev.URL }}">← 前へ</a>
+      {{- else }}
+      <span class="pager-btn is-disabled">← 前へ</span>
+      {{- end }}
+      <span class="pager-info">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+      {{- if $paginator.HasNext }}
+      <a class="pager-btn" href="{{ $paginator.Next.URL }}">次へ →</a>
+      {{- else }}
+      <span class="pager-btn is-disabled">次へ →</span>
+      {{- end }}
+    </nav>
+    {{- end }}
+
+    {{- else }}
+    <p class="empty">この Pillar にはまだ記事がありません。</p>
+    {{- end }}
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="cat-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      {{ site.Title }}
+    </div>
+    <div class="foot-links">
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+      <a href="{{ "/about/" | relURL }}">このブログについて</a>
+      <a href="{{ "/privacy/" | relURL }}">プライバシー</a>
+    </div>
+    <div class="foot-copy">© 2024–{{ now.Year }} finlab-se.com</div>
+  </div>
+</footer>
+
+{{- end -}}

@@ -22,7 +22,7 @@
     {{- partial "head.html" . }}
 </head>
 
-{{- /* body class 判定: home / term / terms / list / page */ -}}
+{{- /* body class 判定: home / term / terms / pillar / about / list / page */ -}}
 {{- $bodyClass := "" -}}
 {{- if .IsHome -}}
   {{- $bodyClass = "home" -}}
@@ -30,6 +30,11 @@
   {{- $bodyClass = "term" -}}
 {{- else if eq .Kind "taxonomy" -}}
   {{- $bodyClass = "terms" -}}
+{{- else if eq .Section "pillars" -}}
+  {{- /* pillar セクションは category と同じ見た目を再利用するため term クラスにそろえる */ -}}
+  {{- $bodyClass = "term pillar" -}}
+{{- else if eq .RelPermalink "/about/" -}}
+  {{- $bodyClass = "about" -}}
 {{- else if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) -}}
   {{- $bodyClass = "list" -}}
 {{- end -}}

@@ -1,0 +1,46 @@
+/* =================================================================
+   pillar.css
+   - 4本柱（Pillar）集約ページ専用の追加スタイル
+   - 基本レイアウトは category.css の .term スコープを再利用
+   - <body class="term pillar"> として描画されることを想定
+   ================================================================= */
+
+.term.pillar .pillar-scope {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.term.pillar .pillar-scope-label {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  margin-right: 4px;
+}
+
+.term.pillar .pillar-scope-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid var(--line, #e3e5e3);
+  background: var(--bg, #fff);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--ink-2, #4a4f4a);
+  transition: all 0.15s ease;
+}
+
+.term.pillar .pillar-scope-chip:hover {
+  border-color: var(--accent-700, #2a7a3a);
+  color: var(--accent-700, #2a7a3a);
+  background: var(--bg-soft, #f7f8f7);
+}
+
+.term.pillar .cat-title {
+  /* Pillar はカテゴリより少し階層が上であることを示すために若干強調 */
+  letter-spacing: -0.01em;
+}
