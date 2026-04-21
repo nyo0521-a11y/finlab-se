@@ -2,6 +2,7 @@
 title: "お問い合わせ"
 date: 2026-04-21
 draft: false
+type: "page"
 description: "金融エンジニアの資産運用実験室（finlab-se.com）へのお問い合わせ窓口。記事内容の質問・指摘、コラボ・取材のご相談はこちらから。"
 ShowToc: false
 ShowReadingTime: false

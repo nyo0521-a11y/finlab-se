@@ -2,6 +2,7 @@
 title: "アフィリエイト・広告表記"
 date: 2026-04-21
 draft: false
+type: "page"
 description: "金融エンジニアの資産運用実験室（finlab-se.com）におけるアフィリエイトプログラム・広告表記のポリシーです。景品表示法に基づく広告明示の方針を説明します。"
 ShowToc: false
 ShowReadingTime: false

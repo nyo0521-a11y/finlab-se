@@ -2,6 +2,7 @@
 title: "プライバシーポリシー"
 date: 2026-04-21
 draft: false
+type: "page"
 description: "金融エンジニアの資産運用実験室（finlab-se.com）におけるアクセス解析・Cookie・アフィリエイトリンクに関する情報の取り扱いを定めたプライバシーポリシーです。"
 ShowToc: false
 ShowReadingTime: false
