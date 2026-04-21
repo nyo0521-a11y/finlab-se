@@ -1,0 +1,185 @@
+{{- /*
+  posts/single.html
+  - 個別記事ページ（/posts/<slug>/）専用レイアウト
+  - <body class="post"> + post.css スコープ
+  - 構成: TopBar / 記事ヘッダー（eyebrow=カテゴリ・タイトル・メタ）
+          / 本文（.md-content） / タグ / 同カテゴリ関連記事 / FooterAd / Footer
+  - PaperMod の post_meta / share_icons などは使わず、独自パーツで構築
+*/ -}}
+{{- define "main" -}}
+
+{{- $primaryCategory := index (.Params.categories | default (slice)) 0 -}}
+{{- $allPosts := where site.RegularPages "Section" "posts" -}}
+
+{{- /* 同カテゴリの関連記事を最大3本（自記事を除外） */ -}}
+{{- $related := slice -}}
+{{- if $primaryCategory -}}
+  {{- $related = first 3 (where (where $allPosts "Permalink" "ne" .Permalink) "Params.categories" "intersect" (slice $primaryCategory)) -}}
+{{- end -}}
+
+<!-- ================================================== -->
+<!-- TOP BAR -->
+<!-- ================================================== -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="{{ "/" | relURL }}" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">{{ site.Title }}</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="{{ "/categories/" | relURL }}" class="lk">カテゴリ</a>
+      <a href="{{ "/posts/" | relURL }}" class="lk is-current">記事一覧</a>
+      <a href="{{ "/about/" | relURL }}" class="lk">About</a>
+      <a href="{{ "/search/" | relURL }}" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================== -->
+<!-- ARTICLE -->
+<!-- ================================================== -->
+<article class="post-article">
+
+  <!-- パンくず -->
+  <div class="wrap post-narrow">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span class="sep">/</span>
+      <a href="{{ "/posts/" | relURL }}">記事一覧</a>
+      {{- if $primaryCategory }}
+      <span class="sep">/</span>
+      <a href="{{ printf "/categories/%s/" (urlize $primaryCategory) | relURL }}">{{ $primaryCategory }}</a>
+      {{- end }}
+      <span class="sep">/</span>
+      <span class="current">{{ .Title }}</span>
+    </nav>
+  </div>
+
+  <!-- 記事ヘッダー -->
+  <header class="post-hero">
+    <div class="wrap post-narrow">
+      {{- if $primaryCategory }}
+      <a class="post-eyebrow" href="{{ printf "/categories/%s/" (urlize $primaryCategory) | relURL }}">{{ $primaryCategory }}</a>
+      {{- end }}
+      <h1 class="post-title">{{ .Title }}</h1>
+      {{- with .Description }}
+      <p class="post-lede">{{ . }}</p>
+      {{- end }}
+      <div class="post-meta">
+        <span class="post-meta-item">
+          <span class="post-meta-label">公開</span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+        </span>
+        {{- if and (not .Lastmod.IsZero) (gt (.Lastmod.Sub .Date).Hours 24.0) }}
+        <span class="post-meta-item">
+          <span class="post-meta-label">更新</span>
+          <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006年1月2日" }}</time>
+        </span>
+        {{- end }}
+        {{- if .ReadingTime }}
+        <span class="post-meta-item">
+          <span class="post-meta-label">読了</span>
+          約{{ .ReadingTime }}分
+        </span>
+        {{- end }}
+      </div>
+    </div>
+  </header>
+
+  <!-- カバー画像 -->
+  {{- with .Params.cover.image }}
+  <div class="wrap post-narrow">
+    <figure class="post-cover">
+      <img src="{{ . | relURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+    </figure>
+  </div>
+  {{- end }}
+
+  <!-- 本文 -->
+  {{- if .Content }}
+  <div class="wrap post-narrow">
+    <div class="post-content md-content">
+      {{- if not (.Param "disableAnchoredHeadings") }}
+      {{- partial "anchored_headings.html" .Content -}}
+      {{- else }}{{ .Content }}{{ end }}
+    </div>
+  </div>
+  {{- end }}
+
+  <!-- タグ -->
+  {{- $tags := .Language.Params.Taxonomies.tag | default "tags" -}}
+  {{- $termList := $.GetTerms $tags -}}
+  {{- if $termList }}
+  <div class="wrap post-narrow">
+    <div class="post-tags">
+      <span class="post-tags-label">TAGS</span>
+      <ul>
+        {{- range $termList }}
+        <li><a href="{{ .Permalink }}">#{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+  </div>
+  {{- end }}
+
+</article>
+
+<!-- AdSense slot: post-bottom -->
+<div class="wrap ad-wrap" aria-label="Advertisement slot">
+  <div class="ad-slot ad-banner"></div>
+</div>
+
+<!-- ================================================== -->
+<!-- 関連記事（同カテゴリ・最大3本） -->
+<!-- ================================================== -->
+{{- if $related }}
+<section class="post-related">
+  <div class="wrap">
+    <h2 class="post-related-title">同じカテゴリの記事</h2>
+    <div class="post-related-grid">
+      {{- range $related }}
+      <a class="post-related-card" href="{{ .RelPermalink }}">
+        {{- with .Params.cover.image }}
+        <div class="post-related-thumb">
+          <img src="{{ . | relURL }}" alt="" loading="lazy">
+        </div>
+        {{- end }}
+        <div class="post-related-body">
+          {{- with index (.Params.categories | default (slice)) 0 }}
+          <div class="post-related-eyebrow">{{ . }}</div>
+          {{- end }}
+          <div class="post-related-name">{{ .Title }}</div>
+          <div class="post-related-date">{{ .Date.Format "2006.01.02" }}</div>
+        </div>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="post-footer-band">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      {{ site.Title }}
+    </div>
+    <div class="foot-links">
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+      <a href="{{ "/about/" | relURL }}">このブログについて</a>
+      <a href="{{ "/privacy/" | relURL }}">プライバシー</a>
+    </div>
+    <div class="foot-copy">© 2024–{{ now.Year }} finlab-se.com</div>
+  </div>
+</footer>
+
+{{- end -}}

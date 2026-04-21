@@ -38,6 +38,9 @@
 {{- else if and (eq .Kind "section") (eq .Section "posts") -}}
   {{- /* /posts/ 記事一覧セクションは新デザイン専用クラス */ -}}
   {{- $bodyClass = "posts-list" -}}
+{{- else if and (eq .Kind "page") (eq .Section "posts") -}}
+  {{- /* /posts/<slug>/ 個別記事は post クラスで独自レイアウトを適用 */ -}}
+  {{- $bodyClass = "post" -}}
 {{- else if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) -}}
   {{- $bodyClass = "list" -}}
 {{- end -}}
