@@ -64,6 +64,10 @@ params:
   # ソーシャルリンク
   socialIcons: []
 
+  # フッター（PaperMod標準フッター用）
+  footer:
+    text: '<a href="/about/">このブログについて</a> · <a href="/privacy/">プライバシーポリシー</a> · <a href="/disclosure/">アフィリエイト・広告表記</a> · <a href="/contact/">お問い合わせ</a>'
+
   # 検索機能
   fuseOpts:
     isCaseSensitive: false
