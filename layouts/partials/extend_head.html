@@ -25,7 +25,8 @@
 {{- $isAbout     := eq .RelPermalink "/about/" -}}
 {{- $isPostsList := and (eq .Kind "section") (eq .Section "posts") -}}
 {{- $isPostSingle := and (eq .Kind "page") (eq .Section "posts") -}}
-{{- if or $isHome $isTerm $isTerms $isPillar $isAbout $isPostsList $isPostSingle }}
+{{- $isStaticPage := and (eq .Kind "page") (eq .Section "") -}}
+{{- if or $isHome $isTerm $isTerms $isPillar $isAbout $isPostsList $isPostSingle $isStaticPage }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -47,6 +48,9 @@
 {{- end }}
 {{- if $isPostSingle }}
 <link rel="stylesheet" href="{{ "css/post.css" | relURL }}">
+{{- end }}
+{{- if $isStaticPage }}
+<link rel="stylesheet" href="{{ "css/page.css" | relURL }}">
 {{- end }}
 
 {{- /* Draft preview environment: swap favicon to DRAFT-stamped variant.

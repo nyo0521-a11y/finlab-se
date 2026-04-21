@@ -35,6 +35,9 @@
   {{- $bodyClass = "term pillar" -}}
 {{- else if eq .RelPermalink "/about/" -}}
   {{- $bodyClass = "about" -}}
+{{- else if and (eq .Kind "page") (eq .Section "") -}}
+  {{- /* トップ階層の固定ページ（/privacy/, /disclosure/, /contact/ 等） */ -}}
+  {{- $bodyClass = "page" -}}
 {{- else if and (eq .Kind "section") (eq .Section "posts") -}}
   {{- /* /posts/ 記事一覧セクションは新デザイン専用クラス */ -}}
   {{- $bodyClass = "posts-list" -}}

@@ -1,0 +1,78 @@
+{{- /*
+  page/single.html
+  - トップ階層の固定ページ（/privacy/, /disclosure/, /contact/ 等）専用レイアウト
+  - <body class="page"> + page.css スコープ
+  - 構成: TopBar / ヒーロー（タイトルのみ） / 本文 / FOOTER
+  - posts や about は別レイアウトを使うため影響なし
+*/ -}}
+{{- define "main" -}}
+
+<!-- ================================================== -->
+<!-- TOP BAR -->
+<!-- ================================================== -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="{{ "/" | relURL }}" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">{{ site.Title }}</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="{{ "/categories/" | relURL }}" class="lk">カテゴリ</a>
+      <a href="{{ "/posts/" | relURL }}" class="lk">記事一覧</a>
+      <a href="{{ "/about/" | relURL }}" class="lk">About</a>
+      <a href="{{ "/search/" | relURL }}" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================== -->
+<!-- HERO（タイトルのみ） -->
+<!-- ================================================== -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Page</span>
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{- with .Params.description }}
+    <p class="page-lede">{{ . }}</p>
+    {{- end }}
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- 本文 -->
+<!-- ================================================== -->
+<section class="page-section">
+  <div class="wrap wrap-narrow">
+    <article class="page-prose">
+      {{ .Content }}
+    </article>
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="page-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      {{ site.Title }}
+    </div>
+    <div class="foot-links">
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+      <a href="{{ "/about/" | relURL }}">このブログについて</a>
+      <a href="{{ "/privacy/" | relURL }}">プライバシー</a>
+      <a href="{{ "/disclosure/" | relURL }}">広告表記</a>
+      <a href="{{ "/contact/" | relURL }}">お問い合わせ</a>
+    </div>
+    <div class="foot-copy">© 2024–{{ now.Year }} finlab-se.com</div>
+  </div>
+</footer>
+
+{{- end -}}
