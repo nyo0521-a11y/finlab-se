@@ -6,6 +6,10 @@ categories: ["金融解説"]
 tags: ["暗号資産","ステーブルコイン","海外送金","規制","マネーロンダリング"]
 description: "暗号資産が生まれた思想的背景から、ステーブルコインによる海外送金の現在地までを金融SEが整理。MiCA・改正資金決済法・GENIUS Actなどの規制動向と、AML対応という普及の壁まで解説します。"
 showToc: true
+cover:
+  image: "/images/thumb-crypto-stablecoin-remittance.png"
+  alt: "暗号資産とステーブルコインによる送金"
+  relative: false
 ---
 
 別記事「[Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み]({{< relref "wise-revolut-fintech-remittance" >}})」では、Wise・Revolutが各国に自社プール口座を持ちネッティングで差額だけを動かすことで、コルレス網という150年続いた前提を「合法的に迂回」している姿を整理しました。

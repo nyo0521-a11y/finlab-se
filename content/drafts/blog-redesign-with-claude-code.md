@@ -7,7 +7,7 @@ tags: ["Claude Code","ブログ運営","Hugo","個人開発","デザイン"]
 description: "PaperMod標準のままだったブログを、Claude Codeへの対話指示だけで3日間で大幅刷新しました。非エンジニアがレイアウト・カテゴリ・法的ページまで整えた体験記です。"
 showToc: true
 cover:
-  image: "/images/thumb-blog-redesign-claude-code.jpg"
+  image: "/images/thumb-blog-redesign-with-claude-code.png"
   alt: "Claude Codeでブログを刷新するイメージ"
   relative: false
   hiddenInList: false
