@@ -186,20 +186,6 @@ PaperModは余白がきれいで、文字も読みやすく、テーマとして
 
 ---
 
-## 埋め込みたいスクリーンショット候補（後で用意）
-
-本Draftには以下の画像プレースホルダを記載しています。撮影・差し替えは別途対応予定です。
-
-- `blog-redesign-before-top.png` — 旧トップページ（PaperMod標準。記事タイトルが縦に並ぶだけの状態）
-- `blog-redesign-after-top.png` — 新トップページ（Hero／ツール／カテゴリ／最新記事の4ブロック構成。ファーストビュー全体）
-- `blog-redesign-before-category.png` — 旧カテゴリページ（タイトル一覧のみ）
-- `blog-redesign-after-category.png` — 新カテゴリページ（カテゴリ名ヘッダー＋カード型記事一覧）
-- `blog-redesign-before-post.png` — 旧個別記事ページ（PaperMod標準）
-- `blog-redesign-after-post.png` — 新個別記事ページ（トップと統一されたヘッダー・余白）
-- `thumb-blog-redesign-claude-code.jpg` — 記事サムネイル（要：3D写実スタイルでブログデザイン刷新のモチーフ）
-
----
-
 ## 関連記事
 
 - [Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](/posts/claude-code-blog-experience/)
