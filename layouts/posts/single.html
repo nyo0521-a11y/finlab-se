@@ -104,6 +104,9 @@
   <!-- 本文 -->
   {{- if .Content }}
   <div class="wrap post-narrow">
+    {{- if (.Param "showToc") }}
+    {{- partial "toc.html" . }}
+    {{- end }}
     <div class="post-content md-content">
       {{- if not (.Param "disableAnchoredHeadings") }}
       {{- partial "anchored_headings.html" .Content -}}
