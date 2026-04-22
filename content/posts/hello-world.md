@@ -5,6 +5,7 @@ draft: false
 categories: ["お知らせ"]
 tags: ["自己紹介"]
 description: "金融エンジニアの資産実験室へようこそ。ブログ開設のご挨拶です。"
+showToc: true
 cover:
   image: "/images/thumb-hello-world.jpg"
   alt: "金融エンジニアの資産実験室 ブログ開設"
