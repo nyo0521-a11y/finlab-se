@@ -4,7 +4,7 @@ date: 2026-04-23T07:00:00+09:00
 draft: true
 categories: ["金融解説"]
 tags: ["暗号資産","ステーブルコイン","海外送金","規制","マネーロンダリング"]
-description: "暗号資産が生まれた思想的背景から、ステーブルコインによる海外送金の現在地までを金融SEが整理。MiCA・改正資金決済法・GENIUS Actなどの規制動向と、AML対応という普及の壁まで解説します。"
+description: "暗号資産が生まれた思想的背景から、ステーブルコインによる海外送金の現在地までを金融SEが整理。MiCA・改正資金決済法・GENIUS Actなどの規制動向と、マネーロンダリング対策（AML）という普及の壁まで解説します。"
 showToc: true
 cover:
   image: "/images/thumb-crypto-stablecoin-remittance.png"
