@@ -2,7 +2,7 @@
 title: "Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー"
 date: 2026-04-17T08:00:00+09:00
 draft: false
-categories: ["AI × マネー管理術"]
+categories: ["AI活用"]
 tags: ["Claude Code", "家計管理", "MoneyForward", "Googleスプレッドシート", "資産管理自動化"]
 description: "MoneyForward更新からスプレッドシート・貸借対照表Excelへの転記まで、月次資産管理をClaude Codeで自動化した話。「出力フォーマットとインプットを渡す」だけで動く仕組みを紹介します。"
 showToc: true

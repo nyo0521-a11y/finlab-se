@@ -10,6 +10,7 @@ cover:
   relative: false
   hiddenInList: false
 draft: false
+categories: ["金融ニュース"]
 ---
 
 「年金は前年より増えました」というニュースを見て、なんとなく安心してしまっていないでしょうか。

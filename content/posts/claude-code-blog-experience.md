@@ -2,7 +2,7 @@
 title: "Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記"
 date: 2026-04-12T20:35:00+09:00
 draft: false
-categories: ["AI × マネー管理術"]
+categories: ["AI活用"]
 tags: ["Claude Code", "Hugo", "Cloudflare Pages", "ブログ開設", "個人開発"]
 description: "投資シミュレーターをClaude Codeで自作していたら、気づけばブログまで作っていた話。Hugo + Cloudflare Pagesでの構築過程と、ハマった失敗談をまとめます。"
 showToc: true
