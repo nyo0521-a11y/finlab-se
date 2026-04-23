@@ -7,8 +7,8 @@ tags: ["金融SE", "キャリア", "銀行システム", "仕事論"]
 description: "銀行決済・クレジットカード・金融グループの国際規制システムを渡り歩いてきた金融SEの視点で、移行プロジェクトが難しい理由、本番を守ることの重み、そしてこの仕事ならではのダイナミックさと充実感を率直に書いています。"
 showToc: true
 cover:
-  image: "/images/thumb-bank-core-system-cloud.jpg"
-  alt: "金融SE20年のキャリアで学んだことのイメージ"
+  image: "/images/thumb-finance-se-20years-lessons.png"
+  alt: "金融SE20年のキャリアで学んだことのイメージ——夜の監視ルームで複数モニターを見つめるSEの後ろ姿"
   relative: false
   hiddenInList: false
 ---
