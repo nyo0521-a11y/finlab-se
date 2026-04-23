@@ -4,7 +4,7 @@ date: 2026-04-23T10:00:00+09:00
 draft: true
 categories: ["AI活用"]
 tags: ["Claude Design","Claude Code","ブログ運営","Hugo","個人開発","デザイン"]
-description: "Anthropicが新たにリリースしたClaude Designを使ってブログのデザインモックアップを作り、Claude Codeで実装する2段階フローを実践しました。PaperMod標準から脱却するまでの体験を記録します。"
+description: "Claude Codeに「ブログをリデザインして」と丸投げするだけで、その裏でClaude Designも使いこなしながらPaperMod標準から脱却できた体験記。コードを1行も書かず、デザイン案も自分で固めずに進んだAI任せの刷新プロセスを記録します。"
 showToc: true
 cover:
   image: "/images/thumb-blog-redesign-with-claude-code.png"
