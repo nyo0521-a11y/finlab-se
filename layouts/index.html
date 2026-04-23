@@ -280,11 +280,11 @@
         {{- $cats := $p.Params.categories | default (slice) -}}
         {{- $badgeClass := "" -}}
         {{- $badgeLabel := "" -}}
-        {{- if in $cats "AI × マネー管理術" -}}
+        {{- if in $cats "AI活用" -}}
           {{- $badgeClass = "b-blue" -}}{{- $badgeLabel = "AI活用" -}}
-        {{- else if or (in $cats "ニュース深掘り") (in $cats "税制・制度解説") (in $cats "NISA・iDeCo") -}}
+        {{- else if in $cats "金融ニュース" -}}
           {{- $badgeClass = "b-amber" -}}{{- $badgeLabel = "ニュース深掘り" -}}
-        {{- else if or (in $cats "金融解説") (in $cats "金融の仕組み") (in $cats "クレジットカード") -}}
+        {{- else if in $cats "金融の仕組み" -}}
           {{- $badgeClass = "b-slate" -}}{{- $badgeLabel = "金融解説" -}}
         {{- else -}}
           {{- $badgeLabel = "資産記録" -}}

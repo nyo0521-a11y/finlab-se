@@ -5,8 +5,7 @@ draft: false
 description: "高配当株ポートフォリオの推移、配当金、評価損益。自分の口座の数字を淡々と記録します。"
 categories_in_scope:
   - "高配当株投資"
-  - "資産運用"
-  - "家計改善"
+  - "資産形成"
 pillar_eyebrow: "Pillar 01"
 pillar_tagline: "自分のお金で実験した記録"
 ---

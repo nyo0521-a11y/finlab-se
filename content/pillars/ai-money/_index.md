@@ -4,7 +4,7 @@ date: 2026-04-21
 draft: false
 description: "Claude Code を使った資産管理の自動化、シミュレータ自作、データ取得の事例集。"
 categories_in_scope:
-  - "AI × マネー管理術"
+  - "AI活用"
 pillar_eyebrow: "Pillar 02"
 pillar_tagline: "Claude Code で資産管理を自動化する"
 ---
