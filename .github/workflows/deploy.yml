@@ -93,6 +93,20 @@ jobs:
       - name: Build draft preview
         run: hugo --buildDrafts --buildFuture --environment draft
 
+      - name: Block search engines on draft site
+        # Draftサイトは公開前の下書き置き場なので、検索エンジンにインデックスされないようにする
+        # - _headers: Cloudflare Pages が読み取り、X-Robots-Tag ヘッダを全レスポンスに付与（Googleが強く尊重）
+        # - robots.txt: 行儀の良いクローラをそもそもクロールさせない
+        run: |
+          cat > public/_headers <<'EOF'
+          /*
+            X-Robots-Tag: noindex, nofollow
+          EOF
+          cat > public/robots.txt <<'EOF'
+          User-agent: *
+          Disallow: /
+          EOF
+
       - name: Deploy to Cloudflare Pages (draft)
         uses: cloudflare/wrangler-action@v3
         with:
