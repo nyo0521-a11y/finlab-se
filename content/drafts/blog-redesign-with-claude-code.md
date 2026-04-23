@@ -21,7 +21,7 @@ cover:
 - CSSをいじって壊すのが怖くて、ずっと後回しにしている
 - デザイン会社に頼むほどの規模でもないし、予算もない
 
-<strong>結論から言うと、Claude DesignとClaude Codeを組み合わせた2段階フローで、コードを1行も書かずにデザイン刷新が実現できます。</strong> デザインのモックアップはClaude Designに、実装はClaude Codeに任せる。人間の役割は「こうしたい」を言葉で伝えることだけです。
+<strong>結論から言うと、Claude Codeに「リデザインして」と丸ごと任せるだけで、コードを1行も書かずにデザイン刷新が実現できます。</strong> Claude Codeが必要に応じて裏でClaude Designも使いこなしてくれるので、人間の役割は「こうしたい」を言葉で伝えることだけです。
 
 なぜこの2段階フローで十分なのか。それは、デザインの決定と実装を完全に分業できるからです。本記事では、実際にこのブログ「金融エンジニアの資産運用実験室」でやってみた体験をもとに確認していきます。
 
@@ -92,6 +92,8 @@ Anthropicが `claude.ai/design` というサービスをリリースした、と
 実際の作業は、大きく2つのステップで進みました。
 
 ### Step 1：Claude Designでモックアップを作る
+
+![私→Claude Code→Claude in Chrome→Claude Designの役割分担フロー図](/images/blog-redesign-flow.png)
 
 ここで面白いのは、<strong>私自身が直接 `claude.ai/design` を触ったわけではない</strong>ということです。私が指示したのはClaude Codeに対してだけ。Claude Codeが「Claude in Chrome」（ブラウザを操作できる機能）を使って、代わりにClaude Designへプロンプトを入力してくれました。
 
