@@ -141,7 +141,7 @@ Anthropicが `claude.ai/design` というサービスをリリースした、と
 
 ![Before: PaperMod標準のトップページ](/images/blog-redesign-before-top.png)
 
-<strong>Before：</strong> PaperMod標準のテンプレート。記事タイトルと日付・タグが縦に並ぶだけの構成。「このブログが何を提供しているサイトなのか」がトップからは伝わらない状態でした。
+<strong>Before：</strong> トップページにあるのはタイトル画像（Heroカード）と「記事一覧」「カテゴリ」の2つのボタンだけ。記事にたどり着くには「記事一覧」へ遷移する必要があり、<strong>トップからは「このブログが何を提供しているサイトなのか」がほとんど伝わらない状態</strong>でした。
 
 ![After: 4ブロック構成の新トップページ](/images/blog-redesign-after-top.png)
 
