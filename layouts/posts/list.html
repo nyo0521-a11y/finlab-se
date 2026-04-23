@@ -88,7 +88,14 @@
       <span class="filter-label">カテゴリ:</span>
       <a href="{{ "/posts/" | relURL }}" class="pill is-active" aria-current="page">すべて<span class="pill-n">{{ $totalCount }}</span></a>
       {{- range $name, $taxonomy := $cats }}
-      <a href="{{ printf "/categories/%s/" ($name | urlize) | relURL }}" class="pill">{{ $name }}<span class="pill-n">{{ len $taxonomy.Pages }}</span></a>
+      {{- $catPage := site.GetPage (printf "/categories/%s" $name) -}}
+      {{- $catTitle := $name -}}
+      {{- $catURL := printf "/categories/%s/" ($name | urlize) | relURL -}}
+      {{- if $catPage -}}
+        {{- $catTitle = $catPage.Title -}}
+        {{- $catURL = $catPage.RelPermalink -}}
+      {{- end }}
+      <a href="{{ $catURL }}" class="pill">{{ $catTitle }}<span class="pill-n">{{ len $taxonomy.Pages }}</span></a>
       {{- end }}
     </div>
   </div>
