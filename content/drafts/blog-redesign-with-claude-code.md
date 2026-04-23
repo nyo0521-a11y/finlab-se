@@ -151,7 +151,7 @@ Anthropicが `claude.ai/design` というサービスをリリースした、と
 
 ![Before: PaperMod標準のカテゴリページ](/images/blog-redesign-before-category.png)
 
-<strong>Before：</strong> タイトル一覧と同じ見た目。トップとほぼ区別がつかない。
+<strong>Before：</strong> 記事カードが1列で縦積みされているだけで、そのカテゴリが「何を扱う場所なのか」を示す説明文がない。ページ全体の雰囲気もトップと揃っていない状態。
 
 ![After: トップと統一されたカテゴリページ](/images/blog-redesign-after-category.png)
 
