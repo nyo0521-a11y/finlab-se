@@ -62,7 +62,8 @@
   <div class="wrap">
     <div class="terms-grid">
       {{- /* 記事数の多い順に並べる */ -}}
-      {{- range $name, $taxo := $terms.ByCount }}
+      {{- range $taxo := $terms.ByCount }}
+        {{- $name := $taxo.Name -}}
         {{- $latest := index $taxo.Pages 0 -}}
         {{- $cover := "" -}}
         {{- with $latest.Params.cover.image }}{{ $cover = . }}{{ end -}}
