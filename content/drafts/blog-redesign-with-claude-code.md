@@ -247,4 +247,4 @@ Anthropicが `claude.ai/design` というサービスをリリースした、と
 ## 関連記事
 
 - [Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](https://finlab-se.com/posts/claude-code-blog-experience/)
-- [Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/)
+- [【ツール紹介】必要配当利回り逆算シミュレータ ～「年◯◯万円欲しい」から逆算する高配当株設計～](https://finlab-se.com/posts/dividend-target-simulator-tool-usage/)
