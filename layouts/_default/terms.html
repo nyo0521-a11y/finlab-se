@@ -66,8 +66,10 @@
         {{- $latest := index $taxo.Pages 0 -}}
         {{- $cover := "" -}}
         {{- with $latest.Params.cover.image }}{{ $cover = . }}{{ end -}}
-        {{- $url := printf "/categories/%s/" (urlize $name) -}}
-      <a href="{{ $url | relURL }}" class="term-card">
+        {{- $catPage := site.GetPage (printf "/categories/%s" $name) -}}
+        {{- $url := "" -}}
+        {{- if $catPage -}}{{- $url = $catPage.RelPermalink -}}{{- else -}}{{- $url = (printf "/categories/%s/" (urlize $name)) | relURL -}}{{- end -}}
+      <a href="{{ $url }}" class="term-card">
         <div class="term-thumb {{ if not $cover }}no-img{{ end }}">
           {{- with $cover }}
           <img src="{{ . | relURL }}" alt="{{ $name }}" loading="lazy">
