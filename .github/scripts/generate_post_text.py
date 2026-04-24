@@ -88,11 +88,21 @@ def build_url(post_path: str, slug: str | None) -> str:
 
 
 def truncate_description(desc: str, budget: int) -> str:
-    """description を budget 字以内に収める。末尾「…」を付ける。"""
+    """description を budget 字以内に収める。句読点で自然に切れる場合は「…」を付けない。"""
     if len(desc) <= budget:
         return desc
     if budget <= 1:
         return ""
+    # 予算内で最後に現れる 。 または 、 を探し、そこで自然に切る
+    head = desc[:budget]
+    for mark in ("。", "！", "？"):
+        idx = head.rfind(mark)
+        if idx >= budget * 0.5:  # あまり短すぎる位置では切らない
+            return head[: idx + 1]
+    idx = head.rfind("、")
+    if idx >= budget * 0.5:
+        return head[: idx + 1] + "…"
+    # それでも区切りが見つからなければ素直に末尾…
     return desc[: budget - 1] + "…"
 
 
@@ -100,38 +110,32 @@ def build_text(title: str, description: str, url: str, hashtags: list, prefix: s
     """
     構造:
         {prefix}
-        {title}
-
         {description}
 
         {url}
 
         {#tag1 #tag2 #tag3}
 
-    タイトルが長い場合はタイトル優先・descriptionで吸収、それでも140字超ならタイトル末尾を削る。
+    タイトルは X の URL カードで自動表示されるため、本文からは除外する（重複回避＋description 優先）。
+    description が長すぎる場合は句読点で自然に切る。
     """
     hashtag_line = " ".join(hashtags)
-    # X の文字数計算: URL は常に 23 字換算。実URL長との差分を予算に足し戻す。
-    url_bonus = len(url) - URL_WEIGHT  # 正の値: 実URLが23字より長い分だけ予算を広げられる
-    # 実際のテキスト: prefix\n title\n\n {desc}\n\n {url}\n\n {hashtags}
-    skeleton = f"{prefix}\n{title}\n\n\n\n{url}\n\n{hashtag_line}"
-    budget = MAX_LEN - len(skeleton) + url_bonus  # descriptionに使える字数（X換算ベース）
+    url_bonus = len(url) - URL_WEIGHT
+    # 実際のテキスト: prefix\n {desc}\n\n {url}\n\n {hashtags}
+    skeleton = f"{prefix}\n\n\n{url}\n\n{hashtag_line}"
+    budget = MAX_LEN - len(skeleton) + url_bonus
 
-    if budget < 0:
-        # titleが長すぎる：titleから削る（タイトルは大事なので末尾に…）
-        over = -budget
-        title = title[: max(1, len(title) - over - 1)] + "…"
-        skeleton = f"{prefix}\n{title}\n\n\n\n{url}\n\n{hashtag_line}"
-        budget = MAX_LEN - len(skeleton) + url_bonus
-        desc_part = ""
-    else:
-        desc_part = truncate_description(description, budget)
+    desc_part = truncate_description(description, budget)
 
-    text = f"{prefix}\n{title}\n\n{desc_part}\n\n{url}\n\n{hashtag_line}"
-    # 最終確認：descriptionが空ならそこの空行を詰める
-    if not desc_part:
-        text = f"{prefix}\n{title}\n\n{url}\n\n{hashtag_line}"
-    return text.strip()
+    # ハッシュタグを削っても全文を優先したい場合の救済
+    if len(desc_part) < len(description) and hashtags:
+        # ハッシュタグなしで全文入るか再計算
+        skeleton_no_tag = f"{prefix}\n\n\n{url}"
+        budget_no_tag = MAX_LEN - len(skeleton_no_tag) + url_bonus
+        if len(description) <= budget_no_tag:
+            return f"{prefix}\n{description}\n\n{url}".strip()
+
+    return f"{prefix}\n{desc_part}\n\n{url}\n\n{hashtag_line}".strip()
 
 
 def main():
