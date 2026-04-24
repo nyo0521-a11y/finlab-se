@@ -32,8 +32,8 @@ except ImportError:
     print(json.dumps({"ok": False, "error": "requests / requests-oauthlib not installed"}))
     sys.exit(1)
 
-UPLOAD_URL = "https://upload.twitter.com/1.1/media/upload.json"
-TWEET_URL = "https://api.twitter.com/2/tweets"
+UPLOAD_URL = "https://api.x.com/2/media/upload"
+TWEET_URL = "https://api.x.com/2/tweets"
 
 
 def get_oauth() -> OAuth1:
@@ -76,12 +76,21 @@ def resolve_image_source(image_ref: str) -> tuple[str, bool]:
 
 
 def upload_media(image_path: str, oauth: OAuth1) -> str:
-    """v1.1 media/upload（simple upload）。返り値 media_id_string。"""
+    """v2 /2/media/upload（simple upload）。返り値 media_id（string）。"""
     with open(image_path, "rb") as f:
         files = {"media": f}
         r = requests.post(UPLOAD_URL, files=files, auth=oauth, timeout=60)
-    r.raise_for_status()
-    return r.json()["media_id_string"]
+    if r.status_code >= 300:
+        raise RuntimeError(f"media upload failed: {r.status_code} {r.text}")
+    body = r.json()
+    # v2 レスポンス: {"data": {"id": "..."}}  / 旧互換: {"media_id_string": "..."} も一応
+    if "data" in body and "id" in body["data"]:
+        return body["data"]["id"]
+    if "id" in body:
+        return body["id"]
+    if "media_id_string" in body:
+        return body["media_id_string"]
+    raise RuntimeError(f"unexpected media upload response: {body}")
 
 
 def post_tweet(text: str, media_id: str | None, oauth: OAuth1) -> dict:
