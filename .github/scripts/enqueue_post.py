@@ -1,10 +1,10 @@
 """
-data/x-queue.yaml に新記事告知エントリを追記する。
+data/x-queue.yaml に新記事告知エントリを追記する（承認フロー廃止版）。
 
 使い方:
-    python enqueue_post.py <post_path> <issue_number>
+    python enqueue_post.py <post_path>
 
-同じ post_path が既に存在していれば issue_number のみ更新（重複追加しない）。
+同じ post_path が既に存在していれば追加しない（冪等）。
 """
 import sys
 from datetime import datetime, timezone, timedelta
@@ -17,12 +17,11 @@ JST = timezone(timedelta(hours=9))
 
 
 def main():
-    if len(sys.argv) < 3:
-        print("usage: enqueue_post.py <post_path> <issue_number>", file=sys.stderr)
+    if len(sys.argv) < 2:
+        print("usage: enqueue_post.py <post_path>", file=sys.stderr)
         sys.exit(2)
 
     post_path = sys.argv[1]
-    issue_number = int(sys.argv[2])
 
     yaml = YAML()
     yaml.preserve_quotes = True
@@ -35,22 +34,21 @@ def main():
         data = {}
     queue = data.get("queue") or []
 
-    # 既存エントリの更新
+    # 重複チェック（冪等）
     for entry in queue:
         if entry.get("post_path") == post_path:
-            entry["issue_number"] = issue_number
-            break
-    else:
-        queue.append({
-            "post_path": post_path,
-            "issue_number": issue_number,
-            "added_at": datetime.now(JST).isoformat(timespec="seconds"),
-        })
+            print(f"already enqueued: {post_path}")
+            return
+
+    queue.append({
+        "post_path": post_path,
+        "added_at": datetime.now(JST).isoformat(timespec="seconds"),
+    })
     data["queue"] = queue
 
     with QUEUE_PATH.open("w", encoding="utf-8") as f:
         yaml.dump(data, f)
-    print(f"enqueued: {post_path} (issue #{issue_number})")
+    print(f"enqueued: {post_path}")
 
 
 if __name__ == "__main__":

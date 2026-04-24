@@ -1,0 +1,74 @@
+name: X Auto Post - New Post Enqueue
+
+# 新記事がmainにpushされたら data/x-queue.yaml に post_path を追記する（承認フロー廃止版）。
+# 投稿タイミングは x-post-scheduled.yml が朝7:30/夜21:00のcronで処理する。
+#
+# 流れ:
+#   push to main (content/posts/**.md 追加)
+#     -> 追加ファイル検出
+#     -> data/x-queue.yaml に post_path を追記してコミット
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/posts/**.md"
+  workflow_dispatch:
+    inputs:
+      post_path:
+        description: "手動指定: content/posts/xxx.md"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  enqueue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install ruamel.yaml
+
+      - name: Detect added posts
+        id: detect
+        shell: bash
+        run: |
+          set -e
+          if [ -n "${{ inputs.post_path }}" ]; then
+            echo "files=${{ inputs.post_path }}" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          ADDED=$(git diff --name-only --diff-filter=A HEAD^ HEAD -- 'content/posts/*.md' || true)
+          echo "Detected added files:"
+          echo "$ADDED"
+          FILES=$(echo "$ADDED" | tr '\n' ' ' | sed 's/ *$//')
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+
+      - name: Enqueue
+        if: steps.detect.outputs.files != ''
+        shell: bash
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          for POST_PATH in ${{ steps.detect.outputs.files }}; do
+            echo "=== Enqueueing: $POST_PATH ==="
+            python .github/scripts/enqueue_post.py "$POST_PATH"
+          done
+
+          if ! git diff --quiet data/x-queue.yaml; then
+            git add data/x-queue.yaml
+            git commit -m "chore(x-queue): enqueue new post(s)"
+            git push
+          fi
