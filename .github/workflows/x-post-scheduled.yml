@@ -63,9 +63,17 @@ jobs:
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         shell: bash
         run: |
-          set -e
+          # set -e を使わず exit code を別変数で捕捉する（set -e + RESULT=$(...) だとエラー時に
+          # echo が実行される前にシェルが死んでエラー内容が見えなくなるため）
+          set +e
           RESULT=$(python .github/scripts/dequeue_and_post.py "${{ steps.slot.outputs.slot }}")
+          EXIT_CODE=$?
+          set -e
           echo "Result: $RESULT"
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "::error::dequeue_and_post.py failed (exit $EXIT_CODE). See 'Result' above for details."
+            exit $EXIT_CODE
+          fi
           STATUS=$(echo "$RESULT" | python -c "import sys,json; print(json.load(sys.stdin).get('status',''))")
           echo "status=$STATUS" >> "$GITHUB_ENV"
 

@@ -32,7 +32,8 @@ except ImportError:
     print(json.dumps({"ok": False, "error": "requests / requests-oauthlib not installed"}))
     sys.exit(1)
 
-UPLOAD_URL = "https://api.x.com/2/media/upload"
+# メディアアップロードは v1.1（Free tierで安定動作）、ツイート投稿は v2
+UPLOAD_URL = "https://upload.twitter.com/1.1/media/upload.json"
 TWEET_URL = "https://api.x.com/2/tweets"
 
 
@@ -84,7 +85,7 @@ def upload_media(image_path: str, oauth: OAuth1) -> str:
     if r.status_code >= 300:
         raise RuntimeError(f"media upload failed: {r.status_code} {r.text}")
     body = r.json()
-    # v2 レスポンス: {"data": {"id": "..."}}  / 旧互換: {"media_id_string": "..."} も一応
+    # v1.1 レスポンス: {"media_id_string": "..."} / v2互換: {"data": {"id": "..."}} も一応
     if "data" in body and "id" in body["data"]:
         return body["data"]["id"]
     if "id" in body:
