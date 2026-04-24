@@ -138,6 +138,7 @@ jobs:
           fi
 
           PAYLOAD_FILE=$(mktemp)
+          export TEXT IMAGE_PATH PAYLOAD_FILE
           python -c "
           import json, os
           json.dump(
@@ -146,7 +147,6 @@ jobs:
               ensure_ascii=False,
           )
           "
-          export TEXT IMAGE_PATH PAYLOAD_FILE
 
           set +e
           RESULT=$(python .github/scripts/post_to_x.py "$PAYLOAD_FILE")
