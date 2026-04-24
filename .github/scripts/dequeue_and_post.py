@@ -150,7 +150,9 @@ def main():
 
     text = meta["text"]
     image_path = meta.get("image_path", "") or ""
-    image_url = meta.get("image_url", "") or ""
+    # GitHub Actions 内はリポジトリがチェックアウト済みなので image_path を直接使う。
+    # image_url 経由のダウンロードは CF Pages の Bot 制限で 403 になるため使わない。
+    image_url = ""
 
     # 投稿実行
     result = call_post_to_x(text, image_path, image_url)
