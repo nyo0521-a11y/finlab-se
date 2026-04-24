@@ -1,0 +1,90 @@
+name: X Auto Post - Scheduled Post
+
+# data/x-queue.yaml の先頭エントリを 1 日 2 枠で順次投稿する。
+#
+# 枠:
+#   - 朝 JST 07:30 (cron "30 22 * * *")  : 常に 1 件投稿を試行（キュー残 1 でもOK）
+#   - 夜 JST 21:00 (cron "0 12 * * *")   : キュー残 >= 2 の時のみ投稿。1 件以下なら rotation に譲る
+#
+# ロジック:
+#   1. data/x-queue.yaml を読む
+#   2. queue 空なら即終了
+#   3. 夜枠かつ残 < 2 なら終了（rotation.yml が月金 21:00 に走る）
+#   4. 先頭 entry の issue_number を取得
+#   5. Issue が open かつ 承認済みなら投稿、そうでなければ終了
+#   6. 成功時: Issue close + label 更新 + queue 先頭削除 → commit & push
+
+on:
+  schedule:
+    - cron: "30 22 * * *"   # UTC 22:30 = JST 07:30（朝）
+    - cron: "0 12 * * *"    # UTC 12:00 = JST 21:00（夜）
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "morning / night / manual"
+        required: false
+        default: "manual"
+        type: string
+
+permissions:
+  contents: write    # x-queue.yaml 更新コミットのため
+  issues: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install requests requests-oauthlib ruamel.yaml
+
+      - name: Determine slot
+        id: slot
+        shell: bash
+        run: |
+          set -e
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SLOT="${{ inputs.slot }}"
+            [ -z "$SLOT" ] && SLOT="manual"
+          elif [ "${{ github.event.schedule }}" = "0 12 * * *" ]; then
+            SLOT="night"
+          else
+            SLOT="morning"
+          fi
+          echo "slot=$SLOT" >> "$GITHUB_OUTPUT"
+          echo "Selected slot: $SLOT"
+
+      - name: Dequeue and post
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        shell: bash
+        run: |
+          set -e
+          RESULT=$(python .github/scripts/dequeue_and_post.py "${{ steps.slot.outputs.slot }}")
+          echo "Result: $RESULT"
+          STATUS=$(echo "$RESULT" | python -c "import sys,json; print(json.load(sys.stdin).get('status',''))")
+          echo "status=$STATUS" >> "$GITHUB_ENV"
+
+      - name: Commit queue update
+        if: env.status == 'posted' || env.status == 'skip_closed'
+        shell: bash
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet data/x-queue.yaml; then
+            git add data/x-queue.yaml
+            git commit -m "chore(x-queue): dequeue after post (${{ env.status }})"
+            git push
+          fi

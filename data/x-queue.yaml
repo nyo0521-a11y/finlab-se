@@ -1,0 +1,19 @@
+# X 新記事告知の待ち行列（FIFO）
+#
+# x-new-post-draft.yml が Issue 作成時にここに追記し、
+# x-post-scheduled.yml が先頭から拾って投稿する。
+# 投稿成功時に該当 entry を削除。
+#
+# 構造:
+#   queue:
+#     - post_path: content/posts/xxx.md      # 対象記事
+#       issue_number: 123                     # 紐づくIssue番号（null の場合は未作成）
+#       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
+
+queue:
+  - post_path: content/posts/bank-core-system-cloud.md
+    issue_number: null
+    added_at: 2026-04-24T14:00:00+09:00
+  - post_path: content/posts/finance-se-20years-lessons.md
+    issue_number: null
+    added_at: 2026-04-24T14:00:00+09:00

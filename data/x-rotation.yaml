@@ -1,0 +1,240 @@
+# X（Twitter）既存記事リマインダー ローテーション管理
+#
+# 月・金 21:00 JST に1件ずつ選定 → 下書きIssue → 承認 → 投稿
+#
+# 選定ロジック（select_rotation.py）:
+#   1. last_promoted が null を最優先、その次に最も古いもの
+#   2. 同条件内では priority: high > normal > low
+#
+# 運用:
+#   - 投稿成功後、x-rotation.yml ワークフローが last_promoted / promote_count を自動更新
+#   - 手動で priority 変更・記事削除・一時除外したい場合はこのファイルを直接編集
+#   - 新記事を追加する場合は rotation: 配列に追記（投稿済みとして扱うなら last_promoted に日時を入れる）
+
+rotation:
+  # --- priority: high（高価値コンテンツ：ツール紹介・配当金生活計算） ---
+  - post_path: content/posts/montecarlo-tool-usage.md
+    # title: 【ツール紹介】インデックス投資取崩しシミュレーター ～あなたのFIRE計画、何%成功する？～
+    # date: 2026-04-12
+    last_promoted: null
+    promote_count: 0
+    priority: high
+
+  - post_path: content/posts/dividend-target-simulator-tool-usage.md
+    # title: 【ツール紹介】必要配当利回り逆算シミュレータ
+    # date: 2026-04-19
+    last_promoted: null
+    promote_count: 0
+    priority: high
+
+  - post_path: content/posts/dividend-life-calculation.md
+    # title: 配当金生活に必要な資産額を計算する
+    # date: 2026-04-16
+    last_promoted: null
+    promote_count: 0
+    priority: high
+
+  # --- priority: low（コンセプト記事） ---
+  - post_path: content/posts/hello-world.md
+    # title: ブログを始めました
+    # date: 2026-04-12
+    last_promoted: null
+    promote_count: 0
+    priority: low
+
+  # --- priority: normal（以下、通常記事） ---
+  - post_path: content/posts/asset-management-claude-code.md
+    # title: Claude Codeで毎月の資産記録を自動化した
+    # date: 2026-04-17
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/bank-core-system-cloud.md
+    # title: 銀行の勘定系システムのクラウド移行
+    # date: 2026-04-24
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/blog-redesign-with-claude-code.md
+    # title: Claude Designでブログのデザインを刷新した話
+    # date: 2026-04-23
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/boj-net-rtgs-international.md
+    # title: 銀行同士のお金はどう動く？｜日銀ネットRTGSと海外決済システムの仕組み
+    # date: 2026-04-21
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/claude-code-blog-experience.md
+    # title: Claude Codeでブログを作った話
+    # date: 2026-04-12
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/consecutive-dividend-growth.md
+    # title: 連続増配株という選択肢
+    # date: 2026-04-19
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/credit-card-free-annual-fee-model.md
+    # title: なぜ年会費無料のクレカでも1%還元できるのか
+    # date: 2026-04-15
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/credit-card-interchange-fee.md
+    # title: クレカのポイントはなぜもらえる？インターチェンジフィー
+    # date: 2026-04-14
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/credit-card-payment-flow.md
+    # title: 決済の「0.1秒」の裏側｜クレカのオンライン決済が完了するまで
+    # date: 2026-04-17
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/credit-card-reform-2026.md
+    # title: クレカ改悪2026年まとめ
+    # date: 2026-04-17
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/crypto-stablecoin-remittance.md
+    # title: 暗号資産とステーブルコインで海外送金はどう変わるか
+    # date: 2026-04-23
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/dividend-increase-season-2026.md
+    # title: 2026年3月期「増配ラッシュ」をどう読むか
+    # date: 2026-04-22
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/expense-optimization-before-investing.md
+    # title: 高配当株投資より先にやるべきこと｜支出の最適化で月1万円
+    # date: 2026-04-16
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/finance-se-20years-lessons.md
+    # title: 金融SEを20年やって学んだこと
+    # date: 2026-04-24
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/highyield-buying-timing.md
+    # title: 高配当株の買い時を見極める
+    # date: 2026-04-18
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/highyield-investment-strategy.md
+    # title: 高配当株投資の全体戦略を公開
+    # date: 2026-04-18
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/highyield-portfolio-management.md
+    # title: 高配当株ポートフォリオ管理の設計原則
+    # date: 2026-04-19
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/highyield-stock-selection-criteria.md
+    # title: 高配当株の銘柄選定基準を公開
+    # date: 2026-04-18
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/ideco-2026-reform.md
+    # title: iDeCo 2026年大改正まとめ
+    # date: 2026-04-14
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/ideco-dc-basics.md
+    # title: 企業型DC・iDeCoの基本を整理する
+    # date: 2026-04-14
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/income-wall-2026.md
+    # title: 年収の壁2026年版
+    # date: 2026-04-17
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/montecarlo-background.md
+    # title: 取崩し戦略の考え方 ～4%ルールの「守りすぎ」問題
+    # date: 2026-04-12
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/nisa-growth-highyield.md
+    # title: 新NISAの成長投資枠で高配当株を買う戦略
+    # date: 2026-04-16
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/overseas-remittance-mechanism.md
+    # title: 海外送金の仕組み｜SWIFT・コルレス銀行
+    # date: 2026-04-21
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/pension-macroeconomic-slide-2026.md
+    # title: 2026年度の年金改定率と「マクロ経済スライド」
+    # date: 2026-04-20
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/progressive-dividend-stocks.md
+    # title: 累進配当株という選択肢：商社株が注目される理由
+    # date: 2026-04-20
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/wise-revolut-fintech-remittance.md
+    # title: Wise・Revolutはなぜ安い？
+    # date: 2026-04-22
+    last_promoted: null
+    promote_count: 0
+    priority: normal
+
+  - post_path: content/posts/zengin-net-payment-system.md
+    # title: 全銀システムって何？
+    # date: 2026-04-20
+    last_promoted: null
+    promote_count: 0
+    priority: normal

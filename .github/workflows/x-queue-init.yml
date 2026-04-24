@@ -1,0 +1,117 @@
+name: X Auto Post - Queue Init (one-shot)
+
+# data/x-queue.yaml に issue_number: null で登録された既存エントリに対し、
+# 遡って draft Issue を作成し、yaml に issue_number を書き戻す 1 回こっきりの仕込み用。
+#
+# 用途:
+#   - 運用開始時に queue に入っているが、x-new-post-draft が push 時に走らなかった分を補完する
+#   - 通常運用では x-new-post-draft.yml が push 時に Issue 作成 + enqueue を同時に行うので不要
+#
+# 挙動:
+#   - workflow_dispatch のみ（入力なし）
+#   - queue を走査し、issue_number が null のエントリに対して:
+#     1. generate_post_text.py で投稿文生成
+#     2. gh issue create（x-new-post-draft.yml と同じ本文フォーマット・同じラベル）
+#     3. enqueue_post.py で yaml に issue_number を書き戻す
+#   - まとめて commit & push
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install ruamel.yaml
+
+      - name: Backfill issues for null entries
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # null エントリの post_path 一覧を取り出す
+          TARGETS=$(python - <<'PY'
+          from pathlib import Path
+          from ruamel.yaml import YAML
+          yaml = YAML()
+          with Path("data/x-queue.yaml").open(encoding="utf-8") as f:
+              data = yaml.load(f) or {}
+          for e in (data.get("queue") or []):
+              if e.get("issue_number") is None:
+                  print(e.get("post_path"))
+          PY
+          )
+
+          if [ -z "$TARGETS" ]; then
+            echo "No null entries. Nothing to do."
+            exit 0
+          fi
+
+          echo "Targets:"
+          echo "$TARGETS"
+
+          for POST_PATH in $TARGETS; do
+            echo "=== Processing: $POST_PATH ==="
+            META=$(python .github/scripts/generate_post_text.py "$POST_PATH" new)
+            TEXT=$(echo "$META" | python -c "import sys,json; d=json.load(sys.stdin); print(d['text'])")
+            IMAGE_URL=$(echo "$META" | python -c "import sys,json; d=json.load(sys.stdin); print(d['image_url'])")
+            IMAGE_PATH=$(echo "$META" | python -c "import sys,json; d=json.load(sys.stdin); print(d['image_path'])")
+            TITLE=$(echo "$META" | python -c "import sys,json; d=json.load(sys.stdin); print(d['title'])")
+            LENGTH=$(echo "$META" | python -c "import sys,json; d=json.load(sys.stdin); print(d['length'])")
+
+            BODY_FILE=$(mktemp)
+            {
+              echo "## 投稿予定"
+              echo ""
+              echo "- 投稿タイミング: キュー順（\`data/x-queue.yaml\`）で 朝7:30 または 夜21:00 枠の自動投稿"
+              echo "- 文字数: $LENGTH / 140"
+              echo "- 画像: $IMAGE_URL"
+              echo ""
+              echo "## 投稿文プレビュー"
+              echo ""
+              echo '```'
+              echo "$TEXT"
+              echo '```'
+              echo ""
+              echo "## 承認方法"
+              echo ""
+              echo "いずれかでOK:"
+              echo "- このIssueに 👍 / ❤️ / 🎉 / 🚀 のいずれかのリアクションを付ける"
+              echo "- \`/approve\` とコメントする"
+              echo ""
+              echo "編集したい場合は、このIssue本文の投稿文ブロックを書き換えてから承認してください。"
+              echo ""
+              echo "<!-- x-post-meta: {\"post_path\":\"$POST_PATH\",\"image_path\":\"$IMAGE_PATH\",\"image_url\":\"$IMAGE_URL\"} -->"
+            } > "$BODY_FILE"
+
+            ISSUE_URL=$(gh issue create \
+              --title "[X投稿承認] $TITLE" \
+              --label "x-post-pending,x-post-new" \
+              --body-file "$BODY_FILE")
+            ISSUE_NUMBER=$(echo "$ISSUE_URL" | grep -oE '[0-9]+$')
+            echo "Created issue #$ISSUE_NUMBER: $ISSUE_URL"
+
+            python .github/scripts/enqueue_post.py "$POST_PATH" "$ISSUE_NUMBER"
+          done
+
+          if ! git diff --quiet data/x-queue.yaml; then
+            git add data/x-queue.yaml
+            git commit -m "chore(x-queue): backfill issue_number for pre-existing entries"
+            git push
+          fi

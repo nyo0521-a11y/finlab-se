@@ -1,0 +1,168 @@
+name: X Auto Post - Adhoc
+
+# アドホック投稿（初投稿・特別告知など）。cron を待たずに承認フロー経由で即投稿できる。
+#
+# 2 段運用:
+#   1 回目 (issue_number 空欄): 投稿文と画像パスで draft Issue を作成するだけ。投稿はしない。
+#          → 作成された Issue を 👍 等で承認する。
+#   2 回目 (issue_number 指定):  その Issue の承認チェック → 承認済みなら投稿 → close。
+#
+# 注意:
+#   - x-queue.yaml には一切触らない（adhoc 専用フロー）
+#   - image_path はリポジトリ内の相対パス（例: static/images/x/first-post-card.png）。空欄で画像なし。
+
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: "投稿本文（140字以内推奨）"
+        required: true
+        type: string
+      image_path:
+        description: "リポジトリ内画像パス（例: static/images/x/first-post-card.png）。空欄で画像なし"
+        required: false
+        type: string
+        default: ""
+      issue_number:
+        description: "既存Issue番号。空欄で新規作成、指定で承認チェック→投稿"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  adhoc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install requests requests-oauthlib ruamel.yaml
+
+      - name: Create draft issue (phase 1)
+        if: inputs.issue_number == ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -e
+          TEXT=$(cat <<'ADHOC_TEXT_EOF'
+          ${{ inputs.text }}
+          ADHOC_TEXT_EOF
+          )
+          IMAGE_PATH="${{ inputs.image_path }}"
+          LENGTH=$(python -c "import sys; t=sys.stdin.read().rstrip('\n'); print(len(t))" <<<"$TEXT")
+
+          BODY_FILE=$(mktemp)
+          {
+            echo "## アドホック投稿"
+            echo ""
+            echo "- 種別: adhoc（キュー・rotation に影響しない）"
+            echo "- 文字数: $LENGTH / 140"
+            echo "- 画像: \`$IMAGE_PATH\`"
+            echo ""
+            echo "## 投稿文プレビュー"
+            echo ""
+            echo '```'
+            echo "$TEXT"
+            echo '```'
+            echo ""
+            echo "## 承認方法"
+            echo ""
+            echo "- 👍 / ❤️ / 🎉 / 🚀 のいずれかのリアクション、または \`/approve\` コメント"
+            echo "- 承認後、この Issue の番号を指定して再度 \`x-adhoc-post\` を workflow_dispatch で起動してください"
+            echo ""
+            echo "<!-- x-post-meta: {\"image_path\":\"$IMAGE_PATH\",\"image_url\":\"\",\"adhoc\":true} -->"
+          } > "$BODY_FILE"
+
+          TITLE_SNIPPET=$(python -c "import sys; t=sys.stdin.read().strip().splitlines()[0][:50]; print(t)" <<<"$TEXT")
+          ISSUE_URL=$(gh issue create \
+            --title "[X投稿承認/adhoc] $TITLE_SNIPPET" \
+            --label "x-post-pending,x-post-adhoc" \
+            --body-file "$BODY_FILE")
+          echo "Draft issue created: $ISSUE_URL"
+          echo "次ステップ: 承認後、この Issue の番号を issue_number に入れて本 workflow を再実行してください。"
+
+      - name: Approve check and post (phase 2)
+        if: inputs.issue_number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        shell: bash
+        run: |
+          set -e
+          ISSUE="${{ inputs.issue_number }}"
+
+          # 承認チェック
+          APPROVAL=$(python .github/scripts/check_approval.py "$ISSUE")
+          APPROVED=$(echo "$APPROVAL" | python -c "import sys,json; print(json.load(sys.stdin)['approved'])")
+          if [ "$APPROVED" != "True" ]; then
+            echo "Not approved: $APPROVAL"
+            exit 1
+          fi
+
+          # Issue 本文から投稿文と image_path を抽出
+          BODY=$(gh issue view "$ISSUE" --json body --jq .body)
+          TEXT=$(python - <<'PY'
+          import re, os
+          body = os.environ["BODY"]
+          m = re.search(r"```\n(.*?)\n```", body, re.DOTALL)
+          print(m.group(1) if m else "", end="")
+          PY
+          )
+          IMAGE_PATH=$(python - <<'PY'
+          import re, json, os
+          body = os.environ["BODY"]
+          m = re.search(r"x-post-meta:\s*(\{.*?\})", body)
+          meta = json.loads(m.group(1)) if m else {}
+          print(meta.get("image_path", ""), end="")
+          PY
+          )
+          export BODY
+
+          if [ -z "$TEXT" ]; then
+            echo "post text not found in issue body"
+            exit 1
+          fi
+
+          PAYLOAD_FILE=$(mktemp)
+          python -c "
+          import json, os
+          json.dump(
+              {'text': os.environ['TEXT'], 'image_path': os.environ.get('IMAGE_PATH',''), 'image_url': ''},
+              open(os.environ['PAYLOAD_FILE'], 'w', encoding='utf-8'),
+              ensure_ascii=False,
+          )
+          "
+          export TEXT IMAGE_PATH PAYLOAD_FILE
+
+          set +e
+          RESULT=$(python .github/scripts/post_to_x.py "$PAYLOAD_FILE")
+          set -e
+          echo "Result: $RESULT"
+
+          OK=$(echo "$RESULT" | python -c "import sys,json; print(json.load(sys.stdin).get('ok', False))")
+          if [ "$OK" = "True" ]; then
+            TWEET_ID=$(echo "$RESULT" | python -c "import sys,json; print(json.load(sys.stdin).get('tweet_id',''))")
+            TWEET_URL="https://x.com/i/web/status/$TWEET_ID"
+            gh issue comment "$ISSUE" --body "投稿しました: $TWEET_URL"
+            gh issue edit "$ISSUE" --remove-label "x-post-pending" --add-label "x-post-posted"
+            gh issue close "$ISSUE"
+          else
+            ERR=$(echo "$RESULT" | python -c "import sys,json; print(json.load(sys.stdin).get('error','unknown'))" || true)
+            gh issue comment "$ISSUE" --body "投稿失敗: \`$ERR\`"
+            gh issue edit "$ISSUE" --add-label "x-post-failed"
+            exit 1
+          fi

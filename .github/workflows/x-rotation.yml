@@ -1,0 +1,128 @@
+name: X Auto Post - Rotation Reminder
+
+# 月・金 21:00 JST に既存記事リマインダーの下書きIssueを作る（B案）
+# 投稿の実行は x-post-scheduled.yml（cron）または workflow_dispatch で行う
+# → ただしリマインダーは承認されたら即投稿したいので、
+#    このworkflowで下書きを作り、「scheduled_at = 今から5分後」としておき
+#    x-post-scheduled は毎日7:30に走るが、workflow_dispatch で手動発火も可能とする運用。
+#
+# シンプル方針：
+#   - 月金 21:00 に draft Issue 作成のみ
+#   - 承認されれば x-post-scheduled の次回起動（翌朝7:30）で投稿
+#   - 当日中に発信したければ手動で workflow_dispatch (x-post-scheduled) を叩く
+
+on:
+  schedule:
+    - cron: "0 12 * * 1,5"   # UTC 12:00 月金 = JST 21:00 月金
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create-rotation-draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install PyYAML ruamel.yaml
+
+      - name: Check queue size
+        id: queue_check
+        shell: bash
+        run: |
+          set -e
+          # キュー残 >= 2 件なら、夜枠は x-post-scheduled が使うので rotation はスキップ
+          COUNT=$(python - <<'PY'
+          from pathlib import Path
+          from ruamel.yaml import YAML
+          p = Path("data/x-queue.yaml")
+          if not p.exists():
+              print(0); raise SystemExit
+          yaml = YAML()
+          with p.open(encoding="utf-8") as f:
+              data = yaml.load(f) or {}
+          print(len(data.get("queue") or []))
+          PY
+          )
+          echo "queue size: $COUNT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          if [ "$COUNT" -ge 2 ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Skipping rotation: queue has $COUNT entries, x-post-scheduled will handle night slot"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Select rotation target
+        if: steps.queue_check.outputs.skip != 'true'
+        id: pick
+        run: |
+          set -e
+          RESULT=$(python .github/scripts/select_rotation.py)
+          echo "Selected: $RESULT"
+          POST_PATH=$(echo "$RESULT" | python -c "import sys,json; print(json.load(sys.stdin)['post_path'])")
+          INDEX=$(echo "$RESULT" | python -c "import sys,json; print(json.load(sys.stdin)['index'])")
+          echo "post_path=$POST_PATH" >> "$GITHUB_OUTPUT"
+          echo "index=$INDEX" >> "$GITHUB_OUTPUT"
+
+      - name: Generate draft and create issue
+        if: steps.queue_check.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -e
+          POST_PATH="${{ steps.pick.outputs.post_path }}"
+          INDEX="${{ steps.pick.outputs.index }}"
+
+          META=$(python .github/scripts/generate_post_text.py "$POST_PATH" rotation)
+          TEXT=$(echo "$META" | python -c "import sys,json; print(json.load(sys.stdin)['text'])")
+          IMAGE_URL=$(echo "$META" | python -c "import sys,json; print(json.load(sys.stdin)['image_url'])")
+          IMAGE_PATH=$(echo "$META" | python -c "import sys,json; print(json.load(sys.stdin)['image_path'])")
+          TITLE=$(echo "$META" | python -c "import sys,json; print(json.load(sys.stdin)['title'])")
+          LENGTH=$(echo "$META" | python -c "import sys,json; print(json.load(sys.stdin)['length'])")
+
+          # scheduled_at = 今から15分後（承認されればすぐ発射可能、cron7:30でも拾える）
+          SCHEDULED_AT=$(python - <<'PY'
+          from datetime import datetime, timedelta, timezone
+          JST = timezone(timedelta(hours=9))
+          now = datetime.now(JST) + timedelta(minutes=15)
+          print(now.isoformat(timespec="seconds"))
+          PY
+          )
+
+          BODY_FILE=$(mktemp)
+          {
+            echo "## リマインダー投稿予定"
+            echo ""
+            echo "- 対象記事: \`$POST_PATH\`"
+            echo "- 予定時刻: \`$SCHEDULED_AT\` 以降（次回7:30 cron または手動実行で発射）"
+            echo "- 文字数: $LENGTH / 140"
+            echo "- 画像: $IMAGE_URL"
+            echo ""
+            echo "## 投稿文プレビュー"
+            echo ""
+            echo '```'
+            echo "$TEXT"
+            echo '```'
+            echo ""
+            echo "## 承認方法"
+            echo ""
+            echo "- 👍 / ❤️ / 🎉 / 🚀 のリアクション、または \`/approve\` コメント"
+            echo "- 即時発射したい場合は承認後に \`x-post-scheduled\` を workflow_dispatch で起動"
+            echo ""
+            echo "<!-- x-post-meta: {\"post_path\":\"$POST_PATH\",\"scheduled_at\":\"$SCHEDULED_AT\",\"image_path\":\"$IMAGE_PATH\",\"image_url\":\"$IMAGE_URL\",\"rotation_index\":$INDEX} -->"
+          } > "$BODY_FILE"
+
+          gh issue create \
+            --title "[X投稿承認/リマインダー] $TITLE" \
+            --label "x-post-pending,x-post-rotation" \
+            --body-file "$BODY_FILE"
