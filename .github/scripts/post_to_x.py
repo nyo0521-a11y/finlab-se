@@ -79,7 +79,8 @@ def upload_media(image_path: str, oauth: OAuth1) -> str:
     """v2 /2/media/upload（simple upload）。返り値 media_id（string）。"""
     with open(image_path, "rb") as f:
         files = {"media": f}
-        r = requests.post(UPLOAD_URL, files=files, auth=oauth, timeout=60)
+        data = {"media_category": "tweet_image"}
+        r = requests.post(UPLOAD_URL, files=files, data=data, auth=oauth, timeout=60)
     if r.status_code >= 300:
         raise RuntimeError(f"media upload failed: {r.status_code} {r.text}")
     body = r.json()
