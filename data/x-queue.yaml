@@ -12,8 +12,8 @@
 
 queue:
   - post_path: content/posts/bank-core-system-cloud.md
-    issue_number: 2
+    issue_number: null
     added_at: 2026-04-24T14:00:00+09:00
   - post_path: content/posts/finance-se-20years-lessons.md
-    issue_number: 3
+    issue_number: null
     added_at: 2026-04-24T14:00:00+09:00

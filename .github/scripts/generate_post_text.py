@@ -22,6 +22,8 @@ from pathlib import Path
 
 BASE_URL = "https://finlab-se.com"
 MAX_LEN = 140
+# X は全URLを t.co で 23字換算する
+URL_WEIGHT = 23
 
 PREFIX_NEW = "【新着📝】"
 PREFIX_ROTATION = "【おすすめ📖】"
@@ -109,19 +111,18 @@ def build_text(title: str, description: str, url: str, hashtags: list, prefix: s
     タイトルが長い場合はタイトル優先・descriptionで吸収、それでも140字超ならタイトル末尾を削る。
     """
     hashtag_line = " ".join(hashtags)
-    # 固定部分（title・url・hashtags・区切り）を先に積み、残り予算で description を切る
-    fixed = f"{prefix}\n{title}\n\n\n\n{url}\n\n{hashtag_line}"
-    # 空行の長さを考慮して description 分の予算を計算
+    # X の文字数計算: URL は常に 23 字換算。実URL長との差分を予算に足し戻す。
+    url_bonus = len(url) - URL_WEIGHT  # 正の値: 実URLが23字より長い分だけ予算を広げられる
     # 実際のテキスト: prefix\n title\n\n {desc}\n\n {url}\n\n {hashtags}
     skeleton = f"{prefix}\n{title}\n\n\n\n{url}\n\n{hashtag_line}"
-    budget = MAX_LEN - len(skeleton)  # descriptionに使える字数
+    budget = MAX_LEN - len(skeleton) + url_bonus  # descriptionに使える字数（X換算ベース）
 
     if budget < 0:
         # titleが長すぎる：titleから削る（タイトルは大事なので末尾に…）
         over = -budget
         title = title[: max(1, len(title) - over - 1)] + "…"
         skeleton = f"{prefix}\n{title}\n\n\n\n{url}\n\n{hashtag_line}"
-        budget = MAX_LEN - len(skeleton)
+        budget = MAX_LEN - len(skeleton) + url_bonus
         desc_part = ""
     else:
         desc_part = truncate_description(description, budget)
@@ -159,13 +160,16 @@ def main():
 
     image_url = f"{BASE_URL}{cover}" if cover.startswith("/") else cover
 
+    # X換算の長さ（URLは23字固定）
+    x_length = len(text) - len(url) + URL_WEIGHT
+
     print(json.dumps({
         "text": text,
         "image_url": image_url,
         "image_path": cover,
         "title": title,
         "url": url,
-        "length": len(text),
+        "length": x_length,
     }, ensure_ascii=False))
 
 
