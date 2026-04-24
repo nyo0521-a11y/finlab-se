@@ -17,3 +17,6 @@ queue:
   - post_path: content/posts/finance-se-20years-lessons.md
     issue_number: 7
     added_at: 2026-04-24T14:00:00+09:00
+  - post_path: content/posts/kodomo-nisa-2027.md
+    issue_number: 8
+    added_at: '2026-04-24T21:08:33+09:00'
