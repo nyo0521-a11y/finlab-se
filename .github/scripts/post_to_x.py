@@ -71,8 +71,14 @@ def resolve_image_source(image_ref: str) -> tuple[str, bool]:
         return download_image(image_ref), True
     # ローカルパス扱い。先頭 "/" は相対化する（リポジトリルート起点）。
     local = image_ref.lstrip("/")
+    # Hugo のサムネイルは static/ 配下に置かれるため、そのパスも試みる
+    # 例: "/images/thumb-foo.jpg" → "static/images/thumb-foo.jpg"
     if not os.path.exists(local):
-        raise FileNotFoundError(f"local image not found: {local}")
+        local_static = f"static/{local}"
+        if os.path.exists(local_static):
+            local = local_static
+    if not os.path.exists(local):
+        raise FileNotFoundError(f"local image not found: {local} (also tried static/{image_ref.lstrip('/')})")
     return local, False
 
 
