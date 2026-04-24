@@ -115,6 +115,7 @@ jobs:
 
           # Issue 本文から投稿文と image_path を抽出
           BODY=$(gh issue view "$ISSUE" --json body --jq .body)
+          export BODY
           TEXT=$(python - <<'PY'
           import re, os
           body = os.environ["BODY"]
@@ -130,7 +131,6 @@ jobs:
           print(meta.get("image_path", ""), end="")
           PY
           )
-          export BODY
 
           if [ -z "$TEXT" ]; then
             echo "post text not found in issue body"
