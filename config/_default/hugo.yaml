@@ -13,6 +13,9 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 
+# Git コミット情報を .Lastmod として利用（最終更新日の自動反映）
+enableGitInfo: true
+
 # 出力設定
 outputs:
   home:
@@ -35,6 +38,7 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowWordCount: false
+  ShowLastMod: true
   cover:
     linkFullImages: true
     responsiveImages: true
