@@ -2,7 +2,7 @@
 title: "Claude Codeで「配当金カレンダー」を自動生成する｜SBI証券CSVを渡すだけで年間キャッシュフローを可視化"
 date: 2026-04-22T08:00:00+09:00
 draft: true
-categories: ["AI × マネー管理術"]
+categories: ["AI活用"]
 tags: ["Claude Code", "配当金", "AI活用", "高配当株"]
 description: "SBI証券からダウンロードした保有銘柄CSVをそのままClaude Codeに渡すだけで、月別の配当キャッシュフロー表を自動生成する手順を紹介します。1株配当や配当月はClaude Code側で調べてくれるので、人間が用意するのは銘柄コードと株数だけです。"
 showToc: true
