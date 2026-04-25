@@ -266,6 +266,34 @@ Claude Codeに渡すプロンプトは、次のようなシンプルなもので
 
 「完璧な1枚を一発で作る」より、「段階的に埋めていって途中経過でも意思決定に使える」と考えた方が実用的です。
 
+<div style="background:#f0f4f8;border-left:4px solid #4a90d9;padding:1.2em 1.5em;margin:2em 0;border-radius:0 6px 6px 0;">
+
+<strong>📘 コラム｜Pythonユーザー向け：yfinanceで一括取得する方法</strong>
+
+銘柄数が多くてWeb検索方式では時間がかかる場合、<strong>yfinanceライブラリを使うと90銘柄でも1分以内に配当データを一括取得できます</strong>。
+
+**やり方はシンプル**。Claude Codeに次のように依頼するだけです。
+
+```text
+SBI証券のCSV（SaveFile.csv）を読み込んで、
+yfinanceで全銘柄の配当データ（権利落ち日・1株配当額）を取得し、
+月別配当カレンダーをMarkdown表で出力するPythonスクリプトを書いて実行してください。
+支払月は「権利落ち月 +3ヶ月」で推定してください。
+```
+
+Claude Codeがスクリプトの作成から実行まで自動でやってくれます。
+
+**ただし、以下のどちらかが必要です。**
+
+- <strong>Python がPCにインストール済み</strong>（`pip install yfinance` を実行できる環境）
+- <strong>GitHubリポジトリ ＋ GitHub Actions</strong>（Pythonがない場合の代替実行環境）
+
+本記事のメイン手順（Claude CodeがWeb検索して調べる方式）はClaude Codeだけあれば動きますが、こちらはPythonかGitHubの事前準備が必要です。50銘柄以上を定期的に更新したい方は検討してみてください。
+
+なお、yfinanceが取得するのは「権利落ち日」であり、実際の支払月とは1ヶ月前後ずれる場合があります。大まかなキャッシュフロー把握には十分ですが、精度が気になる銘柄は個別にIRページで確認することをおすすめします。
+
+</div>
+
 ### 出力イメージ（表B：月別サマリー）
 
 Claude Codeからは、こういった表が返ってきます（数字は架空のサンプル）。税引前／税引後が1枚で見られるので、特定口座の源泉税インパクトも可視化できます。
