@@ -4,7 +4,7 @@ date: 2026-04-26T09:00:00+09:00
 draft: true
 description: "2026年4月は食品2,798品目が値上げ。食費を削るより固定費から見直すべき理由と、MoneyForwardで3ヶ月平均を可視化してNISA積立に回す具体的な手順を解説します。"
 tags: ["家計管理", "節約", "NISA", "MoneyForward", "固定費"]
-categories: ["金融解説"]
+categories: ["資産形成"]
 showToc: true
 ---
 
