@@ -10,7 +10,5 @@
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
 queue:
-  - post_path: content/posts/finance-se-20years-lessons.md
-    added_at: 2026-04-24T14:00:00+09:00
   - post_path: content/posts/kodomo-nisa-2027.md
     added_at: '2026-04-24T21:08:33+09:00'
