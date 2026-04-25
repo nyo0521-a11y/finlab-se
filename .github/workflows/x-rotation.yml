@@ -1,6 +1,11 @@
 name: X Auto Post - Rotation Reminder
 
-# 月・水・金 21:00 JST に既存記事リマインダーを即時投稿する（承認フロー廃止版）。
+# 月・水・金 21:05 JST に既存記事リマインダーを即時投稿する（承認フロー廃止版）。
+#
+# ★ 1タイミング1件ルール ★
+#   x-post-scheduled.yml (夜枠 21:00) と同時刻だと競合リスクがあるため、
+#   こちらは 21:05 (+5分) に設定し、先にキューを消化した場合は skip する。
+#   1つの時間帯に投稿されるのは新記事キュー or リマインダーのどちらか1件のみ。
 #
 # 条件:
 #   - data/x-queue.yaml の残が >= 2 件なら skip（x-post-scheduled.yml が新記事を投稿）
@@ -9,7 +14,7 @@ name: X Auto Post - Rotation Reminder
 
 on:
   schedule:
-    - cron: "0 12 * * 1,3,5"   # UTC 12:00 月水金 = JST 21:00 月水金
+    - cron: "5 12 * * 1,3,5"   # UTC 12:05 月水金 = JST 21:05 月水金（x-post-scheduled の5分後）
   workflow_dispatch:
 
 permissions:
