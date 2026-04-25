@@ -6,16 +6,21 @@ name: X Auto Post - Scheduled Post
 #   各スロットで投稿されるのは常に1件のみ。
 #   夜枠は x-rotation.yml (21:05) と役割を分担し、同時投稿しない設計。
 #
-# 枠:
-#   - 朝 JST 07:30 (cron "30 22 * * *") : queue>=1 で投稿（1件）
-#   - 夜 JST 21:00 (cron "0 12 * * *")  : queue>=2 のみ投稿（1件以下なら 21:05 の x-rotation.yml がリマインダーを投稿）
+# 枠と cron（オフピーク時刻 + バックアップ枠で信頼性を確保）:
+#   朝: UTC 22:17 = JST 07:17（主）/ UTC 22:37 = JST 07:37（補）
+#   夜: UTC 11:53 = JST 20:53（主）/ UTC 12:13 = JST 21:13（補）
 #
-# dequeue_and_post.py がslot・曜日・queue残で判定するため workflow 側は slot を渡すだけ。
+# ※ GitHub Actions の :00/:30 は最混雑帯で遅延・スキップが頻発するため
+#   :17/:37/:53/:13 に変更。主が失敗しても補が救済する。
+# ※ 重複投稿は dequeue_and_post.py が data/x-post-state.yaml で防止する。
+# ※ dequeue_and_post.py がslot・queue残で判定するため workflow 側は slot を渡すだけ。
 
 on:
   schedule:
-    - cron: "30 22 * * *"   # UTC 22:30 = JST 07:30（朝）
-    - cron: "0 12 * * *"    # UTC 12:00 = JST 21:00（夜）
+    - cron: "17 22 * * *"   # UTC 22:17 = JST 07:17（朝・主）
+    - cron: "37 22 * * *"   # UTC 22:37 = JST 07:37（朝・補）
+    - cron: "53 11 * * *"   # UTC 11:53 = JST 20:53（夜・主）
+    - cron: "13 12 * * *"   # UTC 12:13 = JST 21:13（夜・補）
   workflow_dispatch:
     inputs:
       slot:
@@ -49,13 +54,16 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             SLOT="${{ inputs.slot }}"
             [ -z "$SLOT" ] && SLOT="manual"
-          elif [ "${{ github.event.schedule }}" = "0 12 * * *" ]; then
-            SLOT="night"
           else
-            SLOT="morning"
+            # スケジュール名でスロット判定（朝主・朝補 → morning、夜主・夜補 → night）
+            case "${{ github.event.schedule }}" in
+              "17 22 * * *"|"37 22 * * *") SLOT="morning" ;;
+              "53 11 * * *"|"13 12 * * *") SLOT="night" ;;
+              *) SLOT="morning" ;;  # fallback
+            esac
           fi
           echo "slot=$SLOT" >> "$GITHUB_OUTPUT"
-          echo "Selected slot: $SLOT"
+          echo "Selected slot: $SLOT (JST $(TZ=Asia/Tokyo date +'%H:%M'))"
 
       - name: Dequeue and post
         env:
@@ -86,8 +94,10 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet data/x-queue.yaml; then
-            git add data/x-queue.yaml
+          git add data/x-queue.yaml
+          # x-post-state.yaml が存在すれば一緒にコミット（重複投稿防止フラグ）
+          [ -f data/x-post-state.yaml ] && git add data/x-post-state.yaml
+          if ! git diff --cached --quiet; then
             git commit -m "chore(x-queue): dequeue after post"
             git push
           fi

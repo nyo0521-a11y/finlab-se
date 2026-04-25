@@ -7,11 +7,13 @@ data/x-queue.yaml の先頭エントリを拾って X に投稿するスクリ�
   3. slot の条件判定:
      - morning : queue>=1 なら投稿
      - night   : queue>=2 のときのみ投稿（1件以下なら x-rotation.yml がリマインダーを投稿）
-     - manual  : 常に投稿（queue>=1）
-  4. 先頭 post_path から投稿文を生成（generate_post_text.py）
-  5. post_to_x.py で投稿
-  6. queue から先頭を除去 → 呼び出し側で commit & push
-  7. 出力: {"status":"posted", "tweet_url": "...", "post_path": "..."}
+     - manual  : 常に投稿（queue>=1）、重複チェックなし
+  4. 重複投稿チェック（manual 以外）:
+     - data/x-post-state.yaml の {slot}_last_posted が今日（JST）なら skip
+  5. 先頭 post_path から投稿文を生成（generate_post_text.py）
+  6. post_to_x.py で投稿
+  7. queue から先頭を除去 + state を更新 → 呼び出し側で commit & push
+  8. 出力: {"status":"posted", "tweet_url": "...", "post_path": "..."}
 
 使い方:
     python dequeue_and_post.py <slot>   # slot = "morning" | "night" | "manual"
@@ -24,12 +26,13 @@ import sys
 import json
 import subprocess
 import tempfile
-from datetime import timedelta, timezone
+from datetime import date, timedelta, timezone
 from pathlib import Path
 
 from ruamel.yaml import YAML
 
 QUEUE_PATH = Path("data/x-queue.yaml")
+STATE_PATH = Path("data/x-post-state.yaml")
 SCRIPT_DIR = Path(__file__).resolve().parent
 JST = timezone(timedelta(hours=9))
 
@@ -50,6 +53,30 @@ def save_queue(data: dict) -> None:
     yaml.indent(mapping=2, sequence=4, offset=2)
     with QUEUE_PATH.open("w", encoding="utf-8") as f:
         yaml.dump(data, f)
+
+
+def load_state() -> dict:
+    """x-post-state.yaml を読む。ファイルがなければ空dictを返す。"""
+    if not STATE_PATH.exists():
+        return {}
+    yaml = YAML()
+    with STATE_PATH.open(encoding="utf-8") as f:
+        return yaml.load(f) or {}
+
+
+def save_state(state: dict) -> None:
+    """x-post-state.yaml を保存する。"""
+    yaml = YAML()
+    yaml.indent(mapping=2, sequence=4, offset=2)
+    STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with STATE_PATH.open("w", encoding="utf-8") as f:
+        yaml.dump(state, f)
+
+
+def today_jst() -> str:
+    """今日の日付文字列（JST, YYYY-MM-DD）を返す。"""
+    from datetime import datetime
+    return datetime.now(JST).date().isoformat()
 
 
 def run_script(script: str, *args: str) -> dict:
@@ -130,6 +157,23 @@ def main():
         print(json.dumps({"status": status, "reason": reason, "queue_size": queue_size}))
         return
 
+    # --- 重複投稿チェック（manual は除く） ---
+    if slot != "manual":
+        state = load_state()
+        state_key = f"{slot}_last_posted"
+        last_posted = str(state.get(state_key, ""))
+        today = today_jst()
+        if last_posted == today:
+            print(json.dumps({
+                "status": "skip",
+                "reason": f"already posted today in {slot} slot ({today})",
+                "queue_size": queue_size,
+            }))
+            return
+    else:
+        state = load_state()
+        today = today_jst()
+
     head = queue[0]
     post_path = head.get("post_path")
     if not post_path:
@@ -163,6 +207,11 @@ def main():
     queue.pop(0)
     data["queue"] = queue
     save_queue(data)
+
+    # 投稿済みフラグを更新（manual スロットは記録しない）
+    if slot != "manual":
+        state[f"{slot}_last_posted"] = today
+        save_state(state)
 
     print(json.dumps({
         "status": "posted",

@@ -1,0 +1,9 @@
+# X投稿スロット管理（重複投稿防止用）
+# dequeue_and_post.py が投稿後に自動更新する
+# 各スロットで当日すでに投稿済みかを判定するためのフラグ
+#
+# morning_last_posted: 朝枠で最後に投稿した日（JST, YYYY-MM-DD）
+# night_last_posted  : 夜枠で最後に投稿した日（JST, YYYY-MM-DD）
+
+morning_last_posted: '2026-04-26'
+night_last_posted: '2026-04-25'
