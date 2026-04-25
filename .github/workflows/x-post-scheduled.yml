@@ -4,13 +4,11 @@ name: X Auto Post - Scheduled Post
 #
 # ★ 1タイミング1件ルール ★
 #   各スロットで投稿されるのは常に1件のみ。
-#   月水金 夜枠は x-rotation.yml (21:05) と役割を分担し、同時投稿しない設計。
+#   夜枠は x-rotation.yml (21:05) と役割を分担し、同時投稿しない設計。
 #
 # 枠:
 #   - 朝 JST 07:30 (cron "30 22 * * *") : queue>=1 で投稿（1件）
-#   - 夜 JST 21:00 (cron "0 12 * * *")  :
-#       月水金 : queue>=2 のみ投稿（1件以下なら 21:05 の x-rotation.yml がリマインダーを投稿）
-#       火木土日: queue>=1 で投稿（1件）
+#   - 夜 JST 21:00 (cron "0 12 * * *")  : queue>=2 のみ投稿（1件以下なら 21:05 の x-rotation.yml がリマインダーを投稿）
 #
 # dequeue_and_post.py がslot・曜日・queue残で判定するため workflow 側は slot を渡すだけ。
 
