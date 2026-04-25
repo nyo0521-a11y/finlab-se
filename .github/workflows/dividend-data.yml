@@ -1,0 +1,41 @@
+name: Dividend Data - yfinance取得
+
+# 保有銘柄の配当データをyfinanceで取得し data/dividend-calendar.md に保存する。
+# 手動実行のみ（自動スケジュールなし）。
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install yfinance
+
+      - name: Fetch dividend data
+        run: |
+          python .github/scripts/get_dividend_data.py
+        # 出力は data/dividend-calendar.md に書き込まれる
+
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet data/dividend-calendar.md 2>/dev/null || [ ! -f data/dividend-calendar.md ]; then
+            git add data/dividend-calendar.md
+            git commit -m "chore(dividend): yfinanceで配当カレンダーを更新"
+            git push
+          else
+            echo "変更なし。コミットをスキップ。"
+          fi
