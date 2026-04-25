@@ -32,8 +32,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet data/dividend-calendar.md 2>/dev/null || [ ! -f data/dividend-calendar.md ]; then
-            git add data/dividend-calendar.md
+          git add data/dividend-calendar.md
+          # staged に差分があれば commit（新規ファイルも含む）
+          if ! git diff --cached --quiet; then
             git commit -m "chore(dividend): yfinanceで配当カレンダーを更新"
             git push
           else
