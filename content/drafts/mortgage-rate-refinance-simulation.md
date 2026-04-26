@@ -79,6 +79,8 @@ draft: true
 
 3条件はあくまで「目安」です。次のセクションで、実際にいくら得になるのかを具体的な数字で見ていきます。
 
+![借換え判断の3条件：なぜこの数字なのか？](/images/illust-mortgage-3conditions-reasoning.png)
+
 ![借換えを検討すべき3条件チェック](/images/illust-mortgage-3conditions-flow.png)
 
 ## ケース別シミュレーション（残債別・金利差別の損益分岐）
