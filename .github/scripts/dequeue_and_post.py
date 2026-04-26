@@ -130,10 +130,9 @@ def should_post_in_slot(slot: str, queue_size: int) -> tuple[bool, str]:
         return True, "manual dispatch"
 
     if slot == "night":
-        # 毎日: queue>=2 のときのみ投稿（1件以下なら 21:05 の x-rotation.yml がリマインダーを投稿）
-        if queue_size >= 2:
-            return True, f"night slot with queue={queue_size}>=2"
-        return False, f"night slot with queue={queue_size}<2, yield to rotation"
+        # queue>=1 なら投稿（朝枠と同じルール）
+        # rotation は毎日21:05に別途走るため、新記事があれば夜枠で優先投稿する
+        return True, f"night slot with queue={queue_size}>=1"
 
     return False, f"unknown slot: {slot}"
 
