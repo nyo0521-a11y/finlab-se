@@ -81,8 +81,6 @@ draft: true
 
 ![借換え判断の3条件：なぜこの数字なのか？](/images/illust-mortgage-3conditions-reasoning.png)
 
-![借換えを検討すべき3条件チェック](/images/illust-mortgage-3conditions-flow.png)
-
 ## ケース別シミュレーション（残債別・金利差別の損益分岐）
 
 ここから計算です。前提条件をはっきりさせておきます。
