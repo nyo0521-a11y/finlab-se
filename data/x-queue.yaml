@@ -12,3 +12,5 @@
 queue:
   - post_path: content/posts/claude-code-dividend-calendar.md
     added_at: '2026-04-25T23:36:01+09:00'
+  - post_path: content/posts/claude-code-reduce-permission-prompts.md
+    added_at: '2026-04-26T21:43:00+09:00'
