@@ -1,6 +1,6 @@
 ---
 title: "Claude Codeの「許可」待ちをほぼゼロにする設定方法｜セキュリティを保ちながら快適に使う"
-date: 2026-04-25T09:00:00+09:00
+date: 2026-04-26T21:00:00+09:00
 draft: false
 description: "Claude Codeを使っていると「許可」ダイアログが頻繁に出て作業が止まりがち。settings.jsonとCLAUDE.mdの設定を、Claude Code自身にプロンプトで指示するだけで許可待ちをほぼゼロにする方法をまとめました。"
 tags: ["Claude Code", "AI活用", "生産性", "設定"]
