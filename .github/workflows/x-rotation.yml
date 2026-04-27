@@ -13,8 +13,8 @@ name: X Auto Post - Rotation Reminder
 #   - 成功時は data/x-rotation.yaml の last_promoted / promote_count を更新してコミット
 
 on:
-  schedule:
-    - cron: "5 12 * * *"   # UTC 12:05 毎日 = JST 21:05 毎日（x-post-scheduled の5分後）
+  # ★ スケジュールは Cloudflare Workers (workers/x-post-trigger) が担当 ★
+  #   CF Workers が UTC 12:05 (JST 21:05) に workflow_dispatch でトリガーする。
   workflow_dispatch:
 
 permissions:

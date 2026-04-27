@@ -8,23 +8,30 @@
  *   GITHUB_PAT: GitHub Personal Access Token（workflow スコープのみで OK）
  */
 
-const REPO     = "nyo0521-a11y/finlab-se";
-const WORKFLOW = "x-post-scheduled.yml";
-const GH_API   = `https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW}/dispatches`;
+const REPO = "nyo0521-a11y/finlab-se";
+const GH_API_BASE = `https://api.github.com/repos/${REPO}/actions/workflows`;
 
-/** cron 文字列からスロット名を返す */
-function slotFromCron(cron) {
-  if (cron === "17 22 * * *" || cron === "37 22 * * *") return "morning";
-  if (cron === "53 11 * * *" || cron === "13 12 * * *") return "night";
-  return "morning"; // fallback
+/**
+ * cron 文字列から { workflow, inputs } を返す。
+ *   "5 12 * * *"  → x-rotation.yml（inputs なし）
+ *   それ以外       → x-post-scheduled.yml（slot を inputs で渡す）
+ */
+function dispatchParamsFromCron(cron) {
+  if (cron === "5 12 * * *") {
+    return { workflow: "x-rotation.yml", inputs: {} };
+  }
+  const slot =
+    cron === "17 22 * * *" || cron === "37 22 * * *" ? "morning" : "night";
+  return { workflow: "x-post-scheduled.yml", inputs: { slot } };
 }
 
 export default {
   async scheduled(event, env, ctx) {
-    const slot = slotFromCron(event.cron);
-    const ts   = new Date().toISOString();
+    const { workflow, inputs } = dispatchParamsFromCron(event.cron);
+    const ts  = new Date().toISOString();
+    const url = `${GH_API_BASE}/${workflow}/dispatches`;
 
-    const res = await fetch(GH_API, {
+    const res = await fetch(url, {
       method: "POST",
       headers: {
         "Authorization":        `Bearer ${env.GITHUB_PAT}`,
@@ -33,19 +40,14 @@ export default {
         "Content-Type":         "application/json",
         "User-Agent":           "finlab-se-x-post-trigger/1.0",
       },
-      body: JSON.stringify({
-        ref: "main",
-        inputs: { slot },
-      }),
+      body: JSON.stringify({ ref: "main", inputs }),
     });
 
     if (res.ok) {
-      // GitHub は 204 No Content を返す
-      console.log(`[${ts}] OK: triggered slot="${slot}" cron="${event.cron}" HTTP=${res.status}`);
+      console.log(`[${ts}] OK: workflow="${workflow}" cron="${event.cron}" HTTP=${res.status}`);
     } else {
       const body = await res.text();
-      console.error(`[${ts}] ERROR: slot="${slot}" HTTP=${res.status} body=${body}`);
-      // Workers の scheduled handler では例外を投げると自動リトライされない（設計上 no-op）
+      console.error(`[${ts}] ERROR: workflow="${workflow}" HTTP=${res.status} body=${body}`);
     }
   },
 };

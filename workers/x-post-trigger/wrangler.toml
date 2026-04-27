@@ -8,10 +8,11 @@ compatibility_date = "2026-04-27"
 # 信頼性の高い Cloudflare Workers Scheduled をプライマリスケジューラとして使用する。
 #
 # 枠と cron（UTC）:
-#   朝・主: 22:17 UTC = JST 07:17
-#   朝・補: 22:37 UTC = JST 07:37（主が失敗した場合の救済。重複投稿は GH 側で防止）
-#   夜・主: 11:53 UTC = JST 20:53
-#   夜・補: 12:13 UTC = JST 21:13
+#   朝・主: 22:17 UTC = JST 07:17  → x-post-scheduled (morning)
+#   朝・補: 22:37 UTC = JST 07:37  → x-post-scheduled (morning) 救済枠
+#   夜・主: 11:53 UTC = JST 20:53  → x-post-scheduled (night)
+#   夜・補: 12:13 UTC = JST 21:13  → x-post-scheduled (night) 救済枠
+#   rotation: 12:05 UTC = JST 21:05 → x-rotation（夜枠の5分後）
 
 [triggers]
 crons = [
@@ -19,4 +20,5 @@ crons = [
   "37 22 * * *",
   "53 11 * * *",
   "13 12 * * *",
+  "5 12 * * *",
 ]
