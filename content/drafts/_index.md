@@ -1,7 +1,7 @@
 ---
 title: "Drafts"
 draft: true
-_build:
+build:
   render: never
   list: never
 ---
