@@ -1,0 +1,22 @@
+name = "x-post-trigger"
+main = "src/index.js"
+compatibility_date = "2026-04-27"
+
+# Cloudflare Workers Scheduled: GitHub Actions workflow_dispatch を正確な時刻にトリガーする
+#
+# GitHub Actions の built-in cron は数時間の遅延が常態化しているため、
+# 信頼性の高い Cloudflare Workers Scheduled をプライマリスケジューラとして使用する。
+#
+# 枠と cron（UTC）:
+#   朝・主: 22:17 UTC = JST 07:17
+#   朝・補: 22:37 UTC = JST 07:37（主が失敗した場合の救済。重複投稿は GH 側で防止）
+#   夜・主: 11:53 UTC = JST 20:53
+#   夜・補: 12:13 UTC = JST 21:13
+
+[triggers]
+crons = [
+  "17 22 * * *",
+  "37 22 * * *",
+  "53 11 * * *",
+  "13 12 * * *",
+]
