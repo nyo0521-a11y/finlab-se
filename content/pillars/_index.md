@@ -2,6 +2,7 @@
 title: "4つの領域"
 date: 2026-04-21
 draft: false
+robots: "noindex"
 description: "金融エンジニアの資産運用実験室で扱う4本柱。資産記録／AI活用／金融解説／ニュース深掘り。"
 ---
 

@@ -2,6 +2,7 @@
 title: "ニュース深掘り"
 date: 2026-04-21
 draft: false
+robots: "noindex"
 description: "税制改正・新NISA・iDeCoなど、生活と資産形成に効いてくる制度ニュースを深掘りします。"
 categories_in_scope:
   - "金融ニュース"
