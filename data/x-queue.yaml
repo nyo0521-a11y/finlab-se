@@ -10,8 +10,6 @@
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
 queue:
-  - post_path: content/posts/claude-code-reduce-permission-prompts.md
-    added_at: '2026-04-26T21:43:00+09:00'
   - post_path: content/posts/expense-optimization-nisa-investment.md
     added_at: '2026-04-26T21:51:29+09:00'
   - post_path: content/posts/mortgage-rate-refinance-simulation.md
