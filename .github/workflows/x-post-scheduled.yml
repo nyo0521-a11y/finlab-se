@@ -16,11 +16,9 @@ name: X Auto Post - Scheduled Post
 # ※ dequeue_and_post.py がslot・queue残で判定するため workflow 側は slot を渡すだけ。
 
 on:
-  schedule:
-    - cron: "17 22 * * *"   # UTC 22:17 = JST 07:17（朝・主）
-    - cron: "37 22 * * *"   # UTC 22:37 = JST 07:37（朝・補）
-    - cron: "53 11 * * *"   # UTC 11:53 = JST 20:53（夜・主）
-    - cron: "13 12 * * *"   # UTC 12:13 = JST 21:13（夜・補）
+  # ★ スケジュールは Cloudflare Workers (workers/x-post-trigger) が担当 ★
+  #   CF Workers → workflow_dispatch でこのワークフローをトリガーする設計。
+  #   GitHub Actions の built-in schedule cron は遅延が数時間に及ぶため廃止。
   workflow_dispatch:
     inputs:
       slot:
