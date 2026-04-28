@@ -68,9 +68,15 @@ jobs:
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         shell: bash
         run: |
-          set -e
+          set +e
           RESULT=$(python .github/scripts/rotation_post.py)
+          EXIT_CODE=$?
+          set -e
           echo "Result: $RESULT"
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "::error::rotation_post.py failed (exit $EXIT_CODE). See 'Result' above for details."
+            exit $EXIT_CODE
+          fi
 
       - name: Commit rotation update
         if: steps.queue_check.outputs.skip != 'true'
