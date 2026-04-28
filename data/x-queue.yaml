@@ -9,4 +9,6 @@
 #     - post_path: content/posts/xxx.md      # 対象記事
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
-queue: []
+queue:
+  - post_path: content/posts/nikkei-60000-highyield-mindset.md
+    added_at: '2026-04-28T15:12:24+09:00'
