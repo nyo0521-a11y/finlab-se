@@ -16,7 +16,7 @@
 import sys
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 try:
     import yaml
@@ -28,15 +28,17 @@ PRIORITY_ORDER = {"high": 0, "normal": 1, "low": 2}
 
 
 def parse_ts(value):
-    """last_promoted を比較用キーに変換。null/None は最古（epoch 0）扱い。"""
+    """last_promoted を比較用キーに変換。null/None は最古扱い（常にタイムゾーンあり）。"""
+    _epoch = datetime.min.replace(tzinfo=timezone.utc)
     if value is None:
-        return datetime.min
+        return _epoch
     if isinstance(value, datetime):
-        return value
+        # YAML が timezone-naive で返す場合は UTC として扱う
+        return value if value.tzinfo else value.replace(tzinfo=timezone.utc)
     try:
         return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
     except ValueError:
-        return datetime.min
+        return _epoch
 
 
 def main():
