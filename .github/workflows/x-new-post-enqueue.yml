@@ -3,10 +3,14 @@ name: X Auto Post - New Post Enqueue
 # 新記事がmainにpushされたら data/x-queue.yaml に post_path を追記する（承認フロー廃止版）。
 # 投稿タイミングは x-post-scheduled.yml が朝7:30/夜21:00のcronで処理する。
 #
+# ★ 公開日時チェック ★
+#   frontmatter の date フィールドが現在時刻より未来の記事はエンキューしない。
+#   未来日付の記事は deploy.yml の cron ビルドで公開と同時にエンキューされる。
+#
 # 流れ:
 #   push to main (content/posts/**.md 追加)
 #     -> 追加ファイル検出
-#     -> data/x-queue.yaml に post_path を追記してコミット
+#     -> date が過去（＝公開済み）の記事のみ data/x-queue.yaml に追記してコミット
 
 on:
   push:
@@ -54,15 +58,72 @@ jobs:
           FILES=$(echo "$ADDED" | tr '\n' ' ' | sed 's/ *$//')
           echo "files=$FILES" >> "$GITHUB_OUTPUT"
 
-      - name: Enqueue
+      - name: Filter out future-dated posts
+        id: filter
         if: steps.detect.outputs.files != ''
+        env:
+          DETECT_FILES: ${{ steps.detect.outputs.files }}
+        shell: bash
+        run: |
+          python3 - << 'PYEOF'
+          import sys, re, os
+          from datetime import datetime, timezone, timedelta
+          from pathlib import Path
+
+          JST = timezone(timedelta(hours=9))
+          now = datetime.now(JST)
+          files = os.environ.get("DETECT_FILES", "").split()
+          live_files = []
+
+          for f in files:
+              path = Path(f)
+              if not path.exists():
+                  print(f"SKIP (not found): {f}")
+                  continue
+              content = path.read_text(encoding="utf-8")
+              m = re.search(r'^date:\s*["\']?([^\n"\']+)["\']?', content, re.MULTILINE)
+              if not m:
+                  print(f"LIVE (no date field): {f}")
+                  live_files.append(f)
+                  continue
+              date_str = m.group(1).strip()
+              dt = None
+              for fmt in ["%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M%z"]:
+                  try:
+                      dt = datetime.strptime(date_str, fmt)
+                      break
+                  except ValueError:
+                      pass
+              if dt is None:
+                  try:
+                      d = datetime.strptime(date_str[:10], "%Y-%m-%d").date()
+                      dt = datetime(d.year, d.month, d.day, tzinfo=JST)
+                  except ValueError:
+                      print(f"LIVE (unparseable date): {f}")
+                      live_files.append(f)
+                      continue
+              if dt <= now:
+                  print(f"LIVE: {f} (date={date_str})")
+                  live_files.append(f)
+              else:
+                  print(f"SKIP (future date, not live yet): {f} (date={date_str})")
+                  print(f"  -> will be enqueued automatically by deploy.yml cron when it goes live")
+
+          result = " ".join(live_files)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              fh.write(f"live_files={result}\n")
+          print(f"Live files to enqueue: {result or '(none)'}")
+          PYEOF
+
+      - name: Enqueue
+        if: steps.filter.outputs.live_files != ''
         shell: bash
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          for POST_PATH in ${{ steps.detect.outputs.files }}; do
+          for POST_PATH in ${{ steps.filter.outputs.live_files }}; do
             echo "=== Enqueueing: $POST_PATH ==="
             python .github/scripts/enqueue_post.py "$POST_PATH"
           done

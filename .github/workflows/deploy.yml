@@ -26,7 +26,7 @@ jobs:
   production:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write   # cron 時に x-queue.yaml をコミット・プッシュするため write が必要
       deployments: write
     steps:
       - name: Checkout
@@ -56,6 +56,76 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 75e7d9321a61105da05ceb29523b8a30
           command: pages deploy public --project-name finlab-se --branch master
+
+      # =========================================
+      # cron ビルド時のみ: 公開日に達した記事を X キューに積む
+      #
+      # push 時は x-new-post-enqueue.yml が date チェック付きでエンキューする。
+      # schedule 時（毎時0分）: Hugo が未来日付記事を初めて本番に含めたタイミングで
+      # エンキューする。enqueue_post.py は queue・history の両方で重複チェックするため
+      # 再エンキューや投稿済み記事の再投稿は発生しない。
+      # =========================================
+      - name: Enqueue newly-live posts (cron only)
+        if: github.event_name == 'schedule'
+        shell: bash
+        run: |
+          pip install ruamel.yaml -q
+          python3 - << 'PYEOF'
+          import sys, re, subprocess
+          from datetime import datetime, timezone, timedelta
+          from pathlib import Path
+
+          JST = timezone(timedelta(hours=9))
+          now = datetime.now(JST)
+          posts_dir = Path("content/posts")
+
+          if not posts_dir.exists():
+              print("content/posts not found, skipping")
+              sys.exit(0)
+
+          for md_file in sorted(posts_dir.glob("*.md")):
+              content = md_file.read_text(encoding="utf-8")
+              m = re.search(r'^date:\s*["\']?([^\n"\']+)["\']?', content, re.MULTILINE)
+              if not m:
+                  continue
+              date_str = m.group(1).strip()
+              dt = None
+              for fmt in ["%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M%z"]:
+                  try:
+                      dt = datetime.strptime(date_str, fmt)
+                      break
+                  except ValueError:
+                      pass
+              if dt is None:
+                  try:
+                      d = datetime.strptime(date_str[:10], "%Y-%m-%d").date()
+                      dt = datetime(d.year, d.month, d.day, tzinfo=JST)
+                  except ValueError:
+                      continue
+              if dt <= now:
+                  r = subprocess.run(
+                      [sys.executable, ".github/scripts/enqueue_post.py", str(md_file)],
+                      capture_output=True, text=True
+                  )
+                  msg = r.stdout.strip()
+                  if msg:
+                      print(f"{md_file.name}: {msg}")
+          PYEOF
+
+      - name: Commit newly-enqueued posts (cron only)
+        if: github.event_name == 'schedule'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/x-queue.yaml 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(x-queue): enqueue newly-live post(s) [skip ci]"
+            git push
+            echo "Newly-live post(s) enqueued and pushed."
+          else
+            echo "No new posts to enqueue."
+          fi
 
   # =========================================
   # ドラフトプレビュー（draft.finlab-se.pages.dev）

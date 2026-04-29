@@ -13,6 +13,7 @@ from pathlib import Path
 from ruamel.yaml import YAML
 
 QUEUE_PATH = Path("data/x-queue.yaml")
+HISTORY_PATH = Path("data/x-post-history.yaml")
 JST = timezone(timedelta(hours=9))
 
 
@@ -27,6 +28,15 @@ def main():
     yaml.preserve_quotes = True
     yaml.indent(mapping=2, sequence=4, offset=2)
 
+    # 投稿済みチェック（x-post-history.yaml）: 既に X に投稿済みなら再エンキューしない
+    if HISTORY_PATH.exists():
+        with HISTORY_PATH.open(encoding="utf-8") as f:
+            history_data = yaml.load(f) or {}
+        for entry in (history_data.get("history") or []):
+            if entry.get("post_path") == post_path:
+                print(f"already posted to X: {post_path}")
+                return
+
     if QUEUE_PATH.exists():
         with QUEUE_PATH.open(encoding="utf-8") as f:
             data = yaml.load(f) or {}
@@ -34,7 +44,7 @@ def main():
         data = {}
     queue = data.get("queue") or []
 
-    # 重複チェック（冪等）
+    # 重複チェック（冪等）: キューに既に存在する場合はスキップ
     for entry in queue:
         if entry.get("post_path") == post_path:
             print(f"already enqueued: {post_path}")
