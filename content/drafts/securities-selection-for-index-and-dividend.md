@@ -111,10 +111,10 @@ NISAのつみたて投資枠は、制度上インデックスファンドなど�
 <thead>
 <tr style="background:#1e293b;color:#fff;">
 <th style="padding:0;background:#1e293b;border:1px solid #334155;min-width:110px;font-size:12px;position:relative;height:48px;"><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;" preserveAspectRatio="none"><line x1="0" y1="0" x2="100%" y2="100%" stroke="#94a3b8" stroke-width="1"/></svg><span style="position:absolute;top:6px;right:10px;font-size:11px;font-weight:700;color:#fff;line-height:1.2;">証券会社</span><span style="position:absolute;bottom:6px;left:10px;font-size:11px;font-weight:700;color:#fff;line-height:1.2;">評価観点</span></th>
-<th style="padding:12px 14px;text-align:center;border:1px solid #334155;min-width:130px;font-size:14px;"><a href="https://www.sbisec.co.jp/" target="_blank" rel="noopener noreferrer" style="color:#fff!important;text-decoration:underline;">SBI証券</a></th>
-<th style="padding:12px 14px;text-align:center;border:1px solid #334155;min-width:130px;font-size:14px;"><a href="https://www.rakuten-sec.co.jp/" target="_blank" rel="noopener noreferrer" style="color:#fff!important;text-decoration:underline;">楽天証券</a></th>
-<th style="padding:12px 14px;text-align:center;border:1px solid #334155;min-width:130px;font-size:14px;"><a href="https://www.monex.co.jp/" target="_blank" rel="noopener noreferrer" style="color:#fff!important;text-decoration:underline;">マネックス証券</a></th>
-<th style="padding:12px 14px;text-align:center;border:1px solid #334155;min-width:130px;font-size:14px;"><a href="https://kabu.com/" target="_blank" rel="noopener noreferrer" style="color:#fff!important;text-decoration:underline;">三菱UFJ eスマート</a></th>
+<th style="padding:12px 14px;text-align:center;border:1px solid #334155;min-width:130px;font-size:14px;cursor:pointer;text-decoration:underline;" onclick="window.open('https://www.sbisec.co.jp/','_blank')">SBI証券</th>
+<th style="padding:12px 14px;text-align:center;border:1px solid #334155;min-width:130px;font-size:14px;cursor:pointer;text-decoration:underline;" onclick="window.open('https://www.rakuten-sec.co.jp/','_blank')">楽天証券</th>
+<th style="padding:12px 14px;text-align:center;border:1px solid #334155;min-width:130px;font-size:14px;cursor:pointer;text-decoration:underline;" onclick="window.open('https://www.monex.co.jp/','_blank')">マネックス証券</th>
+<th style="padding:12px 14px;text-align:center;border:1px solid #334155;min-width:130px;font-size:14px;cursor:pointer;text-decoration:underline;" onclick="window.open('https://kabu.com/','_blank')">三菱UFJ eスマート</th>
 </tr>
 </thead>
 <tbody>
