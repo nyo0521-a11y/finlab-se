@@ -95,6 +95,8 @@ jobs:
           git add data/x-queue.yaml
           # x-post-state.yaml が存在すれば一緒にコミット（重複投稿防止フラグ）
           [ -f data/x-post-state.yaml ] && git add data/x-post-state.yaml
+          # 投稿履歴が更新されていればコミット対象に追加
+          [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
           if ! git diff --cached --quiet; then
             git commit -m "chore(x-queue): dequeue after post"
             git push

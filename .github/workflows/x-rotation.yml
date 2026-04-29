@@ -85,8 +85,10 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet data/x-rotation.yaml; then
-            git add data/x-rotation.yaml
+          git add data/x-rotation.yaml
+          # 投稿履歴が更新されていればコミット対象に追加
+          [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
+          if ! git diff --cached --quiet; then
             git commit -m "chore(x-rotation): mark post as promoted"
             git push
           fi

@@ -89,7 +89,23 @@ def main():
     tweet_id = result.get("tweet_id", "")
     tweet_url = f"https://x.com/i/web/status/{tweet_id}" if tweet_id else ""
 
-    # 4. rotation.yaml 更新
+    # 4. 投稿履歴を記録
+    history_payload = json.dumps({
+        "text": text,
+        "tweet_id": tweet_id,
+        "tweet_url": tweet_url,
+        "type": "rotation",
+        "post_path": post_path,
+    }, ensure_ascii=False)
+    subprocess.run(
+        [sys.executable, str(SCRIPT_DIR / "append_post_history.py")],
+        input=history_payload,
+        text=True,
+        encoding="utf-8",
+        check=False,
+    )
+
+    # 5. rotation.yaml 更新
     subprocess.run(
         [sys.executable, str(SCRIPT_DIR / "update_rotation.py"), str(index)],
         check=True,
