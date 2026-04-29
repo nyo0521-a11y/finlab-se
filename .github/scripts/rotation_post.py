@@ -102,6 +102,7 @@ def main():
         input=history_payload,
         text=True,
         encoding="utf-8",
+        capture_output=True,   # stdout を汚染しない
         check=False,
     )
 
