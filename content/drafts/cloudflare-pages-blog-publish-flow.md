@@ -134,7 +134,7 @@ draft: false
 
 <div style="background:#f2f8f3;border-left:4px solid #2a7a3a;padding:16px 20px 14px;margin:28px 0 32px;border-radius:0 8px 8px 0;">
 
-<p style="margin:0 0 10px;"><strong>📎 コラム：Claude Codeがよく使う3つの言葉 — push・ビルド・デプロイ</strong></p>
+<p style="margin:0 0 10px;"><strong>💡 コラム：Claude Codeがよく使う3つの言葉 — push・ビルド・デプロイ</strong></p>
 
 Claude Codeと対話しながら作業していると、この3つの言葉が頻繁に出てきます。それぞれ①〜③のどこにあたるかを整理しておきます。
 
