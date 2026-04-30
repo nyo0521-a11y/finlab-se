@@ -42,7 +42,7 @@ Claude Codeにこんなことやりたい、あんなことやりたいと相談
 
 まず全体像を把握しておきましょう。このブログでは以下の3ステップで記事を公開しています。
 
-{{< figure src="/images/cloudflare-blog-publish-flow.png" alt="Draft→本番の2段階公開フロー" caption="左：記事を書いてアップロード　中：Draft環境で確認　右：確認OKで本番に公開" >}}
+{{< figure src="/images/chatgpt-publish-flow.png" alt="Draft→本番の2段階公開フロー" caption="左：記事を書いてアップロード　中：Draft環境で確認　右：確認OKで本番に公開" >}}
 
 各ステップで登場するツール・サービスの名前に馴染みがない方も多いと思います。次のセクションで登場人物を整理してから、詳細の説明に入ります。
 
