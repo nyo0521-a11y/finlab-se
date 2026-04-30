@@ -42,7 +42,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install deps
-        run: pip install requests requests-oauthlib ruamel.yaml
+        run: pip install requests requests-oauthlib ruamel.yaml PyYAML
 
       - name: Determine slot
         id: slot
@@ -99,5 +99,86 @@ jobs:
           [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
           if ! git diff --cached --quiet; then
             git commit -m "chore(x-queue): dequeue after post"
+            git push
+          fi
+
+      # =========================================
+      # 朝スロット フォールバック：新規記事がなければリマインダーを投稿
+      # 夜の x-rotation.yml（21:05）と同じ仕組みを朝にも適用する。
+      # バックアップ枠（7:37）での2重投稿は morning_rotation_last_posted で防止する。
+      # =========================================
+      - name: Morning rotation fallback
+        if: steps.slot.outputs.slot == 'morning' && env.status != 'posted'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        shell: bash
+        run: |
+          set -e
+          TODAY=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
+
+          # すでに今朝ローテーション済みなら skip（バックアップ枠 7:37 の2重実行防止）
+          LAST=$(python - <<'PYEOF1'
+          from pathlib import Path
+          from ruamel.yaml import YAML
+          p = Path("data/x-post-state.yaml")
+          if not p.exists():
+              print("")
+          else:
+              yaml = YAML()
+              with p.open(encoding="utf-8") as f:
+                  d = yaml.load(f) or {}
+              print(d.get("morning_rotation_last_posted", "") or "")
+          PYEOF1
+          )
+          if [ "$LAST" = "$TODAY" ]; then
+            echo "morning rotation already ran today ($TODAY), skipping"
+            exit 0
+          fi
+
+          set +e
+          RESULT=$(python .github/scripts/rotation_post.py)
+          EXIT_CODE=$?
+          set -e
+          echo "Rotation result: $RESULT"
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "::error::rotation_post.py failed (exit $EXIT_CODE)"
+            exit $EXIT_CODE
+          fi
+
+          # morning_rotation_last_posted を更新して2重投稿フラグを立てる
+          python - <<'PYEOF2'
+          from pathlib import Path
+          from ruamel.yaml import YAML
+          from datetime import datetime, timezone, timedelta
+          JST = timezone(timedelta(hours=9))
+          today = datetime.now(JST).date().isoformat()
+          p = Path("data/x-post-state.yaml")
+          yaml = YAML()
+          yaml.indent(mapping=2, sequence=4, offset=2)
+          data = {}
+          if p.exists():
+              with p.open(encoding="utf-8") as f:
+                  data = yaml.load(f) or {}
+          data["morning_rotation_last_posted"] = today
+          with p.open("w", encoding="utf-8") as f:
+              yaml.dump(data, f)
+          PYEOF2
+          echo "rotation_ran=true" >> "$GITHUB_ENV"
+
+      - name: Commit rotation update (morning fallback)
+        if: env.rotation_ran == 'true'
+        shell: bash
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/x-rotation.yaml
+          [ -f data/x-post-state.yaml ] && git add data/x-post-state.yaml
+          [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(x-rotation): morning fallback rotation posted"
             git push
           fi
