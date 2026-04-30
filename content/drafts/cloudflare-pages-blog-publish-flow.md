@@ -4,7 +4,7 @@ date: 2026-04-29T09:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["Cloudflare Pages", "GitHub Actions", "Hugo", "ブログ運営", "自動化", "Claude Code"]
-description: "Cloudflare PagesとGitHub Actionsを使ったブログ公開フローを解説。Draft記事をスマホで確認しながら、投稿予約的に本番アップする仕組みをどう作っているかを紹介します。"
+description: "Draft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。"
 showToc: true
 cover:
   image: "/images/thumb-cloudflare-blog-publish-flow.png"
