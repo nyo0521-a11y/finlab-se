@@ -6,26 +6,31 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     width: 1376px;
-    height: 768px;
+    height: 800px;
     overflow: hidden;
     font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
     position: relative;
     background: #050c23;
   }
 
-  /* 背景画像（imgタグで確実に高さ合わせ・右寄せ） */
+  /* 背景画像：gpt-image-2 API で 1376x768 ちょうどに生成したためスケーリング不要 */
+  /* Chrome headlessが底辺を約20px切るため、body=800pxで撮影後に上768pxをクロップする */
+  /* 画像は0-767px、768-799pxはbody背景色（#050c23）で埋まるがクロップされる */
   .bg-img {
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
+    width: 1376px;
     height: 768px;
-    width: auto;
   }
 
-  /* 左側グラデーションオーバーレイ */
+  /* 左側グラデーションオーバーレイ（テキストエリアを読みやすくする） */
   .overlay {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 1376px;
+    height: 768px;
     background: linear-gradient(
       to right,
       rgba(5, 12, 35, 0.85) 0%,
