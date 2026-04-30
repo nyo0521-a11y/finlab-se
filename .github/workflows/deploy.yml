@@ -13,6 +13,7 @@ on:
       - main
   # 毎時0分に再ビルド：未来日付で書いた記事を予約時刻以降に自動公開するため
   # （push がなくても定期的に再ビルドされ、現在時刻 >= date になった記事が公開される）
+  # cron 間隔 = 1時間のため、enqueue の時間窓は 2時間に設定（遅延バッファ込み）
   schedule:
     - cron: '0 * * * *'
   # 手動トリガー：必要なら GitHub Actions 画面から即時再ビルドできる
@@ -77,6 +78,9 @@ jobs:
 
           JST = timezone(timedelta(hours=9))
           now = datetime.now(JST)
+          # cron が毎時0分起動のため、窓を2時間に設定（GitHub Actions 遅延バッファ込み）
+          ENQUEUE_WINDOW_HOURS = 2
+          window_start = now - timedelta(hours=ENQUEUE_WINDOW_HOURS)
           posts_dir = Path("content/posts")
 
           if not posts_dir.exists():
@@ -102,7 +106,7 @@ jobs:
                       dt = datetime(d.year, d.month, d.day, tzinfo=JST)
                   except ValueError:
                       continue
-              if dt <= now:
+              if window_start < dt <= now:
                   r = subprocess.run(
                       [sys.executable, ".github/scripts/enqueue_post.py", str(md_file)],
                       capture_output=True, text=True
