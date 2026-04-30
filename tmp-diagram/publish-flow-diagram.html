@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", sans-serif;
+    background: #ffffff;
+    padding: 36px 44px;
+    width: 1020px;
+    overflow: hidden;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 28px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== 3カラムレイアウト ===== */
+  .flow-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+  }
+
+  /* ===== 各STEPボックス ===== */
+  .step {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+  }
+
+  .step-header {
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+  .step-header .step-num {
+    font-size: 13px;
+    opacity: 0.85;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .step-header .step-title {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .step1 .step-header { background: #4a7fc1; }
+  .step2 .step-header { background: #e6951a; }
+  .step3 .step-header { background: #2e9e5b; }
+
+  .step-body {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 14px 13px;
+  }
+  .step1 .step-body { border-color: #4a7fc1; }
+  .step2 .step-body { border-color: #e6951a; }
+  .step3 .step-body { border-color: #2e9e5b; }
+
+  .step-items {
+    list-style: none;
+    margin-bottom: 12px;
+  }
+  .step-items li {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .step-items li:last-child { margin-bottom: 0; }
+  .num {
+    background: #eee;
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step1 .num { background: #dce8f8; color: #3467a8; }
+  .step2 .num { background: #fdecd3; color: #c07010; }
+  .step3 .num { background: #d4f0e2; color: #1e7a45; }
+
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    background: #f3f3f3;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #555;
+  }
+
+  .step-badge {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 6px;
+    line-height: 1.4;
+  }
+  .badge-draft {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #f0c040;
+  }
+  .badge-noindex {
+    background: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5a0a8;
+    margin-top: 6px;
+  }
+  .badge-publish {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #6abf85;
+  }
+
+  /* ===== 矢印 ===== */
+  .arrow-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    flex-shrink: 0;
+    padding-top: 48px;
+    gap: 4px;
+  }
+  .arrow-label {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    line-height: 1.35;
+    white-space: normal;
+    word-break: keep-all;
+  }
+  .arrow-icon {
+    font-size: 26px;
+    color: #aaa;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="title">DRAFT → 確認 → 本番公開　2段階フロー</div>
+
+<div class="flow-wrapper">
+
+  <!-- STEP 1 -->
+  <div class="step step1">
+    <div class="step-header">
+      <span class="step-num">STEP 1 — 執筆</span>
+      <span class="step-title">記事を書いて<br>GitHubへアップロード</span>
+    </div>
+    <div class="step-body">
+      <ul class="step-items">
+        <li><span class="num">①</span><span>Markdownで記事を書く<br>ローカルPCに保存</span></li>
+        <li><span class="num">②</span><span>GitHubへアップロード<br>自動変換・Web公開が始まる</span></li>
+        <li><span class="num">③</span><span>数十秒でDraft環境に反映</span></li>
+      </ul>
+      <span class="step-badge badge-draft">Draft環境にだけ表示<br>本番サイトには出ない</span>
+    </div>
+  </div>
+
+  <!-- 矢印1 -->
+  <div class="arrow-col">
+    <span class="arrow-label">自動</span>
+    <span class="arrow-icon">→</span>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step step2">
+    <div class="step-header">
+      <span class="step-num">STEP 2 — 確認</span>
+      <span class="step-title">Draft環境で<br>記事を確認</span>
+    </div>
+    <div class="step-body">
+      <ul class="step-items">
+        <li><span class="num">①</span><span>Draft環境のページにアクセス</span></li>
+        <li><span class="num">②</span><span>外出先からも確認できる</span></li>
+        <li><span class="num">③</span><span>問題があれば修正 →<br>再アップロード</span></li>
+      </ul>
+      <span class="step-badge badge-noindex">検索エンジンには<br>インデックスされない</span>
+    </div>
+  </div>
+
+  <!-- 矢印2 -->
+  <div class="arrow-col">
+    <span class="arrow-label">フォルダを<br>移動</span>
+    <span class="arrow-icon">→</span>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step step3">
+    <div class="step-header">
+      <span class="step-num">STEP 3 — 公開</span>
+      <span class="step-title">公開用フォルダへ移動<br>自動公開</span>
+    </div>
+    <div class="step-body">
+      <ul class="step-items">
+        <li><span class="num">①</span><span>確認用フォルダから<br>公開用フォルダへ移動</span></li>
+        <li><span class="num">②</span><span>アップロードすると<br>自動で変換・Web公開</span></li>
+        <li><span class="num">③</span><span>dateを未来日時にすれば<br>予約投稿も可能</span></li>
+      </ul>
+      <span class="step-badge badge-publish">finlab-se.com に公開 ✓</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
