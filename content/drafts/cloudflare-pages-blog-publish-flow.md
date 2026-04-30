@@ -44,6 +44,8 @@ Claude Codeにこんなことやりたい、あんなことやりたいと相談
 
 この仕組みには、聞き慣れない名前がいくつか出てきます。本題に入る前に、それぞれの役割を簡単に整理しておきます。
 
+{{< figure src="/images/blog-cast-diagram.png" alt="登場人物の関係図：ローカルPC・GitHub・Cloudflare Pages" caption="ローカルPCで記事を書き、GitHubへアップロード。GitHub上でHugoとGitHub Actionsが動き、Cloudflare Pagesへ送信してブログが公開される" >}}
+
 ### ローカルPC {#term-local-pc}
 
 記事を書いたり編集したりする、手元の自分のパソコンのことです。「ローカル」とは「手元・自分の環境」という意味で、インターネット上のサービス（クラウド）と対比して使われます。このブログでは、Claude Codeを使った記事の執筆・修正はすべてローカルPCで行っています。
