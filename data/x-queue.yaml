@@ -9,6 +9,4 @@
 #     - post_path: content/posts/xxx.md      # 対象記事
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
-queue:
-  - post_path: content/posts/health-insurance-dependent-2026.md
-    added_at: '2026-05-01T06:59:07+09:00'
+queue: []
