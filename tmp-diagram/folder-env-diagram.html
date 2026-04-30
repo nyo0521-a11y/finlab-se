@@ -7,22 +7,22 @@
   body {
     font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", sans-serif;
     background: #ffffff;
-    padding: 48px 56px;
-    width: 1340px;
+    padding: 36px 44px;
+    width: 960px;
     overflow: hidden;
   }
 
   /* ===== 左：GitHub ===== */
   .github-box {
-    width: 360px;
+    width: 260px;
     flex-shrink: 0;
   }
   .github-header {
     background: #24292e;
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    padding: 14px 18px;
+    padding: 12px 16px;
     border-radius: 8px 8px 0 0;
     display: flex;
     align-items: center;
@@ -52,26 +52,26 @@
   }
   .folder-label {
     font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 6px;
+    font-size: 17px;
+    margin-bottom: 5px;
   }
   .folder-path {
     font-family: "Courier New", monospace;
-    font-size: 16px;
+    font-size: 13px;
     color: #555;
   }
 
   /* ===== 右：Cloudflare Pages ===== */
   .cf-box {
-    width: 360px;
+    width: 290px;
     flex-shrink: 0;
   }
   .cf-header {
     background: #f6821f;
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    padding: 14px 18px;
+    padding: 12px 16px;
     border-radius: 8px 8px 0 0;
     display: flex;
     align-items: center;
@@ -101,20 +101,20 @@
   }
   .env-label {
     font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 6px;
+    font-size: 17px;
+    margin-bottom: 5px;
   }
   .env-desc {
-    font-size: 17px;
+    font-size: 14px;
     color: #555;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .badge {
     display: inline-block;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
-    padding: 4px 14px;
-    border-radius: 12px;
+    padding: 3px 10px;
+    border-radius: 10px;
   }
   .badge.no-index {
     background: #f8d7da;
@@ -158,19 +158,19 @@
   .center-badge {
     background: #0d6efd;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 24px;
+    padding: 8px 16px;
+    border-radius: 20px;
     text-align: center;
     white-space: nowrap;
   }
   .center-sub {
-    font-size: 16px;
+    font-size: 13px;
     color: #666;
     text-align: center;
     white-space: nowrap;
-    margin-top: 6px;
+    margin-top: 5px;
   }
 
   /* ===== レイアウト ===== */
@@ -183,14 +183,14 @@
 
   /* ===== 注記 ===== */
   .note {
-    margin-top: 36px;
-    font-size: 17px;
+    margin-top: 28px;
+    font-size: 14px;
     color: #555;
     background: #f8f9fa;
-    border-left: 5px solid #adb5bd;
-    padding: 16px 20px;
+    border-left: 4px solid #adb5bd;
+    padding: 14px 18px;
     border-radius: 0 6px 6px 0;
-    line-height: 1.9;
+    line-height: 1.85;
   }
 </style>
 </head>
@@ -223,7 +223,7 @@
     </div>
     <div style="text-align:center;">
       <div class="center-badge">⚙ GitHub Actions</div>
-      <div class="center-sub">自動ビルド・デプロイ</div>
+      <div class="center-sub">自動変換・Web公開</div>
     </div>
     <div class="single-arrow">
       <div class="line p"></div>
@@ -254,7 +254,7 @@
 
 <div class="note">
   💡 フォルダの「場所」は GitHub 上にあります。環境（サイト）は Cloudflare 上にあります。<br>
-  アップロード（push）するたびに GitHub Actions が両方の環境を自動でビルド・デプロイします。<br>
+  Web公開処理が行われるたびに GitHub Actions が両方の環境を自動で変換・Web公開します。<br>
   確認用フォルダの記事は Draft環境にだけ表示されます。公開用フォルダへ移動すると本番環境に反映されます。
 </div>
 
