@@ -112,7 +112,7 @@ draft: false
 
 ただし、このローカルサーバーは**PCが起動している間だけ、自分のPCからしか参照できません**。外出先やスマホから同じURLにアクセスしても見ることはできません。
 
-### ③ CloudflareがGitHubを監視 → 自動ビルド → 公開
+### ③ GitHub Actionsが起動 → 変換・公開 → ブログに反映
 
 <a href="#term-github" title="クラウド上のファイル管理サービス。記事ファイルの変更履歴をすべてここで管理する">GitHub</a>へアップロードすると、<a href="#term-github-actions" title="GitHub上で動く自動化機能。定時実行（cron）や条件付き処理を設定できる">GitHub Actions</a>が変更を検知して起動します。GitHub Actionsのサーバー上で<a href="#term-hugo" title="MarkdownファイルをHTML形式のWebページに変換する静的サイト生成ソフト">Hugo</a>がMarkdownをHTML（Webページ）に変換するビルドを実行し、完成したHTMLファイルを<a href="#term-cloudflare-pages" title="GitHubと連携してサイトを配信・公開するホスティングサービス">Cloudflare Pages</a>へ送信します。Cloudflare PagesがそのHTMLを受け取って配信することで、数十秒後には本番ブログに反映されます。この③の流れはすべて自動で、手動の操作は不要です。
 
