@@ -4,7 +4,7 @@ date: 2026-04-25T07:30:00+09:00
 draft: false
 categories: ["金融ニュース"]
 tags: ["NISA", "こどもNISA", "ジュニアNISA", "子育て", "教育資金", "税制改正"]
-description: "2025年12月の税制改正大綱で正式決定した「こどもNISA（こども支援NISA）」。2027年スタートの新制度の概要とジュニアNISAとの違いを解説し、今できる準備をまとめます。"
+description: "2027年スタートのこどもNISA（こども支援NISA）。概要とジュニアNISAとの違いを解説。"
 showToc: true
 cover:
   image: "/images/thumb-kodomo-nisa-2027.jpg"

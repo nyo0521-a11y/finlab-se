@@ -4,7 +4,7 @@ date: 2026-04-23T11:25:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["Claude Design","Claude Code","ブログ運営","Hugo","個人開発","デザイン"]
-description: "Claude Codeに「ブログをリデザインして」と丸投げするだけで、その裏でClaude Designも使いこなしながらPaperMod標準から脱却できた体験記。コードを1行も書かず、デザイン案も自分で固めずに進んだAI任せの刷新プロセスを記録します。"
+description: "Claude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。"
 showToc: true
 cover:
   image: "/images/thumb-blog-redesign-with-claude-code.png"

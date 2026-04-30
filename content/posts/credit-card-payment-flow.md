@@ -4,7 +4,7 @@ date: 2026-04-17T10:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["クレジットカード", "決済の仕組み", "オーソリゼーション", "3Dセキュア", "金融SE"]
-description: "ECサイトで購入ボタンを押してから「決済完了」になるまでの0.1秒に、実は5つの組織が関与しています。クレカシステムを実務で担当した金融SEが、その流れをわかりやすく解説します。"
+description: "決済の0.1秒に5つの組織が関与。クレカ決済フローを実務担当の金融SEがわかりやすく解説。"
 showToc: true
 cover:
   image: "/images/thumb-credit-card-payment-flow.jpg"

@@ -4,7 +4,7 @@ date: 2026-04-29T08:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["X自動投稿", "GitHub Actions", "Cloudflare Workers", "ブログ運営", "API活用", "自動化"]
-description: "ブログの流入経路を増やすためにXの自動投稿を仕組み化した際の試行錯誤を紹介。X API・GitHub・Cloudflare Workersがどのように連携して動くかを図解。最初にGitHub Actionsで時刻ズレに苦しんだ経験と、Cloudflare Workers移行で解決するまでの流れを解説します。"
+description: "GitHub ActionsとCloudflare WorkersでX自動投稿を仕組み化した際の試行錯誤と全体像。"
 showToc: true
 cover:
   image: "/images/x-autopost-thumbnail.png"

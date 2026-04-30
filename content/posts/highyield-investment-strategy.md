@@ -4,7 +4,7 @@ date: 2026-04-18T07:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "ETF", "VYM", "HDV", "SCHD", "米国株", "日本株", "投資戦略", "単元未満株"]
-description: "なぜ米国株はETF、日本株は個別株で運用するのか。高配当株投資の設計思想と、VYM・HDV・SCHDの使い分け、80〜100銘柄に分散する理由、単元未満株の活用まで、私の投資戦略の全体像を公開します。"
+description: "米国株はETF、日本株は個別株で運用する理由。VYM・HDV・SCHDの使い分けと投資戦略の全体像。"
 showToc: true
 cover:
   image: "/images/thumb-highyield-investment-strategy.jpg"

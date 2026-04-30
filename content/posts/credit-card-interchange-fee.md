@@ -4,7 +4,7 @@ date: 2026-04-14T22:25:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["クレジットカード", "インターチェンジフィー", "加盟店手数料", "ポイント還元", "金融SE"]
-description: "クレカを使うとなぜポイントがもらえるのか。加盟店手数料の内訳（インターチェンジフィー）を金融SE視点で図解し、カード会社のビジネスモデルをわかりやすく解説します。"
+description: "クレカのポイントはなぜもらえるのか。インターチェンジフィーを金融SE視点で図解します。"
 showToc: true
 cover:
   image: "/images/thumb-credit-card-interchange-fee.jpg"

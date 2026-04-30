@@ -4,7 +4,7 @@ date: 2026-04-19T11:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["連続増配株", "高配当株", "配当利回り", "長期投資", "日本株", "増配", "財務分析"]
-description: "AI・半導体など「旬のテーマ」が注目を集めるたびに、高配当株投資の基準を見失いそうになります。でも、財務が健全で増配を継続できる企業を選ぶという軸は、相場のテーマに関係なく変わりません。"
+description: "旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない。連続増配株の考え方。"
 showToc: true
 cover:
   image: "/images/thumb-consecutive-dividend-growth.jpg"

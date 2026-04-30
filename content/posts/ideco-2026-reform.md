@@ -4,7 +4,7 @@ date: 2026-04-14T21:35:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["iDeCo", "節税", "老後資金", "確定拠出年金"]
-description: "2026年はiDeCoに2段階の大改正が入ります。4月のマッチング拠出ルール見直しと12月の掛金上限引き上げを時系列で整理し、企業年金の有無別・年収別の節税インパクトを具体的な数値で解説します。"
+description: "2026年iDeCo大改正を解説。4月のマッチング拠出変更と12月の掛金上限引き上げを数値で整理。"
 showToc: true
 cover:
   image: "/images/thumb-ideco-2026-reform.jpg"

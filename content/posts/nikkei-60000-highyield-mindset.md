@@ -4,7 +4,7 @@ date: 2026-04-29T06:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "日経平均", "TOPIX", "中小型株", "投資心理", "買い増しルール"]
-description: "日経平均が6万円台に乗せた2026年4月、高配当株投資家が陥りがちな3つの失敗パターンを整理します。指数の中身を冷静に見直し、長期で配当を積み上げるための買い増しルールを再確認しましょう。"
+description: "日経6万円台で高配当株投資家が陥りがちな3つの失敗パターンと、ブレない買い増しルールを確認。"
 showToc: true
 cover:
   image: "/images/thumb-nikkei-60000-highyield-mindset.jpg"

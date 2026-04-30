@@ -4,7 +4,7 @@ date: 2026-04-12T11:36:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["モンテカルロシミュレーション", "FIRE", "4%ルール", "取り崩し", "トリニティスタディ", "インデックス投資"]
-description: "4%ルール（トリニティスタディ）は保守的すぎる？モンテカルロシミュレーションを使って、取崩し戦略を「生きている戦略」として運用する考え方を解説します。"
+description: "4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。"
 showToc: true
 cover:
   image: "/images/thumb-montecarlo-background.jpg"

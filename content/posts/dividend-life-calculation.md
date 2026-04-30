@@ -4,7 +4,7 @@ date: 2026-04-16T20:52:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["配当金生活", "FIRE", "高配当株", "資産計算", "取り崩し"]
-description: "年間200万円を配当で賄うには？必要元本を利回り別に計算し、インデックス投資+4%ルール取り崩しと比較します。どちらが優れているかではなく、自分のライフプランで選ぶための判断軸を整理します。"
+description: "年間200万円を配当で賄うのに必要な元本を計算。インデックス+4%ルールとも比較します。"
 showToc: true
 cover:
   image: "/images/thumb-dividend-life-calculation.jpg"

@@ -4,7 +4,7 @@ date: 2026-04-30T06:30:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["証券会社", "高配当株", "インデックス投資", "NISA", "単元未満株"]
-description: "NISAのインデックス積立から高配当株投資まで、投資スタイルに合った証券会社の選び方を解説。SBI証券・楽天証券・マネックス証券・三菱UFJ eスマート証券を単元未満株・日本株現物・米国ETF・自動取崩し・クレカ積立の5つの観点で比較します。2026年4月時点の事実ベースで解説。"
+description: "投資スタイル別の証券会社選びを解説。SBI・楽天・マネックス・UFJ eスマートを5観点で比較。"
 showToc: true
 cover:
   image: "/images/securities-selection-thumbnail.png"

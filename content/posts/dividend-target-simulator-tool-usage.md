@@ -4,7 +4,7 @@ date: 2026-04-19T09:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["配当目標", "高配当株", "シミュレーションツール", "Claude Code", "ポートフォリオ設計"]
-description: "「年◯◯万円の配当が欲しい」という目標から、いま買うべき平均配当利回りを逆算する無料ツール。入金額・投資期間・増配率を動かしながら、現実的な達成プランを設計できます。"
+description: "「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。"
 showToc: true
 cover:
   image: "/images/thumb-dividend-target-simulator-tool-usage.jpg"

@@ -4,7 +4,7 @@ date: 2026-04-12T20:35:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["Claude Code", "Hugo", "Cloudflare Pages", "ブログ開設", "個人開発"]
-description: "投資シミュレーターをClaude Codeで自作していたら、気づけばブログまで作っていた話。Hugo + Cloudflare Pagesでの構築過程と、ハマった失敗談をまとめます。"
+description: "投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。"
 showToc: true
 cover:
   image: "/images/thumb-claude-code-blog.jpg"

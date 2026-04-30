@@ -4,7 +4,7 @@ date: 2026-04-24T07:30:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["銀行システム", "勘定系", "クラウド", "DX", "金融SE"]
-description: "銀行の基幹システム「勘定系」がなぜクラウドへ移行しているのか。20年間システムを担当してきた金融SEの視点から、技術的背景・難しさ・業界の変化をわかりやすく解説します。"
+description: "なぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。"
 showToc: true
 cover:
   image: "/images/thumb-bank-core-system-cloud.jpg"

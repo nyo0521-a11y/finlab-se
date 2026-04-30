@@ -4,7 +4,7 @@ date: 2026-04-24T14:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["金融SE", "キャリア", "銀行システム", "仕事論"]
-description: "銀行決済・クレジットカード・金融グループの国際規制システムを渡り歩いてきた金融SEの視点で、移行プロジェクトが難しい理由、本番を守ることの重み、そしてこの仕事ならではのダイナミックさと充実感を率直に書いています。"
+description: "銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点。現場でしかわからない重みと充実感。"
 showToc: true
 cover:
   image: "/images/thumb-finance-se-20years-lessons.png"

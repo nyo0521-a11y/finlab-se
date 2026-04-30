@@ -4,7 +4,7 @@ date: 2026-04-14T21:35:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["iDeCo", "企業型DC", "確定拠出年金", "老後資金", "新NISA"]
-description: "企業型DB・企業型DC・iDeCoの違いを3階建て構造で整理し、税メリット・デメリット（受取時の課税リスクを含む）と新NISAの優先順位を、著者自身の経験をもとに解説します。"
+description: "企業型DB・DC・iDeCoの違いを3階建てで整理。税メリット・受取時リスク・新NISAとの優先順位。"
 showToc: true
 cover:
   image: "/images/thumb-ideco-dc-basics.jpg"

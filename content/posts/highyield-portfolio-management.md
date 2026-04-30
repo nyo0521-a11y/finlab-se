@@ -4,7 +4,7 @@ date: 2026-04-19T07:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "ポートフォリオ管理", "設計原則", "Googleスプレッドシート", "Claude Code"]
-description: "高配当株のポートフォリオ管理を仕組み化するための4つの設計原則と、私自身の実装例（リベシティ配布スプレッドシート×Claude Code）を紹介します。ツールは何を使ってもよく、考え方こそが重要です。"
+description: "高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。"
 showToc: true
 cover:
   image: "/images/thumb-highyield-portfolio-management.jpg"

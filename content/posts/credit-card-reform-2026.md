@@ -4,7 +4,7 @@ date: 2026-04-17T18:00:00+09:00
 draft: false
 categories: ["金融ニュース"]
 tags: ["クレカ改悪", "dカード", "三井住友カード", "楽天カード", "PayPayカード", "ポイント還元", "クレカ選び"]
-description: "2025〜2026年に相次いだdカード・三井住友ゴールドNL・楽天・PayPayカードの改定内容を整理し、SNSで話題の「また改悪か」に振り回されないための3つの判断軸を金融SE視点で解説します。"
+description: "dカード・三井住友NL・楽天・PayPayカード改定を整理。「また改悪か」に振り回されない判断軸を解説。"
 showToc: true
 cover:
   image: "/images/thumb-credit-card-reform-2026.jpg"

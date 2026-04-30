@@ -4,7 +4,7 @@ date: 2026-04-22T08:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["Claude Code", "配当金", "AI活用", "高配当株"]
-description: "お使いの証券会社からダウンロードした保有銘柄CSVをそのままClaude Codeに渡すだけで、月別の配当キャッシュフロー表を自動生成する手順を紹介します。1株配当や配当月はClaude Code側で調べてくれるので、人間が用意するのは銘柄コードと株数だけです。"
+description: "保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成する手順。"
 showToc: true
 cover:
   image: "/images/thumb-claude-code-dividend-calendar.jpg"

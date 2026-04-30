@@ -4,7 +4,7 @@ date: 2026-04-15T22:26:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["クレジットカード", "年会費無料", "ポイント還元", "ビジネスモデル", "金融SE"]
-description: "年会費ゼロなのに1%以上のポイントが付くクレカが存在するのはなぜか。カード会社の3つの収益源を金融SE視点で分解し、「損をしない仕組み」をわかりやすく解説します。"
+description: "年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説。"
 showToc: true
 cover:
   image: "/images/thumb-credit-card-free-annual-fee-model.jpg"

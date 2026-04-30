@@ -4,7 +4,7 @@ date: 2026-04-18T15:45:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "買い時", "配当利回り", "割安判断", "ETF", "日本株"]
-description: "高配当株は成熟企業中心で株価成長が限定的。だからこそ「いつ買うか」が重要です。米国ETF（VYM・HDV・SCHD）も日本個別株も「過去平均配当利回りと現在の比較」で割安・割高を判断する方法と、その理由・実践のコツを解説します。"
+description: "高配当株の買いタイミングはVYM・HDV・SCHDも日本個別株も「過去平均利回りと現在の比較」で判断。"
 showToc: true
 cover:
   image: "/images/thumb-highyield-buying-timing.jpg"

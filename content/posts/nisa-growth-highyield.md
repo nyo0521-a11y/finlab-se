@@ -4,7 +4,7 @@ date: 2026-04-16T09:01:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["新NISA", "高配当株", "成長投資枠", "インデックス投資", "資産形成"]
-description: "新NISAのつみたて投資枠はインデックスファンド、成長投資枠は高配当株・ETFという使い分けの考え方を整理します。どちらが正解かではなく、目的次第で使い分ける判断軸を数値で解説します。"
+description: "つみたて投資枠はインデックス、成長投資枠は高配当株・ETF。NISAの使い分け判断軸を数値で解説。"
 showToc: true
 cover:
   image: "/images/thumb-nisa-growth-highyield.jpg"

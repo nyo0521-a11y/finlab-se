@@ -4,7 +4,7 @@ date: 2026-04-16T21:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["支出最適化", "固定費削減", "携帯代見直し", "保険見直し", "高配当株投資", "資産形成"]
-description: "月1万円の配当金を得るには4%利回りで300万円が必要。一方で月1万円の支出削減は工夫次第で今すぐできる。投資の前に取り組むべき「支出の最適化」を、削減インパクトが大きい項目から整理します。"
+description: "投資より支出削減が先。月1万円の節約は300万円の投資効果に相当。削減インパクトが大きい項目から整理。"
 showToc: true
 cover:
   image: "/images/thumb-expense-optimization-before-investing.jpg"
