@@ -54,7 +54,7 @@ Claude Codeにこんなことやりたい、あんなことやりたいと相談
 
 ### Cloudflare Pages（クラウドフレア ページズ）{#term-cloudflare-pages}
 
-GitHubと連携して、サイトを配信・公開してくれるホスティングサービスです。このブログでは、GitHub ActionsがHugoでビルドした完成済みのHTMLファイルをCloudflare Pagesへ送信し、Cloudflare Pagesがそれを受け取って配信する役割を担っています。このブログはDraft（確認用）と本番の2環境をCloudflare Pages上に持っています。
+Cloudflareは、Webサイトの高速配信やセキュリティ対策を提供する世界規模のインターネットインフラ企業です。その中の「Pages」というサービスが、Webサイトのファイルを受け取ってインターネット上に公開・配信する機能を担っています。このブログでは、GitHub ActionsがHugoでMarkdownをHTMLに変換した完成済みのファイルをCloudflare Pagesへ送信し、Cloudflare Pagesがそれを受け取って配信しています。このブログはDraft（確認用）と本番の2環境をCloudflare Pages上に持っています。
 
 ### Hugo（ヒューゴ）{#term-hugo}
 
