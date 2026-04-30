@@ -54,11 +54,11 @@ Claude Codeにこんなことやりたい、あんなことやりたいと相談
 
 ### Cloudflare Pages（クラウドフレア ページズ）{#term-cloudflare-pages}
 
-GitHubと連携して、サイトを自動でビルド（組み立て）・公開してくれるホスティングサービスです。GitHubにファイルをアップロードするだけで、数十秒後には新しいサイトが公開されます。このブログはDraft（確認用）と本番の2環境をCloudflare Pages上に持っています。
+GitHubと連携して、サイトを配信・公開してくれるホスティングサービスです。このブログでは、GitHub ActionsがHugoでビルドした完成済みのHTMLファイルをCloudflare Pagesへ送信し、Cloudflare Pagesがそれを受け取って配信する役割を担っています。このブログはDraft（確認用）と本番の2環境をCloudflare Pages上に持っています。
 
 ### Hugo（ヒューゴ）{#term-hugo}
 
-Markdownという書きやすい形式で書いた記事ファイルを、ブラウザで見られるHTML形式に変換するソフトです。「記事を書く作業」と「Webサイトとして見せる作業」を分けてくれる変換エンジンです。
+Markdownという書きやすい形式で書いた記事ファイルを、ブラウザで見られるHTML形式に変換するソフトです。「記事を書く作業」と「Webサイトとして見せる作業」を分けてくれる変換エンジンです。このブログでは、HugoはCloudflare上ではなく、GitHub Actions（GitHubのサーバー）上で動いています。
 
 ### GitHub Actions（ギットハブ アクションズ）{#term-github-actions}
 
@@ -112,7 +112,7 @@ draft: false
 
 ### ③ CloudflareがGitHubを監視 → 自動ビルド → 公開
 
-<a href="#term-github" title="クラウド上のファイル管理サービス。記事ファイルの変更履歴をすべてここで管理する">GitHub</a>へアップロードすると、<a href="#term-cloudflare-pages" title="GitHubと連携してサイトを自動でビルド・公開するホスティングサービス">Cloudflare Pages</a>がGitHubの変更を自動で検知します。<a href="#term-hugo" title="MarkdownファイルをHTML形式のWebページに変換する静的サイト生成ソフト">Hugo</a>でMarkdownをHTML（Webページ）に変換するビルドが始まり、数十秒後には本番ブログに反映されます。この③の流れはすべて自動で、手動の操作は不要です。
+<a href="#term-github" title="クラウド上のファイル管理サービス。記事ファイルの変更履歴をすべてここで管理する">GitHub</a>へアップロードすると、<a href="#term-github-actions" title="GitHub上で動く自動化機能。定時実行（cron）や条件付き処理を設定できる">GitHub Actions</a>が変更を検知して起動します。GitHub Actionsのサーバー上で<a href="#term-hugo" title="MarkdownファイルをHTML形式のWebページに変換する静的サイト生成ソフト">Hugo</a>がMarkdownをHTML（Webページ）に変換するビルドを実行し、完成したHTMLファイルを<a href="#term-cloudflare-pages" title="GitHubと連携してサイトを配信・公開するホスティングサービス">Cloudflare Pages</a>へ送信します。Cloudflare PagesがそのHTMLを受け取って配信することで、数十秒後には本番ブログに反映されます。この③の流れはすべて自動で、手動の操作は不要です。
 
 ただし、**Hugoのデフォルトの動作では、公開日時が未来の記事は除外されます。** これには2つの問題があります。まず、アップロードしたタイミングでは公開日時が未来の記事はスキップされるため、その時点では記事が公開されません。さらに、公開日時が到来しても、アップロードがなければビルドが走らないため、記事を公開するための処理が一切動きません。結果として、いつまで待っても記事が公開されないという問題がブログ立ち上げ当初に発生しました。
 
