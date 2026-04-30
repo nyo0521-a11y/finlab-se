@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", sans-serif;
+    background: #ffffff;
+    padding: 32px 44px;
+    width: 960px;
+    overflow: hidden;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 24px;
+  }
+
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  /* ===== ノード ===== */
+  .node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .node-box {
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+    min-width: 110px;
+  }
+  .node-icon {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .node-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.3;
+  }
+  .node-sub {
+    font-size: 12px;
+    color: #666;
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  .node-box.local   { background: #e8f0fe; border: 2px solid #4a7fc1; }
+  .node-box.github  { background: #f0f0f0; border: 2px solid #555; }
+  .node-box.html    { background: #fff3cd; border: 2px solid #f0a500; }
+  .node-box.cf      { background: #d4edda; border: 2px solid #28a745; }
+
+  /* ===== 矢印 ===== */
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    flex-shrink: 0;
+    gap: 4px;
+  }
+  .arrow-term {
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    background: #555;
+    border-radius: 12px;
+    padding: 3px 10px;
+    white-space: nowrap;
+  }
+  .arrow-term.push   { background: #4a7fc1; }
+  .arrow-term.build  { background: #e6951a; }
+  .arrow-term.deploy { background: #2e9e5b; }
+  .arrow-line {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .arrow-line .line {
+    flex: 1;
+    height: 2px;
+    background: #ccc;
+  }
+  .arrow-line .head {
+    width: 0; height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid #ccc;
+  }
+  .arrow-desc {
+    font-size: 11px;
+    color: #888;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* ===== 注記 ===== */
+  .note {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #555;
+    background: #f8f9fa;
+    border-left: 4px solid #adb5bd;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="title">push・ビルド・デプロイ の流れ</div>
+
+<div class="flow">
+
+  <!-- ローカルPC -->
+  <div class="node">
+    <div class="node-box local">
+      <div class="node-icon">💻</div>
+      <div class="node-name">ローカルPC</div>
+      <div class="node-sub">Markdownで<br>記事を編集</div>
+    </div>
+  </div>
+
+  <!-- push矢印 -->
+  <div class="arrow">
+    <span class="arrow-term push">push</span>
+    <div class="arrow-line"><div class="line"></div><div class="head"></div></div>
+    <span class="arrow-desc">アップロード</span>
+  </div>
+
+  <!-- GitHub -->
+  <div class="node">
+    <div class="node-box github">
+      <div class="node-icon">🗂</div>
+      <div class="node-name">GitHub</div>
+      <div class="node-sub">ファイルを<br>管理・保存</div>
+    </div>
+  </div>
+
+  <!-- ビルド矢印 -->
+  <div class="arrow">
+    <span class="arrow-term build">ビルド</span>
+    <div class="arrow-line"><div class="line"></div><div class="head"></div></div>
+    <span class="arrow-desc">Hugoが変換</span>
+  </div>
+
+  <!-- HTML -->
+  <div class="node">
+    <div class="node-box html">
+      <div class="node-icon">📄</div>
+      <div class="node-name">HTML</div>
+      <div class="node-sub">Webページに<br>変換済みファイル</div>
+    </div>
+  </div>
+
+  <!-- デプロイ矢印 -->
+  <div class="arrow">
+    <span class="arrow-term deploy">デプロイ</span>
+    <div class="arrow-line"><div class="line"></div><div class="head"></div></div>
+    <span class="arrow-desc">配置・公開</span>
+  </div>
+
+  <!-- Cloudflare Pages -->
+  <div class="node">
+    <div class="node-box cf">
+      <div class="node-icon">☁</div>
+      <div class="node-name">Cloudflare<br>Pages</div>
+      <div class="node-sub">ブログとして<br>公開・配信</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  💡 <strong>push（アップロード）→ ビルド（変換）→ デプロイ（公開）</strong>の順で自動的に実行されます。ビルドとデプロイはGitHub Actionsが担当し、完成したHTMLをCloudflare Pagesが配信します。
+</div>
+
+</body>
+</html>
