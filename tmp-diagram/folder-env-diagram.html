@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", sans-serif;
+    background: #ffffff;
+    padding: 48px 56px;
+    width: 1340px;
+    overflow: hidden;
+  }
+
+  /* ===== 左：GitHub ===== */
+  .github-box {
+    width: 360px;
+    flex-shrink: 0;
+  }
+  .github-header {
+    background: #24292e;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 18px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .github-body {
+    border: 2px solid #24292e;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .folder {
+    border-radius: 6px;
+    padding: 13px 14px;
+    line-height: 1.55;
+  }
+  .folder.draft-folder {
+    background: #fff3cd;
+    border: 2px solid #f0a500;
+  }
+  .folder.prod-folder {
+    background: #d4edda;
+    border: 2px solid #28a745;
+  }
+  .folder-label {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .folder-path {
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    color: #555;
+  }
+
+  /* ===== 右：Cloudflare Pages ===== */
+  .cf-box {
+    width: 360px;
+    flex-shrink: 0;
+  }
+  .cf-header {
+    background: #f6821f;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 18px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cf-body {
+    border: 2px solid #f6821f;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .env {
+    border-radius: 6px;
+    padding: 13px 14px;
+    line-height: 1.6;
+  }
+  .env.draft-env {
+    background: #fff3cd;
+    border: 2px solid #f0a500;
+  }
+  .env.prod-env {
+    background: #d4edda;
+    border: 2px solid #28a745;
+  }
+  .env-label {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .env-desc {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 14px;
+    border-radius: 12px;
+  }
+  .badge.no-index {
+    background: #f8d7da;
+    color: #842029;
+  }
+  .badge.indexed {
+    background: #c3e6cb;
+    color: #155724;
+  }
+
+  /* ===== 中央：矢印 + GitHub Actions ===== */
+  .arrow-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 8px;
+  }
+
+  .single-arrow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .single-arrow .line {
+    flex: 1;
+    height: 3px;
+  }
+  .single-arrow .line.d { background: #f0a500; }
+  .single-arrow .line.p { background: #28a745; }
+  .single-arrow .head {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+  .single-arrow .head.d { border-left: 13px solid #f0a500; }
+  .single-arrow .head.p { border-left: 13px solid #28a745; }
+
+  .center-badge {
+    background: #0d6efd;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 24px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .center-sub {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+    margin-top: 6px;
+  }
+
+  /* ===== レイアウト ===== */
+  .section-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  /* ===== 注記 ===== */
+  .note {
+    margin-top: 36px;
+    font-size: 17px;
+    color: #555;
+    background: #f8f9fa;
+    border-left: 5px solid #adb5bd;
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.9;
+  }
+</style>
+</head>
+<body>
+
+<div class="section-wrapper">
+
+  <!-- 左：GitHub -->
+  <div class="github-box">
+    <div class="github-header">
+      🗂 GitHub（ファイル管理）
+    </div>
+    <div class="github-body">
+      <div class="folder draft-folder">
+        <div class="folder-label">📁 確認用フォルダ</div>
+        <div class="folder-path">content/drafts/</div>
+      </div>
+      <div class="folder prod-folder">
+        <div class="folder-label">📁 公開用フォルダ</div>
+        <div class="folder-path">content/posts/</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 中：矢印＋GitHub Actions -->
+  <div class="arrow-section">
+    <div class="single-arrow">
+      <div class="line d"></div>
+      <div class="head d"></div>
+    </div>
+    <div style="text-align:center;">
+      <div class="center-badge">⚙ GitHub Actions</div>
+      <div class="center-sub">自動ビルド・デプロイ</div>
+    </div>
+    <div class="single-arrow">
+      <div class="line p"></div>
+      <div class="head p"></div>
+    </div>
+  </div>
+
+  <!-- 右：Cloudflare Pages -->
+  <div class="cf-box">
+    <div class="cf-header">
+      ☁ Cloudflare Pages（公開）
+    </div>
+    <div class="cf-body">
+      <div class="env draft-env">
+        <div class="env-label">🔍 Draft環境</div>
+        <div class="env-desc">確認用・URL限定公開</div>
+        <span class="badge no-index">❌ Google検索対象外</span>
+      </div>
+      <div class="env prod-env">
+        <div class="env-label">🌐 本番環境</div>
+        <div class="env-desc">誰でも閲覧可能</div>
+        <span class="badge indexed">✅ Google検索対象</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  💡 フォルダの「場所」は GitHub 上にあります。環境（サイト）は Cloudflare 上にあります。<br>
+  アップロード（push）するたびに GitHub Actions が両方の環境を自動でビルド・デプロイします。<br>
+  確認用フォルダの記事は Draft環境にだけ表示されます。公開用フォルダへ移動すると本番環境に反映されます。
+</div>
+
+</body>
+</html>
