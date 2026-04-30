@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1376px;
+    height: 768px;
+    overflow: hidden;
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+    position: relative;
+    background: #050c23;
+  }
+
+  /* 背景画像 */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('file:///C:/Users/oui_k/OneDrive/finlab-se/static/images/thumb-x-autopost-base.png');
+    background-size: auto 100%;
+    background-position: right center;
+    background-repeat: no-repeat;
+  }
+
+  /* 左側グラデーションオーバーレイ */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(5, 12, 35, 0.85) 0%,
+      rgba(5, 12, 35, 0.72) 40%,
+      rgba(5, 12, 35, 0.15) 65%,
+      transparent 80%
+    );
+  }
+
+  /* テキストエリア */
+  .text-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 660px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 56px;
+    gap: 0;
+  }
+
+  /* カテゴリバッジ */
+  .badge {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid #4ade80;
+    color: #4ade80;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 18px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    margin-bottom: 22px;
+    width: fit-content;
+  }
+
+  /* メインタイトル */
+  .title {
+    font-size: 52px;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+    letter-spacing: -0.01em;
+  }
+
+  /* サブタイトル */
+  .subtitle {
+    font-size: 22px;
+    color: rgba(255,255,255,0.80);
+    line-height: 1.5;
+    border-left: 4px solid #4ade80;
+    padding-left: 14px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="overlay"></div>
+  <div class="text-area">
+    <span class="badge">AI活用</span>
+    <div class="title">X自動投稿で<br>苦労した話</div>
+    <div class="subtitle">GitHubとCloudflareで作る<br>定時投稿の仕組み</div>
+  </div>
+</body>
+</html>
