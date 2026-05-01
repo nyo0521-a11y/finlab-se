@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X自動投稿 キュー登録フロー</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 680px;
+      background: #ffffff;
+      font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+      padding: 40px 0;
+      overflow: hidden; /* スクロールバーを非表示にする */
+    }
+
+    .container {
+      width: 680px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #111827;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+
+    /* 各ステップのボックス共通スタイル */
+    .step {
+      width: 540px;
+      border-radius: 12px;
+      padding: 12px 20px;
+      text-align: center;
+    }
+
+    .step-label {
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .step-sub {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ステップ1: push */
+    .step-1 {
+      background: #eff6ff;
+      border: 2px solid #3b82f6;
+      color: #1d4ed8;
+    }
+    .step-1 .step-sub {
+      color: #6b9fd4;
+    }
+
+    /* ステップ2: スキップ */
+    .step-2 {
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
+      color: #92400e;
+    }
+
+    /* ステップ3: 繰り返し（点線・イタリック） */
+    .step-3 {
+      background: #f9fafb;
+      border: 2px dashed #9ca3af;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    /* ステップ4: cron検知 */
+    .step-4 {
+      background: #f0fdf4;
+      border: 2px solid #22c55e;
+      color: #15803d;
+    }
+
+    /* ステップ5: キュー追記 */
+    .step-5 {
+      background: #f0fdf4;
+      border: 2px solid #22c55e;
+      color: #15803d;
+    }
+
+    /* ステップ6: CF Workers起動 */
+    .step-6 {
+      background: #fff7ed;
+      border: 2px solid #ea580c;
+      color: #c2410c;
+    }
+
+    /* ステップ7: 投稿 */
+    .step-7 {
+      background: #111827;
+      border: 2px solid #374151;
+      color: #ffffff;
+    }
+    .step-7 .step-sub {
+      color: #9ca3af;
+    }
+
+    /* 矢印 */
+    .arrow {
+      font-size: 22px;
+      color: #9ca3af;
+      margin: 8px 0;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">ブログ公開からX投稿までの流れ</div>
+
+    <!-- ステップ1: push -->
+    <div class="step step-1">
+      <div class="step-label">記事を content/posts/ に push</div>
+      <div class="step-sub">date: 2026-05-01T08:00:00+09:00</div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- ステップ2: スキップ -->
+    <div class="step step-2">
+      <div class="step-label">x-new-post-enqueue：date が未来のためスキップ</div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- ステップ3: 繰り返し -->
+    <div class="step step-3">
+      <div class="step-label">（毎時0分の自動ビルドが繰り返される）</div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- ステップ4: cron検知 -->
+    <div class="step step-4">
+      <div class="step-label">5月1日8時0分の cron ビルド：<br>date が過去になった記事を検知</div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- ステップ5: キュー追記 -->
+    <div class="step step-5">
+      <div class="step-label">deploy.yml が data/x-queue.yaml に<br>post_path を追記してコミット</div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- ステップ6: CF Workers起動 -->
+    <div class="step step-6">
+      <div class="step-label">次の投稿スロット（朝7時台・夜21時台）に<br>Cloudflare Workers が GitHub Actions を起動</div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- ステップ7: 投稿 -->
+    <div class="step step-7">
+      <div class="step-label">キューの先頭から1件を取り出して X API で投稿</div>
+    </div>
+
+  </div>
+</body>
+</html>

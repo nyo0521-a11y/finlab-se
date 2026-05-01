@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブログ記事の設定がX投稿文に変換される仕組み</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #f8fafc;
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+    padding: 36px 40px 36px;
+    width: 860px;
+    overflow: hidden; /* スクロールバー非表示 */
+  }
+
+  /* タイトル */
+  .title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e293b;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  /* メインレイアウト: 左・中央・右 */
+  .main-layout {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ===== 左カード: frontmatter ===== */
+  .frontmatter-card {
+    flex: 1;
+    background: #1e1e2e;
+    border-radius: 12px;
+    padding: 20px 22px;
+    font-family: "Courier New", "SF Mono", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.75;
+    color: #e2e8f0;
+    min-width: 0;
+  }
+
+  .frontmatter-card .label {
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* frontmatterの各行 */
+  .fm-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  /* キー名の色分け */
+  .key-default { color: #94a3b8; }
+  .key-desc    { color: #93c5fd; }
+  .key-tags    { color: #86efac; }
+
+  /* --- / tags の色 */
+  .fm-delim { color: #64748b; }
+
+  /* description の値ハイライト */
+  .val-desc {
+    background: #854d0e30;
+    color: #fef9c3;
+    border-radius: 3px;
+    padding: 0 2px;
+  }
+
+  /* tags の値ハイライト */
+  .val-tags {
+    background: #14532d30;
+    color: #86efac;
+    border-radius: 3px;
+    padding: 0 2px;
+  }
+
+  /* その他の値（ニュートラル） */
+  .val-default { color: #cbd5e1; }
+
+  /* インデント用 */
+  .indent { padding-left: 1.6em; }
+
+  /* ===== 中央: 矢印エリア ===== */
+  .arrow-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    flex-shrink: 0;
+    gap: 6px;
+    position: relative;
+  }
+
+  .arrow-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+
+  /* 大矢印 */
+  .big-arrow {
+    font-size: 32px;
+    color: #6b7280;
+    line-height: 1;
+  }
+
+  /* 対応線の凡例 */
+  .legend {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+    color: #6b7280;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .dot-yellow {
+    width: 10px; height: 10px;
+    background: #fef08a;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid #ca8a04;
+  }
+
+  .dot-green {
+    width: 10px; height: 10px;
+    background: #86efac;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid #16a34a;
+  }
+
+  /* ===== 右カード: Xポスト風 ===== */
+  .x-card {
+    flex: 1;
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  /* Xカード ヘッダー */
+  .x-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .x-icon {
+    font-size: 20px;
+    font-weight: 900;
+    color: #000000;
+    line-height: 1;
+    font-family: serif;
+    width: 36px;
+    height: 36px;
+    background: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .x-icon-letter {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  .x-account {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .x-display-name {
+    font-size: 13px;
+    font-weight: bold;
+    color: #111827;
+    white-space: nowrap;
+  }
+
+  .x-handle {
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  .x-card-label {
+    margin-left: auto;
+    font-size: 10px;
+    color: #94a3b8;
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  /* Xカード 本文 */
+  .x-body {
+    padding: 14px 16px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #111827;
+  }
+
+  /* prefixラベル（【新着📝】） */
+  .x-prefix {
+    font-weight: bold;
+    color: #374151;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* description に対応する本文ハイライト */
+  .x-desc-text {
+    display: inline;
+    background: #fef9c330;
+    border-radius: 3px;
+    padding: 1px 2px;
+    /* outline でハイライトを視覚的に強調 */
+    box-shadow: 0 0 0 2px #fef08a40;
+  }
+
+  /* URL */
+  .x-url {
+    display: block;
+    color: #3b82f6;
+    margin-top: 8px;
+    font-size: 13px;
+    word-break: break-all;
+  }
+
+  /* ハッシュタグ行 */
+  .x-hashtags {
+    display: block;
+    margin-top: 10px;
+    color: #16a34a;
+    font-size: 13px;
+    background: #dcfce740;
+    border-radius: 6px;
+    padding: 5px 8px;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="title">ブログ記事の設定がX投稿文に変換される仕組み</div>
+
+<div class="main-layout">
+
+  <!-- ===== 左: frontmatter ===== -->
+  <div class="frontmatter-card">
+    <div class="label">ブログ記事のfrontmatter</div>
+
+    <div class="fm-line"><span class="fm-delim">---</span></div>
+
+    <div class="fm-line">
+      <span class="key-default">title:</span>&nbsp;<span class="val-default">"記事のタイトル"</span>
+    </div>
+
+    <div class="fm-line">
+      <span class="key-default">date:</span>&nbsp;<span class="val-default">2026-05-01T08:00:00+09:00</span>
+    </div>
+
+    <!-- description: キーと値（ハイライト） -->
+    <div class="fm-line">
+      <span class="key-desc">description:</span>&nbsp;<span class="val-desc">"ここに書いたテキストが</span>
+    </div>
+    <div class="fm-line indent">
+      <span class="val-desc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X投稿の本文になります。"</span>
+    </div>
+
+    <!-- tags: キーと値（ハイライト） -->
+    <div class="fm-line">
+      <span class="key-tags">tags:</span>&nbsp;<span class="val-tags">["ハッシュタグ1", "ハッシュタグ2",</span>
+    </div>
+    <div class="fm-line indent">
+      <span class="val-tags">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ハッシュタグ3"]</span>
+    </div>
+
+    <div class="fm-line" style="margin-top:2px"><span class="fm-delim">---</span></div>
+  </div>
+
+  <!-- ===== 中央: 矢印 ===== -->
+  <div class="arrow-area">
+    <div class="arrow-label">⚙️ 自動生成</div>
+    <div class="big-arrow">→</div>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="dot-yellow"></div>
+        <span>description → 本文</span>
+      </div>
+      <div class="legend-item">
+        <div class="dot-green"></div>
+        <span>tags → タグ</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 右: Xポスト風カード ===== -->
+  <div class="x-card">
+
+    <div class="x-header">
+      <div class="x-icon">
+        <span class="x-icon-letter">𝕏</span>
+      </div>
+      <div class="x-account">
+        <span class="x-display-name">金融エンジニアの資産実験室</span>
+        <span class="x-handle">@FINLAB_SE</span>
+      </div>
+      <span class="x-card-label">X投稿イメージ</span>
+    </div>
+
+    <div class="x-body">
+      <span class="x-prefix">【新着📝】</span>
+      <span class="x-desc-text">ここに書いたテキストが<br>X投稿の本文になります。</span>
+      <span class="x-url">https://finlab-se.com/posts/記事のURL/</span>
+      <span class="x-hashtags">#ハッシュタグ1 #ハッシュタグ2 #ハッシュタグ3</span>
+    </div>
+
+  </div>
+
+</div><!-- /.main-layout -->
+
+</body>
+</html>
