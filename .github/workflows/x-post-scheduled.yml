@@ -108,7 +108,7 @@ jobs:
       # バックアップ枠（7:37）での2重投稿は morning_rotation_last_posted で防止する。
       # =========================================
       - name: Morning rotation fallback
-        if: steps.slot.outputs.slot == 'morning' && env.status != 'posted'
+        if: steps.slot.outputs.slot == 'morning' && env.status != 'posted' && env.status != 'already_posted'
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_SECRET: ${{ secrets.X_API_SECRET }}

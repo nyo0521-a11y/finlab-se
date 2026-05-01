@@ -166,8 +166,11 @@ def main():
         last_posted = str(state.get(state_key, ""))
         today = today_jst()
         if last_posted == today:
+            # "skip" ではなく "already_posted" を返すことで、
+            # ワークフロー側が「キューが空でスキップ」と区別できるようにする。
+            # Morning rotation fallback は already_posted の場合は実行しない。
             print(json.dumps({
-                "status": "skip",
+                "status": "already_posted",
                 "reason": f"already posted today in {slot} slot ({today})",
                 "queue_size": queue_size,
             }))
