@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-02T07:38:17+09:00'
+    text: "【おすすめ📖】\nなぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。\n\nhttps://finlab-se.com/posts/bank-core-system-cloud/\n\
+      \n#銀行システム #勘定系 #クラウド"
+    tweet_id: '2050344081570803774'
+    tweet_url: https://x.com/i/web/status/2050344081570803774
+    type: rotation
+    post_path: content/posts/bank-core-system-cloud.md
   - posted_at: '2026-05-02T07:18:08+09:00'
     text: "【新着📝】\nDraft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。\n\
       \nhttps://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/\n\n#CloudflarePages

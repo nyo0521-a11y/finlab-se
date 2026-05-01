@@ -53,8 +53,8 @@ rotation:
 - post_path: content/posts/bank-core-system-cloud.md
     # title: 銀行の勘定系システムのクラウド移行
     # date: 2026-04-24
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-02T07:38:17+09:00'
+  promote_count: 1
   priority: normal
 
 - post_path: content/posts/blog-redesign-with-claude-code.md
