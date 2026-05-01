@@ -119,6 +119,27 @@ jobs:
           set -e
           TODAY=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
+          # すでに今朝メイン投稿済み（新着投稿）なら skip
+          # キューが空で status="empty" になった場合でも、当日すでに新着投稿があれば
+          # ローテーションを実行しない（1時間帯に1投稿のみ）
+          MAIN_LAST=$(python - <<'PYEOF0'
+          from pathlib import Path
+          from ruamel.yaml import YAML
+          p = Path("data/x-post-state.yaml")
+          if not p.exists():
+              print("")
+          else:
+              yaml = YAML()
+              with p.open(encoding="utf-8") as f:
+                  d = yaml.load(f) or {}
+              print(d.get("morning_last_posted", "") or "")
+          PYEOF0
+          )
+          if [ "$MAIN_LAST" = "$TODAY" ]; then
+            echo "morning main post already ran today ($TODAY), skipping rotation fallback"
+            exit 0
+          fi
+
           # すでに今朝ローテーション済みなら skip（バックアップ枠 7:37 の2重実行防止）
           LAST=$(python - <<'PYEOF1'
           from pathlib import Path
