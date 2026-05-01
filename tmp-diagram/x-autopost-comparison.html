@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1100px;
+    background: #ffffff;
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+    padding: 40px 36px 48px;
+    color: #1a1a1a;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 32px;
+    color: #1a1a1a;
+    letter-spacing: 0.02em;
+  }
+
+  .cols {
+    display: flex;
+    gap: 24px;
+  }
+
+  .panel {
+    flex: 1;
+    border-radius: 14px;
+    padding: 24px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .panel-bad {
+    background: #fff0f0;
+    border: 2px solid #f87171;
+  }
+
+  .panel-good {
+    background: #f0fff4;
+    border: 2px solid #4ade80;
+  }
+
+  .panel-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 22px;
+    text-align: center;
+  }
+  .panel-bad .panel-title  { color: #dc2626; }
+  .panel-good .panel-title { color: #16a34a; }
+
+  /* ノード（四角ボックス） */
+  .node {
+    border-radius: 10px;
+    padding: 10px 18px;
+    text-align: center;
+    width: 220px;
+  }
+  .node-label {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.3;
+  }
+  .node-sub {
+    font-size: 13px;
+    color: #555;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .node-github {
+    background: #ede9fe;
+    border: 2px solid #7c3aed;
+  }
+  .node-github .node-label { color: #4c1d95; }
+
+  .node-actions {
+    background: #fff;
+    border: 2px solid #dc2626;
+  }
+  .node-actions .node-label { color: #dc2626; }
+
+  .node-workers {
+    background: #fff7ed;
+    border: 2px solid #ea580c;
+  }
+  .node-workers .node-label { color: #c2410c; }
+
+  .node-api {
+    background: #eff6ff;
+    border: 2px solid #3b82f6;
+  }
+  .node-api .node-label { color: #1d4ed8; }
+
+  .node-x {
+    background: #111;
+    border: 2px solid #333;
+    color: #fff;
+  }
+  .node-x .node-label { color: #fff; }
+  .node-x .node-sub    { color: #ccc; }
+
+  /* 矢印 */
+  .arrow-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px 0;
+  }
+  .arrow-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 2px;
+  }
+  .arrow {
+    font-size: 20px;
+    color: #aaa;
+    line-height: 1;
+  }
+
+  /* 問題・改善点ボックス */
+  .callout {
+    border-radius: 10px;
+    padding: 14px 16px;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .callout-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .callout-bad {
+    background: #fff;
+    border: 1.5px solid #f87171;
+    color: #7f1d1d;
+  }
+  .callout-bad .callout-title { color: #dc2626; }
+
+  .callout-good {
+    background: #fff;
+    border: 1.5px solid #4ade80;
+    color: #14532d;
+  }
+  .callout-good .callout-title { color: #16a34a; }
+</style>
+</head>
+<body>
+  <h1>最初の設定 vs 改善後：タイマーの仕組みの違い</h1>
+
+  <div class="cols">
+
+    <!-- 左：GitHub Actions（問題あり） -->
+    <div class="panel panel-bad">
+      <div class="panel-title">❌ 最初の設定（GitHub Actions）</div>
+
+      <div class="node node-github">
+        <div class="node-label">🐙 GitHub</div>
+        <div class="node-sub">コードを管理する場所</div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arrow-label">Cron（定時起動）</div>
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="node node-actions">
+        <div class="node-label">⚙️ GitHub Actions</div>
+        <div class="node-sub">GitHubの自動化機能</div>
+      </div>
+
+      <div class="callout callout-bad" style="margin-top:12px;">
+        <div class="callout-title">⚠️ 問題</div>
+        GitHubのサーバが混雑すると<br>
+        定時から<strong>数十分〜1時間以上</strong>ズレて実行される。<br>
+        「朝8時に投稿したい」のに11時に<br>
+        投稿された、といったケースが発生。
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arrow-label">投稿リクエスト</div>
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="node node-api">
+        <div class="node-label">🔑 X API</div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arrow-label">自動投稿（時刻ズレあり）</div>
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="node node-x">
+        <div class="node-label">𝕏 X（旧Twitter）</div>
+        <div class="node-sub">時刻が読めない投稿</div>
+      </div>
+    </div>
+
+    <!-- 右：Cloudflare Workers（改善後） -->
+    <div class="panel panel-good">
+      <div class="panel-title">✅ 改善後（Cloudflare Workers）</div>
+
+      <div class="node node-github">
+        <div class="node-label">🐙 GitHub</div>
+        <div class="node-sub">コードを管理する場所</div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arrow-label">コードをデプロイ</div>
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="node node-workers">
+        <div class="node-label">☁️ Cloudflare Workers</div>
+        <div class="node-sub">ブログと同じCloudflare上<br>で動く実行環境</div>
+      </div>
+
+      <div class="callout callout-good" style="margin-top:12px;">
+        <div class="callout-title">✅ 改善点</div>
+        CloudflareのインフラのCron Triggersを使用。<br>
+        <strong>指定時刻に±1分以内で安定して実行。</strong><br>
+        ブログのサーバと同じ環境なので<br>
+        設定も一元管理できる。
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arrow-label">投稿リクエスト</div>
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="node node-api">
+        <div class="node-label">🔑 X API</div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arrow-label">自動投稿（時刻どおり）</div>
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="node node-x">
+        <div class="node-label">𝕏 X（旧Twitter）</div>
+        <div class="node-sub">朝8時・夜8時に安定投稿</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
