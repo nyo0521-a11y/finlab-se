@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-05-02T07:18:08+09:00'
+    text: "【新着📝】\nDraft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。\n\
+      \nhttps://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/\n\n#CloudflarePages
+      #GitHubActions #Hugo"
+    tweet_id: '2050339008803443170'
+    tweet_url: https://x.com/i/web/status/2050339008803443170
+    type: new
+    post_path: content/posts/cloudflare-pages-blog-publish-flow.md
   - posted_at: '2026-05-01T21:05:50+09:00'
     text: "【おすすめ📖】\nMoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。\n\nhttps://finlab-se.com/posts/asset-management-claude-code/\n\
       \n#ClaudeCode #家計管理 #MoneyForward"

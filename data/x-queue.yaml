@@ -9,6 +9,4 @@
 #     - post_path: content/posts/xxx.md      # 対象記事
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
-queue:
-  - post_path: content/posts/cloudflare-pages-blog-publish-flow.md
-    added_at: '2026-05-02T06:56:34+09:00'
+queue: []
