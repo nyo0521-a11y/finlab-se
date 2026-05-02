@@ -148,7 +148,7 @@ cover:
 <td style="position:relative;background-color:#f0fdf4;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#16a34a;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">◎</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">30万円：月1回<br>50万円：月5回<br>※アプリATM無制限</div></td>
 <td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">30万円：月1回<br>50万円：月2回</div></td>
 <td style="position:relative;background-color:#fefce8;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#ca8a04;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">△</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">全水準：月2回<br>（300万円未満は<br>ノーマル固定）<br>※Sony Bank WALLET利用時</div></td>
-<td style="position:relative;background-color:#fefce8;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#ca8a04;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">△</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">30・50万円：月1回</div></td>
+<td style="position:relative;background-color:#fef2f2;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:72px;color:#dc2626;opacity:0.25;font-weight:900;line-height:1;pointer-events:none;user-select:none;">ー</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">※詳細は下記参照</div></td>
 <td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">30万円：月3回<br>50万円：不確定※</div></td>
 </tr>
 <tr>
@@ -239,7 +239,7 @@ cover:
 #### できること
 
 - <strong>SBI新生コネクト</strong>：SBI証券との資金移動をスムーズにする連携機能
-- <strong>ステージ別手数料優遇</strong>：ランク（スタンダード〜ダイヤモンド）に応じて振込・ATM手数料が月1〜10回無料
+- <strong>SBIハイパー預金を設定するとダイヤモンドに自動昇格</strong>：SBI証券との連携設定だけで最上位のダイヤモンドステージに昇格し、振込手数料が月10回無料になります。残高条件は不要です
 
 #### 注意点
 
