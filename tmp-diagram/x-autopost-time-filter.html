@@ -2,346 +2,245 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>エンキュー条件の修正前後</title>
+  <title>キュー登録条件の修正前後</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background: #ffffff;
       font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
-      padding: 32px 24px 48px;
-      width: 780px;
+      padding: 32px 24px 44px;
+      width: 560px;
     }
 
     .title {
-      font-size: 24px;
+      font-size: 16px;
       font-weight: bold;
       text-align: center;
       color: #111827;
-      margin-bottom: 36px;
+      margin-bottom: 24px;
     }
 
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .panel-before {
-      background: #fff1f2;
-      border: 2px solid #f87171;
-      border-radius: 14px;
-      padding: 24px 20px 24px;
-    }
-
-    .panel-after {
-      background: #f0fdf4;
-      border: 2px solid #4ade80;
-      border-radius: 14px;
-      padding: 24px 20px 24px;
-    }
-
-    .panel-header-before {
-      font-size: 20px;
-      font-weight: bold;
-      color: #dc2626;
+    .panel {
+      border-radius: 12px;
+      padding: 18px 20px 22px;
       margin-bottom: 16px;
     }
+    .panel-bad  { background: #fff1f2; border: 2px solid #f87171; }
+    .panel-good { background: #f0fdf4; border: 2px solid #4ade80; }
 
-    .panel-header-after {
-      font-size: 20px;
-      font-weight: bold;
-      color: #16a34a;
-      margin-bottom: 16px;
-    }
-
-    .condition-box {
-      background: #ffffff;
-      border: 1.5px solid #d1d5db;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-family: "Courier New", "Consolas", monospace;
-      font-size: 15px;
-      color: #1e293b;
-      margin-bottom: 16px;
-      word-break: break-all;
-      line-height: 1.5;
-    }
-
-    .description {
-      font-size: 15px;
-      line-height: 1.75;
-      color: #374151;
-      margin-bottom: 20px;
-    }
-
-    /* タイムライン図 */
-    .timeline-wrap {
-      border-radius: 10px;
-      padding: 16px 12px 48px;
-      background: #ffffff;
-      border: 1.5px solid #e5e7eb;
-    }
-
-    .timeline-label {
+    .panel-header {
       font-size: 14px;
       font-weight: bold;
-      color: #6b7280;
       margin-bottom: 10px;
+    }
+    .panel-bad  .panel-header { color: #dc2626; }
+    .panel-good .panel-header { color: #16a34a; }
+
+    .condition-box {
+      background: #fff;
+      border: 1.5px solid #d1d5db;
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-family: "Courier New", Consolas, monospace;
+      font-size: 13px;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      font-size: 12px;
+      color: #374151;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    /* タイムライン */
+    .timeline-wrap {
+      background: #fff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 12px 30px;
+    }
+
+    .tl-label {
+      font-size: 11px;
+      font-weight: bold;
+      color: #6b7280;
       text-align: center;
+      margin-bottom: 8px;
     }
 
-    .timeline-track {
+    .tl-track {
       position: relative;
-      height: 56px;
+      height: 46px;
     }
 
-    .axis-line {
-      position: absolute;
-      top: 28px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #d1d5db;
-      border-radius: 1px;
-    }
+    /* 軸線 */
+    .axis { position: absolute; top: 23px; left: 0; right: 0; height: 2px; background: #d1d5db; }
 
-    .range-fill-before {
+    /* 修正前：赤い全幅バー */
+    .bar-red {
       position: absolute;
-      top: 10px;
-      left: 0;
-      right: 32px;
-      height: 36px;
+      top: 8px; left: 0; right: 28px;
+      height: 30px;
       background: #fee2e2;
-      border-radius: 6px;
       border: 1px solid #fca5a5;
+      border-radius: 5px;
     }
 
-    .range-fill-after {
+    /* 修正後：グレーバー＋緑バー */
+    .bar-grey {
       position: absolute;
-      top: 10px;
-      right: 32px;
-      width: 120px;
-      height: 36px;
-      background: #dcfce7;
-      border-radius: 6px;
-      border: 1px solid #86efac;
-    }
-
-    .range-grey {
-      position: absolute;
-      top: 10px;
-      left: 0;
-      right: 152px;
-      height: 36px;
+      top: 8px; left: 0; right: 120px;
+      height: 30px;
       background: #f3f4f6;
-      border-radius: 6px;
       border: 1px solid #e5e7eb;
+      border-radius: 5px;
+    }
+    .bar-green {
+      position: absolute;
+      top: 8px; right: 28px;
+      width: 88px;
+      height: 30px;
+      background: #dcfce7;
+      border: 1px solid #86efac;
+      border-radius: 5px;
     }
 
+    /* ドット */
+    .dots {
+      position: absolute;
+      top: 16px; left: 8px; right: 36px;
+      display: flex; gap: 4px; flex-wrap: wrap; align-items: center;
+    }
+    .dot-red   { width: 7px; height: 7px; border-radius: 50%; background: #ef4444; flex-shrink: 0; }
+
+    .dots-green {
+      position: absolute;
+      top: 16px; right: 32px;
+      width: 80px;
+      display: flex; justify-content: center; gap: 6px; align-items: center;
+    }
+    .dot-green { width: 8px; height: 8px; border-radius: 50%; background: #16a34a; flex-shrink: 0; }
+
+    /* 対象外ラベル */
+    .label-out {
+      position: absolute;
+      top: 50%; left: 10px;
+      transform: translateY(-50%);
+      font-size: 11px; color: #9ca3af; font-weight: bold;
+    }
+
+    /* 現在時刻マーカー */
     .marker-now {
       position: absolute;
-      top: 4px;
-      right: 32px;
-      width: 2px;
-      height: 48px;
+      top: 4px; right: 28px;
+      width: 2px; height: 38px;
       background: #4b5563;
     }
-
     .marker-now-label {
       position: absolute;
-      top: -20px;
-      right: 33px;
+      top: -16px; right: 29px;
       transform: translateX(50%);
-      font-size: 13px;
-      color: #1f2937;
-      font-weight: bold;
-      white-space: nowrap;
+      font-size: 11px; color: #1f2937; font-weight: bold; white-space: nowrap;
     }
 
+    /* 2時間前マーカー */
     .marker-2h {
       position: absolute;
-      top: 4px;
-      right: 152px;
-      width: 2px;
-      height: 48px;
+      top: 4px; right: 116px;
+      width: 2px; height: 38px;
       border-left: 2px dashed #16a34a;
     }
-
     .marker-2h-label {
       position: absolute;
-      top: -20px;
-      right: 153px;
+      top: -16px; right: 117px;
       transform: translateX(50%);
-      font-size: 13px;
-      color: #16a34a;
-      font-weight: bold;
-      white-space: nowrap;
+      font-size: 11px; color: #16a34a; font-weight: bold; white-space: nowrap;
     }
 
+    /* 範囲ラベル（バー下） */
+    .range-label-red {
+      position: absolute;
+      bottom: -18px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px; color: #dc2626; font-weight: bold; white-space: nowrap;
+    }
+    .range-label-green {
+      position: absolute;
+      bottom: -18px; right: 24px;
+      font-size: 11px; color: #16a34a; font-weight: bold; white-space: nowrap;
+    }
+
+    /* 軸端ラベル */
     .axis-labels {
       display: flex;
       justify-content: space-between;
-      margin-top: 10px;
-      font-size: 13px;
+      margin-top: 22px;
+      font-size: 11px;
       color: #9ca3af;
-    }
-
-    /* ドット（修正前） */
-    .dots-wrap {
-      position: absolute;
-      top: 12px;
-      left: 8px;
-      right: 42px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-
-    .dot-red {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #ef4444;
-      flex-shrink: 0;
-    }
-
-    /* ドット（修正後） */
-    .dots-wrap-after {
-      position: absolute;
-      top: 12px;
-      right: 36px;
-      width: 108px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 6px;
-    }
-
-    .dot-green {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #16a34a;
-      flex-shrink: 0;
-    }
-
-    /* 対象外ラベル */
-    .label-out-of-range {
-      position: absolute;
-      top: 50%;
-      left: 12px;
-      transform: translateY(-50%);
-      font-size: 13px;
-      color: #9ca3af;
-      font-weight: bold;
-    }
-
-    /* 範囲説明ラベル（下） */
-    .range-desc-before {
-      position: absolute;
-      bottom: -26px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 13px;
-      color: #dc2626;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .range-desc-after {
-      position: absolute;
-      bottom: -26px;
-      right: 28px;
-      font-size: 13px;
-      color: #16a34a;
-      font-weight: bold;
-      white-space: nowrap;
     }
   </style>
 </head>
 <body>
-  <div class="title">エンキュー条件の修正前後</div>
+  <div class="title">キュー登録条件の修正前後</div>
 
-  <div class="columns">
+  <!-- 修正前 -->
+  <div class="panel panel-bad">
+    <div class="panel-header">❌ 修正前：公開日時が現在時刻以前の全記事が対象</div>
+    <div class="condition-box">date ≤ 現在時刻</div>
+    <div class="desc">過去に公開されたすべての記事が対象。投稿済み履歴ファイルに記録がない記事はすべて「未投稿」として一括登録されてしまう。</div>
 
-    <!-- 修正前 -->
-    <div class="panel-before">
-      <div class="panel-header-before">❌ 修正前</div>
-      <div class="condition-box">date ≤ 現在時刻</div>
-      <div class="description">
-        過去に公開されたすべての記事が対象。history ファイルに記録がない記事はすべて「未投稿」として一括エンキューされてしまう。
-      </div>
-
-      <div class="timeline-wrap">
-        <div class="timeline-label">対象範囲</div>
-        <div class="timeline-track">
-          <div class="range-fill-before">
-            <div class="dots-wrap">
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-              <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
-            </div>
+    <div class="timeline-wrap">
+      <div class="tl-label">対象範囲</div>
+      <div class="tl-track">
+        <div class="bar-red">
+          <div class="dots">
+            <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
+            <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
+            <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
+            <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
+            <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
+            <div class="dot-red"></div><div class="dot-red"></div><div class="dot-red"></div>
           </div>
-          <div class="axis-line"></div>
-          <div class="marker-now"></div>
-          <div class="marker-now-label">現在時刻</div>
-          <div class="range-desc-before">← 過去記事（数十件）すべてが対象 →</div>
         </div>
-        <div class="axis-labels">
-          <span>過去</span>
-          <span>現在 →</span>
-        </div>
+        <div class="axis"></div>
+        <div class="marker-now"></div>
+        <div class="marker-now-label">現在時刻</div>
+        <div class="range-label-red">← 過去記事（数十件）すべてが対象 →</div>
       </div>
+      <div class="axis-labels"><span>過去</span><span>現在 →</span></div>
     </div>
-
-    <!-- 修正後 -->
-    <div class="panel-after">
-      <div class="panel-header-after">✅ 修正後</div>
-      <div class="condition-box">現在時刻 − 2時間 &lt; date ≤ 現在時刻</div>
-      <div class="description">
-        直近2時間以内に公開日時が到来した記事のみ対象。一括エンキューを防ぎつつ、GitHub Actions の遅延バッファ（最大十数分）も考慮した設定。
-      </div>
-
-      <div class="timeline-wrap">
-        <div class="timeline-label">対象範囲</div>
-        <div class="timeline-track">
-          <div class="range-grey">
-            <div class="label-out-of-range">対象外</div>
-          </div>
-          <div class="range-fill-after">
-            <div class="dots-wrap-after">
-              <div class="dot-green"></div>
-              <div class="dot-green"></div>
-              <div class="dot-green"></div>
-            </div>
-          </div>
-          <div class="axis-line"></div>
-          <div class="marker-2h"></div>
-          <div class="marker-2h-label">2時間前</div>
-          <div class="marker-now"></div>
-          <div class="marker-now-label">現在時刻</div>
-          <div class="range-desc-after">直近2時間のみ</div>
-        </div>
-        <div class="axis-labels">
-          <span>過去</span>
-          <span>現在 →</span>
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <!-- 修正後 -->
+  <div class="panel panel-good">
+    <div class="panel-header">✅ 修正後：直近2時間以内に公開された記事のみ対象</div>
+    <div class="condition-box">現在時刻 − 2時間 &lt; date ≤ 現在時刻</div>
+    <div class="desc">直近2時間以内に公開日時が到来した記事のみ対象。一括登録を防ぎつつ、遅延バッファも考慮した設定。</div>
+
+    <div class="timeline-wrap">
+      <div class="tl-label">対象範囲</div>
+      <div class="tl-track">
+        <div class="bar-grey"><div class="label-out">対象外</div></div>
+        <div class="bar-green">
+          <div class="dots-green">
+            <div class="dot-green"></div>
+            <div class="dot-green"></div>
+            <div class="dot-green"></div>
+          </div>
+        </div>
+        <div class="axis"></div>
+        <div class="marker-2h"></div>
+        <div class="marker-2h-label">2時間前</div>
+        <div class="marker-now"></div>
+        <div class="marker-now-label">現在時刻</div>
+        <div class="range-label-green">直近2時間のみ</div>
+      </div>
+      <div class="axis-labels"><span>過去</span><span>現在 →</span></div>
+    </div>
+  </div>
+
 </body>
 </html>
