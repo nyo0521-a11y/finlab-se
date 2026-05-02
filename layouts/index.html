@@ -300,14 +300,20 @@
         {{- $cats := $p.Params.categories | default (slice) -}}
         {{- $badgeClass := "" -}}
         {{- $badgeLabel := "" -}}
-        {{- if in $cats "AI活用" -}}
+        {{- if in $cats "高配当株投資" -}}
+          {{- $badgeClass = "b-green" -}}{{- $badgeLabel = "高配当株投資" -}}
+        {{- else if in $cats "資産形成" -}}
+          {{- $badgeClass = "b-teal" -}}{{- $badgeLabel = "資産形成" -}}
+        {{- else if in $cats "AI活用" -}}
           {{- $badgeClass = "b-blue" -}}{{- $badgeLabel = "AI活用" -}}
         {{- else if in $cats "金融ニュース" -}}
           {{- $badgeClass = "b-amber" -}}{{- $badgeLabel = "ニュース深掘り" -}}
         {{- else if in $cats "金融の仕組み" -}}
           {{- $badgeClass = "b-slate" -}}{{- $badgeLabel = "金融解説" -}}
+        {{- else if in $cats "お知らせ" -}}
+          {{- $badgeLabel = "お知らせ" -}}
         {{- else -}}
-          {{- $badgeLabel = "資産記録" -}}
+          {{- $badgeLabel = index $cats 0 | default "" -}}
         {{- end -}}
       <a href="{{ $p.RelPermalink }}" class="post">
         <div class="thumb {{ if not $p.Params.cover.image }}no-img{{ end }}">
