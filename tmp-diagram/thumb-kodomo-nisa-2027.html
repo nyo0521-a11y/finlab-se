@@ -13,13 +13,14 @@
     background: #050c23;
   }
 
-  /* Chrome headlessが底辺を約20px切るため body=800px で撮影後に上768pxをクロップ */
-  .bg-img {
+  /* 背景：イラストを右寄せで表示、左はネイビーで埋まる */
+  .bg {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 1376px;
-    height: 768px;
+    inset: 0;
+    background-image: url('file:///C:/Users/oui_k/OneDrive/finlab-se/static/images/thumb-kodomo-nisa-2027-base-v2.png');
+    background-size: auto 100%;
+    background-position: right center;
+    background-repeat: no-repeat;
   }
 
   /* 左側グラデーションオーバーレイ（テキスト可読性確保） */
@@ -31,10 +32,11 @@
     height: 768px;
     background: linear-gradient(
       to right,
-      rgba(5, 12, 35, 0.90) 0%,
-      rgba(5, 12, 35, 0.78) 40%,
-      rgba(5, 12, 35, 0.20) 65%,
-      transparent 80%
+      rgba(5, 12, 35, 1.0) 0%,
+      rgba(5, 12, 35, 0.95) 38%,
+      rgba(5, 12, 35, 0.50) 58%,
+      rgba(5, 12, 35, 0.05) 78%,
+      transparent 90%
     );
   }
 
@@ -90,7 +92,7 @@
 </style>
 </head>
 <body>
-  <img class="bg-img" src="file:///C:/Users/oui_k/OneDrive/finlab-se/static/images/thumb-kodomo-nisa-2027-base.png">
+  <div class="bg"></div>
   <div class="overlay"></div>
   <div class="text-area">
     <span class="badge">金融ニュース</span>
