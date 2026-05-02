@@ -1,6 +1,6 @@
 ---
 title: "Xの自動投稿で苦労した話——GitHubとCloudflareで作る定時投稿の仕組み"
-date: 2026-04-29T08:00:00+09:00
+date: 2026-05-03T06:30:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["X自動投稿", "GitHub Actions", "Cloudflare Workers", "ブログ運営", "API活用", "自動化"]
