@@ -60,8 +60,8 @@ rotation:
 - post_path: content/posts/blog-redesign-with-claude-code.md
     # title: Claude Designでブログのデザインを刷新した話
     # date: 2026-04-23
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-02T21:06:10+09:00'
+  promote_count: 1
   priority: normal
 
 - post_path: content/posts/boj-net-rtgs-international.md

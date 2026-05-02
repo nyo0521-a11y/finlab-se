@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-02T21:06:10+09:00'
+    text: "【おすすめ📖】\nClaude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。\n\nhttps://finlab-se.com/posts/blog-redesign-with-claude-code/\n\
+      \n#ClaudeDesign #ClaudeCode #ブログ運営"
+    tweet_id: '2050547393171542295'
+    tweet_url: https://x.com/i/web/status/2050547393171542295
+    type: rotation
+    post_path: content/posts/blog-redesign-with-claude-code.md
   - posted_at: '2026-05-02T07:38:17+09:00'
     text: "【おすすめ📖】\nなぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。\n\nhttps://finlab-se.com/posts/bank-core-system-cloud/\n\
       \n#銀行システム #勘定系 #クラウド"
