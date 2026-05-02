@@ -2,8 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>一括エンキューが発生した原因</title>
+<title>一括登録が発生した原因</title>
 <style>
   * {
     margin: 0;
@@ -12,32 +11,32 @@
   }
 
   body {
-    width: 620px;
+    width: 560px;
     background: #ffffff;
     font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
-    padding: 40px 0;
+    padding: 36px 0 40px;
   }
 
   .container {
-    width: 620px;
+    width: 560px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .title {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: #111827;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .subtitle {
-    font-size: 14px;
+    font-size: 12px;
     color: #6b7280;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .flow {
@@ -47,94 +46,87 @@
     gap: 0;
   }
 
-  /* 通常ステップ（赤系） */
   .step {
-    width: 500px;
+    width: 440px;
     background: #fff1f2;
     border: 2px solid #f87171;
-    border-radius: 12px;
-    padding: 14px 20px;
+    border-radius: 10px;
+    padding: 12px 18px;
     text-align: center;
   }
 
   .step .main-text {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
     color: #dc2626;
   }
 
   .step .sub-text {
-    font-size: 13px;
+    font-size: 12px;
     color: #dc2626;
     margin-top: 4px;
     opacity: 0.85;
   }
 
-  /* 最終ステップ（濃い赤） */
   .step-final {
-    width: 500px;
+    width: 440px;
     background: #7f1d1d;
     border: 2px solid #991b1b;
-    border-radius: 12px;
-    padding: 18px 20px;
+    border-radius: 10px;
+    padding: 14px 18px;
     text-align: center;
   }
 
   .step-final .main-text {
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
     color: #ffffff;
   }
 
   .step-final .sub-text {
-    font-size: 13px;
+    font-size: 12px;
     color: #fca5a5;
-    margin-top: 6px;
+    margin-top: 5px;
   }
 
-  /* 矢印 */
   .arrow {
-    font-size: 22px;
+    font-size: 18px;
     color: #f87171;
     line-height: 1;
-    padding: 6px 0;
+    padding: 5px 0;
     text-align: center;
   }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="title">一括エンキューが発生した原因</div>
-  <div class="subtitle">cron導入直後に37件の過去記事がキューに入ってしまった理由</div>
+  <div class="title">一括登録が発生した原因</div>
+  <div class="subtitle">自動サイト更新の導入直後に数十件の過去記事が投稿待ちリストに入ってしまった理由</div>
 
   <div class="flow">
 
-    <!-- ステップ1 -->
     <div class="step">
       <div class="main-text">毎時0分のcronが「全記事」をスキャン</div>
     </div>
 
     <div class="arrow">↓</div>
 
-    <!-- ステップ2 -->
     <div class="step">
       <div class="main-text">過去に公開済みの記事もすべて</div>
-      <div class="sub-text">date &lt;= 現在時刻 を満たす</div>
+      <div class="sub-text">公開日時 ≤ 現在時刻 を満たす</div>
     </div>
 
     <div class="arrow">↓</div>
 
-    <!-- ステップ3 -->
     <div class="step">
-      <div class="main-text">x-post-history.yaml に登録されていない記事</div>
+      <div class="main-text">投稿済み履歴ファイルに登録されていない記事</div>
       <div class="sub-text">＝「未投稿」と判定</div>
     </div>
 
     <div class="arrow">↓</div>
 
-    <!-- ステップ4（強調） -->
     <div class="step-final">
-      <div class="main-text">37件が一括エンキュー ⚠️</div>
+      <div class="main-text">数十件が一括登録 ⚠️</div>
       <div class="sub-text">過去記事がすべて「新規投稿対象」として扱われた</div>
     </div>
 
