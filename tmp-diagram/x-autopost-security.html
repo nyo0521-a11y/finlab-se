@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>セキュリティ：鍵の管理場所</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 860px;
+    background: #ffffff;
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+    padding: 36px 32px 44px;
+  }
+
+  .title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  /* 3カラムレイアウト */
+  .row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* 矢印列 */
+  .arrow-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    flex-shrink: 0;
+    gap: 6px;
+  }
+  .arrow-line {
+    width: 56px;
+    height: 2px;
+    background: #9ca3af;
+    position: relative;
+  }
+  .arrow-line::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: -5px;
+    border: 6px solid transparent;
+    border-left: 8px solid #9ca3af;
+  }
+  .arrow-label {
+    font-size: 11px;
+    color: #6b7280;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* サービスボックス */
+  .service {
+    flex: 1;
+    border-radius: 12px;
+    padding: 18px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .service-cf {
+    background: #fff7ed;
+    border: 2px solid #fb923c;
+  }
+  .service-gh {
+    background: #f0f9ff;
+    border: 2px solid #38bdf8;
+  }
+  .service-x {
+    background: #f9fafb;
+    border: 2px solid #6b7280;
+  }
+
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .service-icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+  .service-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1f2937;
+  }
+  .service-role {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 1px;
+  }
+
+  /* 鍵・データの表示 */
+  .key-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .key-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 12px;
+    color: #374151;
+    line-height: 1.4;
+  }
+  .key-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 1px 7px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .badge-key   { background: #fef3c7; color: #92400e; border: 1px solid #fbbf24; }
+  .badge-data  { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+  .badge-ok    { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+
+  /* 注釈 */
+  .note {
+    margin-top: 18px;
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #14532d;
+    line-height: 1.65;
+  }
+  .note-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #16a34a;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+  <div class="title">「認証情報の管理場所」を分けている設計</div>
+
+  <div class="row">
+
+    <!-- Cloudflare Workers -->
+    <div class="service service-cf">
+      <div class="service-header">
+        <span class="service-icon">☁️</span>
+        <div>
+          <div class="service-name">Cloudflare Workers</div>
+          <div class="service-role">タイマー専用</div>
+        </div>
+      </div>
+      <div class="key-list">
+        <div class="key-item">
+          <span class="key-badge badge-key">鍵 1つ</span>
+          GitHubを起動するための接続キー（PAT）のみ保持
+        </div>
+        <div class="key-item">
+          <span class="key-badge badge-ok">◎</span>
+          X APIの認証情報はここに置かない
+        </div>
+      </div>
+    </div>
+
+    <!-- 矢印 CF→GH -->
+    <div class="arrow-col">
+      <div class="arrow-line"></div>
+      <div class="arrow-label">定時に<br>起動</div>
+    </div>
+
+    <!-- GitHub -->
+    <div class="service service-gh">
+      <div class="service-header">
+        <span class="service-icon">🐙</span>
+        <div>
+          <div class="service-name">GitHub</div>
+          <div class="service-role">投稿処理・鍵の保管</div>
+        </div>
+      </div>
+      <div class="key-list">
+        <div class="key-item">
+          <span class="key-badge badge-key">鍵 4つ</span>
+          X APIの認証情報を暗号化して保管（外から見えない）
+        </div>
+        <div class="key-item">
+          <span class="key-badge badge-data">管理</span>
+          投稿プログラム・実行ログ・変更履歴
+        </div>
+        <div class="key-item">
+          <span class="key-badge badge-data">管理</span>
+          投稿待ちリスト・投稿済み履歴
+        </div>
+      </div>
+    </div>
+
+    <!-- 矢印 GH→X -->
+    <div class="arrow-col">
+      <div class="arrow-line"></div>
+      <div class="arrow-label">投稿<br>リクエスト</div>
+    </div>
+
+    <!-- X -->
+    <div class="service service-x">
+      <div class="service-header">
+        <span class="service-icon">𝕏</span>
+        <div>
+          <div class="service-name">X（旧Twitter）</div>
+          <div class="service-role">投稿の届け先</div>
+        </div>
+      </div>
+      <div class="key-list">
+        <div class="key-item">
+          <span class="key-badge badge-ok">結果</span>
+          フォロワーのタイムラインに届く
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <div class="note-title">✅ この設計のメリット</div>
+    万が一Cloudflare Workersの設定が漏洩しても、GitHubへの起動権限が漏れるだけで、X APIの認証情報には届かない。X APIの4つの鍵はGitHub一か所で守るだけで済む。
+  </div>
+
+</body>
+</html>
