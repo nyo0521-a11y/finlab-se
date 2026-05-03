@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { overflow: hidden; }
+  body {
+    font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    background: #f0f4ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 36px 28px;
+  }
+  .container {
+    background: white;
+    border-radius: 16px;
+    padding: 36px 40px 40px;
+    max-width: 960px;
+    width: 100%;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+  .title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin-bottom: 28px;
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 72px 1fr;
+    gap: 0;
+    align-items: start;
+  }
+  .col-header {
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 14px 16px;
+    border-radius: 10px 10px 0 0;
+  }
+  .mega { background: #e8e8e8; color: #333; }
+  .net  { background: #dbeafe; color: #1e40af; }
+  .vs-header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6b7280;
+    padding-top: 12px;
+  }
+  .row-left, .row-right {
+    padding: 16px 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .row-left  { background: #f9f9f9; text-align: right; color: #555; }
+  .row-right { background: #eff6ff; text-align: left; color: #1e40af; font-weight: 500; }
+  .row-vs {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: bold;
+  }
+  .label {
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    padding: 10px 20px 5px;
+    background: white;
+    border-top: 2px solid #e5e7eb;
+  }
+  .label-left  { background: #f9f9f9; border-top-color: #d1d5db; text-align: right; }
+  .label-right { background: #eff6ff; border-top-color: #bfdbfe; text-align: left; color: #3b82f6; }
+  .label-vs    { background: white; border-top-color: #e5e7eb; }
+  .row-right .good { color: #16a34a; font-weight: bold; }
+  .row-left .bad   { color: #dc2626; }
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6b7280;
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">大手銀行 vs ネット銀行 ── 投資家目線での違い</div>
+
+  <div class="columns">
+    <div class="col-header mega">🏛️ 大手銀行・地方銀行</div>
+    <div class="vs-header">VS</div>
+    <div class="col-header net">💻 ネット銀行</div>
+
+    <div class="label-left label">💬 金融商品の営業</div>
+    <div class="label-vs label"></div>
+    <div class="label-right label">💬 金融商品の営業</div>
+    <div class="row-left"><span class="bad">❌ 残高が増えると電話・来店勧誘あり</span><br>変額保険・仕組債・窓販投信を勧めてくる</div>
+    <div class="row-vs">—</div>
+    <div class="row-right"><span class="good">✅ 営業電話・勧誘なし</span><br>投資判断を自分のペースで行える</div>
+
+    <div class="label-left label">📊 証券口座との連携</div>
+    <div class="label-vs label"></div>
+    <div class="label-right label">📊 証券口座との連携</div>
+    <div class="row-left"><span class="bad">❌ 多くは連携なし</span><br>入出金のたびに手動で振込が必要</div>
+    <div class="row-vs">—</div>
+    <div class="row-right"><span class="good">✅ リアルタイム連携が標準</span><br>証券口座と自動的に資金を移動できる</div>
+
+    <div class="label-left label">💸 ATM・振込手数料</div>
+    <div class="label-vs label"></div>
+    <div class="label-right label">💸 ATM・振込手数料</div>
+    <div class="row-left"><span class="bad">❌ 他行ATMは原則有料</span><br>振込手数料も都度かかる</div>
+    <div class="row-vs">—</div>
+    <div class="row-right"><span class="good">✅ 月数回〜無制限で無料</span><br>条件を満たせばATM・振込も無料</div>
+
+    <div class="label-left label">🗂️ 目的別口座</div>
+    <div class="label-vs label"></div>
+    <div class="label-right label">🗂️ 目的別口座</div>
+    <div class="row-left"><span class="bad">❌ 口座開設が必要</span><br>別の口座名義で管理するしかない</div>
+    <div class="row-vs">—</div>
+    <div class="row-right"><span class="good">✅ 1口座で複数の「入れ物」を作れる</span><br>生活費・積立・予備費を分けて管理</div>
+  </div>
+
+  <div class="footer">投資家にとって銀行の役割は「資産を管理する場所」。ネット銀行はその用途に特化している。</div>
+</div>
+</body>
+</html>

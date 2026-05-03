@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投資家が銀行に求める5つの機能</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 32px 24px;
+  }
+  .container {
+    background: white;
+    border-radius: 16px;
+    padding: 36px 40px;
+    max-width: 760px;
+    width: 100%;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+  .title {
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 10px 18px;
+    border-radius: 12px;
+    background: #f0f4ff;
+    border: 2px solid #dbe4ff;
+    position: relative;
+  }
+  .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3b5bdb;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon {
+    font-size: 34px;
+    line-height: 1;
+  }
+  .name {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a1a2e;
+    text-align: center;
+    line-height: 1.4;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .desc {
+    font-size: 10.5px;
+    color: #555;
+    text-align: center;
+    line-height: 1.5;
+  }
+  /* 色のバリエーション */
+  .card:nth-child(1) { background: #f0f4ff; border-color: #dbe4ff; }
+  .card:nth-child(1) .badge { background: #3b5bdb; }
+  .card:nth-child(2) { background: #fff3f0; border-color: #ffd8cc; }
+  .card:nth-child(2) .badge { background: #e86230; }
+  .card:nth-child(3) { background: #f0fff4; border-color: #b2f2bb; }
+  .card:nth-child(3) .badge { background: #2f9e44; }
+  .card:nth-child(4) { background: #fff9f0; border-color: #ffe8cc; }
+  .card:nth-child(4) .badge { background: #e67700; }
+  .card:nth-child(5) { background: #f5f0ff; border-color: #e5d4ff; }
+  .card:nth-child(5) .badge { background: #7048e8; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">投資家が銀行に求めるべき5つの機能</div>
+    <div class="grid">
+      <div class="card">
+        <div class="badge">①</div>
+        <div class="icon">📊</div>
+        <div class="name">証券連携</div>
+        <div class="desc">証券口座と連動し<br>資金移動をスムーズに</div>
+      </div>
+      <div class="card">
+        <div class="badge">②</div>
+        <div class="icon">🗂️</div>
+        <div class="name">目的別口座</div>
+        <div class="desc">生活費・積立・緊急予備費を<br>1つの銀行で分けて管理</div>
+      </div>
+      <div class="card">
+        <div class="badge">③</div>
+        <div class="icon">🏧</div>
+        <div class="name">ATM利用料</div>
+        <div class="desc">コンビニATMの<br>手数料無料回数</div>
+      </div>
+      <div class="card">
+        <div class="badge">④</div>
+        <div class="icon">💸</div>
+        <div class="name">振込手数料</div>
+        <div class="desc">他行への振込が<br>無料になる回数</div>
+      </div>
+      <div class="card">
+        <div class="badge">⑤</div>
+        <div class="icon">📱</div>
+        <div class="name">スマホATM</div>
+        <div class="desc">カード不要で<br>スマホだけで入出金</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

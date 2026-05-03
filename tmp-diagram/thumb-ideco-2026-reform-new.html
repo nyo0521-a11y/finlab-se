@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>iDeCo 2026 サムネイル</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #0b1740;
+    font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 背景：回路パターン */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(30, 60, 130, 0.6) 0%, transparent 60%),
+      radial-gradient(ellipse at 75% 65%, rgba(20, 45, 110, 0.5) 0%, transparent 55%),
+      #0b1740;
+  }
+
+  /* 六角形ドット散布 */
+  .bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(100,140,255,0.12) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* 金色枠 */
+  .frame {
+    position: absolute;
+    inset: 18px;
+    border: 2.5px solid;
+    border-image: linear-gradient(135deg, #d4a017, #f5d060, #a07010, #f5d060, #d4a017) 1;
+    border-radius: 2px;
+  }
+
+  /* コンテンツ */
+  .content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 0;
+    padding: 30px 60px 20px;
+  }
+
+  /* 2026↑ */
+  .year-badge {
+    font-size: 88px;
+    font-weight: 900;
+    background: linear-gradient(180deg, #f9e55a 0%, #d4a017 45%, #a07010 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 4px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    filter: drop-shadow(0 2px 8px rgba(212,160,23,0.5));
+    margin-bottom: 4px;
+  }
+
+  .arrow {
+    font-size: 60px;
+    background: linear-gradient(180deg, #f9e55a, #d4a017);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: rotate(-15deg);
+    display: inline-block;
+  }
+
+  /* メインタイトル */
+  .main-title {
+    font-size: 64px;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 2px 16px rgba(0,0,80,0.8), 0 0 30px rgba(100,140,255,0.3);
+    letter-spacing: 2px;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  /* サブタイトル */
+  .sub-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #f5e87a;
+    text-shadow: 0 2px 12px rgba(0,0,60,0.9);
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* 区切り線 */
+  .divider {
+    width: 500px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #d4a017, #f5d060, #d4a017, transparent);
+    margin-bottom: 20px;
+  }
+
+  /* 下段アイコン3つ */
+  .icons {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 200px;
+  }
+
+  .icon-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(212,160,23,0.15);
+    border: 1.5px solid #d4a017;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+
+  .icon-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e8e8e8;
+    text-align: center;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .icon-label span {
+    color: #f5d060;
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="frame"></div>
+
+  <div class="content">
+    <div class="year-badge">
+      2026
+      <span class="arrow">↑</span>
+    </div>
+
+    <div class="main-title">iDeCo 2026年改正</div>
+    <div class="sub-title">自分はどうなる？</div>
+
+    <div class="divider"></div>
+
+    <div class="icons">
+      <div class="icon-item">
+        <div class="icon-circle">👥</div>
+        <div class="icon-label">企業年金<br><span>あり・なし別</span></div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-circle">💰</div>
+        <div class="icon-label">掛金上限<br><span>月 6.2万円</span></div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-circle">📊</div>
+        <div class="icon-label">節税シミュレーション<br><span>年収別に試算</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>こどもNISA 60年シミュレーション</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+    }
+
+    /* 全体コンテナ: 幅860px固定 */
+    .container {
+      width: 860px;
+      background: #ffffff;
+      padding: 40px 36px;
+    }
+
+    /* ===== タイトルエリア ===== */
+    .title-area {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .title-area h1 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1e293b;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .title-area .subtitle {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* ===== メインカード: 横並び3カラム ===== */
+    .main-cards {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 32px;
+    }
+
+    /* 左カード: 投資元本 */
+    .card-left {
+      flex: 1;
+      background: #eff6ff;
+      border: 2px solid #93c5fd;
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    /* 右カード: 60年後 */
+    .card-right {
+      flex: 1;
+      background: #f0fdf4;
+      border: 2px solid #4ade80;
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .card-label {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .card-amount-left {
+      font-size: 32px;
+      font-weight: bold;
+      color: #1d4ed8;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .card-amount-right {
+      font-size: 36px;
+      font-weight: bold;
+      color: #15803d;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .card-sub {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    /* 中央: 矢印エリア */
+    .arrow-area {
+      width: 160px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 0 8px;
+    }
+
+    .arrow-years {
+      font-size: 22px;
+      font-weight: bold;
+      color: #1e293b;
+    }
+
+    .arrow-rate {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    /* SVG矢印 */
+    .arrow-svg {
+      width: 100%;
+      height: 32px;
+    }
+
+    .arrow-compound {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    /* ===== 成長バー（横棒グラフ） ===== */
+    .bar-section {
+      margin-bottom: 20px;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    /* ラベル列: 固定幅 */
+    .bar-label {
+      font-size: 13px;
+      color: #475569;
+      width: 56px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    /* バー列 */
+    .bar-track {
+      flex: 1;
+      background: #f1f5f9;
+      border-radius: 6px;
+      height: 24px;
+      overflow: hidden;
+    }
+
+    .bar-fill-left {
+      width: 10%;     /* 60万 / 3477万 ≈ 1.7%だが視認性のため10%に調整 */
+      height: 100%;
+      background: #93c5fd;
+      border-radius: 6px;
+    }
+
+    .bar-fill-right {
+      width: 100%;
+      height: 100%;
+      background: #4ade80;
+      border-radius: 6px;
+    }
+
+    /* バー右の金額 */
+    .bar-value {
+      font-size: 13px;
+      color: #334155;
+      font-weight: bold;
+      width: 90px;
+      flex-shrink: 0;
+    }
+
+    /* ===== 注記 ===== */
+    .footnote {
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- タイトルエリア -->
+    <div class="title-area">
+      <h1>こどもNISA 1年分（60万円）を60年放置すると</h1>
+      <p class="subtitle">年利7%で試算（世界株インデックスの長期平均の目安）</p>
+    </div>
+
+    <!-- メインカード: 3カラム -->
+    <div class="main-cards">
+
+      <!-- 左カード: 投資元本 -->
+      <div class="card-left">
+        <p class="card-label">投資元本</p>
+        <p class="card-amount-left">60万円</p>
+        <p class="card-sub">こどもNISA 1年分</p>
+      </div>
+
+      <!-- 中央: 矢印エリア -->
+      <div class="arrow-area">
+        <span class="arrow-years">60年</span>
+        <span class="arrow-rate">年利7%</span>
+        <!-- 太い右向き矢印 SVG -->
+        <svg class="arrow-svg" viewBox="0 0 160 32" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7"
+                    refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#22c55e" />
+            </marker>
+          </defs>
+          <line x1="4" y1="16" x2="148" y2="16"
+                stroke="#22c55e" stroke-width="5"
+                marker-end="url(#arrowhead)" />
+        </svg>
+        <span class="arrow-compound">複利で運用</span>
+      </div>
+
+      <!-- 右カード: 60年後 -->
+      <div class="card-right">
+        <p class="card-label">60年後</p>
+        <p class="card-amount-right">約3,477万円</p>
+        <p class="card-sub">約58倍に成長</p>
+      </div>
+
+    </div>
+
+    <!-- 視覚的な成長バー -->
+    <div class="bar-section">
+      <!-- 元本バー -->
+      <div class="bar-row">
+        <span class="bar-label">元本</span>
+        <div class="bar-track">
+          <div class="bar-fill-left"></div>
+        </div>
+        <span class="bar-value">60万円</span>
+      </div>
+      <!-- 60年後バー -->
+      <div class="bar-row">
+        <span class="bar-label">60年後</span>
+        <div class="bar-track">
+          <div class="bar-fill-right"></div>
+        </div>
+        <span class="bar-value">約3,477万円</span>
+      </div>
+    </div>
+
+    <!-- 注記 -->
+    <p class="footnote">※試算は年利7%の複利で計算。実際の運用結果は保証されません。</p>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家族4人でNISAを使うと年間840万円まで非課税</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+      background: #ffffff;
+      width: 860px;
+    }
+
+    .container {
+      width: 860px;
+      background: #ffffff;
+      padding: 44px 40px;
+    }
+
+    /* タイトルエリア */
+    .title-area {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .title-sub {
+      font-size: 18px;
+      color: #6b7280;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .title-main {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+
+    .title-main .highlight {
+      color: #1d4ed8;
+    }
+
+    .title-caption {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    /* カード列 */
+    .cards-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      width: 22%;
+      flex-shrink: 0;
+    }
+
+    /* 父・母カード */
+    .card-parent {
+      background: #eff6ff;
+      border: 2px solid #93c5fd;
+    }
+
+    .card-parent .card-label {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .card-parent .card-amount {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1d4ed8;
+    }
+
+    /* 子どもカード */
+    .card-child {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+    }
+
+    .card-child .card-label {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .card-child .card-amount {
+      font-size: 22px;
+      font-weight: 700;
+      color: #15803d;
+    }
+
+    /* ＋マーク */
+    .plus-sign {
+      font-size: 20px;
+      color: #9ca3af;
+      font-weight: 400;
+      flex-shrink: 0;
+      padding: 0 10px;
+    }
+
+    /* 区切り線 */
+    .divider {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin-bottom: 24px;
+    }
+
+    /* 合計エリア */
+    .total-area {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .total-label {
+      font-size: 16px;
+      color: #374151;
+      font-weight: 400;
+    }
+
+    .total-line {
+      margin-top: 8px;
+      font-size: 18px;
+      color: #374151;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .total-amount {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1e3a8a;
+      vertical-align: middle;
+    }
+
+    /* 注記 */
+    .note {
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- タイトル -->
+    <div class="title-area">
+      <div class="title-sub">家族4人でNISAを使うと</div>
+      <div class="title-main">年間 <span class="highlight">840万円</span> まで非課税で運用できる</div>
+      <div class="title-caption">（2027年〜：夫婦＋子ども2人の場合）</div>
+    </div>
+
+    <!-- カード列 -->
+    <div class="cards-row">
+      <!-- 父カード -->
+      <div class="card card-parent">
+        <div class="card-label">父（新NISA）</div>
+        <div class="card-amount">360万円/年</div>
+      </div>
+
+      <div class="plus-sign">＋</div>
+
+      <!-- 母カード -->
+      <div class="card card-parent">
+        <div class="card-label">母（新NISA）</div>
+        <div class="card-amount">360万円/年</div>
+      </div>
+
+      <div class="plus-sign">＋</div>
+
+      <!-- 子ども①カード -->
+      <div class="card card-child">
+        <div class="card-label">子ども①<br>（こどもNISA）</div>
+        <div class="card-amount">60万円/年</div>
+      </div>
+
+      <div class="plus-sign">＋</div>
+
+      <!-- 子ども②カード -->
+      <div class="card card-child">
+        <div class="card-label">子ども②<br>（こどもNISA）</div>
+        <div class="card-amount">60万円/年</div>
+      </div>
+    </div>
+
+    <!-- 区切り線 -->
+    <hr class="divider">
+
+    <!-- 合計エリア -->
+    <div class="total-area">
+      <div class="total-line">
+        合計　年間 <span class="total-amount">840万円</span> まで非課税で運用可能
+      </div>
+    </div>
+
+    <!-- 注記 -->
+    <div class="note">※全額を投資に回す必要はありません。家族で使える非課税枠のイメージです。</div>
+
+  </div>
+</body>
+</html>

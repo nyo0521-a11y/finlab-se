@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { overflow: hidden; }
+  body {
+    font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 36px 28px;
+  }
+  .container {
+    background: white;
+    border-radius: 16px;
+    padding: 36px 44px 40px;
+    max-width: 960px;
+    width: 100%;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+  .title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin-bottom: 32px;
+    letter-spacing: 0.04em;
+  }
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .question {
+    background: #eef2ff;
+    border: 2px solid #4c6ef5;
+    border-radius: 10px;
+    padding: 18px 22px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #2d3561;
+    text-align: center;
+    min-width: 290px;
+    flex: 0 0 290px;
+    line-height: 1.6;
+  }
+  .yes-branch {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+  }
+  .label {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .label-yes { background: #51cf66; color: white; }
+  .label-no  { background: #ff6b6b; color: white; }
+  .arrow-right {
+    font-size: 20px;
+    color: #868e96;
+    line-height: 1;
+  }
+  .arrow-down {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 145px;
+    margin: 6px 0;
+  }
+  .arrow-down span {
+    color: #adb5bd;
+    font-size: 14px;
+  }
+  .result {
+    border-radius: 12px;
+    padding: 18px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .result-sbi     { background: #fff0f6; border: 2px solid #f783ac; color: #a61e4d; }
+  .result-rakuten { background: #fff3bf; border: 2px solid #fcc419; color: #7c4d00; }
+  .result-sony    { background: #e8f5e9; border: 2px solid #66bb6a; color: #1b5e20; }
+  .result-au      { background: #e8f4fd; border: 2px solid #42a5f5; color: #0d47a1; }
+
+  .result-name {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .result-note {
+    font-size: 13px;
+    font-weight: normal;
+    opacity: 0.85;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">どれを選べばいい？ パターン別フローチャート</div>
+  <div class="flow">
+
+    <div class="row">
+      <div class="question">SBI証券で<br>投資している？</div>
+      <div class="yes-branch">
+        <div class="arrow-right">──</div>
+        <div class="label label-yes">YES</div>
+        <div class="arrow-right">──▶</div>
+      </div>
+      <div class="result result-sbi">
+        <span class="result-name">🏦 住信SBIネット銀行</span>
+        <span class="result-note">SBI証券との連携が最も手厚い。ハイブリッド預金で資金効率UP</span>
+      </div>
+    </div>
+
+    <div class="arrow-down"><span>NO ↓</span></div>
+
+    <div class="row">
+      <div class="question">楽天証券で<br>投資している？</div>
+      <div class="yes-branch">
+        <div class="arrow-right">──</div>
+        <div class="label label-yes">YES</div>
+        <div class="arrow-right">──▶</div>
+      </div>
+      <div class="result result-rakuten">
+        <span class="result-name">🏦 楽天銀行</span>
+        <span class="result-note">マネーブリッジ設定で普通預金金利が優遇。楽天ポイントも貯まる</span>
+      </div>
+    </div>
+
+    <div class="arrow-down"><span>NO ↓</span></div>
+
+    <div class="row">
+      <div class="question">au経済圏を強化<br>したい？</div>
+      <div class="yes-branch">
+        <div class="arrow-right">──</div>
+        <div class="label label-yes">YES</div>
+        <div class="arrow-right">──▶</div>
+      </div>
+      <div class="result result-au">
+        <span class="result-name">🏦 auじぶん銀行</span>
+        <span class="result-note">auユーザーなら選択肢に。手数料優遇はじぶん銀行残高が条件</span>
+      </div>
+    </div>
+
+    <div class="arrow-down"><span>NO ↓</span></div>
+
+    <div class="row">
+      <div class="question" style="background:#f1f8ff; border-color:#74c0fc; color:#1971c2;">上記いずれにも<br>当てはまらない</div>
+      <div class="yes-branch">
+        <div class="arrow-right">──────▶</div>
+      </div>
+      <div class="result result-sony">
+        <span class="result-name">🏦 ソニー銀行</span>
+        <span class="result-note">目的別口座で資金管理がしやすい。外貨・スマホATMも充実</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

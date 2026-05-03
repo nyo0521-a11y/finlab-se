@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ジュニアNISA → こどもNISA 主な違い</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: "Hiragino Kaku Gothic Pro", "Noto Sans JP", "Yu Gothic", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    .container {
+      width: 860px;
+      background: #ffffff;
+      padding: 40px 36px;
+    }
+
+    /* タイトル */
+    .title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #1f2937;
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+
+    .title .arrow {
+      color: #6b7280;
+      margin: 0 4px;
+    }
+
+    /* 比較テーブル全体 */
+    .comparison-table {
+      width: 100%;
+      display: table;
+      border-spacing: 0;
+    }
+
+    /* ヘッダー行 */
+    .header-row {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 0;
+    }
+
+    /* カラム基本スタイル */
+    .col-left {
+      width: 37%;
+      background: #fff1f2;
+      border: 2px solid #f87171;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+    }
+
+    .col-center {
+      width: 26%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 8px;
+    }
+
+    .col-right {
+      width: 37%;
+      background: #f0fdf4;
+      border: 2px solid #4ade80;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+    }
+
+    /* ヘッダーセル */
+    .col-left .header-cell {
+      background: #fecaca;
+      color: #dc2626;
+      text-align: center;
+      padding: 14px 12px;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    .col-right .header-cell {
+      background: #bbf7d0;
+      color: #16a34a;
+      text-align: center;
+      padding: 14px 12px;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    .col-center .header-label {
+      font-size: 12px;
+      color: #9ca3af;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-align: center;
+      padding-bottom: 4px;
+    }
+
+    /* ボディ行 */
+    .body-section {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .col-left-body {
+      width: 37%;
+      background: #fff1f2;
+      border-left: 2px solid #f87171;
+      border-right: 2px solid #f87171;
+    }
+
+    .col-left-body:last-child,
+    .col-right-body:last-child {
+      border-radius: 0 0 12px 12px;
+    }
+
+    .col-center-body {
+      width: 26%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-right-body {
+      width: 37%;
+      background: #f0fdf4;
+      border-left: 2px solid #4ade80;
+      border-right: 2px solid #4ade80;
+    }
+
+    /* 最終行の角丸 */
+    .col-left-body.last-col {
+      border-bottom: 2px solid #f87171;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .col-right-body.last-col {
+      border-bottom: 2px solid #4ade80;
+      border-radius: 0 0 12px 12px;
+    }
+
+    /* データセル */
+    .data-cell {
+      padding: 14px 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 68px;
+    }
+
+    .data-cell .value {
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    /* ジュニアNISA側：グレー系 */
+    .value-old {
+      color: #9ca3af;
+      font-size: 15px !important;
+    }
+
+    /* こどもNISA側：改善点は緑・大きめ */
+    .value-new-highlight {
+      color: #16a34a;
+      font-size: 16px !important;
+    }
+
+    /* こどもNISA側：変更なし */
+    .value-new-neutral {
+      color: #374151;
+      font-size: 15px !important;
+    }
+
+    /* セパレーター */
+    .separator {
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      margin: 0 12px;
+    }
+
+    /* 中央列の項目ラベル */
+    .center-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 68px;
+      padding: 12px 8px;
+    }
+
+    .center-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .center-separator {
+      border-bottom: 1px solid #e5e7eb;
+      margin: 0 4px;
+    }
+
+    /* 矢印アイコン（改善を示す） */
+    .improve-badge {
+      display: inline-block;
+      background: #dcfce7;
+      color: #16a34a;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .improve-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- タイトル -->
+    <div class="title">
+      ジュニアNISA <span class="arrow">→</span> こどもNISA　主な違い
+    </div>
+
+    <!-- ヘッダー行 -->
+    <div class="header-row">
+      <div class="col-left">
+        <div class="header-cell">ジュニアNISA<br>（廃止）</div>
+      </div>
+      <div class="col-center">
+        <div class="header-label">比較項目</div>
+      </div>
+      <div class="col-right">
+        <div class="header-cell">こどもNISA<br>（2027年〜）</div>
+      </div>
+    </div>
+
+    <!-- 行1: 引き出し -->
+    <div class="body-section">
+      <div class="col-left-body">
+        <div class="data-cell">
+          <span class="value value-old">18歳まで<br>原則不可</span>
+        </div>
+        <div class="separator"></div>
+      </div>
+      <div class="col-center-body">
+        <div class="center-cell">
+          <span class="center-label">引き出し</span>
+        </div>
+        <div class="center-separator"></div>
+      </div>
+      <div class="col-right-body">
+        <div class="data-cell">
+          <div class="improve-text">
+            <span class="value value-new-highlight">12歳以上で<br>引き出し可</span>
+            <span class="improve-badge">改善</span>
+          </div>
+        </div>
+        <div class="separator"></div>
+      </div>
+    </div>
+
+    <!-- 行2: 非課税期間 -->
+    <div class="body-section">
+      <div class="col-left-body">
+        <div class="data-cell">
+          <span class="value value-old">5年<br>（要ロールオーバー）</span>
+        </div>
+        <div class="separator"></div>
+      </div>
+      <div class="col-center-body">
+        <div class="center-cell">
+          <span class="center-label">非課税期間</span>
+        </div>
+        <div class="center-separator"></div>
+      </div>
+      <div class="col-right-body">
+        <div class="data-cell">
+          <div class="improve-text">
+            <span class="value value-new-highlight">無期限</span>
+            <span class="improve-badge">改善</span>
+          </div>
+        </div>
+        <div class="separator"></div>
+      </div>
+    </div>
+
+    <!-- 行3: 年間投資枠 -->
+    <div class="body-section">
+      <div class="col-left-body">
+        <div class="data-cell">
+          <span class="value value-old">80万円</span>
+        </div>
+        <div class="separator"></div>
+      </div>
+      <div class="col-center-body">
+        <div class="center-cell">
+          <span class="center-label">年間<br>投資枠</span>
+        </div>
+        <div class="center-separator"></div>
+      </div>
+      <div class="col-right-body">
+        <div class="data-cell">
+          <span class="value value-new-neutral">60万円</span>
+        </div>
+        <div class="separator"></div>
+      </div>
+    </div>
+
+    <!-- 行4: 非課税保有限度 -->
+    <div class="body-section">
+      <div class="col-left-body">
+        <div class="data-cell">
+          <span class="value value-old">400万円</span>
+        </div>
+        <div class="separator"></div>
+      </div>
+      <div class="col-center-body">
+        <div class="center-cell">
+          <span class="center-label">非課税<br>保有限度</span>
+        </div>
+        <div class="center-separator"></div>
+      </div>
+      <div class="col-right-body">
+        <div class="data-cell">
+          <div class="improve-text">
+            <span class="value value-new-highlight">600万円</span>
+            <span class="improve-badge">改善</span>
+          </div>
+        </div>
+        <div class="separator"></div>
+      </div>
+    </div>
+
+    <!-- 行5: 対象商品（最終行） -->
+    <div class="body-section">
+      <div class="col-left-body last-col">
+        <div class="data-cell">
+          <span class="value value-old">投資信託＋<br>個別株式</span>
+        </div>
+      </div>
+      <div class="col-center-body">
+        <div class="center-cell">
+          <span class="center-label">対象商品</span>
+        </div>
+      </div>
+      <div class="col-right-body last-col">
+        <div class="data-cell">
+          <span class="value value-new-neutral" style="font-size: 13px !important;">つみたて対象の<br>投資信託のみ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
