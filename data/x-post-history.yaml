@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-03T21:06:22+09:00'
+    text: "【おすすめ📖】\n振込の裏でRTGSと日銀ネットが動く仕組みを、金融SEが米欧英の決済インフラと合わせて解説。\n\nhttps://finlab-se.com/posts/boj-net-rtgs-international/\n\
+      \n#日銀ネット #RTGS #決済システム"
+    tweet_id: '2050909828021666024'
+    tweet_url: https://x.com/i/web/status/2050909828021666024
+    type: rotation
+    post_path: content/posts/boj-net-rtgs-international.md
   - posted_at: '2026-05-03T07:18:06+09:00'
     text: "【新着📝】\nGitHub ActionsとCloudflare WorkersでX自動投稿を仕組み化した際の試行錯誤と全体像。\n\nhttps://finlab-se.com/posts/x-auto-post-cloudflare-workers/\n\
       \n#X自動投稿 #GitHubActions #CloudflareWorkers"
