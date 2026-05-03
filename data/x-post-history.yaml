@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-05-04T07:38:14+09:00'
+    text: "【おすすめ📖】\n投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。\n\
+      \nhttps://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #Hugo
+      #CloudflarePages"
+    tweet_id: '2051068842529390924'
+    tweet_url: https://x.com/i/web/status/2051068842529390924
+    type: rotation
+    post_path: content/posts/claude-code-blog-experience.md
   - posted_at: '2026-05-03T21:06:22+09:00'
     text: "【おすすめ📖】\n振込の裏でRTGSと日銀ネットが動く仕組みを、金融SEが米欧英の決済インフラと合わせて解説。\n\nhttps://finlab-se.com/posts/boj-net-rtgs-international/\n\
       \n#日銀ネット #RTGS #決済システム"
