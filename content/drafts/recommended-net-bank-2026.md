@@ -4,7 +4,7 @@ date: 2026-05-02T09:00:00+09:00
 draft: true
 categories: ["資産形成"]
 tags: ["ネット銀行", "銀行口座", "資産管理", "住信SBIネット銀行", "楽天銀行"]
-description: "SBI証券ユーザーなら住信SBIネット銀行との組み合わせが最強コンボ。住信SBI・楽天・ソニー・auじぶんを証券連携・目的別口座・手数料の5軸で比較します。"
+description: "SBI証券ユーザーなら住信SBIネット銀行との組み合わせが最強コンボ。証券連携・目的別口座・ATM・振込手数料・スマホATMの5軸で住信SBI・楽天・ソニー・auじぶんを比較します。"
 showToc: true
 cover:
   image: "/images/thumb-recommended-net-bank-2026.jpg"
