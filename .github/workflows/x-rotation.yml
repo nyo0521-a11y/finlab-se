@@ -17,6 +17,11 @@ on:
   #   CF Workers が UTC 12:05 (JST 21:05) に workflow_dispatch でトリガーする。
   workflow_dispatch:
 
+# ★ 並列実行防止 ★（x-post-scheduled の朝 fallback と同じ理由）
+concurrency:
+  group: x-rotation
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -90,5 +95,7 @@ jobs:
           [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
           if ! git diff --cached --quiet; then
             git commit -m "chore(x-rotation): mark post as promoted"
+            # 手動コミットとの競合を回避するため rebase してから push
+            git pull --rebase origin main
             git push
           fi

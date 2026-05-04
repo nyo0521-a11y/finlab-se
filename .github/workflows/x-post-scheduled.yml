@@ -27,6 +27,14 @@ on:
         default: "manual"
         type: string
 
+# ★ 並列実行防止 ★
+# 主枠（7:17/20:53）が実行中にバックアップ枠（7:37/21:13）が来ても待機させる。
+# cancel-in-progress: false = キャンセルせず待機 → 主枠完了後に補枠が起動 →
+# その時点で morning_rotation_last_posted が当日日付になっているため補枠はスキップする。
+concurrency:
+  group: x-post-scheduled
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -99,6 +107,8 @@ jobs:
           [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
           if ! git diff --cached --quiet; then
             git commit -m "chore(x-queue): dequeue after post"
+            # 手動コミットとの競合を回避するため rebase してから push
+            git pull --rebase origin main
             git push
           fi
 
@@ -201,5 +211,7 @@ jobs:
           [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
           if ! git diff --cached --quiet; then
             git commit -m "chore(x-rotation): morning fallback rotation posted"
+            # 手動コミットとの競合を回避するため rebase してから push
+            git pull --rebase origin main
             git push
           fi
