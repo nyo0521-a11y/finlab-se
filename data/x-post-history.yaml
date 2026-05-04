@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-04T21:06:17+09:00'
+    text: "【おすすめ📖】\n旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない。連続増配株の考え方。\n\nhttps://finlab-se.com/posts/consecutive-dividend-growth/\n\
+      \n#連続増配株 #高配当株 #配当利回り"
+    tweet_id: '2051272198271258909'
+    tweet_url: https://x.com/i/web/status/2051272198271258909
+    type: rotation
+    post_path: content/posts/consecutive-dividend-growth.md
   - posted_at: '2026-05-04T07:38:14+09:00'
     text: "【おすすめ📖】\n投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。\n\
       \nhttps://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #Hugo
