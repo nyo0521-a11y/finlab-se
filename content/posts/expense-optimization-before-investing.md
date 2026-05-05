@@ -213,6 +213,15 @@ cover:
 
 ---
 
+## 固定費を整えたら次のステップへ
+
+支出の最適化で余剰資金が生まれたら、いよいよ投資の出番です。何から始めるか迷っている方は、高配当株投資の全体像から確認してみてください。
+
+- [高配当株投資の全体戦略——銘柄選定から出口まで](/posts/highyield-investment-strategy/)
+- [インデックス投資・高配当株投資を始める証券会社の選び方](/posts/securities-selection-for-index-and-dividend/)
+
+---
+
 ## 参考
 
 - [リベラルアーツ大学（YouTube）](https://www.youtube.com/@ryogakucho)
