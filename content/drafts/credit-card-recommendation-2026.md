@@ -4,7 +4,7 @@ date: 2026-05-05T00:00:00+09:00
 draft: true
 categories: ["資産形成"]
 tags: ["クレジットカード", "クレカ積立", "NISA", "SBI証券", "楽天証券", "マネックス証券", "三菱UFJeスマート証券", "ポイント還元", "三井住友カード", "楽天カード", "dカード", "dカードGOLD", "au PAYカード"]
-description: "クレカ選びは還元率より経済圏が先。楽天・ドコモ・SBI・au経済圏ごとに最適な1枚を比較し、積立還元率の差が月5万円積立でいくらになるか損益分岐点を数字で解説します。NISA口座との組み合わせ方も整理。"
+description: "クレカ選びは経済圏が先。楽天・ドコモ・SBI・au別に最適な1枚を比較し、積立還元率の損益分岐点を数字で解説。"
 showToc: true
 cover:
   image: "/images/thumb-credit-card-recommendation-2026.jpg"
