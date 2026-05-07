@@ -177,7 +177,7 @@ cover:
 
 - 年末調整の時期（10〜11月）に会社から案内が届く
 - 国税庁のウェブサイト（確定申告・年末調整の案内ページ）
-- 当ブログの年次記事（最新の金額一覧は [年収の壁2026年版：立場別に整理する](/posts/income-wall-2026/) を参照）
+- 当ブログの年次記事（最新の金額一覧は <a href="/posts/income-wall-2026/" target="_blank" rel="noopener noreferrer">年収の壁2026年版：立場別に整理する</a> を参照）
 
 ---
 
@@ -214,7 +214,7 @@ cover:
 
 このため「年収が少なくても加入対象になるケース」や「年収が多くても扶養に入れるケース」が存在します。自分の状況を判断するには年収だけでなく、勤務条件の全体像を確認する必要があります。
 
-具体的な数値要件や2026年時点での制度詳細は [年収の壁2026年版：立場別に整理する](/posts/income-wall-2026/) を参照してください。
+具体的な数値要件や2026年時点での制度詳細は <a href="/posts/income-wall-2026/" target="_blank" rel="noopener noreferrer">年収の壁2026年版：立場別に整理する</a> を参照してください。
 
 ---
 
@@ -265,13 +265,13 @@ cover:
 
 「年収の壁 = 税か社保か」という2択で考える習慣を持つと、制度改正の度に数字を追いかけることなく、正しく状況を判断できるようになります。
 
-<strong>まずやること：</strong> 2026年時点の具体的な金額ラインや施行日は [年収の壁2026年版：立場別に整理する](/posts/income-wall-2026/) で確認してください。自分の立場（扶養内就労・配偶者・フリーランス）に合わせた整理も掲載しています。
+<strong>まずやること：</strong> 2026年時点の具体的な金額ラインや施行日は <a href="/posts/income-wall-2026/" target="_blank" rel="noopener noreferrer">年収の壁2026年版：立場別に整理する</a> で確認してください。自分の立場（扶養内就労・配偶者・フリーランス）に合わせた整理も掲載しています。
 
 ---
 
 **参考文献**
 
-- ニッセイ基礎研究所「配偶者手当を廃止する企業が増えていることを知っていますか」[https://www.nli-research.co.jp/report/detail/id=77455?site=nli](https://www.nli-research.co.jp/report/detail/id=77455?site=nli)
+- ニッセイ基礎研究所「配偶者手当を廃止する企業が増えていることを知っていますか」<a href="https://www.nli-research.co.jp/report/detail/id=77455?site=nli" target="_blank" rel="noopener noreferrer">https://www.nli-research.co.jp/report/detail/id=77455?site=nli</a>
 
 ---
 
