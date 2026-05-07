@@ -9,4 +9,6 @@
 #     - post_path: content/posts/xxx.md      # 対象記事
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
-queue: []
+queue:
+  - post_path: content/posts/credit-card-recommendation-2026.md
+    added_at: '2026-05-08T07:02:58+09:00'
