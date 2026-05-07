@@ -258,4 +258,10 @@ cover:
 
 ---
 
+**参考文献**
+
+- ニッセイ基礎研究所「配偶者手当を廃止する企業が増えていることを知っていますか」[https://www.nli-research.co.jp/report/detail/id=77455?site=nli](https://www.nli-research.co.jp/report/detail/id=77455?site=nli)
+
+---
+
 *本記事は制度の仕組み理解を目的としており、個別の税務・社会保険相談は専門家にご確認ください。*
