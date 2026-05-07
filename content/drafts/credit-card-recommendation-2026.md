@@ -42,7 +42,7 @@ cover:
 
 <strong>クレジットカードを選ぶときに見るべき軸は5つです。</strong>それ以外の特典（空港ラウンジ・グルメ優待など）は、自分のライフスタイルに必要でなければ選択基準に入れないほうがシンプルです。
 
-![クレカ選びの5軸・優先順位](/images/illust-credit-card-5axes-pyramid.png)
+<img src="/images/illust-credit-card-5axes-pyramid.png" alt="クレカ選びの5軸・優先順位" width="360" style="max-width:100%;display:block;margin:0 auto;">
 
 ### 1. 経済圏の特典
 
@@ -391,7 +391,7 @@ Y!mobile利用者でYahoo!ショッピングをよく使う方向けです。Pay
 
 ## どのカードを選ぶかの判断フロー
 
-![自分に合うカードの選び方](/images/illust-credit-card-selection-flow.png)
+<img src="/images/illust-credit-card-selection-flow.png" alt="自分に合うカードの選び方" width="360" style="max-width:100%;display:block;margin:0 auto;">
 
 自分に合うカードを選ぶには、以下の順番で考えると整理しやすいです。
 
