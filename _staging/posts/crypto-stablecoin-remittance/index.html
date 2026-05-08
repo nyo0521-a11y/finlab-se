@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ja" dir="auto" data-theme="light">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁 | 金融エンジニアの資産運用実験室</title>
+<meta name="keywords" content="暗号資産, ステーブルコイン, 海外送金, 規制, マネーロンダリング">
+<meta name="description" content="ステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。">
+<meta name="author" content="やさぐれSE">
+<link rel="canonical" href="https://finlab-se.com/posts/crypto-stablecoin-remittance/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f6c45ab7ef4a3170bde810919a23e389dc51da456f61ef6fe3aabf3a7f1b0a2.css" integrity="sha256-f2xFq370oxcL3oEJGaI&#43;OJ3FHaRW9h72/jqr86fxsKI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://finlab-se.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://finlab-se.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://finlab-se.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://finlab-se.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://finlab-se.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ja" href="https://finlab-se.com/posts/crypto-stablecoin-remittance/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    }
+
+</script><link rel="icon" type="image/svg+xml" href="https://finlab-se.com/favicon.svg" id="favicon-svg">
+<link rel="apple-touch-icon" sizes="180x180" href="https://finlab-se.com/apple-touch-icon.png"><script async src="https://www.googletagmanager.com/gtag/js?id=G-68K0QJV9JM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-68K0QJV9JM');
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5743260737982404" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/post.css"><style>
+.site-footer { background: #0e1410; color: #c8cfc8; padding: 32px 0; margin-top: 24px; }
+.site-footer .foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 13px; }
+.site-footer .foot-brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 600; }
+.site-footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; color: #c8cfc8; }
+.site-footer .foot-links a { color: #c8cfc8; }
+.site-footer .foot-links a:hover { color: #fff; text-decoration: none; }
+.site-footer .foot-copy { color: #828982; font-size: 12px; font-family: var(--font-num, inherit); }
+</style><script>
+(function(){
+  var host = location.hostname;
+  var isDraft = host.indexOf('draft.') === 0 || host.indexOf('.pages.dev') !== -1;
+  if (!isDraft) return;
+  
+  var svgLink = document.getElementById('favicon-svg');
+  if (svgLink && svgLink.parentNode) svgLink.parentNode.removeChild(svgLink);
+  var map = {
+    'apple-touch-icon.png':   'apple-touch-icon-draft.png',
+    'favicon-32x32.png':      'favicon-draft-32x32.png',
+    'favicon-16x16.png':      'favicon-draft-16x16.png',
+    'favicon.ico':            'favicon-draft.ico'
+  };
+  document.querySelectorAll('link[rel*="icon"]').forEach(function(l){
+    var h = l.getAttribute('href') || '';
+    Object.keys(map).forEach(function(k){
+      if (h.endsWith('/' + k) || h === k) l.href = h.replace(k, map[k]);
+    });
+  });
+  
+  if (document.title && document.title.indexOf('[DRAFT]') === -1) {
+    document.title = '[DRAFT] ' + document.title;
+  }
+})();
+</script>
+<meta property="og:url" content="https://finlab-se.com/posts/crypto-stablecoin-remittance/">
+  <meta property="og:site_name" content="金融エンジニアの資産運用実験室">
+  <meta property="og:title" content="暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁">
+  <meta property="og:description" content="ステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-23T14:17:00+09:00">
+    <meta property="article:modified_time" content="2026-05-08T09:58:57+09:00">
+    <meta property="article:tag" content="暗号資産">
+    <meta property="article:tag" content="ステーブルコイン">
+    <meta property="article:tag" content="海外送金">
+    <meta property="article:tag" content="規制">
+    <meta property="article:tag" content="マネーロンダリング">
+    <meta property="og:image" content="https://finlab-se.com/images/thumb-crypto-stablecoin-remittance.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://finlab-se.com/images/thumb-crypto-stablecoin-remittance.png">
+  <meta name="twitter:title" content="暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁">
+  <meta name="twitter:description" content="ステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://finlab-se.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁",
+      "item": "https://finlab-se.com/posts/crypto-stablecoin-remittance/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁",
+  "name": "暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁",
+  "description": "ステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。",
+  "keywords": [
+    "暗号資産", "ステーブルコイン", "海外送金", "規制", "マネーロンダリング"
+  ],
+  "articleBody": "海外に数万円送金するだけで、銀行だと数千円・数日かかる——この重い摩擦を解消する方法として、第1弾ではSWIFT・コルレス銀行の仕組みを、第2弾ではWise・Revolutがコルレス網を迂回する仕組みを見てきました。\nただ、Wise・Revolutも結局は「銀行免許や送金業者免許のもとで国境をまたぐ規制対応をする事業者」です。送金経路をもっと根本的に変える選択肢として、いま注目されているのがステーブルコインです。\n結論から言うと、ステーブルコインは「銀行ネットワークに依存せず、法定通貨並みの価値安定を保つ」海外送金の新しい選択肢です。 ただし普及には、マネーロンダリング対策（AML）という大きな壁が立ちはだかっています。\nなぜいまステーブルコインなのか。Bitcoinが描いた「中央権力に依存しない送金」という思想的革命はボラティリティ・スケーラビリティ・税務の壁で日常決済に届きませんでしたが、Visa・PayPal・Stripeなど大手がすでにステーブルコイン決済の実装に踏み出しているからです。本記事では、サトシ・ナカモト論文の思想的背景から各国の規制動向まで、金融SEの視点で整理していきます。\n※本記事は暗号資産・ステーブルコインへの投資を勧めるものではありません。価格変動・規制変更・取引所破綻など固有のリスクが大きいことを前提に、海外送金の選択肢として仕組みを解説します。\nこの記事でわかること 暗号資産がリーマンショック直後に生まれた思想的背景（リバイアサンとの対比） 暗号資産による送金が描いた理想と、ボラティリティ問題で「決済通貨」になれなかった現実 ステーブルコインがいま海外送金で注目される理由と現在地 普及の最大の壁であるAML（マネーロンダリング対策）と、主要法域（EU MiCA・日本改正資金決済法・米国GENIUS Act）の立法動向 銀行海外送金（コルレス銀行・SWIFT）の仕組みは「海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説」、Wise・Revolutのローカル決済プール方式は「Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み」で扱っています。\n暗号資産はなぜ生まれたか：リバイアサンへの対抗思想 中央権力に依存しない貨幣という発想 17世紀の哲学者トマス・ホッブズは、主著『リバイアサン』（1651年）で「人間は放っておくと互いに奪い合うから、強い国家に服従することで秩序と安全を手に入れるべきだ」と主張しました。通貨もまたこの「リバイアサン的な中央権力」に支えられてきた典型例で、法定通貨は中央銀行が発行し、国家がその価値を裏付け、銀行ネットワークが移動の経路を提供しています。コルレス網も Wise のプール口座も、最終的には「国家が認可する金融機関の内側」で動いています。\nサトシ・ナカモトが2008年10月31日に公開した論文 “Bitcoin: A Peer-to-Peer Electronic Cash System” は、このリバイアサン構造への反旗でした。国家が通貨を増刷すれば預金の価値は薄まり、銀行が破綻すれば預金は毀損し、その救済コストは最終的に税金として利用者に回ってくる——2008年秋のリーマンショックと世界的な銀行救済は、このツケが利用者側に集まる構造の脆さを露わにしました。論文が提案したのは、国家も銀行も介在せず、参加者同士のネットワーク（Peer-to-Peer）で直接価値を移転できる電子貨幣であり、信頼の基盤は改ざん困難な分散台帳（ブロックチェーン）と、計算競争で取引を確定するProof of Workに置かれます。\nこの思想性は、2009年1月3日に生成されたBitcoinの最初のブロック（ジェネシスブロック）にも刻まれています。coinbase パラメータに記された “The Times 03/Jan/2009 Chancellor on brink of second bailout for banks”（英財務大臣が銀行への2度目の公的資金注入の瀬戸際）という同日付の新聞見出しは、中央集権型の金融システムが信認を失いつつあった時代背景を象徴的に示しています。Bitcoinは単なる新しい送金手段ではなく、「国家・中央銀行・商業銀行という三層構造に依存しない貨幣」を構想する、思想的・技術的な実験として生まれました。\n暗号資産が描いた送金の理想 この思想を海外送金の文脈に落とし込むと、Bitcoinや他の暗号資産が描いた未来像は、既存の送金の常識を根本から覆すものでした。\n項目 銀行海外送金（コルレス） FinTech送金（Wise/Revolut） 暗号資産送金（理想） 経由 コルレス銀行2〜3行 各国プール口座＋ネッティング P2Pネットワーク（中央機関なし） 着金時間 当日〜数営業日 数分〜数時間 数秒〜数分 営業時間 銀行営業日 ほぼ24/365 24/365 コスト 数千円＋中継手数料 数百円〜 理論上はネットワーク手数料のみ 最終決済 各国中央銀行決済 各国国内送金 ブロックチェーン上で確定 コルレス網も国内決済システムも経由せず、土日祝も止まらず、口座開設不要・スマホとウォレットさえあれば誰でも参加できる送金。理想だけ並べれば、G20クロスボーダー決済ロードマップ が掲げる「コスト1%以下・1時間以内着金」を圧倒的にクリアする選択肢です。\nしかし2026年現在、Bitcoinや一般的な暗号資産が「日常の海外送金」に使われているとは言いがたい状況です。理由はシンプルで、決済手段として致命的な欠点が3つあるからです。\n現実：暗号資産が「決済通貨」になれない理由 ① ボラティリティ：明日10万円が7万円になる通貨 最大の問題は、価格変動の大きさです。Bitcoinは過去にも1日で20〜30%動くことがあり、年間ベースでは半値・倍値の変動が珍しくありません。\n「明日、海外の家族に10万円を送ろうと Bitcoin で送金準備をしたら、翌日に着金した時点で受け取り側のレートが7万円相当になっていた」というシナリオが、決済通貨としては致命的に機能しません。送金人も受取人も、価格変動リスクを負わされる送金手段は、商取引にも生活費送金にも使えません。\n国家が裏付ける法定通貨が「価値の安定」という機能をなぜ重視されているか、改めて浮き彫りにする問題でもあります。\n② ガス代の急騰とスケーラビリティ EthereumなどのスマートコントラクトプラットフォームでP2P送金する場合、ネットワーク利用料（ガス代）を払う必要があります。需要が集中すると、ガス代は数十〜数百ドル規模まで跳ね上がることがあり、「少額送金のはずが手数料のほうが高い」状況が起こります。\nBitcoinも同様に、1ブロック10分・約7TPS（秒間トランザクション数）という処理性能の制約があり、混雑時は手数料を高く積まないと数時間〜1日待たされます。Visaが平均数千TPSを処理できるのと比べると、決済インフラとしての処理能力にも差があります。\nLayer 2（Lightning Network、ロールアップなど）でこの問題を緩和する取り組みは進んでいますが、一般利用者が日常的に使うレベルでの普及には至っていません。\n③ 規制と税務の摩擦 「為替差損益なら法定通貨の両替でも発生する」と感じるかもしれません。理屈のうえでは同じですが、暗号資産には独自の厳しさがあります。\n税率が高い：暗号資産の売買益は雑所得（総合課税・最大55%）扱い。法定通貨の為替差益も雑所得ですが、個人の生活目的送金なら年間20万円以下の申告不要枠に収まることが多く、実務上はほぼ問題になりません 暗号資産同士のスワップも課税イベント：円→BTC→USDC→円と挟むと、「BTC→USDC」の瞬間にBTCの含み益が課税対象になります。法定通貨の両替にはこの論点がありません 損失繰越・他の所得との損益通算が不可：他の雑所得以外と相殺できず、翌年以降に繰り越すこともできません 決済目的で使うだけで税務処理が煩雑になるため、個人にとっても事業者にとっても日常使いのハードルが高い状況です。\nステーブルコインが現実解として浮上した理由 「P2Pで国境を越える」という暗号資産のメリットを残したまま、ボラティリティ問題を解決しようとするのが ステーブルコイン です。\nステーブルコインは、米ドルや日本円など法定通貨に1:1でペッグされた暗号資産で、発行体が裏付け資産（現金・短期国債など）を保有することで価値を安定させます。ブロックチェーン上で発行・移転されるため、24/365・数秒〜数分での着金、口座不要・ウォレットだけで送受信、という暗号資産のメリットはそのまま使えます。ウォレットとは、暗号資産を管理するスマホアプリやブラウザ拡張機能のことで、銀行口座に代わる「暗号資産の財布」にあたります。送金先の指定には、ウォレットごとに割り当てられたウォレットアドレス（数十桁の英数字文字列）を使います。\n主要ステーブルコインの比較 銘柄 発行体 ペッグ通貨 主な特徴 USDC Circle社（米） 米ドル 月次の準備金監査公表。Visa・Stripe・PayPalが採用 USDT Tether社 米ドル 流通量は最大級。準備金構成の透明性は議論あり JPYC JPYC株式会社（日） 日本円 2023年6月施行の改正資金決済法で電子決済手段として位置付けられ、2025年に発行開始 PYUSD Paxos／PayPal 米ドル PayPal系サービスでの利用を想定 クロスボーダー決済での実例 ステーブルコインの「決済手段としての実用」は、すでに複数の大手プレイヤーが踏み出しています。\nVisa：2023年からUSDC建ての加盟店決済精算を一部地域で開始。クロスボーダーの決済資金移動にステーブルコインを活用 PayPal：2023年に独自ステーブルコイン PYUSD を発行。PayPal/Venmo間で送受信可能 Stripe：2024年10月に米国加盟店向けでUSDC決済を再開。その後 Stablecoin Financial Accounts として100か国以上に拡大 JPYC：2023年6月施行の改正資金決済法で「電子決済手段」として位置付けられ、2025年10月にJPYC株式会社が円建てステーブルコイン JPYC の発行と JPYC EX の運用を開始 特に新興国の出稼ぎ送金や、暗号資産取引所間の資金移動、Web3企業のB2B決済など、「銀行海外送金が高すぎる／遅すぎる」レイヤーから、ステーブルコイン送金の利用が広がっています。\n仕組みのイメージ ステーブルコインを使った海外送金は、概念としては次のような流れです。\n送金人が円を USDC などの米ドル建てステーブルコインに交換し、自分のウォレットに保有 ウォレットから受取人のウォレットアドレスへ、USDC をブロックチェーン上で転送 受取人が USDC を現地通貨に換金し、銀行口座へ出金 海外送金の場合は、送金人・受取人の双方で同じステーブルコインを保有する必要があるため、国際的に流動性が最も高い米ドル建ての USDC が実務上よく使われます。\nブロックチェーン上の移転自体は数秒〜数分・手数料は数十円〜数百円規模で完結します。両端の「法定通貨↔ステーブルコイン」交換と銀行入出金で多少の摩擦は残りますが、それでもコルレス網経由の銀行送金より圧倒的に速く・安くなる可能性があります。\n普及の壁：マネーロンダリング対策（AML/CFT） ここまでの仕組みだけ見れば、ステーブルコインがG20ロードマップ2027の目標を最も簡単に達成しそうに見えます。しかし現実には、ステーブルコインによる海外送金が「主流」になるには、もう一段大きな壁を越える必要があります。マネーロンダリング・テロ資金供与対策（AML/CFT）です。\nなぜ問題になるのか 銀行海外送金もWise・Revolutも、各国のAML規制のもとで 送金人と受取人を本人確認（KYC）し、取引記録を当局に提供できる体制 を持っています。怪しい送金は止められ、必要なら資金凍結や当局通報も行われます。\n一方、暗号資産・ステーブルコインの世界は、設計思想として 「中央権力なしに価値を移転する」 ものです。ウォレットアドレスは匿名で生成でき、所有者の身元と必ずしも紐づきません。これを悪用すれば、犯罪収益や制裁回避資金の国際移動が極めて容易になります。\nFATFトラベルルール この問題に対し、国際的なAML基準を策定する FATF（金融活動作業部会） は、暗号資産交換業者にも銀行と同等の情報伝達義務を課す「トラベルルール」を勧告しています。\n具体的には、一定額以上の暗号資産送付を行う際、送付元の交換業者は受取側の交換業者に対し、送付人・受取人の氏名・住所等を伝達する義務があります。日本でも2023年6月施行の改正犯罪収益移転防止法（資金決済法と同時改正）でトラベルルールが導入され、国内の暗号資産交換業者間ではすでに運用されています。\nただしトラベルルールは「交換業者を経由する取引」にしか効きません。利用者が自分のセルフカストディ・ウォレット（取引所を介さず自分の秘密鍵で管理するウォレット）で直接送受信すれば、規制の網はかかりにくくなります。ここがステーブルコイン送金の「便利さ」と「規制」の根本的なせめぎ合いです。実際に、送金履歴を不可視化するミキサーサービス Tornado Cash を米財務省OFACが2022年に制裁対象に指定し、2025年3月に裁判所判断を受けて解除された一連の経緯は、既存のAML規制を分散型技術にそのまま適用する難しさ を象徴しています。\n規制動向：日本・EU・米国 ステーブルコインを「決済手段としてまっとうに使える」状態にするため、主要法域はここ数年で立法を進めています。2026年時点の主要な動きを整理します。\n日本：改正資金決済法 日本は 2023年6月施行の改正資金決済法 で、ステーブルコインを「電子決済手段」として法的に定義しました。発行体は銀行・資金移動業者・信託会社のいずれかに限定され、利用者保護と裏付け資産の保全が義務付けられます。\nさらに 2025年8月にJPYC株式会社が資金移動業者として登録され、2025年10月27日に円建てステーブルコイン JPYC の発行と JPYC EX の運用を開始 しました。日本円建ての規制準拠ステーブルコインが国内で実用フェーズに入ったタイミングです。\nEU：MiCA（暗号資産市場規則） MiCA（Markets in Crypto-Assets Regulation） は、EUが2023年に成立させた包括的な暗号資産規制で、ステーブルコイン関連の規律は2024年6月から、暗号資産サービスプロバイダ（CASP）規律を含む全面適用が2024年12月30日から施行されました。\nステーブルコイン発行体には準備金の保全・情報開示義務が課され、EU域内での発行・流通には事前認可が必要です。MiCAは「暗号資産の包括規制」として国際的なベンチマークとなっており、他国の制度設計にも影響を与えています。\n米国：GENIUS Act 米国は長らく連邦レベルでのステーブルコイン規制が定まらない状態が続いていましたが、2025年7月にGENIUS Act（Guiding and Establishing National Innovation for U.S. Stablecoins Act）が成立 しました。連邦レベルで初めてのペイメント・ステーブルコイン規制法で、発行体の認可枠組み・準備金要件・AML義務を定めています。\n米国主導で「米ドル建てステーブルコインを国際決済の基軸として位置付ける」狙いがあるとされ、USDC・PYUSDなどの米ドルペッグ・ステーブルコインの普及を後押しする方向です。\nなお、これらの立法が向かう先である G20クロスボーダー決済ロードマップ2027 の目標値（コスト1%以下・1時間以内着金など）は第1弾で解説しています。SWIFT GPI／ISO 20022移行、Wise・Revolutのローカル決済プール方式、そしてステーブルコインによる送金は、すべてこのロードマップの選択肢として並列に評価される存在です。\nまとめ：思想の革命と、現実解としてのステーブルコイン 暗号資産は「国家・中央銀行・商業銀行に依存しない貨幣」という思想的革命として生まれ、ステーブルコインはそのメリット（24/365・P2P・低コスト）と法定通貨の安定性を組み合わせた現実解として、Visa・PayPal・Stripeなどの大手採用とEU MiCA／日本改正資金決済法／米国GENIUS Actの立法整備を追い風に実用フェーズに入りつつあります。残る最大の論点は、マネーロンダリング対策（AML）と、ウォレットの匿名性に代表される暗号資産特有の設計思想をどう両立させるかです。\n送金手段としての実感：国内には不要、海外では便利 実際に暗号資産で送金を試してみた感想として、国内送金と海外送金では評価が大きく変わる と感じています。\n国内送金：暗号資産の出番はない — 日本の銀行間送金は24/365の全銀モアタイムシステムが稼働し、大手銀行やネット銀行では月数回まで手数料無料の枠も一般化しています。秒単位で着金し、コストもほぼゼロ。この水準に対して、暗号資産でわざわざ送る必要性は正直感じません 海外送金：暗号資産・ステーブルコインは便利 — 一方、海外送金では第1弾で見た通り、SWIFT経由だと数千円＋数日かかるのが標準です。これに対してステーブルコイン経由の送金は、数十円〜数百円のガス代で、数分〜数十分で相手に届きます。Wise・Revolutと並ぶ有力な選択肢として、実際に使うと利便性がはっきり体感できます つまり、暗号資産・ステーブルコインによる送金は「あらゆる送金を置き換える技術」ではなく、既存インフラが非効率な領域（＝海外送金）にピンポイントで刺さる技術 として捉えるのが実態に合っていると感じます。\n筆者の立場：少額保有で技術を体験する こうした海外送金の実感を得られたのは、筆者自身が暗号資産を少額保有しているからです。きっかけは「新しい技術を実際に使ってみたい」という動機で、ウォレットを作り、取引所で購入し、送金を体験することで、この記事で書いたような仕組みへの理解が一段深まった実感があります。\n暗号資産はボラティリティが非常に大きい資産クラスです。これを「夢がある」と捉えて人生設計の主役に据えるのは推奨しません。ただし、失ってもよい金額に限定して少額触ることには、別の意味があります。価格変動の大きさを実体験することそのものが、自分自身の金融リテラシー・投資心理を鍛える教材になる、という側面です。暴落時・高騰時に自分がどう反応するかを、小さな金額で先に知っておけることの価値は、高配当株や投資信託の運用にも間接的に効いてきます。\n「投資は商品選びではなく人生設計」という考えに照らせば、ポートフォリオの主役にはしない、生活資金・コア資産には手を付けない、という前提の上で、技術理解と自己分析のための学習コストとして少額保有する。これが筆者の現在のスタンスです。\n3つのレイヤーを並べて比較する Wise・Revolutが「コルレス網を迂回する規制業者」として銀行と同じAMLのテーブルに着いて勝負しているのに対し、暗号資産・ステーブルコインは「銀行ネットワークそのものを介さない送金経路」を志向し、AML対応を後付けで設計し直している段階にあります。コルレス網→FinTechプール方式→ステーブルコインという進化の延長線上に、G20が掲げる「コスト1%以下・1時間以内着金」の世界が見え始めているのは事実です。海外送金の選択肢を考えるとき、3つのレイヤーを並べて比較できるようになっておくことが、これからの個人・事業者には必要になりそうです。\nこのシリーズの関連記事 決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。\n← 前：Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み シリーズの最初から読む場合はこちらから。\n全銀システムって何？振込ボタンを押した瞬間、銀行の裏側で何が起きているのか 銀行同士のお金はどう動く？日銀ネットRTGSと海外決済システムの仕組み ",
+  "wordCount" : "8083",
+  "inLanguage": "ja",
+  "image":"https://finlab-se.com/images/thumb-crypto-stablecoin-remittance.png","datePublished": "2026-04-23T14:17:00+09:00",
+  "dateModified": "2026-05-08T09:58:57+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "やさぐれSE"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://finlab-se.com/posts/crypto-stablecoin-remittance/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "金融エンジニアの資産運用実験室",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://finlab-se.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head><body class="post" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://finlab-se.com/" accesskey="h" title="金融エンジニアの資産運用実験室 (Alt + H)">金融エンジニアの資産運用実験室</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://finlab-se.com/posts/" title="記事一覧">
+                    <span>記事一覧</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/categories/" title="カテゴリ">
+                    <span>カテゴリ</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/tags/" title="タグ">
+                    <span>タグ</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/about/" title="このブログについて">
+                    <span>このブログについて</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/search/" title="検索 (Alt &#43; /)" accesskey=/>
+                    <span>検索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="/" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">金融エンジニアの資産運用実験室</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="/categories/" class="lk">カテゴリ</a>
+      <a href="/posts/" class="lk is-current">記事一覧</a>
+      <a href="/about/" class="lk">About</a>
+      <a href="/search/" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+
+
+<article class="post-article">
+
+  
+  <div class="wrap post-narrow">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/posts/">記事一覧</a>
+      <span class="sep">/</span>
+      <a href="/categories/%E9%87%91%E8%9E%8D%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF/">金融の仕組み</a>
+      <span class="sep">/</span>
+      <span class="current">暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁</span>
+    </nav>
+  </div>
+
+  
+  <header class="post-hero">
+    <div class="wrap post-narrow">
+      <a class="post-eyebrow" href="/categories/%E9%87%91%E8%9E%8D%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF/">金融の仕組み</a>
+      <h1 class="post-title">暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁</h1>
+      <p class="post-lede">ステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。</p>
+      <div class="post-meta">
+        <span class="post-meta-item">
+          <span class="post-meta-label">公開</span>
+          <time datetime="2026-04-23">2026年4月23日</time>
+        </span>
+        <span class="post-meta-item">
+          <span class="post-meta-label">更新</span>
+          <time datetime="2026-05-08">2026年5月8日</time>
+        </span>
+        <span class="post-meta-item">
+          <span class="post-meta-label">読了</span>
+          約17分
+        </span>
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="wrap post-narrow">
+    <figure class="post-cover">
+      <img src="/images/thumb-crypto-stablecoin-remittance.png" alt="暗号資産とステーブルコインによる送金" loading="lazy">
+    </figure>
+  </div>
+
+  
+  <div class="wrap post-narrow"><details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">目次</span>
+    </summary>
+
+    <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事でわかること">この記事でわかること</a></li>
+    <li><a href="#暗号資産はなぜ生まれたかリバイアサンへの対抗思想">暗号資産はなぜ生まれたか：リバイアサンへの対抗思想</a>
+      <ul>
+        <li><a href="#中央権力に依存しない貨幣という発想">中央権力に依存しない貨幣という発想</a></li>
+      </ul>
+    </li>
+    <li><a href="#暗号資産が描いた送金の理想">暗号資産が描いた送金の理想</a></li>
+    <li><a href="#現実暗号資産が決済通貨になれない理由">現実：暗号資産が「決済通貨」になれない理由</a>
+      <ul>
+        <li><a href="#-ボラティリティ明日10万円が7万円になる通貨">① ボラティリティ：明日10万円が7万円になる通貨</a></li>
+        <li><a href="#-ガス代の急騰とスケーラビリティ">② ガス代の急騰とスケーラビリティ</a></li>
+        <li><a href="#-規制と税務の摩擦">③ 規制と税務の摩擦</a></li>
+      </ul>
+    </li>
+    <li><a href="#ステーブルコインが現実解として浮上した理由">ステーブルコインが現実解として浮上した理由</a>
+      <ul>
+        <li><a href="#主要ステーブルコインの比較">主要ステーブルコインの比較</a></li>
+        <li><a href="#クロスボーダー決済での実例">クロスボーダー決済での実例</a></li>
+        <li><a href="#仕組みのイメージ">仕組みのイメージ</a></li>
+      </ul>
+    </li>
+    <li><a href="#普及の壁マネーロンダリング対策amlcft">普及の壁：マネーロンダリング対策（AML/CFT）</a>
+      <ul>
+        <li><a href="#なぜ問題になるのか">なぜ問題になるのか</a></li>
+        <li><a href="#fatfトラベルルール">FATFトラベルルール</a></li>
+      </ul>
+    </li>
+    <li><a href="#規制動向日本eu米国">規制動向：日本・EU・米国</a>
+      <ul>
+        <li><a href="#日本改正資金決済法">日本：改正資金決済法</a></li>
+        <li><a href="#eumica暗号資産市場規則">EU：MiCA（暗号資産市場規則）</a></li>
+        <li><a href="#米国genius-act">米国：GENIUS Act</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ思想の革命と現実解としてのステーブルコイン">まとめ：思想の革命と、現実解としてのステーブルコイン</a>
+      <ul>
+        <li><a href="#送金手段としての実感国内には不要海外では便利">送金手段としての実感：国内には不要、海外では便利</a></li>
+        <li><a href="#筆者の立場少額保有で技術を体験する">筆者の立場：少額保有で技術を体験する</a></li>
+        <li><a href="#3つのレイヤーを並べて比較する">3つのレイヤーを並べて比較する</a></li>
+      </ul>
+    </li>
+    <li><a href="#このシリーズの関連記事">このシリーズの関連記事</a></li>
+  </ul>
+</nav>
+    </div>
+</details>
+
+    <div class="post-content md-content"><p>海外に数万円送金するだけで、銀行だと数千円・数日かかる——この重い摩擦を解消する方法として、第1弾ではSWIFT・コルレス銀行の仕組みを、第2弾ではWise・Revolutがコルレス網を迂回する仕組みを見てきました。</p>
+<p>ただ、Wise・Revolutも結局は「銀行免許や送金業者免許のもとで国境をまたぐ規制対応をする事業者」です。送金経路をもっと根本的に変える選択肢として、いま注目されているのがステーブルコインです。</p>
+<p><strong>結論から言うと、ステーブルコインは「銀行ネットワークに依存せず、法定通貨並みの価値安定を保つ」海外送金の新しい選択肢です。</strong> ただし普及には、マネーロンダリング対策（AML）という大きな壁が立ちはだかっています。</p>
+<p>なぜいまステーブルコインなのか。Bitcoinが描いた「中央権力に依存しない送金」という思想的革命はボラティリティ・スケーラビリティ・税務の壁で日常決済に届きませんでしたが、Visa・PayPal・Stripeなど大手がすでにステーブルコイン決済の実装に踏み出しているからです。本記事では、サトシ・ナカモト論文の思想的背景から各国の規制動向まで、金融SEの視点で整理していきます。</p>
+<p>※本記事は暗号資産・ステーブルコインへの投資を勧めるものではありません。価格変動・規制変更・取引所破綻など固有のリスクが大きいことを前提に、海外送金の選択肢として仕組みを解説します。</p>
+<hr>
+<h2 id="この記事でわかること">この記事でわかること<a hidden class="anchor" aria-hidden="true" href="#この記事でわかること">#</a></h2>
+<ul>
+<li>暗号資産がリーマンショック直後に生まれた思想的背景（リバイアサンとの対比）</li>
+<li>暗号資産による送金が描いた理想と、ボラティリティ問題で「決済通貨」になれなかった現実</li>
+<li>ステーブルコインがいま海外送金で注目される理由と現在地</li>
+<li>普及の最大の壁であるAML（マネーロンダリング対策）と、主要法域（EU MiCA・日本改正資金決済法・米国GENIUS Act）の立法動向</li>
+</ul>
+<blockquote>
+<p>銀行海外送金（コルレス銀行・SWIFT）の仕組みは「<a href="/posts/overseas-remittance-mechanism/">海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説</a>」、Wise・Revolutのローカル決済プール方式は「<a href="/posts/wise-revolut-fintech-remittance/">Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み</a>」で扱っています。</p>
+</blockquote>
+<hr>
+<h2 id="暗号資産はなぜ生まれたかリバイアサンへの対抗思想">暗号資産はなぜ生まれたか：リバイアサンへの対抗思想<a hidden class="anchor" aria-hidden="true" href="#暗号資産はなぜ生まれたかリバイアサンへの対抗思想">#</a></h2>
+<h3 id="中央権力に依存しない貨幣という発想">中央権力に依存しない貨幣という発想<a hidden class="anchor" aria-hidden="true" href="#中央権力に依存しない貨幣という発想">#</a></h3>
+<p><img alt="中央集権型ネットワーク（銀行・国家をハブとしたスター型）と分散型P2Pネットワーク（中央管理者のいないメッシュ型）の対比図" loading="lazy" src="/images/centralized-vs-decentralized.png"></p>
+<p>17世紀の哲学者トマス・ホッブズは、主著『リバイアサン』（1651年）で「人間は放っておくと互いに奪い合うから、強い国家に服従することで秩序と安全を手に入れるべきだ」と主張しました。通貨もまたこの「リバイアサン的な中央権力」に支えられてきた典型例で、法定通貨は中央銀行が発行し、国家がその価値を裏付け、銀行ネットワークが移動の経路を提供しています。コルレス網も Wise のプール口座も、最終的には「国家が認可する金融機関の内側」で動いています。</p>
+<p>サトシ・ナカモトが2008年10月31日に公開した論文 <strong>&ldquo;Bitcoin: A Peer-to-Peer Electronic Cash System&rdquo;</strong> は、このリバイアサン構造への反旗でした。国家が通貨を増刷すれば預金の価値は薄まり、銀行が破綻すれば預金は毀損し、その救済コストは最終的に税金として利用者に回ってくる——2008年秋のリーマンショックと世界的な銀行救済は、このツケが利用者側に集まる構造の脆さを露わにしました。論文が提案したのは、国家も銀行も介在せず、参加者同士のネットワーク（Peer-to-Peer）で直接価値を移転できる電子貨幣であり、信頼の基盤は改ざん困難な分散台帳（ブロックチェーン）と、計算競争で取引を確定するProof of Workに置かれます。</p>
+<p>この思想性は、2009年1月3日に生成されたBitcoinの最初のブロック（ジェネシスブロック）にも刻まれています。coinbase パラメータに記された <strong>&ldquo;The Times 03/Jan/2009 Chancellor on brink of second bailout for banks&rdquo;</strong>（英財務大臣が銀行への2度目の公的資金注入の瀬戸際）という同日付の新聞見出しは、<strong>中央集権型の金融システムが信認を失いつつあった時代背景を象徴的に示しています</strong>。Bitcoinは単なる新しい送金手段ではなく、「国家・中央銀行・商業銀行という三層構造に依存しない貨幣」を構想する、思想的・技術的な実験として生まれました。</p>
+<hr>
+<h2 id="暗号資産が描いた送金の理想">暗号資産が描いた送金の理想<a hidden class="anchor" aria-hidden="true" href="#暗号資産が描いた送金の理想">#</a></h2>
+<p>この思想を海外送金の文脈に落とし込むと、Bitcoinや他の暗号資産が描いた未来像は、既存の送金の常識を根本から覆すものでした。</p>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>銀行海外送金（コルレス）</th>
+          <th>FinTech送金（Wise/Revolut）</th>
+          <th>暗号資産送金（理想）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>経由</td>
+          <td>コルレス銀行2〜3行</td>
+          <td>各国プール口座＋ネッティング</td>
+          <td>P2Pネットワーク（中央機関なし）</td>
+      </tr>
+      <tr>
+          <td>着金時間</td>
+          <td>当日〜数営業日</td>
+          <td>数分〜数時間</td>
+          <td>数秒〜数分</td>
+      </tr>
+      <tr>
+          <td>営業時間</td>
+          <td>銀行営業日</td>
+          <td>ほぼ24/365</td>
+          <td>24/365</td>
+      </tr>
+      <tr>
+          <td>コスト</td>
+          <td>数千円＋中継手数料</td>
+          <td>数百円〜</td>
+          <td>理論上はネットワーク手数料のみ</td>
+      </tr>
+      <tr>
+          <td>最終決済</td>
+          <td>各国中央銀行決済</td>
+          <td>各国国内送金</td>
+          <td>ブロックチェーン上で確定</td>
+      </tr>
+  </tbody>
+</table>
+<p><img alt="海外送金の3レイヤー比較：銀行（コルレス）→FinTech（ネッティング）→ステーブルコイン（P2P）という進化" loading="lazy" src="/images/remittance-3layer-comparison.png"></p>
+<p>コルレス網も国内決済システムも経由せず、土日祝も止まらず、口座開設不要・スマホとウォレットさえあれば誰でも参加できる送金。理想だけ並べれば、<a href="/posts/overseas-remittance-mechanism/#%E5%9B%BD%E9%9A%9B%E7%9A%84%E3%81%AA%E6%94%B9%E5%96%84%E7%9B%AE%E6%A8%99g20%E3%83%AD%E3%83%BC%E3%83%89%E3%83%9E%E3%83%83%E3%83%972027">G20クロスボーダー決済ロードマップ</a> が掲げる「コスト1%以下・1時間以内着金」を圧倒的にクリアする選択肢です。</p>
+<p>しかし2026年現在、Bitcoinや一般的な暗号資産が「日常の海外送金」に使われているとは言いがたい状況です。理由はシンプルで、決済手段として致命的な欠点が3つあるからです。</p>
+<hr>
+<h2 id="現実暗号資産が決済通貨になれない理由">現実：暗号資産が「決済通貨」になれない理由<a hidden class="anchor" aria-hidden="true" href="#現実暗号資産が決済通貨になれない理由">#</a></h2>
+<h3 id="-ボラティリティ明日10万円が7万円になる通貨">① ボラティリティ：明日10万円が7万円になる通貨<a hidden class="anchor" aria-hidden="true" href="#-ボラティリティ明日10万円が7万円になる通貨">#</a></h3>
+<p>最大の問題は、価格変動の大きさです。Bitcoinは過去にも1日で20〜30%動くことがあり、年間ベースでは半値・倍値の変動が珍しくありません。</p>
+<p>「明日、海外の家族に10万円を送ろうと Bitcoin で送金準備をしたら、翌日に着金した時点で受け取り側のレートが7万円相当になっていた」というシナリオが、決済通貨としては致命的に機能しません。送金人も受取人も、価格変動リスクを負わされる送金手段は、商取引にも生活費送金にも使えません。</p>
+<p>国家が裏付ける法定通貨が「価値の安定」という機能をなぜ重視されているか、改めて浮き彫りにする問題でもあります。</p>
+<h3 id="-ガス代の急騰とスケーラビリティ">② ガス代の急騰とスケーラビリティ<a hidden class="anchor" aria-hidden="true" href="#-ガス代の急騰とスケーラビリティ">#</a></h3>
+<p>EthereumなどのスマートコントラクトプラットフォームでP2P送金する場合、ネットワーク利用料（ガス代）を払う必要があります。需要が集中すると、ガス代は数十〜数百ドル規模まで跳ね上がることがあり、「少額送金のはずが手数料のほうが高い」状況が起こります。</p>
+<p>Bitcoinも同様に、1ブロック10分・約7TPS（秒間トランザクション数）という処理性能の制約があり、混雑時は手数料を高く積まないと数時間〜1日待たされます。Visaが平均数千TPSを処理できるのと比べると、決済インフラとしての処理能力にも差があります。</p>
+<p>Layer 2（Lightning Network、ロールアップなど）でこの問題を緩和する取り組みは進んでいますが、一般利用者が日常的に使うレベルでの普及には至っていません。</p>
+<h3 id="-規制と税務の摩擦">③ 規制と税務の摩擦<a hidden class="anchor" aria-hidden="true" href="#-規制と税務の摩擦">#</a></h3>
+<p>「為替差損益なら法定通貨の両替でも発生する」と感じるかもしれません。理屈のうえでは同じですが、暗号資産には独自の厳しさがあります。</p>
+<ul>
+<li><strong>税率が高い</strong>：暗号資産の売買益は雑所得（総合課税・最大55%）扱い。法定通貨の為替差益も雑所得ですが、個人の生活目的送金なら年間20万円以下の申告不要枠に収まることが多く、実務上はほぼ問題になりません</li>
+<li><strong>暗号資産同士のスワップも課税イベント</strong>：円→BTC→USDC→円と挟むと、「BTC→USDC」の瞬間にBTCの含み益が課税対象になります。法定通貨の両替にはこの論点がありません</li>
+<li><strong>損失繰越・他の所得との損益通算が不可</strong>：他の雑所得以外と相殺できず、翌年以降に繰り越すこともできません</li>
+</ul>
+<p>決済目的で使うだけで税務処理が煩雑になるため、個人にとっても事業者にとっても日常使いのハードルが高い状況です。</p>
+<hr>
+<h2 id="ステーブルコインが現実解として浮上した理由">ステーブルコインが現実解として浮上した理由<a hidden class="anchor" aria-hidden="true" href="#ステーブルコインが現実解として浮上した理由">#</a></h2>
+<p>「P2Pで国境を越える」という暗号資産のメリットを残したまま、ボラティリティ問題を解決しようとするのが <strong>ステーブルコイン</strong> です。</p>
+<p>ステーブルコインは、米ドルや日本円など法定通貨に1:1でペッグされた暗号資産で、発行体が裏付け資産（現金・短期国債など）を保有することで価値を安定させます。ブロックチェーン上で発行・移転されるため、24/365・数秒〜数分での着金、口座不要・ウォレットだけで送受信、という暗号資産のメリットはそのまま使えます。ウォレットとは、暗号資産を管理するスマホアプリやブラウザ拡張機能のことで、銀行口座に代わる「暗号資産の財布」にあたります。送金先の指定には、ウォレットごとに割り当てられた<strong>ウォレットアドレス</strong>（数十桁の英数字文字列）を使います。</p>
+<h3 id="主要ステーブルコインの比較">主要ステーブルコインの比較<a hidden class="anchor" aria-hidden="true" href="#主要ステーブルコインの比較">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>銘柄</th>
+          <th>発行体</th>
+          <th>ペッグ通貨</th>
+          <th>主な特徴</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>USDC</td>
+          <td>Circle社（米）</td>
+          <td>米ドル</td>
+          <td>月次の準備金監査公表。Visa・Stripe・PayPalが採用</td>
+      </tr>
+      <tr>
+          <td>USDT</td>
+          <td>Tether社</td>
+          <td>米ドル</td>
+          <td>流通量は最大級。準備金構成の透明性は議論あり</td>
+      </tr>
+      <tr>
+          <td>JPYC</td>
+          <td>JPYC株式会社（日）</td>
+          <td>日本円</td>
+          <td>2023年6月施行の改正資金決済法で電子決済手段として位置付けられ、2025年に発行開始</td>
+      </tr>
+      <tr>
+          <td>PYUSD</td>
+          <td>Paxos／PayPal</td>
+          <td>米ドル</td>
+          <td>PayPal系サービスでの利用を想定</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="クロスボーダー決済での実例">クロスボーダー決済での実例<a hidden class="anchor" aria-hidden="true" href="#クロスボーダー決済での実例">#</a></h3>
+<p>ステーブルコインの「決済手段としての実用」は、すでに複数の大手プレイヤーが踏み出しています。</p>
+<ul>
+<li><strong>Visa</strong>：2023年からUSDC建ての加盟店決済精算を一部地域で開始。クロスボーダーの決済資金移動にステーブルコインを活用</li>
+<li><strong>PayPal</strong>：2023年に独自ステーブルコイン PYUSD を発行。PayPal/Venmo間で送受信可能</li>
+<li><strong>Stripe</strong>：2024年10月に米国加盟店向けでUSDC決済を再開。その後 Stablecoin Financial Accounts として100か国以上に拡大</li>
+<li><strong>JPYC</strong>：2023年6月施行の改正資金決済法で「電子決済手段」として位置付けられ、2025年10月にJPYC株式会社が円建てステーブルコイン JPYC の発行と JPYC EX の運用を開始</li>
+</ul>
+<p>特に新興国の出稼ぎ送金や、暗号資産取引所間の資金移動、Web3企業のB2B決済など、「銀行海外送金が高すぎる／遅すぎる」レイヤーから、ステーブルコイン送金の利用が広がっています。</p>
+<h3 id="仕組みのイメージ">仕組みのイメージ<a hidden class="anchor" aria-hidden="true" href="#仕組みのイメージ">#</a></h3>
+<p>ステーブルコインを使った海外送金は、概念としては次のような流れです。</p>
+<p><img alt="ステーブルコインによる国際送金の3ステップ：送金人が円をUSDCに交換→ブロックチェーン転送→受取人がUSDCを現地通貨に換金" loading="lazy" src="/images/stablecoin-remittance-flow.png"></p>
+<ol>
+<li>送金人が円を USDC などの米ドル建てステーブルコインに交換し、自分のウォレットに保有</li>
+<li>ウォレットから受取人のウォレットアドレスへ、USDC をブロックチェーン上で転送</li>
+<li>受取人が USDC を現地通貨に換金し、銀行口座へ出金</li>
+</ol>
+<p>海外送金の場合は、<strong>送金人・受取人の双方で同じステーブルコインを保有する必要がある</strong>ため、国際的に流動性が最も高い米ドル建ての USDC が実務上よく使われます。</p>
+<p>ブロックチェーン上の移転自体は数秒〜数分・手数料は数十円〜数百円規模で完結します。両端の「法定通貨↔ステーブルコイン」交換と銀行入出金で多少の摩擦は残りますが、それでもコルレス網経由の銀行送金より圧倒的に速く・安くなる可能性があります。</p>
+<hr>
+<h2 id="普及の壁マネーロンダリング対策amlcft">普及の壁：マネーロンダリング対策（AML/CFT）<a hidden class="anchor" aria-hidden="true" href="#普及の壁マネーロンダリング対策amlcft">#</a></h2>
+<p>ここまでの仕組みだけ見れば、ステーブルコインがG20ロードマップ2027の目標を最も簡単に達成しそうに見えます。しかし現実には、ステーブルコインによる海外送金が「主流」になるには、もう一段大きな壁を越える必要があります。マネーロンダリング・テロ資金供与対策（AML/CFT）です。</p>
+<h3 id="なぜ問題になるのか">なぜ問題になるのか<a hidden class="anchor" aria-hidden="true" href="#なぜ問題になるのか">#</a></h3>
+<p>銀行海外送金もWise・Revolutも、各国のAML規制のもとで <strong>送金人と受取人を本人確認（KYC）し、取引記録を当局に提供できる体制</strong> を持っています。怪しい送金は止められ、必要なら資金凍結や当局通報も行われます。</p>
+<p>一方、暗号資産・ステーブルコインの世界は、設計思想として <strong>「中央権力なしに価値を移転する」</strong> ものです。ウォレットアドレスは匿名で生成でき、所有者の身元と必ずしも紐づきません。これを悪用すれば、犯罪収益や制裁回避資金の国際移動が極めて容易になります。</p>
+<h3 id="fatfトラベルルール">FATFトラベルルール<a hidden class="anchor" aria-hidden="true" href="#fatfトラベルルール">#</a></h3>
+<p>この問題に対し、国際的なAML基準を策定する <strong>FATF（金融活動作業部会）</strong> は、暗号資産交換業者にも銀行と同等の情報伝達義務を課す「<strong>トラベルルール</strong>」を勧告しています。</p>
+<p>具体的には、一定額以上の暗号資産送付を行う際、送付元の交換業者は受取側の交換業者に対し、送付人・受取人の氏名・住所等を伝達する義務があります。日本でも2023年6月施行の改正犯罪収益移転防止法（資金決済法と同時改正）でトラベルルールが導入され、国内の暗号資産交換業者間ではすでに運用されています。</p>
+<p>ただしトラベルルールは「交換業者を経由する取引」にしか効きません。利用者が自分のセルフカストディ・ウォレット（取引所を介さず自分の秘密鍵で管理するウォレット）で直接送受信すれば、規制の網はかかりにくくなります。ここがステーブルコイン送金の「便利さ」と「規制」の根本的なせめぎ合いです。実際に、送金履歴を不可視化するミキサーサービス Tornado Cash を米財務省OFACが2022年に制裁対象に指定し、2025年3月に裁判所判断を受けて解除された一連の経緯は、<strong>既存のAML規制を分散型技術にそのまま適用する難しさ</strong> を象徴しています。</p>
+<hr>
+<h2 id="規制動向日本eu米国">規制動向：日本・EU・米国<a hidden class="anchor" aria-hidden="true" href="#規制動向日本eu米国">#</a></h2>
+<p><img alt="世界のステーブルコイン規制動向（2026年）：米国 GENIUS Act・EU MiCA・日本 改正資金決済法の三極を示す地図" loading="lazy" src="/images/stablecoin-regulations-worldmap.png"></p>
+<p>ステーブルコインを「決済手段としてまっとうに使える」状態にするため、主要法域はここ数年で立法を進めています。2026年時点の主要な動きを整理します。</p>
+<h3 id="日本改正資金決済法">日本：改正資金決済法<a hidden class="anchor" aria-hidden="true" href="#日本改正資金決済法">#</a></h3>
+<p>日本は <strong>2023年6月施行の改正資金決済法</strong> で、ステーブルコインを「電子決済手段」として法的に定義しました。発行体は銀行・資金移動業者・信託会社のいずれかに限定され、利用者保護と裏付け資産の保全が義務付けられます。</p>
+<p>さらに <strong>2025年8月にJPYC株式会社が資金移動業者として登録され、2025年10月27日に円建てステーブルコイン JPYC の発行と JPYC EX の運用を開始</strong> しました。日本円建ての規制準拠ステーブルコインが国内で実用フェーズに入ったタイミングです。</p>
+<h3 id="eumica暗号資産市場規則">EU：MiCA（暗号資産市場規則）<a hidden class="anchor" aria-hidden="true" href="#eumica暗号資産市場規則">#</a></h3>
+<p><strong>MiCA（Markets in Crypto-Assets Regulation）</strong> は、EUが2023年に成立させた包括的な暗号資産規制で、ステーブルコイン関連の規律は2024年6月から、暗号資産サービスプロバイダ（CASP）規律を含む全面適用が2024年12月30日から施行されました。</p>
+<p>ステーブルコイン発行体には準備金の保全・情報開示義務が課され、EU域内での発行・流通には事前認可が必要です。MiCAは「暗号資産の包括規制」として国際的なベンチマークとなっており、他国の制度設計にも影響を与えています。</p>
+<h3 id="米国genius-act">米国：GENIUS Act<a hidden class="anchor" aria-hidden="true" href="#米国genius-act">#</a></h3>
+<p>米国は長らく連邦レベルでのステーブルコイン規制が定まらない状態が続いていましたが、<strong>2025年7月にGENIUS Act（Guiding and Establishing National Innovation for U.S. Stablecoins Act）が成立</strong> しました。連邦レベルで初めてのペイメント・ステーブルコイン規制法で、発行体の認可枠組み・準備金要件・AML義務を定めています。</p>
+<p>米国主導で「米ドル建てステーブルコインを国際決済の基軸として位置付ける」狙いがあるとされ、USDC・PYUSDなどの米ドルペッグ・ステーブルコインの普及を後押しする方向です。</p>
+<p>なお、これらの立法が向かう先である <a href="/posts/overseas-remittance-mechanism/#%E5%9B%BD%E9%9A%9B%E7%9A%84%E3%81%AA%E6%94%B9%E5%96%84%E7%9B%AE%E6%A8%99g20%E3%83%AD%E3%83%BC%E3%83%89%E3%83%9E%E3%83%83%E3%83%972027">G20クロスボーダー決済ロードマップ2027</a> の目標値（コスト1%以下・1時間以内着金など）は第1弾で解説しています。SWIFT GPI／ISO 20022移行、Wise・Revolutのローカル決済プール方式、そしてステーブルコインによる送金は、すべてこのロードマップの選択肢として並列に評価される存在です。</p>
+<hr>
+<h2 id="まとめ思想の革命と現実解としてのステーブルコイン">まとめ：思想の革命と、現実解としてのステーブルコイン<a hidden class="anchor" aria-hidden="true" href="#まとめ思想の革命と現実解としてのステーブルコイン">#</a></h2>
+<p>暗号資産は「国家・中央銀行・商業銀行に依存しない貨幣」という思想的革命として生まれ、<strong>ステーブルコイン</strong>はそのメリット（24/365・P2P・低コスト）と法定通貨の安定性を組み合わせた現実解として、Visa・PayPal・Stripeなどの大手採用とEU MiCA／日本改正資金決済法／米国GENIUS Actの立法整備を追い風に実用フェーズに入りつつあります。残る最大の論点は、マネーロンダリング対策（AML）と、ウォレットの匿名性に代表される暗号資産特有の設計思想をどう両立させるかです。</p>
+<h3 id="送金手段としての実感国内には不要海外では便利">送金手段としての実感：国内には不要、海外では便利<a hidden class="anchor" aria-hidden="true" href="#送金手段としての実感国内には不要海外では便利">#</a></h3>
+<p>実際に暗号資産で送金を試してみた感想として、<strong>国内送金と海外送金では評価が大きく変わる</strong> と感じています。</p>
+<ul>
+<li><strong>国内送金：暗号資産の出番はない</strong> — 日本の銀行間送金は24/365の全銀モアタイムシステムが稼働し、大手銀行やネット銀行では月数回まで手数料無料の枠も一般化しています。秒単位で着金し、コストもほぼゼロ。この水準に対して、暗号資産でわざわざ送る必要性は正直感じません</li>
+<li><strong>海外送金：暗号資産・ステーブルコインは便利</strong> — 一方、海外送金では第1弾で見た通り、SWIFT経由だと数千円＋数日かかるのが標準です。これに対してステーブルコイン経由の送金は、数十円〜数百円のガス代で、数分〜数十分で相手に届きます。Wise・Revolutと並ぶ有力な選択肢として、実際に使うと利便性がはっきり体感できます</li>
+</ul>
+<p>つまり、暗号資産・ステーブルコインによる送金は「あらゆる送金を置き換える技術」ではなく、<strong>既存インフラが非効率な領域（＝海外送金）にピンポイントで刺さる技術</strong> として捉えるのが実態に合っていると感じます。</p>
+<h3 id="筆者の立場少額保有で技術を体験する">筆者の立場：少額保有で技術を体験する<a hidden class="anchor" aria-hidden="true" href="#筆者の立場少額保有で技術を体験する">#</a></h3>
+<p>こうした海外送金の実感を得られたのは、筆者自身が暗号資産を少額保有しているからです。きっかけは「新しい技術を実際に使ってみたい」という動機で、ウォレットを作り、取引所で購入し、送金を体験することで、この記事で書いたような仕組みへの理解が一段深まった実感があります。</p>
+<p>暗号資産はボラティリティが非常に大きい資産クラスです。これを「夢がある」と捉えて人生設計の主役に据えるのは推奨しません。ただし、<strong>失ってもよい金額に限定して少額触る</strong>ことには、別の意味があります。価格変動の大きさを実体験することそのものが、<strong>自分自身の金融リテラシー・投資心理を鍛える教材</strong>になる、という側面です。暴落時・高騰時に自分がどう反応するかを、小さな金額で先に知っておけることの価値は、高配当株や投資信託の運用にも間接的に効いてきます。</p>
+<p>「投資は商品選びではなく人生設計」という考えに照らせば、ポートフォリオの主役にはしない、生活資金・コア資産には手を付けない、という前提の上で、<strong>技術理解と自己分析のための学習コストとして少額保有</strong>する。これが筆者の現在のスタンスです。</p>
+<h3 id="3つのレイヤーを並べて比較する">3つのレイヤーを並べて比較する<a hidden class="anchor" aria-hidden="true" href="#3つのレイヤーを並べて比較する">#</a></h3>
+<p><img alt="海外送金の3レイヤー比較：銀行（コルレス）→FinTech（ネッティング）→ステーブルコイン（P2P）という進化" loading="lazy" src="/images/remittance-3layer-comparison.png"></p>
+<p>Wise・Revolutが「コルレス網を迂回する規制業者」として銀行と同じAMLのテーブルに着いて勝負しているのに対し、暗号資産・ステーブルコインは「銀行ネットワークそのものを介さない送金経路」を志向し、AML対応を後付けで設計し直している段階にあります。コルレス網→FinTechプール方式→ステーブルコインという進化の延長線上に、G20が掲げる「コスト1%以下・1時間以内着金」の世界が見え始めているのは事実です。海外送金の選択肢を考えるとき、3つのレイヤーを並べて比較できるようになっておくことが、これからの個人・事業者には必要になりそうです。</p>
+<h2 id="このシリーズの関連記事">このシリーズの関連記事<a hidden class="anchor" aria-hidden="true" href="#このシリーズの関連記事">#</a></h2>
+<p>決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。</p>
+<ul>
+<li><a href="/posts/wise-revolut-fintech-remittance/">← 前：Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み</a></li>
+</ul>
+<p>シリーズの最初から読む場合はこちらから。</p>
+<ul>
+<li><a href="/posts/zengin-net-payment-system/">全銀システムって何？振込ボタンを押した瞬間、銀行の裏側で何が起きているのか</a></li>
+<li><a href="/posts/boj-net-rtgs-international/">銀行同士のお金はどう動く？日銀ネットRTGSと海外決済システムの仕組み</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+  
+  <div class="wrap post-narrow">
+    <div class="post-tags">
+      <span class="post-tags-label">TAGS</span>
+      <ul>
+        <li><a href="https://finlab-se.com/tags/%E6%9A%97%E5%8F%B7%E8%B3%87%E7%94%A3/">#暗号資産</a></li>
+        <li><a href="https://finlab-se.com/tags/%E3%82%B9%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%B3%E3%82%A4%E3%83%B3/">#ステーブルコイン</a></li>
+        <li><a href="https://finlab-se.com/tags/%E6%B5%B7%E5%A4%96%E9%80%81%E9%87%91/">#海外送金</a></li>
+        <li><a href="https://finlab-se.com/tags/%E8%A6%8F%E5%88%B6/">#規制</a></li>
+        <li><a href="https://finlab-se.com/tags/%E3%83%9E%E3%83%8D%E3%83%BC%E3%83%AD%E3%83%B3%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0/">#マネーロンダリング</a></li>
+      </ul>
+    </div>
+  </div>
+
+</article>
+
+
+<div class="wrap ad-wrap" aria-label="Advertisement slot">
+  <div class="ad-slot ad-banner"></div>
+</div>
+
+
+
+
+<section class="post-related">
+  <div class="wrap">
+    <h2 class="post-related-title">同じカテゴリの記事</h2>
+    <div class="post-related-grid">
+      <a class="post-related-card" href="/posts/finance-se-20years-lessons/">
+        <div class="post-related-thumb">
+          <img src="/images/thumb-finance-se-20years-lessons.png" alt="" loading="lazy">
+        </div>
+        <div class="post-related-body">
+          <div class="post-related-eyebrow">金融の仕組み</div>
+          <div class="post-related-name">金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ</div>
+          <div class="post-related-date">2026.04.24</div>
+        </div>
+      </a>
+      <a class="post-related-card" href="/posts/bank-core-system-cloud/">
+        <div class="post-related-thumb">
+          <img src="/images/thumb-bank-core-system-cloud.jpg" alt="" loading="lazy">
+        </div>
+        <div class="post-related-body">
+          <div class="post-related-eyebrow">金融の仕組み</div>
+          <div class="post-related-name">銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する</div>
+          <div class="post-related-date">2026.04.24</div>
+        </div>
+      </a>
+      <a class="post-related-card" href="/posts/wise-revolut-fintech-remittance/">
+        <div class="post-related-thumb">
+          <img src="/images/thumb-wise-revolut-fintech-remittance.png" alt="" loading="lazy">
+        </div>
+        <div class="post-related-body">
+          <div class="post-related-eyebrow">金融の仕組み</div>
+          <div class="post-related-name">Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み</div>
+          <div class="post-related-date">2026.04.22</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      金融エンジニアの資産運用実験室
+    </div>
+    <div class="foot-links">
+      <a href="/index.xml">RSS</a>
+      <a href="/about/">このブログについて</a>
+      <a href="/privacy/">プライバシー</a>
+      <a href="/disclosure/">広告表記</a>
+      <a href="/contact/">お問い合わせ</a>
+    </div>
+    <div class="foot-copy">© 2026–2026 finlab-se.com</div>
+  </div>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://finlab-se.com/">金融エンジニアの資産運用実験室</a></span> · 
+        <a href="/about/">このブログについて</a> · <a href="/privacy/">プライバシーポリシー</a> · <a href="/disclosure/">アフィリエイト・広告表記</a> · <a href="/contact/">お問い合わせ</a> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'コピー';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'コピーされました!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'コピー';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>金融ニュース on 金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/categories/news/</link>
+    <description>Recent content in 金融ニュース on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 05 May 2026 23:22:19 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/categories/news/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2026年4月から健康保険の扶養認定が労働契約ベースへ｜一時的な残業で扶養外れが解消</title>
+      <link>https://finlab-se.com/posts/health-insurance-dependent-2026/</link>
+      <pubDate>Fri, 01 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/health-insurance-dependent-2026/</guid>
+      <description>2026年4月から被扶養者認定が「労働契約ベース」に変更。130万超でも扶養が外れない新ルールを解説。</description>
+    </item>
+    <item>
+      <title>日銀の政策金利と住宅ローン変動金利 — 借換え判断のシミュレーション実例</title>
+      <link>https://finlab-se.com/posts/mortgage-rate-refinance-simulation/</link>
+      <pubDate>Tue, 28 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/mortgage-rate-refinance-simulation/</guid>
+      <description>変動金利の利上げ局面で借換えは得か。残債・金利差・残期間の3条件で損益分岐を試算します。</description>
+    </item>
+    <item>
+      <title>2027年「こどもNISA」創設決定｜ジュニアNISAとの違いと、今すぐできる準備</title>
+      <link>https://finlab-se.com/posts/kodomo-nisa-2027/</link>
+      <pubDate>Sat, 25 Apr 2026 07:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/kodomo-nisa-2027/</guid>
+      <description>2027年スタートのこどもNISA（こども支援NISA）。概要とジュニアNISAとの違いを解説。</description>
+    </item>
+    <item>
+      <title>2026年3月期「増配ラッシュ」をどう読むか〜決算シーズンの高配当株投資家の歩き方〜</title>
+      <link>https://finlab-se.com/posts/dividend-increase-season-2026/</link>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://finlab-se.com/posts/dividend-increase-season-2026/</guid>
+      <description>増配ニュースに飛びつく前に確認すべき配当性向・DOE・営業CFの3点。2026年3月期決算の読み方。</description>
+    </item>
+    <item>
+      <title>2026年度の年金改定率と「マクロ経済スライド」— 現役世代が今から備える3つの行動</title>
+      <link>https://finlab-se.com/posts/pension-macroeconomic-slide-2026/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://finlab-se.com/posts/pension-macroeconomic-slide-2026/</guid>
+      <description>2026年度の年金改定率とマクロ経済スライドによる実質目減りを試算。iDeCo・NISA・高配当株で備える。</description>
+    </item>
+    <item>
+      <title>年収の壁2026年版：「自分はどうすればいい？」を立場別に整理する</title>
+      <link>https://finlab-se.com/posts/income-wall-2026/</link>
+      <pubDate>Fri, 17 Apr 2026 19:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/income-wall-2026/</guid>
+      <description>103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。</description>
+    </item>
+    <item>
+      <title>クレカ改悪2026年まとめ：dカード・三井住友ゴールドNL・楽天・PayPayカードの改定内容と、振り回されないための判断軸</title>
+      <link>https://finlab-se.com/posts/credit-card-reform-2026/</link>
+      <pubDate>Fri, 17 Apr 2026 18:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/credit-card-reform-2026/</guid>
+      <description>dカード・三井住友NL・楽天・PayPayカード改定を整理。「また改悪か」に振り回されない判断軸を解説。</description>
+    </item>
+  </channel>
+</rss>

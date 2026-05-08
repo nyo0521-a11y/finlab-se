@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ja" dir="auto" data-theme="light">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント | 金融エンジニアの資産運用実験室</title>
+<meta name="keywords" content="ふるさと納税, 住民税, 税金, 節税, 会社員">
+<meta name="description" content="住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。">
+<meta name="author" content="やさぐれSE">
+<link rel="canonical" href="https://finlab-se.com/drafts/furusato-tax-jumin-tax-notification/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f6c45ab7ef4a3170bde810919a23e389dc51da456f61ef6fe3aabf3a7f1b0a2.css" integrity="sha256-f2xFq370oxcL3oEJGaI&#43;OJ3FHaRW9h72/jqr86fxsKI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://finlab-se.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://finlab-se.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://finlab-se.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://finlab-se.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://finlab-se.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ja" href="https://finlab-se.com/drafts/furusato-tax-jumin-tax-notification/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    }
+
+</script><link rel="icon" type="image/svg+xml" href="https://finlab-se.com/favicon.svg" id="favicon-svg">
+<link rel="apple-touch-icon" sizes="180x180" href="https://finlab-se.com/apple-touch-icon.png"><script async src="https://www.googletagmanager.com/gtag/js?id=G-68K0QJV9JM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-68K0QJV9JM');
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5743260737982404" crossorigin="anonymous"></script><style>
+.site-footer { background: #0e1410; color: #c8cfc8; padding: 32px 0; margin-top: 24px; }
+.site-footer .foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 13px; }
+.site-footer .foot-brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 600; }
+.site-footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; color: #c8cfc8; }
+.site-footer .foot-links a { color: #c8cfc8; }
+.site-footer .foot-links a:hover { color: #fff; text-decoration: none; }
+.site-footer .foot-copy { color: #828982; font-size: 12px; font-family: var(--font-num, inherit); }
+</style><script>
+(function(){
+  var host = location.hostname;
+  var isDraft = host.indexOf('draft.') === 0 || host.indexOf('.pages.dev') !== -1;
+  if (!isDraft) return;
+  
+  var svgLink = document.getElementById('favicon-svg');
+  if (svgLink && svgLink.parentNode) svgLink.parentNode.removeChild(svgLink);
+  var map = {
+    'apple-touch-icon.png':   'apple-touch-icon-draft.png',
+    'favicon-32x32.png':      'favicon-draft-32x32.png',
+    'favicon-16x16.png':      'favicon-draft-16x16.png',
+    'favicon.ico':            'favicon-draft.ico'
+  };
+  document.querySelectorAll('link[rel*="icon"]').forEach(function(l){
+    var h = l.getAttribute('href') || '';
+    Object.keys(map).forEach(function(k){
+      if (h.endsWith('/' + k) || h === k) l.href = h.replace(k, map[k]);
+    });
+  });
+  
+  if (document.title && document.title.indexOf('[DRAFT]') === -1) {
+    document.title = '[DRAFT] ' + document.title;
+  }
+})();
+</script>
+<meta property="og:url" content="https://finlab-se.com/drafts/furusato-tax-jumin-tax-notification/">
+  <meta property="og:site_name" content="金融エンジニアの資産運用実験室">
+  <meta property="og:title" content="住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント">
+  <meta property="og:description" content="住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="drafts">
+    <meta property="article:published_time" content="2026-05-02T08:00:00+09:00">
+    <meta property="article:modified_time" content="2026-05-08T19:48:26+09:00">
+    <meta property="article:tag" content="ふるさと納税">
+    <meta property="article:tag" content="住民税">
+    <meta property="article:tag" content="税金">
+    <meta property="article:tag" content="節税">
+    <meta property="article:tag" content="会社員">
+    <meta property="og:image" content="https://finlab-se.com/images/furusato-jumin-notification-thumbnail.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://finlab-se.com/images/furusato-jumin-notification-thumbnail.png">
+  <meta name="twitter:title" content="住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント">
+  <meta name="twitter:description" content="住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Draft 記事一覧",
+      "item": "https://finlab-se.com/drafts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント",
+      "item": "https://finlab-se.com/drafts/furusato-tax-jumin-tax-notification/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント",
+  "name": "住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント",
+  "description": "住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。",
+  "keywords": [
+    "ふるさと納税", "住民税", "税金", "節税", "会社員"
+  ],
+  "articleBody": "ふるさと納税は、自分が住んでいる自治体以外に寄付をすると、その自治体から返礼品として物品が受け取れるうえに、寄付額から2,000円を差し引いた分だけ税金が安くなるお得な制度です。\nただし、その「税金が安くなっている」という事実は、自分で確認しないと見落としてしまいます。ふるさと納税は「やった」で終わりにしてしまう人が多い制度です。寄付して、ワンストップ特例の申請または確定申告まで済ませた時点で満足してしまい、肝心の「実際にどれくらい住民税が安くなったか」を確認しないまま翌年に進んでしまう。\nそんなとき、こう感じたことはないでしょうか。\n寄付したけど、実際にいくら控除されたのか分からない 5月〜6月に届く住民税の通知書、どこを見ればいいのか分からない 万が一控除されていなかったら、誰にどう言えばいいのか分からない 結論から言うと、住民税決定通知書の「税額控除額」欄を見て、寄付額−2,000円とほぼ一致していれば正しく控除されています。\nこれだけ覚えておけば、毎年5〜6月に5分でチェックできます。\nなぜこの方法で十分なのか。それは、ふるさと納税の控除のうち大部分は住民税から差し引かれる仕組みになっているためです。本記事では、通知書のどの欄を、どんな計算式で確認するかを順を追って説明します。\nなお、本記事は制度の一般的な説明であり、個別の税額判断は税理士や自治体窓口にご相談ください。\nこの記事でわかること 住民税決定通知書がいつ・どこから届くか ふるさと納税の控除額が記載されている欄の場所 「寄付額−2,000円」の計算式での確認方法 金額がズレていた場合の対処手順 来年に向けた寄付上限額の見直し方 住民税決定通知書とは 住民税決定通知書は、市区町村が前年の所得をもとに計算した住民税の金額を知らせる公式書類です。\nこの書類の役割は「今年6月から翌年5月にかけて毎月いくら住民税が引かれるか」を確定させることです。住民税は前年の所得をもとに計算されるため、1月〜5月は前年の税額が引かれ、6月から新しい税額に切り替わります。その切り替えのタイミングで届くのがこの通知書です。\n通知書に書かれている主な情報 項目 内容 課税所得 給与収入から各種所得控除を引いた後の金額 住民税額 市民税（特別区民税）＋県民税（道府県民税）の合計 税額控除額 ふるさと納税・住宅ローン控除などで税額から差し引かれた金額 摘要 寄附金税額控除など、税額控除の内訳メモ ふるさと納税との関係でいうと、寄付による控除は**「税額控除額」欄と「摘要」欄の2か所**に反映されます。確定申告をせずワンストップ特例を使った人も、確定申告をした人も、最終的に住民税からの控除分はこの通知書で確認できます。\n住民税決定通知書はいつ・どこで受け取るか 会社員の場合、住民税決定通知書は毎年5月中旬〜6月上旬に勤務先経由で受け取ります。正式名称は「給与所得等に係る市町村民税・道府県民税 特別徴収税額の決定通知書」で、横長の紙またはPDFで配布されることが多いです。\n受け取りパターンは主に3つです。\n紙で配布: 給与明細と一緒に手渡し PDFで配布: 社内ポータルや給与システムからダウンロード 自宅に郵送: 普通徴収（自分で納付）の人や、会社経由で配布されない場合 自営業・フリーランスの方は、6月頃に自治体から自宅へ直接郵送されます。\nポイントは、この通知書は1年に1回しか発行されないということです。紛失すると再発行に手間がかかるので、受け取ったらPDF化するか写真を撮って保管しておくことをおすすめします。\nチェック①　控除額が記載されている欄を確認する 住民税決定通知書の中で、ふるさと納税の控除額が反映されるのは**「税額控除額」欄**です。市民税（特別区民税）と県民税（道府県民税）の2列に分かれて記載されています。\n確認の流れは次のとおりです。\n手順 確認する場所 見るべき値 1 通知書の中段「摘要」欄 「寄附金税額控除」の記載があるか 2 「税額控除額」欄（市民税） 控除額の金額 3 「税額控除額」欄（県民税） 控除額の金額 4 上記2と3の合計 寄付額−2,000円とほぼ一致するか 自治体によってレイアウトは少し異なりますが、「税額控除額」「摘要（寄附金税額控除）」というキーワードで探せば見つかります。\n注意点として、税額控除額にはふるさと納税以外の控除（住宅ローン控除の住民税部分・調整控除など）も含まれる場合があります。そのため、摘要欄に「寄附金税額控除 ○○円」と内訳が書かれていれば、その数字を見るのが確実です。\nチェック②　寄付額−2,000円と照合する ふるさと納税の控除額がほぼ正しいかは、次のシンプルな計算式で確認できます。\n控除額の合計（住民税＋所得税）≒ 年間寄付額 − 2,000円\nただし、住民税決定通知書に載るのは住民税分だけです。所得税分は前年の確定申告または年末調整で還付済みのため、住民税の通知書では「住民税からの控除額」だけを確認します。\nワンストップ特例を使った場合 ワンストップ特例（5自治体以内・確定申告不要）を使った人は、ふるさと納税の控除はすべて住民税から差し引かれます。所得税の還付はありません。\nそのため計算式はシンプルです。\n住民税の寄附金税額控除 ≒ 年間寄付額 − 2,000円 例: 年間50,000円寄付 → 住民税の控除額は約48,000円\n確定申告をした場合 確定申告で寄附金控除を申告した人は、所得税と住民税の両方から控除されます。\n所得税の還付額 ＋ 住民税の寄附金税額控除 ≒ 年間寄付額 − 2,000円 所得税の還付額は、確定申告書の控えや還付通知で確認できます。住民税側だけを見ると寄付額より少なく見えますが、所得税分と合算すれば寄付額−2,000円に近づきます。\n多少のズレは許容範囲 実際には、住民税の特例分（所得割の20%上限）にかかる人や、端数処理の関係で数十円〜数百円のズレが出ることがあります。1,000円以内のズレは誤差の範囲として、それ以上ズレている場合のみ次のセクションを参考にしてください。\nチェック③　ズレていた場合の対処法 計算式と大きく食い違っている場合、原因はいくつかパターンがあります。\n症状 想定される原因 対処先 控除額がゼロ ワンストップ特例の申請書未提出・期限切れ 確定申告でやり直し 控除額が寄付額の一部のみ 寄付上限額を超えていた 翌年は上限を見直す 控除額が寄付額より大幅に少ない 自治体側の処理漏れ 寄付した自治体に問い合わせ 通知書に記載がない 会社の特別徴収切替漏れなど 勤務先の経理または市区町村税務課 問い合わせ先の優先順位は次のとおりです。\nお住まいの市区町村の税務課（住民税担当）: 通知書に記載されている電話番号 寄付先の自治体: 寄付データが住民票のある自治体に送られていない可能性がある場合 税理士・税務署: 確定申告内容に問題がありそうな場合 ワンストップ特例の申請忘れが発覚した場合は、翌年3月15日までであれば確定申告でやり直し可能です。寄付した年の翌年に気づけば、まだ救済の余地があります。\n来年に向けた寄付上限額の再確認 通知書を見るタイミングは、翌年の寄付上限額を見直す絶好の機会でもあります。住民税決定通知書には、その年の課税所得や住民税の所得割額が記載されているからです。\n寄付上限額のおおよその目安は次のとおりです。\n上限額 ≒ 住民税所得割額 × 約20% ＋ 2,000円 正確な計算式はもう少し複雑ですが、ふるさと納税ポータルサイトのシミュレーターに「課税所得」または「住民税所得割額」を入れれば、より精度の高い金額が出ます。通知書の数字をそのまま使えるので、源泉徴収票の情報だけで計算するより正確です。\n確認しておきたいポイントは3つです。\n今年の住民税所得割額が前年からどれくらい変動したか 来年の年収見込み（昇給・転職・育休など） ふるさと納税以外の控除（住宅ローン控除・iDeCoなど）の有無 特に住宅ローン控除（住民税からの控除分）がある人は、ふるさと納税の上限が下がるケースがあります。シミュレーターで両方を入力して計算するのが安全です。\nまとめ ふるさと納税は「寄付して終わり」ではなく、翌年の住民税通知書で控除を確認するまでが1セットです。本記事のポイントを振り返ります。\n住民税決定通知書は5〜6月に勤務先または自治体から届く 「税額控除額」欄と摘要の「寄附金税額控除」を確認する 寄付額−2,000円とほぼ一致していれば正しく控除されている ズレていれば市区町村税務課または寄付先自治体に問い合わせる 通知書の数字を使って翌年の寄付上限額を見直す まずは今年届いた住民税決定通知書を手元に出して、「税額控除額」欄と年間寄付額を電卓で照らし合わせてみてください。5分で終わる作業ですが、これを毎年続けるかどうかで、ふるさと納税を「なんとなく得した気分」で終わらせるか、「数字で確認できる節税」に変えるかが分かれます。\n関連記事 年収の壁とは何か——「税の壁」と「社保の壁」2種類で全部わかる iDeCo 2026年改正で自分はどうなる？企業年金あり・なし別の掛金上限と節税シミュレーション 高配当株投資より先にやるべきこと｜支出の最適化で月1万円を作り出す ",
+  "wordCount" : "3718",
+  "inLanguage": "ja",
+  "image":"https://finlab-se.com/images/furusato-jumin-notification-thumbnail.png","datePublished": "2026-05-02T08:00:00+09:00",
+  "dateModified": "2026-05-08T19:48:26+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "やさぐれSE"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://finlab-se.com/drafts/furusato-tax-jumin-tax-notification/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "金融エンジニアの資産運用実験室",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://finlab-se.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head><body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://finlab-se.com/" accesskey="h" title="金融エンジニアの資産運用実験室 (Alt + H)">金融エンジニアの資産運用実験室</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://finlab-se.com/posts/" title="記事一覧">
+                    <span>記事一覧</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/categories/" title="カテゴリ">
+                    <span>カテゴリ</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/tags/" title="タグ">
+                    <span>タグ</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/about/" title="このブログについて">
+                    <span>このブログについて</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/search/" title="検索 (Alt &#43; /)" accesskey=/>
+                    <span>検索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    <a href='https://finlab-se.com/'>ホーム</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="https://finlab-se.com/drafts/">Draft 記事一覧</a></nav>
+    <h1 class="post-title entry-hint-parent">
+      住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント
+    </h1>
+    <div class="post-description">
+      住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。
+    </div>
+    <div class="post-meta">
+
+<span title='2026-05-02 08:00:00 +0900 JST'>公開: 2026年5月2日</span>&nbsp;·&nbsp;<span title='2026-05-08 19:48:26 +0900 JST'>更新: 2026年5月8日</span>&nbsp;·&nbsp;<span>8 分</span>&nbsp;·&nbsp;<span>やさぐれSE</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <a href="https://finlab-se.com/images/furusato-jumin-notification-thumbnail.png" target="_blank" rel="noopener noreferrer">
+        <img loading="eager" src="https://finlab-se.com/images/furusato-jumin-notification-thumbnail.png" alt="住民税決定通知書の見方">
+        </a>
+        
+</figure><details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">目次</span>
+    </summary>
+
+    <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事でわかること">この記事でわかること</a></li>
+    <li><a href="#住民税決定通知書とは">住民税決定通知書とは</a>
+      <ul>
+        <li><a href="#通知書に書かれている主な情報">通知書に書かれている主な情報</a></li>
+      </ul>
+    </li>
+    <li><a href="#住民税決定通知書はいつどこで受け取るか">住民税決定通知書はいつ・どこで受け取るか</a></li>
+    <li><a href="#チェック控除額が記載されている欄を確認する">チェック①　控除額が記載されている欄を確認する</a></li>
+    <li><a href="#チェック寄付額2000円と照合する">チェック②　寄付額−2,000円と照合する</a>
+      <ul>
+        <li><a href="#ワンストップ特例を使った場合">ワンストップ特例を使った場合</a></li>
+        <li><a href="#確定申告をした場合">確定申告をした場合</a></li>
+        <li><a href="#多少のズレは許容範囲">多少のズレは許容範囲</a></li>
+      </ul>
+    </li>
+    <li><a href="#チェックズレていた場合の対処法">チェック③　ズレていた場合の対処法</a></li>
+    <li><a href="#来年に向けた寄付上限額の再確認">来年に向けた寄付上限額の再確認</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#関連記事">関連記事</a></li>
+  </ul>
+</nav>
+    </div>
+</details>
+
+  <div class="post-content md-content"><p>ふるさと納税は、自分が住んでいる自治体以外に寄付をすると、その自治体から返礼品として物品が受け取れるうえに、寄付額から2,000円を差し引いた分だけ税金が安くなるお得な制度です。</p>
+<p>ただし、その「税金が安くなっている」という事実は、自分で確認しないと見落としてしまいます。ふるさと納税は「やった」で終わりにしてしまう人が多い制度です。寄付して、ワンストップ特例の申請または確定申告まで済ませた時点で満足してしまい、肝心の「実際にどれくらい住民税が安くなったか」を確認しないまま翌年に進んでしまう。</p>
+<p>そんなとき、こう感じたことはないでしょうか。</p>
+<ul>
+<li>寄付したけど、実際にいくら控除されたのか分からない</li>
+<li>5月〜6月に届く住民税の通知書、どこを見ればいいのか分からない</li>
+<li>万が一控除されていなかったら、誰にどう言えばいいのか分からない</li>
+</ul>
+<p><strong>結論から言うと、住民税決定通知書の「税額控除額」欄を見て、寄付額−2,000円とほぼ一致していれば正しく控除されています。</strong></p>
+<p>これだけ覚えておけば、毎年5〜6月に5分でチェックできます。</p>
+<p>なぜこの方法で十分なのか。それは、ふるさと納税の控除のうち大部分は住民税から差し引かれる仕組みになっているためです。本記事では、通知書のどの欄を、どんな計算式で確認するかを順を追って説明します。</p>
+<p>なお、本記事は制度の一般的な説明であり、個別の税額判断は税理士や自治体窓口にご相談ください。</p>
+<hr>
+<h2 id="この記事でわかること">この記事でわかること<a hidden class="anchor" aria-hidden="true" href="#この記事でわかること">#</a></h2>
+<ul>
+<li>住民税決定通知書がいつ・どこから届くか</li>
+<li>ふるさと納税の控除額が記載されている欄の場所</li>
+<li>「寄付額−2,000円」の計算式での確認方法</li>
+<li>金額がズレていた場合の対処手順</li>
+<li>来年に向けた寄付上限額の見直し方</li>
+</ul>
+<hr>
+<h2 id="住民税決定通知書とは">住民税決定通知書とは<a hidden class="anchor" aria-hidden="true" href="#住民税決定通知書とは">#</a></h2>
+<p>住民税決定通知書は、市区町村が<strong>前年の所得をもとに計算した住民税の金額を知らせる公式書類</strong>です。</p>
+<p>この書類の役割は「今年6月から翌年5月にかけて毎月いくら住民税が引かれるか」を確定させることです。住民税は前年の所得をもとに計算されるため、1月〜5月は前年の税額が引かれ、6月から新しい税額に切り替わります。その切り替えのタイミングで届くのがこの通知書です。</p>
+<h3 id="通知書に書かれている主な情報">通知書に書かれている主な情報<a hidden class="anchor" aria-hidden="true" href="#通知書に書かれている主な情報">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>課税所得</td>
+          <td>給与収入から各種所得控除を引いた後の金額</td>
+      </tr>
+      <tr>
+          <td>住民税額</td>
+          <td>市民税（特別区民税）＋県民税（道府県民税）の合計</td>
+      </tr>
+      <tr>
+          <td>税額控除額</td>
+          <td>ふるさと納税・住宅ローン控除などで税額から差し引かれた金額</td>
+      </tr>
+      <tr>
+          <td>摘要</td>
+          <td>寄附金税額控除など、税額控除の内訳メモ</td>
+      </tr>
+  </tbody>
+</table>
+<p>ふるさと納税との関係でいうと、寄付による控除は**「税額控除額」欄と「摘要」欄の2か所**に反映されます。確定申告をせずワンストップ特例を使った人も、確定申告をした人も、最終的に住民税からの控除分はこの通知書で確認できます。</p>
+<hr>
+<h2 id="住民税決定通知書はいつどこで受け取るか">住民税決定通知書はいつ・どこで受け取るか<a hidden class="anchor" aria-hidden="true" href="#住民税決定通知書はいつどこで受け取るか">#</a></h2>
+<p>会社員の場合、住民税決定通知書は<strong>毎年5月中旬〜6月上旬に勤務先経由</strong>で受け取ります。正式名称は「給与所得等に係る市町村民税・道府県民税 特別徴収税額の決定通知書」で、横長の紙またはPDFで配布されることが多いです。</p>
+<p>受け取りパターンは主に3つです。</p>
+<ul>
+<li>紙で配布: 給与明細と一緒に手渡し</li>
+<li>PDFで配布: 社内ポータルや給与システムからダウンロード</li>
+<li>自宅に郵送: 普通徴収（自分で納付）の人や、会社経由で配布されない場合</li>
+</ul>
+<p>自営業・フリーランスの方は、6月頃に自治体から自宅へ直接郵送されます。</p>
+<p>ポイントは、<strong>この通知書は1年に1回しか発行されない</strong>ということです。紛失すると再発行に手間がかかるので、受け取ったらPDF化するか写真を撮って保管しておくことをおすすめします。</p>
+<h2 id="チェック控除額が記載されている欄を確認する">チェック①　控除額が記載されている欄を確認する<a hidden class="anchor" aria-hidden="true" href="#チェック控除額が記載されている欄を確認する">#</a></h2>
+<p>住民税決定通知書の中で、ふるさと納税の控除額が反映されるのは**「税額控除額」欄**です。市民税（特別区民税）と県民税（道府県民税）の2列に分かれて記載されています。</p>
+<p><img alt="住民税決定通知書の模式図：税額控除額欄と摘要欄の確認ポイント" loading="lazy" src="/images/furusato-jumin-tax-form-diagram.png"></p>
+<p>確認の流れは次のとおりです。</p>
+<table>
+  <thead>
+      <tr>
+          <th>手順</th>
+          <th>確認する場所</th>
+          <th>見るべき値</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>通知書の中段「摘要」欄</td>
+          <td>「寄附金税額控除」の記載があるか</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>「税額控除額」欄（市民税）</td>
+          <td>控除額の金額</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>「税額控除額」欄（県民税）</td>
+          <td>控除額の金額</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>上記2と3の合計</td>
+          <td>寄付額−2,000円とほぼ一致するか</td>
+      </tr>
+  </tbody>
+</table>
+<p>自治体によってレイアウトは少し異なりますが、「税額控除額」「摘要（寄附金税額控除）」というキーワードで探せば見つかります。</p>
+<p>注意点として、税額控除額には<strong>ふるさと納税以外の控除（住宅ローン控除の住民税部分・調整控除など）も含まれる場合</strong>があります。そのため、摘要欄に「寄附金税額控除 ○○円」と内訳が書かれていれば、その数字を見るのが確実です。</p>
+<h2 id="チェック寄付額2000円と照合する">チェック②　寄付額−2,000円と照合する<a hidden class="anchor" aria-hidden="true" href="#チェック寄付額2000円と照合する">#</a></h2>
+<p>ふるさと納税の控除額がほぼ正しいかは、次のシンプルな計算式で確認できます。</p>
+<p><img alt="ワンストップ特例と確定申告の控除フロー比較" loading="lazy" src="/images/furusato-jumin-wanstop-vs-kakuteishinkoku.png"></p>
+<p><strong>控除額の合計（住民税＋所得税）≒ 年間寄付額 − 2,000円</strong></p>
+<p>ただし、住民税決定通知書に載るのは住民税分だけです。所得税分は前年の確定申告または年末調整で還付済みのため、住民税の通知書では「住民税からの控除額」だけを確認します。</p>
+<h3 id="ワンストップ特例を使った場合">ワンストップ特例を使った場合<a hidden class="anchor" aria-hidden="true" href="#ワンストップ特例を使った場合">#</a></h3>
+<p>ワンストップ特例（5自治体以内・確定申告不要）を使った人は、<strong>ふるさと納税の控除はすべて住民税から差し引かれます</strong>。所得税の還付はありません。</p>
+<p>そのため計算式はシンプルです。</p>
+<ul>
+<li>住民税の寄附金税額控除 ≒ 年間寄付額 − 2,000円</li>
+</ul>
+<p>例: 年間50,000円寄付 → 住民税の控除額は約48,000円</p>
+<h3 id="確定申告をした場合">確定申告をした場合<a hidden class="anchor" aria-hidden="true" href="#確定申告をした場合">#</a></h3>
+<p>確定申告で寄附金控除を申告した人は、所得税と住民税の両方から控除されます。</p>
+<ul>
+<li>所得税の還付額 ＋ 住民税の寄附金税額控除 ≒ 年間寄付額 − 2,000円</li>
+</ul>
+<p>所得税の還付額は、確定申告書の控えや還付通知で確認できます。住民税側だけを見ると寄付額より少なく見えますが、所得税分と合算すれば寄付額−2,000円に近づきます。</p>
+<h3 id="多少のズレは許容範囲">多少のズレは許容範囲<a hidden class="anchor" aria-hidden="true" href="#多少のズレは許容範囲">#</a></h3>
+<p>実際には、住民税の特例分（所得割の20%上限）にかかる人や、端数処理の関係で数十円〜数百円のズレが出ることがあります。<strong>1,000円以内のズレは誤差の範囲</strong>として、それ以上ズレている場合のみ次のセクションを参考にしてください。</p>
+<h2 id="チェックズレていた場合の対処法">チェック③　ズレていた場合の対処法<a hidden class="anchor" aria-hidden="true" href="#チェックズレていた場合の対処法">#</a></h2>
+<p>計算式と大きく食い違っている場合、原因はいくつかパターンがあります。</p>
+<table>
+  <thead>
+      <tr>
+          <th>症状</th>
+          <th>想定される原因</th>
+          <th>対処先</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>控除額がゼロ</td>
+          <td>ワンストップ特例の申請書未提出・期限切れ</td>
+          <td>確定申告でやり直し</td>
+      </tr>
+      <tr>
+          <td>控除額が寄付額の一部のみ</td>
+          <td>寄付上限額を超えていた</td>
+          <td>翌年は上限を見直す</td>
+      </tr>
+      <tr>
+          <td>控除額が寄付額より大幅に少ない</td>
+          <td>自治体側の処理漏れ</td>
+          <td>寄付した自治体に問い合わせ</td>
+      </tr>
+      <tr>
+          <td>通知書に記載がない</td>
+          <td>会社の特別徴収切替漏れなど</td>
+          <td>勤務先の経理または市区町村税務課</td>
+      </tr>
+  </tbody>
+</table>
+<p>問い合わせ先の優先順位は次のとおりです。</p>
+<ol>
+<li><strong>お住まいの市区町村の税務課（住民税担当）</strong>: 通知書に記載されている電話番号</li>
+<li><strong>寄付先の自治体</strong>: 寄付データが住民票のある自治体に送られていない可能性がある場合</li>
+<li><strong>税理士・税務署</strong>: 確定申告内容に問題がありそうな場合</li>
+</ol>
+<p>ワンストップ特例の申請忘れが発覚した場合は、<strong>翌年3月15日までであれば確定申告でやり直し可能</strong>です。寄付した年の翌年に気づけば、まだ救済の余地があります。</p>
+<h2 id="来年に向けた寄付上限額の再確認">来年に向けた寄付上限額の再確認<a hidden class="anchor" aria-hidden="true" href="#来年に向けた寄付上限額の再確認">#</a></h2>
+<p>通知書を見るタイミングは、<strong>翌年の寄付上限額を見直す絶好の機会</strong>でもあります。住民税決定通知書には、その年の課税所得や住民税の所得割額が記載されているからです。</p>
+<p>寄付上限額のおおよその目安は次のとおりです。</p>
+<ul>
+<li>上限額 ≒ 住民税所得割額 × 約20% ＋ 2,000円</li>
+</ul>
+<p>正確な計算式はもう少し複雑ですが、<strong>ふるさと納税ポータルサイトのシミュレーターに「課税所得」または「住民税所得割額」を入れれば、より精度の高い金額が出ます</strong>。通知書の数字をそのまま使えるので、源泉徴収票の情報だけで計算するより正確です。</p>
+<p>確認しておきたいポイントは3つです。</p>
+<ul>
+<li>今年の住民税所得割額が前年からどれくらい変動したか</li>
+<li>来年の年収見込み（昇給・転職・育休など）</li>
+<li>ふるさと納税以外の控除（住宅ローン控除・iDeCoなど）の有無</li>
+</ul>
+<p>特に住宅ローン控除（住民税からの控除分）がある人は、ふるさと納税の上限が下がるケースがあります。シミュレーターで両方を入力して計算するのが安全です。</p>
+<h2 id="まとめ">まとめ<a hidden class="anchor" aria-hidden="true" href="#まとめ">#</a></h2>
+<p>ふるさと納税は「寄付して終わり」ではなく、翌年の住民税通知書で控除を確認するまでが1セットです。本記事のポイントを振り返ります。</p>
+<ul>
+<li>住民税決定通知書は5〜6月に勤務先または自治体から届く</li>
+<li>「税額控除額」欄と摘要の「寄附金税額控除」を確認する</li>
+<li>寄付額−2,000円とほぼ一致していれば正しく控除されている</li>
+<li>ズレていれば市区町村税務課または寄付先自治体に問い合わせる</li>
+<li>通知書の数字を使って翌年の寄付上限額を見直す</li>
+</ul>
+<p>まずは今年届いた住民税決定通知書を手元に出して、「税額控除額」欄と年間寄付額を電卓で照らし合わせてみてください。5分で終わる作業ですが、これを毎年続けるかどうかで、ふるさと納税を「なんとなく得した気分」で終わらせるか、「数字で確認できる節税」に変えるかが分かれます。</p>
+<hr>
+<h2 id="関連記事">関連記事<a hidden class="anchor" aria-hidden="true" href="#関連記事">#</a></h2>
+<ul>
+<li><a href="/posts/income-wall-framework/">年収の壁とは何か——「税の壁」と「社保の壁」2種類で全部わかる</a></li>
+<li><a href="/posts/ideco-2026-reform/">iDeCo 2026年改正で自分はどうなる？企業年金あり・なし別の掛金上限と節税シミュレーション</a></li>
+<li><a href="/posts/expense-optimization-before-investing/">高配当株投資より先にやるべきこと｜支出の最適化で月1万円を作り出す</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://finlab-se.com/tags/%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E7%B4%8D%E7%A8%8E/">ふるさと納税</a></li>
+      <li><a href="https://finlab-se.com/tags/%E4%BD%8F%E6%B0%91%E7%A8%8E/">住民税</a></li>
+      <li><a href="https://finlab-se.com/tags/%E7%A8%8E%E9%87%91/">税金</a></li>
+      <li><a href="https://finlab-se.com/tags/%E7%AF%80%E7%A8%8E/">節税</a></li>
+      <li><a href="https://finlab-se.com/tags/%E4%BC%9A%E7%A4%BE%E5%93%A1/">会社員</a></li>
+    </ul>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント on x"
+            href="https://x.com/intent/tweet/?text=%e4%bd%8f%e6%b0%91%e7%a8%8e%e6%b1%ba%e5%ae%9a%e9%80%9a%e7%9f%a5%e6%9b%b8%e3%81%ae%e8%a6%8b%e6%96%b9%ef%bd%9c%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e%e3%81%ae%e6%8e%a7%e9%99%a4%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b3%e3%81%a4%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88&amp;url=https%3a%2f%2ffinlab-se.com%2fdrafts%2ffurusato-tax-jumin-tax-notification%2f&amp;hashtags=%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e%2c%e4%bd%8f%e6%b0%91%e7%a8%8e%2c%e7%a8%8e%e9%87%91%2c%e7%af%80%e7%a8%8e%2c%e4%bc%9a%e7%a4%be%e5%93%a1">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2ffinlab-se.com%2fdrafts%2ffurusato-tax-jumin-tax-notification%2f&amp;title=%e4%bd%8f%e6%b0%91%e7%a8%8e%e6%b1%ba%e5%ae%9a%e9%80%9a%e7%9f%a5%e6%9b%b8%e3%81%ae%e8%a6%8b%e6%96%b9%ef%bd%9c%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e%e3%81%ae%e6%8e%a7%e9%99%a4%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b3%e3%81%a4%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88&amp;summary=%e4%bd%8f%e6%b0%91%e7%a8%8e%e6%b1%ba%e5%ae%9a%e9%80%9a%e7%9f%a5%e6%9b%b8%e3%81%ae%e8%a6%8b%e6%96%b9%ef%bd%9c%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e%e3%81%ae%e6%8e%a7%e9%99%a4%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b3%e3%81%a4%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88&amp;source=https%3a%2f%2ffinlab-se.com%2fdrafts%2ffurusato-tax-jumin-tax-notification%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2ffinlab-se.com%2fdrafts%2ffurusato-tax-jumin-tax-notification%2f&title=%e4%bd%8f%e6%b0%91%e7%a8%8e%e6%b1%ba%e5%ae%9a%e9%80%9a%e7%9f%a5%e6%9b%b8%e3%81%ae%e8%a6%8b%e6%96%b9%ef%bd%9c%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e%e3%81%ae%e6%8e%a7%e9%99%a4%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b3%e3%81%a4%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ffinlab-se.com%2fdrafts%2ffurusato-tax-jumin-tax-notification%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント on whatsapp"
+            href="https://api.whatsapp.com/send?text=%e4%bd%8f%e6%b0%91%e7%a8%8e%e6%b1%ba%e5%ae%9a%e9%80%9a%e7%9f%a5%e6%9b%b8%e3%81%ae%e8%a6%8b%e6%96%b9%ef%bd%9c%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e%e3%81%ae%e6%8e%a7%e9%99%a4%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b3%e3%81%a4%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88%20-%20https%3a%2f%2ffinlab-se.com%2fdrafts%2ffurusato-tax-jumin-tax-notification%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント on telegram"
+            href="https://telegram.me/share/url?text=%e4%bd%8f%e6%b0%91%e7%a8%8e%e6%b1%ba%e5%ae%9a%e9%80%9a%e7%9f%a5%e6%9b%b8%e3%81%ae%e8%a6%8b%e6%96%b9%ef%bd%9c%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e%e3%81%ae%e6%8e%a7%e9%99%a4%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b3%e3%81%a4%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88&amp;url=https%3a%2f%2ffinlab-se.com%2fdrafts%2ffurusato-tax-jumin-tax-notification%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=%e4%bd%8f%e6%b0%91%e7%a8%8e%e6%b1%ba%e5%ae%9a%e9%80%9a%e7%9f%a5%e6%9b%b8%e3%81%ae%e8%a6%8b%e6%96%b9%ef%bd%9c%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e%e3%81%ae%e6%8e%a7%e9%99%a4%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b3%e3%81%a4%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88&u=https%3a%2f%2ffinlab-se.com%2fdrafts%2ffurusato-tax-jumin-tax-notification%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://finlab-se.com/">金融エンジニアの資産運用実験室</a></span> · 
+        <a href="/about/">このブログについて</a> · <a href="/privacy/">プライバシーポリシー</a> · <a href="/disclosure/">アフィリエイト・広告表記</a> · <a href="/contact/">お問い合わせ</a> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'コピー';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'コピーされました!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'コピー';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hugo on 金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/tags/hugo/</link>
+    <description>Recent content in Hugo on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 08 May 2026 09:58:57 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた——Draft確認から投稿予約まで</title>
+      <link>https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/</link>
+      <pubDate>Sat, 02 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/</guid>
+      <description>Draft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。</description>
+    </item>
+    <item>
+      <title>Claude Designでブログのデザインを刷新した話 — PaperMod標準から脱却するまで</title>
+      <link>https://finlab-se.com/posts/blog-redesign-with-claude-code/</link>
+      <pubDate>Thu, 23 Apr 2026 11:25:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/blog-redesign-with-claude-code/</guid>
+      <description>Claude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。</description>
+    </item>
+    <item>
+      <title>Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記</title>
+      <link>https://finlab-se.com/posts/claude-code-blog-experience/</link>
+      <pubDate>Sun, 12 Apr 2026 20:35:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/claude-code-blog-experience/</guid>
+      <description>投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。</description>
+    </item>
+  </channel>
+</rss>

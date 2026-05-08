@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>自動化 on 金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/tags/%E8%87%AA%E5%8B%95%E5%8C%96/</link>
+    <description>Recent content in 自動化 on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 02 May 2026 11:54:59 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/tags/%E8%87%AA%E5%8B%95%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xの自動投稿で苦労した話——GitHubとCloudflareで作る定時投稿の仕組み</title>
+      <link>https://finlab-se.com/posts/x-auto-post-cloudflare-workers/</link>
+      <pubDate>Sun, 03 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/x-auto-post-cloudflare-workers/</guid>
+      <description>GitHub ActionsとCloudflare WorkersでX自動投稿を仕組み化した際の試行錯誤と全体像。</description>
+    </item>
+    <item>
+      <title>Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた——Draft確認から投稿予約まで</title>
+      <link>https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/</link>
+      <pubDate>Sat, 02 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/</guid>
+      <description>Draft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。</description>
+    </item>
+  </channel>
+</rss>

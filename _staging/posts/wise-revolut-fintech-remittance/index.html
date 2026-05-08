@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ja" dir="auto" data-theme="light">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み | 金融エンジニアの資産運用実験室</title>
+<meta name="keywords" content="海外送金, Wise, Revolut, FinTech, ローカル決済, ネッティング, 金融インフラ">
+<meta name="description" content="Wise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。">
+<meta name="author" content="やさぐれSE">
+<link rel="canonical" href="https://finlab-se.com/posts/wise-revolut-fintech-remittance/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f6c45ab7ef4a3170bde810919a23e389dc51da456f61ef6fe3aabf3a7f1b0a2.css" integrity="sha256-f2xFq370oxcL3oEJGaI&#43;OJ3FHaRW9h72/jqr86fxsKI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://finlab-se.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://finlab-se.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://finlab-se.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://finlab-se.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://finlab-se.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ja" href="https://finlab-se.com/posts/wise-revolut-fintech-remittance/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    }
+
+</script><link rel="icon" type="image/svg+xml" href="https://finlab-se.com/favicon.svg" id="favicon-svg">
+<link rel="apple-touch-icon" sizes="180x180" href="https://finlab-se.com/apple-touch-icon.png"><script async src="https://www.googletagmanager.com/gtag/js?id=G-68K0QJV9JM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-68K0QJV9JM');
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5743260737982404" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/post.css"><style>
+.site-footer { background: #0e1410; color: #c8cfc8; padding: 32px 0; margin-top: 24px; }
+.site-footer .foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 13px; }
+.site-footer .foot-brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 600; }
+.site-footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; color: #c8cfc8; }
+.site-footer .foot-links a { color: #c8cfc8; }
+.site-footer .foot-links a:hover { color: #fff; text-decoration: none; }
+.site-footer .foot-copy { color: #828982; font-size: 12px; font-family: var(--font-num, inherit); }
+</style><script>
+(function(){
+  var host = location.hostname;
+  var isDraft = host.indexOf('draft.') === 0 || host.indexOf('.pages.dev') !== -1;
+  if (!isDraft) return;
+  
+  var svgLink = document.getElementById('favicon-svg');
+  if (svgLink && svgLink.parentNode) svgLink.parentNode.removeChild(svgLink);
+  var map = {
+    'apple-touch-icon.png':   'apple-touch-icon-draft.png',
+    'favicon-32x32.png':      'favicon-draft-32x32.png',
+    'favicon-16x16.png':      'favicon-draft-16x16.png',
+    'favicon.ico':            'favicon-draft.ico'
+  };
+  document.querySelectorAll('link[rel*="icon"]').forEach(function(l){
+    var h = l.getAttribute('href') || '';
+    Object.keys(map).forEach(function(k){
+      if (h.endsWith('/' + k) || h === k) l.href = h.replace(k, map[k]);
+    });
+  });
+  
+  if (document.title && document.title.indexOf('[DRAFT]') === -1) {
+    document.title = '[DRAFT] ' + document.title;
+  }
+})();
+</script>
+<meta property="og:url" content="https://finlab-se.com/posts/wise-revolut-fintech-remittance/">
+  <meta property="og:site_name" content="金融エンジニアの資産運用実験室">
+  <meta property="og:title" content="Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み">
+  <meta property="og:description" content="Wise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-22T07:00:00+09:00">
+    <meta property="article:modified_time" content="2026-05-08T09:58:57+09:00">
+    <meta property="article:tag" content="海外送金">
+    <meta property="article:tag" content="Wise">
+    <meta property="article:tag" content="Revolut">
+    <meta property="article:tag" content="FinTech">
+    <meta property="article:tag" content="ローカル決済">
+    <meta property="article:tag" content="ネッティング">
+    <meta property="og:image" content="https://finlab-se.com/images/thumb-wise-revolut-fintech-remittance.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://finlab-se.com/images/thumb-wise-revolut-fintech-remittance.png">
+  <meta name="twitter:title" content="Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み">
+  <meta name="twitter:description" content="Wise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://finlab-se.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み",
+      "item": "https://finlab-se.com/posts/wise-revolut-fintech-remittance/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み",
+  "name": "Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み",
+  "description": "Wise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。",
+  "keywords": [
+    "海外送金", "Wise", "Revolut", "FinTech", "ローカル決済", "ネッティング", "金融インフラ"
+  ],
+  "articleBody": "銀行の海外送金が3,000円＋数日かかる一方、Wise や Revolut で同じ送金をすると手数料数百円・着金数分という結果に「なぜここまで違うのか、何か裏があるのでは」と感じたことはないでしょうか。\nそんなとき、こう感じたことはないでしょうか。\n銀行の1/10の手数料で海外送金できる仕組みが本当に安全なのか確信が持てない ニュースでFinTechと聞くけど、Wise・Revolutが裏で何をしているのか説明できない 銀行と同じ規制下にあるのか、自分のお金を預けて大丈夫なのかが分からない 結論から言うと、Wise・Revolutの安さの正体は「ローカル決済プール方式」と「ネッティング」というコルレス網を迂回する仕組みを理解することです。 この2つを押さえれば、安さの裏側に詐欺的な仕組みがあるわけではなく、合法的な構造的イノベーションがあることが腹落ちします。\nなぜこの2点で分かるのか。それは、銀行海外送金のコストの大半が「コルレス銀行を経由する構造そのもの」に由来するからです。本記事では金融エンジニアの視点から、創業ストーリー・規制スキーム・両社比較・限界まで具体的に確認していきます。\nこの記事を読み終える頃には、以下ができるようになっています。\nWise・Revolutが「銀行を介さずに送金できる」仕組みを自分の言葉で説明できる Wise（送金特化）と Revolut（多通貨総合口座）を用途に応じて使い分けられる FinTech送金のメリットだけでなく規制リスク・限界まで把握して判断できる 仕組みを理解すれば、用途と金額に応じて銀行送金とFinTech送金を最適に組み合わせられるようになります。\nこの記事でわかること Wiseが「銀行を介さずに海外送金できる」仕組みの本質 ローカル決済プール方式とネッティングが「中継銀行手数料ゼロ」を実現する理由 Wise と Revolut の使い分け（送金特化 vs 多通貨総合口座） FinTech送金モデルの限界と規制リスク 銀行海外送金（SWIFT・コルレス銀行）の側の仕組みは、前編記事「海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説」で詳しく扱っています。\n前提：銀行海外送金がなぜ高いのか（要約） 詳しくは前編に譲りますが、銀行海外送金が高くて遅いのは、次の3つが3段重ねになっているためです。\n送金手数料：自行収益分（大手行で3,000円〜） 中継銀行手数料：コルレス銀行を経由するたびに15〜30米ドルずつ差し引かれる 為替手数料：TTSスプレッドで1ドルあたり1円前後（実効レートで1%前後） そして遅さの原因は、送金銀行・中継銀行・受取銀行のそれぞれで反社／OFAC制裁／AMLチェックが重複して走るためです。\nつまり、銀行海外送金の「高さ」と「遅さ」は、コルレス銀行を複数経由する構造そのものに由来します。SWIFTのISO 20022移行やGPI高速化が進んでも、この構造的なコスト・冗長性は残ったままです。\nWise・Revolutが解こうとしているのは、まさにこの「電文の改良では消せない構造課題」のほうです。\nWiseとは何者か：創業ストーリーと規模 Wise（旧 TransferWise）は、2011年にエストニア出身のターヴェット・ヒンリクスとクリスト・カーリマンがロンドンで創業したFinTech企業です。\n創業のきっかけは創業者2人の実体験でした。ロンドンで働いていた2人は、それぞれ逆方向の通貨ニーズを抱えていました。ヒンリクス氏はエストニアにユーロ建ての支払いがあり、カーリマン氏は逆にエストニアのポンド収入を英国で使いたい。どちらも銀行で両替・送金するたびに高い手数料と悪い為替レートを取られていたため、2人はあるとき思いつきます。\n「自分がポンドをカーリマンに渡して、代わりにカーリマンはエストニアの自分の口座にユーロを入れてくれればいい。銀行を介さず、お互いの国でお互いの通貨を交換し合えばいいのでは？」\nこの素朴なアイデアを、各国で送金業ライセンスを正規取得 → 各国に自社の現地口座（ローカルプール）を保有という形で合法的にスケールさせたのがWiseの本質です。送金の実体は「コルレス網経由のクロスボーダー送金1本」ではなく、「送金国と受取国それぞれでの 国内送金2本」に置き換えられます。\n規模と日本での提供体制 2021年にロンドン証券取引所に直接上場し、2024年度（FY2024）の年間クロスボーダー送金額は約22兆円規模（£118.5 billion）、アクティブ顧客数は約1,280万人（FY2025では1,500万人規模まで拡大）まで成長しました。\n日本でもワイズ・ペイメンツ・ジャパン株式会社（Wise Payments Japan K.K.）が第一種資金移動業者として金融庁（関東財務局長 第00040号）登録済みで、銀行と同じ枠組みのコンプライアンス・送金記録管理が行われています。\nWiseが重要なのは、単に「銀行より安い送金アプリ」だからではなく、「コルレス網という150年続いた国際送金の前提を、現地ライセンス＋プール口座という合法な代替手段で迂回した」という構造的な意義があるからです。SWIFTのGPI高速化やISO 20022移行が「既存の配管の改良」だとすれば、Wise・Revolutは「配管そのものを使わない別ルートの敷設」と言えます。\nローカル決済プール方式の仕組み Wiseのモデルを、もう一段具体的に見ていきます。\n「国内送金2本」に置き換える Wiseは各国に自社のローカル口座をプールしています。日本→シンガポールに送金するケースで言うと、\n日本側：送金人が、Wiseが日本国内に保有しているプール口座へ円で振り込む（提携銀行名義の受取口座に振込するのと同じ手順） シンガポール側：Wiseがシンガポール国内に保有しているプール口座から、受取人の口座へSGDまたはUSDで振り込む 送金人の円は日本国内に留まり、受取人のSGDはシンガポール国内に留まります。国境を越えるのは情報（送金指示）だけで、お金そのものは国境を越えません。これがコルレス網との最大の違いです。\n項目 銀行海外送金（コルレス経由） Wise（ローカル決済プール） お金の動き 国境を越えて複数銀行を経由 各国内で完結（2本の国内送金） 中継銀行 2〜3行を経由 なし 為替の発生場所 送金銀行のTTSで両替 Wise内部で中間レート両替 着金額 中継手数料が引かれて目減り 事前に確定表示 ネッティング：国境を越える資金移動を最小化する ここで疑問が湧きます。「日本側のWise口座に円が貯まり続け、シンガポール側のSGDが減り続けるなら、いずれWiseは破綻するのでは？」\nその答えがネッティング（差引決済）です。\n実際には、世界中で送金は 双方向に流れています。日本→シンガポールの送金者がいれば、シンガポール→日本の送金者もいます。Wiseは1日分・1週間分の送金量を集計し、双方向の差額分だけを、自社で銀行海外送金（または市場での為替取引）を使ってリバランスします。\nたとえば1日に「日本→シンガポール 1,000万円」「シンガポール→日本 950万円」という送金があれば、差額の50万円相当だけが実際に国境を越えればよく、残り950万円ぶんは各国内で勘定振替するだけで済みます。\nネッティングが効く条件 ネッティングが効果を発揮するのは、「双方向の送金量がある程度バランスする通貨ペア・ルート」に限られます。USD/EUR/GBP/JPY/SGDのような主要通貨ペアでは効率が高く、Wise・Revolutのコスト優位はここで生まれます。一方、双方向のバランスが極端に悪いマイナー通貨では、リバランスコストが嵩むため料金が上がるか、そもそも対応通貨に含まれません。\nこのネッティングと、各国内で自社プール口座を持つことの2つを組み合わせることで、\n中継銀行手数料が原理的に発生しない（コルレス網を通らない） 為替も中間レートに近い実勢レートで両替できる（Wise内部レート＝インターバンクレート） 着金額が事前に確定する（プール残高内で完結するため、中継銀行に削られない） という3つの構造的優位が生まれます。これが「銀行の1/10の手数料」の正体です。\nなぜ「着金額が事前に確定」できるのか 利用者にとって、Wiseの最大のメリットは料金の安さよりも「相手にいくら届くかが事前に分かる」ことだと言ってもいいかもしれません。\n銀行海外送金（SHA区分）では、中継銀行が経路や日時で何ドル引くかは送金してみるまで分からず、「指示金額より少ない金額が口座に届く」のが当たり前でした。海外不動産の決済代金や留学費の請求書決済など、目減りが許されない用途では、わざわざOUR区分を指定して送金人が前払いする必要がありました。\nWiseの場合、\n中継銀行を経由しない → 中継銀行手数料が発生しない 為替レートも中間レートで固定 → 受取通貨ベースの金額が事前に確定する ローカル決済プール内で完結 → 経路途上の不確実性がない という構造のため、送金画面で「相手の口座に着金する金額」がそのまま表示できます。送金前に「JPY 100,000 → SGD 875.43」と確定表示され、その金額がそのまま受取口座に入ります。\nこれは料金面の優位以上に、個人海外送金のUXを根本から変えたといえる変化です。\nRevolutはどう違うのか ここまでWiseを中心に見てきましたが、よく比較される Revolut はどう違うのでしょうか。\nRevolutは英国発のネオバンク（2015年創業、2024年7月に英銀行ライセンス（制限付き／mobilisation）を取得し、2026年3月にフルライセンスへ移行）で、単なる送金サービスではなく、マルチカレンシー口座・デビットカード・暗号資産・株式取引までを1つのアプリに統合した総合FinTechです。送金の仕組みはWiseと同様にローカル決済プール方式を基本としており、中継銀行手数料が発生しない点は共通しています。\n両社の違いは、料金体系と位置づけにあります。\n項目 Wise Revolut 位置づけ 送金特化 多通貨総合口座＋送金 料金モデル 都度・金額比例の明瞭手数料 無料枠＋超過分に小口手数料（プラン依存） 為替レート インターバンク中値（常時） 平日インターバンク、週末はプラン別に+0〜1% 日本での提供 Wise Payments Japan（第一種資金移動業） Revolut Technologies Japan（第二種資金移動業／1回100万円上限） 強み 着金額の事前確定・料金の透明性 多通貨保有・カード決済・投資機能の統合 使い分けの目安 単発の海外送金で「料金の透明性・着金額の予測可能性」を最重視：Wise が第一候補。送金画面の表示金額が、そのまま受取口座に着金する 多通貨で日常的に旅行・海外取引する人の総合口座：Revolut が強い。複数通貨を口座内に保有でき、デビットカードでそのまま現地通貨決済できる 頻繁に海外送金する人：両方を使い分け。送金はWise、日常の多通貨運用はRevolut、という棲み分けも一般的 他にも米Remitly、米Xoom（PayPal傘下）、シンガポールInstaReM（現Nium傘下）、シンガポールWallex（M-DAQ傘下）など、類似のローカル決済プール方式を採用するFinTechは世界中に存在します。\n限界と規制リスク ローカル決済プール方式は構造的に強力ですが、万能ではありません。利用者として知っておきたい限界が3つあります。\n① プール先の国ごとに送金業ライセンスが必要 Wiseが「日本→シンガポール」を扱えるのは、両国でそれぞれ第一種資金移動業相当のライセンスを取得しているからです。新興国・規制が厳しい国では、ライセンス取得そのものが障壁となり、対応通貨や送金先が広がらないことがあります。「Wiseで送れない通貨・国」は意外と多いため、利用前に対応国リストの確認が必要です。\n② 双方向の送金量がバランスしないと効率が落ちる ネッティングが効くのは、双方向の送金量がある程度バランスする通貨ペアに限られます。極端に一方向しか流れないルート（例：日本→ベトナム、米国→フィリピンなど出稼ぎ送金が中心の通貨）では、Wiseもリバランスのために実際に銀行海外送金を使う必要があり、コスト優位が小さくなります。\n③ 規制環境の変化リスク Wise・Revolutは「資金移動業」または「銀行業」のライセンスのもとで運営されているため、預金保険の対象範囲・破綻時の資金保全スキームは銀行預金とは異なります。両社とも顧客資金を別口座で分別管理する仕組みを持ちますが、保護の枠組みは国・サービスごとに異なるため、大口の資金を長期間プールしておく用途には向きません。基本は「送金のための一時的な経由口座」として使うのが安全です。\nまた、各国の金融規制当局の動向（特に米FinCEN・EU MiCA・日本の改正資金決済法など）によって、サービス内容や手数料体系が変わる可能性も常にあります。\nまとめ：FinTech送金が変えたこと、変えていないこと Wise・Revolutが海外送金にもたらした構造的変化を整理すると、次のようになります。\n変えたこと：\nコスト：中継銀行手数料ゼロ、為替も中間レート → 銀行の1/10レベルへ スピード：ローカル決済2本に置き換えるため、主要通貨ペアでは数分〜数時間 透明性：着金額が事前に確定。SHA区分の「いくら届くか分からない」が解消 UX：アプリ完結。窓口・書類・FAX が不要に 変えていないこと：\nコンプライアンス：反社・制裁スクリーニングは依然として実施。資金移動業として銀行と同等のAML/KYC体制を持つ 大口送金の取り扱い：Wiseは第一種資金移動業として銀行口座経由の送金なら最大1.5億円まで対応（残高チャージ経由は1回100万円）、Revolutは第二種資金移動業として1回100万円が上限。これを超える送金や、請求書・契約書ベースの厳格な証跡が求められる法人取引では、メガバンクのSWIFT送金が引き続き現実的な選択肢 つまりWise・Revolutは、銀行海外送金を完全に代替するものではなく、「個人〜中堅法人の少額〜中額送金」のレイヤーを別ルートで敷設したのがその本質です。コルレス網が消えるのではなく、レイヤーが追加された、と理解するのが正確でしょう。\n次回予告：暗号資産・ステーブルコインによる送金 このシリーズの第3弾では、コルレス網もFinTechのプール方式も使わない、暗号資産とステーブルコインによる送金が海外送金の何を変えるのか、何を変えないのかを扱います。USDC・USDTなどのステーブルコインを使った国際送金は、すでに新興国の出稼ぎ送金や法人B2Bでの実利用が広がっており、G20ロードマップ2027の「コスト1%以下・1時間以内着金」をクリアする数少ない選択肢の1つです。\nこのシリーズの関連記事 決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。\n← 前：海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説 次：暗号資産とステーブルコインで海外送金はどう変わるか → ",
+  "wordCount" : "6154",
+  "inLanguage": "ja",
+  "image":"https://finlab-se.com/images/thumb-wise-revolut-fintech-remittance.png","datePublished": "2026-04-22T07:00:00+09:00",
+  "dateModified": "2026-05-08T09:58:57+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "やさぐれSE"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://finlab-se.com/posts/wise-revolut-fintech-remittance/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "金融エンジニアの資産運用実験室",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://finlab-se.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head><body class="post" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://finlab-se.com/" accesskey="h" title="金融エンジニアの資産運用実験室 (Alt + H)">金融エンジニアの資産運用実験室</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://finlab-se.com/posts/" title="記事一覧">
+                    <span>記事一覧</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/categories/" title="カテゴリ">
+                    <span>カテゴリ</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/tags/" title="タグ">
+                    <span>タグ</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/about/" title="このブログについて">
+                    <span>このブログについて</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://finlab-se.com/search/" title="検索 (Alt &#43; /)" accesskey=/>
+                    <span>検索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="/" class="brand" aria-label="finlab-se">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-name">金融エンジニアの資産運用実験室</div>
+        <div class="brand-sub">finlab-se.com</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="/categories/" class="lk">カテゴリ</a>
+      <a href="/posts/" class="lk is-current">記事一覧</a>
+      <a href="/about/" class="lk">About</a>
+      <a href="/search/" class="search-btn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        検索
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+
+
+<article class="post-article">
+
+  
+  <div class="wrap post-narrow">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/posts/">記事一覧</a>
+      <span class="sep">/</span>
+      <a href="/categories/%E9%87%91%E8%9E%8D%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF/">金融の仕組み</a>
+      <span class="sep">/</span>
+      <span class="current">Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み</span>
+    </nav>
+  </div>
+
+  
+  <header class="post-hero">
+    <div class="wrap post-narrow">
+      <a class="post-eyebrow" href="/categories/%E9%87%91%E8%9E%8D%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF/">金融の仕組み</a>
+      <h1 class="post-title">Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み</h1>
+      <p class="post-lede">Wise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。</p>
+      <div class="post-meta">
+        <span class="post-meta-item">
+          <span class="post-meta-label">公開</span>
+          <time datetime="2026-04-22">2026年4月22日</time>
+        </span>
+        <span class="post-meta-item">
+          <span class="post-meta-label">更新</span>
+          <time datetime="2026-05-08">2026年5月8日</time>
+        </span>
+        <span class="post-meta-item">
+          <span class="post-meta-label">読了</span>
+          約13分
+        </span>
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="wrap post-narrow">
+    <figure class="post-cover">
+      <img src="/images/thumb-wise-revolut-fintech-remittance.png" alt="Wise・Revolutの仕組み解説 - ローカル決済プール・ネッティングで銀行送金を回避" loading="lazy">
+    </figure>
+  </div>
+
+  
+  <div class="wrap post-narrow"><details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">目次</span>
+    </summary>
+
+    <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事でわかること">この記事でわかること</a></li>
+    <li><a href="#前提銀行海外送金がなぜ高いのか要約">前提：銀行海外送金がなぜ高いのか（要約）</a></li>
+    <li><a href="#wiseとは何者か創業ストーリーと規模">Wiseとは何者か：創業ストーリーと規模</a>
+      <ul>
+        <li><a href="#規模と日本での提供体制">規模と日本での提供体制</a></li>
+      </ul>
+    </li>
+    <li><a href="#ローカル決済プール方式の仕組み">ローカル決済プール方式の仕組み</a>
+      <ul>
+        <li><a href="#国内送金2本に置き換える">「国内送金2本」に置き換える</a></li>
+        <li><a href="#ネッティング国境を越える資金移動を最小化する">ネッティング：国境を越える資金移動を最小化する</a></li>
+      </ul>
+    </li>
+    <li><a href="#なぜ着金額が事前に確定できるのか">なぜ「着金額が事前に確定」できるのか</a></li>
+    <li><a href="#revolutはどう違うのか">Revolutはどう違うのか</a>
+      <ul>
+        <li><a href="#使い分けの目安">使い分けの目安</a></li>
+      </ul>
+    </li>
+    <li><a href="#限界と規制リスク">限界と規制リスク</a>
+      <ul>
+        <li><a href="#-プール先の国ごとに送金業ライセンスが必要">① プール先の国ごとに送金業ライセンスが必要</a></li>
+        <li><a href="#-双方向の送金量がバランスしないと効率が落ちる">② 双方向の送金量がバランスしないと効率が落ちる</a></li>
+        <li><a href="#-規制環境の変化リスク">③ 規制環境の変化リスク</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめfintech送金が変えたこと変えていないこと">まとめ：FinTech送金が変えたこと、変えていないこと</a>
+      <ul>
+        <li><a href="#次回予告暗号資産ステーブルコインによる送金">次回予告：暗号資産・ステーブルコインによる送金</a></li>
+      </ul>
+    </li>
+    <li><a href="#このシリーズの関連記事">このシリーズの関連記事</a></li>
+  </ul>
+</nav>
+    </div>
+</details>
+
+    <div class="post-content md-content"><p>銀行の海外送金が3,000円＋数日かかる一方、Wise や Revolut で同じ送金をすると手数料数百円・着金数分という結果に「なぜここまで違うのか、何か裏があるのでは」と感じたことはないでしょうか。</p>
+<p>そんなとき、こう感じたことはないでしょうか。</p>
+<ul>
+<li>銀行の1/10の手数料で海外送金できる仕組みが本当に安全なのか確信が持てない</li>
+<li>ニュースでFinTechと聞くけど、Wise・Revolutが裏で何をしているのか説明できない</li>
+<li>銀行と同じ規制下にあるのか、自分のお金を預けて大丈夫なのかが分からない</li>
+</ul>
+<p><strong>結論から言うと、Wise・Revolutの安さの正体は「ローカル決済プール方式」と「ネッティング」というコルレス網を迂回する仕組みを理解することです。</strong> この2つを押さえれば、安さの裏側に詐欺的な仕組みがあるわけではなく、合法的な構造的イノベーションがあることが腹落ちします。</p>
+<p>なぜこの2点で分かるのか。それは、銀行海外送金のコストの大半が「コルレス銀行を経由する構造そのもの」に由来するからです。本記事では金融エンジニアの視点から、創業ストーリー・規制スキーム・両社比較・限界まで具体的に確認していきます。</p>
+<p>この記事を読み終える頃には、以下ができるようになっています。</p>
+<ul>
+<li>Wise・Revolutが「銀行を介さずに送金できる」仕組みを自分の言葉で説明できる</li>
+<li>Wise（送金特化）と Revolut（多通貨総合口座）を用途に応じて使い分けられる</li>
+<li>FinTech送金のメリットだけでなく規制リスク・限界まで把握して判断できる</li>
+</ul>
+<p>仕組みを理解すれば、用途と金額に応じて銀行送金とFinTech送金を最適に組み合わせられるようになります。</p>
+<hr>
+<h2 id="この記事でわかること">この記事でわかること<a hidden class="anchor" aria-hidden="true" href="#この記事でわかること">#</a></h2>
+<ul>
+<li>Wiseが「銀行を介さずに海外送金できる」仕組みの本質</li>
+<li>ローカル決済プール方式とネッティングが「中継銀行手数料ゼロ」を実現する理由</li>
+<li>Wise と Revolut の使い分け（送金特化 vs 多通貨総合口座）</li>
+<li>FinTech送金モデルの限界と規制リスク</li>
+</ul>
+<blockquote>
+<p>銀行海外送金（SWIFT・コルレス銀行）の側の仕組みは、前編記事「<a href="/posts/overseas-remittance-mechanism/">海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説</a>」で詳しく扱っています。</p>
+</blockquote>
+<hr>
+<h2 id="前提銀行海外送金がなぜ高いのか要約">前提：銀行海外送金がなぜ高いのか（要約）<a hidden class="anchor" aria-hidden="true" href="#前提銀行海外送金がなぜ高いのか要約">#</a></h2>
+<p><img alt="銀行海外送金の経路 — 送金銀行→中継銀行→受取銀行とコルレス網を複数経由（前編より再掲）" loading="lazy" src="/images/overseas-remittance-flow.png"></p>
+<p>詳しくは前編に譲りますが、銀行海外送金が高くて遅いのは、次の3つが3段重ねになっているためです。</p>
+<ul>
+<li><strong>送金手数料</strong>：自行収益分（大手行で3,000円〜）</li>
+<li><strong>中継銀行手数料</strong>：コルレス銀行を経由するたびに15〜30米ドルずつ差し引かれる</li>
+<li><strong>為替手数料</strong>：TTSスプレッドで1ドルあたり1円前後（実効レートで1%前後）</li>
+</ul>
+<p>そして遅さの原因は、送金銀行・中継銀行・受取銀行のそれぞれで反社／OFAC制裁／AMLチェックが重複して走るためです。</p>
+<p>つまり、銀行海外送金の「高さ」と「遅さ」は、<strong>コルレス銀行を複数経由する構造そのもの</strong>に由来します。SWIFTのISO 20022移行やGPI高速化が進んでも、この構造的なコスト・冗長性は残ったままです。</p>
+<p>Wise・Revolutが解こうとしているのは、まさにこの「電文の改良では消せない構造課題」のほうです。</p>
+<hr>
+<h2 id="wiseとは何者か創業ストーリーと規模">Wiseとは何者か：創業ストーリーと規模<a hidden class="anchor" aria-hidden="true" href="#wiseとは何者か創業ストーリーと規模">#</a></h2>
+<p>Wise（旧 TransferWise）は、2011年にエストニア出身のターヴェット・ヒンリクスとクリスト・カーリマンがロンドンで創業したFinTech企業です。</p>
+<p><strong>創業のきっかけは創業者2人の実体験</strong>でした。ロンドンで働いていた2人は、それぞれ逆方向の通貨ニーズを抱えていました。ヒンリクス氏はエストニアにユーロ建ての支払いがあり、カーリマン氏は逆にエストニアのポンド収入を英国で使いたい。どちらも銀行で両替・送金するたびに高い手数料と悪い為替レートを取られていたため、2人はあるとき思いつきます。</p>
+<p>「自分がポンドをカーリマンに渡して、代わりにカーリマンはエストニアの自分の口座にユーロを入れてくれればいい。銀行を介さず、<strong>お互いの国でお互いの通貨を交換し合えばいい</strong>のでは？」</p>
+<p>この素朴なアイデアを、<strong>各国で送金業ライセンスを正規取得 → 各国に自社の現地口座（ローカルプール）を保有</strong>という形で合法的にスケールさせたのがWiseの本質です。送金の実体は「コルレス網経由のクロスボーダー送金1本」ではなく、「送金国と受取国それぞれでの <strong>国内送金2本</strong>」に置き換えられます。</p>
+<h3 id="規模と日本での提供体制">規模と日本での提供体制<a hidden class="anchor" aria-hidden="true" href="#規模と日本での提供体制">#</a></h3>
+<p>2021年にロンドン証券取引所に直接上場し、2024年度（FY2024）の年間クロスボーダー送金額は<strong>約22兆円規模（£118.5 billion）</strong>、アクティブ顧客数は<strong>約1,280万人</strong>（FY2025では1,500万人規模まで拡大）まで成長しました。</p>
+<p>日本でも<strong>ワイズ・ペイメンツ・ジャパン株式会社（Wise Payments Japan K.K.）</strong>が第一種資金移動業者として金融庁（関東財務局長 第00040号）登録済みで、銀行と同じ枠組みのコンプライアンス・送金記録管理が行われています。</p>
+<p>Wiseが重要なのは、単に「銀行より安い送金アプリ」だからではなく、<strong>「コルレス網という150年続いた国際送金の前提を、現地ライセンス＋プール口座という合法な代替手段で迂回した」</strong>という構造的な意義があるからです。SWIFTのGPI高速化やISO 20022移行が「既存の配管の改良」だとすれば、Wise・Revolutは「<strong>配管そのものを使わない別ルートの敷設</strong>」と言えます。</p>
+<hr>
+<h2 id="ローカル決済プール方式の仕組み">ローカル決済プール方式の仕組み<a hidden class="anchor" aria-hidden="true" href="#ローカル決済プール方式の仕組み">#</a></h2>
+<p>Wiseのモデルを、もう一段具体的に見ていきます。</p>
+<p><img alt="Wiseの仕組み — 海外送金を「国内送金2本」に置き換えるローカル決済プール方式" loading="lazy" src="/images/overseas-wise-mechanism.png"></p>
+<h3 id="国内送金2本に置き換える">「国内送金2本」に置き換える<a hidden class="anchor" aria-hidden="true" href="#国内送金2本に置き換える">#</a></h3>
+<p>Wiseは各国に自社のローカル口座をプールしています。日本→シンガポールに送金するケースで言うと、</p>
+<ul>
+<li><strong>日本側</strong>：送金人が、Wiseが日本国内に保有しているプール口座へ円で振り込む（提携銀行名義の受取口座に振込するのと同じ手順）</li>
+<li><strong>シンガポール側</strong>：Wiseがシンガポール国内に保有しているプール口座から、受取人の口座へSGDまたはUSDで振り込む</li>
+</ul>
+<p>送金人の円は日本国内に留まり、受取人のSGDはシンガポール国内に留まります。<strong>国境を越えるのは情報（送金指示）だけで、お金そのものは国境を越えません</strong>。これがコルレス網との最大の違いです。</p>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>銀行海外送金（コルレス経由）</th>
+          <th>Wise（ローカル決済プール）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>お金の動き</td>
+          <td>国境を越えて複数銀行を経由</td>
+          <td>各国内で完結（2本の国内送金）</td>
+      </tr>
+      <tr>
+          <td>中継銀行</td>
+          <td>2〜3行を経由</td>
+          <td>なし</td>
+      </tr>
+      <tr>
+          <td>為替の発生場所</td>
+          <td>送金銀行のTTSで両替</td>
+          <td>Wise内部で中間レート両替</td>
+      </tr>
+      <tr>
+          <td>着金額</td>
+          <td>中継手数料が引かれて目減り</td>
+          <td>事前に確定表示</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="ネッティング国境を越える資金移動を最小化する">ネッティング：国境を越える資金移動を最小化する<a hidden class="anchor" aria-hidden="true" href="#ネッティング国境を越える資金移動を最小化する">#</a></h3>
+<p>ここで疑問が湧きます。「日本側のWise口座に円が貯まり続け、シンガポール側のSGDが減り続けるなら、いずれWiseは破綻するのでは？」</p>
+<p>その答えが<strong>ネッティング（差引決済）</strong>です。</p>
+<p>実際には、世界中で送金は <strong>双方向に流れています</strong>。日本→シンガポールの送金者がいれば、シンガポール→日本の送金者もいます。Wiseは1日分・1週間分の送金量を集計し、<strong>双方向の差額分だけ</strong>を、自社で銀行海外送金（または市場での為替取引）を使ってリバランスします。</p>
+<p>たとえば1日に「日本→シンガポール 1,000万円」「シンガポール→日本 950万円」という送金があれば、差額の50万円相当だけが実際に国境を越えればよく、残り950万円ぶんは各国内で勘定振替するだけで済みます。</p>
+<p><img alt="ネッティングの仕組み — 双方向フローを相殺し、差額だけが国境を越える" loading="lazy" src="/images/overseas-wise-netting.svg"></p>
+<blockquote>
+<p><strong>ネッティングが効く条件</strong>
+ネッティングが効果を発揮するのは、「双方向の送金量がある程度バランスする通貨ペア・ルート」に限られます。USD/EUR/GBP/JPY/SGDのような主要通貨ペアでは効率が高く、Wise・Revolutのコスト優位はここで生まれます。一方、双方向のバランスが極端に悪いマイナー通貨では、リバランスコストが嵩むため料金が上がるか、そもそも対応通貨に含まれません。</p>
+</blockquote>
+<p>このネッティングと、各国内で自社プール口座を持つことの2つを組み合わせることで、</p>
+<ul>
+<li><strong>中継銀行手数料が原理的に発生しない</strong>（コルレス網を通らない）</li>
+<li><strong>為替も中間レートに近い実勢レートで両替できる</strong>（Wise内部レート＝インターバンクレート）</li>
+<li><strong>着金額が事前に確定する</strong>（プール残高内で完結するため、中継銀行に削られない）</li>
+</ul>
+<p>という3つの構造的優位が生まれます。これが「銀行の1/10の手数料」の正体です。</p>
+<hr>
+<h2 id="なぜ着金額が事前に確定できるのか">なぜ「着金額が事前に確定」できるのか<a hidden class="anchor" aria-hidden="true" href="#なぜ着金額が事前に確定できるのか">#</a></h2>
+<p>利用者にとって、Wiseの最大のメリットは料金の安さよりも<strong>「相手にいくら届くかが事前に分かる」</strong>ことだと言ってもいいかもしれません。</p>
+<p>銀行海外送金（SHA区分）では、中継銀行が経路や日時で何ドル引くかは送金してみるまで分からず、「指示金額より少ない金額が口座に届く」のが当たり前でした。海外不動産の決済代金や留学費の請求書決済など、<strong>目減りが許されない用途</strong>では、わざわざOUR区分を指定して送金人が前払いする必要がありました。</p>
+<p>Wiseの場合、</p>
+<ul>
+<li>中継銀行を経由しない → 中継銀行手数料が発生しない</li>
+<li>為替レートも中間レートで固定 → 受取通貨ベースの金額が事前に確定する</li>
+<li>ローカル決済プール内で完結 → 経路途上の不確実性がない</li>
+</ul>
+<p>という構造のため、<strong>送金画面で「相手の口座に着金する金額」がそのまま表示できます</strong>。送金前に「JPY 100,000 → SGD 875.43」と確定表示され、その金額がそのまま受取口座に入ります。</p>
+<p>これは料金面の優位以上に、<strong>個人海外送金のUXを根本から変えた</strong>といえる変化です。</p>
+<hr>
+<h2 id="revolutはどう違うのか">Revolutはどう違うのか<a hidden class="anchor" aria-hidden="true" href="#revolutはどう違うのか">#</a></h2>
+<p>ここまでWiseを中心に見てきましたが、よく比較される <strong>Revolut</strong> はどう違うのでしょうか。</p>
+<p>Revolutは英国発のネオバンク（2015年創業、2024年7月に英銀行ライセンス（制限付き／mobilisation）を取得し、2026年3月にフルライセンスへ移行）で、単なる送金サービスではなく、<strong>マルチカレンシー口座・デビットカード・暗号資産・株式取引までを1つのアプリに統合した総合FinTech</strong>です。送金の仕組みはWiseと同様にローカル決済プール方式を基本としており、中継銀行手数料が発生しない点は共通しています。</p>
+<p>両社の違いは、<strong>料金体系</strong>と<strong>位置づけ</strong>にあります。</p>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>Wise</th>
+          <th>Revolut</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>位置づけ</td>
+          <td>送金特化</td>
+          <td>多通貨総合口座＋送金</td>
+      </tr>
+      <tr>
+          <td>料金モデル</td>
+          <td>都度・金額比例の明瞭手数料</td>
+          <td>無料枠＋超過分に小口手数料（プラン依存）</td>
+      </tr>
+      <tr>
+          <td>為替レート</td>
+          <td>インターバンク中値（常時）</td>
+          <td>平日インターバンク、週末はプラン別に+0〜1%</td>
+      </tr>
+      <tr>
+          <td>日本での提供</td>
+          <td>Wise Payments Japan（第一種資金移動業）</td>
+          <td>Revolut Technologies Japan（第二種資金移動業／1回100万円上限）</td>
+      </tr>
+      <tr>
+          <td>強み</td>
+          <td>着金額の事前確定・料金の透明性</td>
+          <td>多通貨保有・カード決済・投資機能の統合</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="使い分けの目安">使い分けの目安<a hidden class="anchor" aria-hidden="true" href="#使い分けの目安">#</a></h3>
+<ul>
+<li><strong>単発の海外送金で「料金の透明性・着金額の予測可能性」を最重視</strong>：<strong>Wise</strong> が第一候補。送金画面の表示金額が、そのまま受取口座に着金する</li>
+<li><strong>多通貨で日常的に旅行・海外取引する人の総合口座</strong>：<strong>Revolut</strong> が強い。複数通貨を口座内に保有でき、デビットカードでそのまま現地通貨決済できる</li>
+<li><strong>頻繁に海外送金する人</strong>：両方を使い分け。送金はWise、日常の多通貨運用はRevolut、という棲み分けも一般的</li>
+</ul>
+<p>他にも米Remitly、米Xoom（PayPal傘下）、シンガポールInstaReM（現Nium傘下）、シンガポールWallex（M-DAQ傘下）など、類似のローカル決済プール方式を採用するFinTechは世界中に存在します。</p>
+<hr>
+<h2 id="限界と規制リスク">限界と規制リスク<a hidden class="anchor" aria-hidden="true" href="#限界と規制リスク">#</a></h2>
+<p>ローカル決済プール方式は構造的に強力ですが、万能ではありません。利用者として知っておきたい限界が3つあります。</p>
+<h3 id="-プール先の国ごとに送金業ライセンスが必要">① プール先の国ごとに送金業ライセンスが必要<a hidden class="anchor" aria-hidden="true" href="#-プール先の国ごとに送金業ライセンスが必要">#</a></h3>
+<p>Wiseが「日本→シンガポール」を扱えるのは、両国でそれぞれ第一種資金移動業相当のライセンスを取得しているからです。新興国・規制が厳しい国では、ライセンス取得そのものが障壁となり、対応通貨や送金先が広がらないことがあります。<strong>「Wiseで送れない通貨・国」は意外と多い</strong>ため、利用前に対応国リストの確認が必要です。</p>
+<h3 id="-双方向の送金量がバランスしないと効率が落ちる">② 双方向の送金量がバランスしないと効率が落ちる<a hidden class="anchor" aria-hidden="true" href="#-双方向の送金量がバランスしないと効率が落ちる">#</a></h3>
+<p>ネッティングが効くのは、双方向の送金量がある程度バランスする通貨ペアに限られます。極端に一方向しか流れないルート（例：日本→ベトナム、米国→フィリピンなど出稼ぎ送金が中心の通貨）では、Wiseもリバランスのために実際に銀行海外送金を使う必要があり、コスト優位が小さくなります。</p>
+<h3 id="-規制環境の変化リスク">③ 規制環境の変化リスク<a hidden class="anchor" aria-hidden="true" href="#-規制環境の変化リスク">#</a></h3>
+<p>Wise・Revolutは「資金移動業」または「銀行業」のライセンスのもとで運営されているため、預金保険の対象範囲・破綻時の資金保全スキームは銀行預金とは異なります。両社とも顧客資金を別口座で分別管理する仕組みを持ちますが、保護の枠組みは国・サービスごとに異なるため、<strong>大口の資金を長期間プールしておく用途には向きません</strong>。基本は「送金のための一時的な経由口座」として使うのが安全です。</p>
+<p>また、各国の金融規制当局の動向（特に米FinCEN・EU MiCA・日本の改正資金決済法など）によって、サービス内容や手数料体系が変わる可能性も常にあります。</p>
+<hr>
+<h2 id="まとめfintech送金が変えたこと変えていないこと">まとめ：FinTech送金が変えたこと、変えていないこと<a hidden class="anchor" aria-hidden="true" href="#まとめfintech送金が変えたこと変えていないこと">#</a></h2>
+<p>Wise・Revolutが海外送金にもたらした構造的変化を整理すると、次のようになります。</p>
+<p><strong>変えたこと：</strong></p>
+<ul>
+<li><strong>コスト</strong>：中継銀行手数料ゼロ、為替も中間レート → 銀行の1/10レベルへ</li>
+<li><strong>スピード</strong>：ローカル決済2本に置き換えるため、主要通貨ペアでは数分〜数時間</li>
+<li><strong>透明性</strong>：着金額が事前に確定。SHA区分の「いくら届くか分からない」が解消</li>
+<li><strong>UX</strong>：アプリ完結。窓口・書類・FAX が不要に</li>
+</ul>
+<p><strong>変えていないこと：</strong></p>
+<ul>
+<li><strong>コンプライアンス</strong>：反社・制裁スクリーニングは依然として実施。資金移動業として銀行と同等のAML/KYC体制を持つ</li>
+<li><strong>大口送金の取り扱い</strong>：Wiseは第一種資金移動業として銀行口座経由の送金なら最大1.5億円まで対応（残高チャージ経由は1回100万円）、Revolutは第二種資金移動業として1回100万円が上限。これを超える送金や、請求書・契約書ベースの厳格な証跡が求められる法人取引では、メガバンクのSWIFT送金が引き続き現実的な選択肢</li>
+</ul>
+<p>つまりWise・Revolutは、銀行海外送金を完全に代替するものではなく、<strong>「個人〜中堅法人の少額〜中額送金」のレイヤーを別ルートで敷設した</strong>のがその本質です。コルレス網が消えるのではなく、レイヤーが追加された、と理解するのが正確でしょう。</p>
+<h3 id="次回予告暗号資産ステーブルコインによる送金">次回予告：暗号資産・ステーブルコインによる送金<a hidden class="anchor" aria-hidden="true" href="#次回予告暗号資産ステーブルコインによる送金">#</a></h3>
+<p>このシリーズの第3弾では、コルレス網もFinTechのプール方式も使わない、<strong>暗号資産とステーブルコインによる送金</strong>が海外送金の何を変えるのか、何を変えないのかを扱います。USDC・USDTなどのステーブルコインを使った国際送金は、すでに新興国の出稼ぎ送金や法人B2Bでの実利用が広がっており、G20ロードマップ2027の「コスト1%以下・1時間以内着金」をクリアする数少ない選択肢の1つです。</p>
+<h2 id="このシリーズの関連記事">このシリーズの関連記事<a hidden class="anchor" aria-hidden="true" href="#このシリーズの関連記事">#</a></h2>
+<p>決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。</p>
+<ul>
+<li><a href="/posts/overseas-remittance-mechanism/">← 前：海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説</a></li>
+<li><a href="/posts/crypto-stablecoin-remittance/">次：暗号資産とステーブルコインで海外送金はどう変わるか →</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+  
+  <div class="wrap post-narrow">
+    <div class="post-tags">
+      <span class="post-tags-label">TAGS</span>
+      <ul>
+        <li><a href="https://finlab-se.com/tags/%E6%B5%B7%E5%A4%96%E9%80%81%E9%87%91/">#海外送金</a></li>
+        <li><a href="https://finlab-se.com/tags/wise/">#Wise</a></li>
+        <li><a href="https://finlab-se.com/tags/revolut/">#Revolut</a></li>
+        <li><a href="https://finlab-se.com/tags/fintech/">#FinTech</a></li>
+        <li><a href="https://finlab-se.com/tags/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E6%B1%BA%E6%B8%88/">#ローカル決済</a></li>
+        <li><a href="https://finlab-se.com/tags/%E3%83%8D%E3%83%83%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/">#ネッティング</a></li>
+        <li><a href="https://finlab-se.com/tags/%E9%87%91%E8%9E%8D%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/">#金融インフラ</a></li>
+      </ul>
+    </div>
+  </div>
+
+</article>
+
+
+<div class="wrap ad-wrap" aria-label="Advertisement slot">
+  <div class="ad-slot ad-banner"></div>
+</div>
+
+
+
+
+<section class="post-related">
+  <div class="wrap">
+    <h2 class="post-related-title">同じカテゴリの記事</h2>
+    <div class="post-related-grid">
+      <a class="post-related-card" href="/posts/finance-se-20years-lessons/">
+        <div class="post-related-thumb">
+          <img src="/images/thumb-finance-se-20years-lessons.png" alt="" loading="lazy">
+        </div>
+        <div class="post-related-body">
+          <div class="post-related-eyebrow">金融の仕組み</div>
+          <div class="post-related-name">金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ</div>
+          <div class="post-related-date">2026.04.24</div>
+        </div>
+      </a>
+      <a class="post-related-card" href="/posts/bank-core-system-cloud/">
+        <div class="post-related-thumb">
+          <img src="/images/thumb-bank-core-system-cloud.jpg" alt="" loading="lazy">
+        </div>
+        <div class="post-related-body">
+          <div class="post-related-eyebrow">金融の仕組み</div>
+          <div class="post-related-name">銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する</div>
+          <div class="post-related-date">2026.04.24</div>
+        </div>
+      </a>
+      <a class="post-related-card" href="/posts/crypto-stablecoin-remittance/">
+        <div class="post-related-thumb">
+          <img src="/images/thumb-crypto-stablecoin-remittance.png" alt="" loading="lazy">
+        </div>
+        <div class="post-related-body">
+          <div class="post-related-eyebrow">金融の仕組み</div>
+          <div class="post-related-name">暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁</div>
+          <div class="post-related-date">2026.04.23</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      金融エンジニアの資産運用実験室
+    </div>
+    <div class="foot-links">
+      <a href="/index.xml">RSS</a>
+      <a href="/about/">このブログについて</a>
+      <a href="/privacy/">プライバシー</a>
+      <a href="/disclosure/">広告表記</a>
+      <a href="/contact/">お問い合わせ</a>
+    </div>
+    <div class="foot-copy">© 2026–2026 finlab-se.com</div>
+  </div>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://finlab-se.com/">金融エンジニアの資産運用実験室</a></span> · 
+        <a href="/about/">このブログについて</a> · <a href="/privacy/">プライバシーポリシー</a> · <a href="/disclosure/">アフィリエイト・広告表記</a> · <a href="/contact/">お問い合わせ</a> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'コピー';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'コピーされました!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'コピー';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Claude Code on 金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/tags/claude-code/</link>
+    <description>Recent content in Claude Code on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 08 May 2026 09:58:57 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/tags/claude-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた——Draft確認から投稿予約まで</title>
+      <link>https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/</link>
+      <pubDate>Sat, 02 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/</guid>
+      <description>Draft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。</description>
+    </item>
+    <item>
+      <title>Claude Codeの「許可」待ちをほぼゼロにする設定方法｜セキュリティを保ちながら快適に使う</title>
+      <link>https://finlab-se.com/posts/claude-code-reduce-permission-prompts/</link>
+      <pubDate>Sun, 26 Apr 2026 21:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/claude-code-reduce-permission-prompts/</guid>
+      <description>Claude Codeの許可ダイアログを減らす方法。settings.jsonとCLAUDE.mdの設定でほぼゼロに。</description>
+    </item>
+    <item>
+      <title>Claude Designでブログのデザインを刷新した話 — PaperMod標準から脱却するまで</title>
+      <link>https://finlab-se.com/posts/blog-redesign-with-claude-code/</link>
+      <pubDate>Thu, 23 Apr 2026 11:25:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/blog-redesign-with-claude-code/</guid>
+      <description>Claude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。</description>
+    </item>
+    <item>
+      <title>Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化</title>
+      <link>https://finlab-se.com/posts/claude-code-dividend-calendar/</link>
+      <pubDate>Wed, 22 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/claude-code-dividend-calendar/</guid>
+      <description>保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成する手順。</description>
+    </item>
+    <item>
+      <title>【ツール紹介】必要配当利回り逆算シミュレータ ～「年◯◯万円欲しい」から逆算する高配当株設計～</title>
+      <link>https://finlab-se.com/posts/dividend-target-simulator-tool-usage/</link>
+      <pubDate>Sun, 19 Apr 2026 09:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/dividend-target-simulator-tool-usage/</guid>
+      <description>「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。</description>
+    </item>
+    <item>
+      <title>高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと</title>
+      <link>https://finlab-se.com/posts/highyield-portfolio-management/</link>
+      <pubDate>Sun, 19 Apr 2026 07:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/highyield-portfolio-management/</guid>
+      <description>高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。</description>
+    </item>
+    <item>
+      <title>Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー</title>
+      <link>https://finlab-se.com/posts/asset-management-claude-code/</link>
+      <pubDate>Fri, 17 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/asset-management-claude-code/</guid>
+      <description>MoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。</description>
+    </item>
+    <item>
+      <title>Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記</title>
+      <link>https://finlab-se.com/posts/claude-code-blog-experience/</link>
+      <pubDate>Sun, 12 Apr 2026 20:35:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/claude-code-blog-experience/</guid>
+      <description>投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。</description>
+    </item>
+  </channel>
+</rss>

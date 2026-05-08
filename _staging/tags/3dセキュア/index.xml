@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>3Dセキュア on 金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/tags/3d%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2/</link>
+    <description>Recent content in 3Dセキュア on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 08 May 2026 09:58:57 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/tags/3d%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>決済の「0.1秒」の裏側｜クレジットカードのオンライン決済が完了するまでに起きていること</title>
+      <link>https://finlab-se.com/posts/credit-card-payment-flow/</link>
+      <pubDate>Fri, 17 Apr 2026 10:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/credit-card-payment-flow/</guid>
+      <description>決済の0.1秒に5つの組織が関与。クレカ決済フローを実務担当の金融SEがわかりやすく解説。</description>
+    </item>
+  </channel>
+</rss>

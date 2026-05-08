@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Meiryo UI", "Meiryo", "Yu Gothic UI", "Yu Gothic", "MS PGothic", sans-serif;
+    background: #eef1f6;
+    width: 900px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 32px 24px;
+  }
+
+  /* ===== タイトル ===== */
+  .chart-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a2f4a;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .chart-sub {
+    font-size: 13px;
+    color: #637083;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== 2カラムレイアウト ===== */
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    gap: 0;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  /* ===== 個別カード ===== */
+  .col {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+
+  .col-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .col-left .col-header  { background: #1f6e5f; }
+  .col-right .col-header { background: #b35a10; }
+
+  .col-header-icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+  .col-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .col-header-en {
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .col-header-ja {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .col-body {
+    padding: 18px 20px 20px;
+  }
+
+  .col-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e8ecf1;
+  }
+  .col-left  .col-label { color: #1f6e5f; }
+  .col-right .col-label { color: #b35a10; }
+
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .item:last-child { margin-bottom: 0; }
+
+  .item-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .col-left  .item-dot { background: #1f6e5f; }
+  .col-right .item-dot { background: #b35a10; }
+
+  .item-text {
+    font-size: 15px;
+    color: #1a2f4a;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+  .item-text strong {
+    font-weight: 700;
+    color: #0d1f30;
+  }
+
+  .col-emphasis {
+    background: #f4f7fb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 14px;
+    border-left: 3px solid;
+  }
+  .col-left  .col-emphasis { border-color: #1f6e5f; }
+  .col-right .col-emphasis { border-color: #b35a10; }
+
+  .col-emphasis-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .col-left  .col-emphasis-label { color: #1f6e5f; }
+  .col-right .col-emphasis-label { color: #b35a10; }
+
+  .col-emphasis-text {
+    font-size: 14px;
+    color: #1a2f4a;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  /* ===== VS バッジ ===== */
+  .vs-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vs-badge {
+    width: 40px;
+    height: 40px;
+    background: #1a2f4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== 凡例 ===== */
+  .footer-note {
+    margin-top: 14px;
+    font-size: 11px;
+    color: #8a96a3;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<div class="chart-title">同じ「増配」でも確認する重心が違う</div>
+<div class="chart-sub">メガキャップ増配組 と 連続増配年数組 ── 読み方の比較</div>
+
+<div class="columns">
+
+  <!-- 左：メガキャップ増配組 -->
+  <div class="col col-left">
+    <div class="col-header">
+      <span class="col-header-icon">📈</span>
+      <div class="col-header-text">
+        <span class="col-header-en">LARGE-CAP DIVIDEND RAISERS</span>
+        <span class="col-header-ja">メガキャップ増配組</span>
+      </div>
+    </div>
+    <div class="col-body">
+      <div class="col-label">チェックポイント</div>
+      <div class="item">
+        <div class="item-dot"></div>
+        <div class="item-text"><strong>増配率の大きさ</strong>と配当性向の水準</div>
+      </div>
+      <div class="item">
+        <div class="item-dot"></div>
+        <div class="item-text">今期増益が<strong>構造的か・一時的か</strong></div>
+      </div>
+      <div class="item">
+        <div class="item-dot"></div>
+        <div class="item-text">業種トレンドとの<strong>整合性</strong>（為替・資源・金利）</div>
+      </div>
+      <div class="col-emphasis">
+        <div class="col-emphasis-label">確認の重心</div>
+        <div class="col-emphasis-text">この増配は来期も<br>続くのか？</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VS -->
+  <div class="vs-wrap">
+    <div class="vs-badge">VS</div>
+  </div>
+
+  <!-- 右：連続増配年数組 -->
+  <div class="col col-right">
+    <div class="col-header">
+      <span class="col-header-icon">🏆</span>
+      <div class="col-header-text">
+        <span class="col-header-en">CONSECUTIVE DIVIDEND GROWERS</span>
+        <span class="col-header-ja">連続増配年数組</span>
+      </div>
+    </div>
+    <div class="col-body">
+      <div class="col-label">チェックポイント</div>
+      <div class="item">
+        <div class="item-dot"></div>
+        <div class="item-text"><strong>連続増配年数</strong>と配当性向の推移</div>
+      </div>
+      <div class="item">
+        <div class="item-dot"></div>
+        <div class="item-text">フリーCFの<strong>安定性</strong>と配当余力</div>
+      </div>
+      <div class="item">
+        <div class="item-dot"></div>
+        <div class="item-text">ビジネスモデルの<strong>耐久性</strong>と参入障壁</div>
+      </div>
+      <div class="col-emphasis">
+        <div class="col-emphasis-label">確認の重心</div>
+        <div class="col-emphasis-text">記録を止めない<br>体力があるか？</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-note">finlab-se.com ／ 金融エンジニアの資産運用実験室</div>
+
+</body>
+</html>

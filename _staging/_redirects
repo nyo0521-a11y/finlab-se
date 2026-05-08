@@ -1,0 +1,10 @@
+/categories/ai--マネー管理術/*    /categories/ai/:splat    301
+/categories/ai-活用/*             /categories/ai/:splat    301
+/categories/金融解説/*            /categories/finance-system/:splat    301
+/categories/NISA・iDeCo/*         /categories/asset-building/:splat    301
+/categories/nisaideco/*           /categories/asset-building/:splat    301
+/categories/資産運用/*            /categories/asset-building/:splat    301
+/categories/家計改善/*            /categories/asset-building/:splat    301
+/categories/税制・制度解説/*       /categories/news/:splat    301
+/categories/税制制度解説/*        /categories/news/:splat    301
+/categories/クレジットカード/*     /categories/finance-system/:splat    301

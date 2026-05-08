@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>企業型DC on 金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/tags/%E4%BC%81%E6%A5%AD%E5%9E%8Bdc/</link>
+    <description>Recent content in 企業型DC on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 08 May 2026 10:02:24 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/tags/%E4%BC%81%E6%A5%AD%E5%9E%8Bdc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>企業型DCがある会社員のiDeCo併用 2026年改正後の判断フローチャート</title>
+      <link>https://finlab-se.com/drafts/corporate-dc-ideco-flowchart-2026/</link>
+      <pubDate>Sat, 02 May 2026 10:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/drafts/corporate-dc-ideco-flowchart-2026/</guid>
+      <description>企業型DC加入者向けにマッチング拠出とiDeCo併用の選び方をフローチャートで解説。2026年改正後の手数料・上限・各社対応を比較。</description>
+    </item>
+    <item>
+      <title>企業型DC・iDeCoの基本を整理する｜3階建て構造と税メリット・デメリット</title>
+      <link>https://finlab-se.com/posts/ideco-dc-basics/</link>
+      <pubDate>Tue, 14 Apr 2026 21:35:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/ideco-dc-basics/</guid>
+      <description>企業型DB・DC・iDeCoの違いを3階建てで整理。税メリット・受取時リスク・新NISAとの優先順位。</description>
+    </item>
+  </channel>
+</rss>

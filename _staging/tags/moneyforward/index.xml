@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MoneyForward on 金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/tags/moneyforward/</link>
+    <description>Recent content in MoneyForward on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 08 May 2026 09:58:57 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/tags/moneyforward/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2026年4月から食品2,798品目が値上げ──家計の「固定費見直し」を投資の元手に変える順番</title>
+      <link>https://finlab-se.com/posts/expense-optimization-nisa-investment/</link>
+      <pubDate>Mon, 27 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/expense-optimization-nisa-investment/</guid>
+      <description>2026年4月に食品2,798品目値上げ。固定費削減でNISA積立を増やす具体的な手順を解説。</description>
+    </item>
+    <item>
+      <title>Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー</title>
+      <link>https://finlab-se.com/posts/asset-management-claude-code/</link>
+      <pubDate>Fri, 17 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/asset-management-claude-code/</guid>
+      <description>MoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。</description>
+    </item>
+  </channel>
+</rss>

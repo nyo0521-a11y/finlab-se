@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>資産計算 on 金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/tags/%E8%B3%87%E7%94%A3%E8%A8%88%E7%AE%97/</link>
+    <description>Recent content in 資産計算 on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 08 May 2026 09:58:57 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/tags/%E8%B3%87%E7%94%A3%E8%A8%88%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配当金生活に必要な資産額を計算する｜インデックス投資取り崩しとの比較シミュレーション</title>
+      <link>https://finlab-se.com/posts/dividend-life-calculation/</link>
+      <pubDate>Thu, 16 Apr 2026 20:52:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/dividend-life-calculation/</guid>
+      <description>年間200万円を配当で賄うのに必要な元本を計算。インデックス&#43;4%ルールとも比較します。</description>
+    </item>
+  </channel>
+</rss>

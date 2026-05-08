@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>金融エンジニアの資産運用実験室</title>
+    <link>https://finlab-se.com/</link>
+    <description>Recent content on 金融エンジニアの資産運用実験室</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 08 May 2026 19:48:26 +0900</lastBuildDate>
+    <atom:link href="https://finlab-se.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>クレカ積立おすすめの選び方｜経済圏と損益分岐点で1枚に絞る方法</title>
+      <link>https://finlab-se.com/posts/credit-card-recommendation-2026/</link>
+      <pubDate>Fri, 08 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/credit-card-recommendation-2026/</guid>
+      <description>クレカ選びは経済圏が先。楽天・ドコモ・SBI・au別に最適な1枚を比較し、積立還元率の損益分岐点を数字で解説。</description>
+    </item>
+    <item>
+      <title>夏のボーナスの投資使い方を決める4ステップ【後悔しないチェック】</title>
+      <link>https://finlab-se.com/posts/bonus-investment-checkup-4steps/</link>
+      <pubDate>Wed, 06 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/bonus-investment-checkup-4steps/</guid>
+      <description>夏のボーナスを投資に使う前に確認したい4つのチェックポイント。生活防衛資金・NISA枠・ポートフォリオの偏り・固定費を順に見直すことで、ボーナスの使い方を迷わず決められます。</description>
+    </item>
+    <item>
+      <title>投資家向けネット銀行おすすめ4選｜証券連携・手数料・目的別口座で比較2026</title>
+      <link>https://finlab-se.com/posts/recommended-net-bank-2026/</link>
+      <pubDate>Tue, 05 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/recommended-net-bank-2026/</guid>
+      <description>証券口座と連携できる銀行選びを最優先に、住信SBI・楽天・ソニー・auじぶんを5軸で比較。SBI証券・楽天証券ユーザーの口座選びや、目的別口座・ATM・振込手数料の違いもまとめて解説します。</description>
+    </item>
+    <item>
+      <title>Xの自動投稿で苦労した話——GitHubとCloudflareで作る定時投稿の仕組み</title>
+      <link>https://finlab-se.com/posts/x-auto-post-cloudflare-workers/</link>
+      <pubDate>Sun, 03 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/x-auto-post-cloudflare-workers/</guid>
+      <description>GitHub ActionsとCloudflare WorkersでX自動投稿を仕組み化した際の試行錯誤と全体像。</description>
+    </item>
+    <item>
+      <title>企業型DCがある会社員のiDeCo併用 2026年改正後の判断フローチャート</title>
+      <link>https://finlab-se.com/drafts/corporate-dc-ideco-flowchart-2026/</link>
+      <pubDate>Sat, 02 May 2026 10:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/drafts/corporate-dc-ideco-flowchart-2026/</guid>
+      <description>企業型DC加入者向けにマッチング拠出とiDeCo併用の選び方をフローチャートで解説。2026年改正後の手数料・上限・各社対応を比較。</description>
+    </item>
+    <item>
+      <title>住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント</title>
+      <link>https://finlab-se.com/drafts/furusato-tax-jumin-tax-notification/</link>
+      <pubDate>Sat, 02 May 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/drafts/furusato-tax-jumin-tax-notification/</guid>
+      <description>住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。</description>
+    </item>
+    <item>
+      <title>Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた——Draft確認から投稿予約まで</title>
+      <link>https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/</link>
+      <pubDate>Sat, 02 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/</guid>
+      <description>Draft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。</description>
+    </item>
+    <item>
+      <title>2026年4月から健康保険の扶養認定が労働契約ベースへ｜一時的な残業で扶養外れが解消</title>
+      <link>https://finlab-se.com/posts/health-insurance-dependent-2026/</link>
+      <pubDate>Fri, 01 May 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/health-insurance-dependent-2026/</guid>
+      <description>2026年4月から被扶養者認定が「労働契約ベース」に変更。130万超でも扶養が外れない新ルールを解説。</description>
+    </item>
+    <item>
+      <title>インデックス積立・高配当株投資に合った証券会社の選び方</title>
+      <link>https://finlab-se.com/posts/securities-selection-for-index-and-dividend/</link>
+      <pubDate>Thu, 30 Apr 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/securities-selection-for-index-and-dividend/</guid>
+      <description>投資スタイル別の証券会社選びを解説。SBI・楽天・マネックス・UFJ eスマートを5観点で比較。</description>
+    </item>
+    <item>
+      <title>日経平均6万円時代に高配当株投資家がやってはいけない3つのこと</title>
+      <link>https://finlab-se.com/posts/nikkei-60000-highyield-mindset/</link>
+      <pubDate>Wed, 29 Apr 2026 06:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/nikkei-60000-highyield-mindset/</guid>
+      <description>日経6万円台で高配当株投資家が陥りがちな3つの失敗パターンと、ブレない買い増しルールを確認。</description>
+    </item>
+    <item>
+      <title>日銀の政策金利と住宅ローン変動金利 — 借換え判断のシミュレーション実例</title>
+      <link>https://finlab-se.com/posts/mortgage-rate-refinance-simulation/</link>
+      <pubDate>Tue, 28 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/mortgage-rate-refinance-simulation/</guid>
+      <description>変動金利の利上げ局面で借換えは得か。残債・金利差・残期間の3条件で損益分岐を試算します。</description>
+    </item>
+    <item>
+      <title>2026年4月から食品2,798品目が値上げ──家計の「固定費見直し」を投資の元手に変える順番</title>
+      <link>https://finlab-se.com/posts/expense-optimization-nisa-investment/</link>
+      <pubDate>Mon, 27 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/expense-optimization-nisa-investment/</guid>
+      <description>2026年4月に食品2,798品目値上げ。固定費削減でNISA積立を増やす具体的な手順を解説。</description>
+    </item>
+    <item>
+      <title>Claude Codeの「許可」待ちをほぼゼロにする設定方法｜セキュリティを保ちながら快適に使う</title>
+      <link>https://finlab-se.com/posts/claude-code-reduce-permission-prompts/</link>
+      <pubDate>Sun, 26 Apr 2026 21:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/claude-code-reduce-permission-prompts/</guid>
+      <description>Claude Codeの許可ダイアログを減らす方法。settings.jsonとCLAUDE.mdの設定でほぼゼロに。</description>
+    </item>
+    <item>
+      <title>2027年「こどもNISA」創設決定｜ジュニアNISAとの違いと、今すぐできる準備</title>
+      <link>https://finlab-se.com/posts/kodomo-nisa-2027/</link>
+      <pubDate>Sat, 25 Apr 2026 07:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/kodomo-nisa-2027/</guid>
+      <description>2027年スタートのこどもNISA（こども支援NISA）。概要とジュニアNISAとの違いを解説。</description>
+    </item>
+    <item>
+      <title>金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ</title>
+      <link>https://finlab-se.com/posts/finance-se-20years-lessons/</link>
+      <pubDate>Fri, 24 Apr 2026 14:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/finance-se-20years-lessons/</guid>
+      <description>銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点。現場でしかわからない重みと充実感。</description>
+    </item>
+    <item>
+      <title>銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する</title>
+      <link>https://finlab-se.com/posts/bank-core-system-cloud/</link>
+      <pubDate>Fri, 24 Apr 2026 07:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/bank-core-system-cloud/</guid>
+      <description>なぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。</description>
+    </item>
+    <item>
+      <title>暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁</title>
+      <link>https://finlab-se.com/posts/crypto-stablecoin-remittance/</link>
+      <pubDate>Thu, 23 Apr 2026 14:17:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/crypto-stablecoin-remittance/</guid>
+      <description>ステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。</description>
+    </item>
+    <item>
+      <title>Claude Designでブログのデザインを刷新した話 — PaperMod標準から脱却するまで</title>
+      <link>https://finlab-se.com/posts/blog-redesign-with-claude-code/</link>
+      <pubDate>Thu, 23 Apr 2026 11:25:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/blog-redesign-with-claude-code/</guid>
+      <description>Claude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。</description>
+    </item>
+    <item>
+      <title>2026年3月期「増配ラッシュ」をどう読むか〜決算シーズンの高配当株投資家の歩き方〜</title>
+      <link>https://finlab-se.com/posts/dividend-increase-season-2026/</link>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://finlab-se.com/posts/dividend-increase-season-2026/</guid>
+      <description>増配ニュースに飛びつく前に確認すべき配当性向・DOE・営業CFの3点。2026年3月期決算の読み方。</description>
+    </item>
+    <item>
+      <title>Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化</title>
+      <link>https://finlab-se.com/posts/claude-code-dividend-calendar/</link>
+      <pubDate>Wed, 22 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/claude-code-dividend-calendar/</guid>
+      <description>保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成する手順。</description>
+    </item>
+    <item>
+      <title>Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み</title>
+      <link>https://finlab-se.com/posts/wise-revolut-fintech-remittance/</link>
+      <pubDate>Wed, 22 Apr 2026 07:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/wise-revolut-fintech-remittance/</guid>
+      <description>Wise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。</description>
+    </item>
+    <item>
+      <title>アフィリエイト・広告表記</title>
+      <link>https://finlab-se.com/disclosure/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://finlab-se.com/disclosure/</guid>
+      <description>金融エンジニアの資産運用実験室（finlab-se.com）におけるアフィリエイトプログラム・広告表記のポリシーです。景品表示法に基づく広告明示の方針を説明します。</description>
+    </item>
+    <item>
+      <title>お問い合わせ</title>
+      <link>https://finlab-se.com/contact/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://finlab-se.com/contact/</guid>
+      <description>金融エンジニアの資産運用実験室（finlab-se.com）へのお問い合わせ窓口。記事内容の質問・指摘、コラボ・取材のご相談はこちらから。</description>
+    </item>
+    <item>
+      <title>プライバシーポリシー</title>
+      <link>https://finlab-se.com/privacy/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://finlab-se.com/privacy/</guid>
+      <description>金融エンジニアの資産運用実験室（finlab-se.com）におけるアクセス解析・Cookie・アフィリエイトリンクに関する情報の取り扱いを定めたプライバシーポリシーです。</description>
+    </item>
+    <item>
+      <title>海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説</title>
+      <link>https://finlab-se.com/posts/overseas-remittance-mechanism/</link>
+      <pubDate>Tue, 21 Apr 2026 07:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/overseas-remittance-mechanism/</guid>
+      <description>なぜ海外送金は3,000円以上かかるのか。SWIFT・コルレス銀行の仕組みを金融SEが整理。</description>
+    </item>
+    <item>
+      <title>銀行同士のお金はどう動く？｜日銀ネットRTGSと海外決済システムの仕組み</title>
+      <link>https://finlab-se.com/posts/boj-net-rtgs-international/</link>
+      <pubDate>Tue, 21 Apr 2026 06:52:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/boj-net-rtgs-international/</guid>
+      <description>振込の裏でRTGSと日銀ネットが動く仕組みを、金融SEが米欧英の決済インフラと合わせて解説。</description>
+    </item>
+    <item>
+      <title>全銀システムって何？ 振込ボタンを押した瞬間、銀行の裏側で何が起きているのか</title>
+      <link>https://finlab-se.com/posts/zengin-net-payment-system/</link>
+      <pubDate>Mon, 20 Apr 2026 22:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/zengin-net-payment-system/</guid>
+      <description>他行振込の裏側で動く「全銀システム」とは。1973年から続く日本の決済インフラを図解でやさしく解説。</description>
+    </item>
+    <item>
+      <title>2026年度の年金改定率と「マクロ経済スライド」— 現役世代が今から備える3つの行動</title>
+      <link>https://finlab-se.com/posts/pension-macroeconomic-slide-2026/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://finlab-se.com/posts/pension-macroeconomic-slide-2026/</guid>
+      <description>2026年度の年金改定率とマクロ経済スライドによる実質目減りを試算。iDeCo・NISA・高配当株で備える。</description>
+    </item>
+    <item>
+      <title>累進配当株という選択肢：商社株が注目される理由と、減配しない約束の読み方</title>
+      <link>https://finlab-se.com/posts/progressive-dividend-stocks/</link>
+      <pubDate>Mon, 20 Apr 2026 06:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/progressive-dividend-stocks/</guid>
+      <description>「減配せず維持または増配」を公約する累進配当株。連続増配株との違いや商社株が注目される理由を解説。</description>
+    </item>
+    <item>
+      <title>連続増配株という選択肢：テーマ株に目を奪われても、選ぶ基準は変わらない</title>
+      <link>https://finlab-se.com/posts/consecutive-dividend-growth/</link>
+      <pubDate>Sun, 19 Apr 2026 11:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/consecutive-dividend-growth/</guid>
+      <description>旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない。連続増配株の考え方。</description>
+    </item>
+    <item>
+      <title>【ツール紹介】必要配当利回り逆算シミュレータ ～「年◯◯万円欲しい」から逆算する高配当株設計～</title>
+      <link>https://finlab-se.com/posts/dividend-target-simulator-tool-usage/</link>
+      <pubDate>Sun, 19 Apr 2026 09:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/dividend-target-simulator-tool-usage/</guid>
+      <description>「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。</description>
+    </item>
+    <item>
+      <title>高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと</title>
+      <link>https://finlab-se.com/posts/highyield-portfolio-management/</link>
+      <pubDate>Sun, 19 Apr 2026 07:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/highyield-portfolio-management/</guid>
+      <description>高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。</description>
+    </item>
+    <item>
+      <title>高配当株の買い時を見極める：配当利回りで割高・割安を判断する方法</title>
+      <link>https://finlab-se.com/posts/highyield-buying-timing/</link>
+      <pubDate>Sat, 18 Apr 2026 15:45:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/highyield-buying-timing/</guid>
+      <description>高配当株の買いタイミングはVYM・HDV・SCHDも日本個別株も「過去平均利回りと現在の比較」で判断。</description>
+    </item>
+    <item>
+      <title>高配当株の銘柄選定基準を公開｜利回り・セクター・財務で絞り込む3ステップ</title>
+      <link>https://finlab-se.com/posts/highyield-stock-selection-criteria/</link>
+      <pubDate>Sat, 18 Apr 2026 15:30:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/highyield-stock-selection-criteria/</guid>
+      <description>高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。</description>
+    </item>
+    <item>
+      <title>高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか</title>
+      <link>https://finlab-se.com/posts/highyield-investment-strategy/</link>
+      <pubDate>Sat, 18 Apr 2026 07:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/highyield-investment-strategy/</guid>
+      <description>米国株はETF、日本株は個別株で運用する理由。VYM・HDV・SCHDの使い分けと投資戦略の全体像。</description>
+    </item>
+    <item>
+      <title>年収の壁2026年版：「自分はどうすればいい？」を立場別に整理する</title>
+      <link>https://finlab-se.com/posts/income-wall-2026/</link>
+      <pubDate>Fri, 17 Apr 2026 19:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/income-wall-2026/</guid>
+      <description>103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。</description>
+    </item>
+    <item>
+      <title>クレカ改悪2026年まとめ：dカード・三井住友ゴールドNL・楽天・PayPayカードの改定内容と、振り回されないための判断軸</title>
+      <link>https://finlab-se.com/posts/credit-card-reform-2026/</link>
+      <pubDate>Fri, 17 Apr 2026 18:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/credit-card-reform-2026/</guid>
+      <description>dカード・三井住友NL・楽天・PayPayカード改定を整理。「また改悪か」に振り回されない判断軸を解説。</description>
+    </item>
+    <item>
+      <title>決済の「0.1秒」の裏側｜クレジットカードのオンライン決済が完了するまでに起きていること</title>
+      <link>https://finlab-se.com/posts/credit-card-payment-flow/</link>
+      <pubDate>Fri, 17 Apr 2026 10:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/credit-card-payment-flow/</guid>
+      <description>決済の0.1秒に5つの組織が関与。クレカ決済フローを実務担当の金融SEがわかりやすく解説。</description>
+    </item>
+    <item>
+      <title>Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー</title>
+      <link>https://finlab-se.com/posts/asset-management-claude-code/</link>
+      <pubDate>Fri, 17 Apr 2026 08:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/asset-management-claude-code/</guid>
+      <description>MoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。</description>
+    </item>
+    <item>
+      <title>高配当株投資より先にやるべきこと｜支出の最適化で月1万円を作り出す</title>
+      <link>https://finlab-se.com/posts/expense-optimization-before-investing/</link>
+      <pubDate>Thu, 16 Apr 2026 21:00:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/expense-optimization-before-investing/</guid>
+      <description>投資より支出削減が先。月1万円の節約は300万円の投資効果に相当。削減インパクトが大きい項目から整理。</description>
+    </item>
+    <item>
+      <title>配当金生活に必要な資産額を計算する｜インデックス投資取り崩しとの比較シミュレーション</title>
+      <link>https://finlab-se.com/posts/dividend-life-calculation/</link>
+      <pubDate>Thu, 16 Apr 2026 20:52:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/dividend-life-calculation/</guid>
+      <description>年間200万円を配当で賄うのに必要な元本を計算。インデックス&#43;4%ルールとも比較します。</description>
+    </item>
+    <item>
+      <title>新NISAの成長投資枠で高配当株を買う戦略｜インデックス投資との使い分け方</title>
+      <link>https://finlab-se.com/posts/nisa-growth-highyield/</link>
+      <pubDate>Thu, 16 Apr 2026 09:01:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/nisa-growth-highyield/</guid>
+      <description>つみたて投資枠はインデックス、成長投資枠は高配当株・ETF。NISAの使い分け判断軸を数値で解説。</description>
+    </item>
+    <item>
+      <title>なぜ年会費無料のクレカでも1%還元できるのか｜カード会社が損をしない仕組み</title>
+      <link>https://finlab-se.com/posts/credit-card-free-annual-fee-model/</link>
+      <pubDate>Wed, 15 Apr 2026 22:26:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/credit-card-free-annual-fee-model/</guid>
+      <description>年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説。</description>
+    </item>
+    <item>
+      <title>クレカのポイントはなぜもらえる？インターチェンジフィーからわかるカード会社のビジネスモデル</title>
+      <link>https://finlab-se.com/posts/credit-card-interchange-fee/</link>
+      <pubDate>Tue, 14 Apr 2026 22:25:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/credit-card-interchange-fee/</guid>
+      <description>クレカのポイントはなぜもらえるのか。インターチェンジフィーを金融SE視点で図解します。</description>
+    </item>
+    <item>
+      <title>iDeCo 2026年改正で自分はどうなる？企業年金あり・なし別の掛金上限と節税シミュレーション</title>
+      <link>https://finlab-se.com/posts/ideco-2026-reform/</link>
+      <pubDate>Tue, 14 Apr 2026 21:35:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/ideco-2026-reform/</guid>
+      <description>2026年12月に会社員のiDeCo掛金上限が月6.2万円に引き上げ。ただし企業年金の有無で実際の上限は変わる。年収500〜1,000万円別の節税試算、住宅ローン控除との注意点も解説。</description>
+    </item>
+    <item>
+      <title>企業型DC・iDeCoの基本を整理する｜3階建て構造と税メリット・デメリット</title>
+      <link>https://finlab-se.com/posts/ideco-dc-basics/</link>
+      <pubDate>Tue, 14 Apr 2026 21:35:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/ideco-dc-basics/</guid>
+      <description>企業型DB・DC・iDeCoの違いを3階建てで整理。税メリット・受取時リスク・新NISAとの優先順位。</description>
+    </item>
+    <item>
+      <title>Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記</title>
+      <link>https://finlab-se.com/posts/claude-code-blog-experience/</link>
+      <pubDate>Sun, 12 Apr 2026 20:35:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/claude-code-blog-experience/</guid>
+      <description>投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。</description>
+    </item>
+    <item>
+      <title>【ツール紹介】インデックス投資取崩しシミュレーター ～あなたのFIRE計画、何%成功する？～</title>
+      <link>https://finlab-se.com/posts/montecarlo-tool-usage/</link>
+      <pubDate>Sun, 12 Apr 2026 11:36:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/montecarlo-tool-usage/</guid>
+      <description>資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツールの使い方。</description>
+    </item>
+    <item>
+      <title>取崩し戦略の考え方 ～4%ルールの「守りすぎ」問題とモンテカルロシミュレーション～</title>
+      <link>https://finlab-se.com/posts/montecarlo-background/</link>
+      <pubDate>Sun, 12 Apr 2026 11:36:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/montecarlo-background/</guid>
+      <description>4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。</description>
+    </item>
+    <item>
+      <title>このブログについて</title>
+      <link>https://finlab-se.com/about/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://finlab-se.com/about/</guid>
+      <description>やさぐれSE — 金融業界の中の人が書く資産形成ブログ。プロフィール、執筆ポリシー、免責事項。</description>
+    </item>
+    <item>
+      <title>ブログを始めました</title>
+      <link>https://finlab-se.com/posts/hello-world/</link>
+      <pubDate>Sun, 12 Apr 2026 07:07:00 +0900</pubDate>
+      <guid>https://finlab-se.com/posts/hello-world/</guid>
+      <description>金融エンジニアの資産運用実験室へようこそ。ブログ開設のご挨拶です。</description>
+    </item>
+  </channel>
+</rss>
