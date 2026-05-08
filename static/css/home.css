@@ -337,12 +337,12 @@
   .home .post{ grid-template-columns: 110px 1fr; gap: 14px; padding: 12px; }
 }
 .home .thumb{
-  aspect-ratio: 40/21; border-radius: 12px; overflow: hidden;
+  aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
   background: var(--bg-tint);
   position: relative;
   border: 1px solid var(--line);
 }
-.home .thumb img{ width: 100%; height: 100%; object-fit: cover; }
+.home .thumb img{ width: 100%; height: 100%; object-fit: cover; object-position: left center; }
 .home .thumb.no-img{ background: repeating-linear-gradient(45deg, #e6efe9 0 10px, #f1f5f3 10px 20px); }
 .home .post-body{ display:flex; flex-direction: column; min-width: 0; }
 .home .post-meta{ display:flex; align-items:center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
