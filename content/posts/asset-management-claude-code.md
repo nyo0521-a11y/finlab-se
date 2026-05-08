@@ -204,7 +204,8 @@ AIは作業の「下ごしらえ」と「集計・整理」を担当し、最終
 
 Claude Codeをどう活用してきたかは、こちらの記事も参考にしてください。
 
-[Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](/posts/claude-code-blog-experience/)
+- [Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](/posts/claude-code-blog-experience/)
+- [Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化](/posts/claude-code-dividend-calendar/)
 
 ---
 

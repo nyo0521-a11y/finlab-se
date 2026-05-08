@@ -332,3 +332,11 @@ VYM（Vanguard High Dividend Yield ETF）、HDV（iShares Core High Dividend ETF
 5. **暴落に備えて現金を常に確保しておく**。フルインベストだと一番おいしい局面で買えない。「暴落を喜べる精神状態」を保つために現金比率は重要
 
 買い時を見極める力がつくと、同じ銘柄を保有していても **長期のリターンが大きく変わってきます**。難しい数式や指標は不要で、「過去平均と比べてどうか」「下落の理由は何か」を見るだけ。ぜひ実践に取り入れてみてください。
+
+---
+
+## 関連記事
+
+- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか（戦略全体はこちら）](/posts/highyield-investment-strategy/)
+- [高配当株の銘柄選定基準を公開｜利回り・セクター・財務で絞り込む3ステップ](/posts/highyield-stock-selection-criteria/)
+- [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](/posts/highyield-portfolio-management/)

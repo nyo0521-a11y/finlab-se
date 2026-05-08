@@ -247,7 +247,9 @@ SWIFTのISO 20022移行やGPIの普及はこの文脈で評価されるべき改
 
 海外送金の料金差は、商品性の違いではなく**使っているインフラの違い**です。裏側を知っておくと、送金先・金額・急ぎ度に応じてコストを1/10に抑える選択ができるようになります。
 
-### 続編・関連記事
+## このシリーズの関連記事
 
-- 続編：「[Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/)」 — ローカル決済プール方式・ネッティング・FinTech各社の比較
-- 関連：「[全銀ネット解説](/posts/zengin-net-payment-system/)」「[日銀ネットRTGSと海外決済システム](/posts/boj-net-rtgs-international/)」
+決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。
+
+- [← 前：銀行同士のお金はどう動く？日銀ネットRTGSと海外決済システムの仕組み](/posts/boj-net-rtgs-international/)
+- [次：Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み →](/posts/wise-revolut-fintech-remittance/)

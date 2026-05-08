@@ -257,6 +257,14 @@ cover:
 
 ---
 
+## 関連記事
+
+- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか（戦略全体はこちら）](/posts/highyield-investment-strategy/)
+- [高配当株の買い時を見極める：配当利回りで割高・割安を判断する方法](/posts/highyield-buying-timing/)
+- [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](/posts/highyield-portfolio-management/)
+
+---
+
 ## 参考
 
 - [リベラルアーツ大学（YouTube）](https://www.youtube.com/@ryogakucho)

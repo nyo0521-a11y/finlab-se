@@ -217,7 +217,9 @@ Wise・Revolutが海外送金にもたらした構造的変化を整理すると
 
 このシリーズの第3弾では、コルレス網もFinTechのプール方式も使わない、<strong>暗号資産とステーブルコインによる送金</strong>が海外送金の何を変えるのか、何を変えないのかを扱います。USDC・USDTなどのステーブルコインを使った国際送金は、すでに新興国の出稼ぎ送金や法人B2Bでの実利用が広がっており、G20ロードマップ2027の「コスト1%以下・1時間以内着金」をクリアする数少ない選択肢の1つです。
 
-### 関連記事
+## このシリーズの関連記事
 
-- 前編：「[海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説](/posts/overseas-remittance-mechanism/)」
-- 関連：「[全銀ネット解説](/posts/zengin-net-payment-system/)」「[日銀ネットRTGSと海外決済システム](/posts/boj-net-rtgs-international/)」
+決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。
+
+- [← 前：海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説](/posts/overseas-remittance-mechanism/)
+- [次：暗号資産とステーブルコインで海外送金はどう変わるか →](/posts/crypto-stablecoin-remittance/)
