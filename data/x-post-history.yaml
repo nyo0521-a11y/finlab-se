@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-08T21:05:25+09:00'
+    text: "【おすすめ📖】\n決済の0.1秒に5つの組織が関与。クレカ決済フローを実務担当の金融SEがわかりやすく解説。\n\nhttps://finlab-se.com/posts/credit-card-payment-flow/\n\
+      \n#クレジットカード #決済の仕組み #オーソリゼーション"
+    tweet_id: '2052721532275662849'
+    tweet_url: https://x.com/i/web/status/2052721532275662849
+    type: rotation
+    post_path: content/posts/credit-card-payment-flow.md
   - posted_at: '2026-05-08T07:17:54+09:00'
     text: "【新着📝】\nクレカ選びは経済圏が先。楽天・ドコモ・SBI・au別に最適な1枚を比較し、積立還元率の損益分岐点を数字で解説。\n\nhttps://finlab-se.com/posts/credit-card-recommendation-2026/\n\
       \n#クレジットカード #クレカ積立 #NISA"
