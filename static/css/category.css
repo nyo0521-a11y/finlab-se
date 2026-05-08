@@ -180,7 +180,7 @@
   .term .post { grid-template-columns: 110px 1fr; gap: 14px; padding: 12px; }
 }
 .term .thumb {
-  aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
+  aspect-ratio: 40/21; border-radius: 12px; overflow: hidden;
   background: var(--bg-tint);
   border: 1px solid var(--line);
 }
