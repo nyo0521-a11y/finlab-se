@@ -7,7 +7,7 @@ tags: ["iDeCo", "企業型DC", "マッチング拠出", "確定拠出年金", "2
 description: "企業型DC加入者がマッチング拠出とiDeCoのどちらを選ぶべきか、2026年改正後の手数料・上限を踏まえて判断フローで解説します。"
 showToc: true
 cover:
-  image: "/images/thumb-corporate-dc-ideco-flowchart-2026.jpg"
+  image: "/images/thumb-corporate-dc-ideco-flowchart-2026.png"
   alt: "企業型DCとiDeCo併用の判断フローチャート"
   relative: false
   hiddenInList: false
