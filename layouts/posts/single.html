@@ -9,7 +9,7 @@
 {{- define "main" -}}
 
 {{- $primaryCategory := index (.Params.categories | default (slice)) 0 -}}
-{{- $catPage := cond (ne $primaryCategory "") (site.GetPage (printf "categories/%s" $primaryCategory)) nil -}}
+{{- $catTerm := index (.GetTerms "categories") 0 -}}
 {{- $allPosts := where site.RegularPages "Section" "posts" -}}
 
 {{- /* 同カテゴリの関連記事を最大3本（自記事を除外） */ -}}
@@ -53,9 +53,9 @@
       <a href="{{ "/" | relURL }}">Home</a>
       <span class="sep">/</span>
       <a href="{{ "/posts/" | relURL }}">記事一覧</a>
-      {{- if $primaryCategory }}
+      {{- if $catTerm }}
       <span class="sep">/</span>
-      <a href="{{ if $catPage }}{{ $catPage.RelPermalink }}{{ else }}{{ printf "/categories/%s/" (urlize $primaryCategory) | relURL }}{{ end }}">{{ $primaryCategory }}</a>
+      <a href="{{ $catTerm.RelPermalink }}">{{ $catTerm.Name }}</a>
       {{- end }}
       <span class="sep">/</span>
       <span class="current">{{ .Title }}</span>
@@ -65,8 +65,8 @@
   <!-- 記事ヘッダー -->
   <header class="post-hero">
     <div class="wrap post-narrow">
-      {{- if $primaryCategory }}
-      <a class="post-eyebrow" href="{{ if $catPage }}{{ $catPage.RelPermalink }}{{ else }}{{ printf "/categories/%s/" (urlize $primaryCategory) | relURL }}{{ end }}">{{ $primaryCategory }}</a>
+      {{- if $catTerm }}
+      <a class="post-eyebrow" href="{{ $catTerm.RelPermalink }}">{{ $catTerm.Name }}</a>
       {{- end }}
       <h1 class="post-title">{{ .Title }}</h1>
       {{- with .Description }}
