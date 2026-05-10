@@ -4,7 +4,7 @@ date: 2026-04-21T07:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["海外送金", "SWIFT", "コルレス銀行", "金融インフラ", "ISO20022"]
-description: "なぜ海外送金は3,000円以上かかるのか。SWIFT・コルレス銀行の仕組みを金融SEが整理。"
+description: "コルレス銀行・中継銀行手数料・為替スプレッドの3層が3,000円＋数日の正体。SWIFT経由の海外送金を金融SEが解説。"
 showToc: true
 cover:
   image: "/images/thumb-overseas-remittance-mechanism.png"
