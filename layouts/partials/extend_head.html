@@ -6,13 +6,16 @@
 {{- /* Google Search Console: site ownership is verified via DNS TXT record (Cloudflare).
        No HTML tag needed. */ -}}
 
-{{- /* Google Analytics 4 (Property: finlab-se.com / Account: yasagurese@gmail.com) */ -}}
+{{- /* Google Analytics 4 (Property: finlab-se.com / Account: yasagurese@gmail.com)
+       本番ドメイン（finlab-se.com）のみ計測。pages.dev / draft. ブランチは除外。 */ -}}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-68K0QJV9JM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-68K0QJV9JM');
+  if (location.hostname === 'finlab-se.com') {
+    gtag('config', 'G-68K0QJV9JM');
+  }
 </script>
 
 {{- /* Google AdSense: site verification & auto-ad loader (pub-5743260737982404) */ -}}
