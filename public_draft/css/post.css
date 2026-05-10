@@ -1,0 +1,509 @@
+/* =================================================================
+   post.css
+   - /posts/<slug>/ 個別記事ページ用スタイル（<body class="post"> スコープ）
+   - about / home / list と統一感を持たせつつ、長文本文の読みやすさを最優先
+   - 本文ラッパーは .md-content（custom.css の表折り返しCSSと整合）
+   ================================================================= */
+
+.post {
+  --bg:           #ffffff;
+  --bg-soft:      #f7f8f7;
+  --bg-code:      #f4f6f4;
+  --ink:          #1a1f1a;
+  --ink-2:        #3a403a;
+  --ink-3:        #6a706a;
+  --ink-mute:     #b3b8b3;
+  --line:         #e3e5e3;
+  --line-soft:    #ecedec;
+  --accent-700:   #2a7a3a;
+  --accent-600:   #318a45;
+  --accent-50:    #ecf5ee;
+  --maxw:         1080px;
+  --readw:        720px;
+
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.post *  { box-sizing: border-box; }
+.post a  { color: inherit; text-decoration: none; }
+.post img { max-width: 100%; display: block; }
+
+.post .wrap        { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+.post .post-narrow { max-width: var(--readw); margin: 0 auto; }
+
+/* PaperMod 既定 Header / Footer / Main 余白を打ち消す */
+.post > header.header,
+.post > footer.footer,
+.post #site-banner { display: none !important; }
+.post .main { padding: 0; max-width: none; margin: 0; }
+
+/* =====================================================
+   TOP BAR (about / home / list と完全共通の見た目)
+   ===================================================== */
+.post .topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.post .topbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.post .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.post .brand-mark {
+  width: 30px; height: 30px; border-radius: 9px;
+  background: var(--ink);
+  position: relative; overflow: hidden; flex-shrink: 0;
+}
+.post .brand-mark::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, transparent 55%, var(--accent-600) 55%, var(--accent-600) 62%, transparent 62%),
+    linear-gradient(180deg, transparent 68%, var(--accent-600) 68%, var(--accent-600) 72%, transparent 72%);
+}
+.post .brand-name { font-size: 14px; letter-spacing: .02em; white-space: nowrap; }
+.post .brand-sub  { font-size: 11px; color: var(--ink-3); font-weight: 400; margin-top: 1px; }
+.post .nav { display: flex; align-items: center; gap: 22px; font-size: 13.5px; color: var(--ink-2); }
+.post .nav a:hover, .post .nav a.is-current { color: var(--accent-700); }
+.post .nav a.is-current { font-weight: 600; }
+.post .nav .search-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg-soft); white-space: nowrap;
+}
+.post .ic { width: 14px; height: 14px; stroke-width: 2; }
+
+/* =====================================================
+   ARTICLE WRAPPER
+   ===================================================== */
+.post-article { padding: 0 0 24px; }
+
+/* パンくず */
+.post .breadcrumb {
+  font-size: 12px;
+  color: var(--ink-3);
+  padding: 18px 0 6px;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+}
+.post .breadcrumb a:hover { color: var(--accent-700); }
+.post .breadcrumb .sep    { color: var(--ink-mute); }
+.post .breadcrumb .current { color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; }
+
+/* =====================================================
+   POST HERO (タイトル + メタ)
+   ===================================================== */
+.post-hero {
+  padding: 12px 0 28px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 32px;
+  background:
+    radial-gradient(ellipse at top right, rgba(42,122,58,0.05), transparent 60%),
+    var(--bg);
+}
+.post-eyebrow {
+  display: inline-block;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent-700); font-weight: 600;
+  margin-bottom: 10px;
+  padding: 3px 10px;
+  background: var(--accent-50);
+  border-radius: 999px;
+}
+.post-title {
+  font-size: clamp(24px, 3.6vw, 34px);
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin: 4px 0 14px;
+  color: var(--ink);
+}
+.post-lede {
+  color: var(--ink-2);
+  font-size: 15px;
+  line-height: 1.85;
+  margin: 0 0 20px;
+}
+.post-meta {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  font-size: 12.5px; color: var(--ink-3);
+}
+.post-meta-item { display: inline-flex; align-items: center; gap: 6px; }
+.post-meta-label {
+  font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-mute); font-weight: 600;
+}
+
+/* カバー画像 */
+.post-cover {
+  margin: 0 0 36px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-soft);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.post-cover img { width: 100%; height: auto; display: block; border-radius: 14px; }
+
+/* =====================================================
+   POST CONTENT (.md-content)
+   - PaperMod の anchored_headings 出力をそのまま受ける
+   - custom.css の table CSS と衝突しないこと
+   ===================================================== */
+.post .post-content {
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--ink-2);
+  word-wrap: break-word;
+}
+
+/* 見出し */
+.post .post-content h2,
+.post .post-content h3,
+.post .post-content h4,
+.post .post-content h5 {
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  line-height: 1.45;
+}
+.post .post-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 56px 0 16px;
+  padding-left: 14px;
+  position: relative;
+  scroll-margin-top: 80px;
+}
+.post .post-content h2::before {
+  content: "";
+  position: absolute; left: 0; top: 6px;
+  width: 4px; height: 22px;
+  border-radius: 2px;
+  background: var(--accent-700);
+}
+.post .post-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 40px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 80px;
+}
+.post .post-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 28px 0 10px;
+  color: var(--ink);
+}
+/* PaperMod の見出しアンカー（任意の # リンク） */
+.post .post-content .anchor {
+  color: var(--ink-mute);
+  font-weight: 400;
+  text-decoration: none;
+  margin-left: 6px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  font-size: 0.85em;
+}
+.post .post-content h2:hover .anchor,
+.post .post-content h3:hover .anchor,
+.post .post-content h4:hover .anchor { opacity: 0.7; }
+
+/* 段落 */
+.post .post-content p { margin: 0 0 18px; }
+
+/* リンク */
+.post .post-content a {
+  color: var(--accent-700);
+  text-decoration: underline;
+  text-decoration-color: rgba(42,122,58,0.35);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.12s ease, text-decoration-color 0.12s ease;
+}
+.post .post-content a:hover {
+  color: var(--accent-600);
+  text-decoration-color: var(--accent-600);
+}
+
+/* 強調 */
+.post .post-content strong { color: var(--ink); font-weight: 700; }
+.post .post-content em     { font-style: italic; }
+
+/* リスト */
+.post .post-content ul,
+.post .post-content ol {
+  margin: 0 0 18px;
+  padding-left: 1.6em;
+}
+.post .post-content li { margin: 6px 0; }
+.post .post-content li::marker { color: var(--accent-700); }
+
+/* 引用 */
+.post .post-content blockquote {
+  margin: 24px 0;
+  padding: 14px 18px;
+  border-left: 3px solid var(--accent-700);
+  background: var(--bg-soft);
+  border-radius: 0 6px 6px 0;
+  color: var(--ink-2);
+}
+.post .post-content blockquote p { margin: 0 0 8px; }
+.post .post-content blockquote p:last-child { margin-bottom: 0; }
+
+/* インラインコード */
+.post .post-content code:not(pre code) {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--bg-code);
+  border: 1px solid var(--line-soft);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--accent-700);
+  word-break: break-word;
+}
+
+/* コードブロック (PaperMod / Hugo highlight 出力) */
+.post .post-content pre {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin: 20px 0;
+  padding: 16px 18px;
+  background: #0f1410;
+  color: #d8e0d8;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.post .post-content pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+/* highlight wrapper */
+.post .post-content .highlight { margin: 20px 0; }
+.post .post-content .highlight pre { margin: 0; }
+
+/* 画像 */
+.post .post-content img {
+  margin: 24px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.post .post-content figure {
+  margin: 28px 0;
+  text-align: center;
+}
+.post .post-content figure img { margin: 0 auto; }
+.post .post-content figcaption {
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-top: 8px;
+}
+
+/* テーブル — custom.css の折り返し設定を尊重しつつ見た目だけ整える */
+.post .post-content table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.6;
+  background: var(--bg);
+}
+.post .post-content table th,
+.post .post-content table td {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.post .post-content table th {
+  background: var(--bg-soft);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 13px;
+}
+.post .post-content table tr:nth-child(even) td { background: #fbfcfb; }
+
+/* 区切り線 */
+.post .post-content hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 36px 0;
+}
+
+/* 脚注 */
+.post .post-content .footnotes {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+.post .post-content .footnotes ol { padding-left: 1.4em; }
+.post .post-content sup a {
+  text-decoration: none;
+  color: var(--accent-700);
+  font-weight: 600;
+}
+
+/* =====================================================
+   TAGS
+   ===================================================== */
+.post-tags {
+  margin: 40px 0 8px;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--line);
+  display: flex; align-items: flex-start; flex-wrap: wrap; gap: 12px;
+}
+.post-tags-label {
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-mute); font-weight: 600;
+  padding-top: 6px;
+}
+.post-tags ul {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.post-tags li a {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--ink-2);
+  transition: all 0.12s ease;
+}
+.post-tags li a:hover {
+  border-color: var(--accent-700);
+  color: var(--accent-700);
+  background: var(--accent-50);
+}
+
+/* =====================================================
+   AD SLOT
+   ===================================================== */
+.post .ad-wrap { padding: 24px 0 36px; }
+.post .ad-slot {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-soft);
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--ink-mute);
+  font-size: 11px;
+  margin: 0 auto;
+}
+.post .ad-banner { max-width: 728px; height: 90px; }
+
+/* =====================================================
+   関連記事
+   ===================================================== */
+.post-related {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+  padding: 48px 0;
+}
+.post-related-title {
+  font-size: 18px; font-weight: 700;
+  margin: 0 0 20px;
+  padding-left: 14px;
+  position: relative;
+  color: var(--ink);
+}
+.post-related-title::before {
+  content: "";
+  position: absolute; left: 0; top: 4px;
+  width: 4px; height: 18px;
+  border-radius: 2px;
+  background: var(--accent-700);
+}
+.post-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.post-related-card {
+  display: flex; flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.18s ease;
+}
+.post-related-card:hover {
+  border-color: var(--accent-700);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.post-related-thumb {
+  aspect-ratio: 16/9;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+.post-related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.post-related-body { padding: 14px 16px 16px; }
+.post-related-eyebrow {
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent-700); font-weight: 600;
+  margin-bottom: 6px;
+}
+.post-related-name {
+  font-size: 14px; font-weight: 700;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post-related-date { font-size: 11.5px; color: var(--ink-3); }
+
+/* =====================================================
+   FOOTER (about-footer と同じダークバンド)
+   ===================================================== */
+.post-footer-band {
+  background: #0e1410;
+  color: #c8cfc8;
+  padding: 32px 0;
+  margin-top: 0;
+}
+.post-footer-band .foot {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+  font-size: 13px;
+}
+.post-footer-band .foot-brand {
+  display: flex; align-items: center; gap: 10px;
+  color: #fff; font-weight: 600;
+}
+.post-footer-band .foot-links { display: flex; gap: 18px; color: #c8cfc8; }
+.post-footer-band .foot-links a:hover { color: #fff; }
+.post-footer-band .foot-copy { color: #828982; font-size: 12px; }
+
+/* =====================================================
+   モバイル対応
+   ===================================================== */
+@media (max-width: 720px) {
+  .post { font-size: 15.5px; }
+  .post .post-content { font-size: 15.5px; line-height: 1.9; }
+  .post-hero { padding: 8px 0 22px; margin-bottom: 24px; }
+  .post-cover { margin-bottom: 24px; border-radius: 10px; }
+  .post .post-content h2 { font-size: 19px; margin: 40px 0 12px; }
+  .post .post-content h3 { font-size: 16.5px; margin: 28px 0 10px; }
+  .post .post-content pre { font-size: 12.5px; padding: 12px 14px; border-radius: 8px; }
+  .post-related { padding: 36px 0; }
+  .post .topbar-inner { height: 56px; }
+  .post .brand-name { font-size: 13px; }
+  .post .nav { gap: 14px; font-size: 12.5px; }
+  .post .nav .lk { display: none; }
+  .post .nav .search-btn { padding: 5px 10px; }
+}

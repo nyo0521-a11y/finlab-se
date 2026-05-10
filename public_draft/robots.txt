@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://draft.finlab-se.pages.dev/sitemap.xml

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" role="img" aria-label="累進配当の宣言レベル3層">
+  <rect width="800" height="500" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1f2937">累進配当の宣言レベル：3つの段階で読み解く</text>
+  <text x="400" y="58" text-anchor="middle" font-size="13" fill="#6b7280">「連続増配の実績」と「累進配当の公約」は別物。文言の強さで3層に整理</text>
+
+  <defs>
+    <style>
+      .tierLabel { font-size:24px; font-weight:700; }
+      .tierTitle { font-size:16px; font-weight:700; fill:#ffffff; }
+      .tierBody  { font-size:12px; fill:#ffffff; }
+      .tierEx    { font-size:12px; fill:#1f2937; }
+    </style>
+  </defs>
+
+  <!-- Top tier: ◎ 明示宣言 (narrowest) -->
+  <g>
+    <polygon points="280,90 520,90 480,160 320,160" fill="#1d4ed8"/>
+    <text x="400" y="118" text-anchor="middle" class="tierLabel" fill="#ffffff">◎</text>
+    <text x="400" y="146" text-anchor="middle" class="tierTitle">明示宣言</text>
+    <!-- Right caption -->
+    <text x="540" y="115" font-size="13" font-weight="700" fill="#1d4ed8">「累進配当」「減配せず維持・増配」を明記</text>
+    <text x="540" y="135" class="tierEx">・三菱HCキャピタル（8593）</text>
+    <text x="540" y="153" class="tierEx">・リコーリース（8566）</text>
+  </g>
+
+  <!-- Middle tier: ○ 事実上の累進配当 -->
+  <g>
+    <polygon points="220,170 580,170 540,240 260,240" fill="#3b82f6"/>
+    <text x="400" y="198" text-anchor="middle" class="tierLabel" fill="#ffffff">○</text>
+    <text x="400" y="226" text-anchor="middle" class="tierTitle">事実上の累進配当</text>
+    <text x="600" y="195" font-size="13" font-weight="700" fill="#1d4ed8">配当性向・DOE・総還元性向の数値コミット</text>
+    <text x="600" y="215" class="tierEx">・KDDI（9433）</text>
+    <text x="600" y="233" class="tierEx">・ユー・エス・エス（4732）／リンナイ（5947）</text>
+  </g>
+
+  <!-- Bottom tier: △ 実績のみ (widest) -->
+  <g>
+    <polygon points="160,250 640,250 600,320 200,320" fill="#93c5fd"/>
+    <text x="400" y="278" text-anchor="middle" class="tierLabel" fill="#ffffff">△</text>
+    <text x="400" y="306" text-anchor="middle" class="tierTitle" fill="#1e3a8a">実績のみ・宣言なし</text>
+    <text x="660" y="275" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="end">「安定的な配当」など曖昧</text>
+    <text x="660" y="295" class="tierEx" text-anchor="end">・花王（4452）：36期連続増配の実績</text>
+    <text x="660" y="313" class="tierEx" text-anchor="end">・ニトリ（9843）：配当性向約20%</text>
+  </g>
+
+  <!-- Bottom note panel -->
+  <g>
+    <rect x="80" y="360" width="640" height="110" rx="10" fill="#ffffff" stroke="#e5e7eb"/>
+    <text x="100" y="386" font-size="14" font-weight="700" fill="#1f2937">読み解きのポイント</text>
+    <text x="100" y="412" font-size="12" fill="#374151">・◎の銘柄でも、方針はあくまで会社のコミットメント。撤回・変更され得る点に注意</text>
+    <text x="100" y="432" font-size="12" fill="#374151">・○の銘柄は「累進配当」と書かれていなくても、数値下限の強さで実質的に同等のことが多い</text>
+    <text x="100" y="452" font-size="12" fill="#374151">・△の銘柄は連続増配の実績は安心材料だが、業績悪化時の減配リスクは方針上は残る</text>
+  </g>
+</svg>

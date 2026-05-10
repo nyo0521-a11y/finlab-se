@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif" role="img" aria-label="コアタイムとモアタイムの違い">
+  <rect width="820" height="420" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1f2937">モアタイムシステムで「24時間365日」の即時着金が実現</text>
+  <text x="410" y="58" text-anchor="middle" font-size="13" fill="#6b7280">2018年10月稼働。コアタイムの外側でもう1つの全銀システムが動くイメージ</text>
+
+  <!-- Coretime row -->
+  <g>
+    <text x="40" y="118" font-size="14" font-weight="700" fill="#1f2937">コアタイム</text>
+    <text x="40" y="136" font-size="11" fill="#6b7280">1973年〜</text>
+    <!-- Day timeline bar -->
+    <rect x="160" y="100" width="600" height="44" rx="6" fill="#e5e7eb"/>
+    <!-- Active window 8:30-15:30 (out of 0-24, so x from 160+600*8.5/24 to 160+600*15.5/24) -->
+    <rect x="372.5" y="100" width="175" height="44" rx="6" fill="#0f766e"/>
+    <text x="460" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">平日 8:30〜15:30 のみ即時</text>
+    <text x="266" y="128" text-anchor="middle" font-size="12" fill="#6b7280">翌営業日扱い</text>
+    <text x="654" y="128" text-anchor="middle" font-size="12" fill="#6b7280">翌営業日扱い</text>
+    <!-- ticks -->
+    <text x="160" y="160" font-size="10" fill="#6b7280">0時</text>
+    <text x="460" y="160" text-anchor="middle" font-size="10" fill="#6b7280">12時</text>
+    <text x="760" y="160" text-anchor="end" font-size="10" fill="#6b7280">24時</text>
+  </g>
+
+  <!-- Moretime row -->
+  <g>
+    <text x="40" y="228" font-size="14" font-weight="700" fill="#1f2937">モアタイム</text>
+    <text x="40" y="246" font-size="11" fill="#6b7280">2018年10月〜</text>
+    <rect x="160" y="210" width="600" height="44" rx="6" fill="#10b981"/>
+    <text x="460" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">24時間365日 即時着金（夜間・休日OK）</text>
+    <text x="160" y="270" font-size="10" fill="#6b7280">0時</text>
+    <text x="460" y="270" text-anchor="middle" font-size="10" fill="#6b7280">12時</text>
+    <text x="760" y="270" text-anchor="end" font-size="10" fill="#6b7280">24時</text>
+  </g>
+
+  <!-- Caveat box -->
+  <g>
+    <rect x="40" y="300" width="740" height="100" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+    <text x="60" y="328" font-size="14" font-weight="700" fill="#9a3412">ただし「両行ともモアタイム参加」が条件</text>
+    <text x="60" y="354" font-size="12" fill="#1f2937">送り手・受け手のどちらかが未参加だと、夜間・休日の振込は <tspan font-weight="700">翌営業日着金</tspan> になります。</text>
+    <text x="60" y="376" font-size="12" fill="#1f2937">大手銀行・主要地銀・ネット銀行はほぼ全行参加済み。一部の地銀・信金・信組は未参加または時間限定。</text>
+  </g>
+</svg>
