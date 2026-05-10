@@ -1,10 +1,10 @@
 ---
-title: "iDeCoは「節税」ではなく「税の繰り延べ」——NISAと数字で比較すると本当にどちらがお得か"
+title: "iDeCoとNISAはどちらが得か？退職金の有無で答えが変わる理由"
 date: 2026-05-09T20:00:00+09:00
 draft: true
-categories: ["金融ニュース"]
+categories: ["資産形成"]
 tags: ["iDeCo", "NISA", "節税", "税の繰り延べ", "老後資産", "シミュレーション", "退職金"]
-description: "iDeCoを「節税」と思っている方へ。正確には税の繰り延べです。所得税の限界税率10%（年収目安400万円台〜700万円台）・7%成長・30年のシミュレーションで、退職金あり・なし別にNISAとの手取り差を数字で比較します。"
+description: "iDeCoはNISAより手取りで有利か？退職金なしなら約382万円差。退職金ありなら99万円差まで縮む。シミュレーションで確認。"
 showToc: true
 cover:
   image: "/images/thumb-ideco-nisa-tax-comparison.jpg"
