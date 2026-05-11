@@ -148,6 +148,10 @@ iDeCoは積み立てる段階だけでなく、受け取り方によって<stron
 
 ポイントは「公的年金等控除110万円の余裕枠」があるかどうかです。公的年金とiDeCo年金の合計が110万円以下なら雑所得はゼロとなり、<strong>税ゼロ・国保料増加ゼロ</strong>で受け取れます。
 
+<div style="text-align:center;margin:24px 0;">
+<img src="/images/ideco-pension-deduction-margin.png" alt="公的年金等控除110万円の余裕枠 会社員と自営業者の比較" style="max-width:600px;width:100%;height:auto;">
+</div>
+
 - <strong>厚生年金が年160万円ある会社員</strong>：公的年金だけで控除110万円を超えているため、iDeCo年金を受け取ると全額が課税対象への上乗せとなる。年金形式のメリットは得られない
 - <strong>国民年金のみ（自営業者等・年約80万円）</strong>：控除に30万円の余裕がある。iDeCo年金を年30万円以内に抑えれば実質非課税
 
