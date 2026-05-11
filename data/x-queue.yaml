@@ -10,7 +10,5 @@
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
 queue:
-  - post_path: content/posts/corporate-dc-ideco-flowchart-2026.md
-    added_at: '2026-05-11T06:52:30+09:00'
   - post_path: content/posts/ideco-nisa-tax-comparison.md
     added_at: '2026-05-12T06:25:18+09:00'
