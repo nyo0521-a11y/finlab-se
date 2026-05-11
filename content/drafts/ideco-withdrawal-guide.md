@@ -100,6 +100,10 @@ iDeCoは積み立てる段階だけでなく、受け取り方によって<stron
 | iDeCo先 → 退職金後 | 10年以内で控除が調整される |
 | 退職金先 → iDeCo後 | 20年以内で控除が調整される |
 
+<div style="text-align:center;margin:24px 0;">
+<img src="/images/ideco-retirement-allowance-timeline.png" alt="退職金とiDeCoの受取間隔のルール 10年ルールと20年ルールの比較" style="max-width:600px;width:100%;height:auto;">
+</div>
+
 60歳定年で退職金を受け取った後にiDeCoを受け取る「退職金先→iDeCo後」の方向は、20年ルールが適用されます。iDeCoの受取期限（原則75歳まで）との関係で、退職後20年以上（80歳以降）まで待つことは事実上困難であり、多くのケースで重複排除を完全回避できません。
 
 <strong>退職金制度がない企業に勤める場合は、こうした重複排除の問題が生じません。</strong>iDeCoの退職所得控除をそのまま適用でき、残高が控除額の範囲内であれば税負担をゼロにできる可能性があります。
