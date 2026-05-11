@@ -130,8 +130,8 @@ rotation:
 - post_path: content/posts/expense-optimization-before-investing.md
     # title: 高配当株投資より先にやるべきこと｜支出の最適化で月1万円
     # date: 2026-04-16
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-11T21:05:28+09:00'
+  promote_count: 1
   priority: normal
 
 - post_path: content/posts/finance-se-20years-lessons.md
