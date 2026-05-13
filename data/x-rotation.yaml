@@ -144,8 +144,8 @@ rotation:
 - post_path: content/posts/highyield-buying-timing.md
     # title: 高配当株の買い時を見極める
     # date: 2026-04-18
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-13T21:06:18+09:00'
+  promote_count: 1
   priority: normal
 
 - post_path: content/posts/highyield-investment-strategy.md
