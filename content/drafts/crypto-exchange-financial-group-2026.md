@@ -7,7 +7,7 @@ tags: ["暗号資産", "ビットコイン", "取引所", "SBI VCトレード", 
 description: "高配当株や投資信託に加え暗号資産も検討し始めた方向けに、取引所選びの5つの視点（手数料・取引ボリューム・レンディング・親会社資本力・金融グループ所属）をFTX破綻・Coincheck事件の実体験を踏まえて解説します。"
 showToc: true
 cover:
-  image: "/images/thumb-crypto-exchange-financial-group-2026.jpg"
+  image: "/images/thumb-crypto-exchange-financial-group-2026.png"
   alt: "暗号資産取引所の選び方 安全性・手数料・金融グループ傘下で比較2026"
   relative: false
   hiddenInList: false
