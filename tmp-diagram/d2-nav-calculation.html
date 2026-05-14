@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>基準価額計算のタイムライン</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Noto Sans JP', 'Yu Gothic UI', sans-serif; background: #fff; }
+  .wrap {
+    width: 1200px; height: 630px;
+    padding: 36px 48px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    position: relative;
+  }
+  h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: 0.02em;
+  }
+  .sub {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .timeline {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 18px 0 0;
+  }
+
+  .step {
+    flex: 1;
+    background: #fff;
+    border-radius: 14px;
+    border-top: 5px solid;
+    padding: 14px 16px 18px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    min-height: 280px;
+  }
+  .step .num {
+    position: absolute;
+    top: -20px;
+    left: 16px;
+    width: 36px; height: 36px;
+    background: #fff;
+    border: 3px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 16px;
+  }
+  .step .time {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 700;
+    margin-bottom: 4px;
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+  .step h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.4;
+  }
+  .step ul {
+    margin: 0;
+    padding-left: 16px;
+    color: #334155;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .step ul li { margin-bottom: 3px; }
+
+  .step.s1 { border-color: #6366f1; }
+  .step.s1 .num { border-color: #6366f1; color: #4338ca; }
+  .step.s2 { border-color: #06b6d4; }
+  .step.s2 .num { border-color: #06b6d4; color: #0891b2; }
+  .step.s3 { border-color: #10b981; }
+  .step.s3 .num { border-color: #10b981; color: #047857; }
+  .step.s4 { border-color: #f59e0b; }
+  .step.s4 .num { border-color: #f59e0b; color: #b45309; }
+
+  .arrow {
+    align-self: center;
+    color: #cbd5e1;
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .key {
+    margin-top: 28px;
+    background: #fef3c7;
+    border-left: 5px solid #f59e0b;
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    color: #78350f;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+  .key strong { color: #b45309; }
+
+  .footer {
+    position: absolute;
+    bottom: 18px;
+    left: 48px;
+    color: #94a3b8;
+    font-size: 11px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>基準価額計算のタイムライン──1日1回更新の裏側</h1>
+  <div class="sub">投資家がいつ買っても、その日の基準価額は15時以降にしか決まらない（ブラインド方式）</div>
+
+  <div class="timeline">
+    <div class="step s1">
+      <div class="num">1</div>
+      <div class="time">前日 夜〜深夜</div>
+      <h3>海外市場の終値が確定</h3>
+      <ul>
+        <li>米国市場（NYSE / NASDAQ）の終値</li>
+        <li>欧州市場の終値</li>
+        <li>これらが「組入銘柄の最新時価」</li>
+      </ul>
+    </div>
+
+    <div class="arrow">▶</div>
+
+    <div class="step s2">
+      <div class="num">2</div>
+      <div class="time">当日 早朝〜午前</div>
+      <h3>時価評価＋為替換算</h3>
+      <ul>
+        <li>受託銀行が組入銘柄を時価評価</li>
+        <li>対顧客電信仲値（TTM）で円換算</li>
+        <li>すべての資産を円ベースで集計</li>
+      </ul>
+    </div>
+
+    <div class="arrow">▶</div>
+
+    <div class="step s3">
+      <div class="num">3</div>
+      <div class="time">当日 午前〜午後</div>
+      <h3>コスト控除・純資産算出</h3>
+      <ul>
+        <li>信託報酬 日割り分を控除</li>
+        <li>隠れコスト発生分を控除</li>
+        <li>純資産総額 ＝ 資産 − 負債</li>
+      </ul>
+    </div>
+
+    <div class="arrow">▶</div>
+
+    <div class="step s4">
+      <div class="num">4</div>
+      <div class="time">当日 15時以降</div>
+      <h3>基準価額を公表</h3>
+      <ul>
+        <li>純資産総額 ÷ 受益権口数</li>
+        <li>運用会社が公表</li>
+        <li>投資家はここで初めて約定価額を知る</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="key">
+    つまり基準価額には<strong>毎日少しずつコストが反映されている</strong>。信託報酬は年率0.05775%でも、日々の控除として基準価額の伸びが「実質コスト分だけ抑えられる」構造です。
+  </div>
+
+  <div class="footer">※ 一般的な国内インデックスファンドの計算フロー。実際の計算スケジュールは各運用会社・ファンドにより異なる場合があります。</div>
+</div>
+</body>
+</html>

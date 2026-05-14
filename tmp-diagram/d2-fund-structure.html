@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ベビーファンド／マザーファンド構造図</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Noto Sans JP', 'Yu Gothic UI', sans-serif; background: #fff; }
+  .wrap {
+    width: 1200px; height: 630px;
+    padding: 36px 48px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    position: relative;
+  }
+  h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: 0.02em;
+  }
+  .sub {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .box {
+    border-radius: 12px;
+    padding: 14px 16px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 2px solid;
+    background: #fff;
+  }
+  .box .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .box .name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+  }
+  .box .note {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 4px;
+  }
+
+  .investor {
+    border-color: #94a3b8;
+    background: #f1f5f9;
+    width: 140px;
+  }
+  .investor .label { color: #64748b; }
+
+  .baby {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    width: 180px;
+  }
+  .baby .label { color: #2563eb; }
+
+  .mother {
+    border-color: #16a34a;
+    background: #f0fdf4;
+    width: 200px;
+  }
+  .mother .label { color: #15803d; }
+
+  .market {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    width: 200px;
+  }
+  .market .label { color: #b45309; }
+
+  .arrow-down {
+    width: 2px;
+    height: 18px;
+    background: #94a3b8;
+    margin: 0 auto;
+    position: relative;
+  }
+  .arrow-down::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: -5px;
+    border: 6px solid transparent;
+    border-top-color: #94a3b8;
+  }
+
+  .arrow-tag {
+    background: #fff;
+    color: #475569;
+    font-size: 10px;
+    padding: 1px 8px;
+    border-radius: 3px;
+    border: 1px solid #cbd5e1;
+    position: absolute;
+    transform: translateX(8px);
+    white-space: nowrap;
+  }
+
+  .arrow-wrap {
+    position: relative;
+    height: 18px;
+  }
+
+  .merit {
+    position: absolute;
+    right: 48px;
+    top: 220px;
+    width: 340px;
+    background: #fff;
+    border: 2px solid #16a34a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.12);
+  }
+  .merit-title {
+    color: #15803d;
+    font-weight: 900;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .merit ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #334155;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .merit li { margin-bottom: 3px; }
+
+  .footer {
+    position: absolute;
+    bottom: 18px;
+    left: 48px;
+    color: #94a3b8;
+    font-size: 11px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ベビーファンド／マザーファンド構造図（eMAXIS Slim 例）</h1>
+  <div class="sub">複数のベビーファンドが同じマザーファンドを共有することで、規模の経済とコスト削減が効く</div>
+
+  <div class="stage" style="margin-left: -100px; width: 720px;">
+    <div class="row">
+      <div class="box investor">
+        <div class="label">投資家</div>
+        <div class="name">あなた</div>
+      </div>
+    </div>
+
+    <div class="arrow-wrap" style="position: relative;">
+      <div class="arrow-down"></div>
+      <div class="arrow-tag" style="left: 50%;">購入</div>
+    </div>
+
+    <div class="row">
+      <div class="box baby">
+        <div class="label">ベビーファンド</div>
+        <div class="name">eMAXIS Slim<br>全世界株式</div>
+      </div>
+      <div class="box baby">
+        <div class="label">ベビーファンド</div>
+        <div class="name">eMAXIS Slim<br>米国株式（S&amp;P500）</div>
+      </div>
+      <div class="box baby">
+        <div class="label">ベビーファンド</div>
+        <div class="name">eMAXIS Slim<br>先進国株式</div>
+      </div>
+    </div>
+
+    <div class="arrow-wrap">
+      <div class="arrow-down"></div>
+      <div class="arrow-tag" style="left: 50%;">信託受益権の購入</div>
+    </div>
+
+    <div class="row">
+      <div class="box mother">
+        <div class="label">マザーファンド</div>
+        <div class="name">外国株式<br>インデックスマザーファンド</div>
+        <div class="note">先進国株 約1,300銘柄</div>
+      </div>
+      <div class="box mother" style="background: #fff7ed; border-color: #ea580c;">
+        <div class="label" style="color:#c2410c;">マザーファンド</div>
+        <div class="name">S&amp;P500<br>インデックスマザーファンド</div>
+        <div class="note">米国大型 500銘柄</div>
+      </div>
+    </div>
+
+    <div class="arrow-wrap">
+      <div class="arrow-down"></div>
+      <div class="arrow-tag" style="left: 50%;">売買</div>
+    </div>
+
+    <div class="row">
+      <div class="box market" style="width: 460px;">
+        <div class="label">投資対象</div>
+        <div class="name">世界の株式市場</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="merit">
+    <div class="merit-title">マザーファンド共有のメリット</div>
+    <ul>
+      <li>売買委託手数料が薄まる（規模の経済）</li>
+      <li>システム運用コストが按分される</li>
+      <li>指数構成変更の売買が1回完結</li>
+      <li>純資産が大きいほど隠れコストが下がる</li>
+    </ul>
+  </div>
+
+  <div class="footer">※ eMAXIS Slim 全世界株式（オール・カントリー）は外国株式・新興国株式・国内株式の3つのマザーファンドを組み合わせる構造。米国株式（S&amp;P500）は別マザーファンド。</div>
+</div>
+</body>
+</html>

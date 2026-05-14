@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>1万口当たりの費用明細 構造図</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Noto Sans JP', 'Yu Gothic UI', sans-serif; background: #fff; }
+  .wrap {
+    width: 1200px; height: 630px;
+    padding: 36px 48px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    position: relative;
+  }
+  h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: 0.02em;
+  }
+  .sub {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .report-card {
+    border: 2px solid #0f172a;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    width: 680px;
+    margin-left: 0;
+  }
+  .report-card .head {
+    background: #0f172a;
+    color: #fff;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 9px 16px; text-align: left; }
+  thead th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 700;
+    border-bottom: 2px solid #cbd5e1;
+    font-size: 12px;
+  }
+  thead th:nth-child(2), thead th:nth-child(3) { text-align: right; }
+  tbody tr { border-top: 1px solid #e2e8f0; }
+  tbody td:nth-child(2), tbody td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.sub td { color: #64748b; padding-left: 28px; font-size: 13px; }
+  tr.total td {
+    border-top: 2px solid #0f172a;
+    font-weight: 900;
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .badge-a { background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-right: 6px; }
+  .badge-bcd { background: #fce7f3; color: #9f1239; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-right: 6px; }
+
+  .legend {
+    position: absolute;
+    top: 110px;
+    right: 48px;
+    width: 380px;
+  }
+  .legend-item {
+    background: #fff;
+    border-left: 4px solid;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-radius: 0 6px 6px 0;
+  }
+  .legend-item.blue { border-color: #3b82f6; }
+  .legend-item.pink { border-color: #ec4899; }
+  .legend-item.amber { border-color: #f59e0b; background: #fffbeb; }
+  .legend-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+  .legend-desc {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.5;
+  }
+
+  .arrow {
+    position: absolute;
+    left: 700px;
+    width: 90px;
+    height: 1px;
+    background: #94a3b8;
+  }
+  .arrow::after {
+    content: '';
+    position: absolute; right: 0; top: -4px;
+    border: 5px solid transparent;
+    border-left-color: #94a3b8;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 18px;
+    left: 48px;
+    color: #94a3b8;
+    font-size: 11px;
+  }
+  .arrow-1 { top: 240px; }
+  .arrow-2 { top: 295px; }
+  .arrow-3 { top: 370px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>運用報告書「1万口当たりの費用明細」セクションの構造</h1>
+  <div class="sub">交付運用報告書を開いたら、まずこの1ページを見れば実質コストが分かる</div>
+
+  <div class="report-card">
+    <div class="head">1万口当たりの費用明細（当期）</div>
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>金額（円）</th>
+          <th>比率（%）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="badge-a">(a)</span>信託報酬</td><td>XX</td><td>0.XX</td></tr>
+        <tr class="sub"><td>・運用会社分</td><td>XX</td><td>0.XX</td></tr>
+        <tr class="sub"><td>・販売会社分</td><td>XX</td><td>0.XX</td></tr>
+        <tr class="sub"><td>・受託銀行分</td><td>XX</td><td>0.XX</td></tr>
+        <tr><td><span class="badge-bcd">(b)</span>売買委託手数料</td><td>XX</td><td>0.XX</td></tr>
+        <tr><td><span class="badge-bcd">(c)</span>有価証券取引税</td><td>XX</td><td>0.XX</td></tr>
+        <tr><td><span class="badge-bcd">(d)</span>保管費用等</td><td>XX</td><td>0.XX</td></tr>
+        <tr class="total"><td>合計 ＝ 実質コスト</td><td>XX</td><td>0.XX</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="arrow arrow-1"></div>
+  <div class="arrow arrow-2"></div>
+  <div class="arrow arrow-3"></div>
+
+  <div class="legend">
+    <div class="legend-item blue">
+      <div class="legend-title">(a) 信託報酬</div>
+      <div class="legend-desc">目論見書の表示値とほぼ一致する「見えるコスト」</div>
+    </div>
+    <div class="legend-item pink">
+      <div class="legend-title">(b)〜(d) 隠れコスト</div>
+      <div class="legend-desc">運用の結果として発生する事後コスト。<br>事前には確定できない</div>
+    </div>
+    <div class="legend-item amber">
+      <div class="legend-title">合計欄 ＝ 実質コスト</div>
+      <div class="legend-desc">これが投資家が実際に支払っている本当のコスト</div>
+    </div>
+  </div>
+
+  <div class="footer">※ 実物のスクリーンショットではなく、構造を再現した自作図解です。最新値は各運用会社の公式運用報告書PDFをご確認ください。</div>
+</div>
+</body>
+</html>
