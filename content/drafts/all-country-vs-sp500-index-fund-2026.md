@@ -328,3 +328,8 @@ S&P500を選ぶのが間違いというわけではありません。<strong>「
 - [新NISAの成長投資枠で高配当株を買う戦略｜インデックス投資との使い分け方](https://finlab-se.com/posts/nisa-growth-highyield/)
 - [ボーナス投資の使いどころ｜4ステップで判断する配分の決め方](https://finlab-se.com/posts/bonus-investment-checkup-4steps/)
 - [投資を始める前にやるべき支出最適化｜固定費の見直しが投資効率を上げる](https://finlab-se.com/posts/expense-optimization-before-investing/)
+
+## 参考
+
+- [リベラルアーツ大学（リベ大）](https://liberaluni.com/) — お金にまつわる5つの力（貯める・稼ぐ・増やす・守る・使う）を学べる無料サービス
+- [リベシティ](https://libecity.com/) — リベ大が運営するお金の悩み相談コミュニティ
