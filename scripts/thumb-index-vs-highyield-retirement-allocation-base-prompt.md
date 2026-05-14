@@ -1,41 +1,144 @@
-# サムネイルベース画像生成プロンプト
+# サムネイル生成プロンプト（2段階・日本語版）
 # 記事: 高配当株でインデックス投資は不要なのか？老後資金から逆算した結論
-# ファイル名: thumb-index-vs-highyield-retirement-allocation-base.png
-# サイズ: 1376×768px（テキストなし）
+# ファイル名:
+#   ベース: thumb-index-vs-highyield-retirement-allocation-base.png
+#   完成:   thumb-index-vs-highyield-retirement-allocation.png
+# サイズ: 1376×768px
+
+> **重要**：前回の暗号資産イラスト等の文脈が混ざらないように、**新しいChatGPT会話**で生成してください。
 
 ---
 
-## ChatGPT に渡すプロンプト
+## ステップ1：ベース画像生成プロンプト（ChatGPTに貼り付け・日本語）
 
 ```
-Create a wide cinematic thumbnail image (1376x768px) for a Japanese personal finance blog article comparing index fund investing and high-dividend stock investing for retirement planning.
+日本語の個人投資ブログ用のサムネイル画像（1376×768px・16:9・横長）を作成してください。
 
-Visual concept:
-- A symbolic split-design composition: two contrasting investment approaches side by side
-- Left side (about 35% width): a glowing upward-curving line chart representing index fund compound growth, with a stack of growing transparent layers suggesting an asset snowball effect
-- Right side (about 35% width): warm golden coins arranged in a flowing cascade pattern, suggesting dividend cash flow, with subtle ripple effects
-- A thin vertical light beam in the center connecting both sides, symbolizing the choice between two strategies
-- Dark navy-to-black gradient background (#050C23 to #0A1A4A) with soft glow effects
-- Faint horizontal grid lines in deep blue suggesting financial data visualization
-- Subtle floating particles (small green and gold dots) drifting between the two sides
-- A faint silhouette of a person standing in the bottom-center, looking up at both options (small, contemplative)
-- The left 40% of the image should be relatively darker and less detailed to leave space for text overlay
+【重要：これは老後資金のための「インデックス投資」と「高配当株投資」を比較する記事のサムネイルです。仮想通貨や補填比較とは無関係です。白背景のインフォグラフィックではなく、シネマティックなダークCG調の画像を作成してください。】
 
-Style:
-- Photorealistic CG / digital art
-- Dark, premium, financial aesthetic
-- Similar mood to a Bloomberg or Nikkei financial visual
-- Use green accent (#4ADE80) for the index chart side, and gold accent (#F59E0B) for the dividend coins side
-- No text, no labels, no logos
-- Aspect ratio 16:9 landscape
+【画像全体の雰囲気】
+- ダークネイビーから漆黒のグラデーション背景（#050C23 → #0A1A4A）
+- 高級感のある金融テックの世界観（BloombergやNikkeiの金融ビジュアルに近い）
+- 全体に薄い回路パターン／グリッドラインを敷く（深い青色で控えめに）
+- 写真のようなリアル3D CG調
+- テキスト・ロゴ・ラベルは一切入れないこと
+- 後でテキストを左側に重ねるので、画面左45%は暗く保ち、目立つオブジェクトを置かないこと
+
+【ビジュアル構成】
+画面右55%のエリアに、以下を左右に並べて配置：
+
+▼ 右55%エリアの左半分：インデックス投資の象徴
+- 上昇する緑色の発光ライン（複利成長カーブ）
+- カーブの下に半透明の積み重なるレイヤー（雪だるま式に資産が成長していくイメージ）
+- 色：エメラルドグリーン #4ADE80 を主役にして、ソフトなグロー効果
+
+▼ 右55%エリアの右半分：高配当株投資の象徴
+- 流れるように積み重なる金色のコイン群（配当キャッシュフローのイメージ）
+- 一部のコインに「¥」記号
+- 色：アンバーゴールド #F59E0B を主役にして、暖かい光沢
+
+▼ 中央：上下に走る細い光のビーム（白〜シアン）で両者を分ける
+▼ 全体に小さな粒子（緑・金）を漂わせる
+▼ 両オブジェクトの背景に放射状のソフトグロー
+
+【画面左45%エリア】
+- 暗いまま保ち、薄いグリッドラインだけが見える程度
+- 目立つオブジェクトを置かない（後でテキストを重ねるため）
+
+【カラーパレット】
+- 背景：#050C23 → #0A1A4A
+- インデックス側：#4ADE80（エメラルドグリーン）
+- 高配当株側：#F59E0B（アンバーゴールド）
+- 粒子：緑と金の混色
+- グリッドライン：深い青、非常に薄く
+
+【サイズと形式】
+- 1376×768px のPNG
+- アスペクト比 16:9 横長
+- テキスト・ロゴは絶対に入れないこと
+
+【絶対にやらないでほしいこと】
+- 白背景のインフォグラフィックにしない
+- 4分割やテーブル形式のレイアウトにしない
+- Bitcoin・仮想通貨のシンボルを入れない
+- ✓や✗のチェックマークを入れない
+- 時計・地球儀・建物などの比較イラストにしない
+```
+
+---
+
+## ステップ2：タイトル合成プロンプト（ChatGPTに貼り付け・日本語）
+
+ステップ1で生成したベース画像をChatGPTにアップロードした上で、以下のプロンプトを渡します。
+
+```
+このベース画像（1376×768）の左側エリアに、以下の日本語テキストを合成してください。
+
+【フォント】
+日本語のゴシック体（游ゴシック / Yu Gothic UI / Noto Sans JP 相当）の太字を基本とする。
+
+【レイアウト】
+
+①カテゴリバッジ
+- テキスト：「資産形成」
+- 位置：画像上部から192px下、左から56px
+- 角丸の枠線（border-radius 16px）、枠線色 #4ADE80（緑）、太さ 2px
+- 文字色 #4ADE80（緑）、文字サイズ 16px、太字
+- パディング：上下6px / 左右18px
+- 背景は透明
+
+②メインタイトル（バッジの直下、左から56px）
+- 1行目：「インデックス投資は」
+- 2行目：「本当に不要なのか？」
+- 文字色 #FFFFFF（白）、文字サイズ 48px、太字
+- 行間 1.18
+- バッジから20pxのマージン
+
+③サブタイトル（メインタイトルの下、左から56px）
+- 1行目：「高配当株のみで老後資金を賄えるか」
+- 2行目：「必要な積立額を逆算した結論」
+- 文字色 #FFFFFF（白・少し透明度を下げて opacity 0.78 程度）
+- 文字サイズ 19px、レギュラー
+- 左に幅4pxの緑（#4ADE80）の縦ボーダーを配置（テキストとの間に12pxのスペース）
+- メインタイトル2行目から20pxのマージン
+
+【重要な注意点】
+- すべてのテキストは画像の左側（左45%エリア）に収めること
+- 右側のメインビジュアル（緑のグラフ・金色のコイン）には絶対に重ねないこと
+- 日本語をすべて日本語のまま正確にレンダリングすること（英語に変換しないこと）
+- 文字の境界はくっきりと
+- 元のベース画像の右側ビジュアルや背景は一切変更しないこと
+
+【出力】
+1376×768pxのPNG画像でお願いします。
 ```
 
 ---
 
 ## 保存先
-`static/images/thumb-index-vs-highyield-retirement-allocation-base.png`
 
-## 注意
-- テキストは一切入れない（後でPowerShellスクリプトで合成する）
-- 左側にテキスト配置スペースを確保すること（左40%はやや暗め）
-- 生成後は1376×768にリサイズして保存
+- ベース画像: `static/images/thumb-index-vs-highyield-retirement-allocation-base.png`
+- 完成画像: `static/images/thumb-index-vs-highyield-retirement-allocation.png`
+
+## 参考にする既存サムネイル
+
+ChatGPTにスタイルを伝えるために、以下のサムネイル画像を「このようなテイストで」と添付することも有効：
+
+- `static/images/thumb-crypto-exchange-financial-group-2026.png`
+- `static/images/thumb-corporate-dc-ideco-flowchart-2026.png`
+- `static/images/thumb-expense-optimization-nisa-investment.jpg`
+
+## 進め方
+
+1. **新しいChatGPT会話**を開始（過去の文脈を引きずらないため）
+2. 上記の既存サムネイル1〜2枚を添付し、「このテイストで作って」と伝える
+3. ステップ1のプロンプトをコピペして渡す
+4. 生成されたベース画像をDownloadsに保存
+5. **同じ会話で続けて**ベース画像をアップロードし、ステップ2のプロンプトを渡してタイトル合成
+6. 完成画像をDownloadsに保存
+7. メインClaudeに「サムネイル画像を保存した」と伝える
+
+## トラブルシュート
+
+- 1回でうまくいかない場合：「ダークネイビー背景の3D CG調にして」「白背景のインフォグラフィックは避けて」と具体的に追加指示
+- テキスト位置がずれる場合：「左半分にテキストを収めて」「右側のグラフ・コインには重ねないで」と再指示
