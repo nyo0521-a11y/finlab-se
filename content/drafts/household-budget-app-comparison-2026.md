@@ -1,14 +1,14 @@
 ---
-title: "家計簿アプリ徹底比較2026｜マネフォ・Zaim・OsidOriを金融SEが連携・セキュリティで評価"
+title: "家計簿アプリ徹底比較2026｜マネーフォワード・Zaim・OsidOriを金融SEが評価"
 date: 2026-05-15T09:00:00+09:00
 draft: true
 categories: ["AI活用"]
 tags: ["家計簿アプリ", "マネーフォワード", "Zaim", "OsidOri", "支出管理"]
-description: "マネーフォワードME・Zaim・OsidOriの3大家計簿アプリを、金融SE視点で連携技術（オープンバンキングAPI）・セキュリティ・有料プランの費用対効果まで比較。3つの判断基準で自分に合う1本の選び方を提示。"
+description: "マネーフォワードME・Zaim・OsidOriの3大家計簿アプリを金融SEが徹底比較。連携技術（オープンバンキングAPI）・セキュリティ・有料プラン費用対効果まで踏み込み、3つの判断基準で自分に合う1本を10分で選べる構成。マネフォ無料4件制限への対応も解説します。"
 showToc: true
 cover:
   image: "/images/thumb-household-budget-app-comparison-2026.png"
-  alt: "家計簿アプリ徹底比較2026｜マネフォ・Zaim・OsidOriを金融SEが連携・セキュリティで評価"
+  alt: "家計簿アプリ徹底比較2026｜マネーフォワード・Zaim・OsidOriを金融SEが評価"
   relative: false
   hiddenInList: false
 ---
