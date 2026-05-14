@@ -2,6 +2,7 @@
 title: "ブログを始めました"
 date: 2026-04-12T07:07:00+09:00
 draft: false
+robotsNoIndex: true
 categories: ["お知らせ"]
 tags: ["自己紹介"]
 description: "金融エンジニアの資産運用実験室へようこそ。ブログ開設のご挨拶です。"
