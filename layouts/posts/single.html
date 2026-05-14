@@ -116,6 +116,11 @@
   </div>
   {{- end }}
 
+  <!-- 著者E-E-A-Tボックス（AdSense対策） -->
+  <div class="wrap post-narrow">
+    {{- partial "author_box.html" . }}
+  </div>
+
   <!-- タグ -->
   {{- $tags := .Language.Params.Taxonomies.tag | default "tags" -}}
   {{- $termList := $.GetTerms $tags -}}
