@@ -9,4 +9,8 @@
 #     - post_path: content/posts/xxx.md      # 対象記事
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
-queue: []
+queue:
+  - post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
+    added_at: '2026-05-16T06:05:58+09:00'
+  - post_path: content/posts/mutual-fund-real-cost-2026.md
+    added_at: '2026-05-16T06:05:58+09:00'
