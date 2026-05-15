@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-15T21:06:26+09:00'
+    text: "【おすすめ📖】\n高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。\n\nhttps://finlab-se.com/posts/highyield-portfolio-management/\n\
+      \n#高配当株 #ポートフォリオ管理 #設計原則"
+    tweet_id: '2055258500276621655'
+    tweet_url: https://x.com/i/web/status/2055258500276621655
+    type: rotation
+    post_path: content/posts/highyield-portfolio-management.md
   - posted_at: '2026-05-15T07:17:42+09:00'
     text: "【新着📝】\n高配当株や投資信託に加え暗号資産も検討し始めた方向けに、取引所選びの5つの視点（手数料・取引ボリューム・レンディング・親会社資本力・金融グループ所属）をFTX破綻・Coincheck事件の実体験を踏まえて解説します。\n\
       \nhttps://finlab-se.com/posts/crypto-exchange-financial-group-2026/"
