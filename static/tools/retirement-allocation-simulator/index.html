@@ -884,7 +884,6 @@
         idxWithdraw: hdAllIdxWith, idxAsset: hdAllIdxAsset,
         totalIncome: hdAllTotal, ok: true
       };
-      chartGrid.style.gridTemplateColumns = '1fr';
       chartBWrap.style.display = 'none';
       chartATitle.textContent = '高配当株100% シナリオ';
       chartHint.textContent = '今後の投資をすべて高配当株に回したシナリオ（既存インデックス資産は新規投資なしで複利成長）';
@@ -898,7 +897,6 @@
     singleWrap.style.display     = 'none';
     allocationCard.style.display = 'block';
     resultGrid.style.display     = 'grid';
-    chartGrid.style.gridTemplateColumns = '';
     chartBWrap.style.display = '';
     chartATitle.textContent = 'パターンA（インデックス軸）';
     chartHint.textContent = 'パターンA（インデックス軸）／パターンB（高配当株軸）の資産推移を並列表示';
@@ -993,17 +991,23 @@
   // ===================================================
   function buildDatasets(pattern, colorHd, colorIdx, colorTotal) {
     if (!pattern) return [
-      { label:'高配当 資産', data:[], borderColor:colorHd,  backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.3 },
-      { label:'INDEX 資産', data:[], borderColor:colorIdx, backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.3 },
-      { label:'合計',       data:[], borderColor:colorTotal, backgroundColor:'transparent', borderWidth:2, pointRadius:0, borderDash:[5,5], tension:0.3 }
+      { label:'高配当 資産', data:[], borderColor:colorHd,    backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.3, yAxisID:'yAsset' },
+      { label:'INDEX 資産', data:[], borderColor:colorIdx,   backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.3, yAxisID:'yAsset' },
+      { label:'合計 資産',   data:[], borderColor:colorTotal, backgroundColor:'transparent', borderWidth:2, pointRadius:0, borderDash:[5,5], tension:0.3, yAxisID:'yAsset' },
+      { label:'高配当 配当',     data:[], borderColor:'#16a34a', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, tension:0.3, yAxisID:'yIncome' },
+      { label:'INDEX 取崩想定', data:[], borderColor:'#7c3aed', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, borderDash:[3,3], tension:0.3, yAxisID:'yIncome' }
     ];
     const hd    = pattern.hdRows.map(r  => +r.hdAsset.toFixed(1));
     const idx   = pattern.idxRows.map(r => +r.idxAsset.toFixed(1));
     const total = pattern.hdRows.map((r, i) => +(r.hdAsset + pattern.idxRows[i].idxAsset).toFixed(1));
+    const hdDiv     = pattern.hdRows.map(r  => +r.hdDiv.toFixed(1));
+    const idxWith   = pattern.idxRows.map(r => +r.idxWithdraw.toFixed(1));
     return [
-      { label:'高配当 資産', data:hd,    borderColor:colorHd,    backgroundColor:'rgba(234,179,8,.06)',  borderWidth:2,   pointRadius:0, tension:0.3 },
-      { label:'INDEX 資産', data:idx,   borderColor:colorIdx,   backgroundColor:'rgba(59,130,246,.06)', borderWidth:2,   pointRadius:0, tension:0.3 },
-      { label:'合計',       data:total, borderColor:colorTotal, backgroundColor:'transparent',          borderWidth:2.5, pointRadius:0, borderDash:[5,5], tension:0.3 }
+      { label:'高配当 資産', data:hd,    borderColor:colorHd,    backgroundColor:'rgba(234,179,8,.06)',  borderWidth:2,   pointRadius:0, tension:0.3, yAxisID:'yAsset' },
+      { label:'INDEX 資産', data:idx,   borderColor:colorIdx,   backgroundColor:'rgba(59,130,246,.06)', borderWidth:2,   pointRadius:0, tension:0.3, yAxisID:'yAsset' },
+      { label:'合計 資産',   data:total, borderColor:colorTotal, backgroundColor:'transparent',          borderWidth:2.5, pointRadius:0, borderDash:[5,5], tension:0.3, yAxisID:'yAsset' },
+      { label:'高配当 配当',     data:hdDiv,   borderColor:'#16a34a', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, tension:0.3, yAxisID:'yIncome' },
+      { label:'INDEX 取崩想定', data:idxWith, borderColor:'#7c3aed', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, borderDash:[3,3], tension:0.3, yAxisID:'yIncome' }
     ];
   }
 
@@ -1018,7 +1022,8 @@
       },
       scales: {
         x: { ticks: { font: { size:10 }, maxTicksLimit:10 }, grid: { color:'rgba(29,36,48,.05)' } },
-        y: { type:'linear', position:'left', title:{ display:true, text:'資産額（万円）', font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ color:'rgba(29,36,48,.05)' } }
+        yAsset: { type:'linear', position:'left',  title:{ display:true, text:'資産額（万円）',     font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ color:'rgba(29,36,48,.05)' } },
+        yIncome:{ type:'linear', position:'right', title:{ display:true, text:'配当・取崩想定（万円）', font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ display:false } }
       }
     };
   }
