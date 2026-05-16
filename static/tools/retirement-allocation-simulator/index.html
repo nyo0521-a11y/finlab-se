@@ -280,6 +280,17 @@
   tbody tr.last-row td{background:#fef9c3;font-weight:700;color:var(--ink)}
   tbody td.hit{background:#d1fae5;color:#15803d;font-weight:700}
   tbody tr.last-row td.hit{background:#bbf7d0;color:#14532d}
+  tbody td .sub{
+    display:block;font-size:10px;color:#9ca3af;font-weight:400;
+    margin-top:1px;line-height:1.2;
+  }
+  tbody td.hit .sub{color:#16a34a}
+  tbody tr.last-row td .sub{color:#a16207}
+  tbody td .star{color:#f59e0b;margin-left:3px;font-size:11px}
+  thead th small{
+    display:block;font-family:var(--gothic);font-size:9px;color:#666;
+    font-weight:500;margin-top:2px;letter-spacing:0;
+  }
 
   /* ---------- related ---------- */
   .related{
@@ -627,14 +638,14 @@
 
       <!-- テーブル -->
       <div class="sketch-card">
-        <h3><span class="num">06</span> <span id="table-title">取崩し開始年ごとの想定年間収入推移</span></h3>
+        <h3><span class="num">06</span> <span id="table-title">取崩し開始年ごとの収入金額推移</span></h3>
         <div class="table-scroll">
           <table>
             <thead id="tableHead"></thead>
             <tbody id="tableBody"></tbody>
           </table>
         </div>
-        <div class="hint" style="margin-top:8px">※ 単位：万円。目標額に到達した年は<strong style="color:#15803d">緑</strong>、最終年は黄色でハイライト。<br>※ 各年の数値は「<strong>もしその年に取崩しを始めたら年あたりいくらか</strong>」の参考値（高配当配当 + 資産×取崩し率）です。シミュレーション本体では目標年まで取崩しを行わず、複利成長のみ計算しています。</div>
+        <div class="hint" style="margin-top:8px">※ 単位：万円。各セルは <strong>上段=収入（配当・取崩・合計）</strong>／ <strong>下段=資産額</strong>（薄字）。目標額に到達した年は<strong style="color:#15803d">緑</strong>、最終年は黄色でハイライト。<br>※ 「収入」は「<strong>もしその年に取崩しを始めたら年あたりいくらか</strong>」の参考値（高配当配当 + 資産×取崩し率）。シミュレーション本体では目標年まで取崩しを行わず、複利成長のみ計算しています。</div>
       </div>
 
     </div>
@@ -1059,6 +1070,9 @@
     const showB = patternB && patternB !== patternA;
 
     // ヘッダ
+    const subHd  = '<small>配当 / 資産</small>';
+    const subIdx = '<small>取崩想定 / 資産</small>';
+    const subSum = '<small>収入 / 資産</small>';
     if (showB) {
       thead.innerHTML = `
         <tr>
@@ -1067,20 +1081,20 @@
           <th colspan="3" style="text-align:center;border-left:1.5px solid var(--ink)">パターンB（高配当株軸）</th>
         </tr>
         <tr>
-          <th style="border-left:1.5px solid var(--ink)">高配当 配当</th>
-          <th>INDEX 取崩想定</th>
-          <th>合計収入</th>
-          <th style="border-left:1.5px solid var(--ink)">高配当 配当</th>
-          <th>INDEX 取崩想定</th>
-          <th>合計収入</th>
+          <th style="border-left:1.5px solid var(--ink)">高配当${subHd}</th>
+          <th>INDEX${subIdx}</th>
+          <th>合計${subSum}</th>
+          <th style="border-left:1.5px solid var(--ink)">高配当${subHd}</th>
+          <th>INDEX${subIdx}</th>
+          <th>合計${subSum}</th>
         </tr>`;
     } else {
       thead.innerHTML = `
         <tr>
           <th>年</th>
-          <th>高配当 配当</th>
-          <th>INDEX 取崩想定</th>
-          <th>合計収入</th>
+          <th>高配当${subHd}</th>
+          <th>INDEX${subIdx}</th>
+          <th>合計${subSum}</th>
         </tr>`;
     }
 
@@ -1095,33 +1109,43 @@
       if (showB && firstHitB < 0 && rowIncome(patternB, i) >= target) firstHitB = i;
     }
 
+    const cell = (income, asset, extraAttrs, mark) => {
+      return `<td${extraAttrs || ''}>${fmt1(income)}<span class="sub">${fmt1(asset)}</span>${mark || ''}</td>`;
+    };
+
     for (let i = 0; i < years; i++) {
-      const aHdDiv  = patternA.hdRows[i].hdDiv;
-      const aIdxW   = patternA.idxRows[i].idxWithdraw;
+      const aHdRow  = patternA.hdRows[i];
+      const aIdxRow = patternA.idxRows[i];
+      const aHdDiv  = aHdRow.hdDiv;
+      const aIdxW   = aIdxRow.idxWithdraw;
       const aTotal  = aHdDiv + aIdxW;
+      const aTotalAsset = aHdRow.hdAsset + aIdxRow.idxAsset;
 
       const tr = document.createElement('tr');
       if (i === years - 1) tr.className = 'last-row';
 
       const aReach = aTotal >= target;
-      const bReach = showB ? (rowIncome(patternB, i) >= target) : false;
       const aTotalCls = aReach ? ' class="hit"' : '';
-      const aFirstMark = (i === firstHitA) ? ' ★' : '';
+      const aFirstMark = (i === firstHitA) ? '<span class="star">★</span>' : '';
 
       let html = `<td>${i + 1}</td>`;
-      html += `<td>${fmt1(aHdDiv)}</td>`;
-      html += `<td>${fmt1(aIdxW)}</td>`;
-      html += `<td${aTotalCls}>${fmt1(aTotal)}${aFirstMark}</td>`;
+      html += cell(aHdDiv, aHdRow.hdAsset);
+      html += cell(aIdxW,  aIdxRow.idxAsset);
+      html += cell(aTotal, aTotalAsset, aTotalCls, aFirstMark);
 
       if (showB) {
-        const bHdDiv = patternB.hdRows[i].hdDiv;
-        const bIdxW  = patternB.idxRows[i].idxWithdraw;
-        const bTotal = bHdDiv + bIdxW;
+        const bHdRow  = patternB.hdRows[i];
+        const bIdxRow = patternB.idxRows[i];
+        const bHdDiv  = bHdRow.hdDiv;
+        const bIdxW   = bIdxRow.idxWithdraw;
+        const bTotal  = bHdDiv + bIdxW;
+        const bTotalAsset = bHdRow.hdAsset + bIdxRow.idxAsset;
+        const bReach = bTotal >= target;
         const bTotalCls = bReach ? ' class="hit"' : '';
-        const bFirstMark = (i === firstHitB) ? ' ★' : '';
-        html += `<td style="border-left:1.5px solid var(--ink)">${fmt1(bHdDiv)}</td>`;
-        html += `<td>${fmt1(bIdxW)}</td>`;
-        html += `<td${bTotalCls}>${fmt1(bTotal)}${bFirstMark}</td>`;
+        const bFirstMark = (i === firstHitB) ? '<span class="star">★</span>' : '';
+        html += cell(bHdDiv, bHdRow.hdAsset, ' style="border-left:1.5px solid var(--ink)"');
+        html += cell(bIdxW,  bIdxRow.idxAsset);
+        html += cell(bTotal, bTotalAsset, bTotalCls, bFirstMark);
       }
 
       tr.innerHTML = html;
