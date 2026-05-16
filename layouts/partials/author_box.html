@@ -8,7 +8,9 @@
 */ -}}
 {{- if ne .Params.hideAuthorBox true }}
 <aside class="author-box" aria-label="この記事の筆者について">
-  <div class="author-box__avatar" aria-hidden="true">YS</div>
+  <div class="author-box__avatar" aria-hidden="true">
+    <img src="{{ "/images/profile.png" | relURL }}" alt="" width="64" height="64" loading="lazy" />
+  </div>
   <div class="author-box__body">
     <div class="author-box__head">
       <p class="author-box__name">やさぐれSE</p>
@@ -40,14 +42,14 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #0a1a4a 0%, #4ade80 100%);
-  color: #fff;
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: 0.04em;
+  overflow: hidden;
+  background: #0a1a4a;
+}
+.author-box__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .author-box__body {
   flex: 1 1 auto;
@@ -96,6 +98,10 @@
     width: 56px;
     height: 56px;
     flex-basis: 56px;
+  }
+  .author-box__avatar img {
+    width: 100%;
+    height: 100%;
   }
 }
 </style>
