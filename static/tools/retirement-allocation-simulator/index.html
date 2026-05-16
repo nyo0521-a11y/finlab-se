@@ -693,13 +693,16 @@
   // ===================================================
   function simHD(hdAnnual, params) {
     const { years, hdRate, divGrowth, currentHdDiv } = params;
+    // 既存資産は「現在の年配当 ÷ 購入時利回り」で逆算（既存ポートフォリオを購入時相当の元本に換算）
     const currentHdAsset = (hdRate > 0) ? currentHdDiv / hdRate : 0;
     let hdAsset = currentHdAsset;
     let hdDiv   = currentHdDiv;
     const rows = [];
     for (let n = 1; n <= years; n++) {
-      hdAsset = hdAsset * (1 + hdRate) + hdAnnual;
-      hdDiv   = hdDiv   * (1 + divGrowth) + hdAnnual * hdRate;
+      // 元本は積立分のみ加算（配当は再投資せず使う前提なので、株価成長は考慮しない）
+      hdAsset = hdAsset + hdAnnual;
+      // 配当は「既存分が増配率で成長 + 今年の新規投資による新規配当」で増える
+      hdDiv   = hdDiv * (1 + divGrowth) + hdAnnual * hdRate;
       rows.push({ hdAsset, hdDiv });
     }
     return rows;
