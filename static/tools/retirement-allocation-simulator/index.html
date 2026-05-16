@@ -58,7 +58,7 @@
   }
   .logo .mark{
     width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;
-    display:grid;place-items:center;background:var(--hd);
+    display:grid;place-items:center;background:var(--accent);
     transform:rotate(-4deg);
     font-family:var(--mono);font-weight:700;font-size:13px;
   }
@@ -139,15 +139,15 @@
 
   /* ---------- hero (step1) ---------- */
   .hero{
-    background:linear-gradient(180deg,#fff,#fffbe6);
-    border:1.8px solid var(--ink);border-radius:16px;padding:22px;
-    display:grid;grid-template-columns:minmax(280px,1.5fr) minmax(200px,1fr);gap:20px;align-items:center;
+    background:linear-gradient(180deg,#fff,#f3fff7);
+    border:1.8px solid var(--ink);border-radius:16px;padding:20px 22px;
+    display:grid;grid-template-columns:1fr minmax(220px,260px);gap:18px;align-items:center;
     box-shadow:3px 3px 0 rgba(29,36,48,.08);
   }
-  .hero .lead{font-family:var(--hand);font-size:18px;color:var(--ink-2)}
-  .hero .headline{font-family:var(--hand);font-size:22px;margin-top:4px}
-  .hero .big{display:flex;align-items:baseline;gap:6px;margin-top:8px;white-space:nowrap;flex-wrap:nowrap}
-  .hero .big .num{font-family:var(--mono);font-weight:700;font-size:38px;letter-spacing:-1px;line-height:1;}
+  .hero .hero-main{min-width:0}
+  .hero .lead{font-family:var(--hand);font-size:16px;color:var(--ink-2);line-height:1.5}
+  .hero .big{display:flex;align-items:baseline;gap:6px;margin-top:6px;white-space:nowrap}
+  .hero .big .num{font-family:var(--mono);font-weight:700;font-size:44px;letter-spacing:-1px;line-height:1;}
   .hero .unit{font-family:var(--hand);font-size:18px;color:var(--ink-2);white-space:nowrap}
   .hero .side{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:0}
 
@@ -452,21 +452,20 @@
 
       <!-- HERO: ステップ1判定 -->
       <div class="hero">
-        <div>
-          <div class="lead">【ステップ1】今後の投資を高配当株100%にすると</div>
-          <div class="headline">最終年の年間配当は</div>
+        <div class="hero-main">
+          <div class="lead">【ステップ1】高配当株100% にすると、目標年の年間収入は</div>
           <div class="big">
             <span class="num" id="step1-num">144.5</span>
             <span class="unit">万円 / 年</span>
           </div>
-          <div class="hint" id="step1-detail" style="margin-top:8px">（年間配当金 144.5万円）</div>
+          <div class="hint" id="step1-detail" style="margin-top:6px">年間配当金 144.5万円</div>
         </div>
         <div class="side">
           <div class="badge ng" id="step1-badge">
             <div class="swatch" id="step1-swatch">NG</div>
             <div>
               <div class="t" id="step1-title">届かない</div>
-              <div class="s" id="step1-sub">高配当株100% では目標額に届きません。下のパターンA/Bで配分を確認してください。</div>
+              <div class="s" id="step1-sub">高配当株100% では目標に届きません。下のパターンA/Bで配分を確認してください。</div>
             </div>
           </div>
         </div>
@@ -496,35 +495,6 @@
           <div class="result-row" id="single-row-idxAsset" style="display:none">
             <span class="lbl">既存インデックス 資産額（最終年）</span>
             <span class="val" id="single-idxAsset">－</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 配分カード（NG時のみ表示）-->
-      <div class="sketch-card" id="allocation-card">
-        <h3><span class="num">04</span> 投資配分</h3>
-
-        <div class="alloc-row">
-          <div class="alloc-title">パターンA <span class="tag">インデックス軸</span></div>
-          <div class="alloc-bar">
-            <div class="seg-hd"  id="bar-hd-a"  style="width:25%">高配当 20万</div>
-            <div class="seg-idx" id="bar-idx-a" style="width:75%">INDEX 60万</div>
-          </div>
-          <div class="alloc-labels">
-            <span class="lbl-hd"  id="alloc-hd-a-label">高配当株：20万円（25.0%）</span>
-            <span class="lbl-idx" id="alloc-idx-a-label">インデックス：60万円（75.0%）</span>
-          </div>
-        </div>
-
-        <div class="alloc-row">
-          <div class="alloc-title">パターンB <span class="tag">高配当株軸</span></div>
-          <div class="alloc-bar b">
-            <div class="seg-hd"  id="bar-hd-b"  style="width:55%">高配当 44万</div>
-            <div class="seg-idx" id="bar-idx-b" style="width:45%">INDEX 36万</div>
-          </div>
-          <div class="alloc-labels">
-            <span class="lbl-hd"  id="alloc-hd-b-label">高配当株：44万円（55.0%）</span>
-            <span class="lbl-idx" id="alloc-idx-b-label">インデックス：36万円（45.0%）</span>
           </div>
         </div>
       </div>
@@ -588,6 +558,35 @@
           <div class="result-row">
             <span class="lbl">インデックス 資産額（最終年）</span>
             <span class="val" id="val-b-idxAsset">－</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 配分カード（NG時のみ表示）-->
+      <div class="sketch-card" id="allocation-card">
+        <h3><span class="num">04</span> 投資配分</h3>
+
+        <div class="alloc-row">
+          <div class="alloc-title">パターンA <span class="tag">インデックス軸</span></div>
+          <div class="alloc-bar">
+            <div class="seg-hd"  id="bar-hd-a"  style="width:25%">高配当 20万</div>
+            <div class="seg-idx" id="bar-idx-a" style="width:75%">INDEX 60万</div>
+          </div>
+          <div class="alloc-labels">
+            <span class="lbl-hd"  id="alloc-hd-a-label">高配当株：20万円（25.0%）</span>
+            <span class="lbl-idx" id="alloc-idx-a-label">インデックス：60万円（75.0%）</span>
+          </div>
+        </div>
+
+        <div class="alloc-row">
+          <div class="alloc-title">パターンB <span class="tag">高配当株軸</span></div>
+          <div class="alloc-bar b">
+            <div class="seg-hd"  id="bar-hd-b"  style="width:55%">高配当 44万</div>
+            <div class="seg-idx" id="bar-idx-b" style="width:45%">INDEX 36万</div>
+          </div>
+          <div class="alloc-labels">
+            <span class="lbl-hd"  id="alloc-hd-b-label">高配当株：44万円（55.0%）</span>
+            <span class="lbl-idx" id="alloc-idx-b-label">インデックス：36万円（45.0%）</span>
           </div>
         </div>
       </div>
