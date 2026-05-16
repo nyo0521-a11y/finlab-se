@@ -141,15 +141,20 @@
   .hero{
     background:linear-gradient(180deg,#fff,#f3fff7);
     border:1.8px solid var(--ink);border-radius:16px;padding:20px 22px;
-    display:grid;grid-template-columns:1fr minmax(220px,260px);gap:18px;align-items:center;
     box-shadow:3px 3px 0 rgba(29,36,48,.08);
   }
-  .hero .hero-main{min-width:0}
-  .hero .lead{font-family:var(--hand);font-size:16px;color:var(--ink-2);line-height:1.5}
-  .hero .big{display:flex;align-items:baseline;gap:6px;margin-top:6px;white-space:nowrap}
+  .hero .lead{font-family:var(--hand);font-size:16px;color:var(--ink-2);line-height:1.5;margin-bottom:10px}
+  .hero-bottom{
+    display:grid;grid-template-columns:1fr 2fr;gap:18px;align-items:center;
+  }
+  .hero .amount-wrap{min-width:0}
+  .hero .big{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
   .hero .big .num{font-family:var(--mono);font-weight:700;font-size:44px;letter-spacing:-1px;line-height:1;}
   .hero .unit{font-family:var(--hand);font-size:18px;color:var(--ink-2);white-space:nowrap}
   .hero .side{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:0}
+  @media (max-width:760px){
+    .hero-bottom{grid-template-columns:1fr;gap:12px}
+  }
 
   /* badge */
   .badge{
@@ -452,20 +457,22 @@
 
       <!-- HERO: ステップ1判定 -->
       <div class="hero">
-        <div class="hero-main">
-          <div class="lead">【ステップ1】高配当株100% にすると、目標年の年間収入は</div>
-          <div class="big">
-            <span class="num" id="step1-num">144.5</span>
-            <span class="unit">万円 / 年</span>
+        <div class="lead">【ステップ1】高配当株100% にすると、目標年の年間収入は</div>
+        <div class="hero-bottom">
+          <div class="amount-wrap">
+            <div class="big">
+              <span class="num" id="step1-num">144.5</span>
+              <span class="unit">万円 / 年</span>
+            </div>
+            <div class="hint" id="step1-detail" style="margin-top:6px">年間配当金 144.5万円</div>
           </div>
-          <div class="hint" id="step1-detail" style="margin-top:6px">年間配当金 144.5万円</div>
-        </div>
-        <div class="side">
-          <div class="badge ng" id="step1-badge">
-            <div class="swatch" id="step1-swatch">NG</div>
-            <div>
-              <div class="t" id="step1-title">届かない</div>
-              <div class="s" id="step1-sub">高配当株100% では目標に届きません。下のパターンA/Bで配分を確認してください。</div>
+          <div class="side">
+            <div class="badge ng" id="step1-badge">
+              <div class="swatch" id="step1-swatch">NG</div>
+              <div>
+                <div class="t" id="step1-title">届かない</div>
+                <div class="s" id="step1-sub">高配当株100% では目標に届きません。下のパターンA/Bで配分を確認してください。</div>
+              </div>
             </div>
           </div>
         </div>
