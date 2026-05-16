@@ -1,5 +1,5 @@
 ---
-title: "高配当株でインデックス投資は不要なのか？年金＋配当金で逆算した結論"
+title: "高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論"
 date: 2026-05-14T07:00:00+09:00
 draft: true
 categories: ["資産形成"]
@@ -8,7 +8,7 @@ description: "高配当株投資家にインデックス投資は必要か？年
 showToc: true
 cover:
   image: "/images/thumb-index-vs-highyield-retirement-allocation.png"
-  alt: "高配当株でインデックス投資は不要なのか？年金＋配当金で逆算した結論"
+  alt: "高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論"
   relative: false
   hiddenInList: false
 ---
