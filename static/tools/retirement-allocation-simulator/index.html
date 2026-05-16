@@ -610,13 +610,13 @@
       <!-- グラフ -->
       <div class="sketch-card">
         <h3><span class="num">05</span> 年別推移グラフ</h3>
-        <div class="hint" style="margin-bottom:8px">パターンA（インデックス軸）／パターンB（高配当株軸）の資産推移を並列表示</div>
-        <div class="chart-grid">
-          <div>
-            <div class="chart-title">パターンA（インデックス軸）</div>
+        <div class="hint" id="chart-hint" style="margin-bottom:8px">パターンA（インデックス軸）／パターンB（高配当株軸）の資産推移を並列表示</div>
+        <div class="chart-grid" id="chart-grid">
+          <div id="chart-a-wrap">
+            <div class="chart-title" id="chart-a-title">パターンA（インデックス軸）</div>
             <div class="chartWrap"><canvas id="mainChartA"></canvas></div>
           </div>
-          <div>
+          <div id="chart-b-wrap">
             <div class="chart-title">パターンB（高配当株軸）</div>
             <div class="chartWrap"><canvas id="mainChartB"></canvas></div>
           </div>
@@ -625,7 +625,7 @@
 
       <!-- テーブル -->
       <div class="sketch-card">
-        <h3><span class="num">06</span> パターンB 年別推移</h3>
+        <h3><span class="num">06</span> <span id="table-title">パターンB 年別推移</span></h3>
         <div class="table-scroll">
           <table>
             <thead>
@@ -785,6 +785,8 @@
 
     return {
       hdAllOK,
+      hdAllRows:     hdAllAlloc.hdRows,
+      hdAllIdxRows:  hdAllAlloc.idxRows,
       hdAllDiv:      hdAllAlloc.hdDiv,
       hdAllAsset:    hdAllAlloc.hdAsset,
       hdAllIdxWith:  hdAllAlloc.idxWithdraw,
@@ -852,6 +854,13 @@
     const allocationCard = document.getElementById('allocation-card');
     const resultGrid     = document.getElementById('result-grid');
 
+    // チャート/テーブル UI要素
+    const chartGrid   = document.getElementById('chart-grid');
+    const chartBWrap  = document.getElementById('chart-b-wrap');
+    const chartATitle = document.getElementById('chart-a-title');
+    const chartHint   = document.getElementById('chart-hint');
+    const tableTitle  = document.getElementById('table-title');
+
     if (hdAllOK) {
       singleWrap.style.display     = 'block';
       allocationCard.style.display = 'none';
@@ -866,8 +875,22 @@
         document.getElementById('single-idxWith').textContent  = fmt1(hdAllIdxWith)  + ' 万円';
         document.getElementById('single-idxAsset').textContent = fmt1(hdAllIdxAsset) + ' 万円';
       }
-      updateChart(null, null, params, target);
-      updateTable(null);
+
+      // 高配当株100% シナリオを 単一チャート/テーブルで表示
+      const hdAllPattern = {
+        hdAnnual: totalAnnual, idxAnnual: 0,
+        hdRows: result.hdAllRows, idxRows: result.hdAllIdxRows,
+        hdDiv: hdAllDiv, hdAsset: hdAllAsset,
+        idxWithdraw: hdAllIdxWith, idxAsset: hdAllIdxAsset,
+        totalIncome: hdAllTotal, ok: true
+      };
+      chartGrid.style.gridTemplateColumns = '1fr';
+      chartBWrap.style.display = 'none';
+      chartATitle.textContent = '高配当株100% シナリオ';
+      chartHint.textContent = '今後の投資をすべて高配当株に回したシナリオ（既存インデックス資産は新規投資なしで複利成長）';
+      tableTitle.textContent = '高配当株100% シナリオ 年別推移';
+      updateChart(hdAllPattern, null, params, target);
+      updateTable(hdAllPattern);
       return;
     }
 
@@ -875,6 +898,11 @@
     singleWrap.style.display     = 'none';
     allocationCard.style.display = 'block';
     resultGrid.style.display     = 'grid';
+    chartGrid.style.gridTemplateColumns = '';
+    chartBWrap.style.display = '';
+    chartATitle.textContent = 'パターンA（インデックス軸）';
+    chartHint.textContent = 'パターンA（インデックス軸）／パターンB（高配当株軸）の資産推移を並列表示';
+    tableTitle.textContent = 'パターンB 年別推移';
 
     // 配分バー（パターンA）
     if (patternA.ok) {
