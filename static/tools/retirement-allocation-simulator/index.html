@@ -57,12 +57,11 @@
     font-family:var(--hand);font-weight:700;font-size:22px;letter-spacing:.5px;
   }
   .logo .mark{
-    width:36px;height:36px;border:2px solid var(--ink);border-radius:50%;
-    overflow:hidden;background:#0a1a4a;
+    width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;
+    display:grid;place-items:center;background:var(--hd);
     transform:rotate(-4deg);
-    display:block;
+    font-family:var(--mono);font-weight:700;font-size:13px;
   }
-  .logo .mark img{width:100%;height:100%;object-fit:cover;display:block;}
   .logo small{font-family:var(--gothic);font-weight:500;color:var(--muted);font-size:12px;margin-left:6px}
   .pill{
     font-family:var(--mono);font-size:11px;padding:3px 9px;border:1.5px solid var(--ink);
@@ -319,7 +318,7 @@
 
 <div class="topbar">
   <div class="logo">
-    <div class="mark"><img src="/images/profile.png" alt="finlab-se" /></div>
+    <div class="mark">RA</div>
     <span>高配当株×インデックス 配分シミュレータ</span>
     <small>by <b style="color:var(--ink)">finlab-se</b>（金融エンジニアの資産運用実験室）</small>
   </div>
