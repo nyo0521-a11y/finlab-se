@@ -890,8 +890,8 @@
       };
       chartBWrap.style.display = 'none';
       chartATitle.textContent = '高配当株100% シナリオ';
-      chartHint.textContent = '今後の投資をすべて高配当株に回したシナリオ（既存インデックス資産は新規投資なしで複利成長）';
-      tableTitle.textContent = '高配当株100% シナリオ 年別推移';
+      chartHint.textContent = '今後の投資をすべて高配当株に回したシナリオ（資産：左軸／年間配当：右軸）';
+      tableTitle.textContent = '取崩し開始年ごとの収入金額推移';
       updateChart(hdAllPattern, null, params, target);
       updateTable(hdAllPattern, null, params);
       return;
@@ -903,8 +903,8 @@
     resultGrid.style.display     = 'grid';
     chartBWrap.style.display = '';
     chartATitle.textContent = 'パターンA（インデックス軸）';
-    chartHint.textContent = 'パターンA（インデックス軸）／パターンB（高配当株軸）の資産推移を並列表示';
-    tableTitle.textContent = 'パターンB 年別推移';
+    chartHint.textContent = '資産がどう積み上がるか（左軸）と、その間に受け取れる年間配当金（右軸）の推移をパターンA／Bで並列表示';
+    tableTitle.textContent = '取崩し開始年ごとの収入金額推移';
 
     // 配分バー（パターンA）
     if (patternA.ok) {
@@ -1037,7 +1037,7 @@
 
     if (chartA) {
       chartA.data.labels = labels;
-      dsA.forEach((ds, i) => { chartA.data.datasets[i].data = ds.data; });
+      chartA.data.datasets = dsA;  // 完全置換（yAxisID等の設定も更新するため）
       chartA.update('none');
     } else {
       chartA = new Chart(ctxA, { type:'line', data:{ labels, datasets: dsA }, options: chartOptions() });
@@ -1045,7 +1045,7 @@
 
     if (chartB) {
       chartB.data.labels = labels;
-      dsB.forEach((ds, i) => { chartB.data.datasets[i].data = ds.data; });
+      chartB.data.datasets = dsB;  // 完全置換
       chartB.update('none');
     } else {
       chartB = new Chart(ctxB, { type:'line', data:{ labels, datasets: dsB }, options: chartOptions() });
