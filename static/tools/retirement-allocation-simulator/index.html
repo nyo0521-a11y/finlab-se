@@ -251,8 +251,17 @@
   }
 
   /* ---------- chart frame ---------- */
+  .chart-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  @media (max-width:760px){
+    .chart-grid{grid-template-columns:1fr}
+  }
+  .chart-title{
+    font-family:var(--hand);font-size:15px;color:var(--ink-2);margin-bottom:6px;font-weight:700;
+  }
   .chartWrap{
-    position:relative;height:340px;border:1.5px solid var(--ink);border-radius:12px;padding:10px;background:#fff;
+    position:relative;height:300px;border:1.5px solid var(--ink);border-radius:12px;padding:10px;background:#fff;
   }
 
   /* ---------- table ---------- */
@@ -601,8 +610,17 @@
       <!-- グラフ -->
       <div class="sketch-card">
         <h3><span class="num">05</span> 年別推移グラフ</h3>
-        <div class="hint" style="margin-bottom:8px">パターンA（細線）／パターンB（太線）の資産推移</div>
-        <div class="chartWrap"><canvas id="mainChart"></canvas></div>
+        <div class="hint" style="margin-bottom:8px">パターンA（インデックス軸）／パターンB（高配当株軸）の資産推移を並列表示</div>
+        <div class="chart-grid">
+          <div>
+            <div class="chart-title">パターンA（インデックス軸）</div>
+            <div class="chartWrap"><canvas id="mainChartA"></canvas></div>
+          </div>
+          <div>
+            <div class="chart-title">パターンB（高配当株軸）</div>
+            <div class="chartWrap"><canvas id="mainChartB"></canvas></div>
+          </div>
+        </div>
       </div>
 
       <!-- テーブル -->
@@ -616,14 +634,14 @@
                 <th>高配当 資産</th>
                 <th>高配当 配当</th>
                 <th>INDEX 資産</th>
-                <th>INDEX 取崩</th>
+                <th>INDEX 取崩想定</th>
                 <th>合計収入</th>
               </tr>
             </thead>
             <tbody id="tableBody"></tbody>
           </table>
         </div>
-        <div class="hint" style="margin-top:8px">※ 単位：万円。最終年のみ黄色でハイライト。</div>
+        <div class="hint" style="margin-top:8px">※ 単位：万円。最終年のみ黄色でハイライト。<br>※ <strong>INDEX 取崩想定</strong>は「もしその年に取崩しを始めたら年あたりいくらか」の参考値（資産×取崩し率）です。シミュレーション本体では目標年まで取崩しを行わず、複利成長のみ計算しています。<br>※ <strong>合計収入</strong>も同様に「その年に取崩し始めた場合」の参考値です。実際の収入は目標年（最終年）の数値が基準になります。</div>
       </div>
 
     </div>
@@ -659,10 +677,12 @@
 
 <script>
   // ===================================================
-  // Chart.js インスタンス
+  // Chart.js インスタンス（パターンA・Bで別チャート）
   // ===================================================
-  const ctx = document.getElementById('mainChart').getContext('2d');
-  let chart = null;
+  const ctxA = document.getElementById('mainChartA').getContext('2d');
+  const ctxB = document.getElementById('mainChartB').getContext('2d');
+  let chartA = null;
+  let chartB = null;
 
   // ===================================================
   // 高配当株シミュレーション
@@ -941,49 +961,61 @@
   }
 
   // ===================================================
-  // グラフ描画
+  // グラフ描画（パターンA・B別チャート）
   // ===================================================
+  function buildDatasets(pattern, colorHd, colorIdx, colorTotal) {
+    if (!pattern) return [
+      { label:'高配当 資産', data:[], borderColor:colorHd,  backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.3 },
+      { label:'INDEX 資産', data:[], borderColor:colorIdx, backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.3 },
+      { label:'合計',       data:[], borderColor:colorTotal, backgroundColor:'transparent', borderWidth:2, pointRadius:0, borderDash:[5,5], tension:0.3 }
+    ];
+    const hd    = pattern.hdRows.map(r  => +r.hdAsset.toFixed(1));
+    const idx   = pattern.idxRows.map(r => +r.idxAsset.toFixed(1));
+    const total = pattern.hdRows.map((r, i) => +(r.hdAsset + pattern.idxRows[i].idxAsset).toFixed(1));
+    return [
+      { label:'高配当 資産', data:hd,    borderColor:colorHd,    backgroundColor:'rgba(234,179,8,.06)',  borderWidth:2,   pointRadius:0, tension:0.3 },
+      { label:'INDEX 資産', data:idx,   borderColor:colorIdx,   backgroundColor:'rgba(59,130,246,.06)', borderWidth:2,   pointRadius:0, tension:0.3 },
+      { label:'合計',       data:total, borderColor:colorTotal, backgroundColor:'transparent',          borderWidth:2.5, pointRadius:0, borderDash:[5,5], tension:0.3 }
+    ];
+  }
+
+  function chartOptions() {
+    return {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position:'top', labels:{ font:{size:10, family:"'JetBrains Mono', monospace"}, boxWidth:12, padding:6 } },
+        tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} 万円` } }
+      },
+      scales: {
+        x: { ticks: { font: { size:10 }, maxTicksLimit:10 }, grid: { color:'rgba(29,36,48,.05)' } },
+        y: { type:'linear', position:'left', title:{ display:true, text:'資産額（万円）', font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ color:'rgba(29,36,48,.05)' } }
+      }
+    };
+  }
+
   function updateChart(patternA, patternB, params, target) {
     const labels = Array.from({ length: params.years }, (_, i) => (i + 1) + '年');
-    const aHd    = patternA ? patternA.hdRows.map(r  => +r.hdAsset.toFixed(1))  : [];
-    const aIdx   = patternA ? patternA.idxRows.map(r => +r.idxAsset.toFixed(1)) : [];
-    const aTotal = patternA ? patternA.hdRows.map((r, i) => +(r.hdAsset + patternA.idxRows[i].idxAsset).toFixed(1)) : [];
-    const bHd    = patternB ? patternB.hdRows.map(r  => +r.hdAsset.toFixed(1))  : [];
-    const bIdx   = patternB ? patternB.idxRows.map(r => +r.idxAsset.toFixed(1)) : [];
-    const bTotal = patternB ? patternB.hdRows.map((r, i) => +(r.hdAsset + patternB.idxRows[i].idxAsset).toFixed(1)) : [];
 
-    const datasets = [
-      { type:'line', label:'A・高配当 資産', data:aHd, borderColor:'#facc15', backgroundColor:'rgba(250,204,21,.05)', borderWidth:1.5, pointRadius:0, tension:0.3 },
-      { type:'line', label:'A・INDEX 資産', data:aIdx, borderColor:'#60a5fa', backgroundColor:'rgba(96,165,250,.05)', borderWidth:1.5, pointRadius:0, tension:0.3 },
-      { type:'line', label:'A・合計', data:aTotal, borderColor:'#a78bfa', backgroundColor:'transparent', borderWidth:1.5, pointRadius:0, borderDash:[5,5], tension:0.3 },
-      { type:'line', label:'B・高配当 資産', data:bHd, borderColor:'#eab308', backgroundColor:'rgba(234,179,8,.06)', borderWidth:2.5, pointRadius:0, tension:0.3 },
-      { type:'line', label:'B・INDEX 資産', data:bIdx, borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,.06)', borderWidth:2.5, pointRadius:0, tension:0.3 },
-      { type:'line', label:'B・合計', data:bTotal, borderColor:'#1d2430', backgroundColor:'transparent', borderWidth:2.5, pointRadius:0, tension:0.3 }
-    ];
+    const dsA = buildDatasets(patternA, '#facc15', '#60a5fa', '#a78bfa');
+    const dsB = buildDatasets(patternB, '#eab308', '#3b82f6', '#1d2430');
 
-    if (chart) {
-      chart.data.labels = labels;
-      datasets.forEach((ds, i) => { chart.data.datasets[i].data = ds.data; });
-      chart.update('none');
-      return;
+    if (chartA) {
+      chartA.data.labels = labels;
+      dsA.forEach((ds, i) => { chartA.data.datasets[i].data = ds.data; });
+      chartA.update('none');
+    } else {
+      chartA = new Chart(ctxA, { type:'line', data:{ labels, datasets: dsA }, options: chartOptions() });
     }
 
-    chart = new Chart(ctx, {
-      data: { labels, datasets },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        plugins: {
-          legend: { position:'top', labels:{ font:{size:10, family:"'JetBrains Mono', monospace"}, boxWidth:12, padding:8 } },
-          tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} 万円` } }
-        },
-        scales: {
-          x: { ticks: { font: { size:10 }, maxTicksLimit:10 }, grid: { color:'rgba(29,36,48,.05)' } },
-          y: { type:'linear', position:'left', title:{ display:true, text:'資産額（万円）', font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ color:'rgba(29,36,48,.05)' } }
-        }
-      }
-    });
+    if (chartB) {
+      chartB.data.labels = labels;
+      dsB.forEach((ds, i) => { chartB.data.datasets[i].data = ds.data; });
+      chartB.update('none');
+    } else {
+      chartB = new Chart(ctxB, { type:'line', data:{ labels, datasets: dsB }, options: chartOptions() });
+    }
   }
 
   // ===================================================
