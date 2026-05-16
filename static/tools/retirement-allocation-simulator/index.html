@@ -278,6 +278,8 @@
   }
   tbody td:first-child{text-align:center;font-weight:700;color:var(--ink)}
   tbody tr.last-row td{background:#fef9c3;font-weight:700;color:var(--ink)}
+  tbody td.hit{background:#d1fae5;color:#15803d;font-weight:700}
+  tbody tr.last-row td.hit{background:#bbf7d0;color:#14532d}
 
   /* ---------- related ---------- */
   .related{
@@ -609,8 +611,8 @@
 
       <!-- グラフ -->
       <div class="sketch-card">
-        <h3><span class="num">05</span> 年別推移グラフ</h3>
-        <div class="hint" id="chart-hint" style="margin-bottom:8px">パターンA（インデックス軸）／パターンB（高配当株軸）の資産推移を並列表示</div>
+        <h3><span class="num">05</span> 年別資産額・配当金推移グラフ</h3>
+        <div class="hint" id="chart-hint" style="margin-bottom:8px">資産がどう積み上がるか（左軸）と、その間に受け取れる年間配当金（右軸）の推移をパターンA／Bで並列表示</div>
         <div class="chart-grid" id="chart-grid">
           <div id="chart-a-wrap">
             <div class="chart-title" id="chart-a-title">パターンA（インデックス軸）</div>
@@ -625,23 +627,14 @@
 
       <!-- テーブル -->
       <div class="sketch-card">
-        <h3><span class="num">06</span> <span id="table-title">パターンB 年別推移</span></h3>
+        <h3><span class="num">06</span> <span id="table-title">取崩し開始年ごとの想定年間収入推移</span></h3>
         <div class="table-scroll">
           <table>
-            <thead>
-              <tr>
-                <th>年</th>
-                <th>高配当 資産</th>
-                <th>高配当 配当</th>
-                <th>INDEX 資産</th>
-                <th>INDEX 取崩想定</th>
-                <th>合計収入</th>
-              </tr>
-            </thead>
+            <thead id="tableHead"></thead>
             <tbody id="tableBody"></tbody>
           </table>
         </div>
-        <div class="hint" style="margin-top:8px">※ 単位：万円。最終年のみ黄色でハイライト。<br>※ <strong>INDEX 取崩想定</strong>は「もしその年に取崩しを始めたら年あたりいくらか」の参考値（資産×取崩し率）です。シミュレーション本体では目標年まで取崩しを行わず、複利成長のみ計算しています。<br>※ <strong>合計収入</strong>も同様に「その年に取崩し始めた場合」の参考値です。実際の収入は目標年（最終年）の数値が基準になります。</div>
+        <div class="hint" style="margin-top:8px">※ 単位：万円。目標額に到達した年は<strong style="color:#15803d">緑</strong>、最終年は黄色でハイライト。<br>※ 各年の数値は「<strong>もしその年に取崩しを始めたら年あたりいくらか</strong>」の参考値（高配当配当 + 資産×取崩し率）です。シミュレーション本体では目標年まで取崩しを行わず、複利成長のみ計算しています。</div>
       </div>
 
     </div>
@@ -889,7 +882,7 @@
       chartHint.textContent = '今後の投資をすべて高配当株に回したシナリオ（既存インデックス資産は新規投資なしで複利成長）';
       tableTitle.textContent = '高配当株100% シナリオ 年別推移';
       updateChart(hdAllPattern, null, params, target);
-      updateTable(hdAllPattern);
+      updateTable(hdAllPattern, null, params);
       return;
     }
 
@@ -983,7 +976,7 @@
     }
 
     updateChart(patternA, patternB, params, target);
-    updateTable(patternB);
+    updateTable(patternA, patternB, params);
   }
 
   // ===================================================
@@ -994,20 +987,17 @@
       { label:'高配当 資産', data:[], borderColor:colorHd,    backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.3, yAxisID:'yAsset' },
       { label:'INDEX 資産', data:[], borderColor:colorIdx,   backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.3, yAxisID:'yAsset' },
       { label:'合計 資産',   data:[], borderColor:colorTotal, backgroundColor:'transparent', borderWidth:2, pointRadius:0, borderDash:[5,5], tension:0.3, yAxisID:'yAsset' },
-      { label:'高配当 配当',     data:[], borderColor:'#16a34a', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, tension:0.3, yAxisID:'yIncome' },
-      { label:'INDEX 取崩想定', data:[], borderColor:'#7c3aed', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, borderDash:[3,3], tension:0.3, yAxisID:'yIncome' }
+      { label:'高配当 配当', data:[], borderColor:'#16a34a', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, tension:0.3, yAxisID:'yIncome' }
     ];
     const hd    = pattern.hdRows.map(r  => +r.hdAsset.toFixed(1));
     const idx   = pattern.idxRows.map(r => +r.idxAsset.toFixed(1));
     const total = pattern.hdRows.map((r, i) => +(r.hdAsset + pattern.idxRows[i].idxAsset).toFixed(1));
-    const hdDiv     = pattern.hdRows.map(r  => +r.hdDiv.toFixed(1));
-    const idxWith   = pattern.idxRows.map(r => +r.idxWithdraw.toFixed(1));
+    const hdDiv = pattern.hdRows.map(r  => +r.hdDiv.toFixed(1));
     return [
       { label:'高配当 資産', data:hd,    borderColor:colorHd,    backgroundColor:'rgba(234,179,8,.06)',  borderWidth:2,   pointRadius:0, tension:0.3, yAxisID:'yAsset' },
       { label:'INDEX 資産', data:idx,   borderColor:colorIdx,   backgroundColor:'rgba(59,130,246,.06)', borderWidth:2,   pointRadius:0, tension:0.3, yAxisID:'yAsset' },
       { label:'合計 資産',   data:total, borderColor:colorTotal, backgroundColor:'transparent',          borderWidth:2.5, pointRadius:0, borderDash:[5,5], tension:0.3, yAxisID:'yAsset' },
-      { label:'高配当 配当',     data:hdDiv,   borderColor:'#16a34a', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, tension:0.3, yAxisID:'yIncome' },
-      { label:'INDEX 取崩想定', data:idxWith, borderColor:'#7c3aed', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, borderDash:[3,3], tension:0.3, yAxisID:'yIncome' }
+      { label:'高配当 配当', data:hdDiv, borderColor:'#16a34a', backgroundColor:'transparent', borderWidth:1.8, pointRadius:0, tension:0.3, yAxisID:'yIncome' }
     ];
   }
 
@@ -1022,8 +1012,8 @@
       },
       scales: {
         x: { ticks: { font: { size:10 }, maxTicksLimit:10 }, grid: { color:'rgba(29,36,48,.05)' } },
-        yAsset: { type:'linear', position:'left',  title:{ display:true, text:'資産額（万円）',     font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ color:'rgba(29,36,48,.05)' } },
-        yIncome:{ type:'linear', position:'right', title:{ display:true, text:'配当・取崩想定（万円）', font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ display:false } }
+        yAsset: { type:'linear', position:'left',  title:{ display:true, text:'資産額（万円）',   font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ color:'rgba(29,36,48,.05)' } },
+        yIncome:{ type:'linear', position:'right', title:{ display:true, text:'年間配当（万円）', font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ display:false } }
       }
     };
   }
@@ -1052,27 +1042,89 @@
   }
 
   // ===================================================
-  // テーブル描画
+  // テーブル描画（パターンA/B 併記）
+  // target に到達した最初の年を緑ハイライト、最終年を黄色ハイライト
   // ===================================================
-  function updateTable(patternB) {
+  function rowIncome(pattern, i) {
+    if (!pattern) return null;
+    return pattern.hdRows[i].hdDiv + pattern.idxRows[i].idxWithdraw;
+  }
+
+  function updateTable(patternA, patternB, params) {
+    const thead = document.getElementById('tableHead');
     const tbody = document.getElementById('tableBody');
+    thead.innerHTML = '';
     tbody.innerHTML = '';
-    if (!patternB || !patternB.ok) return;
-    const years = patternB.hdRows.length;
+
+    const showB = patternB && patternB !== patternA;
+
+    // ヘッダ
+    if (showB) {
+      thead.innerHTML = `
+        <tr>
+          <th rowspan="2">年</th>
+          <th colspan="3" style="text-align:center;border-left:1.5px solid var(--ink)">パターンA（インデックス軸）</th>
+          <th colspan="3" style="text-align:center;border-left:1.5px solid var(--ink)">パターンB（高配当株軸）</th>
+        </tr>
+        <tr>
+          <th style="border-left:1.5px solid var(--ink)">高配当 配当</th>
+          <th>INDEX 取崩想定</th>
+          <th>合計収入</th>
+          <th style="border-left:1.5px solid var(--ink)">高配当 配当</th>
+          <th>INDEX 取崩想定</th>
+          <th>合計収入</th>
+        </tr>`;
+    } else {
+      thead.innerHTML = `
+        <tr>
+          <th>年</th>
+          <th>高配当 配当</th>
+          <th>INDEX 取崩想定</th>
+          <th>合計収入</th>
+        </tr>`;
+    }
+
+    if (!patternA) return;
+    const years = patternA.hdRows.length;
+    const target = params.target;
+
+    // 「最初に target 到達した年」を検出
+    let firstHitA = -1, firstHitB = -1;
     for (let i = 0; i < years; i++) {
-      const hdR  = patternB.hdRows[i];
-      const idxR = patternB.idxRows[i];
-      const income = hdR.hdDiv + idxR.idxWithdraw;
+      if (firstHitA < 0 && rowIncome(patternA, i) >= target) firstHitA = i;
+      if (showB && firstHitB < 0 && rowIncome(patternB, i) >= target) firstHitB = i;
+    }
+
+    for (let i = 0; i < years; i++) {
+      const aHdDiv  = patternA.hdRows[i].hdDiv;
+      const aIdxW   = patternA.idxRows[i].idxWithdraw;
+      const aTotal  = aHdDiv + aIdxW;
+
       const tr = document.createElement('tr');
       if (i === years - 1) tr.className = 'last-row';
-      tr.innerHTML = `
-        <td>${i + 1}</td>
-        <td>${fmt1(hdR.hdAsset)}</td>
-        <td>${fmt1(hdR.hdDiv)}</td>
-        <td>${fmt1(idxR.idxAsset)}</td>
-        <td>${fmt1(idxR.idxWithdraw)}</td>
-        <td>${fmt1(income)}</td>
-      `;
+
+      const aReach = aTotal >= target;
+      const bReach = showB ? (rowIncome(patternB, i) >= target) : false;
+      const aTotalCls = aReach ? ' class="hit"' : '';
+      const aFirstMark = (i === firstHitA) ? ' ★' : '';
+
+      let html = `<td>${i + 1}</td>`;
+      html += `<td>${fmt1(aHdDiv)}</td>`;
+      html += `<td>${fmt1(aIdxW)}</td>`;
+      html += `<td${aTotalCls}>${fmt1(aTotal)}${aFirstMark}</td>`;
+
+      if (showB) {
+        const bHdDiv = patternB.hdRows[i].hdDiv;
+        const bIdxW  = patternB.idxRows[i].idxWithdraw;
+        const bTotal = bHdDiv + bIdxW;
+        const bTotalCls = bReach ? ' class="hit"' : '';
+        const bFirstMark = (i === firstHitB) ? ' ★' : '';
+        html += `<td style="border-left:1.5px solid var(--ink)">${fmt1(bHdDiv)}</td>`;
+        html += `<td>${fmt1(bIdxW)}</td>`;
+        html += `<td${bTotalCls}>${fmt1(bTotal)}${bFirstMark}</td>`;
+      }
+
+      tr.innerHTML = html;
       tbody.appendChild(tr);
     }
   }
