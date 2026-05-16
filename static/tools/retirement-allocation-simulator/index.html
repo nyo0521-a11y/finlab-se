@@ -1012,7 +1012,7 @@
     ];
   }
 
-  function chartOptions() {
+  function chartOptions(yIncomeMax) {
     return {
       responsive: true,
       maintainAspectRatio: false,
@@ -1024,9 +1024,16 @@
       scales: {
         x: { ticks: { font: { size:10 }, maxTicksLimit:10 }, grid: { color:'rgba(29,36,48,.05)' } },
         yAsset: { type:'linear', position:'left',  min:0, beginAtZero:true, title:{ display:true, text:'資産額（万円）',   font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ color:'rgba(29,36,48,.05)' } },
-        yIncome:{ type:'linear', position:'right', min:0, beginAtZero:true, suggestedMax:10, title:{ display:true, text:'年間配当（万円）', font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ display:false } }
+        yIncome:{ type:'linear', position:'right', min:0, beginAtZero:true, max: yIncomeMax, title:{ display:true, text:'年間配当（万円）', font:{ size:10 } }, ticks:{ font:{ size:10 } }, grid:{ display:false } }
       }
     };
+  }
+
+  // 配当金Y軸上限を算出: 目標未達なら目標値、達成なら最大値の15%増しを10刻みで丸め
+  function calcIncomeMax(maxDiv, target) {
+    if (target > 0 && maxDiv < target) return target;
+    const headroom = Math.max(maxDiv * 1.15, 10);
+    return Math.ceil(headroom / 10) * 10;
   }
 
   function updateChart(patternA, patternB, params, target) {
@@ -1035,20 +1042,28 @@
     const dsA = buildDatasets(patternA, '#facc15', '#60a5fa', '#a78bfa');
     const dsB = buildDatasets(patternB, '#eab308', '#3b82f6', '#1d2430');
 
+    // 配当金最大値からY軸右上限を算出（目標未達なら目標値、達成なら15%余裕）
+    const maxDivA = dsA[3].data.length ? Math.max(0, ...dsA[3].data) : 0;
+    const maxDivB = dsB[3].data.length ? Math.max(0, ...dsB[3].data) : 0;
+    const yMaxA = calcIncomeMax(maxDivA, target);
+    const yMaxB = calcIncomeMax(maxDivB, target);
+
     if (chartA) {
       chartA.data.labels = labels;
-      chartA.data.datasets = dsA;  // 完全置換（yAxisID等の設定も更新するため）
+      chartA.data.datasets = dsA;
+      chartA.options.scales.yIncome.max = yMaxA;
       chartA.update('none');
     } else {
-      chartA = new Chart(ctxA, { type:'line', data:{ labels, datasets: dsA }, options: chartOptions() });
+      chartA = new Chart(ctxA, { type:'line', data:{ labels, datasets: dsA }, options: chartOptions(yMaxA) });
     }
 
     if (chartB) {
       chartB.data.labels = labels;
-      chartB.data.datasets = dsB;  // 完全置換
+      chartB.data.datasets = dsB;
+      chartB.options.scales.yIncome.max = yMaxB;
       chartB.update('none');
     } else {
-      chartB = new Chart(ctxB, { type:'line', data:{ labels, datasets: dsB }, options: chartOptions() });
+      chartB = new Chart(ctxB, { type:'line', data:{ labels, datasets: dsB }, options: chartOptions(yMaxB) });
     }
   }
 
