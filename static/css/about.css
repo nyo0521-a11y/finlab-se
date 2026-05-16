@@ -72,9 +72,57 @@
 }
 .about .ic { width: 14px; height: 14px; stroke-width: 2; }
 
+/* ===== BANNER (above hero) ===== */
+.about-banner {
+  position: relative;
+  width: 100%;
+  max-height: 240px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.about-banner img {
+  width: 100%;
+  height: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.about-banner-tagline {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 max(24px, calc((100% - 1100px) / 2));
+  pointer-events: none;
+}
+.about-banner-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(20, 50, 60, 0.7);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.about-banner-title {
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 700;
+  color: #0e2a36;
+  line-height: 1.25;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+@media (max-width: 720px) {
+  .about-banner { max-height: 160px; }
+  .about-banner img { max-height: 160px; }
+  .about-banner-tagline { padding: 0 16px; }
+}
+
 /* ===== HERO ===== */
 .about-hero {
-  padding: 56px 0 40px;
+  padding: 40px 0 40px;
   background:
     radial-gradient(ellipse at top right, rgba(42,122,58,0.08), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg) 65%, var(--bg-soft) 100%);
