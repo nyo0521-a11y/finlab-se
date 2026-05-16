@@ -717,8 +717,9 @@
     let idxAsset = currentIdxAsset;
     const rows = [];
     for (let n = 1; n <= years; n++) {
-      // 積立期間中は取崩しせず複利成長のみ
-      idxAsset = (idxAsset + idxAnnual) * (1 + idxRate);
+      // 期末払いモデル（annuity ordinary）：既存資産が複利成長してから当年の投資を加算
+      // FV = PMT × [((1+r)^n − 1) / r] になるため、記事の計算式と一致
+      idxAsset = idxAsset * (1 + idxRate) + idxAnnual;
       // idxWithdraw は「もし今この資産を取崩したら」の年取崩し額（最終年のみ意味を持つ）
       const idxWithdraw = idxAsset * withdrawRate;
       rows.push({ idxAsset, idxWithdraw });
