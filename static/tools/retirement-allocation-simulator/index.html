@@ -141,15 +141,15 @@
   .hero{
     background:linear-gradient(180deg,#fff,#fffbe6);
     border:1.8px solid var(--ink);border-radius:16px;padding:22px;
-    display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+    display:grid;grid-template-columns:minmax(280px,1.5fr) minmax(200px,1fr);gap:20px;align-items:center;
     box-shadow:3px 3px 0 rgba(29,36,48,.08);
   }
   .hero .lead{font-family:var(--hand);font-size:18px;color:var(--ink-2)}
-  .hero .headline{font-family:var(--hand);font-size:24px;margin-top:4px}
-  .hero .big{display:flex;align-items:baseline;gap:8px;margin-top:8px}
-  .hero .big .num{font-family:var(--mono);font-weight:700;font-size:42px;letter-spacing:-1px;line-height:1;}
-  .hero .unit{font-family:var(--hand);font-size:20px;color:var(--ink-2)}
-  .hero .side{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:240px}
+  .hero .headline{font-family:var(--hand);font-size:22px;margin-top:4px}
+  .hero .big{display:flex;align-items:baseline;gap:6px;margin-top:8px;white-space:nowrap;flex-wrap:nowrap}
+  .hero .big .num{font-family:var(--mono);font-weight:700;font-size:38px;letter-spacing:-1px;line-height:1;}
+  .hero .unit{font-family:var(--hand);font-size:18px;color:var(--ink-2);white-space:nowrap}
+  .hero .side{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:0}
 
   /* badge */
   .badge{
@@ -354,13 +354,23 @@
           </div>
         </label>
 
-        <div class="slider-combo">
-          <div class="top">
-            <span class="nm">投資期間</span>
-            <span class="val"><span id="disp-years">30</span><small>年</small></span>
-          </div>
-          <input type="range" id="inp-years" min="1" max="50" step="1" value="30" />
+        <div class="row" style="margin-top:14px;gap:10px;align-items:flex-end">
+          <label class="field" style="flex:1">
+            <span class="lbl">投資期間</span>
+            <div class="suffix">
+              <input class="ipt" type="number" id="inp-years" value="30" min="1" max="50" step="1" />
+              <span class="unit">年</span>
+            </div>
+          </label>
+          <label class="field" style="flex:1">
+            <span class="lbl">目標年（西暦）</span>
+            <div class="suffix">
+              <input class="ipt" type="number" id="inp-targetYear" value="2056" min="2027" max="2076" step="1" />
+              <span class="unit">年</span>
+            </div>
+          </label>
         </div>
+        <input type="range" id="sl-years" min="1" max="50" step="1" value="30" style="margin-top:8px" />
 
         <label class="field" style="margin-top:14px">
           <span class="lbl">年間投資可能金額</span>
@@ -373,9 +383,32 @@
         <div class="hint" style="margin-top:8px">※ 年金で賄えない不足額を目標に設定するのがコツ。まずは <a href="https://www.nenkin.go.jp/n_net/" target="_blank" rel="noopener" style="color:var(--accent-2);font-weight:700">ねんきんネット</a> で受給見込み額を確認しましょう。</div>
       </div>
 
-      <!-- 02: 想定パラメータ -->
+      <!-- 02: 現在の保有状況（任意）-->
+      <div class="sketch-card dashed">
+        <h3><span class="num">02</span> 現在の保有状況 <small style="font-family:var(--gothic);font-size:11px;color:var(--muted);font-weight:400">(任意)</small></h3>
+
+        <label class="field">
+          <span class="lbl">現在の年間配当金</span>
+          <div class="suffix">
+            <input class="ipt" type="number" id="inp-currentHdDiv" value="0" min="0" max="9999" step="0.1" />
+            <span class="unit">万円 / 年</span>
+          </div>
+        </label>
+
+        <label class="field" style="margin-top:12px">
+          <span class="lbl">現在のインデックス資産額</span>
+          <div class="suffix">
+            <input class="ipt" type="number" id="inp-currentIdxAsset" value="0" min="0" max="99999" step="10" />
+            <span class="unit">万円</span>
+          </div>
+        </label>
+
+        <div class="hint" style="margin-top:8px">すでに高配当株・インデックスを持っている場合、シミュレーションの開始残高として組み込めます。</div>
+      </div>
+
+      <!-- 03: 想定パラメータ -->
       <div class="sketch-card">
-        <h3><span class="num">02</span> 想定パラメータ</h3>
+        <h3><span class="num">03</span> 想定パラメータ</h3>
 
         <div class="slider-combo">
           <div class="top">
@@ -410,30 +443,7 @@
         </div>
 
         <div class="scribble"></div>
-        <div class="hint">※ 4%ルール（米国トリニティスタディ）を初期値に。利回りはセクター・銘柄・年代で変動します。</div>
-      </div>
-
-      <!-- 03: 現在の保有状況（任意）-->
-      <div class="sketch-card dashed">
-        <h3><span class="num">03</span> 現在の保有状況 <small style="font-family:var(--gothic);font-size:11px;color:var(--muted);font-weight:400">(任意)</small></h3>
-
-        <label class="field">
-          <span class="lbl">現在の年間配当金</span>
-          <div class="suffix">
-            <input class="ipt" type="number" id="inp-currentHdDiv" value="0" min="0" max="9999" step="0.1" />
-            <span class="unit">万円 / 年</span>
-          </div>
-        </label>
-
-        <label class="field" style="margin-top:12px">
-          <span class="lbl">現在のインデックス資産額</span>
-          <div class="suffix">
-            <input class="ipt" type="number" id="inp-currentIdxAsset" value="0" min="0" max="99999" step="10" />
-            <span class="unit">万円</span>
-          </div>
-        </label>
-
-        <div class="hint" style="margin-top:8px">すでに高配当株・インデックスを持っている場合、シミュレーションの開始残高として組み込めます。</div>
+        <div class="hint">※ 4%ルール（米国トリニティスタディ）を初期値に。利回りはセクター・銘柄・年代で変動します。目標年まではインデックス投資は積立のみで取崩しはせず、目標年到達時から取崩し率を適用します。</div>
       </div>
     </div>
 
@@ -497,8 +507,8 @@
         <div class="alloc-row">
           <div class="alloc-title">パターンA <span class="tag">インデックス軸</span></div>
           <div class="alloc-bar">
-            <div class="seg-hd"  id="bar-hd-a"  style="width:25%">高配当株 20万</div>
-            <div class="seg-idx" id="bar-idx-a" style="width:75%">インデックス 60万</div>
+            <div class="seg-hd"  id="bar-hd-a"  style="width:25%">高配当 20万</div>
+            <div class="seg-idx" id="bar-idx-a" style="width:75%">INDEX 60万</div>
           </div>
           <div class="alloc-labels">
             <span class="lbl-hd"  id="alloc-hd-a-label">高配当株：20万円（25.0%）</span>
@@ -509,8 +519,8 @@
         <div class="alloc-row">
           <div class="alloc-title">パターンB <span class="tag">高配当株軸</span></div>
           <div class="alloc-bar b">
-            <div class="seg-hd"  id="bar-hd-b"  style="width:55%">高配当株 44万</div>
-            <div class="seg-idx" id="bar-idx-b" style="width:45%">インデックス 36万</div>
+            <div class="seg-hd"  id="bar-hd-b"  style="width:55%">高配当 44万</div>
+            <div class="seg-idx" id="bar-idx-b" style="width:45%">INDEX 36万</div>
           </div>
           <div class="alloc-labels">
             <span class="lbl-hd"  id="alloc-hd-b-label">高配当株：44万円（55.0%）</span>
@@ -597,10 +607,10 @@
             <thead>
               <tr>
                 <th>年</th>
-                <th>HD 資産</th>
-                <th>HD 配当</th>
-                <th>IDX 資産</th>
-                <th>IDX 取崩</th>
+                <th>高配当 資産</th>
+                <th>高配当 配当</th>
+                <th>INDEX 資産</th>
+                <th>INDEX 取崩</th>
                 <th>合計収入</th>
               </tr>
             </thead>
@@ -667,13 +677,16 @@
 
   // ===================================================
   // インデックスシミュレーション
+  // 目標年まで取崩しせず、最終年(=目標年)のみ取崩し率を適用して年取崩し額を算出
   // ===================================================
   function simIDX(idxAnnual, params) {
     const { years, idxRate, withdrawRate, currentIdxAsset } = params;
     let idxAsset = currentIdxAsset;
     const rows = [];
     for (let n = 1; n <= years; n++) {
+      // 積立期間中は取崩しせず複利成長のみ
       idxAsset = (idxAsset + idxAnnual) * (1 + idxRate);
+      // idxWithdraw は「もし今この資産を取崩したら」の年取崩し額（最終年のみ意味を持つ）
       const idxWithdraw = idxAsset * withdrawRate;
       rows.push({ idxAsset, idxWithdraw });
     }
@@ -681,124 +694,76 @@
   }
 
   // ===================================================
-  // 二分探索
+  // 配分ヘルパー：ある HD積立額における最終年の (HD配当, IDX取崩し, 合計) を計算
   // ===================================================
-  function binarySearchMin(lo, hi, step, isOK) {
-    if (!isOK(hi)) return null;
-    let left = lo, right = hi;
-    while (right - left > step) {
-      const mid = (left + right) / 2;
-      if (isOK(mid)) right = mid; else left = mid;
-    }
-    return right;
-  }
-  function binarySearchMax(lo, hi, step, isOK) {
-    if (!isOK(lo)) return null;
-    if (isOK(hi)) return hi;
-    let left = lo, right = hi;
-    while (right - left > step) {
-      const mid = (left + right) / 2;
-      if (isOK(mid)) left = mid; else right = mid;
-    }
-    return left;
+  function evalAllocation(hdAnnual, params) {
+    const { years, totalAnnual } = params;
+    const idxAnnual = totalAnnual - hdAnnual;
+    const hdRows  = simHD(hdAnnual, params);
+    const idxRows = simIDX(idxAnnual, params);
+    const hdLast  = hdRows[years - 1];
+    const idxLast = idxRows[years - 1];
+    return {
+      hdAnnual, idxAnnual,
+      hdRows, idxRows,
+      hdDiv: hdLast.hdDiv, hdAsset: hdLast.hdAsset,
+      idxWithdraw: idxLast.idxWithdraw, idxAsset: idxLast.idxAsset,
+      totalIncome: hdLast.hdDiv + idxLast.idxWithdraw
+    };
   }
 
   // ===================================================
   // メイン計算
+  // 全 hdAnnual を 0.1 刻みで線形探索し、target達成範囲を求める
+  //   - パターンA = インデックス軸 = target達成かつ hdAnnual 最小（IDX最大）
+  //   - パターンB = 高配当株軸    = target達成かつ hdAnnual 最大（HD最大）
   // ===================================================
   function runAll(params) {
-    const { target, years, totalAnnual } = params;
+    const { target, totalAnnual } = params;
 
-    // ステップ1: 高配当株100%で目標達成できるか
-    const hdAllRows  = simHD(totalAnnual, params);
-    const hdAllLast  = hdAllRows[years - 1];
-    const idxZeroRows = simIDX(0, params);
-    const idxZeroLast = idxZeroRows[years - 1];
-    const hdAllTotal = hdAllLast.hdDiv + idxZeroLast.idxWithdraw;
-    const hdAllOK    = hdAllTotal >= target;
+    // ステップ1: 高配当株100%
+    const hdAllAlloc = evalAllocation(totalAnnual, params);
+    const hdAllOK = hdAllAlloc.totalIncome >= target;
 
-    // パターンA: インデックス軸（最小インデックス投資額）
-    let patternA = null;
-    const idxAnnual_A = binarySearchMin(0, totalAnnual, 0.1, (idxA) => {
-      const rows = simIDX(idxA, params);
-      return rows[years - 1].idxWithdraw >= target;
-    });
-
-    if (idxAnnual_A !== null) {
-      const hdA_annual = totalAnnual - idxAnnual_A;
-      const hdA_rows   = simHD(hdA_annual, params);
-      const idxA_rows  = simIDX(idxAnnual_A, params);
-      const hdA_last   = hdA_rows[years - 1];
-      const idxA_last  = idxA_rows[years - 1];
-      patternA = {
-        hdAnnual: hdA_annual, idxAnnual: idxAnnual_A,
-        hdRows: hdA_rows, idxRows: idxA_rows,
-        hdDiv: hdA_last.hdDiv, hdAsset: hdA_last.hdAsset,
-        idxWithdraw: idxA_last.idxWithdraw, idxAsset: idxA_last.idxAsset,
-        totalIncome: hdA_last.hdDiv + idxA_last.idxWithdraw,
-        ok: true
-      };
-    } else {
-      const hdA_rows  = simHD(0, params);
-      const idxA_rows = simIDX(totalAnnual, params);
-      const hdA_last  = hdA_rows[years - 1];
-      const idxA_last = idxA_rows[years - 1];
-      patternA = {
-        hdAnnual: 0, idxAnnual: totalAnnual,
-        hdRows: hdA_rows, idxRows: idxA_rows,
-        hdDiv: hdA_last.hdDiv, hdAsset: hdA_last.hdAsset,
-        idxWithdraw: idxA_last.idxWithdraw, idxAsset: idxA_last.idxAsset,
-        totalIncome: hdA_last.hdDiv + idxA_last.idxWithdraw,
-        ok: false
-      };
+    // 0.1万円刻みで全配分を試し、target達成する hdAnnual の範囲を求める
+    const STEP = 0.1;
+    let minHdOK = null;  // パターンA候補: 最小 hdAnnual
+    let maxHdOK = null;  // パターンB候補: 最大 hdAnnual
+    const N = Math.round(totalAnnual / STEP);
+    for (let i = 0; i <= N; i++) {
+      const hdA = +(i * STEP).toFixed(2);
+      const alloc = evalAllocation(hdA, params);
+      if (alloc.totalIncome >= target) {
+        if (minHdOK === null) minHdOK = hdA;
+        maxHdOK = hdA;
+      }
     }
 
-    // パターンB: 高配当株軸（最大高配当株投資額）
-    let patternB = null;
-    const hdAnnual_B = binarySearchMax(0, totalAnnual, 0.1, (hdA) => {
-      const idxA    = totalAnnual - hdA;
-      const hdRows  = simHD(hdA,  params);
-      const idxRows = simIDX(idxA, params);
-      const combo   = hdRows[years - 1].hdDiv + idxRows[years - 1].idxWithdraw;
-      return combo >= target;
-    });
-
-    if (hdAnnual_B !== null) {
-      const idxB_annual = totalAnnual - hdAnnual_B;
-      const hdB_rows    = simHD(hdAnnual_B, params);
-      const idxB_rows   = simIDX(idxB_annual, params);
-      const hdB_last    = hdB_rows[years - 1];
-      const idxB_last   = idxB_rows[years - 1];
-      patternB = {
-        hdAnnual: hdAnnual_B, idxAnnual: idxB_annual,
-        hdRows: hdB_rows, idxRows: idxB_rows,
-        hdDiv: hdB_last.hdDiv, hdAsset: hdB_last.hdAsset,
-        idxWithdraw: idxB_last.idxWithdraw, idxAsset: idxB_last.idxAsset,
-        totalIncome: hdB_last.hdDiv + idxB_last.idxWithdraw,
-        ok: true
-      };
+    // パターンA: インデックス軸 (HD最小化 = IDX最大化)
+    let patternA;
+    if (minHdOK !== null) {
+      patternA = { ...evalAllocation(minHdOK, params), ok: true };
     } else {
-      const hdB_rows  = simHD(totalAnnual, params);
-      const idxB_rows = simIDX(0, params);
-      const hdB_last  = hdB_rows[years - 1];
-      const idxB_last = idxB_rows[years - 1];
-      patternB = {
-        hdAnnual: totalAnnual, idxAnnual: 0,
-        hdRows: hdB_rows, idxRows: idxB_rows,
-        hdDiv: hdB_last.hdDiv, hdAsset: hdB_last.hdAsset,
-        idxWithdraw: idxB_last.idxWithdraw, idxAsset: idxB_last.idxAsset,
-        totalIncome: hdB_last.hdDiv + idxB_last.idxWithdraw,
-        ok: false
-      };
+      // 達成不可：参考値として HD0 (IDX100%) を表示
+      patternA = { ...evalAllocation(0, params), ok: false };
+    }
+
+    // パターンB: 高配当株軸 (HD最大化)
+    let patternB;
+    if (maxHdOK !== null) {
+      patternB = { ...evalAllocation(maxHdOK, params), ok: true };
+    } else {
+      // 達成不可：参考値として HD100% を表示
+      patternB = { ...evalAllocation(totalAnnual, params), ok: false };
     }
 
     return {
       hdAllOK,
-      hdAllDiv:      hdAllLast.hdDiv,
-      hdAllAsset:    hdAllLast.hdAsset,
-      hdAllIdxWith:  idxZeroLast.idxWithdraw,
-      hdAllIdxAsset: idxZeroLast.idxAsset,
-      hdAllTotal,
+      hdAllDiv:      hdAllAlloc.hdDiv,
+      hdAllAsset:    hdAllAlloc.hdAsset,
+      hdAllIdxWith:  hdAllAlloc.idxWithdraw,
+      hdAllIdxAsset: hdAllAlloc.idxAsset,
+      hdAllTotal:    hdAllAlloc.totalIncome,
       patternA,
       patternB
     };
@@ -807,6 +772,8 @@
   // ===================================================
   // UI 更新
   // ===================================================
+  const BASE_YEAR = 2026;
+
   function update() {
     const target          = parseFloat(document.getElementById('inp-target').value)         || 0;
     const years           = parseInt(document.getElementById('inp-years').value)            || 1;
@@ -820,8 +787,9 @@
 
     const params = { target, years, totalAnnual, hdRate, divGrowth, idxRate, withdrawRate, currentHdDiv, currentIdxAsset };
 
-    // スライダー表示更新
-    document.getElementById('disp-years').textContent       = years;
+    // 目標年・投資期間スライダーを連動
+    document.getElementById('inp-targetYear').value = BASE_YEAR + years;
+    document.getElementById('sl-years').value = years;
     document.getElementById('disp-hdRate').textContent      = fmt1(parseFloat(document.getElementById('sl-hdRate').value));
     document.getElementById('disp-divGrowth').textContent   = fmt1(parseFloat(document.getElementById('sl-divGrowth').value));
     document.getElementById('disp-idxRate').textContent     = fmt1(parseFloat(document.getElementById('sl-idxRate').value));
@@ -833,7 +801,7 @@
     // ステップ1 hero 更新
     document.getElementById('step1-num').textContent = fmt1(hdAllTotal);
     const step1Detail = hdAllIdxWith > 0
-      ? `HD配当 ${fmt1(hdAllDiv)}万円 ＋ 既存IDX取崩 ${fmt1(hdAllIdxWith)}万円`
+      ? `高配当配当 ${fmt1(hdAllDiv)}万円 ＋ 既存INDEX取崩 ${fmt1(hdAllIdxWith)}万円`
       : `年間配当金 ${fmt1(hdAllDiv)}万円`;
     document.getElementById('step1-detail').textContent = step1Detail;
 
@@ -888,8 +856,8 @@
       const idxPctA = 100 - hdPctA;
       document.getElementById('bar-hd-a').style.width  = hdPctA + '%';
       document.getElementById('bar-idx-a').style.width = idxPctA + '%';
-      document.getElementById('bar-hd-a').textContent  = hdPctA  > 10 ? `HD ${fmt1(patternA.hdAnnual)}万` : '';
-      document.getElementById('bar-idx-a').textContent = idxPctA > 10 ? `IDX ${fmt1(patternA.idxAnnual)}万` : '';
+      document.getElementById('bar-hd-a').textContent  = hdPctA  > 10 ? `高配当 ${fmt1(patternA.hdAnnual)}万` : '';
+      document.getElementById('bar-idx-a').textContent = idxPctA > 10 ? `INDEX ${fmt1(patternA.idxAnnual)}万` : '';
       document.getElementById('alloc-hd-a-label').textContent  = `高配当株：${fmt1(patternA.hdAnnual)}万円（${fmt1(hdPctA)}%）`;
       document.getElementById('alloc-idx-a-label').textContent = `インデックス：${fmt1(patternA.idxAnnual)}万円（${fmt1(idxPctA)}%）`;
     } else {
@@ -907,8 +875,8 @@
       const idxPctB = 100 - hdPctB;
       document.getElementById('bar-hd-b').style.width  = hdPctB + '%';
       document.getElementById('bar-idx-b').style.width = idxPctB + '%';
-      document.getElementById('bar-hd-b').textContent  = hdPctB  > 10 ? `HD ${fmt1(patternB.hdAnnual)}万` : '';
-      document.getElementById('bar-idx-b').textContent = idxPctB > 10 ? `IDX ${fmt1(patternB.idxAnnual)}万` : '';
+      document.getElementById('bar-hd-b').textContent  = hdPctB  > 10 ? `高配当 ${fmt1(patternB.hdAnnual)}万` : '';
+      document.getElementById('bar-idx-b').textContent = idxPctB > 10 ? `INDEX ${fmt1(patternB.idxAnnual)}万` : '';
       document.getElementById('alloc-hd-b-label').textContent  = `高配当株：${fmt1(patternB.hdAnnual)}万円（${fmt1(hdPctB)}%）`;
       document.getElementById('alloc-idx-b-label').textContent = `インデックス：${fmt1(patternB.idxAnnual)}万円（${fmt1(idxPctB)}%）`;
     } else {
@@ -979,11 +947,11 @@
     const bTotal = patternB ? patternB.hdRows.map((r, i) => +(r.hdAsset + patternB.idxRows[i].idxAsset).toFixed(1)) : [];
 
     const datasets = [
-      { type:'line', label:'A・HD 資産', data:aHd, borderColor:'#facc15', backgroundColor:'rgba(250,204,21,.05)', borderWidth:1.5, pointRadius:0, tension:0.3 },
-      { type:'line', label:'A・IDX 資産', data:aIdx, borderColor:'#60a5fa', backgroundColor:'rgba(96,165,250,.05)', borderWidth:1.5, pointRadius:0, tension:0.3 },
+      { type:'line', label:'A・高配当 資産', data:aHd, borderColor:'#facc15', backgroundColor:'rgba(250,204,21,.05)', borderWidth:1.5, pointRadius:0, tension:0.3 },
+      { type:'line', label:'A・INDEX 資産', data:aIdx, borderColor:'#60a5fa', backgroundColor:'rgba(96,165,250,.05)', borderWidth:1.5, pointRadius:0, tension:0.3 },
       { type:'line', label:'A・合計', data:aTotal, borderColor:'#a78bfa', backgroundColor:'transparent', borderWidth:1.5, pointRadius:0, borderDash:[5,5], tension:0.3 },
-      { type:'line', label:'B・HD 資産', data:bHd, borderColor:'#eab308', backgroundColor:'rgba(234,179,8,.06)', borderWidth:2.5, pointRadius:0, tension:0.3 },
-      { type:'line', label:'B・IDX 資産', data:bIdx, borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,.06)', borderWidth:2.5, pointRadius:0, tension:0.3 },
+      { type:'line', label:'B・高配当 資産', data:bHd, borderColor:'#eab308', backgroundColor:'rgba(234,179,8,.06)', borderWidth:2.5, pointRadius:0, tension:0.3 },
+      { type:'line', label:'B・INDEX 資産', data:bIdx, borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,.06)', borderWidth:2.5, pointRadius:0, tension:0.3 },
       { type:'line', label:'B・合計', data:bTotal, borderColor:'#1d2430', backgroundColor:'transparent', borderWidth:2.5, pointRadius:0, tension:0.3 }
     ];
 
@@ -1043,9 +1011,33 @@
   // ===================================================
   // イベントリスナー
   // ===================================================
-  ['inp-target', 'inp-years', 'inp-totalAnnual', 'inp-currentHdDiv', 'inp-currentIdxAsset'].forEach(id => {
+  ['inp-target', 'inp-totalAnnual', 'inp-currentHdDiv', 'inp-currentIdxAsset'].forEach(id => {
     document.getElementById(id).addEventListener('input', update);
   });
+
+  // 投資期間入力 → 目標年に反映 + update
+  document.getElementById('inp-years').addEventListener('input', () => {
+    const y = parseInt(document.getElementById('inp-years').value) || 1;
+    document.getElementById('inp-targetYear').value = BASE_YEAR + y;
+    document.getElementById('sl-years').value = y;
+    update();
+  });
+  // 投資期間スライダー → 入力欄に反映 + update
+  document.getElementById('sl-years').addEventListener('input', () => {
+    const y = parseInt(document.getElementById('sl-years').value) || 1;
+    document.getElementById('inp-years').value = y;
+    document.getElementById('inp-targetYear').value = BASE_YEAR + y;
+    update();
+  });
+  // 目標年入力 → 投資期間に逆算 + update
+  document.getElementById('inp-targetYear').addEventListener('input', () => {
+    const ty = parseInt(document.getElementById('inp-targetYear').value) || (BASE_YEAR + 1);
+    const y = Math.max(1, Math.min(50, ty - BASE_YEAR));
+    document.getElementById('inp-years').value = y;
+    document.getElementById('sl-years').value = y;
+    update();
+  });
+
   ['sl-hdRate', 'sl-divGrowth', 'sl-idxRate', 'sl-withdrawRate'].forEach(id => {
     document.getElementById(id).addEventListener('input', update);
   });
