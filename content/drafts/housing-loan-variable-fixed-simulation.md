@@ -7,7 +7,7 @@ tags: ["住宅ローン", "変動金利", "固定金利", "繰り上げ返済", 
 description: "変動と固定の差額を繰り上げ返済に回す戦略を3,000万円35年で検証。固定金利は実質『保険料』、買うべきかを判断軸で解説します。"
 showToc: true
 cover:
-  image: "/images/thumb-housing-loan-variable-fixed-simulation.jpg"
+  image: "/images/thumb-housing-loan-variable-fixed-simulation.png"
   alt: "住宅ローンは変動か固定か——差額繰り上げ戦略と「保険料」の考え方"
   relative: false
   hiddenInList: false
