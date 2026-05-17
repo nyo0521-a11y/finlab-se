@@ -172,8 +172,8 @@ rotation:
 - post_path: content/posts/ideco-2026-reform.md
     # title: iDeCo 2026年大改正まとめ
     # date: 2026-04-14
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-17T21:06:22+09:00'
+  promote_count: 1
   priority: normal
 
 - post_path: content/posts/ideco-dc-basics.md
