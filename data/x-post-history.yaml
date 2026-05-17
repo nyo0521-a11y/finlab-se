@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-18T07:18:06+09:00'
+    text: "【新着📝】\nネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、…\n\nhttps://finlab-se.com/posts/bank-security-defense-in-depth-phishing/\n\
+      \n#セキュリティ #フィッシング #多要素認証"
+    tweet_id: '2056137207375688121'
+    tweet_url: https://x.com/i/web/status/2056137207375688121
+    type: new
+    post_path: content/posts/bank-security-defense-in-depth-phishing.md
   - posted_at: '2026-05-17T21:06:22+09:00'
     text: "【おすすめ📖】\n2026年改正でiDeCoの掛金上限が月6.2万円に拡大。社会保険料は下がらないが所得税・住民税は節税できます。仕組みの理由と年収500万・700万・1,000万円別の節税額を金融SEが試算。\n\
       \nhttps://finlab-se.com/posts/ideco-2026-reform/"
