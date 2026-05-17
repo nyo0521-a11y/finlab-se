@@ -238,3 +238,11 @@ cover:
 まず自分の借入額で変動・固定の月額差を計算し、差額を無理なく繰り上げ返済できるかどうかを確認してみてください。家計シミュレーションを1枚のシートに書き出すだけでも、判断の解像度が大きく上がります。
 
 [固定金利の正体はデリバティブ——フラット35が安い理由を金融エンジニアが解説](/posts/housing-loan-fixed-rate-derivative-flat35/)
+
+---
+
+## 本記事で参照したサイト
+
+- <a href="https://mogecheck.jp/mortgage-ranking/purchase" target="_blank" rel="noopener">モゲチェック 住宅ローンランキング</a> — 主要金融機関の変動金利・固定金利を一覧で比較できる。本記事の変動金利水準（最安0.8〜0.9%台・中央値1.0〜1.3%程度）の出典
+- <a href="https://www.sbiaruhi.co.jp/rate/" target="_blank" rel="noopener">ARUHI フラット35 金利情報</a> — フラット35の取扱シェア最大手。本記事の固定金利水準（21〜35年・自己資金1割以上・団信込みで「当初引き下げ中1.710% / 引き下げ後2.710%」）の出典
+- <a href="https://www.boj.or.jp/mopo/mpmsche_minu/index.htm" target="_blank" rel="noopener">日本銀行 金融政策決定会合</a> — 政策金利の現状と先行きを公式発表で確認できる。2025年12月の利上げで政策金利は0.75%へ
