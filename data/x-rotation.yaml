@@ -179,8 +179,8 @@ rotation:
 - post_path: content/posts/ideco-dc-basics.md
     # title: 企業型DC・iDeCoの基本を整理する
     # date: 2026-04-14
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-18T21:06:09+09:00'
+  promote_count: 1
   priority: normal
 
 - post_path: content/posts/income-wall-2026.md

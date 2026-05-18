@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-18T21:06:09+09:00'
+    text: "【おすすめ📖】\n企業型DB・DC・iDeCoの違いを3階建てで整理。税メリット・受取時リスク・新NISAとの優先順位。\n\nhttps://finlab-se.com/posts/ideco-dc-basics/\n\
+      \n#iDeCo #企業型DC #確定拠出年金"
+    tweet_id: '2056345592696037695'
+    tweet_url: https://x.com/i/web/status/2056345592696037695
+    type: rotation
+    post_path: content/posts/ideco-dc-basics.md
   - posted_at: '2026-05-18T07:18:06+09:00'
     text: "【新着📝】\nネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、…\n\nhttps://finlab-se.com/posts/bank-security-defense-in-depth-phishing/\n\
       \n#セキュリティ #フィッシング #多要素認証"
