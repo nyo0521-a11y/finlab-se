@@ -290,3 +290,5 @@ cover:
 - <a href="https://mogecheck.jp/mortgage-ranking/purchase" target="_blank" rel="noopener">モゲチェック 住宅ローンランキング</a> — 主要金融機関の変動金利・固定金利を一覧で比較できる。本記事の変動金利水準（最安0.8〜0.9%台・中央値1.0〜1.3%程度）の出典
 - <a href="https://www.sbiaruhi.co.jp/rate/" target="_blank" rel="noopener">ARUHI フラット35 金利情報</a> — フラット35の取扱シェア最大手。本記事の固定金利水準（21〜35年・自己資金1割以上・団信込みで「当初引き下げ中1.710% / 引き下げ後2.710%」）の出典
 - <a href="https://www.boj.or.jp/mopo/mpmsche_minu/index.htm" target="_blank" rel="noopener">日本銀行 金融政策決定会合</a> — 政策金利の現状と先行きを公式発表で確認できる。2025年12月の利上げで政策金利は0.75%へ
+- <a href="https://www.youtube.com/@ryogakucho" target="_blank" rel="noopener">両学長 リベラルアーツ大学（YouTube）</a> — お金にまつわる5つの力を発信する両学長の公式チャンネル。<strong>本記事後半の「保険は『貯蓄で備えられない大きな損失』だけに使う」という考え方は、リベ大の動画から大きな示唆を受けています</strong>
+- <a href="https://libecity.com/" target="_blank" rel="noopener">リベシティ</a> — リベ大が運営するお金の悩み相談コミュニティ。住宅ローン・保険・家計の実例相談が多数
