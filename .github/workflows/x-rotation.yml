@@ -44,6 +44,32 @@ jobs:
         shell: bash
         run: |
           set -e
+
+          # ★ 優先チェック: 夜スロットで既に投稿済みならスキップ ★
+          # x-post-scheduled (20:53) がキュー2件以上のとき1件投稿する。
+          # その後キューが1件に減り、x-rotation が「queue<2」と誤判定して
+          # 2重投稿するバグを防ぐため、キュー残数より state を優先する。
+          TODAY=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
+          NIGHT_LAST=$(python - <<'PY'
+          from pathlib import Path
+          from ruamel.yaml import YAML
+          p = Path("data/x-post-state.yaml")
+          if not p.exists():
+              print("")
+          else:
+              yaml = YAML()
+              with p.open(encoding="utf-8") as f:
+                  d = yaml.load(f) or {}
+              print(d.get("night_last_posted", "") or "")
+          PY
+          )
+          if [ "$NIGHT_LAST" = "$TODAY" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Skipping rotation: night slot already posted today ($TODAY) by x-post-scheduled"
+            exit 0
+          fi
+
+          # 夜スロット未投稿の場合はキュー残数も確認（念のため二重ガード）
           COUNT=$(python - <<'PY'
           from pathlib import Path
           from ruamel.yaml import YAML
