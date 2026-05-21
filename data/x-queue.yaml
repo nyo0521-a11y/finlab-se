@@ -10,7 +10,5 @@
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
 queue:
-  - post_path: content/posts/housing-loan-variable-fixed-simulation.md
-    added_at: '2026-05-20T06:22:48+09:00'
   - post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
     added_at: '2026-05-21T06:58:55+09:00'
