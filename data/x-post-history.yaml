@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-22T21:06:15+09:00'
+    text: "【おすすめ📖】\n4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。\n\nhttps://finlab-se.com/posts/montecarlo-background/\n\
+      \n#モンテカルロシミュレーション #FIRE #4%ルール"
+    tweet_id: '2057795168003088621'
+    tweet_url: https://x.com/i/web/status/2057795168003088621
+    type: rotation
+    post_path: content/posts/montecarlo-background.md
   - posted_at: '2026-05-22T07:18:23+09:00'
     text: "【新着📝】\n銀行の固定金利は『変動金利＋金利スワップ』の構造。フラット35が安いのはこの仕組みを使わず証券化で調達するから、を解説します。\n\
       \nhttps://finlab-se.com/posts/housing-loan-fixed-rate-derivative-flat35/\n\n\
