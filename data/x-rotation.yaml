@@ -228,8 +228,8 @@ rotation:
 - post_path: content/posts/wise-revolut-fintech-remittance.md
     # title: Wise・Revolutはなぜ安い？
     # date: 2026-04-22
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-26T07:18:22+09:00'
+  promote_count: 1
   priority: normal
 
 - post_path: content/posts/zengin-net-payment-system.md

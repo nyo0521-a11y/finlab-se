@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-26T07:18:22+09:00'
+    text: "【おすすめ📖】\nWise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。\n\nhttps://finlab-se.com/posts/wise-revolut-fintech-remittance/\n\
+      \n#海外送金 #Wise #Revolut"
+    tweet_id: '2059036379099902148'
+    tweet_url: https://x.com/i/web/status/2059036379099902148
+    type: rotation
+    post_path: content/posts/wise-revolut-fintech-remittance.md
   - posted_at: '2026-05-25T21:06:20+09:00'
     text: "【おすすめ📖】\n「減配せず維持または増配」を公約する累進配当株。連続増配株との違いや商社株が注目される理由を解説。\n\nhttps://finlab-se.com/posts/progressive-dividend-stocks/\n\
       \n#累進配当株 #商社株 #高配当株"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2049822526084174006
     type: rotation
     post_path: content/posts/dividend-target-simulator-tool-usage.md
-  - posted_at: '2026-04-30T07:18:08+09:00'
-    text: "【新着📝】\nNISAのインデックス積立から高配当株投資まで、投資スタイルに合った証券会社の選び方を解説。\n\nhttps://finlab-se.com/posts/securities-selection-for-index-and-dividend/\n\
-      \n#証券会社 #高配当株 #インデックス投資"
-    tweet_id: '2049614236607791259'
-    tweet_url: https://x.com/i/web/status/2049614236607791259
-    type: new
-    post_path: content/posts/securities-selection-for-index-and-dividend.md
