@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-25T21:06:20+09:00'
+    text: "【おすすめ📖】\n「減配せず維持または増配」を公約する累進配当株。連続増配株との違いや商社株が注目される理由を解説。\n\nhttps://finlab-se.com/posts/progressive-dividend-stocks/\n\
+      \n#累進配当株 #商社株 #高配当株"
+    tweet_id: '2058882356992409958'
+    tweet_url: https://x.com/i/web/status/2058882356992409958
+    type: rotation
+    post_path: content/posts/progressive-dividend-stocks.md
   - posted_at: '2026-05-25T07:18:15+09:00'
     text: "【おすすめ📖】\n2026年度の年金改定率とマクロ経済スライドによる実質目減りを試算。iDeCo・NISA・高配当株で備える。\n\nhttps://finlab-se.com/posts/pension-macroeconomic-slide-2026/\n\
       \n#年金 #マクロ経済スライド #老後資金"
@@ -351,12 +358,5 @@ history:
       \n#証券会社 #高配当株 #インデックス投資"
     tweet_id: '2049614236607791259'
     tweet_url: https://x.com/i/web/status/2049614236607791259
-    type: new
-    post_path: content/posts/securities-selection-for-index-and-dividend.md
-  - posted_at: '2026-04-29T20:53:00+09:00'
-    text: "【新着📝】\nNISAのインデックス積立から高配当株投資まで、投資スタイルに合った証券会社の選び方を解説。\n\nhttps://finlab-se.com/posts/securities-selection-for-index-and-dividend/\n\
-      \n#証券会社 #高配当株 #インデックス投資"
-    tweet_id: '2049457011906019720'
-    tweet_url: https://x.com/i/web/status/2049457011906019720
     type: new
     post_path: content/posts/securities-selection-for-index-and-dividend.md
