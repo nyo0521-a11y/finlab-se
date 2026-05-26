@@ -1,10 +1,10 @@
 ---
-title: "高配当株の買い時を見極める：配当利回りで割高・割安を判断する方法"
+title: "【高配当株】買い時はいつ？配当利回りで割安を見極める方法｜VYM・HDV・SCHD実例"
 date: 2026-04-18T15:45:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "買い時", "配当利回り", "割安判断", "ETF", "日本株"]
-description: "高配当株の買いタイミングはVYM・HDV・SCHDも日本個別株も「過去平均利回りと現在の比較」で判断。"
+description: "高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD・日本個別株の実例つきで金融SEが解説。"
 showToc: true
 cover:
   image: "/images/thumb-highyield-buying-timing.jpg"

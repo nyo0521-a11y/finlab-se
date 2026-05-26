@@ -1,10 +1,10 @@
 ---
-title: "銀行同士のお金はどう動く？｜日銀ネットRTGSと海外決済システムの仕組み"
+title: "日銀ネットとは？銀行間決済RTGSの仕組み｜Fedwire・CHIPS・TARGET2と比較解説"
 date: 2026-04-21T06:52:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["日銀ネット", "RTGS", "決済システム", "Fedwire", "CHIPS", "TARGET2", "金融インフラ"]
-description: "振込の裏でRTGSと日銀ネットが動く仕組みを、金融SEが米欧英の決済インフラと合わせて解説。"
+description: "日銀ネットとRTGSの仕組みを、米Fedwire・CHIPS・欧TARGET2と比較しながら金融SEが解説。銀行間決済の裏側がわかる。"
 showToc: true
 cover:
   image: "/images/thumb-boj-net-rtgs-international.png"
