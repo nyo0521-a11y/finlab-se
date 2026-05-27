@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-28T07:18:25+09:00'
+    text: "【おすすめ📖】\n全銀ネット（全国銀行資金決済ネットワーク）とモアタイムシステムの仕組みを金融SEが解説。振込が24時間365日即時着金する裏側、為替通知と資金決済の違いまで構造で理解できます。\n\
+      \nhttps://finlab-se.com/posts/zengin-net-payment-system/\n\n#全銀ネット #銀行 #決済"
+    tweet_id: '2059761168328126744'
+    tweet_url: https://x.com/i/web/status/2059761168328126744
+    type: rotation
+    post_path: content/posts/zengin-net-payment-system.md
   - posted_at: '2026-05-27T07:18:23+09:00'
     text: "【新着📝】\nマネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説。キャッシュレス決済の自動取込が決定打です。\n\n\
       https://finlab-se.com/posts/household-budget-app-comparison-2026/\n\n#マネーフォワード
@@ -354,10 +361,3 @@ history:
     tweet_url: https://x.com/i/web/status/2049981667759075508
     type: rotation
     post_path: content/posts/montecarlo-tool-usage.md
-  - posted_at: '2026-05-01T07:18:11+09:00'
-    text: "【新着📝】\n2026年4月から被扶養者認定が「労働契約ベース」に変更。130万超でも扶養が外れない新ルールを解説。\n\nhttps://finlab-se.com/posts/health-insurance-dependent-2026/\n\
-      \n#健康保険 #扶養 #パート"
-    tweet_id: '2049976637148864901'
-    tweet_url: https://x.com/i/web/status/2049976637148864901
-    type: new
-    post_path: content/posts/health-insurance-dependent-2026.md

@@ -235,8 +235,8 @@ rotation:
 - post_path: content/posts/zengin-net-payment-system.md
     # title: 全銀システムって何？
     # date: 2026-04-20
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-28T07:18:26+09:00'
+  promote_count: 1
   priority: normal
 
 - post_path: content/posts/nikkei-60000-highyield-mindset.md
