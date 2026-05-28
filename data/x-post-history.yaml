@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-28T21:06:18+09:00'
+    text: "【おすすめ📖】\n金融エンジニアの資産運用実験室へようこそ。ブログ開設のご挨拶です。\n\nhttps://finlab-se.com/posts/hello-world/\n\
+      \n#自己紹介"
+    tweet_id: '2059969508102545557'
+    tweet_url: https://x.com/i/web/status/2059969508102545557
+    type: rotation
+    post_path: content/posts/hello-world.md
   - posted_at: '2026-05-28T07:18:25+09:00'
     text: "【おすすめ📖】\n全銀ネット（全国銀行資金決済ネットワーク）とモアタイムシステムの仕組みを金融SEが解説。振込が24時間365日即時着金する裏側、為替通知と資金決済の違いまで構造で理解できます。\n\
       \nhttps://finlab-se.com/posts/zengin-net-payment-system/\n\n#全銀ネット #銀行 #決済"
@@ -354,10 +361,3 @@ history:
     tweet_url: https://x.com/i/web/status/2050184918622167283
     type: rotation
     post_path: content/posts/asset-management-claude-code.md
-  - posted_at: '2026-05-01T07:38:11+09:00'
-    text: "【おすすめ📖】\n資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツールの使い方。\n\nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\
-      \n#モンテカルロシミュレーション #FIRE #4%ルール"
-    tweet_id: '2049981667759075508'
-    tweet_url: https://x.com/i/web/status/2049981667759075508
-    type: rotation
-    post_path: content/posts/montecarlo-tool-usage.md

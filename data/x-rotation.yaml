@@ -38,8 +38,8 @@ rotation:
 - post_path: content/posts/hello-world.md
     # title: ブログを始めました
     # date: 2026-04-12
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-05-28T21:06:18+09:00'
+  promote_count: 1
   priority: low
 
   # --- priority: normal（以下、通常記事） ---
