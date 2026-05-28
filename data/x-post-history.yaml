@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-29T07:18:17+09:00'
+    text: "【おすすめ📖】\n年間200万円を配当で賄うのに必要な元本を計算。インデックス+4%ルールとも比較します。\n\nhttps://finlab-se.com/posts/dividend-life-calculation/\n\
+      \n#配当金生活 #FIRE #高配当株"
+    tweet_id: '2060123521036993013'
+    tweet_url: https://x.com/i/web/status/2060123521036993013
+    type: rotation
+    post_path: content/posts/dividend-life-calculation.md
   - posted_at: '2026-05-28T21:06:18+09:00'
     text: "【おすすめ📖】\n金融エンジニアの資産運用実験室へようこそ。ブログ開設のご挨拶です。\n\nhttps://finlab-se.com/posts/hello-world/\n\
       \n#自己紹介"
@@ -354,10 +361,3 @@ history:
     tweet_url: https://x.com/i/web/status/2050339008803443170
     type: new
     post_path: content/posts/cloudflare-pages-blog-publish-flow.md
-  - posted_at: '2026-05-01T21:05:50+09:00'
-    text: "【おすすめ📖】\nMoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。\n\nhttps://finlab-se.com/posts/asset-management-claude-code/\n\
-      \n#ClaudeCode #家計管理 #MoneyForward"
-    tweet_id: '2050184918622167283'
-    tweet_url: https://x.com/i/web/status/2050184918622167283
-    type: rotation
-    post_path: content/posts/asset-management-claude-code.md
