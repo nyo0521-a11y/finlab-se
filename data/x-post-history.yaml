@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-30T07:18:28+09:00'
+    text: "【おすすめ📖】\n資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツールの使い方。\n\nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\
+      \n#モンテカルロシミュレーション #FIRE #4%ルール"
+    tweet_id: '2060485956008837265'
+    tweet_url: https://x.com/i/web/status/2060485956008837265
+    type: rotation
+    post_path: content/posts/montecarlo-tool-usage.md
   - posted_at: '2026-05-29T21:06:34+09:00'
     text: "【おすすめ📖】\n「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。\n\nhttps://finlab-se.com/posts/dividend-target-simulator-tool-usage/\n\
       \n#配当目標 #高配当株 #シミュレーションツール"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2050547393171542295
     type: rotation
     post_path: content/posts/blog-redesign-with-claude-code.md
-  - posted_at: '2026-05-02T07:38:17+09:00'
-    text: "【おすすめ📖】\nなぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。\n\nhttps://finlab-se.com/posts/bank-core-system-cloud/\n\
-      \n#銀行システム #勘定系 #クラウド"
-    tweet_id: '2050344081570803774'
-    tweet_url: https://x.com/i/web/status/2050344081570803774
-    type: rotation
-    post_path: content/posts/bank-core-system-cloud.md
