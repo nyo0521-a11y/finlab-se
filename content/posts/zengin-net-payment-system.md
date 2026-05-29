@@ -210,7 +210,7 @@ cover:
 
 次の記事では、その日銀ネットの仕組みと、海外との決済（国際送金）はどうなっているのかを解説します。
 
-→ [日銀ネットと国際送金の裏側（執筆予定）](/posts/boj-net-rtgs-international/)
+→ [日銀ネットとは？銀行間決済RTGSの仕組み｜Fedwire・CHIPS・TARGET2と比較解説](/posts/boj-net-rtgs-international/)
 
 ---
 
