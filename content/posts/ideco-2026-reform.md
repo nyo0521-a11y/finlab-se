@@ -8,7 +8,7 @@ tags: ["iDeCo", "節税", "老後資金", "確定拠出年金", "社会保険料
 description: "2026年改正でiDeCoの掛金上限が月6.2万円に拡大。社会保険料は下がらないが所得税・住民税は節税できます。仕組みの理由と年収500万・700万・1,000万円別の節税額を金融SEが試算。"
 showToc: true
 cover:
-  image: "/images/thumb-ideco-2026-reform.jpg"
+  image: "/images/thumb-ideco-2026-reform.png"
   alt: "iDeCo 2026年改正の概要イメージ"
   relative: false
   hiddenInList: false
