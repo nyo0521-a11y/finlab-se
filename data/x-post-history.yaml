@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-05-30T21:05:43+09:00'
+    text: "【おすすめ📖】\nMoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。\n\nhttps://finlab-se.com/posts/asset-management-claude-code/\n\
+      \n#ClaudeCode #家計管理 #MoneyForward"
+    tweet_id: '2060694139285495938'
+    tweet_url: https://x.com/i/web/status/2060694139285495938
+    type: rotation
+    post_path: content/posts/asset-management-claude-code.md
   - posted_at: '2026-05-30T07:18:28+09:00'
     text: "【おすすめ📖】\n資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツールの使い方。\n\nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\
       \n#モンテカルロシミュレーション #FIRE #4%ルール"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2050701388473078058
     type: new
     post_path: content/posts/x-auto-post-cloudflare-workers.md
-  - posted_at: '2026-05-02T21:06:10+09:00'
-    text: "【おすすめ📖】\nClaude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。\n\nhttps://finlab-se.com/posts/blog-redesign-with-claude-code/\n\
-      \n#ClaudeDesign #ClaudeCode #ブログ運営"
-    tweet_id: '2050547393171542295'
-    tweet_url: https://x.com/i/web/status/2050547393171542295
-    type: rotation
-    post_path: content/posts/blog-redesign-with-claude-code.md
