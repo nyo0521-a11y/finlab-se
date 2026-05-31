@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-01T07:18:16+09:00'
+    text: "【おすすめ📖】\n日銀ネットとRTGSの仕組みを、米Fedwire・CHIPS・欧TARGET2と比較しながら金融SEが解説。銀行間決済の裏側がわかる。\n\
+      \nhttps://finlab-se.com/posts/boj-net-rtgs-international/\n\n#日銀ネット #RTGS #決済システム"
+    tweet_id: '2061210679579684949'
+    tweet_url: https://x.com/i/web/status/2061210679579684949
+    type: rotation
+    post_path: content/posts/boj-net-rtgs-international.md
   - posted_at: '2026-05-31T21:06:21+09:00'
     text: "【おすすめ📖】\nClaude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。\n\nhttps://finlab-se.com/posts/blog-redesign-with-claude-code/\n\
       \n#ClaudeDesign #ClaudeCode #ブログ運営"
@@ -352,11 +359,3 @@ history:
     tweet_url: https://x.com/i/web/status/2051272198271258909
     type: rotation
     post_path: content/posts/consecutive-dividend-growth.md
-  - posted_at: '2026-05-04T07:38:14+09:00'
-    text: "【おすすめ📖】\n投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。\n\
-      \nhttps://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #Hugo
-      #CloudflarePages"
-    tweet_id: '2051068842529390924'
-    tweet_url: https://x.com/i/web/status/2051068842529390924
-    type: rotation
-    post_path: content/posts/claude-code-blog-experience.md
