@@ -129,6 +129,73 @@
 </section>
 
 <!-- ================================================== -->
+<!-- ④ LATEST POSTS -->
+<!-- ================================================== -->
+<section id="posts" style="background: var(--bg-soft);">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Latest</span>
+        <h2 class="section-title">最新の記事</h2>
+      </div>
+      <a class="section-link" href="{{ "/posts/" | relURL }}">記事一覧へ <span class="arrow">→</span></a>
+    </div>
+
+    <div class="posts-grid">
+      {{- range $i, $p := $latest }}
+        {{- /* カテゴリでバッジ色を切替 */ -}}
+        {{- $cats := $p.Params.categories | default (slice) -}}
+        {{- $badgeClass := "" -}}
+        {{- $badgeLabel := "" -}}
+        {{- if in $cats "高配当株投資" -}}
+          {{- $badgeClass = "b-green" -}}{{- $badgeLabel = "高配当株投資" -}}
+        {{- else if in $cats "資産形成" -}}
+          {{- $badgeClass = "b-teal" -}}{{- $badgeLabel = "資産形成" -}}
+        {{- else if in $cats "AI活用" -}}
+          {{- $badgeClass = "b-blue" -}}{{- $badgeLabel = "AI活用" -}}
+        {{- else if in $cats "金融ニュース" -}}
+          {{- $badgeClass = "b-amber" -}}{{- $badgeLabel = "金融ニュース" -}}
+        {{- else if in $cats "金融の仕組み" -}}
+          {{- $badgeClass = "b-slate" -}}{{- $badgeLabel = "金融の仕組み" -}}
+        {{- else if in $cats "お知らせ" -}}
+          {{- $badgeLabel = "お知らせ" -}}
+        {{- else -}}
+          {{- $badgeLabel = index $cats 0 | default "" -}}
+        {{- end -}}
+      <a href="{{ $p.RelPermalink }}" class="post">
+        <div class="thumb {{ if not $p.Params.cover.image }}no-img{{ end }}">
+          {{- with $p.Params.cover.image }}
+          <img src="{{ . | relURL }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
+          {{- end }}
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="badge {{ $badgeClass }}">{{ $badgeLabel }}</span>
+            <span class="post-date">{{ $p.Date.Format "2006.01.02" }}</span>
+            <span class="post-read">· {{ $p.ReadingTime }} min</span>
+          </div>
+          <div class="post-title">{{ $p.Title }}</div>
+          {{- with $p.Params.description }}
+          <div class="post-excerpt">{{ . }}</div>
+          {{- end }}
+        </div>
+      </a>
+
+      {{- /* 3記事目の後にインフィード広告枠 */ -}}
+      {{- if eq $i 2 }}
+      <div class="ad-slot ad-infeed" aria-label="Advertisement slot">
+        <div class="ad-meta">
+          <div class="ad-label">— Advertisement · In-feed —</div>
+          <div class="ad-size">AdSense: in-feed / fluid</div>
+        </div>
+      </div>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== -->
 <!-- ② CATEGORY CARDS -->
 <!-- ================================================== -->
 <section id="cat">
@@ -298,72 +365,6 @@
   </div>
 </section>
 
-<!-- ================================================== -->
-<!-- ④ LATEST POSTS -->
-<!-- ================================================== -->
-<section id="posts" style="background: var(--bg-soft);">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Latest</span>
-        <h2 class="section-title">最新の記事</h2>
-      </div>
-      <a class="section-link" href="{{ "/posts/" | relURL }}">記事一覧へ <span class="arrow">→</span></a>
-    </div>
-
-    <div class="posts-grid">
-      {{- range $i, $p := $latest }}
-        {{- /* カテゴリでバッジ色を切替 */ -}}
-        {{- $cats := $p.Params.categories | default (slice) -}}
-        {{- $badgeClass := "" -}}
-        {{- $badgeLabel := "" -}}
-        {{- if in $cats "高配当株投資" -}}
-          {{- $badgeClass = "b-green" -}}{{- $badgeLabel = "高配当株投資" -}}
-        {{- else if in $cats "資産形成" -}}
-          {{- $badgeClass = "b-teal" -}}{{- $badgeLabel = "資産形成" -}}
-        {{- else if in $cats "AI活用" -}}
-          {{- $badgeClass = "b-blue" -}}{{- $badgeLabel = "AI活用" -}}
-        {{- else if in $cats "金融ニュース" -}}
-          {{- $badgeClass = "b-amber" -}}{{- $badgeLabel = "金融ニュース" -}}
-        {{- else if in $cats "金融の仕組み" -}}
-          {{- $badgeClass = "b-slate" -}}{{- $badgeLabel = "金融の仕組み" -}}
-        {{- else if in $cats "お知らせ" -}}
-          {{- $badgeLabel = "お知らせ" -}}
-        {{- else -}}
-          {{- $badgeLabel = index $cats 0 | default "" -}}
-        {{- end -}}
-      <a href="{{ $p.RelPermalink }}" class="post">
-        <div class="thumb {{ if not $p.Params.cover.image }}no-img{{ end }}">
-          {{- with $p.Params.cover.image }}
-          <img src="{{ . | relURL }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
-          {{- end }}
-        </div>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="badge {{ $badgeClass }}">{{ $badgeLabel }}</span>
-            <span class="post-date">{{ $p.Date.Format "2006.01.02" }}</span>
-            <span class="post-read">· {{ $p.ReadingTime }} min</span>
-          </div>
-          <div class="post-title">{{ $p.Title }}</div>
-          {{- with $p.Params.description }}
-          <div class="post-excerpt">{{ . }}</div>
-          {{- end }}
-        </div>
-      </a>
-
-      {{- /* 3記事目の後にインフィード広告枠 */ -}}
-      {{- if eq $i 2 }}
-      <div class="ad-slot ad-infeed" aria-label="Advertisement slot">
-        <div class="ad-meta">
-          <div class="ad-label">— Advertisement · In-feed —</div>
-          <div class="ad-size">AdSense: in-feed / fluid</div>
-        </div>
-      </div>
-      {{- end }}
-      {{- end }}
-    </div>
-  </div>
-</section>
 
 <!-- ================================================== -->
 <!-- ⑤ PROFILE -->
