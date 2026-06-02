@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-03T07:18:25+09:00'
+    text: "【新着📝】\n金利を一番知るはずの金融機関の人が借金を多用していた。20年の金融SEが現場で見た意外な光景とリボの本当の怖さを解説。\n\n\
+      https://finlab-se.com/posts/finance-insider-money-habits/\n\n#金利 #リボ払い #カードローン"
+    tweet_id: '2061935491696472224'
+    tweet_url: https://x.com/i/web/status/2061935491696472224
+    type: new
+    post_path: content/posts/finance-insider-money-habits.md
   - posted_at: '2026-06-01T21:06:27+09:00'
     text: "【おすすめ📖】\n投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。\n\
       \nhttps://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #Hugo
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2051996899108962573
     type: rotation
     post_path: content/posts/credit-card-free-annual-fee-model.md
-  - posted_at: '2026-05-05T07:18:14+09:00'
-    text: "【新着📝】\n投資家に余計な金融商品の営業は不要。その一点でネット銀行が自然な選択になります。住信SBI・楽天・ソニー・auじぶんを証券連携・目的別口座・ATM・振込手数料・スマホATMの5軸で比較します。\n\
-      \nhttps://finlab-se.com/posts/recommended-net-bank-2026/"
-    tweet_id: '2051426197851009185'
-    tweet_url: https://x.com/i/web/status/2051426197851009185
-    type: new
-    post_path: content/posts/recommended-net-bank-2026.md

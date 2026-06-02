@@ -10,7 +10,5 @@
 #       added_at: 2026-04-24T14:00:00+09:00  # キュー投入時刻
 
 queue:
-  - post_path: content/posts/finance-insider-money-habits.md
-    added_at: '2026-06-02T05:56:38+09:00'
   - post_path: content/posts/finance-insider-cashless-and-sales.md
     added_at: '2026-06-03T06:50:53+09:00'
