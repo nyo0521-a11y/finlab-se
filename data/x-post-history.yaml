@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-04T07:17:55+09:00'
+    text: "【新着📝】\n金融機関に20年勤めた筆者が、キャッシュレスの早さ・保険の実態・銀行の短期目線を内側の肌感覚で綴る体験エッセイ第2弾です。\n\n\
+      https://finlab-se.com/posts/finance-insider-cashless-and-sales/\n\n#金融機関 #キャッシュレス
+      #保険"
+    tweet_id: '2062297756740264177'
+    tweet_url: https://x.com/i/web/status/2062297756740264177
+    type: new
+    post_path: content/posts/finance-insider-cashless-and-sales.md
   - posted_at: '2026-06-03T21:06:35+09:00'
     text: "【おすすめ📖】\n旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない。連続増配株の考え方。\n\nhttps://finlab-se.com/posts/consecutive-dividend-growth/\n\
       \n#連続増配株 #高配当株 #配当利回り"
@@ -352,11 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2052359243018199305
     type: rotation
     post_path: content/posts/credit-card-interchange-fee.md
-  - posted_at: '2026-05-07T07:17:57+09:00'
-    text: "【新着📝】\n夏のボーナスを投資に使う前に確認したい4つのチェックポイント。生活防衛資金・NISA枠・ポートフォリオの偏り・固定費を順に見直すことで、ボーナスの使い道を迷わず決められます。\n\
-      \nhttps://finlab-se.com/posts/bonus-investment-checkup-4steps/\n\n#ボーナス #NISA
-      #高配当株"
-    tweet_id: '2052150903554072756'
-    tweet_url: https://x.com/i/web/status/2052150903554072756
-    type: new
-    post_path: content/posts/bonus-investment-checkup-4steps.md
