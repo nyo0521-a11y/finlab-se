@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-03T21:06:35+09:00'
+    text: "【おすすめ📖】\n旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない。連続増配株の考え方。\n\nhttps://finlab-se.com/posts/consecutive-dividend-growth/\n\
+      \n#連続増配株 #高配当株 #配当利回り"
+    tweet_id: '2062143907081904217'
+    tweet_url: https://x.com/i/web/status/2062143907081904217
+    type: rotation
+    post_path: content/posts/consecutive-dividend-growth.md
   - posted_at: '2026-06-03T07:18:25+09:00'
     text: "【新着📝】\n金利を一番知るはずの金融機関の人が借金を多用していた。20年の金融SEが現場で見た意外な光景とリボの本当の怖さを解説。\n\n\
       https://finlab-se.com/posts/finance-insider-money-habits/\n\n#金利 #リボ払い #カードローン"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2052150903554072756
     type: new
     post_path: content/posts/bonus-investment-checkup-4steps.md
-  - posted_at: '2026-05-06T21:05:59+09:00'
-    text: "【おすすめ📖】\n年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説。\n\nhttps://finlab-se.com/posts/credit-card-free-annual-fee-model/\n\
-      \n#クレジットカード #年会費無料 #ポイント還元"
-    tweet_id: '2051996899108962573'
-    tweet_url: https://x.com/i/web/status/2051996899108962573
-    type: rotation
-    post_path: content/posts/credit-card-free-annual-fee-model.md
