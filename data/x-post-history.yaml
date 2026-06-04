@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-04T21:05:57+09:00'
+    text: "【おすすめ📖】\n年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説。\n\nhttps://finlab-se.com/posts/credit-card-free-annual-fee-model/\n\
+      \n#クレジットカード #年会費無料 #ポイント還元"
+    tweet_id: '2062506137862160645'
+    tweet_url: https://x.com/i/web/status/2062506137862160645
+    type: rotation
+    post_path: content/posts/credit-card-free-annual-fee-model.md
   - posted_at: '2026-06-04T07:17:55+09:00'
     text: "【新着📝】\n金融機関に20年勤めた筆者が、キャッシュレスの早さ・保険の実態・銀行の短期目線を内側の肌感覚で綴る体験エッセイ第2弾です。\n\n\
       https://finlab-se.com/posts/finance-insider-cashless-and-sales/\n\n#金融機関 #キャッシュレス
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2052513280782950695
     type: new
     post_path: content/posts/credit-card-recommendation-2026.md
-  - posted_at: '2026-05-07T21:05:49+09:00'
-    text: "【おすすめ📖】\nクレカのポイントはなぜもらえるのか。インターチェンジフィーを金融SE視点で図解します。\n\nhttps://finlab-se.com/posts/credit-card-interchange-fee/\n\
-      \n#クレジットカード #インターチェンジフィー #加盟店手数料"
-    tweet_id: '2052359243018199305'
-    tweet_url: https://x.com/i/web/status/2052359243018199305
-    type: rotation
-    post_path: content/posts/credit-card-interchange-fee.md
