@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-05T07:17:58+09:00'
+    text: "【新着📝】\n2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか。8.8万・10万・12万円の保険料負担、厚生年金で増える年金額と損益分岐、障害・遺族年金の保障メリットまで試算します。\n\
+      \nhttps://finlab-se.com/posts/income-wall-106-takehome-pension-2026/"
+    tweet_id: '2062660156211515522'
+    tweet_url: https://x.com/i/web/status/2062660156211515522
+    type: new
+    post_path: content/posts/income-wall-106-takehome-pension-2026.md
   - posted_at: '2026-06-04T21:05:57+09:00'
     text: "【おすすめ📖】\n年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説。\n\nhttps://finlab-se.com/posts/credit-card-free-annual-fee-model/\n\
       \n#クレジットカード #年会費無料 #ポイント還元"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2052721532275662849
     type: rotation
     post_path: content/posts/credit-card-payment-flow.md
-  - posted_at: '2026-05-08T07:17:54+09:00'
-    text: "【新着📝】\nクレカ選びは経済圏が先。楽天・ドコモ・SBI・au別に最適な1枚を比較し、積立還元率の損益分岐点を数字で解説。\n\nhttps://finlab-se.com/posts/credit-card-recommendation-2026/\n\
-      \n#クレジットカード #クレカ積立 #NISA"
-    tweet_id: '2052513280782950695'
-    tweet_url: https://x.com/i/web/status/2052513280782950695
-    type: new
-    post_path: content/posts/credit-card-recommendation-2026.md
