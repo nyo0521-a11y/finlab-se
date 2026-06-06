@@ -426,10 +426,10 @@
 
         <div class="sketch-card">
           <h3><span class="num">06</span> 年次推移</h3>
-          <div class="hint" style="margin-bottom:8px">投資元本（グレー）と年間配当額（緑）の推移 ※ 今後の入金額を t=0 で一括投入する前提</div>
+          <div class="hint" style="margin-bottom:8px">累計入金額（グレー・Y0のみ）と年間配当額（緑）の推移 ※ 今後の入金額を t=0 で一括投入する前提</div>
           <div class="chartWrap"><canvas id="chart"></canvas></div>
           <div class="legend2">
-            <span class="k"><span class="sw" style="background:#cbd5e1"></span>投資元本（一括）</span>
+            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計入金額（Y0）</span>
             <span class="k"><span class="sw" style="background:#4ade80"></span>年間配当額</span>
           </div>
         </div>
@@ -702,14 +702,14 @@ function buildChartData(){
   const g = state.growth / 100;
   for(let t = 0; t <= state.years; t++){
     labels.push('Y' + t);
-    // 元本は t=0 で future を一括投入し、その後は一定（株価変動は描かない）
+    // 累計入金額は t=0 のみ表示（一括投入の前提を明示）
     const principal = state.future;
     // 一括投入分の配当：利回りは増配で yNow * (1+g)^t
     const divFuture = principal * yNow * Math.pow(1 + g, t);
     // 現在配当も同じ増配率で成長
     const divCurrent = state.current * Math.pow(1 + g, t);
     const div = divFuture + divCurrent;
-    principalArr.push(Math.round(principal));
+    principalArr.push(t === 0 ? Math.round(principal) : null);
     divArr.push(Math.round(div * 10) / 10);
   }
   return { labels, principalArr, divArr };
@@ -731,7 +731,7 @@ function drawChart(){
       datasets:[
         {
           type:'bar',
-          label:'投資元本 (万円)',
+          label:'累計入金額 (万円)',
           data:d.principalArr,
           backgroundColor:'rgba(203,213,225,.85)',
           borderColor:'#475569',
@@ -774,7 +774,7 @@ function drawChart(){
           position:'left',
           grid:{color:'rgba(29,36,48,.08)'},
           ticks:{font:{family:'JetBrains Mono', size:10}, callback:v=>v+'万'},
-          title:{display:true, text:'元本', font:{family:'Kalam', size:12}}
+          title:{display:true, text:'累計入金額', font:{family:'Kalam', size:12}}
         },
         y1:{
           position:'right',
