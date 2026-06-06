@@ -7,86 +7,76 @@
   #stage{width:1376px;height:768px;background:#FFFFFF;position:relative;
     font-family:"Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;}
   svg{display:block;}
-  .lbl{font-size:21px;font-weight:700;fill:#0F172A;}
-  .lbl .pct{font-weight:700;}
-  .ctitle{font-size:30px;font-weight:700;fill:#0F172A;}
-  .csub{font-size:20px;font-weight:500;fill:#475569;}
-  .innerlbl{font-size:22px;font-weight:800;fill:#FFFFFF;}
-  .innerlbl small{font-size:16px;}
-  .heading{font-size:30px;font-weight:800;fill:#0F172A;}
+  .lbl{font-size:25px;font-weight:700;fill:#0F172A;}
+  .ctitle{font-size:36px;font-weight:800;fill:#0F172A;}
+  .csub{font-size:23px;font-weight:500;fill:#475569;}
+  .onarc{font-size:25px;font-weight:800;fill:#FFFFFF;}
+  .note{font-size:23px;font-weight:600;fill:#334155;}
 </style>
 </head>
 <body>
 <div id="stage"><svg id="svg" width="1376" height="768" viewBox="0 0 1376 768"></svg></div>
 <script>
-const cx=688, cy=400;
-const inR1=110, inR2=185;     // inner ring (groups)
-const outR1=190, outR2=290;   // outer ring (detail)
-
-// order: 現金 -> インデックス -> 高配当株(ディフェンシブ,景気敏感,米国) -> 暗号資産
-const inner=[
-  {name:"現金（外貨MMF含む）", v:6.2, c:"#94A3B8"},
-  {name:"インデックス投資", v:18.1, c:"#F59E0B"},
-  {name:"高配当株投資", v:73.6, c:"#16A34A"},
-  {name:"暗号資産", v:2.1, c:"#A855F7"}
-];
-const outer=[
-  {name:"現金（外貨MMF含む）", v:6.2, c:"#94A3B8"},
-  {name:"インデックス投信", v:18.1, c:"#F59E0B"},
-  {name:"日本高配当株（ディフェンシブ）", v:22.3, c:"#15803D"},
-  {name:"日本高配当株（景気敏感）", v:25.4, c:"#4ADE80"},
-  {name:"米国高配当株ETF", v:25.9, c:"#0D9488"},
-  {name:"暗号資産", v:2.1, c:"#A855F7"}
-];
-
-function polar(r,deg){const a=(deg-90)*Math.PI/180;return [cx+r*Math.cos(a), cy+r*Math.sin(a)];}
-function arc(r1,r2,s,e){
-  const large=(e-s)>180?1:0;
-  const [x1,y1]=polar(r2,s),[x2,y2]=polar(r2,e),[x3,y3]=polar(r1,e),[x4,y4]=polar(r1,s);
-  return `M${x1} ${y1} A${r2} ${r2} 0 ${large} 1 ${x2} ${y2} L${x3} ${y3} A${r1} ${r1} 0 ${large} 0 ${x4} ${y4} Z`;
-}
+const cx=600, cy=384;
+const A1=92,A2=150, B1=153,B2=211, C1=214,C2=288;
 const NS="http://www.w3.org/2000/svg";
 const svg=document.getElementById("svg");
 function add(tag,attrs,txt){const el=document.createElementNS(NS,tag);for(const k in attrs)el.setAttribute(k,attrs[k]);if(txt!=null)el.textContent=txt;svg.appendChild(el);return el;}
+function polar(r,deg){const a=(deg-90)*Math.PI/180;return [cx+r*Math.cos(a), cy+r*Math.sin(a)];}
+function arc(r1,r2,s,e){const large=(e-s)>180?1:0;const [x1,y1]=polar(r2,s),[x2,y2]=polar(r2,e),[x3,y3]=polar(r1,e),[x4,y4]=polar(r1,s);
+  return `M${x1} ${y1} A${r2} ${r2} 0 ${large} 1 ${x2} ${y2} L${x3} ${y3} A${r1} ${r1} 0 ${large} 0 ${x4} ${y4} Z`;}
 
-function ring(data,r1,r2){
-  let ang=0;const segs=[];
-  data.forEach(d=>{const s=ang,e=ang+d.v*3.6;segs.push({...d,s,e,mid:(s+e)/2});
-    add("path",{d:arc(r1,r2,s,e),fill:d.c,stroke:"#FFFFFF","stroke-width":3});ang=e;});
-  return segs;
-}
+// boundary percentages (clockwise from top)
+// 1 現金6.2 | 2 インデックス18.1 | 3 日本ディフェンシブ22.3 | 4 日本景気敏感25.4 | 5 米国ETF25.9 | 6 暗号2.1
+const seg={cash:[0,6.2], idx:[6.2,24.3], def:[24.3,46.6], cyc:[46.6,72.0], us:[72.0,97.9], crypto:[97.9,100]};
+const D=p=>p*3.6;
+function draw(r1,r2,a,b,color){add("path",{d:arc(r1,r2,D(a),D(b)),fill:color,stroke:"#FFFFFF","stroke-width":3});}
 
-// draw rings
-ring(inner,inR1,inR2);
-const oSegs=ring(outer,outR1,outR2);
-
-// inner ring: label only 高配当株投資 (big arc)
-const hc=inner.find(d=>d.name==="高配当株投資");
-let a=0;for(const d of inner){if(d===hc)break;a+=d.v*3.6;}
-const hcMid=a+hc.v*3.6/2;
-const [hx,hy]=polar((inR1+inR2)/2,hcMid);
-const g=add("text",{x:hx,y:hy-6,"text-anchor":"middle",class:"innerlbl"});
-g.textContent="高配当株投資";
-add("text",{x:hx,y:hy+20,"text-anchor":"middle",class:"innerlbl"},"73.6%");
+// ---- inner ring (asset class) ----
+draw(A1,A2,...seg.cash,"#94A3B8");
+draw(A1,A2,...seg.idx,"#F59E0B");
+draw(A1,A2,24.3,97.9,"#16A34A");          // 高配当株
+draw(A1,A2,...seg.crypto,"#A855F7");
+// ---- middle ring (high-dividend breakdown) ----
+draw(B1,B2,...seg.cash,"#94A3B8");
+draw(B1,B2,...seg.idx,"#F59E0B");
+draw(B1,B2,24.3,72.0,"#22C55E");          // 日本株
+draw(B1,B2,...seg.us,"#0D9488");          // 米国ETF
+draw(B1,B2,...seg.crypto,"#A855F7");
+// ---- outer ring (detail) ----
+draw(C1,C2,...seg.cash,"#94A3B8");
+draw(C1,C2,...seg.idx,"#F59E0B");
+draw(C1,C2,...seg.def,"#166534");         // ディフェンシブ
+draw(C1,C2,...seg.cyc,"#4ADE80");         // 景気敏感
+draw(C1,C2,...seg.us,"#0D9488");          // 米国ETF
+draw(C1,C2,...seg.crypto,"#A855F7");
 
 // center text
-add("text",{x:cx,y:cy-8,"text-anchor":"middle",class:"ctitle"},"資産配分");
-add("text",{x:cx,y:cy+22,"text-anchor":"middle",class:"csub"},"2026年5月末");
+add("text",{x:cx,y:cy-6,"text-anchor":"middle",class:"ctitle"},"資産配分");
+add("text",{x:cx,y:cy+26,"text-anchor":"middle",class:"csub"},"2026年5月末");
 
-// outer labels with leader lines
-oSegs.forEach(d=>{
-  const [px,py]=polar(outR2,d.mid);
-  const [ex,ey]=polar(outR2+22,d.mid);
-  const right=Math.cos((d.mid-90)*Math.PI/180)>=0;
-  const tx=right?ex+8:ex-8;
-  add("polyline",{points:`${px},${py} ${ex},${ey} ${right?ex+6:ex-6},${ey}`,fill:"none",stroke:"#94A3B8","stroke-width":2});
-  const t=add("text",{x:tx,y:ey-2,"text-anchor":right?"start":"end",class:"lbl"});
-  t.textContent=d.name;
-  add("text",{x:tx,y:ey+22,"text-anchor":right?"start":"end",class:"lbl"},d.v.toFixed(1)+"%");
-});
+// on-arc labels: 高配当株(inner) & 日本株(middle)
+function onArc(text,pct,r,a,b){const mid=D((a+b)/2);const [x,y]=polar(r,mid);
+  add("text",{x,y:y-4,"text-anchor":"middle",class:"onarc"},text);
+  add("text",{x,y:y+22,"text-anchor":"middle",class:"onarc"},pct);}
+onArc("高配当株","73.6%",(A1+A2)/2,51,51);
+onArc("日本株","47.7%",(B1+B2)/2,45,45);
 
-// bottom note (centered)
-add("text",{x:cx,y:742,"text-anchor":"middle",class:"csub"},"高配当株が約7割・インデックス約2割（評価額ベース）");
+// outer callout labels
+function callout(name,pct,a,b){const mid=D((a+b)/2);const [px,py]=polar(C2,mid);const [ex,ey]=polar(C2+26,mid);
+  const right=Math.cos((mid-90)*Math.PI/180)>=0;const tx=right?ex+10:ex-10;
+  add("polyline",{points:`${px},${py} ${ex},${ey} ${right?ex+8:ex-8},${ey}`,fill:"none",stroke:"#94A3B8","stroke-width":2});
+  add("text",{x:tx,y:ey-4,"text-anchor":right?"start":"end",class:"lbl"},name);
+  add("text",{x:tx,y:ey+24,"text-anchor":right?"start":"end",class:"lbl"},pct);}
+callout("現金（外貨MMF含む）","6.2%",...seg.cash);
+callout("インデックス投信","18.1%",...seg.idx);
+callout("日本高配当株（ディフェンシブ）","22.3%",...seg.def);
+callout("日本高配当株（景気敏感）","25.4%",...seg.cyc);
+callout("米国高配当株ETF","25.9%",...seg.us);
+callout("暗号資産","2.1%",...seg.crypto);
+
+// bottom note
+add("text",{x:cx,y:752,"text-anchor":"middle",class:"note"},"高配当株が約7割・インデックス約2割（評価額ベース）");
 </script>
 </body>
 </html>
