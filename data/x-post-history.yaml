@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-06T21:05:45+09:00'
+    text: "【おすすめ📖】\nクレカ決済の0.1秒に5社が関与。加盟店・アクワイアラ・国際ブランド・イシュアのオーソリ処理フローを金融SE実務者が図解で解説。\n\
+      \nhttps://finlab-se.com/posts/credit-card-payment-flow/\n\n#クレジットカード #決済の仕組み
+      #オーソリゼーション"
+    tweet_id: '2063230863999922604'
+    tweet_url: https://x.com/i/web/status/2063230863999922604
+    type: rotation
+    post_path: content/posts/credit-card-payment-flow.md
   - posted_at: '2026-06-06T07:17:54+09:00'
     text: "【新着📝】\nウェルスナビの手数料年1%は高いのか。インデックス投信（オルカン等）と30年間の長期コストを試算し、手数料差を金額で比較します。\n\
       \nhttps://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/\n\n#ロボアドバイザー
@@ -355,10 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2053237924678824060
     type: new
     post_path: content/posts/income-wall-framework.md
-  - posted_at: '2026-05-09T21:05:25+09:00'
-    text: "【おすすめ📖】\nステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。\n\nhttps://finlab-se.com/posts/crypto-stablecoin-remittance/\n\
-      \n#暗号資産 #ステーブルコイン #海外送金"
-    tweet_id: '2053083917339562118'
-    tweet_url: https://x.com/i/web/status/2053083917339562118
-    type: rotation
-    post_path: content/posts/crypto-stablecoin-remittance.md
