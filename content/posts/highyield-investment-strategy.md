@@ -345,6 +345,7 @@ cover:
 ## 参考
 
 - [リベラルアーツ大学（YouTube）](https://www.youtube.com/@ryogakucho)
+- [リベシティ](https://libecity.com/) — リベ大が運営するお金の悩み相談コミュニティ
 
 ---
 
