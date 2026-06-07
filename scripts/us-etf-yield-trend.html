@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  html,body{margin:0;padding:0;}
+  #stage{width:1376px;height:768px;background:#FFFFFF;
+    font-family:"Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;}
+  svg{display:block;}
+  .title{font-size:34px;font-weight:800;fill:#0F172A;}
+  .sub{font-size:22px;font-weight:500;fill:#64748B;}
+  .axis{font-size:20px;font-weight:600;fill:#94A3B8;}
+  .leg{font-size:23px;font-weight:700;}
+  .avg{font-size:20px;font-weight:700;}
+  .anno{font-size:23px;font-weight:800;}
+  .annosub{font-size:19px;font-weight:600;fill:#334155;}
+</style>
+</head>
+<body>
+<div id="stage"><svg id="svg" width="1376" height="768" viewBox="0 0 1376 768"></svg></div>
+<script>
+const NS="http://www.w3.org/2000/svg";const svg=document.getElementById("svg");
+function add(t,a,x){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;svg.appendChild(e);return e;}
+
+// data: year-end dividend yield (%)
+const vym={2010:2.83,2011:3.12,2012:3.49,2013:3.46,2014:3.09,2015:3.13,2016:3.33,2017:3.15,2018:3.08,2019:3.64,2020:3.09,2021:3.85,2022:2.89,2023:3.19,2024:3.11,2025:2.75,2026:2.2};
+const hdv={2012:3.83,2013:3.49,2014:3.63,2015:3.84,2016:3.67,2017:3.61,2018:3.36,2019:3.63,2020:3.79,2021:4.05,2022:3.60,2023:3.12,2024:4.07,2025:3.4,2026:2.9};
+const VAVG=3.15, HAVG=3.5;
+
+const X0=110, X1=1180, Y0=170, Y1=600;   // plot area
+const yMin=2.0, yMax=4.4;
+const years=[2010,2012,2014,2016,2018,2020,2022,2024,2026];
+const yrSpan=[2010,2026];
+function px(y){return X0+(y-yrSpan[0])/(yrSpan[1]-yrSpan[0])*(X1-X0);}
+function py(v){return Y1-(v-yMin)/(yMax-yMin)*(Y1-Y0);}
+
+add("text",{x:60,y:60,class:"title"},"米国高配当ETFの分配利回り推移と「現在地」");
+add("text",{x:60,y:92,class:"sub"},"年末株価ベースの年次分配利回り（概算）。過去平均を上回ったら買い増し、下回る＝割高なら買い控え");
+
+// y gridlines
+for(let v=2.0;v<=4.4;v+=0.5){
+  const y=py(v);
+  add("line",{x1:X0,y1:y,x2:X1,y2:y,stroke:"#EEF2F6","stroke-width":1});
+  add("text",{x:X0-14,y:y+6,"text-anchor":"end",class:"axis"},v.toFixed(1)+"%");
+}
+// x labels
+years.forEach(yr=>{add("text",{x:px(yr),y:Y1+34,"text-anchor":"middle",class:"axis"},yr);});
+
+// average dashed lines
+add("line",{x1:X0,y1:py(VAVG),x2:X1,y2:py(VAVG),stroke:"#16A34A","stroke-width":2,"stroke-dasharray":"8 6",opacity:.6});
+add("line",{x1:X0,y1:py(HAVG),x2:X1,y2:py(HAVG),stroke:"#0D9488","stroke-width":2,"stroke-dasharray":"8 6",opacity:.6});
+add("text",{x:X1+8,y:py(VAVG)+6,class:"avg",fill:"#16A34A"},"平均3.15%");
+add("text",{x:X1+8,y:py(HAVG)+6,class:"avg",fill:"#0D9488"},"平均3.5%");
+
+function line(data,color){
+  let d="",first=true;
+  for(const yr in data){const x=px(+yr),y=py(data[yr]);d+=(first?"M":"L")+x+" "+y+" ";first=false;}
+  add("path",{d,fill:"none",stroke:color,"stroke-width":4,"stroke-linejoin":"round","stroke-linecap":"round"});
+  for(const yr in data){if(+yr===2026)continue;add("circle",{cx:px(+yr),cy:py(data[yr]),r:4.5,fill:color});}
+}
+line(hdv,"#0D9488");
+line(vym,"#16A34A");
+
+// current point markers (2026)
+function cur(yr,v,color,label){
+  const x=px(yr),y=py(v);
+  add("circle",{cx:x,cy:y,r:11,fill:"none",stroke:color,"stroke-width":3});
+  add("circle",{cx:x,cy:y,r:6,fill:color});
+}
+cur(2026,2.2,"#16A34A");
+cur(2026,2.9,"#0D9488");
+
+// legend
+add("rect",{x:60,y:660,width:30,height:6,fill:"#16A34A",rx:3});
+add("circle",{cx:75,cy:663,r:5,fill:"#16A34A"});
+add("text",{x:100,y:670,class:"leg",fill:"#15803D"},"VYM（メイン）");
+add("rect",{x:300,y:660,width:30,height:6,fill:"#0D9488",rx:3});
+add("circle",{cx:315,cy:663,r:5,fill:"#0D9488"});
+add("text",{x:340,y:670,class:"leg",fill:"#0F766E"},"HDV（サブ）");
+
+// annotation box for current
+add("rect",{x:835,y:648,width:505,height:104,rx:14,fill:"#FEF2F2",stroke:"#FCA5A5","stroke-width":2});
+add("text",{x:860,y:688,class:"anno",fill:"#DC2626"},"現在（2026年6月）は両方とも平均を下回る");
+add("text",{x:860,y:718,class:"annosub"},"VYM約2.2%・HDV約2.9% ＝ 株価が割高な水準。");
+add("text",{x:860,y:742,class:"annosub"},"取得利回りが伸びにくいため、いまは買い増しを控えている。");
+
+// arrow from box to current points
+add("path",{d:"M835 684 L"+(px(2026)+18)+" "+(py(2.55)),fill:"none",stroke:"#DC2626","stroke-width":2.5,"marker-end":"url(#ar)"});
+const defs=add("defs",{});
+const mk=document.createElementNS(NS,"marker");
+mk.setAttribute("id","ar");mk.setAttribute("viewBox","0 0 10 10");mk.setAttribute("refX","8");mk.setAttribute("refY","5");
+mk.setAttribute("markerWidth","7");mk.setAttribute("markerHeight","7");mk.setAttribute("orient","auto-start-reverse");
+const pa=document.createElementNS(NS,"path");pa.setAttribute("d","M0 0 L10 5 L0 10 z");pa.setAttribute("fill","#DC2626");
+mk.appendChild(pa);defs.appendChild(mk);
+</script>
+</body>
+</html>

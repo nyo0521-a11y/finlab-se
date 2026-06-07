@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  html,body{margin:0;padding:0;}
+  #stage{width:1376px;height:768px;background:#F8FAFC;
+    font-family:"Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;}
+  svg{display:block;}
+  .title{font-size:34px;font-weight:800;fill:#0F172A;}
+  .sub{font-size:22px;font-weight:500;fill:#64748B;}
+  .ch{font-size:30px;font-weight:800;}
+  .li{font-size:24px;font-weight:600;fill:#1E293B;}
+  .ico{font-size:46px;}
+  .vs{font-size:30px;font-weight:800;fill:#94A3B8;}
+</style>
+</head>
+<body>
+<div id="stage"><svg id="svg" width="1376" height="768" viewBox="0 0 1376 768"></svg></div>
+<script>
+const NS="http://www.w3.org/2000/svg";const svg=document.getElementById("svg");
+function add(t,a,x){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;svg.appendChild(e);return e;}
+
+add("text",{x:60,y:62,class:"title"},"配当を「受け取る」か、資産を「取り崩す」か");
+add("text",{x:60,y:94,class:"sub"},"同じ資産形成でも、お金の取り出し方で心理的な負担が変わる。私が高配当株を主軸にした理由");
+
+// LEFT card: 配当を受け取る
+function card(x,w,head,headColor,bg,border,icon,iconColor,items,good){
+  add("rect",{x,y:140,width:w,height:560,rx:20,fill:bg,stroke:border,"stroke-width":2.5});
+  add("rect",{x,y:140,width:w,height:74,rx:20,fill:headColor});
+  add("rect",{x,y:178,width:w,height:36,fill:headColor});
+  add("text",{x:x+w/2,y:188,"text-anchor":"middle",class:"ch",fill:"#FFFFFF"},head);
+  add("text",{x:x+w/2,y:288,"text-anchor":"middle",class:"ico"},icon);
+  items.forEach((it,i)=>{
+    const cy=360+i*70;
+    add("circle",{cx:x+46,cy:cy-8,r:15,fill:good?"#16A34A":"#F59E0B"});
+    add("text",{x:x+46,y:cy,"text-anchor":"middle",style:"font-size:20px;font-weight:800;fill:#FFFFFF"},good?"✓":"!");
+    add("text",{x:x+78,y:cy,class:"li"},it);
+  });
+}
+card(60,580,"高配当株：配当を受け取る","#16A34A","#F0FDF4","#86EFAC","🌳💰","#16A34A",[
+  "元本（株式）は売らずに持ち続ける",
+  "利益から配当が自動的に入ってくる",
+  "「取り崩している」感覚が生まれにくい",
+  "相場が悪くても売る必要がない"
+],true);
+
+card(736,580,"インデックス：取り崩す","#F59E0B","#FFFBEB","#FCD34D","✂️📉",["#F59E0B"],[
+  "受け取るには口数を売る必要がある",
+  "相場が悪いと、多くの口数を売る羽目に",
+  "元本か利益か、どちらを使ったか見えにくい",
+  "下落局面での売却は心理的負担が大きい"
+],false);
+
+// center VS
+add("circle",{cx:688,cy:420,r:38,fill:"#FFFFFF",stroke:"#CBD5E1","stroke-width":2.5});
+add("text",{x:688,y:432,"text-anchor":"middle",class:"vs"},"vs");
+
+// bottom note
+add("rect",{x:60,y:716,width:1256,height:0,fill:"none"});
+add("text",{x:688,y:746,"text-anchor":"middle",style:"font-size:21px;font-weight:700;fill:#334155"},"どちらも合理的。私は「取り崩す不安」を避けたくて、配当を受け取る高配当株を主軸にした");
+</script>
+</body>
+</html>
