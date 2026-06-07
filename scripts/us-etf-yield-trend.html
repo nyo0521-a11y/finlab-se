@@ -23,9 +23,9 @@ const NS="http://www.w3.org/2000/svg";const svg=document.getElementById("svg");
 function add(t,a,x){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;svg.appendChild(e);return e;}
 
 // data: year-end dividend yield (%)
-const vym={2010:2.83,2011:3.12,2012:3.49,2013:3.46,2014:3.09,2015:3.13,2016:3.33,2017:3.15,2018:3.08,2019:3.64,2020:3.09,2021:3.85,2022:2.89,2023:3.19,2024:3.11,2025:2.75,2026:2.2};
-const hdv={2012:3.83,2013:3.49,2014:3.63,2015:3.84,2016:3.67,2017:3.61,2018:3.36,2019:3.63,2020:3.79,2021:4.05,2022:3.60,2023:3.12,2024:4.07,2025:3.4,2026:2.9};
-const VAVG=3.15, HAVG=3.5;
+const vym={2010:2.63,2011:2.70,2012:3.12,2013:2.81,2014:2.72,2015:3.24,2016:2.82,2017:2.70,2018:3.45,2019:2.83,2020:2.95,2021:2.51,2022:2.81,2023:3.03,2024:2.74,2025:2.33,2026:2.2};
+const hdv={2012:3.54,2013:3.18,2014:3.20,2015:3.92,2016:3.28,2017:3.27,2018:3.72,2019:3.27,2020:4.07,2021:3.22,2022:3.85,2023:4.01,2024:3.67,2025:3.22,2026:2.9};
+const VAVG=2.9, HAVG=3.5;
 
 const X0=110, X1=1180, Y0=170, Y1=600;   // plot area
 const yMin=2.0, yMax=4.4;
@@ -49,7 +49,7 @@ years.forEach(yr=>{add("text",{x:px(yr),y:Y1+34,"text-anchor":"middle",class:"ax
 // average dashed lines
 add("line",{x1:X0,y1:py(VAVG),x2:X1,y2:py(VAVG),stroke:"#16A34A","stroke-width":2,"stroke-dasharray":"8 6",opacity:.6});
 add("line",{x1:X0,y1:py(HAVG),x2:X1,y2:py(HAVG),stroke:"#2563EB","stroke-width":2,"stroke-dasharray":"8 6",opacity:.6});
-add("text",{x:X1+8,y:py(VAVG)+6,class:"avg",fill:"#16A34A"},"平均3.15%");
+add("text",{x:X1+8,y:py(VAVG)+6,class:"avg",fill:"#16A34A"},"平均2.9%");
 add("text",{x:X1+8,y:py(HAVG)+6,class:"avg",fill:"#2563EB"},"平均3.5%");
 
 function line(data,color){
