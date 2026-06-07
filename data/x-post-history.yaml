@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-07T21:05:32+09:00'
+    text: "【おすすめ📖】\nステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。\n\nhttps://finlab-se.com/posts/crypto-stablecoin-remittance/\n\
+      \n#暗号資産 #ステーブルコイン #海外送金"
+    tweet_id: '2063593196458828010'
+    tweet_url: https://x.com/i/web/status/2063593196458828010
+    type: rotation
+    post_path: content/posts/crypto-stablecoin-remittance.md
   - posted_at: '2026-06-07T07:17:48+09:00'
     text: "【おすすめ📖】\ndカード・三井住友NL・楽天・PayPayカード改定を整理。「また改悪か」に振り回されない判断軸を解説。\n\nhttps://finlab-se.com/posts/credit-card-reform-2026/\n\
       \n#クレカ改悪 #dカード #三井住友カード"
@@ -356,10 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2053600444279292406
     type: new
     post_path: content/posts/furusato-tax-jumin-tax-notification.md
-  - posted_at: '2026-05-10T21:06:15+09:00'
-    text: "【おすすめ📖】\n増配ニュースに飛びつく前に確認すべき配当性向・DOE・営業CFの3点。2026年3月期決算の読み方。\n\nhttps://finlab-se.com/posts/dividend-increase-season-2026/\n\
-      \n#高配当株 #決算 #配当"
-    tweet_id: '2053446516920987907'
-    tweet_url: https://x.com/i/web/status/2053446516920987907
-    type: rotation
-    post_path: content/posts/dividend-increase-season-2026.md
