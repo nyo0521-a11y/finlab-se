@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  html,body{margin:0;padding:0;}
+  #stage{width:1376px;height:1100px;background:#FFFFFF;
+    font-family:"Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;}
+  svg{display:block;}
+  .title{font-size:34px;font-weight:800;fill:#0F172A;}
+  .sub{font-size:23px;font-weight:500;fill:#64748B;}
+  .cat{font-size:23px;font-weight:700;fill:#0F172A;}
+  .val{font-size:19px;font-weight:700;}
+  .leg{font-size:22px;font-weight:700;fill:#0F172A;}
+  .head{font-size:20px;font-weight:800;}
+</style>
+</head>
+<body>
+<div id="stage"><svg id="svg" width="1376" height="1100" viewBox="0 0 1376 1100"></svg></div>
+<script>
+const NS="http://www.w3.org/2000/svg";const svg=document.getElementById("svg");
+function add(t,a,x){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;svg.appendChild(e);return e;}
+// [name, 配当金, 評価額] sorted by 配当金 desc
+const data=[
+ ["情報・通信業",12.1,11.2],["サービス業",9.1,7.5],["卸売業",8.9,10.9],["証券・商品先物",7.1,5.9],
+ ["その他金融業",6.8,6.6],["不動産業",6.3,6.2],["化学",5.2,6.4],["食料品",4.4,4.0],["保険業",4.4,4.6],
+ ["医薬品",4.2,3.6],["銀行業",4.1,4.9],["機械",3.9,3.8],["建設業",3.7,3.9],["その他製品",3.5,2.5],
+ ["ガラス・土石",3.4,4.8],["倉庫・運輸",3.3,3.1],["ゴム製品",2.6,2.4],["鉱業",1.9,2.1],["陸運業",1.8,2.2],
+ ["電気・ガス",0.9,1.1],["小売業",0.9,0.9],["石油・石炭",0.7,0.6],["空運業",0.6,0.5],["金属製品",0.3,0.4]
+];
+const CX=688, TOP=185, rowH=37, barH=22, labelHalf=120;
+const sideW=460, scale=sideW/13;
+
+add("text",{x:40,y:50,class:"title"},"日本個別株 セクター配分（配当金割合 vs 評価額割合）");
+add("text",{x:40,y:80,class:"sub"},"中央に業種名。左＝配当金割合、右＝評価額割合（2026年6月・配当金の降順）");
+
+// legend
+add("rect",{x:CX-260,y:104,width:26,height:14,fill:"#16A34A",rx:3});
+add("text",{x:CX-226,y:116,class:"leg"},"配当金割合（左）");
+add("rect",{x:CX+90,y:104,width:26,height:14,fill:"#93C5A8",rx:3});
+add("text",{x:CX+124,y:116,class:"leg"},"評価額割合（右）");
+
+// column heads + gridlines
+[2,4,6,8,10,12].forEach(g=>{
+  const lx=CX-labelHalf-g*scale, rx=CX+labelHalf+g*scale;
+  add("line",{x1:lx,y1:TOP-6,x2:lx,y2:TOP+data.length*rowH,stroke:"#EEF2F6","stroke-width":1});
+  add("line",{x1:rx,y1:TOP-6,x2:rx,y2:TOP+data.length*rowH,stroke:"#EEF2F6","stroke-width":1});
+  add("text",{x:lx,y:TOP-12,"text-anchor":"middle",class:"val",fill:"#94A3B8"},g+"%");
+  add("text",{x:rx,y:TOP-12,"text-anchor":"middle",class:"val",fill:"#94A3B8"},g+"%");
+});
+
+data.forEach((d,i)=>{
+  const y=TOP+i*rowH, by=y+(rowH-barH)/2;
+  // center label
+  add("text",{x:CX,y:y+rowH/2+5,"text-anchor":"middle",class:"cat"},d[0]);
+  // left bar (配当金)
+  const lw=d[1]*scale;
+  add("rect",{x:CX-labelHalf-lw,y:by,width:lw,height:barH,fill:"#16A34A",rx:2});
+  add("text",{x:CX-labelHalf-lw-6,y:by+barH-3,"text-anchor":"end",class:"val",fill:"#15803D"},d[1].toFixed(1)+"%");
+  // right bar (評価額)
+  const rw=d[2]*scale;
+  add("rect",{x:CX+labelHalf,y:by,width:rw,height:barH,fill:"#93C5A8",rx:2});
+  add("text",{x:CX+labelHalf+rw+6,y:by+barH-3,"text-anchor":"start",class:"val",fill:"#6B8E7A"},d[2].toFixed(1)+"%");
+});
+</script>
+</body>
+</html>
