@@ -48,9 +48,9 @@ years.forEach(yr=>{add("text",{x:px(yr),y:Y1+34,"text-anchor":"middle",class:"ax
 
 // average dashed lines
 add("line",{x1:X0,y1:py(VAVG),x2:X1,y2:py(VAVG),stroke:"#16A34A","stroke-width":2,"stroke-dasharray":"8 6",opacity:.6});
-add("line",{x1:X0,y1:py(HAVG),x2:X1,y2:py(HAVG),stroke:"#0D9488","stroke-width":2,"stroke-dasharray":"8 6",opacity:.6});
+add("line",{x1:X0,y1:py(HAVG),x2:X1,y2:py(HAVG),stroke:"#2563EB","stroke-width":2,"stroke-dasharray":"8 6",opacity:.6});
 add("text",{x:X1+8,y:py(VAVG)+6,class:"avg",fill:"#16A34A"},"平均3.15%");
-add("text",{x:X1+8,y:py(HAVG)+6,class:"avg",fill:"#0D9488"},"平均3.5%");
+add("text",{x:X1+8,y:py(HAVG)+6,class:"avg",fill:"#2563EB"},"平均3.5%");
 
 function line(data,color){
   let d="",first=true;
@@ -58,7 +58,7 @@ function line(data,color){
   add("path",{d,fill:"none",stroke:color,"stroke-width":4,"stroke-linejoin":"round","stroke-linecap":"round"});
   for(const yr in data){if(+yr===2026)continue;add("circle",{cx:px(+yr),cy:py(data[yr]),r:4.5,fill:color});}
 }
-line(hdv,"#0D9488");
+line(hdv,"#2563EB");
 line(vym,"#16A34A");
 
 // current point markers (2026)
@@ -68,15 +68,15 @@ function cur(yr,v,color,label){
   add("circle",{cx:x,cy:y,r:6,fill:color});
 }
 cur(2026,2.2,"#16A34A");
-cur(2026,2.9,"#0D9488");
+cur(2026,2.9,"#2563EB");
 
 // legend
 add("rect",{x:60,y:660,width:30,height:6,fill:"#16A34A",rx:3});
 add("circle",{cx:75,cy:663,r:5,fill:"#16A34A"});
 add("text",{x:100,y:670,class:"leg",fill:"#15803D"},"VYM（メイン）");
-add("rect",{x:300,y:660,width:30,height:6,fill:"#0D9488",rx:3});
-add("circle",{cx:315,cy:663,r:5,fill:"#0D9488"});
-add("text",{x:340,y:670,class:"leg",fill:"#0F766E"},"HDV（サブ）");
+add("rect",{x:300,y:660,width:30,height:6,fill:"#2563EB",rx:3});
+add("circle",{cx:315,cy:663,r:5,fill:"#2563EB"});
+add("text",{x:340,y:670,class:"leg",fill:"#1D4ED8"},"HDV（サブ）");
 
 // annotation box for current
 add("rect",{x:835,y:648,width:505,height:104,rx:14,fill:"#FEF2F2",stroke:"#FCA5A5","stroke-width":2});
