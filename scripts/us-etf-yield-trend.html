@@ -86,8 +86,8 @@ add("text",{x:860,y:742,class:"annosub"},"取得利回りが伸びにくいた�
 
 // arrows from box to the two current points (VYM 2.2 / HDV 2.9)
 function redArrow(x1,y1,x2,y2){add("path",{d:`M${x1} ${y1} L${x2} ${y2}`,fill:"none",stroke:"#DC2626","stroke-width":2.5,"marker-end":"url(#ar)"});}
-redArrow(862,652, px(2026)-18, py(2.2)+4);   // to VYM (約2.2%)
-redArrow(862,652, px(2026)-18, py(2.9)+10);  // to HDV (約2.9%)
+redArrow(1135,650, px(2026)-16, py(2.2)+6);   // to VYM (約2.2%)
+redArrow(1135,650, px(2026)-16, py(2.9)+10);  // to HDV (約2.9%)
 const defs=add("defs",{});
 const mk=document.createElementNS(NS,"marker");
 mk.setAttribute("id","ar");mk.setAttribute("viewBox","0 0 10 10");mk.setAttribute("refX","8");mk.setAttribute("refY","5");
