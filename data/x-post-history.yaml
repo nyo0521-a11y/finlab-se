@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-08T07:17:31+09:00'
+    text: "【新着📝】\n金融SEの筆者が、日本株102銘柄・24業種に分散した高配当株ポートフォリオを公開。米国ETFとの比率・セクター配分・利回り目標まで、なぜこの配分にしたかを実データで解説します。\n\
+      \nhttps://finlab-se.com/posts/highyield-portfolio-2026-breakdown/"
+    tweet_id: '2063747205744169418'
+    tweet_url: https://x.com/i/web/status/2063747205744169418
+    type: new
+    post_path: content/posts/highyield-portfolio-2026-breakdown.md
   - posted_at: '2026-06-07T21:05:32+09:00'
     text: "【おすすめ📖】\nステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。\n\nhttps://finlab-se.com/posts/crypto-stablecoin-remittance/\n\
       \n#暗号資産 #ステーブルコイン #海外送金"
@@ -355,11 +362,3 @@ history:
     tweet_url: https://x.com/i/web/status/2053808707985609088
     type: rotation
     post_path: content/posts/expense-optimization-before-investing.md
-  - posted_at: '2026-05-11T07:17:54+09:00'
-    text: "【新着📝】\n住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。\n\
-      \nhttps://finlab-se.com/posts/furusato-tax-jumin-tax-notification/\n\n#ふるさと納税
-      #住民税 #税金"
-    tweet_id: '2053600444279292406'
-    tweet_url: https://x.com/i/web/status/2053600444279292406
-    type: new
-    post_path: content/posts/furusato-tax-jumin-tax-notification.md
