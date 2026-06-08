@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  html,body{margin:0;padding:0;}
+  #stage{width:1376px;height:768px;background:#FFFFFF;
+    font-family:"Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;}
+  svg{display:block;}
+  .title{font-size:33px;font-weight:800;fill:#0F172A;}
+  .sub{font-size:20px;font-weight:500;fill:#64748B;}
+  .cn{font-size:20px;font-weight:800;}
+  .cp{font-size:18px;font-weight:700;}
+  .seg{font-size:18px;font-weight:800;fill:#FFFFFF;}
+</style>
+</head>
+<body>
+<div id="stage"><svg id="svg" width="1376" height="768" viewBox="0 0 1376 768"></svg></div>
+<script>
+const COL={
+ "食費":"#16A34A","教養・教育":"#2563EB","住宅":"#F59E0B","趣味・娯楽":"#DC2626",
+ "その他":"#0D9488","現金・カード":"#9333EA","自動車":"#84CC16","特別な支出":"#DB2777",
+ "水道・光熱費":"#0891B2","税・社会保障":"#CA8A04","日用品":"#7C3AED","通信費":"#64748B",
+ "保険":"#E11D48","衣服・美容":"#15803D","交際費":"#1D4ED8","交通費":"#B45309"};
+const DATA={
+ "食費":[1363257,37352],"教養・教育":[50322,1150132],"住宅":[798908,0],"趣味・娯楽":[107962,613152],
+ "その他":[314075,324185],"現金・カード":[315000,315540],"自動車":[0,283809],"特別な支出":[0,267371],
+ "水道・光熱費":[247920,0],"税・社会保障":[222625,0],"日用品":[104520,3080],"通信費":[85898,590],
+ "保険":[56712,0],"衣服・美容":[29914,6531],"交際費":[0,34186],"交通費":[0,1794]};
+const NS="http://www.w3.org/2000/svg";const svg=document.getElementById("svg");
+function add(t,a,x){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;svg.appendChild(e);return e;}
+const cx=640,cy=448;
+function polar(r,deg){const a=(deg-90)*Math.PI/180;return [cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+function ring(r1,r2,s,e,fill){const large=(e-s)>180?1:0;const[x1,y1]=polar(r2,s),[x2,y2]=polar(r2,e),[x3,y3]=polar(r1,e),[x4,y4]=polar(r1,s);
+  add("path",{d:`M${x1} ${y1} A${r2} ${r2} 0 ${large} 1 ${x2} ${y2} L${x3} ${y3} A${r1} ${r1} 0 ${large} 0 ${x4} ${y4} Z`,fill:fill,stroke:"#fff","stroke-width":2});}
+
+let i1T=0,i2T=0; for(const k in DATA){i1T+=DATA[k][0];i2T+=DATA[k][1];}
+const T=i1T+i2T; const A1=i1T/T*360;
+
+add("text",{x:46,y:50,class:"title"},"我が家の支出マップ｜内円＝①②／外円＝家計簿の費目");
+add("text",{x:46,y:82,class:"sub"},"内側＝生存費①・豊かさ費②、外側＝同じ色で大分類（2025年6月〜2026年5月）");
+
+// inner ring ①②
+const ri1=70,ri2=146;
+ring(ri1,ri2,0,A1,"#86EFAC");
+ring(ri1,ri2,A1,360,"#FDBA74");
+(function(){const[x,y]=polar((ri1+ri2)/2,A1/2);add("text",{x,y:y-5,"text-anchor":"middle",style:"font-size:20px;font-weight:800;fill:#14532D"},"①生存費");add("text",{x,y:y+17,"text-anchor":"middle",style:"font-size:17px;font-weight:800;fill:#14532D"},(i1T/T*100).toFixed(1)+"%");})();
+(function(){const[x,y]=polar((ri1+ri2)/2,A1+(360-A1)/2);add("text",{x,y:y-5,"text-anchor":"middle",style:"font-size:20px;font-weight:800;fill:#7C2D12"},"②豊かさ費");add("text",{x,y:y+17,"text-anchor":"middle",style:"font-size:17px;font-weight:800;fill:#7C2D12"},(i2T/T*100).toFixed(1)+"%");})();
+
+// outer ring + collect labels
+const ro1=150,ro2=215;
+const order1=Object.keys(DATA).filter(k=>DATA[k][0]>0).sort((a,b)=>DATA[b][0]-DATA[a][0]);
+const order2=Object.keys(DATA).filter(k=>DATA[k][1]>0).sort((a,b)=>DATA[b][1]-DATA[a][1]);
+let ang=0; const labels=[];
+function drawOuter(list,idx){
+  list.forEach(k=>{
+    const v=DATA[k][idx]; const sweep=v/T*360; const pct=v/T*100; const mid=ang+sweep/2;
+    ring(ro1,ro2,ang,ang+sweep,COL[k]);
+    if(pct>=0.8) labels.push({k,pct,mid,col:COL[k]});
+    ang+=sweep;
+  });
+}
+drawOuter(order1,0); drawOuter(order2,1);
+
+// place callout labels with vertical anti-overlap
+const Re=cx+ro2+18, Le=cx-ro2-18;    // elbow x
+labels.forEach(o=>{const[px,py]=polar(ro2,o.mid);o.px=px;o.py=py;o.side=(px>=cx)?'R':'L';o.y=py;});
+['R','L'].forEach(side=>{
+  const arr=labels.filter(o=>o.side===side).sort((a,b)=>a.y-b.y);
+  const gap=31, top=120, bot=735;
+  for(let i=0;i<arr.length;i++){ if(i===0) arr[i].y=Math.max(arr[i].y,top); else arr[i].y=Math.max(arr[i].y,arr[i-1].y+gap); }
+  const over=arr.length?arr[arr.length-1].y-bot:0;
+  if(over>0) arr.forEach(o=>o.y-=over);
+});
+labels.forEach(o=>{
+  add("circle",{cx:o.px,cy:o.py,r:3,fill:o.col});
+  const txt=o.k+"　"+o.pct.toFixed(1)+"%";
+  if(o.side==='R'){
+    const sw=Re+24, tx=sw+26;
+    add("polyline",{points:`${o.px},${o.py} ${Re},${o.y} ${sw},${o.y}`,fill:"none",stroke:"#CBD5E1","stroke-width":1.5});
+    add("rect",{x:sw,y:o.y-9,width:18,height:18,rx:3,fill:o.col});
+    add("text",{x:tx,y:o.y+5,"text-anchor":"start",class:"cn",fill:"#0F172A"},txt);
+  } else {
+    const sw=Le-24-18, tx=sw-8;
+    add("polyline",{points:`${o.px},${o.py} ${Le},${o.y} ${sw+18},${o.y}`,fill:"none",stroke:"#CBD5E1","stroke-width":1.5});
+    add("rect",{x:sw,y:o.y-9,width:18,height:18,rx:3,fill:o.col});
+    add("text",{x:tx,y:o.y+5,"text-anchor":"end",class:"cn",fill:"#0F172A"},txt);
+  }
+});
+</script>
+</body>
+</html>

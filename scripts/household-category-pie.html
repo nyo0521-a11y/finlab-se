@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  html,body{margin:0;padding:0;}
+  #stage{width:1376px;height:768px;background:#FFFFFF;
+    font-family:"Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;}
+  svg{display:block;}
+  .title{font-size:34px;font-weight:800;fill:#0F172A;}
+  .sub{font-size:21px;font-weight:500;fill:#64748B;}
+  .leg{font-size:21px;font-weight:700;fill:#0F172A;}
+  .legp{font-size:20px;font-weight:800;}
+  .legy{font-size:17px;font-weight:600;fill:#64748B;}
+  .ctr{font-size:24px;font-weight:800;fill:#0F172A;}
+  .ctrs{font-size:18px;font-weight:600;fill:#64748B;}
+</style>
+</head>
+<body>
+<div id="stage"><svg id="svg" width="1376" height="768" viewBox="0 0 1376 768"></svg></div>
+<script>
+const D={
+ 1:{title:"①生きるための支出（生存費）の内訳",sub:"2025年6月〜2026年5月・大分類別 ／ 年間 約370万円",ctr:"①生存費",ctrs:"約370万円/年",
+   data:[["食費",1363257],["住宅",798908],["現金・カード（ATM等）",315000],["その他（こづかい等）",314075],["水道・光熱費",247920],["税・社会保障",222625],["趣味・娯楽（外食3割）",107962],["日用品",104520],["通信費",85898],["保険",56712],["教養・教育",50322],["衣服・美容",29914]]},
+ 2:{title:"②生活を豊かにする支出（豊かさ費）の内訳",sub:"2025年6月〜2026年5月・大分類別 ／ 年間 約304万円",ctr:"②豊かさ費",ctrs:"約304万円/年",
+   data:[["教養・教育（塾・習い事）",1150132],["趣味・娯楽",613152],["その他（こづかい等）",324185],["現金・カード（ATM等）",315540],["自動車",283809],["特別な支出（家電等）",267371],["食費（外食7割）",37352],["交際費",34186],["衣服・美容",6531],["日用品",3080],["交通費",1794],["通信費",590]]},
+ 3:{title:"家計支出全体（①+②）の内訳",sub:"2025年6月〜2026年5月・大分類別 ／ 年間 約673万円",ctr:"支出合計",ctrs:"約673万円/年",
+   data:[["食費",1400609],["教養・教育",1200454],["住宅",798908],["趣味・娯楽",721114],["その他（こづかい等）",638260],["現金・カード（ATM等）",630540],["自動車",283809],["特別な支出",267371],["水道・光熱費",247920],["税・社会保障",222625],["日用品",107600],["通信費",86488],["保険",56712],["衣服・美容",36445],["交際費",34186],["交通費",1794]]}
+};
+const PAL=["#16A34A","#2563EB","#F59E0B","#DC2626","#0D9488","#9333EA","#65A30D","#DB2777","#0891B2","#CA8A04","#7C3AED","#475569","#E11D48","#15803D","#1D4ED8","#B45309"];
+const params=new URLSearchParams(location.search);
+const C=D[params.get("c")||"1"];
+const NS="http://www.w3.org/2000/svg";const svg=document.getElementById("svg");
+function add(t,a,x){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;svg.appendChild(e);return e;}
+const total=C.data.reduce((s,d)=>s+d[1],0);
+add("text",{x:50,y:54,class:"title"},C.title);
+add("text",{x:50,y:88,class:"sub"},C.sub);
+// donut
+const cx=330,cy=430,r1=130,r2=240;
+function polar(r,deg){const a=(deg-90)*Math.PI/180;return [cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+function arc(s,e){const large=(e-s)>180?1:0;const[x1,y1]=polar(r2,s),[x2,y2]=polar(r2,e),[x3,y3]=polar(r1,e),[x4,y4]=polar(r1,s);
+  return `M${x1} ${y1} A${r2} ${r2} 0 ${large} 1 ${x2} ${y2} L${x3} ${y3} A${r1} ${r1} 0 ${large} 0 ${x4} ${y4} Z`;}
+let ang=0;
+C.data.forEach((d,i)=>{
+  const sweep=d[1]/total*360; const col=PAL[i%PAL.length];
+  add("path",{d:arc(ang,ang+sweep),fill:col,stroke:"#fff","stroke-width":2});
+  const pct=d[1]/total*100;
+  if(pct>=5){const[mx,my]=polar((r1+r2)/2,ang+sweep/2);add("text",{x:mx,y:my+6,"text-anchor":"middle",style:"font-size:19px;font-weight:800;fill:#fff"},pct.toFixed(0)+"%");}
+  ang+=sweep;
+});
+add("text",{x:cx,y:cy-4,"text-anchor":"middle",class:"ctr"},C.ctr);
+add("text",{x:cx,y:cy+26,"text-anchor":"middle",class:"ctrs"},C.ctrs);
+// legend (right)
+let lx=640, ly=150, rowH= C.data.length>13?40:46;
+C.data.forEach((d,i)=>{
+  const y=ly+i*rowH; const col=PAL[i%PAL.length]; const pct=(d[1]/total*100);
+  add("rect",{x:lx,y:y-16,width:22,height:22,rx:4,fill:col});
+  add("text",{x:lx+32,y:y+2,class:"leg"},d[0]);
+  add("text",{x:1330,y:y+2,"text-anchor":"end",class:"legp",fill:col},pct.toFixed(1)+"%");
+  add("text",{x:1190,y:y+2,"text-anchor":"end",class:"legy"},"¥"+d[1].toLocaleString());
+});
+</script>
+</body>
+</html>
