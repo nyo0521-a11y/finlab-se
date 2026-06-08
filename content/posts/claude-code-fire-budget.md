@@ -1,7 +1,7 @@
 ---
 title: "Claude Codeで「FIRE家計簿」を作る｜支出を生存費と豊かさ費に自動仕分け"
-date: 2026-06-09T06:30:00+09:00
-draft: true
+date: 2026-06-10T05:30:00+09:00
+draft: false
 categories: ["AI活用"]
 tags: ["Claude Code", "FIRE", "サイドFIRE", "家計管理", "MoneyForward", "AI活用", "支出最適化"]
 description: "Claude CodeでMoneyForwardの家計明細を自動取得し、支出を①生存費と②豊かさ費に自動仕分け。1年分（約1,000件）を約1時間で集計し、サイドFIREに必要な資産を逆算した実体験です。"
