@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-08T21:05:41+09:00'
+    text: "【おすすめ📖】\n増配ニュースに飛びつく前に確認すべき配当性向・DOE・営業CFの3点。2026年3月期決算の読み方。\n\nhttps://finlab-se.com/posts/dividend-increase-season-2026/\n\
+      \n#高配当株 #決算 #配当"
+    tweet_id: '2063955621523914848'
+    tweet_url: https://x.com/i/web/status/2063955621523914848
+    type: rotation
+    post_path: content/posts/dividend-increase-season-2026.md
   - posted_at: '2026-06-08T07:17:31+09:00'
     text: "【新着📝】\n金融SEの筆者が、日本株102銘柄・24業種に分散した高配当株ポートフォリオを公開。米国ETFとの比率・セクター配分・利回り目標まで、なぜこの配分にしたかを実データで解説します。\n\
       \nhttps://finlab-se.com/posts/highyield-portfolio-2026-breakdown/"
@@ -355,10 +362,3 @@ history:
     tweet_url: https://x.com/i/web/status/2053962735621398556
     type: new
     post_path: content/posts/corporate-dc-ideco-flowchart-2026.md
-  - posted_at: '2026-05-11T21:05:28+09:00'
-    text: "【おすすめ📖】\n投資より支出削減が先。月1万円の節約は300万円の投資効果に相当。削減インパクトが大きい項目から整理。\n\nhttps://finlab-se.com/posts/expense-optimization-before-investing/\n\
-      \n#支出最適化 #固定費削減 #携帯代見直し"
-    tweet_id: '2053808707985609088'
-    tweet_url: https://x.com/i/web/status/2053808707985609088
-    type: rotation
-    post_path: content/posts/expense-optimization-before-investing.md
