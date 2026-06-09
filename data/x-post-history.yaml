@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-09T21:05:38+09:00'
+    text: "【おすすめ📖】\n銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点。現場でしかわからない重みと充実感。\n\nhttps://finlab-se.com/posts/finance-se-20years-lessons/\n\
+      \n#金融SE #キャリア #銀行システム"
+    tweet_id: '2064317995707682940'
+    tweet_url: https://x.com/i/web/status/2064317995707682940
+    type: rotation
+    post_path: content/posts/finance-se-20years-lessons.md
   - posted_at: '2026-06-09T07:17:37+09:00'
     text: "【おすすめ📖】\n投資より支出削減が先。月1万円の節約は300万円の投資効果に相当。削減インパクトが大きい項目から整理。\n\nhttps://finlab-se.com/posts/expense-optimization-before-investing/\n\
       \n#支出最適化 #固定費削減 #携帯代見直し"
@@ -354,10 +361,3 @@ history:
     tweet_url: https://x.com/i/web/status/2054325347642917283
     type: new
     post_path: content/posts/ideco-nisa-tax-comparison.md
-  - posted_at: '2026-05-12T21:05:28+09:00'
-    text: "【おすすめ📖】\n銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点。現場でしかわからない重みと充実感。\n\nhttps://finlab-se.com/posts/finance-se-20years-lessons/\n\
-      \n#金融SE #キャリア #銀行システム"
-    tweet_id: '2054171093288800471'
-    tweet_url: https://x.com/i/web/status/2054171093288800471
-    type: rotation
-    post_path: content/posts/finance-se-20years-lessons.md
