@@ -51,6 +51,14 @@ disableShare: true
 
 各プログラムが取得する情報および利用目的は、各社のプライバシーポリシーをご確認ください。
 
+### 1-4. 広告配信（Google AdSense）によるCookie
+
+当サイトは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用しています。
+
+- Googleなどの第三者配信事業者は、Cookieを使用して、利用者の当サイトや他のウェブサイトへの過去のアクセス情報に基づいた広告（パーソナライズド広告）を配信することがあります。
+- 利用者は、[広告設定](https://adssettings.google.com/)でパーソナライズド広告を無効にできます。また、[www.aboutads.info](https://www.aboutads.info/) にアクセスすれば、第三者配信事業者によるパーソナライズド広告掲載で使用されるCookieを無効にできます。
+- Googleによる広告配信の仕組みおよびCookieの取り扱いの詳細は、[広告 – ポリシーと規約 – Google](https://policies.google.com/technologies/ads?hl=ja) をご確認ください。
+
 ## 2. 利用目的
 
 取得した情報は以下の目的で利用します。
