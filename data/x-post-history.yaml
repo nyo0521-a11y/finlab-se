@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-11T07:17:49+09:00'
+    text: "【おすすめ📖】\n米国株はETF、日本株は個別株で運用する理由。VYM・HDV・SCHDの使い分けと投資戦略の全体像。\n\nhttps://finlab-se.com/posts/highyield-investment-strategy/\n\
+      \n#高配当株 #ETF #VYM"
+    tweet_id: '2064834444494614757'
+    tweet_url: https://x.com/i/web/status/2064834444494614757
+    type: rotation
+    post_path: content/posts/highyield-investment-strategy.md
   - posted_at: '2026-06-10T21:06:21+09:00'
     text: "【おすすめ📖】\n高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD・日本個別株の実例つきで金融SEが解説。\n\
       \nhttps://finlab-se.com/posts/highyield-buying-timing/\n\n#高配当株 #買い時 #配当利回り"
@@ -354,10 +361,3 @@ history:
     tweet_url: https://x.com/i/web/status/2054896093003960528
     type: rotation
     post_path: content/posts/highyield-investment-strategy.md
-  - posted_at: '2026-05-14T07:18:09+09:00'
-    text: "【新着📝】\niDeCoの受け取り方は一時金・年金形式・併用の3択です。退職所得控除・2分の1課税・10年ルール・退職後の健康保険まで、手取りに直結する論点を整理します。\n\
-      \nhttps://finlab-se.com/posts/ideco-withdrawal-guide/\n\n#iDeCo #受け取り方 #一時金"
-    tweet_id: '2054687668441661600'
-    tweet_url: https://x.com/i/web/status/2054687668441661600
-    type: new
-    post_path: content/posts/ideco-withdrawal-guide.md
