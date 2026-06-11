@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-12T07:37:45+09:00'
+    text: "【新着📝】\nSBI証券のS株（単元未満株）で高配当株100銘柄超を少しずつ買い集めてきた筆者の正直レビュー。\n\nhttps://finlab-se.com/posts/sbi-securities-honest-review/\n\
+      \n#SBI証券 #S株 #単元未満株"
+    tweet_id: '2065201850089976238'
+    tweet_url: https://x.com/i/web/status/2065201850089976238
+    type: new
+    post_path: content/posts/sbi-securities-honest-review.md
   - posted_at: '2026-06-12T07:17:45+09:00'
     text: "【おすすめ📖】\n高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。\n\nhttps://finlab-se.com/posts/highyield-stock-selection-criteria/\n\
       \n#高配当株 #銘柄選定 #スクリーニング"
@@ -354,10 +361,3 @@ history:
     tweet_url: https://x.com/i/web/status/2055412489702220195
     type: new
     post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
-  - posted_at: '2026-05-15T21:06:26+09:00'
-    text: "【おすすめ📖】\n高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。\n\nhttps://finlab-se.com/posts/highyield-portfolio-management/\n\
-      \n#高配当株 #ポートフォリオ管理 #設計原則"
-    tweet_id: '2055258500276621655'
-    tweet_url: https://x.com/i/web/status/2055258500276621655
-    type: rotation
-    post_path: content/posts/highyield-portfolio-management.md
