@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans JP", "Yu Gothic UI", sans-serif;
+    background: #F5F7FB;
+    width: 1376px;
+    padding: 44px 52px 36px;
+    color: #1E2A4A;
+  }
+  h1 { font-size: 30px; font-weight: 900; letter-spacing: 0.01em; }
+  .subtitle { font-size: 16px; color: #5A6B8C; margin-top: 8px; font-weight: 500; }
+
+  .legend {
+    display: flex; gap: 22px; margin-top: 20px; font-size: 14px; font-weight: 700; color: #3A4A6B;
+    align-items: center;
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .chip { width: 26px; height: 14px; border-radius: 3px; display: inline-block; }
+  .chip.accept-green { background: #86EFAC; }
+  .chip.exec-green { background: #15803D; }
+  .chip.accept-blue { background: #93B4E7; }
+  .chip.exec-blue { background: #1E3A8A; }
+  .chip.na { background: repeating-linear-gradient(45deg, #E2E6EE 0 4px, #CDD3DF 4px 8px); }
+
+  .chart { margin-top: 26px; }
+  .row { display: flex; align-items: flex-start; margin-bottom: 6px; }
+  .row-label {
+    width: 196px; flex-shrink: 0; font-size: 15px; font-weight: 800; line-height: 1.35;
+    background: #E8ECF4; border-radius: 8px; padding: 12px 12px; margin-top: 22px;
+    text-align: center; color: #2A3A5C;
+  }
+  .row-label small { display: block; font-size: 12px; font-weight: 600; color: #5A6B8C; margin-top: 2px; }
+  .track-wrap { flex: 1; margin-left: 18px; position: relative; }
+  .ticks { position: relative; height: 20px; font-size: 12.5px; font-weight: 700; color: #5A6B8C; }
+  .tick { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+  .track {
+    position: relative; height: 46px; border-radius: 6px; overflow: hidden;
+    background: repeating-linear-gradient(45deg, #E2E6EE 0 4px, #CDD3DF 4px 8px);
+    border: 1px solid #D5DAE6;
+  }
+  .seg { position: absolute; top: 0; height: 100%; }
+  .seg.accept-green { background: #86EFAC; }
+  .seg.exec-green { background: #15803D; }
+  .seg.accept-blue { background: #93B4E7; }
+  .seg.exec-blue { background: #1E3A8A; }
+  .seg-label {
+    position: absolute; width: 100%; text-align: center; top: 50%; transform: translateY(-50%);
+    font-size: 13px; font-weight: 800; color: #14532D;
+  }
+  .under { position: relative; height: 22px; font-size: 12px; font-weight: 700; color: #475569; }
+  .under .tick { top: 2px; }
+  .note-line {
+    margin-left: 214px; margin-top: 2px; font-size: 13.5px; font-weight: 700; color: #15803D;
+  }
+  .note-line.blue { color: #B45309; }
+
+  .footnote {
+    margin-top: 24px; font-size: 12.5px; color: #6B7A99; line-height: 1.6; text-align: center;
+  }
+</style>
+</head>
+<body>
+  <h1>単元未満株「注文できる時間」比較 — SBI証券 S株 × 楽天証券 かぶミニ</h1>
+  <div class="subtitle">S株は原則24時間いつでも注文を置ける。かぶミニは注文受付時間に隙間がある（執筆時点・平日）</div>
+
+  <div class="legend">
+    凡例：
+    <span><span class="chip accept-green"></span><span class="chip accept-blue"></span> 注文受付時間</span>
+    <span><span class="chip exec-green"></span><span class="chip exec-blue"></span> 約定・取引時間</span>
+    <span><span class="chip na"></span> 注文受付不可</span>
+  </div>
+
+  <div class="chart">
+
+    <!-- SBI S株 -->
+    <div class="row">
+      <div class="row-label">SBI証券 S株<small>1日3回の約定</small></div>
+      <div class="track-wrap">
+        <div class="ticks">
+          <div class="tick" style="left:0%">0:00</div>
+          <div class="tick" style="left:29.17%">7:00</div>
+          <div class="tick" style="left:43.75%">10:30</div>
+          <div class="tick" style="left:58.33%">14:00</div>
+          <div class="tick" style="left:100%">24:00</div>
+        </div>
+        <div class="track">
+          <div class="seg accept-green" style="left:0%; width:100%"></div>
+          <div class="seg exec-green" style="left:37.5%;  width:0.6%"></div>
+          <div class="seg exec-green" style="left:52.08%; width:0.6%"></div>
+          <div class="seg exec-green" style="left:64.58%; width:0.6%"></div>
+          <div class="seg-label">原則24時間 注文受付（0:00～24:00）</div>
+        </div>
+        <div class="under">
+          <div class="tick" style="left:38%">9:00頃 約定</div>
+          <div class="tick" style="left:52.5%">12:30頃 約定</div>
+          <div class="tick" style="left:65%">15:30頃 約定</div>
+        </div>
+      </div>
+    </div>
+    <div class="note-line">締切は 7:00（前場始値）／ 10:30（後場始値）／ 14:00（後場終値）。14:00までの注文なら当日中に約定</div>
+
+    <!-- かぶミニ リアルタイム -->
+    <div class="row" style="margin-top:26px">
+      <div class="row-label">楽天証券 かぶミニ<small>リアルタイム取引</small></div>
+      <div class="track-wrap">
+        <div class="ticks">
+          <div class="tick" style="left:37.5%">9:00</div>
+          <div class="tick" style="left:47.92%">11:30</div>
+          <div class="tick" style="left:52.08%">12:30</div>
+          <div class="tick" style="left:64.24%">15:25</div>
+          <div class="tick" style="left:100%">24:00</div>
+        </div>
+        <div class="track">
+          <div class="seg exec-blue" style="left:37.5%;  width:10.42%"></div>
+          <div class="seg exec-blue" style="left:52.08%; width:12.16%"></div>
+        </div>
+        <div class="under">
+          <div class="tick" style="left:42.7%">受付＝即時約定</div>
+          <div class="tick" style="left:58.2%">受付＝即時約定</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- かぶミニ 寄付 -->
+    <div class="row" style="margin-top:10px">
+      <div class="row-label">楽天証券 かぶミニ<small>寄付取引</small></div>
+      <div class="track-wrap">
+        <div class="ticks">
+          <div class="tick" style="left:0%">0:00</div>
+          <div class="tick" style="left:12.5%">3:00</div>
+          <div class="tick" style="left:25%">6:00</div>
+          <div class="tick" style="left:36.46%">8:45</div>
+          <div class="tick" style="left:70.83%">17:00</div>
+          <div class="tick" style="left:100%">24:00</div>
+        </div>
+        <div class="track">
+          <div class="seg accept-blue" style="left:0%;     width:12.5%"></div>
+          <div class="seg accept-blue" style="left:25%;    width:11.46%"></div>
+          <div class="seg accept-blue" style="left:70.83%; width:29.17%"></div>
+          <div class="seg exec-blue"   style="left:37.5%;  width:2.08%"></div>
+        </div>
+        <div class="under">
+          <div class="tick" style="left:38.5%">9:00～9:30 約定</div>
+        </div>
+      </div>
+    </div>
+    <div class="note-line blue">かぶミニは 3:00～6:00・8:45～9:00・11:30～12:30・15:25～17:00 が注文受付不可（昼休みを含む）</div>
+
+  </div>
+
+  <div class="footnote">
+    ※ 執筆時点の各社公式サイトの情報を基に作成（平日の場合）。SBI証券は大引け後の清算処理（15分程度）や臨時システムメンテナンス時間を除く。<br>
+    制度・時間は変更される場合があるため、最新情報は必ず各社公式サイトでご確認ください。
+  </div>
+</body>
+</html>
