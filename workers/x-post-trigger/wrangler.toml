@@ -7,18 +7,18 @@ compatibility_date = "2026-04-27"
 # GitHub Actions の built-in cron は数時間の遅延が常態化しているため、
 # 信頼性の高い Cloudflare Workers Scheduled をプライマリスケジューラとして使用する。
 #
-# 枠と cron（UTC）:
-#   朝・主: 22:17 UTC = JST 07:17  → x-post-scheduled (morning)
-#   朝・補: 22:37 UTC = JST 07:37  → x-post-scheduled (morning) 救済枠
-#   夜・主: 11:53 UTC = JST 20:53  → x-post-scheduled (night)
-#   夜・補: 12:13 UTC = JST 21:13  → x-post-scheduled (night) 救済枠
-#   rotation: 12:05 UTC = JST 21:05 → x-rotation（夜枠の5分後）
+# 枠と cron（UTC）:（無料プランの上限 = 1 Worker あたり cron 5本）
+#   build・主: 20:35 UTC = JST 05:35 → deploy.yml（5:30公開予約の反映ビルド）
+#   朝・主:    22:17 UTC = JST 07:17 → x-post-scheduled (morning) ＋ deploy.yml 保険ビルド
+#   朝・補:    22:37 UTC = JST 07:37 → x-post-scheduled (morning) 救済枠
+#   夜・主:    11:53 UTC = JST 20:53 → x-post-scheduled (night)
+#   夜・補:    12:13 UTC = JST 21:13 → x-post-scheduled (night) 救済枠 ＋ x-rotation
 
 [triggers]
 crons = [
+  "35 20 * * *",
   "17 22 * * *",
   "37 22 * * *",
   "53 11 * * *",
   "13 12 * * *",
-  "5 12 * * *",
 ]

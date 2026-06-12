@@ -11,12 +11,12 @@ on:
   push:
     branches:
       - main
-  # 毎時0分に再ビルド：未来日付で書いた記事を予約時刻以降に自動公開するため
-  # （push がなくても定期的に再ビルドされ、現在時刻 >= date になった記事が公開される）
-  # cron 間隔 = 1時間のため、enqueue の時間窓は 2時間に設定（遅延バッファ込み）
-  schedule:
-    - cron: '0 * * * *'
-  # 手動トリガー：必要なら GitHub Actions 画面から即時再ビルドできる
+  # 定時再ビルド：未来日付（5:30公開予約）の記事を公開するため、
+  # Cloudflare Worker (workers/x-post-trigger) が毎朝 5:35 JST（保険 6:05 JST）に
+  # workflow_dispatch でこのワークフローを起動する。
+  # GitHub Actions の schedule cron は遅延・スキップが常態化しているため使用しない
+  # （2026-06-13 設計変更。enqueue の時間窓 2時間は 5:30 公開 + 6:05 保険起動をカバー）。
+  # 手動トリガー：GitHub Actions 画面や gh workflow run からの即時再ビルドも同じ経路で動く
   workflow_dispatch:
 
 jobs:
@@ -47,8 +47,8 @@ jobs:
 
       - name: Build production
         # 本番は --buildFuture を付けない＝Hugo標準の予約投稿挙動を活かす：
-        # date が現在時刻より未来の記事は除外。毎時0分の cron 再ビルドにより、
-        # 予約時刻に達した記事が自動公開される（最大1時間の遅延あり）。
+        # date が現在時刻より未来の記事は除外。毎朝 5:35/6:05 JST の Worker 起動ビルドにより、
+        # 予約時刻（5:30）に達した記事が自動公開される。
         run: hugo --baseURL "https://finlab-se.com"
 
       - name: Deploy to Cloudflare Pages (production)
@@ -59,15 +59,15 @@ jobs:
           command: pages deploy public --project-name finlab-se --branch master
 
       # =========================================
-      # cron ビルド時のみ: 公開日に達した記事を X キューに積む
+      # 定時起動（workflow_dispatch）時のみ: 公開日に達した記事を X キューに積む
       #
       # push 時は x-new-post-enqueue.yml が date チェック付きでエンキューする。
-      # schedule 時（毎時0分）: Hugo が未来日付記事を初めて本番に含めたタイミングで
+      # Worker からの定時起動時: Hugo が未来日付記事を初めて本番に含めたタイミングで
       # エンキューする。enqueue_post.py は queue・history の両方で重複チェックするため
       # 再エンキューや投稿済み記事の再投稿は発生しない。
       # =========================================
-      - name: Enqueue newly-live posts (cron only)
-        if: github.event_name == 'schedule'
+      - name: Enqueue newly-live posts (dispatch only)
+        if: github.event_name == 'workflow_dispatch'
         shell: bash
         run: |
           pip install ruamel.yaml -q
@@ -78,7 +78,7 @@ jobs:
 
           JST = timezone(timedelta(hours=9))
           now = datetime.now(JST)
-          # cron が毎時0分起動のため、窓を2時間に設定（GitHub Actions 遅延バッファ込み）
+          # 起動が 5:35/6:05 JST の2回のため、窓は2時間のままで両方をカバー
           ENQUEUE_WINDOW_HOURS = 2
           window_start = now - timedelta(hours=ENQUEUE_WINDOW_HOURS)
           posts_dir = Path("content/posts")
@@ -116,8 +116,8 @@ jobs:
                       print(f"{md_file.name}: {msg}")
           PYEOF
 
-      - name: Commit newly-enqueued posts (cron only)
-        if: github.event_name == 'schedule'
+      - name: Commit newly-enqueued posts (dispatch only)
+        if: github.event_name == 'workflow_dispatch'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
