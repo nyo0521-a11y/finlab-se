@@ -1,19 +1,15 @@
 name: X Auto Post - Scheduled Post
 
-# data/x-queue.yaml の先頭エントリを 1 日 2 枠で順次投稿する（承認フロー廃止版）。
+# data/x-queue.yaml の先頭エントリを 1 日 2 枠で順次投稿する（2026-06-13 簡素化版）。
 #
-# ★ 1タイミング1件ルール ★
-#   各スロットで投稿されるのは常に1件のみ。
-#   夜枠は x-rotation.yml (21:05) と役割を分担し、同時投稿しない設計。
+# ★ 1タイミング1件・朝夜同一パターン ★
+#   朝 (JST 07:05) / 夜 (JST 21:05) とも「新着キューがあれば新着投稿、
+#   空なら既存記事の紹介（rotation フォールバック）」の同じ動きをする。
+#   夜の新着投稿は「朝の投稿が失敗・積み残した場合の追い上げ」を兼ねる。
+#   救済枠（バックアップ cron）は廃止（失敗しても次の枠が新着を拾うため不要と判断）。
 #
-# 枠と cron（オフピーク時刻 + バックアップ枠で信頼性を確保）:
-#   朝: UTC 22:17 = JST 07:17（主）/ UTC 22:37 = JST 07:37（補）
-#   夜: UTC 11:53 = JST 20:53（主）/ UTC 12:13 = JST 21:13（補）
-#
-# ※ GitHub Actions の :00/:30 は最混雑帯で遅延・スキップが頻発するため
-#   :17/:37/:53/:13 に変更。主が失敗しても補が救済する。
+# ※ 起動は Cloudflare Workers (workers/x-post-trigger) の workflow_dispatch。
 # ※ 重複投稿は dequeue_and_post.py が data/x-post-state.yaml で防止する。
-# ※ dequeue_and_post.py がslot・queue残で判定するため workflow 側は slot を渡すだけ。
 
 on:
   # ★ スケジュールは Cloudflare Workers (workers/x-post-trigger) が担当 ★
@@ -28,9 +24,7 @@ on:
         type: string
 
 # ★ 並列実行防止 ★
-# 主枠（7:17/20:53）が実行中にバックアップ枠（7:37/21:13）が来ても待機させる。
-# cancel-in-progress: false = キャンセルせず待機 → 主枠完了後に補枠が起動 →
-# その時点で morning_rotation_last_posted が当日日付になっているため補枠はスキップする。
+# 手動起動が重なった場合などに直列化する（cancel-in-progress: false = 待機）。
 concurrency:
   group: x-post-scheduled
   cancel-in-progress: false
@@ -63,8 +57,8 @@ jobs:
           else
             # スケジュール名でスロット判定（朝主・朝補 → morning、夜主・夜補 → night）
             case "${{ github.event.schedule }}" in
-              "17 22 * * *"|"37 22 * * *") SLOT="morning" ;;
-              "53 11 * * *"|"13 12 * * *") SLOT="night" ;;
+              "5 22 * * *") SLOT="morning" ;;
+              "5 12 * * *") SLOT="night" ;;
               *) SLOT="morning" ;;  # fallback
             esac
           fi
@@ -113,13 +107,13 @@ jobs:
           fi
 
       # =========================================
-      # 朝スロット フォールバック：新規記事がなければリマインダーを投稿
-      # 夜の x-rotation.yml（21:05）と同じ仕組みを朝にも適用する。
-      # バックアップ枠（7:37）での2重投稿は morning_rotation_last_posted で防止する。
+      # フォールバック（朝・夜共通）：新規記事がなければ既存記事の紹介を投稿
+      # 2重実行は {slot}_rotation_last_posted で防止する。
       # =========================================
-      - name: Morning rotation fallback
-        if: steps.slot.outputs.slot == 'morning' && env.status != 'posted' && env.status != 'already_posted'
+      - name: Rotation fallback
+        if: (steps.slot.outputs.slot == 'morning' || steps.slot.outputs.slot == 'night') && env.status != 'posted' && env.status != 'already_posted'
         env:
+          SLOT: ${{ steps.slot.outputs.slot }}
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
@@ -129,10 +123,9 @@ jobs:
           set -e
           TODAY=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
-          # すでに今朝メイン投稿済み（新着投稿）なら skip
-          # キューが空で status="empty" になった場合でも、当日すでに新着投稿があれば
-          # ローテーションを実行しない（1時間帯に1投稿のみ）
+          # この枠で当日すでに新着投稿済みなら skip（1時間帯に1投稿のみ）
           MAIN_LAST=$(python - <<'PYEOF0'
+          import os
           from pathlib import Path
           from ruamel.yaml import YAML
           p = Path("data/x-post-state.yaml")
@@ -142,16 +135,17 @@ jobs:
               yaml = YAML()
               with p.open(encoding="utf-8") as f:
                   d = yaml.load(f) or {}
-              print(d.get("morning_last_posted", "") or "")
+              print(d.get(f"{os.environ['SLOT']}_last_posted", "") or "")
           PYEOF0
           )
           if [ "$MAIN_LAST" = "$TODAY" ]; then
-            echo "morning main post already ran today ($TODAY), skipping rotation fallback"
+            echo "$SLOT main post already ran today ($TODAY), skipping rotation fallback"
             exit 0
           fi
 
-          # すでに今朝ローテーション済みなら skip（バックアップ枠 7:37 の2重実行防止）
+          # この枠で当日すでにローテーション済みなら skip（2重実行防止）
           LAST=$(python - <<'PYEOF1'
+          import os
           from pathlib import Path
           from ruamel.yaml import YAML
           p = Path("data/x-post-state.yaml")
@@ -161,11 +155,11 @@ jobs:
               yaml = YAML()
               with p.open(encoding="utf-8") as f:
                   d = yaml.load(f) or {}
-              print(d.get("morning_rotation_last_posted", "") or "")
+              print(d.get(f"{os.environ['SLOT']}_rotation_last_posted", "") or "")
           PYEOF1
           )
           if [ "$LAST" = "$TODAY" ]; then
-            echo "morning rotation already ran today ($TODAY), skipping"
+            echo "$SLOT rotation already ran today ($TODAY), skipping"
             exit 0
           fi
 
@@ -179,8 +173,9 @@ jobs:
             exit $EXIT_CODE
           fi
 
-          # morning_rotation_last_posted を更新して2重投稿フラグを立てる
+          # {slot}_rotation_last_posted を更新して2重投稿フラグを立てる
           python - <<'PYEOF2'
+          import os
           from pathlib import Path
           from ruamel.yaml import YAML
           from datetime import datetime, timezone, timedelta
@@ -193,13 +188,13 @@ jobs:
           if p.exists():
               with p.open(encoding="utf-8") as f:
                   data = yaml.load(f) or {}
-          data["morning_rotation_last_posted"] = today
+          data[f"{os.environ['SLOT']}_rotation_last_posted"] = today
           with p.open("w", encoding="utf-8") as f:
               yaml.dump(data, f)
           PYEOF2
           echo "rotation_ran=true" >> "$GITHUB_ENV"
 
-      - name: Commit rotation update (morning fallback)
+      - name: Commit rotation update (fallback)
         if: env.rotation_ran == 'true'
         shell: bash
         run: |
@@ -210,7 +205,7 @@ jobs:
           [ -f data/x-post-state.yaml ] && git add data/x-post-state.yaml
           [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
           if ! git diff --cached --quiet; then
-            git commit -m "chore(x-rotation): morning fallback rotation posted"
+            git commit -m "chore(x-rotation): fallback rotation posted"
             # 手動コミットとの競合を回避するため rebase してから push
             git pull --rebase origin main
             git push
