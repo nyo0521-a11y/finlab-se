@@ -12,7 +12,7 @@ on:
     branches:
       - main
   # 定時再ビルド：未来日付（5:30公開予約）の記事を公開するため、
-  # Cloudflare Worker (workers/x-post-trigger) が毎朝 5:35 JST に
+  # Cloudflare Worker (workers/x-post-trigger) が毎朝 5:35 JST（救済枠 6:35 JST）に
   # workflow_dispatch でこのワークフローを起動する。
   # GitHub Actions の schedule cron は遅延・スキップが常態化しているため使用しない
   # （2026-06-13 設計変更。enqueue の時間窓は 2時間＝5:30 公開を 7:30 までカバー）。
@@ -78,7 +78,7 @@ jobs:
 
           JST = timezone(timedelta(hours=9))
           now = datetime.now(JST)
-          # 起動は 5:35 JST。窓2時間で多少の遅延も吸収する
+          # 起動は 5:35 JST（救済 6:35 JST）。窓2時間で両方をカバーする
           ENQUEUE_WINDOW_HOURS = 2
           window_start = now - timedelta(hours=ENQUEUE_WINDOW_HOURS)
           posts_dir = Path("content/posts")

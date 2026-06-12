@@ -6,6 +6,7 @@
  *
  * 設計（2026-06-13 簡素化版・救済枠なし）:
  *   JST 05:35 → deploy.yml（5:30公開予約の反映ビルド＋Xエンキュー）
+ *   JST 06:35 → deploy.yml 救済枠（7:05のX投稿前にビルドを保証）
  *   JST 07:05 → x-post-scheduled (morning): 新着優先・なければ既存記事紹介
  *   JST 21:05 → x-post-scheduled (night):   朝の積み残し優先・なければ既存記事紹介
  *
@@ -19,6 +20,7 @@ const GH_API_BASE = `https://api.github.com/repos/${REPO}/actions/workflows`;
 function dispatchParamsFromCron(cron) {
   switch (cron) {
     case "35 20 * * *":
+    case "35 21 * * *":
       return { workflow: "deploy.yml", inputs: {} };
     case "5 22 * * *":
       return { workflow: "x-post-scheduled.yml", inputs: { slot: "morning" } };
