@@ -1,353 +1,363 @@
 history:
-- posted_at: '2026-06-12T07:17:45+09:00'
-  text: "【おすすめ📖】\n高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。\n\nhttps://finlab-se.com/posts/highyield-stock-selection-criteria/\n\
-    \n#高配当株 #銘柄選定 #スクリーニング"
-  tweet_id: '2065196816828625186'
-  tweet_url: https://x.com/i/web/status/2065196816828625186
-  type: rotation
-  post_path: content/posts/highyield-stock-selection-criteria.md
-- posted_at: '2026-06-11T21:05:57+09:00'
-  text: "【おすすめ📖】\n高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。\n\nhttps://finlab-se.com/posts/highyield-portfolio-management/\n\
-    \n#高配当株 #ポートフォリオ管理 #設計原則"
-  tweet_id: '2065042850711241047'
-  tweet_url: https://x.com/i/web/status/2065042850711241047
-  type: rotation
-  post_path: content/posts/highyield-portfolio-management.md
-- posted_at: '2026-06-11T07:17:49+09:00'
-  text: "【おすすめ📖】\n米国株はETF、日本株は個別株で運用する理由。VYM・HDV・SCHDの使い分けと投資戦略の全体像。\n\nhttps://finlab-se.com/posts/highyield-investment-strategy/\n\
-    \n#高配当株 #ETF #VYM"
-  tweet_id: '2064834444494614757'
-  tweet_url: https://x.com/i/web/status/2064834444494614757
-  type: rotation
-  post_path: content/posts/highyield-investment-strategy.md
-- posted_at: '2026-06-10T21:06:21+09:00'
-  text: "【おすすめ📖】\n高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD・日本個別株の実例つきで金融SEが解説。\n\
-    \nhttps://finlab-se.com/posts/highyield-buying-timing/\n\n#高配当株 #買い時 #配当利回り"
-  tweet_id: '2064680563412263247'
-  tweet_url: https://x.com/i/web/status/2064680563412263247
-  type: rotation
-  post_path: content/posts/highyield-buying-timing.md
-- posted_at: '2026-06-10T07:17:38+09:00'
-  text: "【新着📝】\nClaude CodeでMoneyForwardの家計明細を自動取得し、支出を①生存費と②豊かさ費に自動仕分け。1年分（約1,000件）を約1時間で集計し、サイドFIREに必要な資産を逆算した実体験です。\n\
-    \nhttps://finlab-se.com/posts/claude-code-fire-budget/"
-  tweet_id: '2064472012769394969'
-  tweet_url: https://x.com/i/web/status/2064472012769394969
-  type: new
-  post_path: content/posts/claude-code-fire-budget.md
-- posted_at: '2026-06-09T21:05:38+09:00'
-  text: "【おすすめ📖】\n銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点。現場でしかわからない重みと充実感。\n\nhttps://finlab-se.com/posts/finance-se-20years-lessons/\n\
-    \n#金融SE #キャリア #銀行システム"
-  tweet_id: '2064317995707682940'
-  tweet_url: https://x.com/i/web/status/2064317995707682940
-  type: rotation
-  post_path: content/posts/finance-se-20years-lessons.md
-- posted_at: '2026-06-09T07:17:37+09:00'
-  text: "【おすすめ📖】\n投資より支出削減が先。月1万円の節約は300万円の投資効果に相当。削減インパクトが大きい項目から整理。\n\nhttps://finlab-se.com/posts/expense-optimization-before-investing/\n\
-    \n#支出最適化 #固定費削減 #携帯代見直し"
-  tweet_id: '2064109618268381456'
-  tweet_url: https://x.com/i/web/status/2064109618268381456
-  type: rotation
-  post_path: content/posts/expense-optimization-before-investing.md
-- posted_at: '2026-06-08T21:05:41+09:00'
-  text: "【おすすめ📖】\n増配ニュースに飛びつく前に確認すべき配当性向・DOE・営業CFの3点。2026年3月期決算の読み方。\n\nhttps://finlab-se.com/posts/dividend-increase-season-2026/\n\
-    \n#高配当株 #決算 #配当"
-  tweet_id: '2063955621523914848'
-  tweet_url: https://x.com/i/web/status/2063955621523914848
-  type: rotation
-  post_path: content/posts/dividend-increase-season-2026.md
-- posted_at: '2026-06-08T07:17:31+09:00'
-  text: "【新着📝】\n金融SEの筆者が、日本株102銘柄・24業種に分散した高配当株ポートフォリオを公開。米国ETFとの比率・セクター配分・利回り目標まで、なぜこの配分にしたかを実データで解説します。\n\
-    \nhttps://finlab-se.com/posts/highyield-portfolio-2026-breakdown/"
-  tweet_id: '2063747205744169418'
-  tweet_url: https://x.com/i/web/status/2063747205744169418
-  type: new
-  post_path: content/posts/highyield-portfolio-2026-breakdown.md
-- posted_at: '2026-06-07T21:05:32+09:00'
-  text: "【おすすめ📖】\nステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。\n\nhttps://finlab-se.com/posts/crypto-stablecoin-remittance/\n\
-    \n#暗号資産 #ステーブルコイン #海外送金"
-  tweet_id: '2063593196458828010'
-  tweet_url: https://x.com/i/web/status/2063593196458828010
-  type: rotation
-  post_path: content/posts/crypto-stablecoin-remittance.md
-- posted_at: '2026-06-07T07:17:48+09:00'
-  text: "【おすすめ📖】\ndカード・三井住友NL・楽天・PayPayカード改定を整理。「また改悪か」に振り回されない判断軸を解説。\n\nhttps://finlab-se.com/posts/credit-card-reform-2026/\n\
-    \n#クレカ改悪 #dカード #三井住友カード"
-  tweet_id: '2063384888242307319'
-  tweet_url: https://x.com/i/web/status/2063384888242307319
-  type: rotation
-  post_path: content/posts/credit-card-reform-2026.md
-- posted_at: '2026-06-06T21:05:45+09:00'
-  text: "【おすすめ📖】\nクレカ決済の0.1秒に5社が関与。加盟店・アクワイアラ・国際ブランド・イシュアのオーソリ処理フローを金融SE実務者が図解で解説。\n\
-    \nhttps://finlab-se.com/posts/credit-card-payment-flow/\n\n#クレジットカード #決済の仕組み #オーソリゼーション"
-  tweet_id: '2063230863999922604'
-  tweet_url: https://x.com/i/web/status/2063230863999922604
-  type: rotation
-  post_path: content/posts/credit-card-payment-flow.md
-- posted_at: '2026-06-06T07:17:54+09:00'
-  text: "【新着📝】\nウェルスナビの手数料年1%は高いのか。インデックス投信（オルカン等）と30年間の長期コストを試算し、手数料差を金額で比較します。\n\
-    \nhttps://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/\n\n#ロボアドバイザー
-    #ウェルスナビ #手数料"
-  tweet_id: '2063022527257960505'
-  tweet_url: https://x.com/i/web/status/2063022527257960505
-  type: new
-  post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md
-- posted_at: '2026-06-05T21:05:58+09:00'
-  text: "【おすすめ📖】\nクレカのポイントの原資はどこから来るのか。加盟店手数料・インターチェンジフィーの流れと4社の取り分を金融SEが図解で解説。\n\n\
-    https://finlab-se.com/posts/credit-card-interchange-fee/\n\n#クレジットカード #インターチェンジフィー
-    #加盟店手数料"
-  tweet_id: '2062868528726745375'
-  tweet_url: https://x.com/i/web/status/2062868528726745375
-  type: rotation
-  post_path: content/posts/credit-card-interchange-fee.md
-- posted_at: '2026-06-05T07:17:58+09:00'
-  text: "【新着📝】\n2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか。8.8万・10万・12万円の保険料負担、厚生年金で増える年金額と損益分岐、障害・遺族年金の保障メリットまで試算します。\n\
-    \nhttps://finlab-se.com/posts/income-wall-106-takehome-pension-2026/"
-  tweet_id: '2062660156211515522'
-  tweet_url: https://x.com/i/web/status/2062660156211515522
-  type: new
-  post_path: content/posts/income-wall-106-takehome-pension-2026.md
-- posted_at: '2026-06-04T21:05:57+09:00'
-  text: "【おすすめ📖】\n年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説。\n\nhttps://finlab-se.com/posts/credit-card-free-annual-fee-model/\n\
-    \n#クレジットカード #年会費無料 #ポイント還元"
-  tweet_id: '2062506137862160645'
-  tweet_url: https://x.com/i/web/status/2062506137862160645
-  type: rotation
-  post_path: content/posts/credit-card-free-annual-fee-model.md
-- posted_at: '2026-06-04T07:17:55+09:00'
-  text: "【新着📝】\n金融機関に20年勤めた筆者が、キャッシュレスの早さ・保険の実態・銀行の短期目線を内側の肌感覚で綴る体験エッセイ第2弾です。\n\n\
-    https://finlab-se.com/posts/finance-insider-cashless-and-sales/\n\n#金融機関 #キャッシュレス
-    #保険"
-  tweet_id: '2062297756740264177'
-  tweet_url: https://x.com/i/web/status/2062297756740264177
-  type: new
-  post_path: content/posts/finance-insider-cashless-and-sales.md
-- posted_at: '2026-06-03T21:06:35+09:00'
-  text: "【おすすめ📖】\n旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない。連続増配株の考え方。\n\nhttps://finlab-se.com/posts/consecutive-dividend-growth/\n\
-    \n#連続増配株 #高配当株 #配当利回り"
-  tweet_id: '2062143907081904217'
-  tweet_url: https://x.com/i/web/status/2062143907081904217
-  type: rotation
-  post_path: content/posts/consecutive-dividend-growth.md
-- posted_at: '2026-06-03T07:18:25+09:00'
-  text: "【新着📝】\n金利を一番知るはずの金融機関の人が借金を多用していた。20年の金融SEが現場で見た意外な光景とリボの本当の怖さを解説。\n\nhttps://finlab-se.com/posts/finance-insider-money-habits/\n\
-    \n#金利 #リボ払い #カードローン"
-  tweet_id: '2061935491696472224'
-  tweet_url: https://x.com/i/web/status/2061935491696472224
-  type: new
-  post_path: content/posts/finance-insider-money-habits.md
-- posted_at: '2026-06-01T21:06:27+09:00'
-  text: "【おすすめ📖】\n投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。\n\
-    \nhttps://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #Hugo
-    #CloudflarePages"
-  tweet_id: '2061419096131150137'
-  tweet_url: https://x.com/i/web/status/2061419096131150137
-  type: rotation
-  post_path: content/posts/claude-code-blog-experience.md
-- posted_at: '2026-06-01T07:18:16+09:00'
-  text: "【おすすめ📖】\n日銀ネットとRTGSの仕組みを、米Fedwire・CHIPS・欧TARGET2と比較しながら金融SEが解説。銀行間決済の裏側がわかる。\n\
-    \nhttps://finlab-se.com/posts/boj-net-rtgs-international/\n\n#日銀ネット #RTGS #決済システム"
-  tweet_id: '2061210679579684949'
-  tweet_url: https://x.com/i/web/status/2061210679579684949
-  type: rotation
-  post_path: content/posts/boj-net-rtgs-international.md
-- posted_at: '2026-05-31T21:06:21+09:00'
-  text: "【おすすめ📖】\nClaude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。\n\nhttps://finlab-se.com/posts/blog-redesign-with-claude-code/\n\
-    \n#ClaudeDesign #ClaudeCode #ブログ運営"
-  tweet_id: '2061056687319203940'
-  tweet_url: https://x.com/i/web/status/2061056687319203940
-  type: rotation
-  post_path: content/posts/blog-redesign-with-claude-code.md
-- posted_at: '2026-05-31T07:18:15+09:00'
-  text: "【おすすめ📖】\nなぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。\n\nhttps://finlab-se.com/posts/bank-core-system-cloud/\n\
-    \n#銀行システム #勘定系 #クラウド"
-  tweet_id: '2060848289847652712'
-  tweet_url: https://x.com/i/web/status/2060848289847652712
-  type: rotation
-  post_path: content/posts/bank-core-system-cloud.md
-- posted_at: '2026-05-30T21:05:43+09:00'
-  text: "【おすすめ📖】\nMoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。\n\nhttps://finlab-se.com/posts/asset-management-claude-code/\n\
-    \n#ClaudeCode #家計管理 #MoneyForward"
-  tweet_id: '2060694139285495938'
-  tweet_url: https://x.com/i/web/status/2060694139285495938
-  type: rotation
-  post_path: content/posts/asset-management-claude-code.md
-- posted_at: '2026-05-30T07:18:28+09:00'
-  text: "【おすすめ📖】\n資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツールの使い方。\n\nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\
-    \n#モンテカルロシミュレーション #FIRE #4%ルール"
-  tweet_id: '2060485956008837265'
-  tweet_url: https://x.com/i/web/status/2060485956008837265
-  type: rotation
-  post_path: content/posts/montecarlo-tool-usage.md
-- posted_at: '2026-05-29T21:06:34+09:00'
-  text: "【おすすめ📖】\n「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。\n\nhttps://finlab-se.com/posts/dividend-target-simulator-tool-usage/\n\
-    \n#配当目標 #高配当株 #シミュレーションツール"
-  tweet_id: '2060331967199990232'
-  tweet_url: https://x.com/i/web/status/2060331967199990232
-  type: rotation
-  post_path: content/posts/dividend-target-simulator-tool-usage.md
-- posted_at: '2026-05-29T07:18:17+09:00'
-  text: "【おすすめ📖】\n年間200万円を配当で賄うのに必要な元本を計算。インデックス+4%ルールとも比較します。\n\nhttps://finlab-se.com/posts/dividend-life-calculation/\n\
-    \n#配当金生活 #FIRE #高配当株"
-  tweet_id: '2060123521036993013'
-  tweet_url: https://x.com/i/web/status/2060123521036993013
-  type: rotation
-  post_path: content/posts/dividend-life-calculation.md
-- posted_at: '2026-05-28T21:06:18+09:00'
-  text: "【おすすめ📖】\n金融エンジニアの資産運用実験室へようこそ。ブログ開設のご挨拶です。\n\nhttps://finlab-se.com/posts/hello-world/\n\
-    \n#自己紹介"
-  tweet_id: '2059969508102545557'
-  tweet_url: https://x.com/i/web/status/2059969508102545557
-  type: rotation
-  post_path: content/posts/hello-world.md
-- posted_at: '2026-05-28T07:18:25+09:00'
-  text: "【おすすめ📖】\n全銀ネット（全国銀行資金決済ネットワーク）とモアタイムシステムの仕組みを金融SEが解説。振込が24時間365日即時着金する裏側、為替通知と資金決済の違いまで構造で理解できます。\n\
-    \nhttps://finlab-se.com/posts/zengin-net-payment-system/\n\n#全銀ネット #銀行 #決済"
-  tweet_id: '2059761168328126744'
-  tweet_url: https://x.com/i/web/status/2059761168328126744
-  type: rotation
-  post_path: content/posts/zengin-net-payment-system.md
-- posted_at: '2026-05-27T07:18:23+09:00'
-  text: "【新着📝】\nマネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説。キャッシュレス決済の自動取込が決定打です。\n\n\
-    https://finlab-se.com/posts/household-budget-app-comparison-2026/\n\n#マネーフォワード
-    #家計簿 #自動化"
-  tweet_id: '2059398771251769401'
-  tweet_url: https://x.com/i/web/status/2059398771251769401
-  type: new
-  post_path: content/posts/household-budget-app-comparison-2026.md
-- posted_at: '2026-05-26T07:18:22+09:00'
-  text: "【おすすめ📖】\nWise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。\n\nhttps://finlab-se.com/posts/wise-revolut-fintech-remittance/\n\
-    \n#海外送金 #Wise #Revolut"
-  tweet_id: '2059036379099902148'
-  tweet_url: https://x.com/i/web/status/2059036379099902148
-  type: rotation
-  post_path: content/posts/wise-revolut-fintech-remittance.md
-- posted_at: '2026-05-25T21:06:20+09:00'
-  text: "【おすすめ📖】\n「減配せず維持または増配」を公約する累進配当株。連続増配株との違いや商社株が注目される理由を解説。\n\nhttps://finlab-se.com/posts/progressive-dividend-stocks/\n\
-    \n#累進配当株 #商社株 #高配当株"
-  tweet_id: '2058882356992409958'
-  tweet_url: https://x.com/i/web/status/2058882356992409958
-  type: rotation
-  post_path: content/posts/progressive-dividend-stocks.md
-- posted_at: '2026-05-25T07:18:15+09:00'
-  text: "【おすすめ📖】\n2026年度の年金改定率とマクロ経済スライドによる実質目減りを試算。iDeCo・NISA・高配当株で備える。\n\nhttps://finlab-se.com/posts/pension-macroeconomic-slide-2026/\n\
-    \n#年金 #マクロ経済スライド #老後資金"
-  tweet_id: '2058673960212902236'
-  tweet_url: https://x.com/i/web/status/2058673960212902236
-  type: rotation
-  post_path: content/posts/pension-macroeconomic-slide-2026.md
-- posted_at: '2026-05-24T21:06:13+09:00'
-  text: "【おすすめ📖】\nコルレス銀行・中継銀行手数料・為替スプレッドの3層が3,000円＋数日の正体。SWIFT経由の海外送金を金融SEが解説。\n\n\
-    https://finlab-se.com/posts/overseas-remittance-mechanism/\n\n#海外送金 #SWIFT #コルレス銀行"
-  tweet_id: '2058519937480605778'
-  tweet_url: https://x.com/i/web/status/2058519937480605778
-  type: rotation
-  post_path: content/posts/overseas-remittance-mechanism.md
-- posted_at: '2026-05-24T07:17:29+09:00'
-  text: "【新着📝】\n新NISAで損する5つの落とし穴を金融SE20年が整理。本当に怖いのは「暴落時の早期売却」1つだけ、残り4つは設定確認レベル。\n\n\
-    https://finlab-se.com/posts/new-nisa-pitfalls-5-patterns/\n\n#NISA #新NISA #失敗例"
-  tweet_id: '2058311379811975390'
-  tweet_url: https://x.com/i/web/status/2058311379811975390
-  type: new
-  post_path: content/posts/new-nisa-pitfalls-5-patterns.md
-- posted_at: '2026-05-23T21:06:03+09:00'
-  text: "【おすすめ📖】\nつみたて投資枠はインデックス、成長投資枠は高配当株・ETF。NISAの使い分け判断軸を数値で解説。\n\nhttps://finlab-se.com/posts/nisa-growth-highyield/\n\
-    \n#新NISA #高配当株 #成長投資枠"
-  tweet_id: '2058157508187812215'
-  tweet_url: https://x.com/i/web/status/2058157508187812215
-  type: rotation
-  post_path: content/posts/nisa-growth-highyield.md
-- posted_at: '2026-05-23T07:18:11+09:00'
-  text: "【おすすめ📖】\n日経6万円台で高配当株投資家が陥りがちな3つの失敗パターンと、ブレない買い増しルールを確認。\n\nhttps://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n\
-    \n#高配当株 #日経平均 #TOPIX"
-  tweet_id: '2057949167201173937'
-  tweet_url: https://x.com/i/web/status/2057949167201173937
-  type: rotation
-  post_path: content/posts/nikkei-60000-highyield-mindset.md
-- posted_at: '2026-05-22T21:06:15+09:00'
-  text: "【おすすめ📖】\n4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。\n\nhttps://finlab-se.com/posts/montecarlo-background/\n\
-    \n#モンテカルロシミュレーション #FIRE #4%ルール"
-  tweet_id: '2057795168003088621'
-  tweet_url: https://x.com/i/web/status/2057795168003088621
-  type: rotation
-  post_path: content/posts/montecarlo-background.md
-- posted_at: '2026-05-22T07:18:23+09:00'
-  text: "【新着📝】\n銀行の固定金利は『変動金利＋金利スワップ』の構造。フラット35が安いのはこの仕組みを使わず証券化で調達するから、を解説します。\n\n\
-    https://finlab-se.com/posts/housing-loan-fixed-rate-derivative-flat35/\n\n#住宅ローン
-    #固定金利 #フラット35"
-  tweet_id: '2057586828530593937'
-  tweet_url: https://x.com/i/web/status/2057586828530593937
-  type: new
-  post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
-- posted_at: '2026-05-21T21:06:26+09:00'
-  text: "【おすすめ📖】\n103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。\n\nhttps://finlab-se.com/posts/income-wall-2026/\n\
-    \n#年収の壁 #社会保険 #扶養"
-  tweet_id: '2057432829370200246'
-  tweet_url: https://x.com/i/web/status/2057432829370200246
-  type: rotation
-  post_path: content/posts/income-wall-2026.md
-- posted_at: '2026-05-21T20:54:21+09:00'
-  text: "【新着📝】\n変動と固定の差額を繰り上げ返済に回す戦略を3,000万円35年で検証。固定金利は実質『保険料』、買うべきかを判断軸で解説します。\n\
-    \nhttps://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n\n#住宅ローン
-    #変動金利 #固定金利"
-  tweet_id: '2057429788608905461'
-  tweet_url: https://x.com/i/web/status/2057429788608905461
-  type: new
-  post_path: content/posts/housing-loan-variable-fixed-simulation.md
-- posted_at: '2026-05-21T07:18:22+09:00'
-  text: "【新着📝】\nクラファン・暗号資産を経てインデックス投資10年。暴落耐性、取り崩しの不安、S&P500とオルカンの使い分けを実体験で語ります。\n\
-    \nhttps://finlab-se.com/posts/index-investing-10years-honest-review/\n\n#インデックス投資
-    #S&P500 #オルカン"
-  tweet_id: '2057224438131695809'
-  tweet_url: https://x.com/i/web/status/2057224438131695809
-  type: new
-  post_path: content/posts/index-investing-10years-honest-review.md
-- posted_at: '2026-05-20T20:53:39+09:00'
-  text: "【新着📝】\n高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結論を数字で逆算します。\n\nhttps://finlab-se.com/posts/index-vs-highyield-retirement-allocation/\n\
-    \n#高配当株 #インデックス投資 #老後資金"
-  tweet_id: '2057067221906530545'
-  tweet_url: https://x.com/i/web/status/2057067221906530545
-  type: new
-  post_path: content/posts/index-vs-highyield-retirement-allocation.md
-- posted_at: '2026-05-18T21:06:09+09:00'
-  text: "【おすすめ📖】\n企業型DB・DC・iDeCoの違いを3階建てで整理。税メリット・受取時リスク・新NISAとの優先順位。\n\nhttps://finlab-se.com/posts/ideco-dc-basics/\n\
-    \n#iDeCo #企業型DC #確定拠出年金"
-  tweet_id: '2056345592696037695'
-  tweet_url: https://x.com/i/web/status/2056345592696037695
-  type: rotation
-  post_path: content/posts/ideco-dc-basics.md
-- posted_at: '2026-05-18T07:18:06+09:00'
-  text: "【新着📝】\nネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、…\n\nhttps://finlab-se.com/posts/bank-security-defense-in-depth-phishing/\n\
-    \n#セキュリティ #フィッシング #多要素認証"
-  tweet_id: '2056137207375688121'
-  tweet_url: https://x.com/i/web/status/2056137207375688121
-  type: new
-  post_path: content/posts/bank-security-defense-in-depth-phishing.md
-- posted_at: '2026-05-17T21:06:22+09:00'
-  text: "【おすすめ📖】\n2026年改正でiDeCoの掛金上限が月6.2万円に拡大。社会保険料は下がらないが所得税・住民税は節税できます。仕組みの理由と年収500万・700万・1,000万円別の節税額を金融SEが試算。\n\
-    \nhttps://finlab-se.com/posts/ideco-2026-reform/"
-  tweet_id: '2055983258337210851'
-  tweet_url: https://x.com/i/web/status/2055983258337210851
-  type: rotation
-  post_path: content/posts/ideco-2026-reform.md
-- posted_at: '2026-05-17T07:18:17+09:00'
-  text: "【新着📝】\n投資信託のコスト＝信託報酬ではない。隠れコストを含めた「実質コスト」を運用報告書の見方から金融SEが解説。\n\nhttps://finlab-se.com/posts/mutual-fund-real-cost-2026/\n\
-    \n#投資信託 #実質コスト #信託報酬"
-  tweet_id: '2055774864418419162'
-  tweet_url: https://x.com/i/web/status/2055774864418419162
-  type: new
-  post_path: content/posts/mutual-fund-real-cost-2026.md
-- posted_at: '2026-05-16T21:06:13+09:00'
-  text: "【おすすめ📖】\n高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。\n\nhttps://finlab-se.com/posts/highyield-stock-selection-criteria/\n\
-    \n#高配当株 #銘柄選定 #スクリーニング"
-  tweet_id: '2055620832416698501'
-  tweet_url: https://x.com/i/web/status/2055620832416698501
-  type: rotation
-  post_path: content/posts/highyield-stock-selection-criteria.md
-- posted_at: '2026-05-16T07:18:20+09:00'
-  text: "【新着📝】\nオルカン＝理論的に正しいインデックス、S&P500＝米国へ賭けるアクティブ要素入り。新NISAで「過去リターン」で選ぶのが間違っている理由と、…\n\
-    \nhttps://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/\n\n#インデックス投資
-    #オルカン #S&P500"
-  tweet_id: '2055412489702220195'
-  tweet_url: https://x.com/i/web/status/2055412489702220195
-  type: new
-  post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
+  - posted_at: '2026-06-12T21:05:52+09:00'
+    text: "【おすすめ📖】\n2026年改正でiDeCoの掛金上限が月6.2万円に拡大。社会保険料は下がらないが所得税・住民税は節税できます。仕組みの理由と年収500万・700万・1,000万円別の節税額を金融SEが試算。\n\
+      \nhttps://finlab-se.com/posts/ideco-2026-reform/"
+    tweet_id: '2065405217739301150'
+    tweet_url: https://x.com/i/web/status/2065405217739301150
+    type: rotation
+    post_path: content/posts/ideco-2026-reform.md
+  - posted_at: '2026-06-12T07:17:45+09:00'
+    text: "【おすすめ📖】\n高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。\n\nhttps://finlab-se.com/posts/highyield-stock-selection-criteria/\n\
+      \n#高配当株 #銘柄選定 #スクリーニング"
+    tweet_id: '2065196816828625186'
+    tweet_url: https://x.com/i/web/status/2065196816828625186
+    type: rotation
+    post_path: content/posts/highyield-stock-selection-criteria.md
+  - posted_at: '2026-06-11T21:05:57+09:00'
+    text: "【おすすめ📖】\n高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。\n\nhttps://finlab-se.com/posts/highyield-portfolio-management/\n\
+      \n#高配当株 #ポートフォリオ管理 #設計原則"
+    tweet_id: '2065042850711241047'
+    tweet_url: https://x.com/i/web/status/2065042850711241047
+    type: rotation
+    post_path: content/posts/highyield-portfolio-management.md
+  - posted_at: '2026-06-11T07:17:49+09:00'
+    text: "【おすすめ📖】\n米国株はETF、日本株は個別株で運用する理由。VYM・HDV・SCHDの使い分けと投資戦略の全体像。\n\nhttps://finlab-se.com/posts/highyield-investment-strategy/\n\
+      \n#高配当株 #ETF #VYM"
+    tweet_id: '2064834444494614757'
+    tweet_url: https://x.com/i/web/status/2064834444494614757
+    type: rotation
+    post_path: content/posts/highyield-investment-strategy.md
+  - posted_at: '2026-06-10T21:06:21+09:00'
+    text: "【おすすめ📖】\n高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD・日本個別株の実例つきで金融SEが解説。\n\
+      \nhttps://finlab-se.com/posts/highyield-buying-timing/\n\n#高配当株 #買い時 #配当利回り"
+    tweet_id: '2064680563412263247'
+    tweet_url: https://x.com/i/web/status/2064680563412263247
+    type: rotation
+    post_path: content/posts/highyield-buying-timing.md
+  - posted_at: '2026-06-10T07:17:38+09:00'
+    text: "【新着📝】\nClaude CodeでMoneyForwardの家計明細を自動取得し、支出を①生存費と②豊かさ費に自動仕分け。1年分（約1,000件）を約1時間で集計し、サイドFIREに必要な資産を逆算した実体験です。\n\
+      \nhttps://finlab-se.com/posts/claude-code-fire-budget/"
+    tweet_id: '2064472012769394969'
+    tweet_url: https://x.com/i/web/status/2064472012769394969
+    type: new
+    post_path: content/posts/claude-code-fire-budget.md
+  - posted_at: '2026-06-09T21:05:38+09:00'
+    text: "【おすすめ📖】\n銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点。現場でしかわからない重みと充実感。\n\nhttps://finlab-se.com/posts/finance-se-20years-lessons/\n\
+      \n#金融SE #キャリア #銀行システム"
+    tweet_id: '2064317995707682940'
+    tweet_url: https://x.com/i/web/status/2064317995707682940
+    type: rotation
+    post_path: content/posts/finance-se-20years-lessons.md
+  - posted_at: '2026-06-09T07:17:37+09:00'
+    text: "【おすすめ📖】\n投資より支出削減が先。月1万円の節約は300万円の投資効果に相当。削減インパクトが大きい項目から整理。\n\nhttps://finlab-se.com/posts/expense-optimization-before-investing/\n\
+      \n#支出最適化 #固定費削減 #携帯代見直し"
+    tweet_id: '2064109618268381456'
+    tweet_url: https://x.com/i/web/status/2064109618268381456
+    type: rotation
+    post_path: content/posts/expense-optimization-before-investing.md
+  - posted_at: '2026-06-08T21:05:41+09:00'
+    text: "【おすすめ📖】\n増配ニュースに飛びつく前に確認すべき配当性向・DOE・営業CFの3点。2026年3月期決算の読み方。\n\nhttps://finlab-se.com/posts/dividend-increase-season-2026/\n\
+      \n#高配当株 #決算 #配当"
+    tweet_id: '2063955621523914848'
+    tweet_url: https://x.com/i/web/status/2063955621523914848
+    type: rotation
+    post_path: content/posts/dividend-increase-season-2026.md
+  - posted_at: '2026-06-08T07:17:31+09:00'
+    text: "【新着📝】\n金融SEの筆者が、日本株102銘柄・24業種に分散した高配当株ポートフォリオを公開。米国ETFとの比率・セクター配分・利回り目標まで、なぜこの配分にしたかを実データで解説します。\n\
+      \nhttps://finlab-se.com/posts/highyield-portfolio-2026-breakdown/"
+    tweet_id: '2063747205744169418'
+    tweet_url: https://x.com/i/web/status/2063747205744169418
+    type: new
+    post_path: content/posts/highyield-portfolio-2026-breakdown.md
+  - posted_at: '2026-06-07T21:05:32+09:00'
+    text: "【おすすめ📖】\nステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。\n\nhttps://finlab-se.com/posts/crypto-stablecoin-remittance/\n\
+      \n#暗号資産 #ステーブルコイン #海外送金"
+    tweet_id: '2063593196458828010'
+    tweet_url: https://x.com/i/web/status/2063593196458828010
+    type: rotation
+    post_path: content/posts/crypto-stablecoin-remittance.md
+  - posted_at: '2026-06-07T07:17:48+09:00'
+    text: "【おすすめ📖】\ndカード・三井住友NL・楽天・PayPayカード改定を整理。「また改悪か」に振り回されない判断軸を解説。\n\nhttps://finlab-se.com/posts/credit-card-reform-2026/\n\
+      \n#クレカ改悪 #dカード #三井住友カード"
+    tweet_id: '2063384888242307319'
+    tweet_url: https://x.com/i/web/status/2063384888242307319
+    type: rotation
+    post_path: content/posts/credit-card-reform-2026.md
+  - posted_at: '2026-06-06T21:05:45+09:00'
+    text: "【おすすめ📖】\nクレカ決済の0.1秒に5社が関与。加盟店・アクワイアラ・国際ブランド・イシュアのオーソリ処理フローを金融SE実務者が図解で解説。\n\
+      \nhttps://finlab-se.com/posts/credit-card-payment-flow/\n\n#クレジットカード #決済の仕組み
+      #オーソリゼーション"
+    tweet_id: '2063230863999922604'
+    tweet_url: https://x.com/i/web/status/2063230863999922604
+    type: rotation
+    post_path: content/posts/credit-card-payment-flow.md
+  - posted_at: '2026-06-06T07:17:54+09:00'
+    text: "【新着📝】\nウェルスナビの手数料年1%は高いのか。インデックス投信（オルカン等）と30年間の長期コストを試算し、手数料差を金額で比較します。\n\
+      \nhttps://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/\n\n#ロボアドバイザー
+      #ウェルスナビ #手数料"
+    tweet_id: '2063022527257960505'
+    tweet_url: https://x.com/i/web/status/2063022527257960505
+    type: new
+    post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md
+  - posted_at: '2026-06-05T21:05:58+09:00'
+    text: "【おすすめ📖】\nクレカのポイントの原資はどこから来るのか。加盟店手数料・インターチェンジフィーの流れと4社の取り分を金融SEが図解で解説。\n\
+      \nhttps://finlab-se.com/posts/credit-card-interchange-fee/\n\n#クレジットカード #インターチェンジフィー
+      #加盟店手数料"
+    tweet_id: '2062868528726745375'
+    tweet_url: https://x.com/i/web/status/2062868528726745375
+    type: rotation
+    post_path: content/posts/credit-card-interchange-fee.md
+  - posted_at: '2026-06-05T07:17:58+09:00'
+    text: "【新着📝】\n2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか。8.8万・10万・12万円の保険料負担、厚生年金で増える年金額と損益分岐、障害・遺族年金の保障メリットまで試算します。\n\
+      \nhttps://finlab-se.com/posts/income-wall-106-takehome-pension-2026/"
+    tweet_id: '2062660156211515522'
+    tweet_url: https://x.com/i/web/status/2062660156211515522
+    type: new
+    post_path: content/posts/income-wall-106-takehome-pension-2026.md
+  - posted_at: '2026-06-04T21:05:57+09:00'
+    text: "【おすすめ📖】\n年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説。\n\nhttps://finlab-se.com/posts/credit-card-free-annual-fee-model/\n\
+      \n#クレジットカード #年会費無料 #ポイント還元"
+    tweet_id: '2062506137862160645'
+    tweet_url: https://x.com/i/web/status/2062506137862160645
+    type: rotation
+    post_path: content/posts/credit-card-free-annual-fee-model.md
+  - posted_at: '2026-06-04T07:17:55+09:00'
+    text: "【新着📝】\n金融機関に20年勤めた筆者が、キャッシュレスの早さ・保険の実態・銀行の短期目線を内側の肌感覚で綴る体験エッセイ第2弾です。\n\n\
+      https://finlab-se.com/posts/finance-insider-cashless-and-sales/\n\n#金融機関 #キャッシュレス
+      #保険"
+    tweet_id: '2062297756740264177'
+    tweet_url: https://x.com/i/web/status/2062297756740264177
+    type: new
+    post_path: content/posts/finance-insider-cashless-and-sales.md
+  - posted_at: '2026-06-03T21:06:35+09:00'
+    text: "【おすすめ📖】\n旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない。連続増配株の考え方。\n\nhttps://finlab-se.com/posts/consecutive-dividend-growth/\n\
+      \n#連続増配株 #高配当株 #配当利回り"
+    tweet_id: '2062143907081904217'
+    tweet_url: https://x.com/i/web/status/2062143907081904217
+    type: rotation
+    post_path: content/posts/consecutive-dividend-growth.md
+  - posted_at: '2026-06-03T07:18:25+09:00'
+    text: "【新着📝】\n金利を一番知るはずの金融機関の人が借金を多用していた。20年の金融SEが現場で見た意外な光景とリボの本当の怖さを解説。\n\n\
+      https://finlab-se.com/posts/finance-insider-money-habits/\n\n#金利 #リボ払い #カードローン"
+    tweet_id: '2061935491696472224'
+    tweet_url: https://x.com/i/web/status/2061935491696472224
+    type: new
+    post_path: content/posts/finance-insider-money-habits.md
+  - posted_at: '2026-06-01T21:06:27+09:00'
+    text: "【おすすめ📖】\n投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。\n\
+      \nhttps://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #Hugo
+      #CloudflarePages"
+    tweet_id: '2061419096131150137'
+    tweet_url: https://x.com/i/web/status/2061419096131150137
+    type: rotation
+    post_path: content/posts/claude-code-blog-experience.md
+  - posted_at: '2026-06-01T07:18:16+09:00'
+    text: "【おすすめ📖】\n日銀ネットとRTGSの仕組みを、米Fedwire・CHIPS・欧TARGET2と比較しながら金融SEが解説。銀行間決済の裏側がわかる。\n\
+      \nhttps://finlab-se.com/posts/boj-net-rtgs-international/\n\n#日銀ネット #RTGS #決済システム"
+    tweet_id: '2061210679579684949'
+    tweet_url: https://x.com/i/web/status/2061210679579684949
+    type: rotation
+    post_path: content/posts/boj-net-rtgs-international.md
+  - posted_at: '2026-05-31T21:06:21+09:00'
+    text: "【おすすめ📖】\nClaude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。\n\nhttps://finlab-se.com/posts/blog-redesign-with-claude-code/\n\
+      \n#ClaudeDesign #ClaudeCode #ブログ運営"
+    tweet_id: '2061056687319203940'
+    tweet_url: https://x.com/i/web/status/2061056687319203940
+    type: rotation
+    post_path: content/posts/blog-redesign-with-claude-code.md
+  - posted_at: '2026-05-31T07:18:15+09:00'
+    text: "【おすすめ📖】\nなぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。\n\nhttps://finlab-se.com/posts/bank-core-system-cloud/\n\
+      \n#銀行システム #勘定系 #クラウド"
+    tweet_id: '2060848289847652712'
+    tweet_url: https://x.com/i/web/status/2060848289847652712
+    type: rotation
+    post_path: content/posts/bank-core-system-cloud.md
+  - posted_at: '2026-05-30T21:05:43+09:00'
+    text: "【おすすめ📖】\nMoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。\n\nhttps://finlab-se.com/posts/asset-management-claude-code/\n\
+      \n#ClaudeCode #家計管理 #MoneyForward"
+    tweet_id: '2060694139285495938'
+    tweet_url: https://x.com/i/web/status/2060694139285495938
+    type: rotation
+    post_path: content/posts/asset-management-claude-code.md
+  - posted_at: '2026-05-30T07:18:28+09:00'
+    text: "【おすすめ📖】\n資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツールの使い方。\n\nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\
+      \n#モンテカルロシミュレーション #FIRE #4%ルール"
+    tweet_id: '2060485956008837265'
+    tweet_url: https://x.com/i/web/status/2060485956008837265
+    type: rotation
+    post_path: content/posts/montecarlo-tool-usage.md
+  - posted_at: '2026-05-29T21:06:34+09:00'
+    text: "【おすすめ📖】\n「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。\n\nhttps://finlab-se.com/posts/dividend-target-simulator-tool-usage/\n\
+      \n#配当目標 #高配当株 #シミュレーションツール"
+    tweet_id: '2060331967199990232'
+    tweet_url: https://x.com/i/web/status/2060331967199990232
+    type: rotation
+    post_path: content/posts/dividend-target-simulator-tool-usage.md
+  - posted_at: '2026-05-29T07:18:17+09:00'
+    text: "【おすすめ📖】\n年間200万円を配当で賄うのに必要な元本を計算。インデックス+4%ルールとも比較します。\n\nhttps://finlab-se.com/posts/dividend-life-calculation/\n\
+      \n#配当金生活 #FIRE #高配当株"
+    tweet_id: '2060123521036993013'
+    tweet_url: https://x.com/i/web/status/2060123521036993013
+    type: rotation
+    post_path: content/posts/dividend-life-calculation.md
+  - posted_at: '2026-05-28T21:06:18+09:00'
+    text: "【おすすめ📖】\n金融エンジニアの資産運用実験室へようこそ。ブログ開設のご挨拶です。\n\nhttps://finlab-se.com/posts/hello-world/\n\
+      \n#自己紹介"
+    tweet_id: '2059969508102545557'
+    tweet_url: https://x.com/i/web/status/2059969508102545557
+    type: rotation
+    post_path: content/posts/hello-world.md
+  - posted_at: '2026-05-28T07:18:25+09:00'
+    text: "【おすすめ📖】\n全銀ネット（全国銀行資金決済ネットワーク）とモアタイムシステムの仕組みを金融SEが解説。振込が24時間365日即時着金する裏側、為替通知と資金決済の違いまで構造で理解できます。\n\
+      \nhttps://finlab-se.com/posts/zengin-net-payment-system/\n\n#全銀ネット #銀行 #決済"
+    tweet_id: '2059761168328126744'
+    tweet_url: https://x.com/i/web/status/2059761168328126744
+    type: rotation
+    post_path: content/posts/zengin-net-payment-system.md
+  - posted_at: '2026-05-27T07:18:23+09:00'
+    text: "【新着📝】\nマネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説。キャッシュレス決済の自動取込が決定打です。\n\n\
+      https://finlab-se.com/posts/household-budget-app-comparison-2026/\n\n#マネーフォワード
+      #家計簿 #自動化"
+    tweet_id: '2059398771251769401'
+    tweet_url: https://x.com/i/web/status/2059398771251769401
+    type: new
+    post_path: content/posts/household-budget-app-comparison-2026.md
+  - posted_at: '2026-05-26T07:18:22+09:00'
+    text: "【おすすめ📖】\nWise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。\n\nhttps://finlab-se.com/posts/wise-revolut-fintech-remittance/\n\
+      \n#海外送金 #Wise #Revolut"
+    tweet_id: '2059036379099902148'
+    tweet_url: https://x.com/i/web/status/2059036379099902148
+    type: rotation
+    post_path: content/posts/wise-revolut-fintech-remittance.md
+  - posted_at: '2026-05-25T21:06:20+09:00'
+    text: "【おすすめ📖】\n「減配せず維持または増配」を公約する累進配当株。連続増配株との違いや商社株が注目される理由を解説。\n\nhttps://finlab-se.com/posts/progressive-dividend-stocks/\n\
+      \n#累進配当株 #商社株 #高配当株"
+    tweet_id: '2058882356992409958'
+    tweet_url: https://x.com/i/web/status/2058882356992409958
+    type: rotation
+    post_path: content/posts/progressive-dividend-stocks.md
+  - posted_at: '2026-05-25T07:18:15+09:00'
+    text: "【おすすめ📖】\n2026年度の年金改定率とマクロ経済スライドによる実質目減りを試算。iDeCo・NISA・高配当株で備える。\n\nhttps://finlab-se.com/posts/pension-macroeconomic-slide-2026/\n\
+      \n#年金 #マクロ経済スライド #老後資金"
+    tweet_id: '2058673960212902236'
+    tweet_url: https://x.com/i/web/status/2058673960212902236
+    type: rotation
+    post_path: content/posts/pension-macroeconomic-slide-2026.md
+  - posted_at: '2026-05-24T21:06:13+09:00'
+    text: "【おすすめ📖】\nコルレス銀行・中継銀行手数料・為替スプレッドの3層が3,000円＋数日の正体。SWIFT経由の海外送金を金融SEが解説。\n\
+      \nhttps://finlab-se.com/posts/overseas-remittance-mechanism/\n\n#海外送金 #SWIFT
+      #コルレス銀行"
+    tweet_id: '2058519937480605778'
+    tweet_url: https://x.com/i/web/status/2058519937480605778
+    type: rotation
+    post_path: content/posts/overseas-remittance-mechanism.md
+  - posted_at: '2026-05-24T07:17:29+09:00'
+    text: "【新着📝】\n新NISAで損する5つの落とし穴を金融SE20年が整理。本当に怖いのは「暴落時の早期売却」1つだけ、残り4つは設定確認レベル。\n\
+      \nhttps://finlab-se.com/posts/new-nisa-pitfalls-5-patterns/\n\n#NISA #新NISA
+      #失敗例"
+    tweet_id: '2058311379811975390'
+    tweet_url: https://x.com/i/web/status/2058311379811975390
+    type: new
+    post_path: content/posts/new-nisa-pitfalls-5-patterns.md
+  - posted_at: '2026-05-23T21:06:03+09:00'
+    text: "【おすすめ📖】\nつみたて投資枠はインデックス、成長投資枠は高配当株・ETF。NISAの使い分け判断軸を数値で解説。\n\nhttps://finlab-se.com/posts/nisa-growth-highyield/\n\
+      \n#新NISA #高配当株 #成長投資枠"
+    tweet_id: '2058157508187812215'
+    tweet_url: https://x.com/i/web/status/2058157508187812215
+    type: rotation
+    post_path: content/posts/nisa-growth-highyield.md
+  - posted_at: '2026-05-23T07:18:11+09:00'
+    text: "【おすすめ📖】\n日経6万円台で高配当株投資家が陥りがちな3つの失敗パターンと、ブレない買い増しルールを確認。\n\nhttps://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n\
+      \n#高配当株 #日経平均 #TOPIX"
+    tweet_id: '2057949167201173937'
+    tweet_url: https://x.com/i/web/status/2057949167201173937
+    type: rotation
+    post_path: content/posts/nikkei-60000-highyield-mindset.md
+  - posted_at: '2026-05-22T21:06:15+09:00'
+    text: "【おすすめ📖】\n4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。\n\nhttps://finlab-se.com/posts/montecarlo-background/\n\
+      \n#モンテカルロシミュレーション #FIRE #4%ルール"
+    tweet_id: '2057795168003088621'
+    tweet_url: https://x.com/i/web/status/2057795168003088621
+    type: rotation
+    post_path: content/posts/montecarlo-background.md
+  - posted_at: '2026-05-22T07:18:23+09:00'
+    text: "【新着📝】\n銀行の固定金利は『変動金利＋金利スワップ』の構造。フラット35が安いのはこの仕組みを使わず証券化で調達するから、を解説します。\n\
+      \nhttps://finlab-se.com/posts/housing-loan-fixed-rate-derivative-flat35/\n\n\
+      #住宅ローン #固定金利 #フラット35"
+    tweet_id: '2057586828530593937'
+    tweet_url: https://x.com/i/web/status/2057586828530593937
+    type: new
+    post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
+  - posted_at: '2026-05-21T21:06:26+09:00'
+    text: "【おすすめ📖】\n103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。\n\nhttps://finlab-se.com/posts/income-wall-2026/\n\
+      \n#年収の壁 #社会保険 #扶養"
+    tweet_id: '2057432829370200246'
+    tweet_url: https://x.com/i/web/status/2057432829370200246
+    type: rotation
+    post_path: content/posts/income-wall-2026.md
+  - posted_at: '2026-05-21T20:54:21+09:00'
+    text: "【新着📝】\n変動と固定の差額を繰り上げ返済に回す戦略を3,000万円35年で検証。固定金利は実質『保険料』、買うべきかを判断軸で解説します。\n\
+      \nhttps://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n\n#住宅ローン
+      #変動金利 #固定金利"
+    tweet_id: '2057429788608905461'
+    tweet_url: https://x.com/i/web/status/2057429788608905461
+    type: new
+    post_path: content/posts/housing-loan-variable-fixed-simulation.md
+  - posted_at: '2026-05-21T07:18:22+09:00'
+    text: "【新着📝】\nクラファン・暗号資産を経てインデックス投資10年。暴落耐性、取り崩しの不安、S&P500とオルカンの使い分けを実体験で語ります。\n\
+      \nhttps://finlab-se.com/posts/index-investing-10years-honest-review/\n\n#インデックス投資
+      #S&P500 #オルカン"
+    tweet_id: '2057224438131695809'
+    tweet_url: https://x.com/i/web/status/2057224438131695809
+    type: new
+    post_path: content/posts/index-investing-10years-honest-review.md
+  - posted_at: '2026-05-20T20:53:39+09:00'
+    text: "【新着📝】\n高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結論を数字で逆算します。\n\nhttps://finlab-se.com/posts/index-vs-highyield-retirement-allocation/\n\
+      \n#高配当株 #インデックス投資 #老後資金"
+    tweet_id: '2057067221906530545'
+    tweet_url: https://x.com/i/web/status/2057067221906530545
+    type: new
+    post_path: content/posts/index-vs-highyield-retirement-allocation.md
+  - posted_at: '2026-05-18T21:06:09+09:00'
+    text: "【おすすめ📖】\n企業型DB・DC・iDeCoの違いを3階建てで整理。税メリット・受取時リスク・新NISAとの優先順位。\n\nhttps://finlab-se.com/posts/ideco-dc-basics/\n\
+      \n#iDeCo #企業型DC #確定拠出年金"
+    tweet_id: '2056345592696037695'
+    tweet_url: https://x.com/i/web/status/2056345592696037695
+    type: rotation
+    post_path: content/posts/ideco-dc-basics.md
+  - posted_at: '2026-05-18T07:18:06+09:00'
+    text: "【新着📝】\nネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、…\n\nhttps://finlab-se.com/posts/bank-security-defense-in-depth-phishing/\n\
+      \n#セキュリティ #フィッシング #多要素認証"
+    tweet_id: '2056137207375688121'
+    tweet_url: https://x.com/i/web/status/2056137207375688121
+    type: new
+    post_path: content/posts/bank-security-defense-in-depth-phishing.md
+  - posted_at: '2026-05-17T21:06:22+09:00'
+    text: "【おすすめ📖】\n2026年改正でiDeCoの掛金上限が月6.2万円に拡大。社会保険料は下がらないが所得税・住民税は節税できます。仕組みの理由と年収500万・700万・1,000万円別の節税額を金融SEが試算。\n\
+      \nhttps://finlab-se.com/posts/ideco-2026-reform/"
+    tweet_id: '2055983258337210851'
+    tweet_url: https://x.com/i/web/status/2055983258337210851
+    type: rotation
+    post_path: content/posts/ideco-2026-reform.md
+  - posted_at: '2026-05-17T07:18:17+09:00'
+    text: "【新着📝】\n投資信託のコスト＝信託報酬ではない。隠れコストを含めた「実質コスト」を運用報告書の見方から金融SEが解説。\n\nhttps://finlab-se.com/posts/mutual-fund-real-cost-2026/\n\
+      \n#投資信託 #実質コスト #信託報酬"
+    tweet_id: '2055774864418419162'
+    tweet_url: https://x.com/i/web/status/2055774864418419162
+    type: new
+    post_path: content/posts/mutual-fund-real-cost-2026.md
+  - posted_at: '2026-05-16T21:06:13+09:00'
+    text: "【おすすめ📖】\n高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。\n\nhttps://finlab-se.com/posts/highyield-stock-selection-criteria/\n\
+      \n#高配当株 #銘柄選定 #スクリーニング"
+    tweet_id: '2055620832416698501'
+    tweet_url: https://x.com/i/web/status/2055620832416698501
+    type: rotation
+    post_path: content/posts/highyield-stock-selection-criteria.md
+  - posted_at: '2026-05-16T07:18:20+09:00'
+    text: "【新着📝】\nオルカン＝理論的に正しいインデックス、S&P500＝米国へ賭けるアクティブ要素入り。新NISAで「過去リターン」で選ぶのが間違っている理由と、…\n\
+      \nhttps://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/\n\n#インデックス投資
+      #オルカン #S&P500"
+    tweet_id: '2055412489702220195'
+    tweet_url: https://x.com/i/web/status/2055412489702220195
+    type: new
+    post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
