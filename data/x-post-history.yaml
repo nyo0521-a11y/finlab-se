@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-13T07:17:49+09:00'
+    text: "【新着📝】\nSBI証券のS株（単元未満株）で高配当株100銘柄超を少しずつ買い集めてきた筆者の正直レビュー。\n\nhttps://finlab-se.com/posts/sbi-securities-honest-review/\n\
+      \n#SBI証券 #S株 #単元未満株"
+    tweet_id: '2065559219227570521'
+    tweet_url: https://x.com/i/web/status/2065559219227570521
+    type: new
+    post_path: content/posts/sbi-securities-honest-review.md
   - posted_at: '2026-06-12T21:05:52+09:00'
     text: "【おすすめ📖】\n2026年改正でiDeCoの掛金上限が月6.2万円に拡大。社会保険料は下がらないが所得税・住民税は節税できます。仕組みの理由と年収500万・700万・1,000万円別の節税額を金融SEが試算。\n\
       \nhttps://finlab-se.com/posts/ideco-2026-reform/"
@@ -353,11 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2055620832416698501
     type: rotation
     post_path: content/posts/highyield-stock-selection-criteria.md
-  - posted_at: '2026-05-16T07:18:20+09:00'
-    text: "【新着📝】\nオルカン＝理論的に正しいインデックス、S&P500＝米国へ賭けるアクティブ要素入り。新NISAで「過去リターン」で選ぶのが間違っている理由と、…\n\
-      \nhttps://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/\n\n#インデックス投資
-      #オルカン #S&P500"
-    tweet_id: '2055412489702220195'
-    tweet_url: https://x.com/i/web/status/2055412489702220195
-    type: new
-    post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
