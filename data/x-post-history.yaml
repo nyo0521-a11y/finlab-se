@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-14T21:05:24+09:00'
+    text: "【おすすめ📖】\n103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。\n\nhttps://finlab-se.com/posts/income-wall-2026/\n\
+      \n#年収の壁 #社会保険 #扶養"
+    tweet_id: '2066129878651408458'
+    tweet_url: https://x.com/i/web/status/2066129878651408458
+    type: rotation
+    post_path: content/posts/income-wall-2026.md
   - posted_at: '2026-06-14T07:05:25+09:00'
     text: "【新着📝】\n住信SBIネット銀行を小遣い口座として使い続けている実体験レビュー。目的別口座の使い方と運用例、SBI証券連携（ハイブリッド預金）の使用感、自動振替が片方向のみ等のデメリットまで、良い点も不満点も正直にまとめました。\n\
       \nhttps://finlab-se.com/posts/sumishin-sbi-net-bank-honest-review/"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2056137207375688121
     type: new
     post_path: content/posts/bank-security-defense-in-depth-phishing.md
-  - posted_at: '2026-05-17T21:06:22+09:00'
-    text: "【おすすめ📖】\n2026年改正でiDeCoの掛金上限が月6.2万円に拡大。社会保険料は下がらないが所得税・住民税は節税できます。仕組みの理由と年収500万・700万・1,000万円別の節税額を金融SEが試算。\n\
-      \nhttps://finlab-se.com/posts/ideco-2026-reform/"
-    tweet_id: '2055983258337210851'
-    tweet_url: https://x.com/i/web/status/2055983258337210851
-    type: rotation
-    post_path: content/posts/ideco-2026-reform.md
