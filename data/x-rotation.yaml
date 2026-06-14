@@ -186,8 +186,8 @@ rotation:
 - post_path: content/posts/income-wall-2026.md
     # title: 年収の壁2026年版
     # date: 2026-04-17
-  last_promoted: '2026-05-21T21:06:26+09:00'
-  promote_count: 1
+  last_promoted: '2026-06-14T21:05:25+09:00'
+  promote_count: 2
   priority: normal
 
 - post_path: content/posts/montecarlo-background.md
