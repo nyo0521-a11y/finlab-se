@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-15T07:05:28+09:00'
+    text: "【おすすめ📖】\n4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。\n\nhttps://finlab-se.com/posts/montecarlo-background/\n\
+      \n#モンテカルロシミュレーション #FIRE #4%ルール"
+    tweet_id: '2066280888959226116'
+    tweet_url: https://x.com/i/web/status/2066280888959226116
+    type: rotation
+    post_path: content/posts/montecarlo-background.md
   - posted_at: '2026-06-14T21:05:24+09:00'
     text: "【おすすめ📖】\n103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。\n\nhttps://finlab-se.com/posts/income-wall-2026/\n\
       \n#年収の壁 #社会保険 #扶養"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2056345592696037695
     type: rotation
     post_path: content/posts/ideco-dc-basics.md
-  - posted_at: '2026-05-18T07:18:06+09:00'
-    text: "【新着📝】\nネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、…\n\nhttps://finlab-se.com/posts/bank-security-defense-in-depth-phishing/\n\
-      \n#セキュリティ #フィッシング #多要素認証"
-    tweet_id: '2056137207375688121'
-    tweet_url: https://x.com/i/web/status/2056137207375688121
-    type: new
-    post_path: content/posts/bank-security-defense-in-depth-phishing.md
