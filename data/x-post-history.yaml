@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-15T21:05:28+09:00'
+    text: "【おすすめ📖】\n日経6万円台で高配当株投資家が陥りがちな3つの失敗パターンと、ブレない買い増しルールを確認。\n\nhttps://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n\
+      \n#高配当株 #日経平均 #TOPIX"
+    tweet_id: '2066492280106565640'
+    tweet_url: https://x.com/i/web/status/2066492280106565640
+    type: rotation
+    post_path: content/posts/nikkei-60000-highyield-mindset.md
   - posted_at: '2026-06-15T07:05:28+09:00'
     text: "【おすすめ📖】\n4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。\n\nhttps://finlab-se.com/posts/montecarlo-background/\n\
       \n#モンテカルロシミュレーション #FIRE #4%ルール"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2057067221906530545
     type: new
     post_path: content/posts/index-vs-highyield-retirement-allocation.md
-  - posted_at: '2026-05-18T21:06:09+09:00'
-    text: "【おすすめ📖】\n企業型DB・DC・iDeCoの違いを3階建てで整理。税メリット・受取時リスク・新NISAとの優先順位。\n\nhttps://finlab-se.com/posts/ideco-dc-basics/\n\
-      \n#iDeCo #企業型DC #確定拠出年金"
-    tweet_id: '2056345592696037695'
-    tweet_url: https://x.com/i/web/status/2056345592696037695
-    type: rotation
-    post_path: content/posts/ideco-dc-basics.md
