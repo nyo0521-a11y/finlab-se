@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-16T07:05:30+09:00'
+    text: "【おすすめ📖】\nつみたて投資枠はインデックス、成長投資枠は高配当株・ETF。NISAの使い分け判断軸を数値で解説。\n\nhttps://finlab-se.com/posts/nisa-growth-highyield/\n\
+      \n#新NISA #高配当株 #成長投資枠"
+    tweet_id: '2066643284739359060'
+    tweet_url: https://x.com/i/web/status/2066643284739359060
+    type: rotation
+    post_path: content/posts/nisa-growth-highyield.md
   - posted_at: '2026-06-15T21:05:28+09:00'
     text: "【おすすめ📖】\n日経6万円台で高配当株投資家が陥りがちな3つの失敗パターンと、ブレない買い増しルールを確認。\n\nhttps://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n\
       \n#高配当株 #日経平均 #TOPIX"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2057224438131695809
     type: new
     post_path: content/posts/index-investing-10years-honest-review.md
-  - posted_at: '2026-05-20T20:53:39+09:00'
-    text: "【新着📝】\n高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結論を数字で逆算します。\n\nhttps://finlab-se.com/posts/index-vs-highyield-retirement-allocation/\n\
-      \n#高配当株 #インデックス投資 #老後資金"
-    tweet_id: '2057067221906530545'
-    tweet_url: https://x.com/i/web/status/2057067221906530545
-    type: new
-    post_path: content/posts/index-vs-highyield-retirement-allocation.md
