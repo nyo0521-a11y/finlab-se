@@ -13,10 +13,11 @@
 環境変数:
     （なし）
 """
+import os
 import sys
 import json
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 try:
     import yaml
@@ -25,6 +26,10 @@ except ImportError:
     sys.exit(1)
 
 PRIORITY_ORDER = {"high": 0, "normal": 1, "low": 2}
+
+# 直近 N 日以内に紹介した記事は候補から除外（おすすめ内の短期重複回避）。
+# 全記事が除外対象になった場合は除外せず通常選定にフォールバックする。
+EXCLUDE_DAYS = int(os.environ.get("ROTATION_EXCLUDE_DAYS", "3"))
 
 
 def parse_ts(value):
@@ -57,7 +62,17 @@ def main():
         prio = PRIORITY_ORDER.get(item.get("priority", "normal"), 1)
         return (ts, prio, item.get("post_path", ""))
 
-    sorted_items = sorted(enumerate(rotation), key=lambda x: sort_key(x[1]))
+    # 直近 EXCLUDE_DAYS 日以内に紹介した記事を除外。全除外ならフォールバック。
+    now = datetime.now(timezone.utc)
+    cutoff = timedelta(days=EXCLUDE_DAYS)
+
+    def recently_promoted(item):
+        return (now - parse_ts(item.get("last_promoted"))) < cutoff
+
+    eligible = [(i, it) for i, it in enumerate(rotation) if not recently_promoted(it)]
+    pool = eligible if eligible else list(enumerate(rotation))
+
+    sorted_items = sorted(pool, key=lambda x: sort_key(x[1]))
     index, chosen = sorted_items[0]
 
     print(json.dumps({

@@ -1,15 +1,18 @@
 name: X Auto Post - Scheduled Post
 
-# data/x-queue.yaml の先頭エントリを 1 日 2 枠で順次投稿する（2026-06-13 簡素化版）。
+# 1 日 2 枠の X 投稿（2026-06-14 改定：朝＝おすすめ／夜＝新着）。
 #
-# ★ 1タイミング1件・朝夜同一パターン ★
-#   朝 (JST 07:05) / 夜 (JST 21:05) とも「新着キューがあれば新着投稿、
-#   空なら既存記事の紹介（rotation フォールバック）」の同じ動きをする。
-#   夜の新着投稿は「朝の投稿が失敗・積み残した場合の追い上げ」を兼ねる。
-#   救済枠（バックアップ cron）は廃止（失敗しても次の枠が新着を拾うため不要と判断）。
+# ★ 朝 (JST 07:05) ＝ 既存記事のおすすめ専用（新着は出さない） ★
+#   morning_post.py が「話題連動pick（data/x-topic-pick.yaml）があればそれ →
+#   なければ通常rotation（直近3日除外）」を処理する。話題連動pickは前夜22:00／当日6:30の
+#   スケジュールタスク（Claude Code 起動中のみ）が準備する。準備が無い朝は通常rotation。
+#
+# ★ 夜 (JST 21:05) ＝ 新着優先 ★
+#   新着キューがあれば新着投稿、なければ既存記事の紹介（rotation フォールバック）。
+#   朝で出さなかった当日公開の新着は、ここで告知される。
 #
 # ※ 起動は Cloudflare Workers (workers/x-post-trigger) の workflow_dispatch。
-# ※ 重複投稿は dequeue_and_post.py が data/x-post-state.yaml で防止する。
+# ※ 重複投稿は data/x-post-state.yaml の {slot}_last_posted で防止する。
 
 on:
   # ★ スケジュールは Cloudflare Workers (workers/x-post-trigger) が担当 ★
@@ -65,7 +68,48 @@ jobs:
           echo "slot=$SLOT" >> "$GITHUB_OUTPUT"
           echo "Selected slot: $SLOT (JST $(TZ=Asia/Tokyo date +'%H:%M'))"
 
-      - name: Dequeue and post
+      # =========================================
+      # 朝スロット（JST 07:05）：既存記事のおすすめ専用。新着は扱わない。
+      # morning_post.py が「話題連動pick優先 → なければ通常rotation（直近3日除外）」を処理。
+      # =========================================
+      - name: Morning post (recommendation only)
+        if: steps.slot.outputs.slot == 'morning'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        shell: bash
+        run: |
+          set +e
+          RESULT=$(python .github/scripts/morning_post.py)
+          EXIT_CODE=$?
+          set -e
+          echo "Morning result: $RESULT"
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "::error::morning_post.py failed (exit $EXIT_CODE)"
+            exit $EXIT_CODE
+          fi
+
+      - name: Commit morning changes
+        if: steps.slot.outputs.slot == 'morning'
+        shell: bash
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -f data/x-topic-pick.yaml ] && git add data/x-topic-pick.yaml
+          [ -f data/x-rotation.yaml ] && git add data/x-rotation.yaml
+          [ -f data/x-post-state.yaml ] && git add data/x-post-state.yaml
+          [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(x): morning post"
+            git pull --rebase origin main
+            git push
+          fi
+
+      - name: Dequeue and post (night / manual new article)
+        if: steps.slot.outputs.slot != 'morning'
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
@@ -107,11 +151,11 @@ jobs:
           fi
 
       # =========================================
-      # フォールバック（朝・夜共通）：新規記事がなければ既存記事の紹介を投稿
-      # 2重実行は {slot}_rotation_last_posted で防止する。
+      # 夜のフォールバック：新規記事がなければ既存記事の紹介を投稿
+      # 2重実行は night_rotation_last_posted で防止する。（朝は morning_post.py が内部で処理）
       # =========================================
       - name: Rotation fallback
-        if: (steps.slot.outputs.slot == 'morning' || steps.slot.outputs.slot == 'night') && env.status != 'posted' && env.status != 'already_posted'
+        if: steps.slot.outputs.slot == 'night' && env.status != 'posted' && env.status != 'already_posted'
         env:
           SLOT: ${{ steps.slot.outputs.slot }}
           X_API_KEY: ${{ secrets.X_API_KEY }}
