@@ -24,12 +24,3 @@
 #   prepared_at: "2026-06-14T22:00:00+09:00"
 
 pick:
-  post_path: content/posts/housing-loan-variable-fixed-simulation.md
-  text: |-
-    【日銀が政策金利1%に引き上げ】変動金利への影響が注目されています。「変動か固定か」を迷っている方へ。差額繰り上げ戦略で変動・固定を3,000万円・35年でシミュレーション。固定の金利差を「保険料」と捉える判断軸を解説しています。
-    https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/
-    #住宅ローン #変動金利 #日銀利上げ
-  image_path: /images/thumb-housing-loan-variable-fixed-simulation.png
-  target_date: "2026-06-17"
-  topic: "日銀が6/16会合で政策金利を1%に引き上げ決定。住宅ローン変動金利への影響が注目されている"
-  prepared_at: "2026-06-17T06:38:00+09:00"
