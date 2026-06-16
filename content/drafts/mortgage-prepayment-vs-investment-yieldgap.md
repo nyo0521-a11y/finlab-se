@@ -258,7 +258,8 @@ NISA口座で1,000万円を税引後利回り4%で運用すると、年間の配
 - [最新の金利情報：長期固定住宅ローン【フラット35】（住宅金融支援機構）](https://www.simulation.jhf.go.jp/flat35/kinri/index.php/rates/top) — フラット35金利の一次情報
 - [NISAを知る：NISA特設ウェブサイト（金融庁）](https://www.fsa.go.jp/policy/nisa2/know/index.html) — NISA口座の配当・譲渡益非課税の仕組み
 - [新NISAの配当金は非課税になる？（アセットマネジメントOne）](https://www.am-one.co.jp/pickup/nisa-guide/method-nisa/dividend.html) — 株式数比例配分方式の設定の必要性
-- リベ大（両学長）・リベシティ — 「稼ぐ力・貯める力・増やす力」の考え方を参考にしています（[公式サイト](https://liberaluni.com/)）
+- リベ大（リベラルアーツ大学） — 両学長がお金の知識を発信するメディア。「稼ぐ力・貯める力・増やす力」の考え方を参考にしています（[公式サイト](https://liberaluni.com/)）
+- リベシティ — 両学長が運営するオンラインコミュニティ（[公式サイト](https://libecity.com/)）
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
