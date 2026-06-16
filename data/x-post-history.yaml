@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-16T21:05:36+09:00'
+    text: "【おすすめ📖】\nコルレス銀行とは何か。海外送金が手数料3,000円＋数日かかる理由を、コルレス手数料（中継銀行手数料）・為替スプレッド・SWIFTの流れから金融SEが解説。中継銀行とコルレス銀行の違いも分かります。\n\
+      \nhttps://finlab-se.com/posts/overseas-remittance-mechanism/"
+    tweet_id: '2066854703200194927'
+    tweet_url: https://x.com/i/web/status/2066854703200194927
+    type: rotation
+    post_path: content/posts/overseas-remittance-mechanism.md
   - posted_at: '2026-06-16T07:05:30+09:00'
     text: "【おすすめ📖】\nつみたて投資枠はインデックス、成長投資枠は高配当株・ETF。NISAの使い分け判断軸を数値で解説。\n\nhttps://finlab-se.com/posts/nisa-growth-highyield/\n\
       \n#新NISA #高配当株 #成長投資枠"
@@ -352,11 +359,3 @@ history:
     tweet_url: https://x.com/i/web/status/2057429788608905461
     type: new
     post_path: content/posts/housing-loan-variable-fixed-simulation.md
-  - posted_at: '2026-05-21T07:18:22+09:00'
-    text: "【新着📝】\nクラファン・暗号資産を経てインデックス投資10年。暴落耐性、取り崩しの不安、S&P500とオルカンの使い分けを実体験で語ります。\n\
-      \nhttps://finlab-se.com/posts/index-investing-10years-honest-review/\n\n#インデックス投資
-      #S&P500 #オルカン"
-    tweet_id: '2057224438131695809'
-    tweet_url: https://x.com/i/web/status/2057224438131695809
-    type: new
-    post_path: content/posts/index-investing-10years-honest-review.md
