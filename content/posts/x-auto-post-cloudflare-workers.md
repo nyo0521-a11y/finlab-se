@@ -1,14 +1,14 @@
 ---
-title: "Xの自動投稿で苦労した話——GitHubとCloudflareで作る定時投稿の仕組み"
+title: "Xの自動投稿をほぼ無料で自作する｜GitHub Actions＋Cloudflare Workersで定時投稿"
 date: 2026-05-03T06:30:00+09:00
 draft: false
 categories: ["AI活用"]
-tags: ["X自動投稿", "GitHub Actions", "Cloudflare Workers", "ブログ運営", "API活用", "自動化"]
-description: "GitHub ActionsとCloudflare WorkersでX自動投稿を仕組み化した際の試行錯誤と全体像。"
+tags: ["X自動投稿", "X API", "GitHub Actions", "Cloudflare Workers", "cron", "自動化", "Claude Code"]
+description: "Xの自動投稿をほぼ無料で自作した記録。GitHub Actionsのcronが数時間ズレる問題に直面し、Cloudflare WorkersのCron Triggersへ移行して解決。X API・GitHub Secrets・投稿キューの役割と全体像を、コードなしで解説します。"
 showToc: true
 cover:
   image: "/images/x-autopost-thumbnail.png"
-  alt: "Xの自動投稿で苦労した話"
+  alt: "Xの自動投稿をほぼ無料で自作する仕組み（GitHub Actions＋Cloudflare Workers）"
   relative: false
   hiddenInList: false
 ---
@@ -236,7 +236,7 @@ tags: ["ハッシュタグ1", "ハッシュタグ2", "ハッシュタグ3"]
 
 Claude Codeへの依頼例としては、次のような形が有効です。
 
-> 「Cloudflare WorkersのCron Triggersを使って、毎日7時30分にGitHub ActionsをworkflowDispatchで起動するスクリプトを作ってください。GitHub APIのトークンはCloudflareの環境変数から読み込む形にしてください。起動されたGitHub Actionsは、data/x-queue.yamlの先頭エントリを読み取ってX APIで投稿し、投稿後はキューから削除してコミットする処理を行います。」
+> 「Cloudflare WorkersのCron Triggersを使って、毎日7時30分（JST）にGitHub Actionsをworkflow_dispatchで起動するスクリプトを作ってください。Cron TriggersはUTCで設定するため、7:30 JSTは22:30 UTCに変換してください。GitHub APIのトークンはCloudflareの環境変数から読み込む形にしてください。起動されたGitHub Actionsは、data/x-queue.yamlの先頭エントリを読み取ってX APIで投稿し、投稿後はキューから削除してコミットする処理を行います。」
 
 このような依頼文を出せれば、実装の骨格はClaude Codeが書いてくれます。
 
