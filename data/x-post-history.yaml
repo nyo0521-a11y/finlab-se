@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-17T21:05:30+09:00'
+    text: "【新着📝】\n住宅ローンは繰り上げ返済と投資どっち？配当や取り崩しで返済を賄えるかを固定・変動の実値で試算。変動0.99%なら配当で賄え、固定3.21%では届きません。それでも原則は繰り上げ返済をすすめる理由を金融SEが解説します。\n\
+      \nhttps://finlab-se.com/posts/mortgage-prepayment-vs-investment-yieldgap/"
+    tweet_id: '2067217067212701787'
+    tweet_url: https://x.com/i/web/status/2067217067212701787
+    type: new
+    post_path: content/posts/mortgage-prepayment-vs-investment-yieldgap.md
   - posted_at: '2026-06-17T07:05:28+09:00'
     text: "【日銀が政策金利1%に引き上げ】変動金利への影響が注目されています。「変動か固定か」を迷っている方へ。差額繰り上げ戦略で変動・固定を3,000万円・35年でシミュレーション。固定の金利差を「保険料」と捉える判断軸を解説しています。\n\
       https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n#住宅ローン
@@ -352,10 +359,3 @@ history:
     tweet_url: https://x.com/i/web/status/2057586828530593937
     type: new
     post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
-  - posted_at: '2026-05-21T21:06:26+09:00'
-    text: "【おすすめ📖】\n103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。\n\nhttps://finlab-se.com/posts/income-wall-2026/\n\
-      \n#年収の壁 #社会保険 #扶養"
-    tweet_id: '2057432829370200246'
-    tweet_url: https://x.com/i/web/status/2057432829370200246
-    type: rotation
-    post_path: content/posts/income-wall-2026.md
