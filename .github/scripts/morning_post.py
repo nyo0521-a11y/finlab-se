@@ -108,14 +108,12 @@ def append_history(text, tweet_id, tweet_url, post_path, post_type):
 
 
 def mark_rotation_dedup(post_path: str) -> None:
-    """rotation.yaml に該当記事があれば last_promoted を更新（直近3日除外に乗せる）。"""
-    y = _yaml()
-    with ROTATION_PATH.open(encoding="utf-8") as f:
-        doc = y.load(f)
-    for i, item in enumerate(doc.get("rotation", [])):
-        if item.get("post_path") == post_path:
-            subprocess.run([sys.executable, str(SCRIPT_DIR / "update_rotation.py"), str(i)], check=False)
-            return
+    """rotation.yaml の該当記事の last_promoted を更新（直近3日除外に乗せる）。
+    未登録なら upsert で新規追記する（全記事の自動同期台帳化に伴い・2026-06-18）。"""
+    subprocess.run(
+        [sys.executable, str(SCRIPT_DIR / "update_rotation.py"), "--post-path", post_path],
+        check=False,
+    )
 
 
 def get_valid_pick():

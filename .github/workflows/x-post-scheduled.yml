@@ -143,6 +143,8 @@ jobs:
           [ -f data/x-post-state.yaml ] && git add data/x-post-state.yaml
           # 投稿履歴が更新されていればコミット対象に追加
           [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml
+          # 新着投稿時に rotation台帳へ登録されるため一緒にコミット（全記事自動同期台帳化）
+          [ -f data/x-rotation.yaml ] && git add data/x-rotation.yaml
           if ! git diff --cached --quiet; then
             git commit -m "chore(x-queue): dequeue after post"
             # 手動コミットとの競合を回避するため rebase してから push

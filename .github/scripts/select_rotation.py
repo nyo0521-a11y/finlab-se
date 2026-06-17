@@ -62,15 +62,21 @@ def main():
         prio = PRIORITY_ORDER.get(item.get("priority", "normal"), 1)
         return (ts, prio, item.get("post_path", ""))
 
-    # 直近 EXCLUDE_DAYS 日以内に紹介した記事を除外。全除外ならフォールバック。
     now = datetime.now(timezone.utc)
     cutoff = timedelta(days=EXCLUDE_DAYS)
 
     def recently_promoted(item):
         return (now - parse_ts(item.get("last_promoted"))) < cutoff
 
-    eligible = [(i, it) for i, it in enumerate(rotation) if not recently_promoted(it)]
-    pool = eligible if eligible else list(enumerate(rotation))
+    # exclude: true の記事は恒久除外（SNS再掲に不向きなもの）。
+    base = [(i, it) for i, it in enumerate(rotation) if not it.get("exclude")]
+    if not base:
+        print(json.dumps({"error": "all entries excluded"}))
+        sys.exit(1)
+
+    # 直近 EXCLUDE_DAYS 日以内に紹介した記事を除外。全除外なら base にフォールバック。
+    eligible = [(i, it) for i, it in base if not recently_promoted(it)]
+    pool = eligible if eligible else base
 
     sorted_items = sorted(pool, key=lambda x: sort_key(x[1]))
     index, chosen = sorted_items[0]

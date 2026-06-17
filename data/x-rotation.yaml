@@ -43,6 +43,7 @@ rotation:
   priority: low
 
   # --- priority: normal（以下、通常記事） ---
+  exclude: true
 - post_path: content/posts/asset-management-claude-code.md
     # title: Claude Codeで毎月の資産記録を自動化した
     # date: 2026-04-17
@@ -127,6 +128,7 @@ rotation:
   promote_count: 2
   priority: normal
 
+  exclude: true
 - post_path: content/posts/expense-optimization-before-investing.md
     # title: 高配当株投資より先にやるべきこと｜支出の最適化で月1万円
     # date: 2026-04-16
@@ -244,4 +246,149 @@ rotation:
     # date: 2026-04-29
   last_promoted: '2026-06-15T21:05:28+09:00'
   promote_count: 2
+  priority: normal
+  exclude: true
+- post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/bank-security-defense-in-depth-phishing.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/bonus-investment-checkup-4steps.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/claude-code-dividend-calendar.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/claude-code-fire-budget.md
+  last_promoted: '2026-06-10T07:17:38+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/claude-code-reduce-permission-prompts.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/cloudflare-pages-blog-publish-flow.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/corporate-dc-ideco-flowchart-2026.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/credit-card-recommendation-2026.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/crypto-exchange-financial-group-2026.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/expense-optimization-nisa-investment.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/finance-insider-cashless-and-sales.md
+  last_promoted: '2026-06-04T07:17:55+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/finance-insider-money-habits.md
+  last_promoted: '2026-06-03T07:18:25+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/furusato-tax-jumin-tax-notification.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/health-insurance-dependent-2026.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/highyield-portfolio-2026-breakdown.md
+  last_promoted: '2026-06-08T07:17:31+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/household-budget-app-comparison-2026.md
+  last_promoted: '2026-05-27T07:18:23+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
+  last_promoted: '2026-05-22T07:18:23+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/housing-loan-variable-fixed-simulation.md
+  last_promoted: '2026-06-17T07:05:28+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/ideco-nisa-tax-comparison.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/ideco-withdrawal-guide.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/income-wall-106-takehome-pension-2026.md
+  last_promoted: '2026-06-05T07:17:58+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/income-wall-framework.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/index-investing-10years-honest-review.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/index-vs-highyield-retirement-allocation.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/kodomo-nisa-2027.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/mortgage-prepayment-vs-investment-yieldgap.md
+  last_promoted: '2026-06-17T21:05:30+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/mortgage-rate-refinance-simulation.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/mutual-fund-real-cost-2026.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/new-nisa-pitfalls-5-patterns.md
+  last_promoted: '2026-05-24T07:17:29+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/recommended-net-bank-2026.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/sbi-securities-honest-review.md
+  last_promoted: '2026-06-13T07:17:49+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/securities-selection-for-index-and-dividend.md
+  last_promoted:
+  promote_count: 0
+  priority: normal
+- post_path: content/posts/sumishin-sbi-net-bank-honest-review.md
+  last_promoted: '2026-06-14T07:05:25+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md
+  last_promoted: '2026-06-06T07:17:54+09:00'
+  promote_count: 1
+  priority: normal
+- post_path: content/posts/x-auto-post-cloudflare-workers.md
+  last_promoted:
+  promote_count: 0
   priority: normal

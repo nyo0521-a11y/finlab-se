@@ -232,6 +232,14 @@ def main():
         state[f"{slot}_last_posted"] = today
         save_state(state)
 
+    # rotation台帳へ登録＋last_promoted=今（全記事の自動同期台帳化・2026-06-18）。
+    # 新着で紹介した瞬間に台帳へ登録されるため、以後3日間はおすすめに出ない。
+    # 失敗しても投稿は成功扱い（stderrログのみ）。
+    subprocess.run(
+        [sys.executable, str(SCRIPT_DIR / "update_rotation.py"), "--post-path", post_path],
+        check=False,
+    )
+
     print(json.dumps({
         "status": "posted",
         "post_path": post_path,
