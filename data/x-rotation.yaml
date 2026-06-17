@@ -249,8 +249,8 @@ rotation:
   priority: normal
   exclude: true
 - post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-18T07:05:34+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/bank-security-defense-in-depth-phishing.md
   last_promoted:
