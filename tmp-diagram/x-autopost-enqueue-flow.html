@@ -127,29 +127,29 @@
 
     <!-- ステップ1: push -->
     <div class="step step-1">
-      <div class="step-label">記事を content/posts/ に push</div>
-      <div class="step-sub">date: 2026-05-01T08:00:00+09:00</div>
+      <div class="step-label">記事を content/posts/ に push（公開日時は未来）</div>
+      <div class="step-sub">date: 2026-06-20T05:30:00+09:00</div>
     </div>
 
     <div class="arrow">↓</div>
 
     <!-- ステップ2: スキップ -->
     <div class="step step-2">
-      <div class="step-label">x-new-post-enqueue：date が未来のためスキップ</div>
+      <div class="step-label">push 時の enqueue：date が未来のためスキップ</div>
     </div>
 
     <div class="arrow">↓</div>
 
-    <!-- ステップ3: 繰り返し -->
+    <!-- ステップ3: 待機 -->
     <div class="step step-3">
-      <div class="step-label">（毎時0分の自動ビルドが繰り返される）</div>
+      <div class="step-label">（記事の公開時刻まで待機）</div>
     </div>
 
     <div class="arrow">↓</div>
 
-    <!-- ステップ4: cron検知 -->
+    <!-- ステップ4: 朝ビルドで検知 -->
     <div class="step step-4">
-      <div class="step-label">5月1日8時0分の cron ビルド：<br>date が過去になった記事を検知</div>
+      <div class="step-label">毎朝の自動ビルド（Cloudflare Worker が起動）：<br>date が過去になった記事を検知</div>
     </div>
 
     <div class="arrow">↓</div>
@@ -163,14 +163,14 @@
 
     <!-- ステップ6: CF Workers起動 -->
     <div class="step step-6">
-      <div class="step-label">次の投稿スロット（朝7時台・夜21時台）に<br>Cloudflare Workers が GitHub Actions を起動</div>
+      <div class="step-label">夜の投稿スロット（21時台）に<br>Cloudflare Worker が GitHub Actions を起動</div>
     </div>
 
     <div class="arrow">↓</div>
 
     <!-- ステップ7: 投稿 -->
     <div class="step step-7">
-      <div class="step-label">キューの先頭から1件を取り出して X API で投稿</div>
+      <div class="step-label">キューの先頭から1件を取り出して X API で投稿（新着お知らせ）</div>
     </div>
 
   </div>
