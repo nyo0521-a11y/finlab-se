@@ -24,3 +24,14 @@
 #   prepared_at: "2026-06-14T22:00:00+09:00"
 
 pick:
+  post_path: content/posts/housing-loan-variable-fixed-simulation.md
+  text: |-
+    【日銀が1%に利上げ】31年ぶりの水準となり、変動金利型ローンへの影響が注目されています。
+
+    「変動か固定か」で迷っている方に参考にしてほしい記事です。差額繰り上げ戦略と「固定金利は保険料」という考え方を3,000万円35年のシミュレーションで解説しています。
+    https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/
+    #住宅ローン #変動金利 #日銀利上げ
+  image_path: /images/thumb-housing-loan-variable-fixed-simulation.png
+  target_date: "2026-06-18"
+  topic: "日銀が政策金利を1%へ引き上げ（31年ぶり水準）。りそなHDも普通預金金利を0.4%に引き上げ。変動金利住宅ローンへの影響が注目される"
+  prepared_at: "2026-06-17T22:05:57+09:00"
