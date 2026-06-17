@@ -24,14 +24,14 @@
 #   prepared_at: "2026-06-14T22:00:00+09:00"
 
 pick:
-  post_path: content/posts/housing-loan-variable-fixed-simulation.md
+  post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
   text: |-
-    【日銀が1%に利上げ】31年ぶりの水準となり、変動金利型ローンへの影響が注目されています。
+    【日銀利上げ・FRBは慎重姿勢】金利上昇局面が続く今、「変動から固定に切り替えるべきか」を迷っている方へ。
 
-    「変動か固定か」で迷っている方に参考にしてほしい記事です。差額繰り上げ戦略と「固定金利は保険料」という考え方を3,000万円35年のシミュレーションで解説しています。
-    https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/
-    #住宅ローン #変動金利 #日銀利上げ
-  image_path: /images/thumb-housing-loan-variable-fixed-simulation.png
+    銀行の固定金利の正体は「変動金利＋金利スワップ」です。フラット35だけが証券化という別の仕組みで動いている。構造を知ってから判断してみてください。
+    https://finlab-se.com/posts/housing-loan-fixed-rate-derivative-flat35/
+    #住宅ローン #固定金利 #日銀利上げ
+  image_path: /images/thumb-housing-loan-fixed-rate-derivative-flat35.png
   target_date: "2026-06-18"
-  topic: "日銀が政策金利を1%へ引き上げ（31年ぶり水準）。りそなHDも普通預金金利を0.4%に引き上げ。変動金利住宅ローンへの影響が注目される"
-  prepared_at: "2026-06-17T22:05:57+09:00"
+  topic: "日銀が6月16日に政策金利1%へ引き上げ。FRBウォーシュ議長は利下げに慎重姿勢を維持。ドル円160円台で日米金利差と住宅ローン固定・変動選択への関心が高まる"
+  prepared_at: "2026-06-18T06:40:42+09:00"
