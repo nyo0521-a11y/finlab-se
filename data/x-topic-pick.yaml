@@ -24,14 +24,3 @@
 #   prepared_at: "2026-06-14T22:00:00+09:00"
 
 pick:
-  post_path: content/posts/index-vs-highyield-retirement-allocation.md
-  text: |-
-    【日経平均が史上初7万円台】インデックス投資の好調ぶりが改めて注目されています。
-
-    「高配当株だけでいい？インデックス投資は不要？」この問いを年金＋配当金の逆算で整理した記事です。
-    https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/
-    #日経平均 #インデックス投資 #高配当株
-  image_path: /images/thumb-index-vs-highyield-retirement-allocation.png
-  target_date: "2026-06-19"
-  topic: "日経平均株価が6月18日に史上初の7万円台を記録。インデックス投資への関心が再び高まっている"
-  prepared_at: "2026-06-19T06:37:00+09:00"

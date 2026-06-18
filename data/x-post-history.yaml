@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-19T07:05:28+09:00'
+    text: "【日経平均が史上初7万円台】インデックス投資の好調ぶりが改めて注目されています。\n\n「高配当株だけでいい？インデックス投資は不要？」この問いを年金＋配当金の逆算で整理した記事です。\n\
+      https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/\n#日経平均
+      #インデックス投資 #高配当株"
+    tweet_id: '2067730440912261317'
+    tweet_url: https://x.com/i/web/status/2067730440912261317
+    type: topic
+    post_path: content/posts/index-vs-highyield-retirement-allocation.md
   - posted_at: '2026-06-18T21:05:32+09:00'
     text: "【おすすめ📖】\nネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、…\n\nhttps://finlab-se.com/posts/bank-security-defense-in-depth-phishing/\n\
       \n#セキュリティ #フィッシング #多要素認証"
@@ -351,10 +359,3 @@ history:
     tweet_url: https://x.com/i/web/status/2058157508187812215
     type: rotation
     post_path: content/posts/nisa-growth-highyield.md
-  - posted_at: '2026-05-23T07:18:11+09:00'
-    text: "【おすすめ📖】\n日経6万円台で高配当株投資家が陥りがちな3つの失敗パターンと、ブレない買い増しルールを確認。\n\nhttps://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n\
-      \n#高配当株 #日経平均 #TOPIX"
-    tweet_id: '2057949167201173937'
-    tweet_url: https://x.com/i/web/status/2057949167201173937
-    type: rotation
-    post_path: content/posts/nikkei-60000-highyield-mindset.md
