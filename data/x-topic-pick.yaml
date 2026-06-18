@@ -24,14 +24,14 @@
 #   prepared_at: "2026-06-14T22:00:00+09:00"
 
 pick:
-  post_path: content/posts/mortgage-rate-refinance-simulation.md
+  post_path: content/posts/index-vs-highyield-retirement-allocation.md
   text: |-
-    【日銀が政策金利1%へ引き上げ】変動金利の返済額が上がり、「今が借換えのタイミングか？」と悩んでいる方へ。
+    【日経平均が史上初7万円台】インデックス投資の好調ぶりが改めて注目されています。
 
-    残債・金利差・残期間の3条件で損益分岐を試算した実例記事です。数字で確かめてから判断してみてください。
-    https://finlab-se.com/posts/mortgage-rate-refinance-simulation/
-    #住宅ローン #変動金利 #日銀利上げ
-  image_path: /images/thumb-mortgage-rate-refinance-simulation.jpg
+    「高配当株だけでいい？インデックス投資は不要？」この問いを年金＋配当金の逆算で整理した記事です。
+    https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/
+    #日経平均 #インデックス投資 #高配当株
+  image_path: /images/thumb-index-vs-highyield-retirement-allocation.png
   target_date: "2026-06-19"
-  topic: "日銀が6月15-16日の金融政策決定会合で政策金利を0.75%から1.0%へ引き上げ決定。住宅ローン変動金利への影響・借換え検討への関心が高まっている"
-  prepared_at: "2026-06-18T22:24:34+09:00"
+  topic: "日経平均株価が6月18日に史上初の7万円台を記録。インデックス投資への関心が再び高まっている"
+  prepared_at: "2026-06-19T06:37:00+09:00"
