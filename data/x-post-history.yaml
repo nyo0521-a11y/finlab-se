@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-18T21:05:32+09:00'
+    text: "【おすすめ📖】\nネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、…\n\nhttps://finlab-se.com/posts/bank-security-defense-in-depth-phishing/\n\
+      \n#セキュリティ #フィッシング #多要素認証"
+    tweet_id: '2067579462343180542'
+    tweet_url: https://x.com/i/web/status/2067579462343180542
+    type: rotation
+    post_path: content/posts/bank-security-defense-in-depth-phishing.md
   - posted_at: '2026-06-18T07:05:33+09:00'
     text: "【おすすめ📖】\nオルカン＝理論的に正しいインデックス、S&P500＝米国へ賭けるアクティブ要素入り。\n\nhttps://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/\n\
       \n#インデックス投資 #オルカン #S&P500"
@@ -351,10 +358,3 @@ history:
     tweet_url: https://x.com/i/web/status/2057949167201173937
     type: rotation
     post_path: content/posts/nikkei-60000-highyield-mindset.md
-  - posted_at: '2026-05-22T21:06:15+09:00'
-    text: "【おすすめ📖】\n4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。\n\nhttps://finlab-se.com/posts/montecarlo-background/\n\
-      \n#モンテカルロシミュレーション #FIRE #4%ルール"
-    tweet_id: '2057795168003088621'
-    tweet_url: https://x.com/i/web/status/2057795168003088621
-    type: rotation
-    post_path: content/posts/montecarlo-background.md

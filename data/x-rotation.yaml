@@ -253,8 +253,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/bank-security-defense-in-depth-phishing.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-18T21:05:32+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/bonus-investment-checkup-4steps.md
   last_promoted:
