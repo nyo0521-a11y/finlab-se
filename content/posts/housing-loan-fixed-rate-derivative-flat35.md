@@ -5,6 +5,9 @@ draft: false
 categories: ["金融の仕組み"]
 tags: ["住宅ローン", "固定金利", "フラット35", "デリバティブ", "証券化", "金融の仕組み"]
 description: "銀行の固定金利は『変動金利＋金利スワップ』の構造。フラット35が安いのはこの仕組みを使わず証券化で調達するから、を解説します。"
+slug: "fixed-rate-flat35"
+aliases:
+  - "/posts/housing-loan-fixed-rate-derivative-flat35/"
 showToc: true
 cover:
   image: "/images/thumb-housing-loan-fixed-rate-derivative-flat35.png"
