@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+  finlab-se サムネ タイトル文字オーバーレイ テンプレート
+  使い方: コピーして __プレースホルダ__ を置換 → ヘッドレスChromeで 1376x768 スクショ
+  詳細手順は スキル finlab-se-thumbnail（~/.claude/skills/finlab-se-thumbnail/SKILL.md）参照
+  置換箇所:
+    __BASE_IMAGE_ABS_PATH__  ベース画像の絶対パス（file:/// 形式。例 file:///C:/Users/oui_k/OneDrive/finlab-se/static/images/thumb-xxx-base.png）
+    __BADGE__                カテゴリ名（記事の category）
+    __MAIN_1__ / __MAIN_2__  メインタイトル（記事タイトルを短く凝縮。1〜2行。1行で足りるなら __MAIN_2__ の行ごと削除）
+    __SUB_1__ / __SUB_2__    サブタイトル（補足・ベネフィット。1〜2行）
+  ※ フォントサイズは検証済みの「大きめ」値（メイン72px）。テンプレ初期値の48pxはこのリッチなCG背景に対して小さすぎたため。
+-->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1376px; height: 768px; }
+  body {
+    position: relative;
+    background-image: url("__BASE_IMAGE_ABS_PATH__");
+    background-size: 1376px 768px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    font-family: "Yu Gothic UI", "Yu Gothic", "Noto Sans JP", "Hiragino Kaku Gothic Pro", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* テキストブロック：左45%エリアに収める。右のメインビジュアルに重ねない */
+  .textblock { position: absolute; top: 170px; left: 56px; width: 680px; }
+
+  /* ①カテゴリバッジ（緑枠・透明背景） */
+  .badge {
+    display: inline-block;
+    border: 3px solid #4ADE80;
+    border-radius: 22px;
+    color: #4ADE80;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 8px 24px;
+    background: transparent;
+    line-height: 1;
+  }
+  /* ②メインタイトル（白・太字・約72px） */
+  .main {
+    margin-top: 28px;
+    color: #FFFFFF;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.5);
+  }
+  /* ③サブタイトル（白・緑の縦ボーダー・約28px） */
+  .sub {
+    margin-top: 26px;
+    border-left: 6px solid #4ADE80;
+    padding-left: 16px;
+    color: #FFFFFF;
+    opacity: 0.85;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.55);
+  }
+</style>
+</head>
+<body>
+  <div class="textblock">
+    <span class="badge">__BADGE__</span>
+    <div class="main">__MAIN_1__<br>__MAIN_2__</div>
+    <div class="sub">__SUB_1__<br>__SUB_2__</div>
+  </div>
+</body>
+</html>
