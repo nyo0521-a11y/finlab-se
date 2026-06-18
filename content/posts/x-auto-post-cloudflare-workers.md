@@ -1,5 +1,5 @@
 ---
-title: "Xの自動投稿をほぼ無料で自作する｜GitHub Actions＋Cloudflare Workersで定時投稿"
+title: "Xの自動投稿を自作する｜Cloudflare WorkersとGitHub Actionsで定時投稿（cronズレも解決）"
 date: 2026-05-03T06:30:00+09:00
 draft: false
 categories: ["AI活用"]
