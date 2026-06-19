@@ -257,8 +257,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/bonus-investment-checkup-4steps.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-19T21:05:30+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/claude-code-dividend-calendar.md
   last_promoted:

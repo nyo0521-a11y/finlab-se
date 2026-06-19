@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-19T21:05:30+09:00'
+    text: "【おすすめ📖】\n夏のボーナスを投資に使う前に確認したい4つのチェックポイント。生活防衛資金・NISA枠・ポートフォリオの偏り・固定費を順に見直すことで、ボーナスの使い方を迷わず決められます。\n\
+      \nhttps://finlab-se.com/posts/bonus-investment-checkup-4steps/\n\n#ボーナス #NISA
+      #高配当株"
+    tweet_id: '2067941841149047295'
+    tweet_url: https://x.com/i/web/status/2067941841149047295
+    type: rotation
+    post_path: content/posts/bonus-investment-checkup-4steps.md
   - posted_at: '2026-06-19T07:05:28+09:00'
     text: "【日経平均が史上初7万円台】インデックス投資の好調ぶりが改めて注目されています。\n\n「高配当株だけでいい？インデックス投資は不要？」この問いを年金＋配当金の逆算で整理した記事です。\n\
       https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/\n#日経平均
@@ -352,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2058311379811975390
     type: new
     post_path: content/posts/new-nisa-pitfalls-5-patterns.md
-  - posted_at: '2026-05-23T21:06:03+09:00'
-    text: "【おすすめ📖】\nつみたて投資枠はインデックス、成長投資枠は高配当株・ETF。NISAの使い分け判断軸を数値で解説。\n\nhttps://finlab-se.com/posts/nisa-growth-highyield/\n\
-      \n#新NISA #高配当株 #成長投資枠"
-    tweet_id: '2058157508187812215'
-    tweet_url: https://x.com/i/web/status/2058157508187812215
-    type: rotation
-    post_path: content/posts/nisa-growth-highyield.md
