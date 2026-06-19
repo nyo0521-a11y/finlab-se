@@ -36,15 +36,15 @@
 #   prepared_at: "2026-06-14T22:00:00+09:00"
 
 pick:
-  post_path: content/posts/nikkei-60000-highyield-mindset.md
+  post_path: content/posts/mortgage-rate-refinance-simulation.md
   text: |-
-    【日経平均がAIラリーで続伸】株高が続くなか、「高配当株をもっと買い増すべき？」と迷う方も多いはず。
+    【日銀が政策金利1.0%へ利上げ】30年ぶりの水準となり、住宅ローンの変動金利にも影響が及びそうです。
 
-    相場が上がっているときほど陥りやすい3つの失敗パターンと、ブレない買い増しルールをまとめました。
-    https://finlab-se.com/posts/nikkei-60000-highyield-mindset/
+    「借り換えると本当に得？」を、残債・金利差・残期間の3条件で損益分岐から試算した記事です。
+    https://finlab-se.com/posts/mortgage-rate-refinance-simulation/
 
-    #日経平均 #高配当株 #インデックス投資
-  image_path: /images/thumb-nikkei-60000-highyield-mindset.jpg
+    #日銀 #住宅ローン #変動金利
+  image_path: /images/thumb-mortgage-rate-refinance-simulation.jpg
   target_date: "2026-06-20"
-  topic: "日経平均がAIラリーで続伸・株高局面での高配当株投資家の行動判断"
-  prepared_at: "2026-06-19T22:16:00+09:00"
+  topic: "日銀が6月会合で政策金利を1.0%へ利上げ（0.75%→1.00%、30年ぶり水準）・住宅ローン変動金利への影響と借換え判断"
+  prepared_at: "2026-06-20T06:38:00+09:00"
