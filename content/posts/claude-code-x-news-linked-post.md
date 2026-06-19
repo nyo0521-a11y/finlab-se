@@ -1,7 +1,7 @@
 ---
 title: "Xの自動投稿の\"中身\"をClaude Codeに任せる｜毎朝ニュースから紹介記事を選ぶAI活用"
-date: 2026-06-18T06:30:00+09:00
-draft: true
+date: 2026-06-21T05:30:00+09:00
+draft: false
 categories: ["AI活用"]
 tags: ["X自動投稿", "Claude Code", "AI活用", "SNS集客", "自動化", "ニュース連動"]
 description: "Xの自動投稿の\"中身\"＝何を投稿するかを、Claude Codeに任せた記録。毎朝その日のニュースを読んで話題に合った記事を選ばせ、検索に頼らないSNS流入を作る仕組みを、コードなしで解説します。"
