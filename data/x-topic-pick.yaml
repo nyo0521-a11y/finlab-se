@@ -1,4 +1,4 @@
-# X 朝投稿「話題連動おすすめ」の手動準備置き場
+# X 朝投稿「話題連動おすすめ」の準備置き場
 #
 # 仕組み（2026-06-14 設計）:
 #   - 前夜22:00 / 当日朝6:30 のスケジュールタスク（Claude Code 起動中のみ動作）が
@@ -10,27 +10,29 @@
 # target_date は「この pick が投稿されるべき朝（JST）の日付」。
 #   morning_post.py は target_date が当日でない pick を無視してクリアする（古い pick の誤投稿防止）。
 #
+# ⚠️ このファイルは手書きで編集せず、必ず .github/scripts/set_topic_pick.py 経由で書き換える。
+#   手書き編集はコメント消し損ね・二重 pick で YAML を壊し、朝枠を無投稿にする事故の原因になる。
+#
 # 記入例:
 # pick:
-#   post_path: content/posts/nikkei-60000-highyield-mindset.md
+#   post_path: content/posts/foo.md
 #   text: |-
-#     【日経平均がAIラリーで続伸】株高が続くなか、「高配当株をもっと買い増すべき？」と迷う方も多いはず。
-#     相場が上がっているときほど陥りやすい3つの失敗パターンと、ブレない買い増しルールをまとめました。
-#     https://finlab-se.com/posts/nikkei-60000-highyield-mindset/
-#     #日経平均 #高配当株 #インデックス投資
-#   image_path: /images/thumb-nikkei-60000-highyield-mindset.jpg
+#     【○○が話題】〜というニュースが注目されています。参考になるのがこの記事です。
+#     https://finlab-se.com/posts/foo/
+#     #ハッシュタグ
+#   image_path: /images/thumb-foo.jpg
 #   target_date: "2026-06-20"
-#   topic: "日経平均がAIラリーで続伸・株高局面での高配当株投資家の行動判断"
-#   prepared_at: "2026-06-19T22:16:00+09:00"
-#   post_path: content/posts/ideco-2026-reform.md
-#   text: |-
-#     【新NISA・iDeCoが話題】〇〇のニュースが注目されていますが、
-#     こんなときに参考になるのがこの記事です。
-#     https://finlab-se.com/posts/ideco-2026-reform/
-#     #iDeCo #新NISA
-#   image_path: /images/thumb-ideco-2026-reform.png
-#   target_date: "2026-06-15"
-#   topic: "（選定の根拠にした話題の要約）"
-#   prepared_at: "2026-06-14T22:00:00+09:00"
+#   topic: "選定根拠にした話題の要約"
+#   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
+  post_path: "content/posts/housing-loan-variable-fixed-simulation.md"
+  text: |-
+    【日銀1.0%利上げ】政策金利が1.0%へ引き上げられ、住宅ローンの変動金利も上昇が見込まれます。こんなときに参考になるのがこの記事です。
+    変動と固定の差額を繰り上げに回す戦略を3,000万円35年で検証。固定金利を「保険料」として捉える判断軸を解説しています。
+    https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/
+    #住宅ローン #変動金利 #日銀
+  image_path: "/images/thumb-housing-loan-variable-fixed-simulation.png"
+  target_date: "2026-06-21"
+  topic: "日銀が政策金利を1.0%へ追加利上げ（31年ぶり水準）。住宅ローン変動金利の上昇が焦点"
+  prepared_at: "2026-06-20T23:05:00+09:00"
