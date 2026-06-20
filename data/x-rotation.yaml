@@ -261,8 +261,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/claude-code-dividend-calendar.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-20T21:05:33+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/claude-code-fire-budget.md
   last_promoted: '2026-06-10T07:17:38+09:00'

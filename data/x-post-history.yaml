@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-20T21:05:33+09:00'
+    text: "【おすすめ📖】\n保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成する手順。\n\nhttps://finlab-se.com/posts/claude-code-dividend-calendar/\n\
+      \n#ClaudeCode #配当金 #AI活用"
+    tweet_id: '2068304242817814699'
+    tweet_url: https://x.com/i/web/status/2068304242817814699
+    type: rotation
+    post_path: content/posts/claude-code-dividend-calendar.md
   - posted_at: '2026-06-20T10:18:57+09:00'
     text: "【日銀が政策金利1.0%へ利上げ】30年ぶりの水準となり、住宅ローンの変動金利にも影響が及びそうです。\n\n「借り換えると本当に得？」を、残債・金利差・残期間の3条件で損益分岐から試算した記事です。\n\
       https://finlab-se.com/posts/mortgage-rate-refinance-simulation/\n\n#日銀 #住宅ローン
@@ -352,11 +359,3 @@ history:
     tweet_url: https://x.com/i/web/status/2058673960212902236
     type: rotation
     post_path: content/posts/pension-macroeconomic-slide-2026.md
-  - posted_at: '2026-05-24T21:06:13+09:00'
-    text: "【おすすめ📖】\nコルレス銀行・中継銀行手数料・為替スプレッドの3層が3,000円＋数日の正体。SWIFT経由の海外送金を金融SEが解説。\n\
-      \nhttps://finlab-se.com/posts/overseas-remittance-mechanism/\n\n#海外送金 #SWIFT
-      #コルレス銀行"
-    tweet_id: '2058519937480605778'
-    tweet_url: https://x.com/i/web/status/2058519937480605778
-    type: rotation
-    post_path: content/posts/overseas-remittance-mechanism.md
