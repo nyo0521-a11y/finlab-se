@@ -12,18 +12,16 @@
 #
 # 記入例:
 # pick:
-  post_path: content/posts/nikkei-60000-highyield-mindset.md
-  text: |-
-    【日経平均がAIラリーで続伸】株高が続くなか、「高配当株をもっと買い増すべき？」と迷う方も多いはず。
-
-    相場が上がっているときほど陥りやすい3つの失敗パターンと、ブレない買い増しルールをまとめました。
-    https://finlab-se.com/posts/nikkei-60000-highyield-mindset/
-
-    #日経平均 #高配当株 #インデックス投資
-  image_path: /images/thumb-nikkei-60000-highyield-mindset.jpg
-  target_date: "2026-06-20"
-  topic: "日経平均がAIラリーで続伸・株高局面での高配当株投資家の行動判断"
-  prepared_at: "2026-06-19T22:16:00+09:00"
+#   post_path: content/posts/nikkei-60000-highyield-mindset.md
+#   text: |-
+#     【日経平均がAIラリーで続伸】株高が続くなか、「高配当株をもっと買い増すべき？」と迷う方も多いはず。
+#     相場が上がっているときほど陥りやすい3つの失敗パターンと、ブレない買い増しルールをまとめました。
+#     https://finlab-se.com/posts/nikkei-60000-highyield-mindset/
+#     #日経平均 #高配当株 #インデックス投資
+#   image_path: /images/thumb-nikkei-60000-highyield-mindset.jpg
+#   target_date: "2026-06-20"
+#   topic: "日経平均がAIラリーで続伸・株高局面での高配当株投資家の行動判断"
+#   prepared_at: "2026-06-19T22:16:00+09:00"
 #   post_path: content/posts/ideco-2026-reform.md
 #   text: |-
 #     【新NISA・iDeCoが話題】〇〇のニュースが注目されていますが、
