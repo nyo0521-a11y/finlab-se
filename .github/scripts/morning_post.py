@@ -117,11 +117,21 @@ def mark_rotation_dedup(post_path: str) -> None:
 
 
 def get_valid_pick():
-    """当日朝向けの有効な pick を返す。無効・古い場合は None（古ければクリア）。"""
+    """当日朝向けの有効な pick を返す。無効・古い場合は None（古ければクリア）。
+
+    pick ファイルが壊れている（YAMLパース不能）場合でもクラッシュさせず None を返し、
+    呼び出し側を通常 rotation にフォールバックさせる（朝枠が丸ごと無投稿になるのを防ぐ）。"""
     if not PICK_PATH.exists():
         return None
-    with PICK_PATH.open(encoding="utf-8") as f:
-        doc = _yaml().load(f) or {}
+    try:
+        with PICK_PATH.open(encoding="utf-8") as f:
+            doc = _yaml().load(f) or {}
+    except Exception as e:  # noqa: BLE001 - パース失敗時は pick を諦めて rotation に落とす
+        sys.stderr.write(f"x-topic-pick.yaml parse failed, fallback to rotation: {e}\n")
+        return None
+    if not isinstance(doc, dict):
+        sys.stderr.write(f"x-topic-pick.yaml is not a mapping ({type(doc).__name__}), fallback to rotation\n")
+        return None
     pick = doc.get("pick")
     if not pick:
         return None
