@@ -34,15 +34,3 @@
 #   prepared_at: "2026-06-14T22:00:00+09:00"
 
 pick:
-  post_path: content/posts/mortgage-rate-refinance-simulation.md
-  text: |-
-    【日銀が政策金利1.0%へ利上げ】30年ぶりの水準となり、住宅ローンの変動金利にも影響が及びそうです。
-
-    「借り換えると本当に得？」を、残債・金利差・残期間の3条件で損益分岐から試算した記事です。
-    https://finlab-se.com/posts/mortgage-rate-refinance-simulation/
-
-    #日銀 #住宅ローン #変動金利
-  image_path: /images/thumb-mortgage-rate-refinance-simulation.jpg
-  target_date: "2026-06-20"
-  topic: "日銀が6月会合で政策金利を1.0%へ利上げ（0.75%→1.00%、30年ぶり水準）・住宅ローン変動金利への影響と借換え判断"
-  prepared_at: "2026-06-20T06:38:00+09:00"
