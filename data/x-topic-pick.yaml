@@ -26,12 +26,3 @@
 #   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
-  post_path: "content/posts/housing-loan-variable-fixed-simulation.md"
-  text: |-
-    【日銀が利上げ】政策金利1.0%へ。住宅ローンは変動か固定か——差額繰り上げ戦略と「保険料」の視点で整理しました。
-    https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/
-    #住宅ローン #変動金利 #日銀
-  image_path: "/images/thumb-housing-loan-variable-fixed-simulation.png"
-  target_date: "2026-06-22"
-  topic: "日銀が利上げで政策金利1.0%（31年ぶり水準）。住宅ローン変動金利の上昇が焦点で変動か固定かの判断が話題"
-  prepared_at: "2026-06-22T06:40:55+09:00"
