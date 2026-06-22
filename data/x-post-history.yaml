@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-23T07:05:37+09:00'
+    text: "【日経平均が連日最高値】一時7万円に乗せ、株高で気分が高揚しがちな局面です。こんなときこそ高配当株投資家がやってはいけない3つのことを整理しました。長期で配当を積み上げるための心構えです。\n\
+      https://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n#日経平均 #高配当株 #新NISA"
+    tweet_id: '2069180031671083173'
+    tweet_url: https://x.com/i/web/status/2069180031671083173
+    type: topic
+    post_path: content/posts/nikkei-60000-highyield-mindset.md
   - posted_at: '2026-06-22T07:05:38+09:00'
     text: "【日銀が利上げ】政策金利1.0%へ。住宅ローンは変動か固定か——差額繰り上げ戦略と「保険料」の視点で整理しました。\nhttps://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n\
       #住宅ローン #変動金利 #日銀"
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2059398771251769401
     type: new
     post_path: content/posts/household-budget-app-comparison-2026.md
-  - posted_at: '2026-05-26T07:18:22+09:00'
-    text: "【おすすめ📖】\nWise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。\n\nhttps://finlab-se.com/posts/wise-revolut-fintech-remittance/\n\
-      \n#海外送金 #Wise #Revolut"
-    tweet_id: '2059036379099902148'
-    tweet_url: https://x.com/i/web/status/2059036379099902148
-    type: rotation
-    post_path: content/posts/wise-revolut-fintech-remittance.md
