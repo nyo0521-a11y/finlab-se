@@ -273,8 +273,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/cloudflare-pages-blog-publish-flow.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-24T07:05:37+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/corporate-dc-ideco-flowchart-2026.md
   last_promoted:

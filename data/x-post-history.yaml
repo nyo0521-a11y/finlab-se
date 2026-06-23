@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-24T07:05:37+09:00'
+    text: "【おすすめ📖】\nDraft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。\n\
+      \nhttps://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/\n\n#CloudflarePages
+      #GitHubActions #Hugo"
+    tweet_id: '2069542418676924862'
+    tweet_url: https://x.com/i/web/status/2069542418676924862
+    type: rotation
+    post_path: content/posts/cloudflare-pages-blog-publish-flow.md
   - posted_at: '2026-06-23T07:05:37+09:00'
     text: "【日経平均が連日最高値】一時7万円に乗せ、株高で気分が高揚しがちな局面です。こんなときこそ高配当株投資家がやってはいけない3つのことを整理しました。長期で配当を積み上げるための心構えです。\n\
       https://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n#日経平均 #高配当株 #新NISA"
@@ -352,11 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2059761168328126744
     type: rotation
     post_path: content/posts/zengin-net-payment-system.md
-  - posted_at: '2026-05-27T07:18:23+09:00'
-    text: "【新着📝】\nマネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説。キャッシュレス決済の自動取込が決定打です。\n\n\
-      https://finlab-se.com/posts/household-budget-app-comparison-2026/\n\n#マネーフォワード
-      #家計簿 #自動化"
-    tweet_id: '2059398771251769401'
-    tweet_url: https://x.com/i/web/status/2059398771251769401
-    type: new
-    post_path: content/posts/household-budget-app-comparison-2026.md
