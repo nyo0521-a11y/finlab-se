@@ -26,3 +26,12 @@
 #   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
+  post_path: "content/posts/mortgage-rate-refinance-simulation.md"
+  text: |-
+    【日銀が追加利上げ】政策金利が1.0%へ。年内さらに利上げ観測も出ています。気になるのは住宅ローン変動金利。借換えで得するか損するかは「残債・金利差・残期間」の3条件で決まります。損益分岐を試算した記事です。
+    https://finlab-se.com/posts/mortgage-rate-refinance-simulation/
+    #日銀 #住宅ローン #変動金利
+  image_path: "C:/Program Files/Git/images/thumb-mortgage-rate-refinance-simulation.jpg"
+  target_date: "2026-06-24"
+  topic: "日銀が6月会合で追加利上げ（政策金利0.75%→1.0%）、年内さらに利上げ観測。住宅ローン変動金利・借換え判断への関心が高まる"
+  prepared_at: "2026-06-23T22:33:29.060641+09:00"
