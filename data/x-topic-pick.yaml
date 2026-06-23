@@ -26,12 +26,12 @@
 #   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
-  post_path: "content/posts/mortgage-rate-refinance-simulation.md"
+  post_path: "content/posts/index-investing-10years-honest-review.md"
   text: |-
-    【日銀が追加利上げ】政策金利が1.0%へ。年内さらに利上げ観測も出ています。気になるのは住宅ローン変動金利。借換えで得するか損するかは「残債・金利差・残期間」の3条件で決まります。損益分岐を試算した記事です。
-    https://finlab-se.com/posts/mortgage-rate-refinance-simulation/
-    #日銀 #住宅ローン #変動金利
-  image_path: "C:/Program Files/Git/images/thumb-mortgage-rate-refinance-simulation.jpg"
+    【高倍率の投信が話題】レバレッジ型で一発を狙うほど相場の上下で資産が削られる、との指摘が注目されています。クラファンや暗号資産を経て、地道なインデックス投資に10年。暴落耐性と出口の不安にどう向き合ったか正直に書きました。
+    https://finlab-se.com/posts/index-investing-10years-honest-review/
+    #インデックス投資 #新NISA
+  image_path: "C:/Program Files/Git/images/thumb-index-investing-10years-honest-review.png"
   target_date: "2026-06-24"
-  topic: "日銀が6月会合で追加利上げ（政策金利0.75%→1.0%）、年内さらに利上げ観測。住宅ローン変動金利・借換え判断への関心が高まる"
-  prepared_at: "2026-06-23T22:33:29.060641+09:00"
+  topic: "Yahoo経済1位『レバレッジ投信の冷徹な罠』＋日経平均7万円割れ反落（AI株利益確定売り）。株高局面で高倍率商品に飛びつくリスクへの関心が上昇"
+  prepared_at: "2026-06-23T22:53:44.278860+09:00"
