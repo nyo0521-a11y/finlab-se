@@ -392,3 +392,7 @@ rotation:
   last_promoted:
   promote_count: 0
   priority: normal
+- post_path: content/posts/claude-code-x-news-linked-post.md
+  last_promoted: '2026-06-23T22:22:45+09:00'
+  promote_count: 1
+  priority: normal
