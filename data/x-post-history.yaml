@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-24T21:05:43+09:00'
+    text: "【おすすめ📖】\n企業型DC加入者がマッチング拠出とiDeCoのどちらを選ぶべきか、2026年改正後の手数料・上限を踏まえて判断フローで解説します。\n\
+      \nhttps://finlab-se.com/posts/corporate-dc-ideco-flowchart-2026/\n\n#iDeCo #企業型DC
+      #マッチング拠出"
+    tweet_id: '2069753834650439878'
+    tweet_url: https://x.com/i/web/status/2069753834650439878
+    type: rotation
+    post_path: content/posts/corporate-dc-ideco-flowchart-2026.md
   - posted_at: '2026-06-24T07:05:37+09:00'
     text: "【おすすめ📖】\nDraft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。\n\
       \nhttps://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/\n\n#CloudflarePages
@@ -353,10 +361,3 @@ history:
     tweet_url: https://x.com/i/web/status/2059969508102545557
     type: rotation
     post_path: content/posts/hello-world.md
-  - posted_at: '2026-05-28T07:18:25+09:00'
-    text: "【おすすめ📖】\n全銀ネット（全国銀行資金決済ネットワーク）とモアタイムシステムの仕組みを金融SEが解説。振込が24時間365日即時着金する裏側、為替通知と資金決済の違いまで構造で理解できます。\n\
-      \nhttps://finlab-se.com/posts/zengin-net-payment-system/\n\n#全銀ネット #銀行 #決済"
-    tweet_id: '2059761168328126744'
-    tweet_url: https://x.com/i/web/status/2059761168328126744
-    type: rotation
-    post_path: content/posts/zengin-net-payment-system.md
