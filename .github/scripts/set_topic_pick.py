@@ -55,6 +55,24 @@ HEADER = """\
 """
 
 
+def normalize_image_path(p: str) -> str:
+    """image_path を必ず '/images/...' の形に戻す。
+
+    Git Bash（MSYS）経由でスクリプトを呼ぶと、引数の先頭 '/' が
+    インストールパス（例 'C:/Program Files/Git'）に変換され、
+    '/images/x.png' が 'C:/Program Files/Git/images/x.png' に化ける。
+    これが pick に保存されると朝の morning_post.py が画像を見つけられず
+    topic 投稿に失敗し、サイレントに rotation へ降格する（2026-06-24 発覚）。
+    そのため '/images/' 以降だけを取り出して正規化する。"""
+    if not p:
+        return p
+    norm = p.replace("\\", "/")
+    idx = norm.find("/images/")
+    if idx > 0:  # 先頭が化けている（idx==0 なら既に正しい）
+        return norm[idx:]
+    return p
+
+
 def render(pick: dict | None) -> str:
     """正規形（ヘッダー＋ pick を1つだけ）の YAML 文字列を組み立てる。"""
     out = HEADER + "\n"
@@ -103,7 +121,7 @@ def main() -> int:
         content = render({
             "post_path": args.post_path,
             "text": text.rstrip("\n"),
-            "image_path": args.image_path,
+            "image_path": normalize_image_path(args.image_path),
             "target_date": args.target_date,
             "topic": args.topic,
             "prepared_at": args.prepared_at,
