@@ -1,14 +1,14 @@
 ---
-title: "AI資産運用とは？ロボアドは本当にAIなのか｜金融SE解説"
+title: "AI資産運用とは？ロボアドは本当にAIなのか｜AI投資の仕組み"
 date: 2026-06-27T05:30:00+09:00
 draft: true
 categories: ["AI活用"]
-tags: ["AI資産運用", "ロボアドバイザー", "ウェルスナビ", "生成AI", "Claude", "投資初心者"]
-description: "「AI資産運用」と聞くと最先端に思えますが、生成AIが未来の相場を予測して運用する商品ではありません。ロボアドの正体、AIに「できること・できないこと」を、金融SEが投資初心者向けにやさしく整理します。"
+tags: ["AI資産運用", "AI投資", "ロボアドバイザー", "ウェルスナビ", "生成AI", "Claude", "投資初心者"]
+description: "「AI資産運用」「AI投資」と聞くと最先端に思えますが、生成AIが未来の相場を予測して運用する商品ではありません。ロボアドバイザーの正体と、AIに「できること・できないこと」を、金融SEが投資初心者向けにやさしく整理します。"
 showToc: true
 cover:
   image: "/images/thumb-ai-asset-management-robo-advisor.png"
-  alt: "AI資産運用とは？ロボアドは本当にAIなのか"
+  alt: "AI資産運用とは？ロボアドは本当にAIなのか｜AI投資の仕組み"
   relative: false
   hiddenInList: false
 ---
