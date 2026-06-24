@@ -229,6 +229,13 @@ cover:
 
 そもそも自分の経済圏ではどのカードが合うのか、という1枚選びから考えたい方は、[クレカ積立おすすめの選び方｜経済圏と損益分岐点で1枚に絞る方法](https://finlab-se.com/posts/credit-card-recommendation-2026/)が参考になるはずです。
 
+## 関連記事
+
+- [クレカ積立おすすめの選び方｜経済圏と損益分岐点で1枚に絞る方法](https://finlab-se.com/posts/credit-card-recommendation-2026/) — どの経済圏でどのカードを選ぶか。1枚に絞るための判断軸を整理しています
+- [クレカ改悪2026年まとめ：dカード・三井住友ゴールドNL・楽天・PayPayカードの改定内容と、振り回されないための判断軸](https://finlab-se.com/posts/credit-card-reform-2026/) — 修行の集計対象が年々絞られている背景。改定に振り回されないための考え方
+- [なぜ年会費無料のクレカでも1%還元できるのか｜カード会社が損をしない仕組み](https://finlab-se.com/posts/credit-card-free-annual-fee-model/) — そもそもカードのポイント還元はどこから出ているのか。仕組みを知ると損得の判断がぶれません
+- [SBI証券のS株で高配当株100銘柄超を買った正直レビュー](https://finlab-se.com/posts/sbi-securities-honest-review/) — クレカ積立の決済先にしているSBI証券そのものの使い勝手を、実体験でレビューしています
+
 ---
 
 ## 記事中に登場したカード・サービス
