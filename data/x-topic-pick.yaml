@@ -26,12 +26,12 @@
 #   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
-  post_path: "content/posts/index-investing-10years-honest-review.md"
+  post_path: "content/posts/all-country-vs-sp500-index-fund-2026.md"
   text: |-
-    【高倍率の投信が話題】レバレッジ型で一発を狙うほど相場の上下で資産が削られる、との指摘が注目されています。クラファンや暗号資産を経て、地道なインデックス投資に10年。暴落耐性と出口の不安にどう向き合ったか正直に書きました。
-    https://finlab-se.com/posts/index-investing-10years-honest-review/
-    #インデックス投資 #新NISA
-  image_path: "C:/Program Files/Git/images/thumb-index-investing-10years-honest-review.png"
-  target_date: "2026-06-24"
-  topic: "Yahoo経済1位『レバレッジ投信の冷徹な罠』＋日経平均7万円割れ反落（AI株利益確定売り）。株高局面で高倍率商品に飛びつくリスクへの関心が上昇"
-  prepared_at: "2026-06-23T22:53:44.278860+09:00"
+    【オルカンvsS&P500が話題】直近1年でリターンが逆転と注目されています。でも「過去のリターン」で選ぶのは危険。3つの判断軸で「迷ったらオルカン」の理由を金融SEが解説します。
+    https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/
+    #新NISA #オルカン #SP500
+  image_path: "C:/Program Files/Git/images/thumb-all-country-vs-sp500-index-fund-2026.png"
+  target_date: "2026-06-25"
+  topic: "新NISAでオルカンvsS&P500の直近1年リターン逆転が話題（Yahoo経済アクセスランキング1位）"
+  prepared_at: "2026-06-24T22:20:00+09:00"
