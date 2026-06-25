@@ -6,6 +6,6 @@
 # night_last_posted  : 夜枠で最後に投稿した日（JST, YYYY-MM-DD）
 
 morning_last_posted: '2026-06-25'
-night_last_posted: '2026-06-17'
+night_last_posted: '2026-06-25'
 morning_rotation_last_posted: '2026-06-16'
 night_rotation_last_posted: '2026-06-24'

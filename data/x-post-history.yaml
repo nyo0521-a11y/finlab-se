@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-25T21:05:43+09:00'
+    text: "【新着📝】\n三井住友カード ゴールド(NL)の100万円修行を達成した筆者が、その後は年100万円に届かず継続特典を得られていない現実を正直に公開。何円使う人なら得かを損益分岐で整理した実録レビューです。\n\
+      \nhttps://finlab-se.com/posts/smbc-gold-nl-100man-review/"
+    tweet_id: '2070116222503666126'
+    tweet_url: https://x.com/i/web/status/2070116222503666126
+    type: new
+    post_path: content/posts/smbc-gold-nl-100man-review.md
   - posted_at: '2026-06-25T07:05:46+09:00'
     text: "【オルカンvsS&P500が話題】「直近1年でS&P500が逆転」と注目されていますが、過去リターンで選ぶのは判断軸が逆です。金融SEが3つの判断軸で「迷ったらオルカン」の理由を解説します。\n\
       https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/\n#新NISA #オルカン
@@ -355,10 +362,3 @@ history:
     tweet_url: https://x.com/i/web/status/2060331967199990232
     type: rotation
     post_path: content/posts/dividend-target-simulator-tool-usage.md
-  - posted_at: '2026-05-29T07:18:17+09:00'
-    text: "【おすすめ📖】\n年間200万円を配当で賄うのに必要な元本を計算。インデックス+4%ルールとも比較します。\n\nhttps://finlab-se.com/posts/dividend-life-calculation/\n\
-      \n#配当金生活 #FIRE #高配当株"
-    tweet_id: '2060123521036993013'
-    tweet_url: https://x.com/i/web/status/2060123521036993013
-    type: rotation
-    post_path: content/posts/dividend-life-calculation.md
