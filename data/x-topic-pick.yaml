@@ -26,12 +26,3 @@
 #   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
-  post_path: "content/posts/mortgage-rate-refinance-simulation.md"
-  text: |-
-    【金利上昇が話題】個人向け国債が年2.0%、住宅ローンも固定か変動か悩む人が増えています。変動の借換えが得かは残債・金利差・残期間の3条件で決まります。損益分岐を試算した記事です。
-    https://finlab-se.com/posts/mortgage-rate-refinance-simulation/
-    #住宅ローン #変動金利 #日銀
-  image_path: "/images/thumb-mortgage-rate-refinance-simulation.jpg"
-  target_date: "2026-06-26"
-  topic: "金利上昇局面（個人向け国債2.0%・住宅ローン固定/変動の悩み）"
-  prepared_at: "2026-06-26T06:43:00.623857+09:00"

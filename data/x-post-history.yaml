@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-26T07:05:45+09:00'
+    text: "【金利上昇が話題】個人向け国債が年2.0%、住宅ローンも固定か変動か悩む人が増えています。変動の借換えが得かは残債・金利差・残期間の3条件で決まります。損益分岐を試算した記事です。\n\
+      https://finlab-se.com/posts/mortgage-rate-refinance-simulation/\n#住宅ローン #変動金利
+      #日銀"
+    tweet_id: '2070267227333668963'
+    tweet_url: https://x.com/i/web/status/2070267227333668963
+    type: topic
+    post_path: content/posts/mortgage-rate-refinance-simulation.md
   - posted_at: '2026-06-25T21:05:43+09:00'
     text: "【新着📝】\n三井住友カード ゴールド(NL)の100万円修行を達成した筆者が、その後は年100万円に届かず継続特典を得られていない現実を正直に公開。何円使う人なら得かを損益分岐で整理した実録レビューです。\n\
       \nhttps://finlab-se.com/posts/smbc-gold-nl-100man-review/"
@@ -355,10 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2060485956008837265
     type: rotation
     post_path: content/posts/montecarlo-tool-usage.md
-  - posted_at: '2026-05-29T21:06:34+09:00'
-    text: "【おすすめ📖】\n「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。\n\nhttps://finlab-se.com/posts/dividend-target-simulator-tool-usage/\n\
-      \n#配当目標 #高配当株 #シミュレーションツール"
-    tweet_id: '2060331967199990232'
-    tweet_url: https://x.com/i/web/status/2060331967199990232
-    type: rotation
-    post_path: content/posts/dividend-target-simulator-tool-usage.md
