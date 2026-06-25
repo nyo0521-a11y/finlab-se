@@ -4,7 +4,7 @@ date: 2026-04-30T06:30:00+09:00
 lastmod: 2026-05-14T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
-tags: ["証券会社", "高配当株", "インデックス投資", "NISA", "単元未満株"]
+tags: ["証券会社", "高配当株", "インデックス投資", "NISA"]
 description: "投資スタイル別の証券会社選びを解説。SBI・楽天・マネックス・UFJ eスマートを5観点で比較。"
 showToc: true
 cover:

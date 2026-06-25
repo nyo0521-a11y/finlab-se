@@ -4,7 +4,7 @@ date: 2026-04-27T08:00:00+09:00
 lastmod: 2026-06-07T00:00:00+09:00
 draft: false
 description: "2026年4月に食品2,798品目値上げ。固定費削減でNISA積立を増やす具体的な手順を解説。"
-tags: ["家計管理", "節約", "NISA", "MoneyForward", "固定費"]
+tags: ["家計管理", "NISA", "MoneyForward"]
 categories: ["資産形成"]
 showToc: true
 cover:

@@ -6,7 +6,7 @@ lastmod: 2026-05-29T00:00:00+09:00
 draft: false
 description: "モアタイムシステム（モアタイム）とは何か。全銀ネット上で振込が24時間365日即時着金する仕組みを、コアタイムとの違い・参加銀行の注意点・使えないケースまで金融SEが解説。"
 categories: ["金融の仕組み"]
-tags: ["全銀ネット", "銀行", "決済", "送金", "モアタイム", "金融インフラ"]
+tags: ["金融インフラ"]
 showToc: true
 cover:
   image: "/images/thumb-zengin-net-payment-system.png"

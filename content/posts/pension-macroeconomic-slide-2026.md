@@ -2,7 +2,7 @@
 title: "2026年度の年金改定率と「マクロ経済スライド」— 現役世代が今から備える3つの行動"
 date: 2026-04-20
 description: "2026年度の年金改定率とマクロ経済スライドによる実質目減りを試算。iDeCo・NISA・高配当株で備える。"
-tags: ["年金", "マクロ経済スライド", "老後資金", "iDeCo", "NISA"]
+tags: ["老後資金・年金", "iDeCo・確定拠出年金", "NISA"]
 showToc: true
 cover:
   image: "/images/thumb-pension-macroeconomic-slide-2026.jpg"

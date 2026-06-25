@@ -3,7 +3,7 @@ title: "高配当株ポートフォリオ管理の設計原則｜月次運用を
 date: 2026-04-19T07:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
-tags: ["高配当株", "ポートフォリオ管理", "設計原則", "Googleスプレッドシート", "Claude Code"]
+tags: ["高配当株", "ポートフォリオ", "MoneyForward", "Claude Code"]
 description: "高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。"
 showToc: true
 cover:

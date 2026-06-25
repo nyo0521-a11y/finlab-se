@@ -3,7 +3,7 @@ title: "日銀ネットとは？銀行間決済RTGSの仕組み｜Fedwire・CHIP
 date: 2026-04-21T06:52:00+09:00
 draft: false
 categories: ["金融の仕組み"]
-tags: ["日銀ネット", "RTGS", "決済システム", "Fedwire", "CHIPS", "TARGET2", "金融インフラ"]
+tags: ["金融インフラ"]
 description: "日銀ネットとRTGSの仕組みを、米Fedwire・CHIPS・欧TARGET2と比較しながら金融SEが解説。銀行間決済の裏側がわかる。"
 showToc: true
 cover:

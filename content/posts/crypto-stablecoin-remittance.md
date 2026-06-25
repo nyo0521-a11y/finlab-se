@@ -3,7 +3,7 @@ title: "暗号資産とステーブルコインで海外送金はどう変わる
 date: 2026-04-23T14:17:00+09:00
 draft: false
 categories: ["金融の仕組み"]
-tags: ["暗号資産","ステーブルコイン","海外送金","規制","マネーロンダリング"]
+tags: ["暗号資産", "海外送金"]
 description: "ステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。"
 showToc: true
 cover:

@@ -3,7 +3,7 @@ title: "Xの自動投稿を自作する｜Cloudflare WorkersとGitHub Actionsで
 date: 2026-05-03T06:30:00+09:00
 draft: false
 categories: ["AI活用"]
-tags: ["X自動投稿", "X API", "GitHub Actions", "Cloudflare Workers", "cron", "自動化", "Claude Code"]
+tags: ["ブログ運営", "AI活用", "Claude Code"]
 description: "Xの自動投稿をほぼ無料で自作した記録。GitHub Actionsのcronが数時間ズレる問題に直面し、Cloudflare WorkersのCron Triggersへ移行して解決。X API・GitHub Secrets・投稿キューの役割と全体像を、コードなしで解説します。"
 showToc: true
 cover:

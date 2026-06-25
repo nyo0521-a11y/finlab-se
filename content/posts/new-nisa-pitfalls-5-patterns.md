@@ -3,7 +3,7 @@ title: "【新NISA】5つの落とし穴と回避策｜本当に怖いのは1つ
 date: 2026-05-24T05:30:00+09:00
 draft: false
 categories: ["資産形成"]
-tags: ["NISA", "新NISA", "失敗例", "落とし穴", "インデックス投資", "狼狽売り"]
+tags: ["NISA", "インデックス投資"]
 description: "新NISAで損する5つの落とし穴を金融SE20年が整理。本当に怖いのは「暴落時の早期売却」1つだけ、残り4つは設定確認レベル。"
 showToc: true
 cover:

@@ -3,7 +3,7 @@ title: "iDeCoとNISAはどちらが得か？退職金の有無で答えが変わ
 date: 2026-05-12T05:30:00+09:00
 draft: false
 categories: ["資産形成"]
-tags: ["iDeCo", "NISA", "節税", "税の繰り延べ", "老後資産", "シミュレーション", "退職金"]
+tags: ["iDeCo・確定拠出年金", "NISA", "節税", "老後資金・年金", "シミュレーション"]
 description: "iDeCoはNISAより手取りで有利か？退職金なしなら約382万円差。退職金ありなら99万円差まで縮む。シミュレーションで確認。"
 showToc: true
 cover:

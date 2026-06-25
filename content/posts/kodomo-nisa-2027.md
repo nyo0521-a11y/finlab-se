@@ -4,7 +4,7 @@ date: 2026-04-25T07:30:00+09:00
 lastmod: 2026-05-02T00:00:00+09:00
 draft: false
 categories: ["金融ニュース"]
-tags: ["NISA", "こどもNISA", "ジュニアNISA", "子育て", "教育資金", "税制改正"]
+tags: ["NISA"]
 description: "2027年スタートのこどもNISA（こども支援NISA）。概要とジュニアNISAとの違いを解説。"
 showToc: true
 cover:

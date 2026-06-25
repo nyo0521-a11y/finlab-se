@@ -4,7 +4,7 @@ date: 2026-04-22
 lastmod: 2026-04-28
 draft: false
 categories: ["金融ニュース"]
-tags: ["高配当株", "決算", "配当", "累進配当", "投資ニュース"]
+tags: ["高配当株", "2026年改正"]
 description: "増配ニュースに飛びつく前に確認すべき配当性向・DOE・営業CFの3点。2026年3月期決算の読み方。"
 showToc: true
 cover:
