@@ -208,3 +208,8 @@ cover:
 - [年収の壁2026年版：「自分はどうすればいい？」を立場別に整理する](https://finlab-se.com/posts/income-wall-2026/) — 103万・106万・130万・178万円の壁が2026年に変わる
 - [年収の壁とは何か——「税金の壁」と「社保の壁」2種類で全部わかる](https://finlab-se.com/posts/income-wall-framework/) — 年収の壁は「税金の壁」と「社保の壁」の2種類に分けると構造が見える
 - [106万円の壁撤廃｜手取りはいくら減り年金はいくら増えるか【月収別試算】](https://finlab-se.com/posts/income-wall-106-takehome-pension-2026/) — 2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか
+
+## 参考文献
+
+- [労働契約内容による年間収入での被扶養者の認定の取り扱いについて｜日本年金機構](https://www.nenkin.go.jp/oshirase/taisetu/jigyosho/2026/202605/0501.html)
+- [被扶養者の収入確認に当たっての「一時的な収入変動」に係る事業主の証明書（PDF）｜厚生労働省](https://www.mhlw.go.jp/content/001159348.pdf)
