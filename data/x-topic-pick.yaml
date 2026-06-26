@@ -26,3 +26,12 @@
 #   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
+  post_path: "content/posts/nikkei-60000-highyield-mindset.md"
+  text: |-
+    【日経平均が最高値を更新】株高で「資産効果」が話題ですが、こんなときこそ慎重に。高配当株投資家がやってはいけない3つのことを整理しました。乗り換えや利確で焦らないための心構えです。
+    https://finlab-se.com/posts/nikkei-60000-highyield-mindset/
+    #日経平均 #高配当株 #新NISA
+  image_path: "/images/thumb-nikkei-60000-highyield-mindset.jpg"
+  target_date: "2026-06-27"
+  topic: "日経平均が最高値を更新・株高で資産効果が話題（Google News上位/Yahoo経済ランキング上位）"
+  prepared_at: "2026-06-26T22:07:48.388669+09:00"
