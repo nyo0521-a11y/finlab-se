@@ -341,8 +341,8 @@ rotation:
   promote_count: 0
   priority: normal
 - post_path: content/posts/index-investing-10years-honest-review.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-27T07:05:43+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/index-vs-highyield-retirement-allocation.md
   last_promoted: '2026-06-19T07:05:28+09:00'

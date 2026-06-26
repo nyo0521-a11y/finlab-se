@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-27T07:05:43+09:00'
+    text: "【株価が急落して話題】日経平均が大幅反落しAI関連株に売りが広がっています。こんなときに読みたいのが、暴落を何度も経験した金融SEがインデックス投資10年で得た「暴落耐性」の話。狼狽売りを避けるヒントになります。\n\
+      https://finlab-se.com/posts/index-investing-10years-honest-review/\n#インデックス投資
+      #暴落 #新NISA"
+    tweet_id: '2070629604411199833'
+    tweet_url: https://x.com/i/web/status/2070629604411199833
+    type: topic
+    post_path: content/posts/index-investing-10years-honest-review.md
   - posted_at: '2026-06-26T21:05:42+09:00'
     text: "【おすすめ📖】\nクレカ選びは経済圏が先。楽天・ドコモ・SBI・au別に最適な1枚を比較し、積立還元率の損益分岐点を数字で解説。\n\nhttps://finlab-se.com/posts/credit-card-recommendation-2026/\n\
       \n#クレジットカード #NISA #証券会社"
@@ -356,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2060848289847652712
     type: rotation
     post_path: content/posts/bank-core-system-cloud.md
-  - posted_at: '2026-05-30T21:05:43+09:00'
-    text: "【おすすめ📖】\nMoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeで自動化した話。\n\nhttps://finlab-se.com/posts/asset-management-claude-code/\n\
-      \n#ClaudeCode #家計管理 #MoneyForward"
-    tweet_id: '2060694139285495938'
-    tweet_url: https://x.com/i/web/status/2060694139285495938
-    type: rotation
-    post_path: content/posts/asset-management-claude-code.md
