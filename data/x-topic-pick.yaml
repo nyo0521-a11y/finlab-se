@@ -26,12 +26,12 @@
 #   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
-  post_path: "content/posts/nikkei-60000-highyield-mindset.md"
+  post_path: "content/posts/index-investing-10years-honest-review.md"
   text: |-
-    【日経平均が最高値を更新】株高で「資産効果」が話題ですが、こんなときこそ慎重に。高配当株投資家がやってはいけない3つのことを整理しました。乗り換えや利確で焦らないための心構えです。
-    https://finlab-se.com/posts/nikkei-60000-highyield-mindset/
-    #日経平均 #高配当株 #新NISA
-  image_path: "/images/thumb-nikkei-60000-highyield-mindset.jpg"
+    【株価が急落して話題】日経平均が大幅反落しAI関連株に売りが広がっています。こんなときに読みたいのが、暴落を何度も経験した金融SEがインデックス投資10年で得た「暴落耐性」の話。狼狽売りを避けるヒントになります。
+    https://finlab-se.com/posts/index-investing-10years-honest-review/
+    #インデックス投資 #暴落 #新NISA
+  image_path: "/images/thumb-index-investing-10years-honest-review.png"
   target_date: "2026-06-27"
-  topic: "日経平均が最高値を更新・株高で資産効果が話題（Google News上位/Yahoo経済ランキング上位）"
-  prepared_at: "2026-06-26T22:07:48.388669+09:00"
+  topic: "日経平均が大幅反落・AI関連株に売り（Google News上位/Yahoo経済ランキング上位）"
+  prepared_at: "2026-06-27T06:40:51.085263+09:00"
