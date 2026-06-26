@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-26T21:05:42+09:00'
+    text: "【おすすめ📖】\nクレカ選びは経済圏が先。楽天・ドコモ・SBI・au別に最適な1枚を比較し、積立還元率の損益分岐点を数字で解説。\n\nhttps://finlab-se.com/posts/credit-card-recommendation-2026/\n\
+      \n#クレジットカード #NISA #証券会社"
+    tweet_id: '2070478606527037453'
+    tweet_url: https://x.com/i/web/status/2070478606527037453
+    type: rotation
+    post_path: content/posts/credit-card-recommendation-2026.md
   - posted_at: '2026-06-26T07:05:45+09:00'
     text: "【金利上昇が話題】個人向け国債が年2.0%、住宅ローンも固定か変動か悩む人が増えています。変動の借換えが得かは残債・金利差・残期間の3条件で決まります。損益分岐を試算した記事です。\n\
       https://finlab-se.com/posts/mortgage-rate-refinance-simulation/\n#住宅ローン #変動金利
@@ -356,10 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2060694139285495938
     type: rotation
     post_path: content/posts/asset-management-claude-code.md
-  - posted_at: '2026-05-30T07:18:28+09:00'
-    text: "【おすすめ📖】\n資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツールの使い方。\n\nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\
-      \n#モンテカルロシミュレーション #FIRE #4%ルール"
-    tweet_id: '2060485956008837265'
-    tweet_url: https://x.com/i/web/status/2060485956008837265
-    type: rotation
-    post_path: content/posts/montecarlo-tool-usage.md

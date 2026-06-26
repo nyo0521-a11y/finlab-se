@@ -281,8 +281,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/credit-card-recommendation-2026.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-26T21:05:42+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/crypto-exchange-financial-group-2026.md
   last_promoted:
