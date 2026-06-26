@@ -3,3 +3,7 @@ _staging/
 .hugo_build.lock
 resources/_gen/
 tmp-diagram/
+
+# Python cache
+__pycache__/
+*.pyc
