@@ -301,3 +301,9 @@ on:
 まずはDraft環境を作るところから試してみると、自分のブログ運営に合った公開フローが見えてくると思います。何かの参考になれば幸いです。
 
 同じ構成を作りたい方は、Claude Codeに「①HugoとCloudflare Pagesで静的ブログを作り、②Draft確認用と本番の2環境を用意し、③GitHub ActionsのCronで予約投稿できるようにしたい」と伝えると、同様の仕組みが実現できます。
+
+## 関連記事
+
+- [Xの自動投稿を自作する｜Cloudflare WorkersとGitHub Actionsで定時投稿（cronズレも解決）](https://finlab-se.com/posts/x-auto-post-cloudflare-workers/) — Xの自動投稿をほぼ無料で自作した記録
+- [Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](https://finlab-se.com/posts/claude-code-blog-experience/) — 投資シミュレーターを作ろうとしたらブログまで作っていた話
+- [Claude Designでブログのデザインを刷新した話 — PaperMod標準から脱却するまで](https://finlab-se.com/posts/blog-redesign-with-claude-code/) — Claude Codeに「ブログをリデザインして」と丸投げするだけで完成

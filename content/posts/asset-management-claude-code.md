@@ -241,6 +241,12 @@ Claude Codeをどう活用してきたかは、こちらの記事も参考にし
 
 - [リベラルアーツ大学（YouTube）](https://www.youtube.com/@ryogakucho)
 
+## 関連記事
+
+- [Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化](https://finlab-se.com/posts/claude-code-dividend-calendar/) — 保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成…
+- [マネーフォワードMEで家計簿を自動化｜金融SEが解説する5つの理由](https://finlab-se.com/posts/household-budget-app-comparison-2026/) — マネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説
+- [Claude Codeで「FIRE家計簿」を作る｜支出を生存費と豊かさ費に自動仕分け](https://finlab-se.com/posts/claude-code-fire-budget/) — Claude CodeでMoneyForwardの家計明細を自動取得し、支出を①生存費と…
+
 ---
 
 > **注記：** Claude Codeはアカウント登録・利用料が必要です。本記事の内容は2026年4月時点の機能に基づいています。

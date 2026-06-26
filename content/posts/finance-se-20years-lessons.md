@@ -97,3 +97,9 @@ cover:
 - 億〜兆円規模の金額を扱うダイナミックさと、金融ニュースが自分の仕事と直結する感覚は、裏方ならではのやりがい
 
 勘定系のクラウド移行そのものの技術的な論点は[こちらの記事](https://finlab-se.com/posts/bank-core-system-cloud/)にまとめています。本記事はその「中の人視点のサイドB」として読んでいただけると嬉しいです。
+
+## 関連記事
+
+- [銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する](https://finlab-se.com/posts/bank-core-system-cloud/) — なぜ銀行の勘定系がクラウドへ移行するのか
+- [金融機関で20年見てきたお金の話](https://finlab-se.com/posts/finance-insider-money-habits/) — 金利を一番知るはずの金融機関の人が借金を多用していた
+- [金融機関で20年見てきたお金の話｜キャッシュレス・保険・銀行の本音](https://finlab-se.com/posts/finance-insider-cashless-and-sales/) — 金融機関に20年勤めた筆者が、キャッシュレスの早さ・保険の実態・銀行の短期目線を内側の肌…

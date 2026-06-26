@@ -191,3 +191,9 @@ cover:
 - 買い増しルールは「下落率分散・比率・数字・配当の積み上げ」の4軸で固める
 
 まずは今月、自分のポートフォリオの<strong>目標比率と売却条件を1枚の紙（またはスプレッドシート）に書き出してみてください</strong>。相場が動くたびに迷う回数が、確実に減っていくはずです。
+
+## 関連記事
+
+- [【高配当株】買い時はいつ？配当利回りで割安を見極める方法｜VYM・HDV・SCHD実例](https://finlab-se.com/posts/highyield-buying-timing/) — 高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD…
+- [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](https://finlab-se.com/posts/highyield-portfolio-management/) — 高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実…
+- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/) — 高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結…

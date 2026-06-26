@@ -176,3 +176,9 @@ cover:
 まず自分の借入額・返済期間でフラット35の金利と主要ネット銀行の変動金利を比較し、月額差を計算してみてください。その差額を繰り上げ返済に充てた場合の総支払額を試算するだけで、判断に使える数字が揃います。
 
 [住宅ローンは変動か固定か——金利差を繰り上げ返済に回すと何年で逆転するかシミュレーション](/posts/housing-loan-variable-fixed-simulation/)
+
+## 関連記事
+
+- [住宅ローンは変動か固定か——差額繰り上げ戦略と「保険料」の考え方](https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/) — 変動と固定の差額を繰り上げ返済に回す戦略を3,000万円35年で検証
+- [日銀の政策金利と住宅ローン変動金利 — 借換え判断のシミュレーション実例](https://finlab-se.com/posts/mortgage-rate-refinance-simulation/) — 変動金利の利上げ局面で借換えは得か
+- [繰り上げ返済と投資どっち？配当で住宅ローンを賄えるか金融SEが試算](https://finlab-se.com/posts/mortgage-prepayment-vs-investment-yieldgap/) — 住宅ローンは繰り上げ返済と投資どっち？配当や取り崩しで返済を賄えるかを固定・変動の実値で試算

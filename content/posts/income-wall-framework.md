@@ -275,6 +275,12 @@ cover:
 
 - ニッセイ基礎研究所「配偶者手当を廃止する企業が増えていることを知っていますか」<a href="https://www.nli-research.co.jp/report/detail/id=77455?site=nli" target="_blank" rel="noopener noreferrer">https://www.nli-research.co.jp/report/detail/id=77455?site=nli</a>
 
+## 関連記事
+
+- [年収の壁2026年版：「自分はどうすればいい？」を立場別に整理する](https://finlab-se.com/posts/income-wall-2026/) — 103万・106万・130万・178万円の壁が2026年に変わる
+- [2026年4月から健康保険の扶養認定が労働契約ベースへ｜一時的な残業で扶養外れが解消](https://finlab-se.com/posts/health-insurance-dependent-2026/) — 2026年4月から被扶養者認定が「労働契約ベース」に変更
+- [106万円の壁撤廃｜手取りはいくら減り年金はいくら増えるか【月収別試算】](https://finlab-se.com/posts/income-wall-106-takehome-pension-2026/) — 2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか
+
 ---
 
 *本記事は制度の仕組み理解を目的としており、個別の税務・社会保険相談は専門家にご確認ください。*

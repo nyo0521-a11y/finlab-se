@@ -291,3 +291,9 @@ Claude Code の許可問題を解決するポイントをまとめます。
 慣れてきたら `deny` リストや `CLAUDE.md` を自分の環境に合わせて育てていくと、さらに快適になります。「この操作は毎回止まらなくていい」と気づいたタイミングで、Claude Code に「CLAUDE.md にこの一行を追記して」と伝えるだけで設定が更新できます。
 
 何かの参考になれば幸いです。
+
+## 関連記事
+
+- [Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](https://finlab-se.com/posts/claude-code-blog-experience/) — 投資シミュレーターを作ろうとしたらブログまで作っていた話
+- [Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化](https://finlab-se.com/posts/claude-code-dividend-calendar/) — 保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成…
+- [Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/) — MoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Code…
