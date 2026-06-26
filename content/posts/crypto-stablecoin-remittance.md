@@ -240,3 +240,8 @@ Wise・Revolutが「コルレス網を迂回する規制業者」として銀行
 
 - [全銀システムって何？振込ボタンを押した瞬間、銀行の裏側で何が起きているのか](/posts/zengin-net-payment-system/)
 - [銀行同士のお金はどう動く？日銀ネットRTGSと海外決済システムの仕組み](/posts/boj-net-rtgs-international/)
+
+## 参考文献
+
+- [電子決済手段等取引業・電子決済等取扱業を行うみなさまへ｜金融庁](https://www.fsa.go.jp/common/shinsei/dendai/dentori.html)
+- [資金決済に関する法律の一部を改正する法律案（説明資料）（PDF）｜金融庁](https://www.fsa.go.jp/common/diet/217/02/setsumei.pdf)

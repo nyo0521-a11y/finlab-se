@@ -217,3 +217,8 @@ Wise・Revolutが海外送金にもたらした構造的変化を整理すると
 
 - [← 前：海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説](/posts/overseas-remittance-mechanism/)
 - [次：暗号資産とステーブルコインで海外送金はどう変わるか →](/posts/crypto-stablecoin-remittance/)
+
+## 参考文献
+
+- [新たな資金決済サービス（資金移動業の概要）（PDF）｜金融庁](https://www.fsa.go.jp/common/about/pamphlet/shin-kessai.pdf)
+- [事務ガイドライン 第三分冊：金融会社関係 14 資金移動業者関係（PDF）｜金融庁](https://www.fsa.go.jp/common/law/guide/kaisya/14.pdf)

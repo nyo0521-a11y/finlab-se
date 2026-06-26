@@ -252,3 +252,9 @@ SWIFTのISO 20022移行やGPIの普及はこの文脈で評価されるべき改
 
 - [← 前：銀行同士のお金はどう動く？日銀ネットRTGSと海外決済システムの仕組み](/posts/boj-net-rtgs-international/)
 - [次：Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み →](/posts/wise-revolut-fintech-remittance/)
+
+## 参考文献
+
+- [Swift（スイフト）｜全国銀行協会](https://www.zenginkyo.or.jp/abstract/efforts/system/swift/)
+- [外国送金するときの個人情報の取扱いは？（コルレス銀行・経由銀行の解説）｜全国銀行協会](https://www.zenginkyo.or.jp/article/tag-f/17491/)
+- [太平洋島嶼国からのコルレス銀行の撤退について｜財務省](https://www.mof.go.jp/public_relations/finance/202507/202507f.html)

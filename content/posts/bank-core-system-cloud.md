@@ -287,3 +287,8 @@ cover:
 - [金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ](https://finlab-se.com/posts/finance-se-20years-lessons/) — 銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点
 - [ネット銀行は危ない？多重防御の仕組みと個人ができるフィッシング対策4つ｜金融SE解説](https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/) — ネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも…
 - [モアタイムシステムとは？全銀ネットで振込が24時間即時着金する仕組み｜金融SE解説](https://finlab-se.com/posts/zengin-net-payment-system/) — モアタイムシステム（モアタイム）とは何か
+
+## 参考文献
+
+- [「金融機関等コンピュータシステムの安全対策基準・解説書」（第14版）公表｜FISC（金融情報システムセンター）](https://www.fisc.or.jp/topics/007222.php)
+- [金融機関におけるクラウド利用に関する有識者検討会報告書（PDF）｜FISC](https://www.fisc.or.jp/document/fintech/file/190_0.pdf)

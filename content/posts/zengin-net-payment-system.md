@@ -231,3 +231,8 @@ cover:
 - piyolog：[全国銀行データ通信システムのシステム障害についてまとめてみた](https://piyolog.hatenadiary.jp/entry/2023/10/11/131415)（2023年障害の整理記事）
 
 ※本記事の年次・件数等は執筆時点（2026年4月）で公表されている公開情報に基づきます。最新の参加金融機関や処理件数は全銀ネット公式サイトをご確認ください。
+
+## 参考文献
+
+- [全銀システムとは｜全国銀行資金決済ネットワーク](https://www.zengin-net.jp/zengin_system/)
+- [全国銀行データ通信システム（全銀システム）｜全国銀行協会](https://www.zenginkyo.or.jp/abstract/efforts/system/zengin-system/)
