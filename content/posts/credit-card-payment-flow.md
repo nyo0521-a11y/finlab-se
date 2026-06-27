@@ -237,3 +237,10 @@ EC購入後に「支払い予定」として限度額が減っているのに、
 - [クレカのポイントはなぜもらえる？インターチェンジフィーからわかるカード会社のビジネスモデル](/posts/credit-card-interchange-fee/)
 - [なぜ年会費無料のクレカでも1%還元できるのか｜カード会社が損をしない仕組み](/posts/credit-card-free-annual-fee-model/)
 - [クレカ改悪2026年まとめ：手数料収入が減ればポイント還元が絞られる理由](/posts/credit-card-reform-2026/)
+
+---
+
+## 参考文献
+
+- [クレジットの契約関係（クレジットの基礎知識）｜一般社団法人日本クレジット協会](https://www.j-credit.or.jp/customer/basis/classification.html)
+- [クレジットカードの取引に関する実態調査について（令和4年4月8日）｜公正取引委員会](https://www.jftc.go.jp/houdou/pressrelease/2022/apr/220408.html)

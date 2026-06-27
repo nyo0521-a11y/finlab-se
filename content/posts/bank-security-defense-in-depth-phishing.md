@@ -399,3 +399,10 @@ GoogleやAppleのパスワード管理機能（iCloudキーチェーン）、あ
 - <a href="https://fidoalliance.org/" target="_blank" rel="noopener">FIDO Alliance</a>（パスキー・FIDO2の標準化団体）
 - <a href="https://www.youtube.com/@ryogakucho" target="_blank" rel="noopener">両学長 リベラルアーツ大学（YouTube）</a>——「お金を守る力」全般の入門解説
 - <a href="https://libecity.com/" target="_blank" rel="noopener">リベシティ</a>——お金にまつわる学びと実践のコミュニティ
+
+---
+
+## 参考文献
+
+- [インターネット取引サービスへの不正アクセス・不正取引にご注意ください｜金融庁](https://www.fsa.go.jp/ordinary/chuui/chuui_phishing.html)
+- [インターネットバンキングの不正送金にあわないためのガイドライン｜フィッシング対策協議会](https://www.antiphishing.jp/report/guideline/internetbanking_guideline.html)

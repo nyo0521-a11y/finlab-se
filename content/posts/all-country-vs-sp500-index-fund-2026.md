@@ -353,3 +353,10 @@ S&P500を選ぶのが間違いというわけではありません。<strong>「
 
 - [リベラルアーツ大学（リベ大）](https://liberaluni.com/) — お金にまつわる5つの力（貯める・稼ぐ・増やす・守る・使う）を学べる無料サービス
 - [リベシティ](https://libecity.com/) — リベ大が運営するお金の悩み相談コミュニティ
+
+---
+
+## 参考文献
+
+- [MSCI ACWI Index（オルカンが連動する指数）｜MSCI（英語）](https://www.msci.com/indexes/index/892400/msci-acwi-index)
+- [S&P 500｜S&P Dow Jones Indices（英語）](https://www.spglobal.com/spdji/en/indices/equity/sp-500/)
