@@ -193,3 +193,10 @@ cover:
 - [税の壁 vs 社保の壁の考え方](/posts/income-wall-framework/)
 - [健康保険の被扶養者・130万円ラインと2026年改正](/posts/health-insurance-dependent-2026/)
 - [投資の前にやる支出最適化](/posts/expense-optimization-before-investing/)
+
+---
+
+## 参考文献
+
+- [「年収の壁」への対応｜厚生労働省](https://www.mhlw.go.jp/stf/taiou_001_00002.html)
+- [社会保険の加入対象の拡大について｜厚生労働省](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00021.html)

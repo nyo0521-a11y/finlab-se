@@ -196,3 +196,10 @@ cover:
 - [投資信託の実質コスト比較｜隠れコストを金融SEが解説](/posts/mutual-fund-real-cost-2026/)
 - [オルカンとS&P500どっち？金融SEが3つの判断軸で解説](/posts/all-country-vs-sp500-index-fund-2026/)
 - [インデックス投資10年のリアル｜続けて分かった正直な振り返り](/posts/index-investing-10years-honest-review/)
+
+---
+
+## 参考文献
+
+- [ウェルスナビの手数料の仕組みと考え方｜WealthNavi（ウェルスナビ）](https://www.wealthnavi.com/contents/column/55/)
+- [WealthNavi（ウェルスナビ）公式サイト](https://www.wealthnavi.com/)

@@ -429,3 +429,11 @@ iDeCoの優位性は以下の3軸が揃うほど大きくなります。
 - [企業型DC・iDeCoの基本を整理する｜3階建て構造と税メリット・デメリット](https://finlab-se.com/posts/ideco-dc-basics/) — 企業型DB・DC・iDeCoの違いを3階建てで整理
 - [iDeCoの受け取り方を徹底解説——一時金・年金・併用の損得を整理する](https://finlab-se.com/posts/ideco-withdrawal-guide/) — iDeCoの受け取り方は一時金・年金形式・併用の3択です
 - [【2026年改正】iDeCoは社会保険料・所得税が下がる？節税効果を年収別に試算](https://finlab-se.com/posts/ideco-2026-reform/) — 2026年改正でiDeCoの掛金上限が月6
+
+---
+
+## 参考文献
+
+- [iDeCoの加入資格・掛金・受取方法等｜iDeCo公式サイト（国民年金基金連合会）](https://www.ideco-koushiki.jp/guide/structure.html)
+- [No.1420 退職金を受け取ったとき（退職所得）｜国税庁](https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1420.htm)
+- [NISA特設ウェブサイト｜金融庁](https://www.fsa.go.jp/policy/nisa2/)

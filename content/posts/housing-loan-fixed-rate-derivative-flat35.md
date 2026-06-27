@@ -182,3 +182,10 @@ cover:
 - [住宅ローンは変動か固定か——差額繰り上げ戦略と「保険料」の考え方](https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/) — 変動と固定の差額を繰り上げ返済に回す戦略を3,000万円35年で検証
 - [日銀の政策金利と住宅ローン変動金利 — 借換え判断のシミュレーション実例](https://finlab-se.com/posts/mortgage-rate-refinance-simulation/) — 変動金利の利上げ局面で借換えは得か
 - [繰り上げ返済と投資どっち？配当で住宅ローンを賄えるか金融SEが試算](https://finlab-se.com/posts/mortgage-prepayment-vs-investment-yieldgap/) — 住宅ローンは繰り上げ返済と投資どっち？配当や取り崩しで返済を賄えるかを固定・変動の実値で試算
+
+---
+
+## 参考文献
+
+- [【フラット35】公式サイト｜住宅金融支援機構](https://www.flat35.com/)
+- [金利情報（フラット35等）｜住宅金融支援機構](https://www.jhf.go.jp/kinri/index.html)
