@@ -357,4 +357,12 @@ cover:
 
 ---
 
+## 関連記事
+
+- [高配当株の銘柄選定基準](/posts/highyield-stock-selection-criteria/) — どの銘柄を選ぶかの判断軸
+- [高配当株ポートフォリオ管理の設計原則](/posts/highyield-portfolio-management/) — 減配に強い分散ルール
+- [高配当株の買い時の見極め方](/posts/highyield-buying-timing/) — 配当利回り×過去平均で判断
+
+---
+
 > **注記：** 本記事は特定の銘柄・ETFの購入を推奨するものではありません。投資は自己責任で行ってください。

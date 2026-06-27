@@ -241,6 +241,16 @@ Wise・Revolutが「コルレス網を迂回する規制業者」として銀行
 - [全銀システムって何？振込ボタンを押した瞬間、銀行の裏側で何が起きているのか](/posts/zengin-net-payment-system/)
 - [銀行同士のお金はどう動く？日銀ネットRTGSと海外決済システムの仕組み](/posts/boj-net-rtgs-international/)
 
+---
+
+## 関連記事
+
+- [海外送金の仕組み（SWIFT・コルレス銀行）](/posts/overseas-remittance-mechanism/) — 従来型の国際送金の仕組み
+- [Wise・Revolutはなぜ安い？FinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/) — 非ブロックチェーン型の低コスト送金
+- [暗号資産取引所の選び方2026](/posts/crypto-exchange-financial-group-2026/) — ステーブルコインを扱う取引所選び
+
+---
+
 ## 参考文献
 
 - [電子決済手段等取引業・電子決済等取扱業を行うみなさまへ｜金融庁](https://www.fsa.go.jp/common/shinsei/dendai/dentori.html)

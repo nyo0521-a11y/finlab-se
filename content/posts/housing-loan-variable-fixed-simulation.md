@@ -292,3 +292,11 @@ cover:
 - <a href="https://www.boj.or.jp/mopo/mpmsche_minu/index.htm" target="_blank" rel="noopener">日本銀行 金融政策決定会合</a> — 政策金利の現状と先行きを公式発表で確認できる。2025年12月の利上げで政策金利は0.75%へ
 - <a href="https://www.youtube.com/@ryogakucho" target="_blank" rel="noopener">両学長 リベラルアーツ大学（YouTube）</a> — お金にまつわる5つの力を発信する両学長の公式チャンネル。<strong>本記事後半の「保険は『貯蓄で備えられない大きな損失』だけに使う」という考え方は、リベ大の動画から大きな示唆を受けています</strong>
 - <a href="https://libecity.com/" target="_blank" rel="noopener">リベシティ</a> — リベ大が運営するお金の悩み相談コミュニティ。住宅ローン・保険・家計の実例相談が多数
+
+---
+
+## 関連記事
+
+- [固定金利の正体はデリバティブ｜フラット35が安い理由](/posts/housing-loan-fixed-rate-derivative-flat35/) — 固定金利の仕組みを解説
+- [日銀政策金利と変動金利・借換えシミュレーション](/posts/mortgage-rate-refinance-simulation/) — 金利が動くと返済はどう変わるか
+- [繰り上げ返済と投資どっち？](/posts/mortgage-prepayment-vs-investment-yieldgap/) — 返済と運用の損得を判断

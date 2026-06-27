@@ -187,3 +187,11 @@ cover:
 
 - [リベラルアーツ大学（YouTube）](https://www.youtube.com/@ryogakucho)
 - [リベシティ公式サイト（入会案内）](https://site.libecity.com/)
+
+---
+
+## 関連記事
+
+- [ボーナスや臨時収入の前に支出を最適化する](/posts/expense-optimization-before-investing/) — 投資に回す前に固定費を見直す順番
+- [食費・固定費の見直しをNISA積立に変える](/posts/expense-optimization-nisa-investment/) — 浮いたお金を投資へ回す具体手順
+- [新NISAの5つの落とし穴と回避策](/posts/new-nisa-pitfalls-5-patterns/) — 積立を始める前に知る注意点

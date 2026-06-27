@@ -232,6 +232,16 @@ cover:
 
 ※本記事の年次・件数等は執筆時点（2026年4月）で公表されている公開情報に基づきます。最新の参加金融機関や処理件数は全銀ネット公式サイトをご確認ください。
 
+---
+
+## 関連記事
+
+- [日銀ネットとRTGS｜国内大口決済の仕組み](/posts/boj-net-rtgs-international/) — 全銀ネットと対になる資金決済
+- [海外送金の仕組み（SWIFT・コルレス銀行）](/posts/overseas-remittance-mechanism/) — 国内決済との違い
+- [銀行勘定系システムのクラウド移行](/posts/bank-core-system-cloud/) — 決済を支える基幹システム
+
+---
+
 ## 参考文献
 
 - [全銀システムとは｜全国銀行資金決済ネットワーク](https://www.zengin-net.jp/zengin_system/)
