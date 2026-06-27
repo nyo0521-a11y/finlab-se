@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-28T07:05:40+09:00'
+    text: "【おすすめ📖】\n2026年4月に食品2,798品目値上げ。固定費削減でNISA積立を増やす具体的な手順を解説。\n\nhttps://finlab-se.com/posts/expense-optimization-nisa-investment/\n\
+      \n#家計管理 #NISA #MoneyForward"
+    tweet_id: '2070991981782655482'
+    tweet_url: https://x.com/i/web/status/2070991981782655482
+    type: rotation
+    post_path: content/posts/expense-optimization-nisa-investment.md
   - posted_at: '2026-06-27T21:05:42+09:00'
     text: "【おすすめ📖】\n高配当株や投資信託に加え暗号資産も検討し始めた方向けに、取引所選びの5つの視点（手数料・取引ボリューム・レンディング・親会社資本力・金融グループ所属）をFTX破綻・Coincheck事件…\n\
       \nhttps://finlab-se.com/posts/crypto-exchange-financial-group-2026/\n\n#暗号資産
@@ -358,10 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2061210679579684949
     type: rotation
     post_path: content/posts/boj-net-rtgs-international.md
-  - posted_at: '2026-05-31T21:06:21+09:00'
-    text: "【おすすめ📖】\nClaude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。\n\nhttps://finlab-se.com/posts/blog-redesign-with-claude-code/\n\
-      \n#ClaudeDesign #ClaudeCode #ブログ運営"
-    tweet_id: '2061056687319203940'
-    tweet_url: https://x.com/i/web/status/2061056687319203940
-    type: rotation
-    post_path: content/posts/blog-redesign-with-claude-code.md
