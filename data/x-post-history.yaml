@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-28T21:05:44+09:00'
+    text: "【新着📝】\n「AI資産運用」「AI投資」と聞くと最先端に思えますが、生成AIが未来の相場を予測して運用する商品ではありません。\n\nhttps://finlab-se.com/posts/ai-asset-management-robo-advisor-2026/\n\
+      \n#AI活用 #インデックス投資 #ポートフォリオ"
+    tweet_id: '2071203390630039645'
+    tweet_url: https://x.com/i/web/status/2071203390630039645
+    type: new
+    post_path: content/posts/ai-asset-management-robo-advisor-2026.md
   - posted_at: '2026-06-28T07:05:40+09:00'
     text: "【おすすめ📖】\n2026年4月に食品2,798品目値上げ。固定費削減でNISA積立を増やす具体的な手順を解説。\n\nhttps://finlab-se.com/posts/expense-optimization-nisa-investment/\n\
       \n#家計管理 #NISA #MoneyForward"
@@ -358,10 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2061419096131150137
     type: rotation
     post_path: content/posts/claude-code-blog-experience.md
-  - posted_at: '2026-06-01T07:18:16+09:00'
-    text: "【おすすめ📖】\n日銀ネットとRTGSの仕組みを、米Fedwire・CHIPS・欧TARGET2と比較しながら金融SEが解説。銀行間決済の裏側がわかる。\n\
-      \nhttps://finlab-se.com/posts/boj-net-rtgs-international/\n\n#日銀ネット #RTGS #決済システム"
-    tweet_id: '2061210679579684949'
-    tweet_url: https://x.com/i/web/status/2061210679579684949
-    type: rotation
-    post_path: content/posts/boj-net-rtgs-international.md
