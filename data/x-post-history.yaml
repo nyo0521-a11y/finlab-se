@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-29T07:05:41+09:00'
+    text: "【年金不安が話題】社会保障への不安が57%との調査が注目されています。年金は「マクロ経済スライド」で実質的に目減りしていく仕組み。現役世代が今から備える3つの行動を解説しました。\n\
+      https://finlab-se.com/posts/pension-macroeconomic-slide-2026/\n#年金 #マクロ経済スライド
+      #老後資金"
+    tweet_id: '2071354371959292085'
+    tweet_url: https://x.com/i/web/status/2071354371959292085
+    type: topic
+    post_path: content/posts/pension-macroeconomic-slide-2026.md
   - posted_at: '2026-06-28T21:05:44+09:00'
     text: "【新着📝】\n「AI資産運用」「AI投資」と聞くと最先端に思えますが、生成AIが未来の相場を予測して運用する商品ではありません。\n\nhttps://finlab-se.com/posts/ai-asset-management-robo-advisor-2026/\n\
       \n#AI活用 #インデックス投資 #ポートフォリオ"
@@ -357,11 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2061935491696472224
     type: new
     post_path: content/posts/finance-insider-money-habits.md
-  - posted_at: '2026-06-01T21:06:27+09:00'
-    text: "【おすすめ📖】\n投資シミュレーターを作ろうとしたらブログまで作っていた話。Claude Code×Hugo×Cloudflare Pages。\n\
-      \nhttps://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #Hugo
-      #CloudflarePages"
-    tweet_id: '2061419096131150137'
-    tweet_url: https://x.com/i/web/status/2061419096131150137
-    type: rotation
-    post_path: content/posts/claude-code-blog-experience.md
