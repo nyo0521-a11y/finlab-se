@@ -26,3 +26,12 @@
 #   prepared_at: "2026-06-20T06:38:00+09:00"
 
 pick:
+  post_path: "content/posts/pension-macroeconomic-slide-2026.md"
+  text: |-
+    【年金が話題】平均年収400万円の年金額やシニアの貯蓄不足が注目されています。でも本当に大事なのは額面より「実質目減り」。マクロ経済スライドの仕組みと、現役世代が今から備える3つの行動はこちら。
+    https://finlab-se.com/posts/pension-macroeconomic-slide-2026/
+    #年金 #老後資金 #新NISA
+  image_path: "/images/thumb-pension-macroeconomic-slide-2026.jpg"
+  target_date: "2026-06-29"
+  topic: "平均年収400万の年金額・シニアの貯蓄不足がYahoo経済ランキング上位（老後資金・年金への関心）"
+  prepared_at: "2026-06-28T23:07:20.287382+09:00"
