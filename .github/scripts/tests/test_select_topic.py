@@ -1,7 +1,7 @@
 import textwrap
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from select_topic import count_x_length, load_recent_post_paths
+from select_topic import count_x_length, load_recent_post_paths, build_article_catalog
 
 JST = timezone(timedelta(hours=9))
 
@@ -60,3 +60,34 @@ def test_excludes_recent_from_both_sources(tmp_path):
 def test_missing_files_return_empty(tmp_path):
     now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
     assert load_recent_post_paths(tmp_path, days=7, now=now) == set()
+
+
+def test_catalog_builds_and_excludes(tmp_path):
+    posts = tmp_path / "content/posts"
+    posts.mkdir(parents=True)
+    (posts / "keep.md").write_text(
+        '---\ntitle: "残す記事"\ndescription: "説明A"\n'
+        'categories: ["資産形成"]\ntags: ["日銀", "金利"]\n'
+        'cover:\n  image: "/images/keep.png"\n---\n本文\n',
+        encoding="utf-8",
+    )
+    (posts / "recent.md").write_text(
+        '---\ntitle: "直近に出した"\ndescription: "説明B"\ntags: ["X"]\n---\n本文\n',
+        encoding="utf-8",
+    )
+    (posts / "banned.md").write_text(
+        '---\ntitle: "恒久除外"\ndescription: "説明C"\ntags: ["Y"]\n---\n本文\n',
+        encoding="utf-8",
+    )
+    catalog = build_article_catalog(
+        tmp_path,
+        exclude_paths={"content/posts/recent.md"},
+        permanently_excluded={"content/posts/banned.md"},
+    )
+    paths = [c["post_path"] for c in catalog]
+    assert paths == ["content/posts/keep.md"]
+    entry = catalog[0]
+    assert entry["url"] == "https://finlab-se.com/posts/keep/"
+    assert entry["categories"] == ["資産形成"]
+    assert entry["tags"] == ["日銀", "金利"]
+    assert entry["description"] == "説明A"
