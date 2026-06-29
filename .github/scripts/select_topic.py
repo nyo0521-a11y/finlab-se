@@ -119,3 +119,107 @@ def load_permanently_excluded(repo_root: Path) -> set:
         for it in (rot.get("rotation") or [])
         if it.get("exclude") and it.get("post_path")
     }
+
+
+import json
+import os
+
+MODEL = "claude-opus-4-8"
+MAX_LEN = 280
+
+_SELECT_TOOL = {
+    "name": "select_article",
+    "description": "選定結果を返す。マッチする記事が無ければ selected_post_path を null にする。",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "selected_post_path": {"type": ["string", "null"]},
+            "text": {"type": ["string", "null"]},
+            "topic_reason": {"type": "string"},
+            "candidates": {"type": "array", "items": {"type": "object"}},
+        },
+        "required": ["selected_post_path", "topic_reason"],
+    },
+}
+
+_SYSTEM = (
+    "あなたは金融ブログ finlab-se.com のSNS運用担当です。"
+    "今日のホットな経済ニュースに自然にマッチする既存記事を1本選び、X投稿文を作ります。\n"
+    "ルール:\n"
+    "- ホットさは渡された順位データを根拠に判断する（自分でキーワードを作らない）。"
+    "2ソース両方に上位で出る話題ほど優先。\n"
+    "- 手順: (1)ホットな話題を上位5件ランク付け (2)各話題に自然にマッチする記事候補を挙げる"
+    "(3)マッチが成立した話題をホットな順に見て最上位の記事を採用。\n"
+    "- こじつけ禁止。自然に合う記事が無ければ selected_post_path を null にする。\n"
+    "- 投稿文は280字以内（全角2字・半角1字・URL23字換算）、1段落推奨、"
+    "煽り表現（爆益・億り人・必ず儲かる・○○一択）禁止、丁寧で論理的。ハッシュタグ1〜3個。\n"
+    "- 投稿文には選んだ記事のURLを必ず含める。\n"
+    "- candidates には検討した話題と候補記事を記録する。"
+)
+
+
+def build_messages(news: dict, catalog: list) -> tuple:
+    user = json.dumps({"news": news, "articles": catalog}, ensure_ascii=False)
+    return _SYSTEM, user
+
+
+def _call_claude(system: str, user: str) -> dict:
+    import anthropic
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    resp = client.messages.create(
+        model=MODEL,
+        max_tokens=2048,
+        system=system,
+        messages=[{"role": "user", "content": user}],
+        tools=[_SELECT_TOOL],
+        tool_choice={"type": "tool", "name": "select_article"},
+    )
+    for block in resp.content:
+        if getattr(block, "type", None) == "tool_use":
+            return block.input
+    raise RuntimeError("no tool_use block in Claude response")
+
+
+def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dict:
+    days = int(os.environ.get("ROTATION_EXCLUDE_DAYS", "7"))
+    recent = load_recent_post_paths(repo_root, days=days, now=now)
+    banned = load_permanently_excluded(repo_root)
+    catalog = build_article_catalog(repo_root, exclude_paths=recent, permanently_excluded=banned)
+    if not catalog:
+        return {"selected_post_path": None, "reason": "no eligible articles", "candidates": []}
+
+    system, user = build_messages(news, catalog)
+    valid_paths = {c["post_path"] for c in catalog}
+
+    result = call(system, user)
+    for attempt in range(2):  # 初回 + 短縮再依頼1回
+        sel = result.get("selected_post_path")
+        if not sel:
+            return {"selected_post_path": None,
+                    "reason": result.get("reason", "no match"),
+                    "candidates": result.get("candidates", [])}
+        if sel not in valid_paths:
+            return {"selected_post_path": None, "reason": f"invalid path {sel}",
+                    "candidates": result.get("candidates", [])}
+        text = result.get("text") or ""
+        if count_x_length(text) <= MAX_LEN:
+            return {"selected_post_path": sel, "text": text,
+                    "topic_reason": result.get("topic_reason", ""),
+                    "candidates": result.get("candidates", [])}
+        if attempt == 0:
+            retry_user = user + "\n\n直前の投稿文は280字を超えました。280字以内に短くして同じ記事で作り直してください。"
+            result = call(system, retry_user)
+    return {"selected_post_path": None, "reason": "text too long after retry",
+            "candidates": result.get("candidates", [])}
+
+
+def main():
+    raw = sys.stdin.buffer.read().decode("utf-8")
+    news = json.loads(raw) if raw.strip() else {"yahoo": [], "google": []}
+    repo_root = Path(__file__).resolve().parents[2]
+    now = datetime.now(timezone(timedelta(hours=9)))
+    print(json.dumps(select(news, repo_root, now=now), ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

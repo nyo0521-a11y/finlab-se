@@ -116,3 +116,70 @@ def test_load_permanently_excluded_with_missing_file(tmp_path):
     """Given a missing x-rotation.yaml, return empty set."""
     got = load_permanently_excluded(tmp_path)
     assert got == set()
+
+
+from datetime import datetime
+from select_topic import select
+
+
+def _make_repo(tmp_path):
+    posts = tmp_path / "content/posts"
+    posts.mkdir(parents=True)
+    (posts / "loan.md").write_text(
+        '---\ntitle: "住宅ローンは変動か固定か"\ndescription: "金利上昇局面の判断軸"\n'
+        'categories: ["資産形成"]\ntags: ["住宅ローン", "金利"]\n'
+        'cover:\n  image: "/images/loan.png"\n---\n本文\n',
+        encoding="utf-8",
+    )
+    return tmp_path
+
+
+NEWS = {"yahoo": [{"rank": 1, "title": "日銀が追加利上げ、住宅ローン金利上昇へ", "url": "u"}],
+        "google": [{"title": "変動金利上昇", "url": "g"}]}
+
+
+def test_select_returns_article_from_call(tmp_path):
+    repo = _make_repo(tmp_path)
+    now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
+
+    def fake_call(system, user):
+        return {
+            "selected_post_path": "content/posts/loan.md",
+            "text": "【日銀利上げ】住宅ローン金利が上昇。判断軸を解説します。\nhttps://finlab-se.com/posts/loan/\n#住宅ローン",
+            "topic_reason": "日銀利上げ",
+            "candidates": [],
+        }
+
+    out = select(NEWS, repo, now=now, call=fake_call)
+    assert out["selected_post_path"] == "content/posts/loan.md"
+
+
+def test_select_null_when_no_match(tmp_path):
+    repo = _make_repo(tmp_path)
+    now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
+
+    def fake_call(system, user):
+        return {"selected_post_path": None, "reason": "該当なし", "candidates": []}
+
+    out = select(NEWS, repo, now=now, call=fake_call)
+    assert out["selected_post_path"] is None
+
+
+def test_select_retries_once_on_overflow_then_nulls(tmp_path):
+    repo = _make_repo(tmp_path)
+    now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
+    long_text = "あ" * 200 + "\nhttps://finlab-se.com/posts/loan/"  # 400+23 字 → 超過
+    calls = {"n": 0}
+
+    def fake_call(system, user):
+        calls["n"] += 1
+        return {
+            "selected_post_path": "content/posts/loan.md",
+            "text": long_text,
+            "topic_reason": "x",
+            "candidates": [],
+        }
+
+    out = select(NEWS, repo, now=now, call=fake_call)
+    assert calls["n"] == 2          # 初回＋短縮再依頼の2回
+    assert out["selected_post_path"] is None
