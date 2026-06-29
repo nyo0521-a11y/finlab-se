@@ -46,3 +46,14 @@ def test_inline_returns_none_when_no_match(monkeypatch, tmp_path):
 
     monkeypatch.setattr(morning_post.subprocess, "run", fake_run)
     assert morning_post.select_topic_inline() is None
+
+
+def test_inline_returns_none_on_subprocess_spawn_error(monkeypatch, tmp_path):
+    """subprocess.run がOSErrorを送出しても select_topic_inline は None を返す（例外を伝播させない）。"""
+    monkeypatch.setattr(morning_post, "REPO_ROOT", tmp_path)
+
+    def raise_oserror(cmd, **kwargs):
+        raise OSError("spawn failed")
+
+    monkeypatch.setattr(morning_post.subprocess, "run", raise_oserror)
+    assert morning_post.select_topic_inline() is None

@@ -34,3 +34,9 @@ def test_collect_tolerates_one_source_failure():
     out = collect(fetch=fake_fetch)
     assert out["yahoo"] == []
     assert out["google"][0]["title"] == "円安進行"
+
+
+def test_parse_yahoo_returns_empty_on_no_matching_anchors():
+    """Yahoo!がページ構造を変えて news.yahoo.co.jp/articles/* リンクが消えた場合、[] を返す。"""
+    html = "<div>no article anchors here</div>"
+    assert parse_yahoo_ranking(html) == []

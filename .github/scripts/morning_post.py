@@ -119,26 +119,31 @@ def _read_cover_image(post_path: str) -> str:
 
 
 def select_topic_inline():
-    """ニュース取得->Claude選定をその場で行う。成功時 pick dict、なければ None。"""
-    news = _run_capture("collect_news.py")
-    if not news:
-        return None
-    result_raw = _run_capture("select_topic.py", stdin_text=news)
-    if not result_raw:
-        return None
+    """ニュース取得->Claude選定をその場で行う。成功時 pick dict、なければ None。
+    いかなる例外が発生しても None を返して rotation にフォールバックさせる。"""
     try:
-        result = json.loads(result_raw)
-    except json.JSONDecodeError as e:
-        sys.stderr.write(f"select_topic.py output not JSON: {e}\n")
+        news = _run_capture("collect_news.py")
+        if not news:
+            return None
+        result_raw = _run_capture("select_topic.py", stdin_text=news)
+        if not result_raw:
+            return None
+        try:
+            result = json.loads(result_raw)
+        except json.JSONDecodeError as e:
+            sys.stderr.write(f"select_topic.py output not JSON: {e}\n")
+            return None
+        post_path = result.get("selected_post_path")
+        if not post_path or not (REPO_ROOT / post_path).exists():
+            return None
+        return {
+            "post_path": post_path,
+            "text": result.get("text", ""),
+            "image_path": _read_cover_image(post_path),
+        }
+    except Exception as e:  # noqa: BLE001
+        sys.stderr.write(f"select_topic_inline failed, fallback to rotation: {e}\n")
         return None
-    post_path = result.get("selected_post_path")
-    if not post_path or not (REPO_ROOT / post_path).exists():
-        return None
-    return {
-        "post_path": post_path,
-        "text": result.get("text", ""),
-        "image_path": _read_cover_image(post_path),
-    }
 
 
 def post_topic(pick) -> dict:
