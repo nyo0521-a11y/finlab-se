@@ -17,6 +17,7 @@ import sys
 import json
 import re
 import xml.etree.ElementTree as ET
+from typing import Callable
 
 import requests
 
@@ -36,7 +37,7 @@ def http_fetch(url: str) -> str:
     return resp.text
 
 
-def parse_yahoo_ranking(html: str) -> list:
+def parse_yahoo_ranking(html: str) -> list[dict]:
     """記事リンクのアンカーから見出しを順位つきで抽出（上位15件）。"""
     out = []
     seen = set()
@@ -51,7 +52,7 @@ def parse_yahoo_ranking(html: str) -> list:
     return out
 
 
-def parse_google_news_rss(xml_text: str) -> list:
+def parse_google_news_rss(xml_text: str) -> list[dict]:
     out = []
     root = ET.fromstring(xml_text)
     for item in root.iter("item"):
@@ -65,7 +66,7 @@ def parse_google_news_rss(xml_text: str) -> list:
     return out
 
 
-def collect(fetch=http_fetch) -> dict:
+def collect(fetch: Callable[[str], str] = http_fetch) -> dict:
     """両ソースを取得。片方が失敗しても取れた方だけで続行。"""
     yahoo = []
     google = []
@@ -80,7 +81,7 @@ def collect(fetch=http_fetch) -> dict:
     return {"yahoo": yahoo, "google": google}
 
 
-def main():
+def main() -> None:
     print(json.dumps(collect(), ensure_ascii=False))
 
 
