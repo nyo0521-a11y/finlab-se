@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-29T21:05:52+09:00'
+    text: "【おすすめ📖】\n住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。\n\
+      \nhttps://finlab-se.com/posts/furusato-tax-jumin-tax-notification/\n\n#節税 #年収の壁"
+    tweet_id: '2071565810838180220'
+    tweet_url: https://x.com/i/web/status/2071565810838180220
+    type: rotation
+    post_path: content/posts/furusato-tax-jumin-tax-notification.md
   - posted_at: '2026-06-29T07:05:41+09:00'
     text: "【年金不安が話題】社会保障への不安が57%との調査が注目されています。年金は「マクロ経済スライド」で実質的に目減りしていく仕組み。現役世代が今から備える3つの行動を解説しました。\n\
       https://finlab-se.com/posts/pension-macroeconomic-slide-2026/\n#年金 #マクロ経済スライド
@@ -358,10 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2062143907081904217
     type: rotation
     post_path: content/posts/consecutive-dividend-growth.md
-  - posted_at: '2026-06-03T07:18:25+09:00'
-    text: "【新着📝】\n金利を一番知るはずの金融機関の人が借金を多用していた。20年の金融SEが現場で見た意外な光景とリボの本当の怖さを解説。\n\n\
-      https://finlab-se.com/posts/finance-insider-money-habits/\n\n#金利 #リボ払い #カードローン"
-    tweet_id: '2061935491696472224'
-    tweet_url: https://x.com/i/web/status/2061935491696472224
-    type: new
-    post_path: content/posts/finance-insider-money-habits.md
