@@ -1,7 +1,12 @@
 import textwrap
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from select_topic import count_x_length, load_recent_post_paths, build_article_catalog
+from select_topic import (
+    count_x_length,
+    load_recent_post_paths,
+    build_article_catalog,
+    load_permanently_excluded,
+)
 
 JST = timezone(timedelta(hours=9))
 
@@ -91,3 +96,23 @@ def test_catalog_builds_and_excludes(tmp_path):
     assert entry["categories"] == ["資産形成"]
     assert entry["tags"] == ["日銀", "金利"]
     assert entry["description"] == "説明A"
+
+
+def test_load_permanently_excluded_with_present_file(tmp_path):
+    """Given x-rotation.yaml with exclude: true entries, only those post_paths are returned."""
+    _write(tmp_path / "data/x-rotation.yaml", """
+        rotation:
+          - post_path: content/posts/exclude-this.md
+            exclude: true
+          - post_path: content/posts/keep-this.md
+            exclude: false
+          - post_path: content/posts/no-exclude-key.md
+    """)
+    got = load_permanently_excluded(tmp_path)
+    assert got == {"content/posts/exclude-this.md"}
+
+
+def test_load_permanently_excluded_with_missing_file(tmp_path):
+    """Given a missing x-rotation.yaml, return empty set."""
+    got = load_permanently_excluded(tmp_path)
+    assert got == set()
