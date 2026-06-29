@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-30T07:05:46+09:00'
+    text: "【住宅ローン金利が話題】フラット35が3.2%に上昇し、変動か10年固定か悩む人が増えています。固定金利は実質「保険料」。差額を繰り上げ返済に回す戦略で3000万円35年を試算した記事が参考になります。\n\
+      https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n#住宅ローン
+      #変動金利 #フラット35"
+    tweet_id: '2071716780628988273'
+    tweet_url: https://x.com/i/web/status/2071716780628988273
+    type: topic
+    post_path: content/posts/housing-loan-variable-fixed-simulation.md
   - posted_at: '2026-06-29T21:05:52+09:00'
     text: "【おすすめ📖】\n住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。\n\
       \nhttps://finlab-se.com/posts/furusato-tax-jumin-tax-notification/\n\n#節税 #年収の壁"
@@ -358,10 +366,3 @@ history:
     tweet_url: https://x.com/i/web/status/2062297756740264177
     type: new
     post_path: content/posts/finance-insider-cashless-and-sales.md
-  - posted_at: '2026-06-03T21:06:35+09:00'
-    text: "【おすすめ📖】\n旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない。連続増配株の考え方。\n\nhttps://finlab-se.com/posts/consecutive-dividend-growth/\n\
-      \n#連続増配株 #高配当株 #配当利回り"
-    tweet_id: '2062143907081904217'
-    tweet_url: https://x.com/i/web/status/2062143907081904217
-    type: rotation
-    post_path: content/posts/consecutive-dividend-growth.md
