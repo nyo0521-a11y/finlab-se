@@ -183,3 +183,32 @@ def test_select_retries_once_on_overflow_then_nulls(tmp_path):
     out = select(NEWS, repo, now=now, call=fake_call)
     assert calls["n"] == 2          # 初回＋短縮再依頼の2回
     assert out["selected_post_path"] is None
+
+
+def test_select_returns_success_on_retry(tmp_path):
+    """初回が280字超 → 再依頼で短い文が返ったとき成功を返す。"""
+    repo = _make_repo(tmp_path)
+    now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
+    long_text = "あ" * 200 + " https://finlab-se.com/posts/loan/"  # 超過
+    short_text = "本文 https://finlab-se.com/posts/loan/"            # 23+3 字 → 範囲内
+    calls = {"n": 0}
+
+    def fake_call(system, user):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return {
+                "selected_post_path": "content/posts/loan.md",
+                "text": long_text,
+                "topic_reason": "日銀利上げ",
+                "candidates": [],
+            }
+        return {
+            "selected_post_path": "content/posts/loan.md",
+            "text": short_text,
+            "topic_reason": "日銀利上げ",
+            "candidates": [],
+        }
+
+    out = select(NEWS, repo, now=now, call=fake_call)
+    assert calls["n"] == 2
+    assert out["selected_post_path"] == "content/posts/loan.md"
