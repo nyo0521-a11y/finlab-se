@@ -2,12 +2,10 @@
 朝7:05のX投稿（既存記事のおすすめ専用・新着は扱わない）
 
 処理:
-  1. data/x-topic-pick.yaml に「当日朝向け」の有効な話題連動pickがあれば、それを投稿
-     - pick.target_date が今日（JST）と一致し、post_path のファイルが存在することが条件
-     - 投稿成功後: pick をクリア、該当記事の rotation last_promoted を更新（直近3日除外に乗せる）、
-       履歴に type=topic で追記、x-post-state の morning_last_posted を更新
-  2. 有効な pick がなければ rotation_post.py を実行（通常のおすすめ・直近3日除外込み）
-  3. 当日すでに朝投稿済み（morning_last_posted == today）なら何もしない（多重起動防止）
+  1. collect_news.py + select_topic.py を実行して話題連動pick をその場で選定
+     - 選定成功（ファイルが存在する記事が返る）なら post_topic() で投稿
+     - 選定失敗・None の場合は rotation_post.py にフォールバック
+  2. 当日すでに朝投稿済み（morning_last_posted == today）なら何もしない（多重起動防止）
 
 新着記事は朝では投稿しない（夜21:05の night スロットが担当する）。
 
@@ -34,7 +32,6 @@ except ImportError:
 JST = timezone(timedelta(hours=9))
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parents[1]
-PICK_PATH = REPO_ROOT / "data" / "x-topic-pick.yaml"
 STATE_PATH = REPO_ROOT / "data" / "x-post-state.yaml"
 ROTATION_PATH = REPO_ROOT / "data" / "x-rotation.yaml"
 
@@ -60,19 +57,6 @@ def load_state() -> dict:
 def save_state(state: dict) -> None:
     with STATE_PATH.open("w", encoding="utf-8") as f:
         _yaml().dump(state, f)
-
-
-def clear_pick() -> None:
-    """x-topic-pick.yaml の pick を null に戻す（コメントは保持）。"""
-    y = _yaml()
-    if PICK_PATH.exists():
-        with PICK_PATH.open(encoding="utf-8") as f:
-            doc = y.load(f) or {}
-    else:
-        doc = {}
-    doc["pick"] = None
-    with PICK_PATH.open("w", encoding="utf-8") as f:
-        y.dump(doc, f)
 
 
 def call_post_to_x(text: str, image_path: str) -> dict:
@@ -116,34 +100,45 @@ def mark_rotation_dedup(post_path: str) -> None:
     )
 
 
-def get_valid_pick():
-    """当日朝向けの有効な pick を返す。無効・古い場合は None（古ければクリア）。
+def _run_capture(script: str, stdin_text: str | None = None) -> str:
+    proc = subprocess.run(
+        [sys.executable, str(SCRIPT_DIR / script)],
+        input=stdin_text, capture_output=True, text=True, encoding="utf-8", check=False,
+    )
+    if proc.returncode != 0:
+        sys.stderr.write(f"{script} failed: {proc.stderr}\n")
+        return ""
+    return proc.stdout.strip()
 
-    pick ファイルが壊れている（YAMLパース不能）場合でもクラッシュさせず None を返し、
-    呼び出し側を通常 rotation にフォールバックさせる（朝枠が丸ごと無投稿になるのを防ぐ）。"""
-    if not PICK_PATH.exists():
+
+def _read_cover_image(post_path: str) -> str:
+    import re
+    md = (REPO_ROOT / post_path).read_text(encoding="utf-8")
+    m = re.search(r'cover:\s*\n\s*image:\s*"(.*?)"', md)
+    return m.group(1) if m else ""
+
+
+def select_topic_inline():
+    """ニュース取得->Claude選定をその場で行う。成功時 pick dict、なければ None。"""
+    news = _run_capture("collect_news.py")
+    if not news:
+        return None
+    result_raw = _run_capture("select_topic.py", stdin_text=news)
+    if not result_raw:
         return None
     try:
-        with PICK_PATH.open(encoding="utf-8") as f:
-            doc = _yaml().load(f) or {}
-    except Exception as e:  # noqa: BLE001 - パース失敗時は pick を諦めて rotation に落とす
-        sys.stderr.write(f"x-topic-pick.yaml parse failed, fallback to rotation: {e}\n")
+        result = json.loads(result_raw)
+    except json.JSONDecodeError as e:
+        sys.stderr.write(f"select_topic.py output not JSON: {e}\n")
         return None
-    if not isinstance(doc, dict):
-        sys.stderr.write(f"x-topic-pick.yaml is not a mapping ({type(doc).__name__}), fallback to rotation\n")
-        return None
-    pick = doc.get("pick")
-    if not pick:
-        return None
-    # 当日朝向けでなければ無効（古い pick が残っていたらクリアする）
-    if str(pick.get("target_date", "")) != today_jst():
-        clear_pick()
-        return None
-    post_path = pick.get("post_path", "")
+    post_path = result.get("selected_post_path")
     if not post_path or not (REPO_ROOT / post_path).exists():
-        clear_pick()
         return None
-    return pick
+    return {
+        "post_path": post_path,
+        "text": result.get("text", ""),
+        "image_path": _read_cover_image(post_path),
+    }
 
 
 def post_topic(pick) -> dict:
@@ -157,7 +152,6 @@ def post_topic(pick) -> dict:
     tweet_url = f"https://x.com/i/web/status/{tweet_id}" if tweet_id else ""
     append_history(text, tweet_id, tweet_url, pick["post_path"], "topic")
     mark_rotation_dedup(pick["post_path"])
-    clear_pick()
     state = load_state()
     state["morning_last_posted"] = today_jst()
     save_state(state)
@@ -188,7 +182,7 @@ def main():
         print(json.dumps({"status": "skipped", "reason": "already posted this morning"}, ensure_ascii=False))
         return
 
-    pick = get_valid_pick()
+    pick = select_topic_inline()
     if pick:
         result = post_topic(pick)
         # 話題連動の投稿に失敗したら通常おすすめにフォールバック
