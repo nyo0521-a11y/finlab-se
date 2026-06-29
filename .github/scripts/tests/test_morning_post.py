@@ -13,11 +13,16 @@ def test_inline_returns_pick_on_selection(monkeypatch, tmp_path):
     monkeypatch.setattr(morning_post, "REPO_ROOT", tmp_path)
 
     # collect_news / select_topic の subprocess をスタブ
+    # select_topic.py に渡された input= を captured に保存してアサートする
+    captured = {}
+    news_json = json.dumps({"yahoo": [], "google": []})
+
     def fake_run(cmd, **kwargs):
         out = ""
         if "collect_news.py" in cmd[1]:
-            out = json.dumps({"yahoo": [], "google": []})
+            out = news_json
         elif "select_topic.py" in cmd[1]:
+            captured["select_stdin"] = kwargs.get("input")
             out = json.dumps({"selected_post_path": "content/posts/loan.md",
                               "text": "本文 https://finlab-se.com/posts/loan/",
                               "topic_reason": "r", "candidates": []})
@@ -27,6 +32,8 @@ def test_inline_returns_pick_on_selection(monkeypatch, tmp_path):
     pick = morning_post.select_topic_inline()
     assert pick["post_path"] == "content/posts/loan.md"
     assert pick["image_path"] == "/images/loan.png"
+    # ニュースJSONが select_topic.py の stdin に渡されていることを確認
+    assert captured.get("select_stdin") == news_json
 
 
 def test_inline_returns_none_when_no_match(monkeypatch, tmp_path):

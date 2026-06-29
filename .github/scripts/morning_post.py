@@ -16,6 +16,7 @@
     X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET
 """
 import os
+import re
 import sys
 import json
 import subprocess
@@ -112,7 +113,6 @@ def _run_capture(script: str, stdin_text: str | None = None) -> str:
 
 
 def _read_cover_image(post_path: str) -> str:
-    import re
     md = (REPO_ROOT / post_path).read_text(encoding="utf-8")
     m = re.search(r'cover:\s*\n\s*image:\s*"(.*?)"', md)
     return m.group(1) if m else ""
