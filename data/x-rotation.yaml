@@ -324,8 +324,8 @@ rotation:
   promote_count: 3
   priority: normal
 - post_path: content/posts/ideco-nisa-tax-comparison.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-30T21:05:46+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/ideco-withdrawal-guide.md
   last_promoted:

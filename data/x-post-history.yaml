@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-06-30T21:05:46+09:00'
+    text: "【おすすめ📖】\niDeCoはNISAより手取りで有利か？退職金なしなら約382万円差。退職金ありなら99万円差まで縮む。シミュレーションで確認。\n\
+      \nhttps://finlab-se.com/posts/ideco-nisa-tax-comparison/\n\n#iDeCo確定拠出年金 #NISA
+      #節税"
+    tweet_id: '2071928175332827532'
+    tweet_url: https://x.com/i/web/status/2071928175332827532
+    type: rotation
+    post_path: content/posts/ideco-nisa-tax-comparison.md
   - posted_at: '2026-06-30T12:50:23+09:00'
     text: '日経平均が7万円台と最高値圏で続伸。こうした局面ほど、高配当株投資家は「焦って買う」「持ち株を慌てて売る」などの判断を避けたいところです。株価最高値の時代にやってはいけない3つと、ブレない買い増しルールを整理しました。https://finlab-se.com/posts/nikkei-60000-highyield-mindset/
       #高配当株 #日本株'
@@ -358,10 +366,3 @@ history:
     tweet_url: https://x.com/i/web/status/2062868528726745375
     type: rotation
     post_path: content/posts/credit-card-interchange-fee.md
-  - posted_at: '2026-06-05T07:17:58+09:00'
-    text: "【新着📝】\n2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか。8.8万・10万・12万円の保険料負担、厚生年金で増える年金額と損益分岐、障害・遺族年金の保障メリットまで試算します。\n\
-      \nhttps://finlab-se.com/posts/income-wall-106-takehome-pension-2026/"
-    tweet_id: '2062660156211515522'
-    tweet_url: https://x.com/i/web/status/2062660156211515522
-    type: new
-    post_path: content/posts/income-wall-106-takehome-pension-2026.md
