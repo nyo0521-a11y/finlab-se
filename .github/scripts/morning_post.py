@@ -124,9 +124,19 @@ def select_topic_inline():
     try:
         news = _run_capture("collect_news.py")
         if not news:
+            sys.stderr.write("collect_news returned empty output; fallback to rotation\n")
             return None
+        try:
+            _nd = json.loads(news)
+            sys.stderr.write(
+                f"collect_news: yahoo={len(_nd.get('yahoo', []))} "
+                f"google={len(_nd.get('google', []))}\n"
+            )
+        except (json.JSONDecodeError, AttributeError):
+            sys.stderr.write("collect_news output not JSON (continuing)\n")
         result_raw = _run_capture("select_topic.py", stdin_text=news)
         if not result_raw:
+            sys.stderr.write("select_topic returned empty output; fallback to rotation\n")
             return None
         try:
             result = json.loads(result_raw)
@@ -134,6 +144,10 @@ def select_topic_inline():
             sys.stderr.write(f"select_topic.py output not JSON: {e}\n")
             return None
         post_path = result.get("selected_post_path")
+        sys.stderr.write(
+            f"select_topic: selected={post_path} "
+            f"reason={result.get('topic_reason') or result.get('reason') or ''}\n"
+        )
         if not post_path or not (REPO_ROOT / post_path).exists():
             return None
         return {
