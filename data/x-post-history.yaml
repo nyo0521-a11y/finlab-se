@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-30T12:50:23+09:00'
+    text: '日経平均が7万円台と最高値圏で続伸。こうした局面ほど、高配当株投資家は「焦って買う」「持ち株を慌てて売る」などの判断を避けたいところです。株価最高値の時代にやってはいけない3つと、ブレない買い増しルールを整理しました。https://finlab-se.com/posts/nikkei-60000-highyield-mindset/
+      #高配当株 #日本株'
+    tweet_id: '2071803506663850116'
+    tweet_url: https://x.com/i/web/status/2071803506663850116
+    type: topic
+    post_path: content/posts/nikkei-60000-highyield-mindset.md
   - posted_at: '2026-06-30T12:42:47+09:00'
     text: "【おすすめ📖】\n2026年4月から被扶養者認定が「労働契約ベース」に変更。130万超でも扶養が外れない新ルールを解説。\n\nhttps://finlab-se.com/posts/health-insurance-dependent-2026/\n\
       \n#社会保険 #年収の壁 #2026年改正"
@@ -358,10 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2062660156211515522
     type: new
     post_path: content/posts/income-wall-106-takehome-pension-2026.md
-  - posted_at: '2026-06-04T21:05:57+09:00'
-    text: "【おすすめ📖】\n年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説。\n\nhttps://finlab-se.com/posts/credit-card-free-annual-fee-model/\n\
-      \n#クレジットカード #年会費無料 #ポイント還元"
-    tweet_id: '2062506137862160645'
-    tweet_url: https://x.com/i/web/status/2062506137862160645
-    type: rotation
-    post_path: content/posts/credit-card-free-annual-fee-model.md
