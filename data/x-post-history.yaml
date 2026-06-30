@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-07-01T07:31:33+09:00'
+    text: "【おすすめ📖】\niDeCoの受け取り方は一時金・年金形式・併用の3択です。退職所得控除・2分の1課税・10年ルール・退職後の健康保険まで、手取りに直結する論点を整理します。\n\
+      \nhttps://finlab-se.com/posts/ideco-withdrawal-guide/\n\n#iDeCo確定拠出年金 #老後資金年金
+      #社会保険"
+    tweet_id: '2072085657887953094'
+    tweet_url: https://x.com/i/web/status/2072085657887953094
+    type: rotation
+    post_path: content/posts/ideco-withdrawal-guide.md
   - posted_at: '2026-06-30T21:05:46+09:00'
     text: "【おすすめ📖】\niDeCoはNISAより手取りで有利か？退職金なしなら約382万円差。退職金ありなら99万円差まで縮む。シミュレーションで確認。\n\
       \nhttps://finlab-se.com/posts/ideco-nisa-tax-comparison/\n\n#iDeCo確定拠出年金 #NISA
@@ -358,11 +366,3 @@ history:
     tweet_url: https://x.com/i/web/status/2063022527257960505
     type: new
     post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md
-  - posted_at: '2026-06-05T21:05:58+09:00'
-    text: "【おすすめ📖】\nクレカのポイントの原資はどこから来るのか。加盟店手数料・インターチェンジフィーの流れと4社の取り分を金融SEが図解で解説。\n\
-      \nhttps://finlab-se.com/posts/credit-card-interchange-fee/\n\n#クレジットカード #インターチェンジフィー
-      #加盟店手数料"
-    tweet_id: '2062868528726745375'
-    tweet_url: https://x.com/i/web/status/2062868528726745375
-    type: rotation
-    post_path: content/posts/credit-card-interchange-fee.md
