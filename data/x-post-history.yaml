@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-06-30T12:42:47+09:00'
+    text: "【おすすめ📖】\n2026年4月から被扶養者認定が「労働契約ベース」に変更。130万超でも扶養が外れない新ルールを解説。\n\nhttps://finlab-se.com/posts/health-insurance-dependent-2026/\n\
+      \n#社会保険 #年収の壁 #2026年改正"
+    tweet_id: '2071801595973476420'
+    tweet_url: https://x.com/i/web/status/2071801595973476420
+    type: rotation
+    post_path: content/posts/health-insurance-dependent-2026.md
   - posted_at: '2026-06-30T07:05:46+09:00'
     text: "【住宅ローン金利が話題】フラット35が3.2%に上昇し、変動か10年固定か悩む人が増えています。固定金利は実質「保険料」。差額を繰り上げ返済に回す戦略で3000万円35年を試算した記事が参考になります。\n\
       https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n#住宅ローン
@@ -358,11 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2062506137862160645
     type: rotation
     post_path: content/posts/credit-card-free-annual-fee-model.md
-  - posted_at: '2026-06-04T07:17:55+09:00'
-    text: "【新着📝】\n金融機関に20年勤めた筆者が、キャッシュレスの早さ・保険の実態・銀行の短期目線を内側の肌感覚で綴る体験エッセイ第2弾です。\n\n\
-      https://finlab-se.com/posts/finance-insider-cashless-and-sales/\n\n#金融機関 #キャッシュレス
-      #保険"
-    tweet_id: '2062297756740264177'
-    tweet_url: https://x.com/i/web/status/2062297756740264177
-    type: new
-    post_path: content/posts/finance-insider-cashless-and-sales.md

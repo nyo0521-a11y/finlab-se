@@ -304,8 +304,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/health-insurance-dependent-2026.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-06-30T12:42:47+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/highyield-portfolio-2026-breakdown.md
   last_promoted: '2026-06-08T07:17:31+09:00'
