@@ -47,7 +47,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install deps
-        run: pip install requests requests-oauthlib ruamel.yaml PyYAML
+        run: pip install requests requests-oauthlib ruamel.yaml PyYAML anthropic
 
       - name: Determine slot
         id: slot
@@ -79,6 +79,8 @@ jobs:
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ROTATION_EXCLUDE_DAYS: "7"
         shell: bash
         run: |
           set +e
@@ -98,7 +100,6 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          [ -f data/x-topic-pick.yaml ] && git add data/x-topic-pick.yaml
           [ -f data/x-rotation.yaml ] && git add data/x-rotation.yaml
           [ -f data/x-post-state.yaml ] && git add data/x-post-state.yaml
           [ -f data/x-post-history.yaml ] && git add data/x-post-history.yaml

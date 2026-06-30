@@ -150,6 +150,7 @@ morning_post.py
   - ワークフローで `ROTATION_EXCLUDE_DAYS=7` を設定し、話題連動（`select_topic.py`）・おすすめ（`select_rotation.py`）で**同じ7日**を使う。
 - 在庫評価: 記事72本・恒久除外2本＝実質70本。1日最大2投稿×7日＝最大14本除外でも**約56本（8割）が常に候補**に残る。おすすめ循環に支障なし。
 - 全候補が除外で枯れた場合は、既存の安全弁（`select_rotation.py` の「全除外ならフォールバック」）で無投稿を回避。
+- **既知の制限（2026-06-30 最終レビュー）**：話題連動の選定（`select_topic.py`）は rotation 台帳の `last_promoted` と history の `posted_at` の**2台帳**を参照するが、フォールバックの `select_rotation.py` は `last_promoted`（rotation 台帳）**のみ**を参照し history を見ない。実運用では全投稿タイプが `update_rotation.py` 経由で `last_promoted` を更新するため両者は概ね一致するが、history のみに存在するエントリ（rotation 未登録）はフォールバックの除外対象にならない。これは本改修以前からの既存仕様で regression ではなく、影響は軽微なため許容する（将来 `select_rotation.py` も history 参照に揃えるのは follow-up）。
 
 ## 8. エラーハンドリングとフォールバック
 

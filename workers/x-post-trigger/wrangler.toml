@@ -9,14 +9,14 @@ compatibility_date = "2026-04-27"
 #
 # 枠と cron（UTC）:（無料プランの上限 = 1 Worker あたり cron 5本）
 #   build・主: 20:35 UTC = JST 05:35 → deploy.yml（5:30公開予約の反映ビルド＋Xエンキュー）
-#   build・補: 21:35 UTC = JST 06:35 → deploy.yml 救済枠（7:05のX投稿前にキューを確実に埋める）
-#   朝:    22:05 UTC = JST 07:05 → x-post-scheduled (morning) 新着優先・なければ既存記事紹介
+#   build・補: 21:35 UTC = JST 06:35 → deploy.yml 救済枠（7:30のX投稿前にキューを確実に埋める）
+#   朝:    22:30 UTC = JST 07:30 → x-post-scheduled (morning) 新着優先・なければ既存記事紹介
 #   夜:    12:05 UTC = JST 21:05 → x-post-scheduled (night)   朝の積み残し優先・なければ既存記事紹介
 
 [triggers]
 crons = [
   "35 20 * * *",
   "35 21 * * *",
-  "5 22 * * *",
+  "30 22 * * *",
   "5 12 * * *",
 ]
