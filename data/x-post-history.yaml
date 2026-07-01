@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-02T07:31:55+09:00'
+    text: "【おすすめ📖】\n2027年スタートのこどもNISA（こども支援NISA）。概要とジュニアNISAとの違いを解説。\n\nhttps://finlab-se.com/posts/kodomo-nisa-2027/\n\
+      \n#NISA"
+    tweet_id: '2072448138686668980'
+    tweet_url: https://x.com/i/web/status/2072448138686668980
+    type: rotation
+    post_path: content/posts/kodomo-nisa-2027.md
   - posted_at: '2026-07-01T21:06:05+09:00'
     text: "【おすすめ📖】\n年収の壁は「税金の壁」と「社保の壁」の2種類に分けると構造が見える。仕組みと自分に関係する壁の確認フローを解説。\n\nhttps://finlab-se.com/posts/income-wall-framework/\n\
       \n#年収の壁 #社会保険 #節税"
@@ -357,11 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2063384888242307319
     type: rotation
     post_path: content/posts/credit-card-reform-2026.md
-  - posted_at: '2026-06-06T21:05:45+09:00'
-    text: "【おすすめ📖】\nクレカ決済の0.1秒に5社が関与。加盟店・アクワイアラ・国際ブランド・イシュアのオーソリ処理フローを金融SE実務者が図解で解説。\n\
-      \nhttps://finlab-se.com/posts/credit-card-payment-flow/\n\n#クレジットカード #決済の仕組み
-      #オーソリゼーション"
-    tweet_id: '2063230863999922604'
-    tweet_url: https://x.com/i/web/status/2063230863999922604
-    type: rotation
-    post_path: content/posts/credit-card-payment-flow.md
