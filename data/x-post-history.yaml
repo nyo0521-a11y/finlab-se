@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-01T21:06:05+09:00'
+    text: "【おすすめ📖】\n年収の壁は「税金の壁」と「社保の壁」の2種類に分けると構造が見える。仕組みと自分に関係する壁の確認フローを解説。\n\nhttps://finlab-se.com/posts/income-wall-framework/\n\
+      \n#年収の壁 #社会保険 #節税"
+    tweet_id: '2072290642680590444'
+    tweet_url: https://x.com/i/web/status/2072290642680590444
+    type: rotation
+    post_path: content/posts/income-wall-framework.md
   - posted_at: '2026-07-01T07:31:33+09:00'
     text: "【おすすめ📖】\niDeCoの受け取り方は一時金・年金形式・併用の3択です。退職所得控除・2分の1課税・10年ルール・退職後の健康保険まで、手取りに直結する論点を整理します。\n\
       \nhttps://finlab-se.com/posts/ideco-withdrawal-guide/\n\n#iDeCo確定拠出年金 #老後資金年金
@@ -358,11 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2063230863999922604
     type: rotation
     post_path: content/posts/credit-card-payment-flow.md
-  - posted_at: '2026-06-06T07:17:54+09:00'
-    text: "【新着📝】\nウェルスナビの手数料年1%は高いのか。インデックス投信（オルカン等）と30年間の長期コストを試算し、手数料差を金額で比較します。\n\
-      \nhttps://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/\n\n#ロボアドバイザー
-      #ウェルスナビ #手数料"
-    tweet_id: '2063022527257960505'
-    tweet_url: https://x.com/i/web/status/2063022527257960505
-    type: new
-    post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md
