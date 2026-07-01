@@ -203,4 +203,9 @@ cover:
 - 財務省「発行条件・変動10年」 https://www.mof.go.jp/jgbs/individual/kojinmuke/main/issue/hendou10/
 - LIMO「【個人向け国債】2026年6月募集《変動10年・固定5年・固定3年》の利率はいくら？」（Yahoo!ファイナンス掲載） https://finance.yahoo.co.jp/news/detail/ac23d7b8665dc5fa4b3524282c2631d1042f2724
 
+本記事の「お金を短期・中期・長期に分けて考える」という枠組みの土台になった、両学長（リベ大）とリベシティを挙げておきます。リベ大は「お金にまつわる5つの力」を発信するYouTubeチャンネル、リベシティはその両学長が運営するお金の悩み相談コミュニティで、私自身も一会員として日々学んでいます。
+
+- <a href="https://www.youtube.com/@ryogakucho" target="_blank" rel="noopener">リベラルアーツ大学（両学長 公式YouTubeチャンネル）</a> — 「お金にまつわる5つの力」を発信。お金の置き場所を時間軸で考える発想を学びました
+- <a href="https://libecity.com/" target="_blank" rel="noopener">リベシティ</a> — リベ大が運営するお金の悩み相談コミュニティ
+
 ※本記事の利率（変動10年 年1.74%・税引前、2026年6月募集分）等の数値は執筆時点のものです。利率は募集回ごとに変わるため、購入時は必ず財務省の公式ページで最新の条件をご確認ください。
