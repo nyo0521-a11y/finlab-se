@@ -206,7 +206,15 @@ def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dic
                     "topic_reason": result.get("topic_reason", ""),
                     "candidates": result.get("candidates", [])}
         if attempt == 0:
-            retry_user = user + "\n\n直前の投稿文は280字を超えました。280字以内に短くして同じ記事で作り直してください。"
+            over_by = count_x_length(text) - MAX_LEN
+            retry_user = (
+                user
+                + "\n\n直前に生成したこの投稿文はX換算で280字を"
+                + f"{over_by}字超過しました（全角2字・半角1字・URL23字換算）。\n"
+                + f"直前の投稿文:\n{text}\n\n"
+                + "同じ記事のまま、上記の文章を実際に削って280字以内に収めて作り直してください。"
+                + "新しい文章を考え直すのではなく、上の文章から不要な語句を削る形にしてください。"
+            )
             result = call(system, retry_user)
     return {"selected_post_path": None, "reason": "text too long after retry",
             "candidates": result.get("candidates", [])}

@@ -119,7 +119,7 @@ def test_load_permanently_excluded_with_missing_file(tmp_path):
 
 
 from datetime import datetime
-from select_topic import select
+from select_topic import select, MAX_LEN
 
 
 def _make_repo(tmp_path):
@@ -212,3 +212,23 @@ def test_select_returns_success_on_retry(tmp_path):
     out = select(NEWS, repo, now=now, call=fake_call)
     assert calls["n"] == 2
     assert out["selected_post_path"] == "content/posts/loan.md"
+
+
+def test_select_retry_message_includes_previous_text_and_overflow(tmp_path):
+    """再依頼時、直前に生成された実際のテキストと超過文字数をClaudeに見せる。"""
+    repo = _make_repo(tmp_path)
+    now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
+    long_text = "あ" * 200 + " https://finlab-se.com/posts/loan/"
+    seen_users = []
+
+    def fake_call(system, user):
+        seen_users.append(user)
+        return {"selected_post_path": "content/posts/loan.md", "text": long_text,
+                "topic_reason": "x", "candidates": []}
+
+    select(NEWS, repo, now=now, call=fake_call)
+    assert len(seen_users) == 2
+    retry_user = seen_users[1]
+    assert long_text in retry_user
+    over_by = count_x_length(long_text) - MAX_LEN
+    assert str(over_by) in retry_user
