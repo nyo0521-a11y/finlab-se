@@ -34,6 +34,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   post:
@@ -84,9 +85,10 @@ jobs:
         shell: bash
         run: |
           set +e
-          RESULT=$(python .github/scripts/morning_post.py)
+          RESULT=$(python .github/scripts/morning_post.py 2>stderr.log)
           EXIT_CODE=$?
           set -e
+          cat stderr.log >&2 || true
           echo "Morning result: $RESULT"
           if [ $EXIT_CODE -ne 0 ]; then
             echo "::error::morning_post.py failed (exit $EXIT_CODE)"
@@ -257,3 +259,21 @@ jobs:
             git pull --rebase origin main
             git push
           fi
+
+      # =========================================
+      # エラー報告：ジョブ失敗（ハード）と、morning のニュースソース0件（ソフト）を
+      # GitHub Issues（ラベル automation-error）に記録する。同一タイトルのOpenがあれば作らない。
+      # 報告処理自体の失敗でジョブを落とさないよう || true を付ける。
+      # =========================================
+      - name: Report automation errors
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python .github/scripts/report_automation_error.py \
+            --workflow x-post-scheduled \
+            --slot "${{ steps.slot.outputs.slot }}" \
+            --job-status "${{ job.status }}" \
+            --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            --stderr-file stderr.log || true

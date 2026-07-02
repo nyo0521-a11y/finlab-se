@@ -130,7 +130,8 @@ def select_topic_inline():
             _nd = json.loads(news)
             sys.stderr.write(
                 f"collect_news: yahoo={len(_nd.get('yahoo', []))} "
-                f"google={len(_nd.get('google', []))}\n"
+                f"google={len(_nd.get('google', []))} "
+                f"trends={len(_nd.get('trends', []))}\n"
             )
         except (json.JSONDecodeError, AttributeError):
             sys.stderr.write("collect_news output not JSON (continuing)\n")

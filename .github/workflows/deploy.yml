@@ -29,6 +29,7 @@ jobs:
     permissions:
       contents: write   # cron 時に x-queue.yaml をコミット・プッシュするため write が必要
       deployments: write
+      issues: write     # 失敗時の automation-error Issue 作成用
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -130,6 +131,18 @@ jobs:
           else
             echo "No new posts to enqueue."
           fi
+
+      - name: Report job failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 .github/scripts/report_automation_error.py \
+            --workflow deploy \
+            --slot production \
+            --job-status failure \
+            --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" || true
 
   # =========================================
   # ドラフトプレビュー（draft.finlab-se.pages.dev）

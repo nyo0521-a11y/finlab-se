@@ -3,7 +3,7 @@ import types
 import morning_post
 
 
-def test_inline_returns_pick_on_selection(monkeypatch, tmp_path):
+def test_inline_returns_pick_on_selection(monkeypatch, tmp_path, capsys):
     # 記事ファイルを用意
     posts = tmp_path / "content/posts"
     posts.mkdir(parents=True)
@@ -15,7 +15,8 @@ def test_inline_returns_pick_on_selection(monkeypatch, tmp_path):
     # collect_news / select_topic の subprocess をスタブ
     # select_topic.py に渡された input= を captured に保存してアサートする
     captured = {}
-    news_json = json.dumps({"yahoo": [], "google": []})
+    news_json = json.dumps({"yahoo": [{"rank": 1, "title": "t", "url": "u"}],
+                            "google": [], "trends": [{"title": "日銀", "traffic": "1000+"}]})
 
     def fake_run(cmd, **kwargs):
         out = ""
@@ -34,6 +35,8 @@ def test_inline_returns_pick_on_selection(monkeypatch, tmp_path):
     assert pick["image_path"] == "/images/loan.png"
     # ニュースJSONが select_topic.py の stdin に渡されていることを確認
     assert captured.get("select_stdin") == news_json
+    err = capsys.readouterr().err
+    assert "collect_news: yahoo=1 google=0 trends=1" in err
 
 
 def test_inline_returns_none_when_no_match(monkeypatch, tmp_path):
