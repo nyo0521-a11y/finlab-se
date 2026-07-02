@@ -360,8 +360,8 @@ rotation:
   promote_count: 2
   priority: normal
 - post_path: content/posts/mutual-fund-real-cost-2026.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-07-02T21:06:12+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/new-nisa-pitfalls-5-patterns.md
   last_promoted: '2026-05-24T07:17:29+09:00'

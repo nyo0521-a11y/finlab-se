@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-02T21:06:12+09:00'
+    text: "【おすすめ📖】\n投資信託の「実質コスト（隠れコスト）」は運用報告書のどこを見れば確認できるのか。信託報酬との違い、2024年から始まった総経費率の見方、隠れコストの内訳と調べ方を金融SEが会計視点で解説。\n\
+      \nhttps://finlab-se.com/posts/mutual-fund-real-cost-2026/\n\n#インデックス投資"
+    tweet_id: '2072653058236985659'
+    tweet_url: https://x.com/i/web/status/2072653058236985659
+    type: rotation
+    post_path: content/posts/mutual-fund-real-cost-2026.md
   - posted_at: '2026-07-02T07:31:55+09:00'
     text: "【おすすめ📖】\n2027年スタートのこどもNISA（こども支援NISA）。概要とジュニアNISAとの違いを解説。\n\nhttps://finlab-se.com/posts/kodomo-nisa-2027/\n\
       \n#NISA"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2063593196458828010
     type: rotation
     post_path: content/posts/crypto-stablecoin-remittance.md
-  - posted_at: '2026-06-07T07:17:48+09:00'
-    text: "【おすすめ📖】\ndカード・三井住友NL・楽天・PayPayカード改定を整理。「また改悪か」に振り回されない判断軸を解説。\n\nhttps://finlab-se.com/posts/credit-card-reform-2026/\n\
-      \n#クレカ改悪 #dカード #三井住友カード"
-    tweet_id: '2063384888242307319'
-    tweet_url: https://x.com/i/web/status/2063384888242307319
-    type: rotation
-    post_path: content/posts/credit-card-reform-2026.md
