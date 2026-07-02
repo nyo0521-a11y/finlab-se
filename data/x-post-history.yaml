@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-03T07:31:53+09:00'
+    text: "大手企業の夏のボーナスが初めて平均100万円を超えたと報じられました。投資に回す前に、生活防衛資金・NISA枠・ポートフォリオの偏り・固定費の4点を順に確認しておくと、後悔のない配分を落ち着いて決められます。チェック手順を整理しました。\n\
+      https://finlab-se.com/posts/bonus-investment-checkup-4steps/\n#ボーナス #資産形成 #NISA"
+    tweet_id: '2072810517001879757'
+    tweet_url: https://x.com/i/web/status/2072810517001879757
+    type: topic
+    post_path: content/posts/bonus-investment-checkup-4steps.md
   - posted_at: '2026-07-02T21:06:12+09:00'
     text: "【おすすめ📖】\n投資信託の「実質コスト（隠れコスト）」は運用報告書のどこを見れば確認できるのか。信託報酬との違い、2024年から始まった総経費率の見方、隠れコストの内訳と調べ方を金融SEが会計視点で解説。\n\
       \nhttps://finlab-se.com/posts/mutual-fund-real-cost-2026/\n\n#インデックス投資"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2063747205744169418
     type: new
     post_path: content/posts/highyield-portfolio-2026-breakdown.md
-  - posted_at: '2026-06-07T21:05:32+09:00'
-    text: "【おすすめ📖】\nステーブルコインで海外送金はどう変わるのか。MiCA・GENIUS Actの規制動向まで金融SEが整理。\n\nhttps://finlab-se.com/posts/crypto-stablecoin-remittance/\n\
-      \n#暗号資産 #ステーブルコイン #海外送金"
-    tweet_id: '2063593196458828010'
-    tweet_url: https://x.com/i/web/status/2063593196458828010
-    type: rotation
-    post_path: content/posts/crypto-stablecoin-remittance.md
