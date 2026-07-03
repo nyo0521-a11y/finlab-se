@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-04T07:31:53+09:00'
+    text: '米6月雇用統計は予想を下回り、株価も方向感を欠く展開です。短期の市場の揺れにどう向き合うかは長期投資家に大切なテーマ。インデックス投資を10年続けた金融SEが、暴落耐性や取り崩しの不安、S&P500とオルカンの使い分けを実体験でまとめました。https://finlab-se.com/posts/index-investing-10years-honest-review/
+      #インデックス投資 #NISA'
+    tweet_id: '2073172907887329443'
+    tweet_url: https://x.com/i/web/status/2073172907887329443
+    type: topic
+    post_path: content/posts/index-investing-10years-honest-review.md
   - posted_at: '2026-07-03T21:06:12+09:00'
     text: "【新着📝】\n個人向け国債は定期預金や株式とどう使い分ける？金利上昇で利率1.7%台になった今、「いつ使うお金か（短期・中期・長期）」とリスク許容度で置きどころを整理。即時の待機資金には向かない理由も、金融SEが正直に解説します。\n\
       \nhttps://finlab-se.com/posts/individual-jgb-vs-deposit-2026/"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2064109618268381456
     type: rotation
     post_path: content/posts/expense-optimization-before-investing.md
-  - posted_at: '2026-06-08T21:05:41+09:00'
-    text: "【おすすめ📖】\n増配ニュースに飛びつく前に確認すべき配当性向・DOE・営業CFの3点。2026年3月期決算の読み方。\n\nhttps://finlab-se.com/posts/dividend-increase-season-2026/\n\
-      \n#高配当株 #決算 #配当"
-    tweet_id: '2063955621523914848'
-    tweet_url: https://x.com/i/web/status/2063955621523914848
-    type: rotation
-    post_path: content/posts/dividend-increase-season-2026.md
