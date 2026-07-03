@@ -403,3 +403,7 @@ rotation:
   last_promoted: '2026-06-28T21:05:44+09:00'
   promote_count: 1
   priority: normal
+- post_path: content/posts/individual-jgb-vs-deposit-2026.md
+  last_promoted: '2026-07-03T21:06:13+09:00'
+  promote_count: 1
+  priority: normal

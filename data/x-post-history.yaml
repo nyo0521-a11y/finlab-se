@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-03T21:06:12+09:00'
+    text: "【新着📝】\n個人向け国債は定期預金や株式とどう使い分ける？金利上昇で利率1.7%台になった今、「いつ使うお金か（短期・中期・長期）」とリスク許容度で置きどころを整理。即時の待機資金には向かない理由も、金融SEが正直に解説します。\n\
+      \nhttps://finlab-se.com/posts/individual-jgb-vs-deposit-2026/"
+    tweet_id: '2073015449747415286'
+    tweet_url: https://x.com/i/web/status/2073015449747415286
+    type: new
+    post_path: content/posts/individual-jgb-vs-deposit-2026.md
   - posted_at: '2026-07-03T07:31:53+09:00'
     text: "大手企業の夏のボーナスが初めて平均100万円を超えたと報じられました。投資に回す前に、生活防衛資金・NISA枠・ポートフォリオの偏り・固定費の4点を順に確認しておくと、後悔のない配分を落ち着いて決められます。チェック手順を整理しました。\n\
       https://finlab-se.com/posts/bonus-investment-checkup-4steps/\n#ボーナス #資産形成 #NISA"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2063955621523914848
     type: rotation
     post_path: content/posts/dividend-increase-season-2026.md
-  - posted_at: '2026-06-08T07:17:31+09:00'
-    text: "【新着📝】\n金融SEの筆者が、日本株102銘柄・24業種に分散した高配当株ポートフォリオを公開。米国ETFとの比率・セクター配分・利回り目標まで、なぜこの配分にしたかを実データで解説します。\n\
-      \nhttps://finlab-se.com/posts/highyield-portfolio-2026-breakdown/"
-    tweet_id: '2063747205744169418'
-    tweet_url: https://x.com/i/web/status/2063747205744169418
-    type: new
-    post_path: content/posts/highyield-portfolio-2026-breakdown.md
