@@ -153,7 +153,7 @@ _SYSTEM = (
     "- 手順: (1)ホットな話題を上位5件ランク付け (2)各話題に自然にマッチする記事候補を挙げる"
     "(3)マッチが成立した話題をホットな順に見て最上位の記事を採用。\n"
     "- こじつけ禁止。自然に合う記事が無ければ selected_post_path を null にする。\n"
-    "- 投稿文は280字以内（全角2字・半角1字・URL23字換算）、1段落推奨、"
+    "- 投稿文は250字以内を目標に短く作る（上限はX換算280字。全角2字・半角1字・URL23字換算）、1段落推奨、"
     "煽り表現（爆益・億り人・必ず儲かる・○○一択）禁止、丁寧で論理的。ハッシュタグ1〜3個。\n"
     "- 投稿文には選んだ記事のURLを必ず含める。\n"
     "- candidates には検討した話題と候補記事を記録する。"
@@ -194,7 +194,7 @@ def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dic
     valid_paths = {c["post_path"] for c in catalog}
 
     result = call(system, user)
-    for attempt in range(2):  # 初回 + 短縮再依頼1回
+    for attempt in range(3):  # 初回 + 短縮再依頼2回
         sel = result.get("selected_post_path")
         if not sel:
             return {"selected_post_path": None,
@@ -208,7 +208,7 @@ def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dic
             return {"selected_post_path": sel, "text": text,
                     "topic_reason": result.get("topic_reason", ""),
                     "candidates": result.get("candidates", [])}
-        if attempt == 0:
+        if attempt < 2:
             over_by = count_x_length(text) - MAX_LEN
             retry_user = (
                 user

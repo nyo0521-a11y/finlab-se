@@ -165,7 +165,7 @@ def test_select_null_when_no_match(tmp_path):
     assert out["selected_post_path"] is None
 
 
-def test_select_retries_once_on_overflow_then_nulls(tmp_path):
+def test_select_retries_twice_on_overflow_then_nulls(tmp_path):
     repo = _make_repo(tmp_path)
     now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
     long_text = "あ" * 200 + "\nhttps://finlab-se.com/posts/loan/"  # 400+23 字 → 超過
@@ -181,7 +181,7 @@ def test_select_retries_once_on_overflow_then_nulls(tmp_path):
         }
 
     out = select(NEWS, repo, now=now, call=fake_call)
-    assert calls["n"] == 2          # 初回＋短縮再依頼の2回
+    assert calls["n"] == 3          # 初回＋短縮再依頼2回
     assert out["selected_post_path"] is None
 
 
@@ -227,7 +227,7 @@ def test_select_retry_message_includes_previous_text_and_overflow(tmp_path):
                 "topic_reason": "x", "candidates": []}
 
     select(NEWS, repo, now=now, call=fake_call)
-    assert len(seen_users) == 2
+    assert len(seen_users) == 3
     retry_user = seen_users[1]
     assert long_text in retry_user
     over_by = count_x_length(long_text) - MAX_LEN
