@@ -376,8 +376,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/securities-selection-for-index-and-dividend.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-07-05T07:31:57+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/sumishin-sbi-net-bank-honest-review.md
   last_promoted: '2026-06-14T07:05:25+09:00'
