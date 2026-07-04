@@ -368,8 +368,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/recommended-net-bank-2026.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-07-04T21:06:11+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/sbi-securities-honest-review.md
   last_promoted: '2026-06-13T07:17:49+09:00'

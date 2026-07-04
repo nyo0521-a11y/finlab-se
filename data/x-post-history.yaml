@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-04T21:06:11+09:00'
+    text: "【おすすめ📖】\n証券口座と連携できる銀行選びを最優先に、住信SBI・楽天・ソニー・auじぶんを5軸で比較。SBI証券・楽天証券ユーザーの口座選びや、目的別口座・ATM・振込手数料の違いもまとめて解説します。\n\
+      \nhttps://finlab-se.com/posts/recommended-net-bank-2026/\n\n#ネット銀行"
+    tweet_id: '2073377832898895933'
+    tweet_url: https://x.com/i/web/status/2073377832898895933
+    type: rotation
+    post_path: content/posts/recommended-net-bank-2026.md
   - posted_at: '2026-07-04T07:31:53+09:00'
     text: '米6月雇用統計は予想を下回り、株価も方向感を欠く展開です。短期の市場の揺れにどう向き合うかは長期投資家に大切なテーマ。インデックス投資を10年続けた金融SEが、暴落耐性や取り崩しの不安、S&P500とオルカンの使い分けを実体験でまとめました。https://finlab-se.com/posts/index-investing-10years-honest-review/
       #インデックス投資 #NISA'
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2064317995707682940
     type: rotation
     post_path: content/posts/finance-se-20years-lessons.md
-  - posted_at: '2026-06-09T07:17:37+09:00'
-    text: "【おすすめ📖】\n投資より支出削減が先。月1万円の節約は300万円の投資効果に相当。削減インパクトが大きい項目から整理。\n\nhttps://finlab-se.com/posts/expense-optimization-before-investing/\n\
-      \n#支出最適化 #固定費削減 #携帯代見直し"
-    tweet_id: '2064109618268381456'
-    tweet_url: https://x.com/i/web/status/2064109618268381456
-    type: rotation
-    post_path: content/posts/expense-optimization-before-investing.md
