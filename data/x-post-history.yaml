@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-06T07:31:41+09:00'
+    text: '長期金利3％が視野に入り、「金利のある時代」が現実味を帯びてきました。気になるのは住宅ローンの変動金利。利上げ局面で借換えが得になるかは、残債・金利差・残り期間の3条件で損益分岐が変わります。感覚ではなく数字で判断する方法を整理しました。
+      https://finlab-se.com/posts/mortgage-rate-refinance-simulation/ #住宅ローン #金利'
+    tweet_id: '2073897633219752372'
+    tweet_url: https://x.com/i/web/status/2073897633219752372
+    type: topic
+    post_path: content/posts/mortgage-rate-refinance-simulation.md
   - posted_at: '2026-07-05T21:06:15+09:00'
     text: "【おすすめ📖】\nXの自動投稿をほぼ無料で自作した記録。GitHub Actionsのcronが数時間ズレる問題に直面し、…\n\nhttps://finlab-se.com/posts/x-auto-post-cloudflare-workers/\n\
       \n#ブログ運営 #AI活用 #ClaudeCode"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2064834444494614757
     type: rotation
     post_path: content/posts/highyield-investment-strategy.md
-  - posted_at: '2026-06-10T21:06:21+09:00'
-    text: "【おすすめ📖】\n高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD・日本個別株の実例つきで金融SEが解説。\n\
-      \nhttps://finlab-se.com/posts/highyield-buying-timing/\n\n#高配当株 #買い時 #配当利回り"
-    tweet_id: '2064680563412263247'
-    tweet_url: https://x.com/i/web/status/2064680563412263247
-    type: rotation
-    post_path: content/posts/highyield-buying-timing.md
