@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-05T21:06:15+09:00'
+    text: "【おすすめ📖】\nXの自動投稿をほぼ無料で自作した記録。GitHub Actionsのcronが数時間ズレる問題に直面し、…\n\nhttps://finlab-se.com/posts/x-auto-post-cloudflare-workers/\n\
+      \n#ブログ運営 #AI活用 #ClaudeCode"
+    tweet_id: '2073740236106985627'
+    tweet_url: https://x.com/i/web/status/2073740236106985627
+    type: rotation
+    post_path: content/posts/x-auto-post-cloudflare-workers.md
   - posted_at: '2026-07-05T07:31:57+09:00'
     text: "【おすすめ📖】\n投資スタイル別の証券会社選びを解説。SBI・楽天・マネックス・UFJ eスマートを5観点で比較。\n\nhttps://finlab-se.com/posts/securities-selection-for-index-and-dividend/\n\
       \n#証券会社 #高配当株 #インデックス投資"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2064680563412263247
     type: rotation
     post_path: content/posts/highyield-buying-timing.md
-  - posted_at: '2026-06-10T07:17:38+09:00'
-    text: "【新着📝】\nClaude CodeでMoneyForwardの家計明細を自動取得し、支出を①生存費と②豊かさ費に自動仕分け。1年分（約1,000件）を約1時間で集計し、サイドFIREに必要な資産を逆算した実体験です。\n\
-      \nhttps://finlab-se.com/posts/claude-code-fire-budget/"
-    tweet_id: '2064472012769394969'
-    tweet_url: https://x.com/i/web/status/2064472012769394969
-    type: new
-    post_path: content/posts/claude-code-fire-budget.md

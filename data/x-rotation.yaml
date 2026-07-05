@@ -388,8 +388,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/x-auto-post-cloudflare-workers.md
-  last_promoted:
-  promote_count: 0
+  last_promoted: '2026-07-05T21:06:15+09:00'
+  promote_count: 1
   priority: normal
 - post_path: content/posts/claude-code-x-news-linked-post.md
   last_promoted: '2026-06-23T22:22:45+09:00'
