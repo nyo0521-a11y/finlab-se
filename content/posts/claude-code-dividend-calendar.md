@@ -25,7 +25,7 @@ cover:
 
 なぜこの方法で解決できるのか。それは、配当金カレンダーづくりは「情報収集・集計・整形・可視化」というAIが得意な作業で構成されており、人間の判断が必要な部分（銘柄選定・割合決定）と切り分けやすいからです。本記事では、CSVの準備手順、そのままコピペできるプロンプト例、出力イメージ、スプレッドシート連携アイデアまでを順に確認していきます。
 
-本記事のプロンプトはコピペで使える形にしており、銘柄リストはお使いの証券会社のCSV1枚があればOKです。
+本記事のプロンプトはコピペで使える形にしており、銘柄リストはお使いの証券会社のCSV1枚があればOKです。なお本記事は「配当の入金時期を可視化する」ことがテーマで、銘柄そのものの選び方は扱いません。銘柄選定は[銘柄選定基準](https://finlab-se.com/posts/highyield-stock-selection-criteria/)、月次でのポートフォリオ管理全体は[ポートフォリオ管理の設計原則](https://finlab-se.com/posts/highyield-portfolio-management/)で解説しています。
 
 ---
 
@@ -490,7 +490,9 @@ Claude Codeは「情報収集・集計・整形・可視化」は極めて得意
 
 Claude Codeで資産管理を自動化する活用例は、こちらもあわせて参考にしてください。
 
-- [Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー](/posts/asset-management-claude-code/)
-- [Claude Codeの「許可」待ちをほぼゼロにする設定方法｜セキュリティを保ちながら快適に使う](/posts/claude-code-reduce-permission-prompts/)
+- [Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/)
+- [Claude Codeの「許可」待ちをほぼゼロにする設定方法｜セキュリティを保ちながら快適に使う](https://finlab-se.com/posts/claude-code-reduce-permission-prompts/)
+- [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](https://finlab-se.com/posts/highyield-portfolio-management/) — カレンダーで見えた谷月・山月を、月次管理の仕組みにどう組み込むか
+- [2026年3月期「増配ラッシュ」をどう読むか〜決算シーズンの高配当株投資家の歩き方〜](https://finlab-se.com/posts/dividend-increase-season-2026/) — カレンダーの数字が動く決算シーズンの読み方
 
 投資は商品選びではなく、人生設計です。配当金カレンダーはその設計図の一部になります。次の買い増し候補を考えるとき、きっと新しい視点をくれるはずです。

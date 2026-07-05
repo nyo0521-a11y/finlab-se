@@ -245,9 +245,9 @@ Wise・Revolutが「コルレス網を迂回する規制業者」として銀行
 
 ## 関連記事
 
-- [海外送金の仕組み（SWIFT・コルレス銀行）](/posts/overseas-remittance-mechanism/) — 従来型の国際送金の仕組み
-- [Wise・Revolutはなぜ安い？FinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/) — 非ブロックチェーン型の低コスト送金
-- [暗号資産取引所の選び方2026](/posts/crypto-exchange-financial-group-2026/) — ステーブルコインを扱う取引所選び
+- [海外送金の仕組み（SWIFT・コルレス銀行）](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 従来型の国際送金の仕組み
+- [Wise・Revolutはなぜ安い？FinTech送金の仕組み](https://finlab-se.com/posts/wise-revolut-fintech-remittance/) — 非ブロックチェーン型の低コスト送金
+- [暗号資産取引所の選び方2026](https://finlab-se.com/posts/crypto-exchange-financial-group-2026/) — ステーブルコインを扱う取引所選び
 
 ---
 

@@ -222,9 +222,9 @@ Wise・Revolutが海外送金にもたらした構造的変化を整理すると
 
 ## 関連記事
 
-- [海外送金の仕組み（SWIFT・コルレス銀行）](/posts/overseas-remittance-mechanism/) — FinTech送金が迂回する従来網
-- [暗号資産・ステーブルコインによる送金](/posts/crypto-stablecoin-remittance/) — もう一つの低コスト送金手段
-- [日銀ネットとRTGS｜国内大口決済の仕組み](/posts/boj-net-rtgs-international/) — 決済インフラの全体像
+- [海外送金の仕組み（SWIFT・コルレス銀行）](https://finlab-se.com/posts/overseas-remittance-mechanism/) — FinTech送金が迂回する従来網
+- [暗号資産・ステーブルコインによる送金](https://finlab-se.com/posts/crypto-stablecoin-remittance/) — もう一つの低コスト送金手段
+- [日銀ネットとRTGS｜国内大口決済の仕組み](https://finlab-se.com/posts/boj-net-rtgs-international/) — 決済インフラの全体像
 
 ---
 

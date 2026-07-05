@@ -193,9 +193,10 @@ cover:
 
 ## 関連記事
 
-- [投資信託の実質コスト比較｜隠れコストを金融SEが解説](/posts/mutual-fund-real-cost-2026/)
-- [オルカンとS&P500どっち？金融SEが3つの判断軸で解説](/posts/all-country-vs-sp500-index-fund-2026/)
-- [インデックス投資10年のリアル｜続けて分かった正直な振り返り](/posts/index-investing-10years-honest-review/)
+- [投資信託の実質コスト比較｜隠れコストを金融SEが解説](https://finlab-se.com/posts/mutual-fund-real-cost-2026/)
+- [オルカンとS&P500どっち？金融SEが3つの判断軸で解説](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
+- [インデックス投資10年のリアル｜続けて分かった正直な振り返り](https://finlab-se.com/posts/index-investing-10years-honest-review/)
+- [AI資産運用とは？ロボアドは本当にAIなのか｜仕組みをやさしく解説](https://finlab-se.com/posts/ai-asset-management-robo-advisor-2026/) — ロボアドの「AI」が何をしているのかを先に整理したい方はこちら
 
 ---
 

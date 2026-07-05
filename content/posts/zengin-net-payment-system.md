@@ -236,9 +236,10 @@ cover:
 
 ## 関連記事
 
-- [日銀ネットとRTGS｜国内大口決済の仕組み](/posts/boj-net-rtgs-international/) — 全銀ネットと対になる資金決済
-- [海外送金の仕組み（SWIFT・コルレス銀行）](/posts/overseas-remittance-mechanism/) — 国内決済との違い
-- [銀行勘定系システムのクラウド移行](/posts/bank-core-system-cloud/) — 決済を支える基幹システム
+- [日銀ネットとRTGS｜国内大口決済の仕組み](https://finlab-se.com/posts/boj-net-rtgs-international/) — 全銀ネットと対になる資金決済
+- [海外送金の仕組み（SWIFT・コルレス銀行）](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 国内決済との違い
+- [暗号資産・ステーブルコインによる送金](https://finlab-se.com/posts/crypto-stablecoin-remittance/) — 銀行ネットワークを介さない送金という選択肢
+- [銀行勘定系システムのクラウド移行](https://finlab-se.com/posts/bank-core-system-cloud/) — 決済を支える基幹システム
 
 ---
 

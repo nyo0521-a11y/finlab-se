@@ -261,3 +261,4 @@ DOEが高すぎる企業（例えば8%を大きく超えるような水準）は
 - [累進配当株という選択肢：商社株が注目される理由と、減配しない約束の読み方](https://finlab-se.com/posts/progressive-dividend-stocks/) — 「減配せず維持または増配」を公約する累進配当株
 - [連続増配株という選択肢：テーマ株に目を奪われても、選ぶ基準は変わらない](https://finlab-se.com/posts/consecutive-dividend-growth/) — 旬のテーマに流されても、財務健全で増配継続できる企業を選ぶ軸は変わらない
 - [【高配当株】買い時はいつ？配当利回りで割安を見極める方法｜VYM・HDV・SCHD実例](https://finlab-se.com/posts/highyield-buying-timing/) — 高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD…
+- [Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化](https://finlab-se.com/posts/claude-code-dividend-calendar/) — 増配発表を反映したキャッシュフローを月別に可視化する方法
