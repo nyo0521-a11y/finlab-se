@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-06T21:06:12+09:00'
+    text: "【新着📝】\n「減配しない会社」だけを集めた日経累進高配当株指数の採用30銘柄を一覧化。過去10年の純利益データによる業績安定度マーク付きで、SBI・楽天証券のNISA成長投資枠で丸ごと買う方法まで解説します。\n\
+      \nhttps://finlab-se.com/posts/nikkei-progressive-index/"
+    tweet_id: '2074102611003822556'
+    tweet_url: https://x.com/i/web/status/2074102611003822556
+    type: new
+    post_path: content/posts/nikkei-progressive-index.md
   - posted_at: '2026-07-06T07:31:41+09:00'
     text: '長期金利3％が視野に入り、「金利のある時代」が現実味を帯びてきました。気になるのは住宅ローンの変動金利。利上げ局面で借換えが得になるかは、残債・金利差・残り期間の3条件で損益分岐が変わります。感覚ではなく数字で判断する方法を整理しました。
       https://finlab-se.com/posts/mortgage-rate-refinance-simulation/ #住宅ローン #金利'
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2065042850711241047
     type: rotation
     post_path: content/posts/highyield-portfolio-management.md
-  - posted_at: '2026-06-11T07:17:49+09:00'
-    text: "【おすすめ📖】\n米国株はETF、日本株は個別株で運用する理由。VYM・HDV・SCHDの使い分けと投資戦略の全体像。\n\nhttps://finlab-se.com/posts/highyield-investment-strategy/\n\
-      \n#高配当株 #ETF #VYM"
-    tweet_id: '2064834444494614757'
-    tweet_url: https://x.com/i/web/status/2064834444494614757
-    type: rotation
-    post_path: content/posts/highyield-investment-strategy.md

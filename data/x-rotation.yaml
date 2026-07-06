@@ -407,3 +407,7 @@ rotation:
   last_promoted: '2026-07-03T21:06:13+09:00'
   promote_count: 1
   priority: normal
+- post_path: content/posts/nikkei-progressive-index.md
+  last_promoted: '2026-07-06T21:06:12+09:00'
+  promote_count: 1
+  priority: normal
