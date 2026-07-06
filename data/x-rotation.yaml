@@ -14,7 +14,7 @@
 rotation:
   # --- priority: high（高価値コンテンツ：ツール紹介・配当金生活計算） ---
 - post_path: content/posts/montecarlo-tool-usage.md
-    # title: 【ツール紹介】インデックス投資取崩しシミュレーター ～あなたのFIRE計画、何%成功する？～
+    # title: 取り崩しシミュレーション無料ツールの使い方｜あなたのFIRE計画、何%成功する？
     # date: 2026-04-12
   last_promoted: '2026-05-30T07:18:28+09:00'
   promote_count: 2
@@ -193,7 +193,7 @@ rotation:
   priority: normal
 
 - post_path: content/posts/montecarlo-background.md
-    # title: 取崩し戦略の考え方 ～4%ルールの「守りすぎ」問題
+    # title: 4%ルールは守りすぎ？モンテカルロシミュレーションで考える取り崩し戦略
     # date: 2026-04-12
   last_promoted: '2026-06-15T07:05:28+09:00'
   promote_count: 2
