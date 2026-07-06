@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-07T07:32:00+09:00'
+    text: 'クレカ決済代行の破産が話題です。カード決済は加盟店の裏側で「加盟店→決済代行/アクワイアラ→国際ブランド→イシュア」と複数社が連携し、わずか0.1秒でオーソリが完了します。普段は見えない決済インフラの流れを金融SEが図解しました。https://finlab-se.com/posts/credit-card-payment-flow/
+      #クレジットカード'
+    tweet_id: '2074260099464352130'
+    tweet_url: https://x.com/i/web/status/2074260099464352130
+    type: topic
+    post_path: content/posts/credit-card-payment-flow.md
   - posted_at: '2026-07-06T21:06:12+09:00'
     text: "【新着📝】\n「減配しない会社」だけを集めた日経累進高配当株指数の採用30銘柄を一覧化。過去10年の純利益データによる業績安定度マーク付きで、SBI・楽天証券のNISA成長投資枠で丸ごと買う方法まで解説します。\n\
       \nhttps://finlab-se.com/posts/nikkei-progressive-index/"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2065196816828625186
     type: rotation
     post_path: content/posts/highyield-stock-selection-criteria.md
-  - posted_at: '2026-06-11T21:05:57+09:00'
-    text: "【おすすめ📖】\n高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。\n\nhttps://finlab-se.com/posts/highyield-portfolio-management/\n\
-      \n#高配当株 #ポートフォリオ管理 #設計原則"
-    tweet_id: '2065042850711241047'
-    tweet_url: https://x.com/i/web/status/2065042850711241047
-    type: rotation
-    post_path: content/posts/highyield-portfolio-management.md
