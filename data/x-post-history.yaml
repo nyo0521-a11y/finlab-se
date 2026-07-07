@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-07T21:05:41+09:00'
+    text: "【おすすめ📖】\n銀行の固定金利は『変動金利＋金利スワップ』の構造。フラット35が安いのはこの仕組みを使わず証券化で調達するから、を解説します。\n\
+      \nhttps://finlab-se.com/posts/fixed-rate-flat35/\n\n#住宅ローン"
+    tweet_id: '2074464868082536533'
+    tweet_url: https://x.com/i/web/status/2074464868082536533
+    type: rotation
+    post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
   - posted_at: '2026-07-07T07:32:00+09:00'
     text: 'クレカ決済代行の破産が話題です。カード決済は加盟店の裏側で「加盟店→決済代行/アクワイアラ→国際ブランド→イシュア」と複数社が連携し、わずか0.1秒でオーソリが完了します。普段は見えない決済インフラの流れを金融SEが図解しました。https://finlab-se.com/posts/credit-card-payment-flow/
       #クレジットカード'
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2065405217739301150
     type: rotation
     post_path: content/posts/ideco-2026-reform.md
-  - posted_at: '2026-06-12T07:17:45+09:00'
-    text: "【おすすめ📖】\n高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。\n\nhttps://finlab-se.com/posts/highyield-stock-selection-criteria/\n\
-      \n#高配当株 #銘柄選定 #スクリーニング"
-    tweet_id: '2065196816828625186'
-    tweet_url: https://x.com/i/web/status/2065196816828625186
-    type: rotation
-    post_path: content/posts/highyield-stock-selection-criteria.md
