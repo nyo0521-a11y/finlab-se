@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-08T07:31:32+09:00'
+    text: 'AI相場の持続性に疑念が広がり、半導体株に売りが出ています。話題の“AI資産運用”も、生成AIが相場を予測してくれる商品ではありません。ロボアドの正体と、AIにできること・できないことを金融SEが整理しました。https://finlab-se.com/posts/ai-asset-management-robo-advisor-2026/
+      #AI投資 #資産運用'
+    tweet_id: '2074622368534716536'
+    tweet_url: https://x.com/i/web/status/2074622368534716536
+    type: topic
+    post_path: content/posts/ai-asset-management-robo-advisor-2026.md
   - posted_at: '2026-07-07T21:05:41+09:00'
     text: "【おすすめ📖】\n銀行の固定金利は『変動金利＋金利スワップ』の構造。フラット35が安いのはこの仕組みを使わず証券化で調達するから、を解説します。\n\
       \nhttps://finlab-se.com/posts/fixed-rate-flat35/\n\n#住宅ローン"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2065559219227570521
     type: new
     post_path: content/posts/sbi-securities-honest-review.md
-  - posted_at: '2026-06-12T21:05:52+09:00'
-    text: "【おすすめ📖】\n2026年改正でiDeCoの掛金上限が月6.2万円に拡大。社会保険料は下がらないが所得税・住民税は節税できます。仕組みの理由と年収500万・700万・1,000万円別の節税額を金融SEが試算。\n\
-      \nhttps://finlab-se.com/posts/ideco-2026-reform/"
-    tweet_id: '2065405217739301150'
-    tweet_url: https://x.com/i/web/status/2065405217739301150
-    type: rotation
-    post_path: content/posts/ideco-2026-reform.md
