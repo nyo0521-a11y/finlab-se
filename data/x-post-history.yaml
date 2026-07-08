@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-08T21:06:06+09:00'
+    text: "【おすすめ📖】\n新NISAで損する5つの落とし穴を金融SE20年が整理。本当に怖いのは「暴落時の早期売却」1つだけ、残り4つは設定確認レベル。\n\
+      \nhttps://finlab-se.com/posts/new-nisa-pitfalls-5-patterns/\n\n#NISA #インデックス投資"
+    tweet_id: '2074827363234320478'
+    tweet_url: https://x.com/i/web/status/2074827363234320478
+    type: rotation
+    post_path: content/posts/new-nisa-pitfalls-5-patterns.md
   - posted_at: '2026-07-08T07:31:32+09:00'
     text: 'AI相場の持続性に疑念が広がり、半導体株に売りが出ています。話題の“AI資産運用”も、生成AIが相場を予測してくれる商品ではありません。ロボアドの正体と、AIにできること・できないことを金融SEが整理しました。https://finlab-se.com/posts/ai-asset-management-robo-advisor-2026/
       #AI投資 #資産運用'
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2065767485974954024
     type: rotation
     post_path: content/posts/ideco-dc-basics.md
-  - posted_at: '2026-06-13T07:17:49+09:00'
-    text: "【新着📝】\nSBI証券のS株（単元未満株）で高配当株100銘柄超を少しずつ買い集めてきた筆者の正直レビュー。\n\nhttps://finlab-se.com/posts/sbi-securities-honest-review/\n\
-      \n#SBI証券 #S株 #単元未満株"
-    tweet_id: '2065559219227570521'
-    tweet_url: https://x.com/i/web/status/2065559219227570521
-    type: new
-    post_path: content/posts/sbi-securities-honest-review.md
