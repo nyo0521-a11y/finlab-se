@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-09T07:31:55+09:00'
+    text: 'クレカ決済代行「全東信」の破産で、飲食店の売上回収や地銀の焦げ付きが波及して話題です。金融サービスを使う個人が過度に不安にならないために、ネット銀行の多重防御と個人でできるフィッシング対策4つを金融SEが整理しました。https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/
+      #ネット銀行 #セキュリティ'
+    tweet_id: '2074984853771313595'
+    tweet_url: https://x.com/i/web/status/2074984853771313595
+    type: topic
+    post_path: content/posts/bank-security-defense-in-depth-phishing.md
   - posted_at: '2026-07-08T21:06:06+09:00'
     text: "【おすすめ📖】\n新NISAで損する5つの落とし穴を金融SE20年が整理。本当に怖いのは「暴落時の早期売却」1つだけ、残り4つは設定確認レベル。\n\
       \nhttps://finlab-se.com/posts/new-nisa-pitfalls-5-patterns/\n\n#NISA #インデックス投資"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2065918489907679238
     type: new
     post_path: content/posts/sumishin-sbi-net-bank-honest-review.md
-  - posted_at: '2026-06-13T21:05:23+09:00'
-    text: "【おすすめ📖】\n企業型DB・DC・iDeCoの違いを3階建てで整理。税メリット・受取時リスク・新NISAとの優先順位。\n\nhttps://finlab-se.com/posts/ideco-dc-basics/\n\
-      \n#iDeCo #企業型DC #確定拠出年金"
-    tweet_id: '2065767485974954024'
-    tweet_url: https://x.com/i/web/status/2065767485974954024
-    type: rotation
-    post_path: content/posts/ideco-dc-basics.md
