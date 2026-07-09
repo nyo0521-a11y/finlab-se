@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-10T07:31:59+09:00'
+    text: "【おすすめ📖】\n「減配せず維持または増配」を公約する累進配当株。連続増配株との違いや商社株が注目される理由を解説。\n\nhttps://finlab-se.com/posts/progressive-dividend-stocks/\n\
+      \n#高配当株 #日本株"
+    tweet_id: '2075347258397294949'
+    tweet_url: https://x.com/i/web/status/2075347258397294949
+    type: rotation
+    post_path: content/posts/progressive-dividend-stocks.md
   - posted_at: '2026-07-09T21:05:54+09:00'
     text: "【新着📝】\nうちだと結局いくら浮くの？食料品の消費税減税（8%→1%）と現金給付5万円を年収・世帯人数別に比較試算。逆進性・即効性という2つの判断軸で損得が逆転する分岐点を解説します（未決定の案のため試算時点の前提付き）。\n\
       \nhttps://finlab-se.com/posts/shohizei-vs-kyufu/"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2066280888959226116
     type: rotation
     post_path: content/posts/montecarlo-background.md
-  - posted_at: '2026-06-14T21:05:24+09:00'
-    text: "【おすすめ📖】\n103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。\n\nhttps://finlab-se.com/posts/income-wall-2026/\n\
-      \n#年収の壁 #社会保険 #扶養"
-    tweet_id: '2066129878651408458'
-    tweet_url: https://x.com/i/web/status/2066129878651408458
-    type: rotation
-    post_path: content/posts/income-wall-2026.md
