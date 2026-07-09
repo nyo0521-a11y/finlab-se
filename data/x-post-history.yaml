@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-09T21:05:54+09:00'
+    text: "【新着📝】\nうちだと結局いくら浮くの？食料品の消費税減税（8%→1%）と現金給付5万円を年収・世帯人数別に比較試算。逆進性・即効性という2つの判断軸で損得が逆転する分岐点を解説します（未決定の案のため試算時点の前提付き）。\n\
+      \nhttps://finlab-se.com/posts/shohizei-vs-kyufu/"
+    tweet_id: '2075189698771706227'
+    tweet_url: https://x.com/i/web/status/2075189698771706227
+    type: new
+    post_path: content/posts/shohizei-vs-kyufu.md
   - posted_at: '2026-07-09T07:31:55+09:00'
     text: 'クレカ決済代行「全東信」の破産で、飲食店の売上回収や地銀の焦げ付きが波及して話題です。金融サービスを使う個人が過度に不安にならないために、ネット銀行の多重防御と個人でできるフィッシング対策4つを金融SEが整理しました。https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/
       #ネット銀行 #セキュリティ'
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2066129878651408458
     type: rotation
     post_path: content/posts/income-wall-2026.md
-  - posted_at: '2026-06-14T07:05:25+09:00'
-    text: "【新着📝】\n住信SBIネット銀行を小遣い口座として使い続けている実体験レビュー。目的別口座の使い方と運用例、SBI証券連携（ハイブリッド預金）の使用感、自動振替が片方向のみ等のデメリットまで、良い点も不満点も正直にまとめました。\n\
-      \nhttps://finlab-se.com/posts/sumishin-sbi-net-bank-honest-review/"
-    tweet_id: '2065918489907679238'
-    tweet_url: https://x.com/i/web/status/2065918489907679238
-    type: new
-    post_path: content/posts/sumishin-sbi-net-bank-honest-review.md
