@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-11T07:31:25+09:00'
+    text: '夏のボーナスの使い道、悩みますよね。まず投資に回す前に確認したいのは、生活防衛資金・NISA枠の残り・ポートフォリオの偏り・固定費の4点です。この順番で見直すと、勢いで使って後悔することが減ります。金融SEが4ステップで整理しました。
+      https://finlab-se.com/posts/bonus-investment-checkup-4steps/ #新NISA #資産形成'
+    tweet_id: '2075709505174724761'
+    tweet_url: https://x.com/i/web/status/2075709505174724761
+    type: topic
+    post_path: content/posts/bonus-investment-checkup-4steps.md
   - posted_at: '2026-07-10T21:06:03+09:00'
     text: "【おすすめ📖】\nWise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。\n\nhttps://finlab-se.com/posts/wise-revolut-fintech-remittance/\n\
       \n#海外送金 #金融インフラ"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2066643284739359060
     type: rotation
     post_path: content/posts/nisa-growth-highyield.md
-  - posted_at: '2026-06-15T21:05:28+09:00'
-    text: "【おすすめ📖】\n日経6万円台で高配当株投資家が陥りがちな3つの失敗パターンと、ブレない買い増しルールを確認。\n\nhttps://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n\
-      \n#高配当株 #日経平均 #TOPIX"
-    tweet_id: '2066492280106565640'
-    tweet_url: https://x.com/i/web/status/2066492280106565640
-    type: rotation
-    post_path: content/posts/nikkei-60000-highyield-mindset.md
