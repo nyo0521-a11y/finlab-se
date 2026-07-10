@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-10T21:06:03+09:00'
+    text: "【おすすめ📖】\nWise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。\n\nhttps://finlab-se.com/posts/wise-revolut-fintech-remittance/\n\
+      \n#海外送金 #金融インフラ"
+    tweet_id: '2075552125157826949'
+    tweet_url: https://x.com/i/web/status/2075552125157826949
+    type: rotation
+    post_path: content/posts/wise-revolut-fintech-remittance.md
   - posted_at: '2026-07-10T07:31:59+09:00'
     text: "【おすすめ📖】\n「減配せず維持または増配」を公約する累進配当株。連続増配株との違いや商社株が注目される理由を解説。\n\nhttps://finlab-se.com/posts/progressive-dividend-stocks/\n\
       \n#高配当株 #日本株"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2066492280106565640
     type: rotation
     post_path: content/posts/nikkei-60000-highyield-mindset.md
-  - posted_at: '2026-06-15T07:05:28+09:00'
-    text: "【おすすめ📖】\n4%ルールは保守的すぎる？モンテカルロシミュレーションで取崩し戦略を「生きた戦略」として考える。\n\nhttps://finlab-se.com/posts/montecarlo-background/\n\
-      \n#モンテカルロシミュレーション #FIRE #4%ルール"
-    tweet_id: '2066280888959226116'
-    tweet_url: https://x.com/i/web/status/2066280888959226116
-    type: rotation
-    post_path: content/posts/montecarlo-background.md
