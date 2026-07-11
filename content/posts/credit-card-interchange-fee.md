@@ -201,7 +201,7 @@ cover:
 ## 関連記事
 
 - [年会費無料で1%還元できるカードのビジネスモデルを深掘りする](/posts/credit-card-free-annual-fee-model/)
-- [決済の「0.1秒」の裏側｜クレジットカードのオンライン決済が完了するまでに起きていること](/posts/credit-card-payment-flow/)
+- [クレカ決済はなぜ0.1秒で完了する？5社が動く処理フローを金融SE実務者が解説](/posts/credit-card-payment-flow/)
 - [2026年クレカ改悪が続く背景——手数料収入が減れば還元も絞られる理由](/posts/credit-card-reform-2026/)
 
 ---

@@ -233,7 +233,7 @@ cover:
 ## 関連記事
 
 - [クレカのポイントはなぜもらえる？インターチェンジフィーからわかるカード会社のビジネスモデル](/posts/credit-card-interchange-fee/)
-- [決済の「0.1秒」の裏側｜クレジットカードのオンライン決済が完了するまでに起きていること](/posts/credit-card-payment-flow/)
+- [クレカ決済はなぜ0.1秒で完了する？5社が動く処理フローを金融SE実務者が解説](/posts/credit-card-payment-flow/)
 - [クレカ改悪2026年まとめ：dカード・三井住友ゴールドNL・楽天・PayPayカードの改定内容と、振り回されないための判断軸](/posts/credit-card-reform-2026/)
 
 ---
