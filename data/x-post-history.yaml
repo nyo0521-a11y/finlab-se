@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-12T07:32:05+09:00'
+    text: '「夜の街を支えた金融インフラ」全東信が負債1151億円で破綻、というニュースが話題です。金融機関の内側で20年見てきたお金の話——キャッシュレスの速さ、保険の実態、銀行の短期目線を現場の肌感覚で綴った体験エッセイです。
+      https://finlab-se.com/posts/finance-insider-cashless-and-sales/ #金融 #キャッシュレス'
+    tweet_id: '2076072060078440609'
+    tweet_url: https://x.com/i/web/status/2076072060078440609
+    type: topic
+    post_path: content/posts/finance-insider-cashless-and-sales.md
   - posted_at: '2026-07-11T21:06:24+09:00'
     text: "【おすすめ📖】\nマネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説。キャッシュレス決済の自動取込が決定打です。\n\
       \nhttps://finlab-se.com/posts/household-budget-app-comparison-2026/\n\n#MoneyForward
@@ -358,10 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2067005664535216292
     type: topic
     post_path: content/posts/housing-loan-variable-fixed-simulation.md
-  - posted_at: '2026-06-16T21:05:36+09:00'
-    text: "【おすすめ📖】\nコルレス銀行とは何か。海外送金が手数料3,000円＋数日かかる理由を、コルレス手数料（中継銀行手数料）・為替スプレッド・SWIFTの流れから金融SEが解説。中継銀行とコルレス銀行の違いも分かります。\n\
-      \nhttps://finlab-se.com/posts/overseas-remittance-mechanism/"
-    tweet_id: '2066854703200194927'
-    tweet_url: https://x.com/i/web/status/2066854703200194927
-    type: rotation
-    post_path: content/posts/overseas-remittance-mechanism.md
