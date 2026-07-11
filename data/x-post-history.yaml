@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-07-11T21:06:24+09:00'
+    text: "【おすすめ📖】\nマネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説。キャッシュレス決済の自動取込が決定打です。\n\
+      \nhttps://finlab-se.com/posts/household-budget-app-comparison-2026/\n\n#MoneyForward
+      #家計管理 #AI活用"
+    tweet_id: '2075914600055448053'
+    tweet_url: https://x.com/i/web/status/2075914600055448053
+    type: rotation
+    post_path: content/posts/household-budget-app-comparison-2026.md
   - posted_at: '2026-07-11T07:31:25+09:00'
     text: '夏のボーナスの使い道、悩みますよね。まず投資に回す前に確認したいのは、生活防衛資金・NISA枠の残り・ポートフォリオの偏り・固定費の4点です。この順番で見直すと、勢いで使って後悔することが減ります。金融SEが4ステップで整理しました。
       https://finlab-se.com/posts/bonus-investment-checkup-4steps/ #新NISA #資産形成'
@@ -357,10 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2066854703200194927
     type: rotation
     post_path: content/posts/overseas-remittance-mechanism.md
-  - posted_at: '2026-06-16T07:05:30+09:00'
-    text: "【おすすめ📖】\nつみたて投資枠はインデックス、成長投資枠は高配当株・ETF。NISAの使い分け判断軸を数値で解説。\n\nhttps://finlab-se.com/posts/nisa-growth-highyield/\n\
-      \n#新NISA #高配当株 #成長投資枠"
-    tweet_id: '2066643284739359060'
-    tweet_url: https://x.com/i/web/status/2066643284739359060
-    type: rotation
-    post_path: content/posts/nisa-growth-highyield.md
