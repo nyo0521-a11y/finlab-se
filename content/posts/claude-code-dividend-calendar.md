@@ -1,6 +1,7 @@
 ---
 title: "Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化"
 date: 2026-04-22T08:00:00+09:00
+lastmod: 2026-07-11T00:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["Claude Code", "高配当株", "AI活用"]
@@ -490,7 +491,7 @@ Claude Codeは「情報収集・集計・整形・可視化」は極めて得意
 
 Claude Codeで資産管理を自動化する活用例は、こちらもあわせて参考にしてください。
 
-- [Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/)
+- [Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/)
 - [Claude Codeの「許可」待ちをほぼゼロにする設定方法｜セキュリティを保ちながら快適に使う](https://finlab-se.com/posts/claude-code-reduce-permission-prompts/)
 - [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](https://finlab-se.com/posts/highyield-portfolio-management/) — カレンダーで見えた谷月・山月を、月次管理の仕組みにどう組み込むか
 - [2026年3月期「増配ラッシュ」をどう読むか〜決算シーズンの高配当株投資家の歩き方〜](https://finlab-se.com/posts/dividend-increase-season-2026/) — カレンダーの数字が動く決算シーズンの読み方

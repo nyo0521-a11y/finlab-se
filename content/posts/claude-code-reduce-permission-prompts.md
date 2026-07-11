@@ -1,6 +1,7 @@
 ---
 title: "Claude Codeの「許可」待ちをほぼゼロにする設定方法｜セキュリティを保ちながら快適に使う"
 date: 2026-04-26T21:00:00+09:00
+lastmod: 2026-07-11T00:00:00+09:00
 draft: false
 description: "Claude Codeの許可ダイアログを減らす方法。settings.jsonとCLAUDE.mdの設定でほぼゼロに。"
 tags: ["Claude Code", "AI活用"]
@@ -296,4 +297,4 @@ Claude Code の許可問題を解決するポイントをまとめます。
 
 - [Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](https://finlab-se.com/posts/claude-code-blog-experience/) — 投資シミュレーターを作ろうとしたらブログまで作っていた話
 - [Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化](https://finlab-se.com/posts/claude-code-dividend-calendar/) — 保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成…
-- [Claude Codeで毎月の資産記録を自動化した｜出力フォーマットを渡すだけで動く月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/) — MoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Code…
+- [Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/) — MoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Code…

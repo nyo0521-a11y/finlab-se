@@ -1,6 +1,7 @@
 ---
 title: "4%ルールは守りすぎ？モンテカルロシミュレーションで考える取り崩し戦略"
 date: 2026-04-12T11:36:00+09:00
+lastmod: 2026-07-11T00:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["シミュレーション", "FIRE・取り崩し", "インデックス投資"]
@@ -171,7 +172,7 @@ Guyton-Klinger（ガイトン・クリンガー）という研究者が提唱し
 
 ## 関連記事
 
-- [【ツール紹介】インデックス投資取崩しシミュレーター ～あなたのFIRE計画、何%成功する？～](https://finlab-se.com/posts/montecarlo-tool-usage/) — 資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツ…
+- [取り崩しシミュレーション無料ツールの使い方｜あなたのFIRE計画、何%成功する？](https://finlab-se.com/posts/montecarlo-tool-usage/) — 資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツ…
 - [配当金生活に必要な資産額を計算する｜インデックス投資取り崩しとの比較シミュレーション](https://finlab-se.com/posts/dividend-life-calculation/) — 年間200万円を配当で賄うのに必要な元本を計算
 - [インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](https://finlab-se.com/posts/index-investing-10years-honest-review/) — クラファン・暗号資産を経てインデックス投資10年
 
