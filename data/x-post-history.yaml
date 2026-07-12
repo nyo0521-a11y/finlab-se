@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-12T21:06:25+09:00'
+    text: "【おすすめ📖】\nモアタイムシステム（モアタイム）とは何か。全銀ネット上で振込が24時間365日即時着金する仕組みを、コアタイムとの違い・参加銀行の注意点・使えないケースまで金融SEが解説。\n\
+      \nhttps://finlab-se.com/posts/zengin-net-payment-system/\n\n#金融インフラ"
+    tweet_id: '2076276991599206577'
+    tweet_url: https://x.com/i/web/status/2076276991599206577
+    type: rotation
+    post_path: content/posts/zengin-net-payment-system.md
   - posted_at: '2026-07-12T07:32:05+09:00'
     text: '「夜の街を支えた金融インフラ」全東信が負債1151億円で破綻、というニュースが話題です。金融機関の内側で20年見てきたお金の話——キャッシュレスの速さ、保険の実態、銀行の短期目線を現場の肌感覚で綴った体験エッセイです。
       https://finlab-se.com/posts/finance-insider-cashless-and-sales/ #金融 #キャッシュレス'
@@ -357,11 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2067217067212701787
     type: new
     post_path: content/posts/mortgage-prepayment-vs-investment-yieldgap.md
-  - posted_at: '2026-06-17T07:05:28+09:00'
-    text: "【日銀が政策金利1%に引き上げ】変動金利への影響が注目されています。「変動か固定か」を迷っている方へ。差額繰り上げ戦略で変動・固定を3,000万円・35年でシミュレーション。固定の金利差を「保険料」と捉える判断軸を解説しています。\n\
-      https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n#住宅ローン
-      #変動金利 #日銀利上げ"
-    tweet_id: '2067005664535216292'
-    tweet_url: https://x.com/i/web/status/2067005664535216292
-    type: topic
-    post_path: content/posts/housing-loan-variable-fixed-simulation.md
