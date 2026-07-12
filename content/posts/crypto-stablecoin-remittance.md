@@ -1,6 +1,7 @@
 ---
 title: "暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁"
 date: 2026-04-23T14:17:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["暗号資産", "海外送金"]
@@ -234,7 +235,7 @@ Wise・Revolutが「コルレス網を迂回する規制業者」として銀行
 
 決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。
 
-- [← 前：Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/)
+- [Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/)
 
 シリーズの最初から読む場合はこちらから。
 
@@ -246,8 +247,8 @@ Wise・Revolutが「コルレス網を迂回する規制業者」として銀行
 ## 関連記事
 
 - [海外送金の仕組み（SWIFT・コルレス銀行）](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 従来型の国際送金の仕組み
-- [Wise・Revolutはなぜ安い？FinTech送金の仕組み](https://finlab-se.com/posts/wise-revolut-fintech-remittance/) — 非ブロックチェーン型の低コスト送金
-- [暗号資産取引所の選び方2026](https://finlab-se.com/posts/crypto-exchange-financial-group-2026/) — ステーブルコインを扱う取引所選び
+- [Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/) — 非ブロックチェーン型の低コスト送金
+- [暗号資産取引所の選び方｜安全性・手数料・金融グループ傘下で比較2026](/posts/crypto-exchange-financial-group-2026/) — ステーブルコインを扱う取引所選び
 
 ---
 

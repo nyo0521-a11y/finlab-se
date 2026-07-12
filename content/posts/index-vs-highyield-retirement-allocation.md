@@ -1,6 +1,7 @@
 ---
 title: "高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論"
 date: 2026-05-18T05:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["高配当株", "インデックス投資", "老後資金・年金", "NISA", "ポートフォリオ"]
@@ -95,7 +96,7 @@ cover:
 - **強み**：元本を売らずにキャッシュフローが得られる
 - **弱み**：減配・無配リスク、銘柄選定の手間
 
-筆者は、米国高配当株ETF（VYM・HDV・SPYDなど）と日本の個別高配当株を組み合わせる方針です。詳しい戦略は [高配当株投資の全体戦略｜米国ETF＋日本個別株のポートフォリオ設計](https://finlab-se.com/posts/highyield-investment-strategy/) で解説しています。
+筆者は、米国高配当株ETF（VYM・HDV・SPYDなど）と日本の個別高配当株を組み合わせる方針です。詳しい戦略は [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/) で解説しています。
 
 本記事の計算では、<strong>平均利回り3.5%</strong>（米国VYM想定3.1%・増配率5%／日本個別株4%・増配率2%の半々）を前提とします。
 
@@ -301,7 +302,7 @@ cover:
 ## 関連記事
 
 ### パターンC（年金＋高配当株のみ）を検討する方へ
-- [高配当株投資の全体戦略｜米国ETF＋日本個別株のポートフォリオ設計](https://finlab-se.com/posts/highyield-investment-strategy/)
+- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/)
 - [必要配当利回り逆算シミュレータの使い方](https://finlab-se.com/posts/dividend-target-simulator-tool-usage/)
 - [配当金生活に必要な資産額の計算](https://finlab-se.com/posts/dividend-life-calculation/)
 - [高配当株銘柄選定基準公開](https://finlab-se.com/posts/highyield-stock-selection-criteria/)

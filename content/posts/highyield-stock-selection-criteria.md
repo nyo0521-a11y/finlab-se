@@ -1,6 +1,7 @@
 ---
 title: "高配当株の銘柄選定基準を公開｜利回り・セクター・財務で絞り込む3ステップ"
 date: 2026-04-18T15:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株"]
@@ -261,7 +262,7 @@ cover:
 
 ## 関連記事
 
-- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか（戦略全体はこちら）](/posts/highyield-investment-strategy/)
+- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/)
 - [高配当株の買い時を見極める：配当利回りで割高・割安を判断する方法](/posts/highyield-buying-timing/)
 - [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](/posts/highyield-portfolio-management/)
 

@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた——Draft確認から投稿予約まで"
 date: 2026-05-02T06:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["ブログ運営", "AI活用", "Claude Code"]
@@ -306,4 +307,4 @@ on:
 
 - [Xの自動投稿を自作する｜Cloudflare WorkersとGitHub Actionsで定時投稿（cronズレも解決）](https://finlab-se.com/posts/x-auto-post-cloudflare-workers/) — Xの自動投稿をほぼ無料で自作した記録
 - [Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](https://finlab-se.com/posts/claude-code-blog-experience/) — 投資シミュレーターを作ろうとしたらブログまで作っていた話
-- [Claude Designでブログのデザインを刷新した話 — PaperMod標準から脱却するまで](https://finlab-se.com/posts/blog-redesign-with-claude-code/) — Claude Codeに「ブログをリデザインして」と丸投げするだけで完成
+- [Claude Designでブログのデザインを刷新した話 — PaperMod標準から脱却するまで](/posts/blog-redesign-with-claude-code/) — Claude Codeに「ブログをリデザインして」と丸投げするだけで完成

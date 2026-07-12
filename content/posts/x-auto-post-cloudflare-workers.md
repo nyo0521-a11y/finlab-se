@@ -1,6 +1,7 @@
 ---
 title: "Xの自動投稿を自作する｜Cloudflare WorkersとGitHub Actionsで定時投稿（cronズレも解決）"
 date: 2026-05-03T06:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["ブログ運営", "AI活用", "Claude Code"]
@@ -279,5 +280,5 @@ Claude Codeへの依頼例としては、次のような形が有効です。
 
 ## 関連記事
 
-- [Xの自動投稿の"中身"をClaude Codeに任せる｜毎朝ニュースから紹介記事を選ぶAI活用](https://finlab-se.com/posts/claude-code-x-news-linked-post/) — この記事の次のステップ。投稿する記事の選定をClaude Codeがニュース連動で自動化する仕組み
-- [Cloudflare PagesでDraft確認から予約投稿まで自動化する仕組み](https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/) — 本記事で触れた「朝の自動ビルドで記事が公開される」仕組みの解説
+- [Xの自動投稿の\"中身\"をClaude Codeに任せる｜毎朝ニュースから紹介記事を選ぶAI活用](/posts/claude-code-x-news-linked-post/) — この記事の次のステップ。投稿する記事の選定をClaude Codeがニュース連動で自動化する仕組み
+- [Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた——Draft確認から投稿予約まで](/posts/cloudflare-pages-blog-publish-flow/) — 本記事で触れた「朝の自動ビルドで記事が公開される」仕組みの解説

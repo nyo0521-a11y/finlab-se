@@ -1,6 +1,7 @@
 ---
 title: "SBI証券のS株で高配当株100銘柄超を買った正直レビュー"
 date: 2026-06-13T05:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["証券会社", "高配当株", "NISA", "レビュー"]
@@ -253,6 +254,6 @@ SBI証券は「サイトのUIが分かりにくい」とよく言われます。
 
 ## 関連記事
 
-- [インデックスと高配当株のための証券会社の選び方](/posts/securities-selection-for-index-and-dividend/) — 主要ネット証券を目的別に比較
-- [住信SBIネット銀行の正直レビュー](/posts/sumishin-sbi-net-bank-honest-review/) — 証券とセットで使う銀行口座
+- [インデックス積立・高配当株投資に合った証券会社の選び方](/posts/securities-selection-for-index-and-dividend/) — 主要ネット証券を目的別に比較
+- [住信SBIネット銀行の正直レビュー｜目的別口座の使い方と小遣い管理の実体験](/posts/sumishin-sbi-net-bank-honest-review/) — 証券とセットで使う銀行口座
 - [高配当株の銘柄選定基準](/posts/highyield-stock-selection-criteria/) — S株で何を買うかの判断軸

@@ -1,6 +1,7 @@
 ---
 title: "日経累進高配当株指数とは？採用30銘柄一覧｜SBI・楽天での買い方"
 date: 2026-07-06T05:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "日本株", "日経累進高配当株指数", "累進配当", "しっかりインカム"]
@@ -218,7 +219,7 @@ cover:
 
 - [累進配当株という選択肢：商社株が注目される理由と、減配しない約束の読み方](https://finlab-se.com/posts/progressive-dividend-stocks/) — 「累進配当」という考え方そのものと、IR資料での約束の読み方はこちら
 - [高配当株の銘柄選定基準](https://finlab-se.com/posts/highyield-stock-selection-criteria/) — 本記事の業績チェックの元になっている、私の銘柄選定の考え方
-- [高配当株ポートフォリオ管理の設計原則](https://finlab-se.com/posts/highyield-portfolio-management/) — 個別株で組む場合の分散ルール・管理の仕組み
+- [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](/posts/highyield-portfolio-management/) — 個別株で組む場合の分散ルール・管理の仕組み
 - [高配当株投資の全体戦略](https://finlab-se.com/posts/highyield-investment-strategy/) — 米国ETF＋日本個別株という私の全体設計
 
 ### 参考文献・出典

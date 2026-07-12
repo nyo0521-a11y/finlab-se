@@ -1,6 +1,7 @@
 ---
 title: "住宅ローンは変動か固定か——差額繰り上げ戦略と「保険料」の考え方"
 date: 2026-05-20T05:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["住宅ローン", "シミュレーション"]
@@ -297,6 +298,6 @@ cover:
 
 ## 関連記事
 
-- [固定金利の正体はデリバティブ｜フラット35が安い理由](/posts/housing-loan-fixed-rate-derivative-flat35/) — 固定金利の仕組みを解説
-- [日銀政策金利と変動金利・借換えシミュレーション](/posts/mortgage-rate-refinance-simulation/) — 金利が動くと返済はどう変わるか
-- [繰り上げ返済と投資どっち？](/posts/mortgage-prepayment-vs-investment-yieldgap/) — 返済と運用の損得を判断
+- [固定金利の正体はデリバティブ——フラット35が安い理由を金融エンジニアが解説](/posts/housing-loan-fixed-rate-derivative-flat35/) — 固定金利の仕組みを解説
+- [日銀の政策金利と住宅ローン変動金利 — 借換え判断のシミュレーション実例](/posts/mortgage-rate-refinance-simulation/) — 金利が動くと返済はどう変わるか
+- [繰り上げ返済と投資どっち？配当で住宅ローンを賄えるか金融SEが試算](/posts/mortgage-prepayment-vs-investment-yieldgap/) — 返済と運用の損得を判断

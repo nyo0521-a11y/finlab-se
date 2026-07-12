@@ -1,6 +1,7 @@
 ---
 title: "Claude Designでブログのデザインを刷新した話 — PaperMod標準から脱却するまで"
 date: 2026-04-23T11:25:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["Claude Code", "ブログ運営"]
@@ -25,7 +26,7 @@ cover:
 
 なぜこの2段階フローで十分なのか。それは、デザインの決定と実装を完全に分業できるからです。本記事では、実際にこのブログ「金融エンジニアの資産運用実験室」でやってみた体験をもとに確認していきます。
 
-※本記事は個人の体験談です。前回の[Claude Codeでブログを作った話](https://finlab-se.com/posts/claude-code-blog-experience/)の続編として、「デザイン刷新編」を記録します。
+※本記事は個人の体験談です。前回の[Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](/posts/claude-code-blog-experience/)の続編として、「デザイン刷新編」を記録します。
 
 ---
 

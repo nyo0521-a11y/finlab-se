@@ -1,6 +1,7 @@
 ---
 title: "Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み"
 date: 2026-04-22T07:00:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["海外送金", "金融インフラ"]
@@ -216,7 +217,7 @@ Wise・Revolutが海外送金にもたらした構造的変化を整理すると
 決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。
 
 - [← 前：海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説](/posts/overseas-remittance-mechanism/)
-- [次：暗号資産とステーブルコインで海外送金はどう変わるか →](/posts/crypto-stablecoin-remittance/)
+- [暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁](/posts/crypto-stablecoin-remittance/)
 
 ---
 

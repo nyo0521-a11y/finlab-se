@@ -1,6 +1,7 @@
 ---
 title: "夏のボーナスの投資使い方を決める4ステップ【後悔しないチェック】"
 date: 2026-05-06T06:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["家計管理", "NISA", "高配当株", "住宅ローン"]
@@ -194,4 +195,4 @@ cover:
 
 - [ボーナスや臨時収入の前に支出を最適化する](/posts/expense-optimization-before-investing/) — 投資に回す前に固定費を見直す順番
 - [食費・固定費の見直しをNISA積立に変える](/posts/expense-optimization-nisa-investment/) — 浮いたお金を投資へ回す具体手順
-- [新NISAの5つの落とし穴と回避策](/posts/new-nisa-pitfalls-5-patterns/) — 積立を始める前に知る注意点
+- [【新NISA】5つの落とし穴と回避策｜本当に怖いのは1つだけ｜金融SE解説](/posts/new-nisa-pitfalls-5-patterns/) — 積立を始める前に知る注意点

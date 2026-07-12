@@ -1,7 +1,7 @@
 ---
 title: "Xの自動投稿の\"中身\"をClaude Codeに任せる｜毎朝ニュースから紹介記事を選ぶAI活用"
 date: 2026-06-21T05:30:00+09:00
-lastmod: 2026-07-11T00:00:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["ブログ運営", "Claude Code", "AI活用"]
@@ -230,7 +230,7 @@ AIに任せる、というと全部おまかせのイメージがありますが
 
 - [Xの自動投稿を自作する｜Cloudflare WorkersとGitHub Actionsで定時投稿（cronズレも解決）](https://finlab-se.com/posts/x-auto-post-cloudflare-workers/) — この記事の土台にあたる「定時にXへ自動投稿する仕組み」の作り方
 - [Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/) — 同じく「判断の枠を渡してAIに回させる」考え方を資産管理に応用した例
-- [Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた](https://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/) — 本記事で触れた「朝の自動ビルドで記事が公開される」仕組みの解説
+- [Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた——Draft確認から投稿予約まで](/posts/cloudflare-pages-blog-publish-flow/) — 本記事で触れた「朝の自動ビルドで記事が公開される」仕組みの解説
 
 ## 参考文献・出典
 

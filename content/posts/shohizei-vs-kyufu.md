@@ -1,6 +1,7 @@
 ---
 title: "消費税減税と現金給付5万円、家計はどっちが得？年収別に試算"
 date: 2026-07-09T05:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["金融ニュース"]
 tags: ["消費税", "給付金", "物価高対策", "家計"]
@@ -171,7 +172,7 @@ cover:
 
 ## 関連記事
 
-- [106万円の壁で手取り・年金はどう動くか（年収別試算）](https://finlab-se.com/posts/income-wall-106-takehome-pension-2026/) — 制度をまたぐ前後で手取りが逆転する「損益分岐」を数字で示した記事。本記事と同じ「前提で損得が入れ替わる」考え方です
+- [106万円の壁撤廃｜手取りはいくら減り年金はいくら増えるか【月収別試算】](/posts/income-wall-106-takehome-pension-2026/) — 制度をまたぐ前後で手取りが逆転する「損益分岐」を数字で示した記事。本記事と同じ「前提で損得が入れ替わる」考え方です
 - [家計簿アプリ比較（2026年版）](https://finlab-se.com/posts/household-budget-app-comparison-2026/) — 浮いたお金を溶かさないための家計の見える化。アプリの選び方を比較しています
 - [支出の最適化からNISA積立へ](https://finlab-se.com/posts/expense-optimization-nisa-investment/) — 見直しで生まれた余力を投資へ回す順番を具体的に解説しています
 

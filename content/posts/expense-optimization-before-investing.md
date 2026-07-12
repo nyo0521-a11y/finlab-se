@@ -1,7 +1,7 @@
 ---
 title: "高配当株投資より先にやるべきこと｜支出の最適化で月1万円を作り出す"
 date: 2026-04-16T21:00:00+09:00
-lastmod: 2026-07-07T00:00:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["家計管理", "高配当株"]
@@ -221,7 +221,7 @@ cover:
 支出の最適化で余剰資金が生まれたら、いよいよ投資の出番です。何から始めるか迷っている方は、高配当株投資の全体像から確認してみてください。
 
 - [高配当株投資の全体戦略——銘柄選定から出口まで](/posts/highyield-investment-strategy/)
-- [インデックス投資・高配当株投資を始める証券会社の選び方](/posts/securities-selection-for-index-and-dividend/)
+- [インデックス積立・高配当株投資に合った証券会社の選び方](/posts/securities-selection-for-index-and-dividend/)
 
 ---
 

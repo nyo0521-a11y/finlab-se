@@ -1,6 +1,7 @@
 ---
 title: "【高配当株】買い時はいつ？配当利回りで割安を見極める方法｜VYM・HDV・SCHD実例"
 date: 2026-04-18T15:45:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "ETF", "日本株"]
@@ -339,7 +340,7 @@ VYM（Vanguard High Dividend Yield ETF）、HDV（iShares Core High Dividend ETF
 
 ## 関連記事
 
-- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか（戦略全体はこちら）](https://finlab-se.com/posts/highyield-investment-strategy/)
+- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/)
 - [高配当株の銘柄選定基準を公開｜利回り・セクター・財務で絞り込む3ステップ](https://finlab-se.com/posts/highyield-stock-selection-criteria/)
 - [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](https://finlab-se.com/posts/highyield-portfolio-management/)
-- [累進配当株という選択肢｜商社株が注目される理由と、減配しない約束の読み方](https://finlab-se.com/posts/progressive-dividend-stocks/) — 買い時判断の対象になりやすい累進配当株の読み解き方
+- [累進配当株という選択肢：商社株が注目される理由と、減配しない約束の読み方](/posts/progressive-dividend-stocks/) — 買い時判断の対象になりやすい累進配当株の読み解き方

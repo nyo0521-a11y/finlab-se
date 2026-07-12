@@ -2,7 +2,7 @@
 title: "モアタイムシステムとは？全銀ネットで振込が24時間即時着金する仕組み｜金融SE解説"
 slug: "zengin-net-payment-system"
 date: 2026-04-20T22:00:00+09:00
-lastmod: 2026-05-29T00:00:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 description: "モアタイムシステム（モアタイム）とは何か。全銀ネット上で振込が24時間365日即時着金する仕組みを、コアタイムとの違い・参加銀行の注意点・使えないケースまで金融SEが解説。"
 categories: ["金融の仕組み"]
@@ -239,7 +239,7 @@ cover:
 - [日銀ネットとRTGS｜国内大口決済の仕組み](https://finlab-se.com/posts/boj-net-rtgs-international/) — 全銀ネットと対になる資金決済
 - [海外送金の仕組み（SWIFT・コルレス銀行）](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 国内決済との違い
 - [暗号資産・ステーブルコインによる送金](https://finlab-se.com/posts/crypto-stablecoin-remittance/) — 銀行ネットワークを介さない送金という選択肢
-- [銀行勘定系システムのクラウド移行](https://finlab-se.com/posts/bank-core-system-cloud/) — 決済を支える基幹システム
+- [銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する](/posts/bank-core-system-cloud/) — 決済を支える基幹システム
 
 ---
 

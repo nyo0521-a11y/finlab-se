@@ -1,7 +1,7 @@
 ---
 title: "高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか"
 date: 2026-04-18T07:00:00+09:00
-lastmod: 2026-07-11T07:00:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "ETF", "日本株", "証券会社"]
@@ -360,9 +360,9 @@ cover:
 ## 関連記事
 
 - [高配当株の銘柄選定基準](https://finlab-se.com/posts/highyield-stock-selection-criteria/) — どの銘柄を選ぶかの判断軸
-- [高配当株ポートフォリオ管理の設計原則](https://finlab-se.com/posts/highyield-portfolio-management/) — 減配に強い分散ルール
+- [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](/posts/highyield-portfolio-management/) — 減配に強い分散ルール
 - [高配当株の買い時の見極め方](https://finlab-se.com/posts/highyield-buying-timing/) — 配当利回り×過去平均で判断
-- [累進配当株という選択肢｜商社株が注目される理由と、減配しない約束の読み方](https://finlab-se.com/posts/progressive-dividend-stocks/) — 日本個別株の一角、累進配当方針の読み解き方
+- [累進配当株という選択肢：商社株が注目される理由と、減配しない約束の読み方](/posts/progressive-dividend-stocks/) — 日本個別株の一角、累進配当方針の読み解き方
 
 ---
 

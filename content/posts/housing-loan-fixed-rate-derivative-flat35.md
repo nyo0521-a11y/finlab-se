@@ -1,6 +1,7 @@
 ---
 title: "固定金利の正体はデリバティブ——フラット35が安い理由を金融エンジニアが解説"
 date: 2026-05-21T05:30:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["住宅ローン"]
@@ -180,7 +181,7 @@ cover:
 ## 関連記事
 
 - [住宅ローンは変動か固定か——差額繰り上げ戦略と「保険料」の考え方](https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/) — 変動と固定の差額を繰り上げ返済に回す戦略を3,000万円35年で検証
-- [日銀の政策金利と住宅ローン変動金利 — 借換え判断のシミュレーション実例](https://finlab-se.com/posts/mortgage-rate-refinance-simulation/) — 変動金利の利上げ局面で借換えは得か
+- [日銀の政策金利と住宅ローン変動金利 — 借換え判断のシミュレーション実例](/posts/mortgage-rate-refinance-simulation/) — 変動金利の利上げ局面で借換えは得か
 - [繰り上げ返済と投資どっち？配当で住宅ローンを賄えるか金融SEが試算](https://finlab-se.com/posts/mortgage-prepayment-vs-investment-yieldgap/) — 住宅ローンは繰り上げ返済と投資どっち？配当や取り崩しで返済を賄えるかを固定・変動の実値で試算
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "配当金生活に必要な資産額を計算する｜インデックス投資取り崩しとの比較シミュレーション"
 date: 2026-04-16T20:52:00+09:00
-lastmod: 2026-07-11T00:00:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "FIRE・取り崩し"]
@@ -299,7 +299,7 @@ NISAを最大限に活用することで、必要元本を約2割減らせる計
 
 ## 関連記事
 
-- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか（戦略全体はこちら）](/posts/highyield-investment-strategy/)
+- [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/)
 - [高配当株の銘柄選定基準を公開｜利回り・セクター・財務で絞り込む3ステップ](/posts/highyield-stock-selection-criteria/)
 - [新NISAの成長投資枠で高配当株を買う戦略｜インデックス投資との使い分け方](/posts/nisa-growth-highyield/)
 - [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](/posts/index-vs-highyield-retirement-allocation/)

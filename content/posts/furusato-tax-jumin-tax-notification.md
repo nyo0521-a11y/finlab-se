@@ -1,7 +1,7 @@
 ---
 title: "住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント"
 date: 2026-05-10T06:30:00+09:00
-lastmod: 2026-07-07T00:00:00+09:00
+lastmod: 2026-07-12T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["節税", "年収の壁"]
@@ -181,6 +181,6 @@ cover:
 
 ## 関連記事
 
-- [年収の壁とは何か——「税の壁」と「社保の壁」2種類で全部わかる](/posts/income-wall-framework/)
+- [年収の壁とは何か——「税金の壁」と「社保の壁」2種類で全部わかる](/posts/income-wall-framework/)
 - [iDeCo 2026年改正で自分はどうなる？企業年金あり・なし別の掛金上限と節税シミュレーション](/posts/ideco-2026-reform/)
 - [高配当株投資より先にやるべきこと｜支出の最適化で月1万円を作り出す](/posts/expense-optimization-before-investing/)
