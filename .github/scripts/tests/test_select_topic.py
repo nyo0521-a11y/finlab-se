@@ -183,6 +183,10 @@ def test_select_retries_twice_on_overflow_then_nulls(tmp_path):
     out = select(NEWS, repo, now=now, call=fake_call)
     assert calls["n"] == 3          # 初回＋短縮再依頼2回
     assert out["selected_post_path"] is None
+    # 診断用: 3回とも超過した実際の文章と文字数がattemptsに残る
+    assert len(out["attempts"]) == 3
+    assert all(a["text"] == long_text for a in out["attempts"])
+    assert all(a["length"] == count_x_length(long_text) for a in out["attempts"])
 
 
 def test_select_returns_success_on_retry(tmp_path):
@@ -212,6 +216,9 @@ def test_select_returns_success_on_retry(tmp_path):
     out = select(NEWS, repo, now=now, call=fake_call)
     assert calls["n"] == 2
     assert out["selected_post_path"] == "content/posts/loan.md"
+    # 成功時も、直前に超過した1回目の試行はattemptsに残る
+    assert len(out["attempts"]) == 1
+    assert out["attempts"][0]["text"] == long_text
 
 
 def test_select_retry_message_includes_previous_text_and_overflow(tmp_path):

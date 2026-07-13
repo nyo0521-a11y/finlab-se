@@ -195,22 +195,28 @@ def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dic
     valid_paths = {c["post_path"] for c in catalog}
 
     result = call(system, user)
+    attempts = []  # 超過した各試行の {length, text} を記録（診断用）
     for attempt in range(3):  # 初回 + 短縮再依頼2回
         sel = result.get("selected_post_path")
         if not sel:
             return {"selected_post_path": None,
                     "reason": result.get("reason", "no match"),
-                    "candidates": result.get("candidates", [])}
+                    "candidates": result.get("candidates", []),
+                    **({"attempts": attempts} if attempts else {})}
         if sel not in valid_paths:
             return {"selected_post_path": None, "reason": f"invalid path {sel}",
-                    "candidates": result.get("candidates", [])}
+                    "candidates": result.get("candidates", []),
+                    **({"attempts": attempts} if attempts else {})}
         text = result.get("text") or ""
-        if count_x_length(text) <= MAX_LEN:
+        length = count_x_length(text)
+        if length <= MAX_LEN:
             return {"selected_post_path": sel, "text": text,
                     "topic_reason": result.get("topic_reason", ""),
-                    "candidates": result.get("candidates", [])}
+                    "candidates": result.get("candidates", []),
+                    **({"attempts": attempts} if attempts else {})}
+        attempts.append({"length": length, "text": text})
         if attempt < 2:
-            over_by = count_x_length(text) - MAX_LEN
+            over_by = length - MAX_LEN
             retry_user = (
                 user
                 + "\n\n直前に生成したこの投稿文はX換算で280字を"
@@ -222,7 +228,7 @@ def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dic
             )
             result = call(system, retry_user)
     return {"selected_post_path": None, "reason": "text too long after retry",
-            "candidates": result.get("candidates", [])}
+            "candidates": result.get("candidates", []), "attempts": attempts}
 
 
 def main():

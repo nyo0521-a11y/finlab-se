@@ -149,6 +149,11 @@ def select_topic_inline():
             f"select_topic: selected={post_path} "
             f"reason={result.get('topic_reason') or result.get('reason') or ''}\n"
         )
+        for i, a in enumerate(result.get("attempts") or [], 1):
+            escaped = a.get("text", "").replace("\n", "\\n")
+            sys.stderr.write(
+                f"select_topic attempt {i} (length={a.get('length')}): {escaped}\n"
+            )
         if not post_path or not (REPO_ROOT / post_path).exists():
             return None
         return {

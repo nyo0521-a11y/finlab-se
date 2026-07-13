@@ -39,6 +39,28 @@ def test_inline_returns_pick_on_selection(monkeypatch, tmp_path, capsys):
     assert "collect_news: yahoo=1 google=0 trends=1" in err
 
 
+def test_inline_logs_overflow_attempts(monkeypatch, tmp_path, capsys):
+    """280字超過で失敗した場合、各試行の文字数と実際の文章がstderrに出る（診断用）。"""
+    monkeypatch.setattr(morning_post, "REPO_ROOT", tmp_path)
+
+    def fake_run(cmd, **kwargs):
+        out = json.dumps({"yahoo": [], "google": []}) if "collect_news.py" in cmd[1] \
+            else json.dumps({
+                "selected_post_path": None,
+                "reason": "text too long after retry",
+                "candidates": [],
+                "attempts": [
+                    {"length": 320, "text": "長い本文1行目\n2行目 https://example.com/x"},
+                ],
+            })
+        return types.SimpleNamespace(stdout=out, stderr="", returncode=0)
+
+    monkeypatch.setattr(morning_post.subprocess, "run", fake_run)
+    assert morning_post.select_topic_inline() is None
+    err = capsys.readouterr().err
+    assert "select_topic attempt 1 (length=320): 長い本文1行目\\n2行目 https://example.com/x" in err
+
+
 def test_inline_returns_none_when_no_match(monkeypatch, tmp_path):
     monkeypatch.setattr(morning_post, "REPO_ROOT", tmp_path)
 
