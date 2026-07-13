@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-07-14T07:32:02+09:00'
+    text: 'コンビニでステーブルコイン決済の実証実験が始まるとのニュース。「1コイン＝1ドル」を保つ仕組みや、海外送金がどう変わるのか、規制（MiCA・GENIUS
+      Act）の壁まで、金融SEの視点で整理しました。決済の裏側を知っておくと理解が早まります。 https://finlab-se.com/posts/crypto-stablecoin-remittance/
+      #ステーブルコイン #暗号資産'
+    tweet_id: '2076796822572417328'
+    tweet_url: https://x.com/i/web/status/2076796822572417328
+    type: topic
+    post_path: content/posts/crypto-stablecoin-remittance.md
   - posted_at: '2026-07-13T21:06:28+09:00'
     text: "【おすすめ📖】\n「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。\n\nhttps://finlab-se.com/posts/dividend-target-simulator-tool-usage/\n\
       \n#高配当株 #シミュレーション #ClaudeCode"
@@ -357,10 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2067730440912261317
     type: topic
     post_path: content/posts/index-vs-highyield-retirement-allocation.md
-  - posted_at: '2026-06-18T21:05:32+09:00'
-    text: "【おすすめ📖】\nネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、…\n\nhttps://finlab-se.com/posts/bank-security-defense-in-depth-phishing/\n\
-      \n#セキュリティ #フィッシング #多要素認証"
-    tweet_id: '2067579462343180542'
-    tweet_url: https://x.com/i/web/status/2067579462343180542
-    type: rotation
-    post_path: content/posts/bank-security-defense-in-depth-phishing.md
