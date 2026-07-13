@@ -23,8 +23,8 @@ rotation:
 - post_path: content/posts/dividend-target-simulator-tool-usage.md
     # title: 【ツール紹介】必要配当利回り逆算シミュレータ
     # date: 2026-04-19
-  last_promoted: '2026-05-29T21:06:35+09:00'
-  promote_count: 2
+  last_promoted: '2026-07-13T21:06:28+09:00'
+  promote_count: 3
   priority: high
 
 - post_path: content/posts/dividend-life-calculation.md

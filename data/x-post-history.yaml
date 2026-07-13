@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-13T21:06:28+09:00'
+    text: "【おすすめ📖】\n「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。\n\nhttps://finlab-se.com/posts/dividend-target-simulator-tool-usage/\n\
+      \n#高配当株 #シミュレーション #ClaudeCode"
+    tweet_id: '2076639393037570359'
+    tweet_url: https://x.com/i/web/status/2076639393037570359
+    type: rotation
+    post_path: content/posts/dividend-target-simulator-tool-usage.md
   - posted_at: '2026-07-13T07:32:17+09:00'
     text: "【おすすめ📖】\n配当金生活には結局いくら必要なのか。年間生活費200万円を例に、税引前利回り別（3.0〜4.5%）の必要元本を特定口座・NISA口座それぞれで計算し、…\n\
       \nhttps://finlab-se.com/posts/dividend-life-calculation/\n\n#高配当株 #FIRE取り崩し"
@@ -357,10 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2067579462343180542
     type: rotation
     post_path: content/posts/bank-security-defense-in-depth-phishing.md
-  - posted_at: '2026-06-18T07:05:33+09:00'
-    text: "【おすすめ📖】\nオルカン＝理論的に正しいインデックス、S&P500＝米国へ賭けるアクティブ要素入り。\n\nhttps://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/\n\
-      \n#インデックス投資 #オルカン #S&P500"
-    tweet_id: '2067368075234558101'
-    tweet_url: https://x.com/i/web/status/2067368075234558101
-    type: rotation
-    post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
