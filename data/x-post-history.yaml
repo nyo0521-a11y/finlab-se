@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-07-14T21:06:33+09:00'
+    text: "【おすすめ📖】\n自分の資産額・取崩し額・現金バッファを入力するだけで、最大100万通りの未来シナリオからFIRE計画の成功率を算出できる無料シミュレーターの使い方を解…\n\
+      \nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\n#シミュレーション #FIRE取り崩し
+      #インデックス投資"
+    tweet_id: '2077001801283318006'
+    tweet_url: https://x.com/i/web/status/2077001801283318006
+    type: rotation
+    post_path: content/posts/montecarlo-tool-usage.md
   - posted_at: '2026-07-14T07:32:02+09:00'
     text: 'コンビニでステーブルコイン決済の実証実験が始まるとのニュース。「1コイン＝1ドル」を保つ仕組みや、海外送金がどう変わるのか、規制（MiCA・GENIUS
       Act）の壁まで、金融SEの視点で整理しました。決済の裏側を知っておくと理解が早まります。 https://finlab-se.com/posts/crypto-stablecoin-remittance/
@@ -357,11 +365,3 @@ history:
     tweet_url: https://x.com/i/web/status/2067941841149047295
     type: rotation
     post_path: content/posts/bonus-investment-checkup-4steps.md
-  - posted_at: '2026-06-19T07:05:28+09:00'
-    text: "【日経平均が史上初7万円台】インデックス投資の好調ぶりが改めて注目されています。\n\n「高配当株だけでいい？インデックス投資は不要？」この問いを年金＋配当金の逆算で整理した記事です。\n\
-      https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/\n#日経平均
-      #インデックス投資 #高配当株"
-    tweet_id: '2067730440912261317'
-    tweet_url: https://x.com/i/web/status/2067730440912261317
-    type: topic
-    post_path: content/posts/index-vs-highyield-retirement-allocation.md
