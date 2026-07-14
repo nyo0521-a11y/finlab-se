@@ -1,7 +1,7 @@
 ---
 title: "HDVがNISA対象外に｜代替3ルートを金融SEが比較検証"
-date: 2026-07-12T06:30:00+09:00
-draft: true
+date: 2026-07-15T05:30:00+09:00
+draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "ETF", "NISA"]
 description: "HDVが毎月分配化し、SBI証券は2026年6月18日からNISA対象外に（保有中は継続可・積立停止）。東証ETF・SCHD投信・VYM（本家ETF/投信）の代替3ルートを比較し、旧NISA払い出しを控えた実録シミュレーションで確定申告有無の損得差まで検証します。"
