@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-15T07:32:24+09:00'
+    text: '「60歳代の平均貯蓄は単身1364万円・二人以上2683万円」が話題です。平均は高額層に引っ張られやすく、中央値とのギャップを見ておくことが大切。年金は今後マクロ経済スライドで実質目減りが見込まれます。仕組みと3つの行動を整理しました。
+      https://finlab-se.com/posts/pension-macroeconomic-slide-2026/ #年金 #老後資金'
+    tweet_id: '2077159300829778102'
+    tweet_url: https://x.com/i/web/status/2077159300829778102
+    type: topic
+    post_path: content/posts/pension-macroeconomic-slide-2026.md
   - posted_at: '2026-07-14T21:06:33+09:00'
     text: "【おすすめ📖】\n自分の資産額・取崩し額・現金バッファを入力するだけで、最大100万通りの未来シナリオからFIRE計画の成功率を算出できる無料シミュレーターの使い方を解…\n\
       \nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\n#シミュレーション #FIRE取り崩し
@@ -357,11 +364,3 @@ history:
     tweet_url: https://x.com/i/web/status/2068141519324799215
     type: topic
     post_path: content/posts/mortgage-rate-refinance-simulation.md
-  - posted_at: '2026-06-19T21:05:30+09:00'
-    text: "【おすすめ📖】\n夏のボーナスを投資に使う前に確認したい4つのチェックポイント。生活防衛資金・NISA枠・ポートフォリオの偏り・固定費を順に見直すことで、ボーナスの使い方を迷わず決められます。\n\
-      \nhttps://finlab-se.com/posts/bonus-investment-checkup-4steps/\n\n#ボーナス #NISA
-      #高配当株"
-    tweet_id: '2067941841149047295'
-    tweet_url: https://x.com/i/web/status/2067941841149047295
-    type: rotation
-    post_path: content/posts/bonus-investment-checkup-4steps.md
