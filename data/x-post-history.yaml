@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-16T07:31:49+09:00'
+    text: '新NISAの買付額が71兆円を突破し、オルカンの陰で半導体ファンドが猛追との報道が話題です。過去のリターンやテーマの勢いだけで選ぶと判断がぶれます。オルカンとS&P500を3つの判断軸で整理し、自分の答えを出す方法を金融SEが解説しました。https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/
+      #新NISA #インデックス投資'
+    tweet_id: '2077521543614312605'
+    tweet_url: https://x.com/i/web/status/2077521543614312605
+    type: topic
+    post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
   - posted_at: '2026-07-15T21:05:50+09:00'
     text: "【新着📝】\nHDVが毎月分配化し、SBI証券は2026年6月18日からNISA対象外に（保有中は継続可・積立停止）。\n\nhttps://finlab-se.com/posts/hdv-nisa-exclusion/\n\
       \n#高配当株 #ETF #NISA"
@@ -356,10 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2068455215632719922
     type: rotation
     post_path: content/posts/claude-code-reduce-permission-prompts.md
-  - posted_at: '2026-06-20T21:05:33+09:00'
-    text: "【おすすめ📖】\n保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成する手順。\n\nhttps://finlab-se.com/posts/claude-code-dividend-calendar/\n\
-      \n#ClaudeCode #配当金 #AI活用"
-    tweet_id: '2068304242817814699'
-    tweet_url: https://x.com/i/web/status/2068304242817814699
-    type: rotation
-    post_path: content/posts/claude-code-dividend-calendar.md
