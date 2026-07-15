@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-15T21:05:50+09:00'
+    text: "【新着📝】\nHDVが毎月分配化し、SBI証券は2026年6月18日からNISA対象外に（保有中は継続可・積立停止）。\n\nhttps://finlab-se.com/posts/hdv-nisa-exclusion/\n\
+      \n#高配当株 #ETF #NISA"
+    tweet_id: '2077364010547060785'
+    tweet_url: https://x.com/i/web/status/2077364010547060785
+    type: new
+    post_path: content/posts/hdv-nisa-exclusion.md
   - posted_at: '2026-07-15T07:32:24+09:00'
     text: '「60歳代の平均貯蓄は単身1364万円・二人以上2683万円」が話題です。平均は高額層に引っ張られやすく、中央値とのギャップを見ておくことが大切。年金は今後マクロ経済スライドで実質目減りが見込まれます。仕組みと3つの行動を整理しました。
       https://finlab-se.com/posts/pension-macroeconomic-slide-2026/ #年金 #老後資金'
@@ -356,11 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2068304242817814699
     type: rotation
     post_path: content/posts/claude-code-dividend-calendar.md
-  - posted_at: '2026-06-20T10:18:57+09:00'
-    text: "【日銀が政策金利1.0%へ利上げ】30年ぶりの水準となり、住宅ローンの変動金利にも影響が及びそうです。\n\n「借り換えると本当に得？」を、残債・金利差・残期間の3条件で損益分岐から試算した記事です。\n\
-      https://finlab-se.com/posts/mortgage-rate-refinance-simulation/\n\n#日銀 #住宅ローン
-      #変動金利"
-    tweet_id: '2068141519324799215'
-    tweet_url: https://x.com/i/web/status/2068141519324799215
-    type: topic
-    post_path: content/posts/mortgage-rate-refinance-simulation.md
