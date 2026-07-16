@@ -1,7 +1,7 @@
 ---
 title: "高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論"
 date: 2026-05-18T05:30:00+09:00
-lastmod: 2026-07-12T00:00:00+09:00
+lastmod: 2026-07-15T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["高配当株", "インデックス投資", "老後資金・年金", "NISA", "ポートフォリオ"]
@@ -306,6 +306,7 @@ cover:
 - [必要配当利回り逆算シミュレータの使い方](https://finlab-se.com/posts/dividend-target-simulator-tool-usage/)
 - [配当金生活に必要な資産額の計算](https://finlab-se.com/posts/dividend-life-calculation/)
 - [高配当株銘柄選定基準公開](https://finlab-se.com/posts/highyield-stock-selection-criteria/)
+- [2026年度の年金改定率と「マクロ経済スライド」— 現役世代が今から備える3つの行動](https://finlab-se.com/posts/pension-macroeconomic-slide-2026/) — 公的年金が実質どれだけ目減りするかの試算
 
 ### パターンB（併用）を検討する方へ
 - [NISA成長投資枠×高配当株の活用法](https://finlab-se.com/posts/nisa-growth-highyield/)
