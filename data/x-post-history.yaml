@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-07-16T21:05:54+09:00'
+    text: "【おすすめ📖】\n毎月の資産記録が続かない人へ。MoneyForwardの残高更新→スプレッドシートの資産推移表→貸借対照表Excelという3ステップを、…\n\
+      \nhttps://finlab-se.com/posts/asset-management-claude-code/\n\n#ClaudeCode #家計管理
+      #MoneyForward"
+    tweet_id: '2077726414263013851'
+    tweet_url: https://x.com/i/web/status/2077726414263013851
+    type: rotation
+    post_path: content/posts/asset-management-claude-code.md
   - posted_at: '2026-07-16T07:31:49+09:00'
     text: '新NISAの買付額が71兆円を突破し、オルカンの陰で半導体ファンドが猛追との報道が話題です。過去のリターンやテーマの勢いだけで選ぶと判断がぶれます。オルカンとS&P500を3つの判断軸で整理し、自分の答えを出す方法を金融SEが解説しました。https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/
       #新NISA #インデックス投資'
@@ -355,11 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2068817643667169633
     type: topic
     post_path: content/posts/housing-loan-variable-fixed-simulation.md
-  - posted_at: '2026-06-21T07:05:28+09:00'
-    text: "【おすすめ📖】\nClaude Codeの許可ダイアログを減らす方法。settings.jsonとCLAUDE.mdの設定でほぼゼロに。\n\n\
-      https://finlab-se.com/posts/claude-code-reduce-permission-prompts/\n\n#ClaudeCode
-      #AI活用 #生産性"
-    tweet_id: '2068455215632719922'
-    tweet_url: https://x.com/i/web/status/2068455215632719922
-    type: rotation
-    post_path: content/posts/claude-code-reduce-permission-prompts.md
