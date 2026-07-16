@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-17T07:31:45+09:00'
+    text: "【おすすめ📖】\nなぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。\n\nhttps://finlab-se.com/posts/bank-core-system-cloud/\n\
+      \n#金融インフラ #金融SE"
+    tweet_id: '2077883915747139675'
+    tweet_url: https://x.com/i/web/status/2077883915747139675
+    type: rotation
+    post_path: content/posts/bank-core-system-cloud.md
   - posted_at: '2026-07-16T21:05:54+09:00'
     text: "【おすすめ📖】\n毎月の資産記録が続かない人へ。MoneyForwardの残高更新→スプレッドシートの資産推移表→貸借対照表Excelという3ステップを、…\n\
       \nhttps://finlab-se.com/posts/asset-management-claude-code/\n\n#ClaudeCode #家計管理
@@ -356,10 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2069180031671083173
     type: topic
     post_path: content/posts/nikkei-60000-highyield-mindset.md
-  - posted_at: '2026-06-22T07:05:38+09:00'
-    text: "【日銀が利上げ】政策金利1.0%へ。住宅ローンは変動か固定か——差額繰り上げ戦略と「保険料」の視点で整理しました。\nhttps://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n\
-      #住宅ローン #変動金利 #日銀"
-    tweet_id: '2068817643667169633'
-    tweet_url: https://x.com/i/web/status/2068817643667169633
-    type: topic
-    post_path: content/posts/housing-loan-variable-fixed-simulation.md
