@@ -232,6 +232,7 @@ cover:
 
 ## 関連記事
 
+- [クレカ積立おすすめの選び方｜経済圏と損益分岐点で1枚に絞る方法](https://finlab-se.com/posts/credit-card-recommendation-2026/) — 還元の仕組みを踏まえて、実際にどの1枚に絞るかを決める手順です
 - [クレカのポイントはなぜもらえる？インターチェンジフィーからわかるカード会社のビジネスモデル](/posts/credit-card-interchange-fee/)
 - [クレカ決済はなぜ0.1秒で完了する？5社が動く処理フローを金融SE実務者が解説](/posts/credit-card-payment-flow/)
 - [クレカ改悪2026年まとめ：dカード・三井住友ゴールドNL・楽天・PayPayカードの改定内容と、振り回されないための判断軸](/posts/credit-card-reform-2026/)

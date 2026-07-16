@@ -489,6 +489,7 @@ Claude Codeは「情報収集・集計・整形・可視化」は極めて得意
 
 ## 関連記事
 
+- [Xの自動投稿の"中身"をClaude Codeに任せる｜毎朝ニュースから紹介記事を選ぶAI活用](https://finlab-se.com/posts/claude-code-x-news-linked-post/) — 同じくClaude Codeで日々の運用を自動化した実践例です
 Claude Codeで資産管理を自動化する活用例は、こちらもあわせて参考にしてください。
 
 - [Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/)

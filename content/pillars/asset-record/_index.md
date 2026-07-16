@@ -23,4 +23,4 @@ hideMeta: true
 ## 関連カテゴリで記事を見る
 
 - [資産形成カテゴリの記事一覧](/categories/asset-building/)
-- [高配当株投資カテゴリの記事一覧](/categories/highyield-stocks/)
+- [高配当株投資カテゴリの記事一覧](/categories/high-yield/)

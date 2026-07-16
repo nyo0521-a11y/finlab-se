@@ -267,6 +267,7 @@ EC購入後に「支払い予定」として限度額が減っているのに、
 
 ## 関連記事
 
+- [金融機関で20年見てきたお金の話｜キャッシュレス・保険・銀行の本音](https://finlab-se.com/posts/finance-insider-cashless-and-sales/) — 決済の仕組みの裏側で働く人から見た、キャッシュレスの本音の話です
 - [クレカのポイント原資はどこから？インターチェンジフィー解説｜加盟店手数料の流れを金融SE図解](/posts/credit-card-interchange-fee/)
 - [なぜ年会費無料のクレカでも1%還元できるのか｜カード会社が損をしない仕組み](/posts/credit-card-free-annual-fee-model/)
 - [クレカ改悪2026年まとめ：dカード・三井住友ゴールドNL・楽天・PayPayカードの改定内容と、振り回されないための判断軸](/posts/credit-card-reform-2026/)

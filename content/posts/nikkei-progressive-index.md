@@ -217,6 +217,7 @@ cover:
 
 ## 関連記事
 
+- [連続増配株という選択肢：テーマ株に目を奪われても、選ぶ基準は変わらない](https://finlab-se.com/posts/consecutive-dividend-growth/) — 累進配当と並ぶ「増配の継続性」に注目した銘柄の選び方です
 - [累進配当株という選択肢：商社株が注目される理由と、減配しない約束の読み方](https://finlab-se.com/posts/progressive-dividend-stocks/) — 「累進配当」という考え方そのものと、IR資料での約束の読み方はこちら
 - [高配当株の銘柄選定基準](https://finlab-se.com/posts/highyield-stock-selection-criteria/) — 本記事の業績チェックの元になっている、私の銘柄選定の考え方
 - [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](/posts/highyield-portfolio-management/) — 個別株で組む場合の分散ルール・管理の仕組み

@@ -343,6 +343,7 @@ S&P500を選ぶのが間違いというわけではありません。<strong>「
 
 ## 関連記事
 
+- [ウェルスナビの手数料は高い？インデックス投信と30年比較](https://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/) — インデックス投信とロボアドの手数料差が30年でどれだけ効くかの試算です
 - [新NISAの成長投資枠で高配当株を買う戦略｜インデックス投資との使い分け方](https://finlab-se.com/posts/nisa-growth-highyield/)
 - [ボーナス投資の使いどころ｜4ステップで判断する配分の決め方](https://finlab-se.com/posts/bonus-investment-checkup-4steps/)
 - [投資を始める前にやるべき支出最適化｜固定費の見直しが投資効率を上げる](https://finlab-se.com/posts/expense-optimization-before-investing/)

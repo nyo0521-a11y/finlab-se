@@ -427,6 +427,7 @@ iDeCoの優位性は以下の3軸が揃うほど大きくなります。
 
 ## 関連記事
 
+- [住民税決定通知書の見方｜ふるさと納税の控除を確認する3つのポイント](https://finlab-se.com/posts/furusato-tax-jumin-tax-notification/) — 節税の効果が実際に反映されたかを通知書で確認する手順です
 - [企業型DC・iDeCoの基本を整理する｜3階建て構造と税メリット・デメリット](https://finlab-se.com/posts/ideco-dc-basics/) — 企業型DB・DC・iDeCoの違いを3階建てで整理
 - [iDeCoの受け取り方を徹底解説——一時金・年金・併用の損得を整理する](https://finlab-se.com/posts/ideco-withdrawal-guide/) — iDeCoの受け取り方は一時金・年金形式・併用の3択です
 - [【2026年改正】iDeCoは社会保険料・所得税が下がる？節税効果を年収別に試算](https://finlab-se.com/posts/ideco-2026-reform/) — 2026年改正でiDeCoの掛金上限が月6

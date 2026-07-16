@@ -17,11 +17,18 @@ buildFuture: false
 enableGitInfo: true
 
 # 出力設定
+# section/taxonomy/term の RSS は生成しない（GSCで index.xml が「クロール済み-未登録」に大量計上されるため。ホームのRSSのみ残す）
 outputs:
   home:
     - HTML
     - RSS
     - JSON
+  section:
+    - HTML
+  taxonomy:
+    - HTML
+  term:
+    - HTML
 
 params:
   # サイト基本情報
@@ -42,7 +49,7 @@ params:
   cover:
     linkFullImages: true
     responsiveImages: true
-  ShowRssButtonInSectionTermList: true
+  ShowRssButtonInSectionTermList: false  # section/term のRSS出力停止に合わせて非表示（2026-07-16）
   UseHugoToc: true
   disableScrollToTop: false
   comments: false
