@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-18T07:31:38+09:00'
+    text: '半導体株の急落やキオクシア株の半値など、値動きの大きい局面が続いています。一喜一憂する前に、資産をどこに置くか──運用先の「安全性・資本力・手数料」を見る視点は共通して大切です。暗号資産取引所の選び方を金融SEが整理しました。
+      https://finlab-se.com/posts/crypto-exchange-financial-group-2026/ #資産運用 #暗号資産'
+    tweet_id: '2078246274776608918'
+    tweet_url: https://x.com/i/web/status/2078246274776608918
+    type: topic
+    post_path: content/posts/crypto-exchange-financial-group-2026.md
   - posted_at: '2026-07-17T21:05:54+09:00'
     text: "【おすすめ📖】\nClaude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。\n\nhttps://finlab-se.com/posts/blog-redesign-with-claude-code/\n\
       \n#ClaudeCode #ブログ運営"
@@ -355,11 +362,3 @@ history:
     tweet_url: https://x.com/i/web/status/2069753834650439878
     type: rotation
     post_path: content/posts/corporate-dc-ideco-flowchart-2026.md
-  - posted_at: '2026-06-24T07:05:37+09:00'
-    text: "【おすすめ📖】\nDraft確認・予約投稿まで自動化。Cloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組み。\n\
-      \nhttps://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/\n\n#CloudflarePages
-      #GitHubActions #Hugo"
-    tweet_id: '2069542418676924862'
-    tweet_url: https://x.com/i/web/status/2069542418676924862
-    type: rotation
-    post_path: content/posts/cloudflare-pages-blog-publish-flow.md
