@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-17T21:05:54+09:00'
+    text: "【おすすめ📖】\nClaude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。\n\nhttps://finlab-se.com/posts/blog-redesign-with-claude-code/\n\
+      \n#ClaudeCode #ブログ運営"
+    tweet_id: '2078088801986269453'
+    tweet_url: https://x.com/i/web/status/2078088801986269453
+    type: rotation
+    post_path: content/posts/blog-redesign-with-claude-code.md
   - posted_at: '2026-07-17T07:31:45+09:00'
     text: "【おすすめ📖】\nなぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。\n\nhttps://finlab-se.com/posts/bank-core-system-cloud/\n\
       \n#金融インフラ #金融SE"
@@ -356,10 +363,3 @@ history:
     tweet_url: https://x.com/i/web/status/2069542418676924862
     type: rotation
     post_path: content/posts/cloudflare-pages-blog-publish-flow.md
-  - posted_at: '2026-06-23T07:05:37+09:00'
-    text: "【日経平均が連日最高値】一時7万円に乗せ、株高で気分が高揚しがちな局面です。こんなときこそ高配当株投資家がやってはいけない3つのことを整理しました。長期で配当を積み上げるための心構えです。\n\
-      https://finlab-se.com/posts/nikkei-60000-highyield-mindset/\n#日経平均 #高配当株 #新NISA"
-    tweet_id: '2069180031671083173'
-    tweet_url: https://x.com/i/web/status/2069180031671083173
-    type: topic
-    post_path: content/posts/nikkei-60000-highyield-mindset.md
