@@ -262,6 +262,7 @@ SWIFTのISO 20022移行やGPIの普及はこの文脈で評価されるべき改
 - [Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/) — コルレス網を迂回する新送金
 - [暗号資産・ステーブルコインによる送金](https://finlab-se.com/posts/crypto-stablecoin-remittance/) — ブロックチェーン送金の仕組み
 - [全銀ネット決済システムの仕組み](https://finlab-se.com/posts/zengin-net-payment-system/) — 国内決済との対比
+- [銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する](https://finlab-se.com/posts/bank-core-system-cloud/) — 決済を支える基幹システムの話
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み"
 date: 2026-04-22T07:00:00+09:00
-lastmod: 2026-07-12T00:00:00+09:00
+lastmod: 2026-07-16T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["海外送金", "金融インフラ"]
@@ -37,7 +37,7 @@ cover:
 - Wise と Revolut の使い分け（送金特化 vs 多通貨総合口座）
 - FinTech送金モデルの限界と規制リスク
 
-> 銀行海外送金（SWIFT・コルレス銀行）の側の仕組みは、前編記事「[海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説](/posts/overseas-remittance-mechanism/)」で詳しく扱っています。
+> 銀行海外送金（SWIFT・コルレス銀行）の側の仕組みは、前編記事「[コルレス銀行とは？海外送金の仕組みと中継銀行手数料を金融SEが解説](/posts/overseas-remittance-mechanism/)」で詳しく扱っています。
 
 ---
 
@@ -216,16 +216,18 @@ Wise・Revolutが海外送金にもたらした構造的変化を整理すると
 
 決済インフラシリーズでは、国内送金から海外送金・FinTech・暗号資産まで順に解説しています。
 
-- [← 前：海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説](/posts/overseas-remittance-mechanism/)
+- [← 前：コルレス銀行とは？海外送金の仕組みと中継銀行手数料を金融SEが解説](/posts/overseas-remittance-mechanism/)
 - [暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁](/posts/crypto-stablecoin-remittance/)
 
 ---
 
 ## 関連記事
 
-- [海外送金の仕組み（SWIFT・コルレス銀行）](https://finlab-se.com/posts/overseas-remittance-mechanism/) — FinTech送金が迂回する従来網
+- [コルレス銀行とは？海外送金の仕組みと中継銀行手数料を金融SEが解説](https://finlab-se.com/posts/overseas-remittance-mechanism/) — FinTech送金が迂回する従来網
 - [暗号資産・ステーブルコインによる送金](https://finlab-se.com/posts/crypto-stablecoin-remittance/) — もう一つの低コスト送金手段
-- [日銀ネットとRTGS｜国内大口決済の仕組み](https://finlab-se.com/posts/boj-net-rtgs-international/) — 決済インフラの全体像
+- [日銀ネットとは？銀行間決済RTGSの仕組み｜Fedwire・CHIPS・TARGET2と比較解説](https://finlab-se.com/posts/boj-net-rtgs-international/) — 決済インフラの全体像
+- [モアタイムシステムとは？全銀ネットで振込が24時間即時着金する仕組み｜金融SE解説](https://finlab-se.com/posts/zengin-net-payment-system/) — 国内送金インフラの基本
+- [銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する](https://finlab-se.com/posts/bank-core-system-cloud/) — 決済を支える基幹システムの話
 
 ---
 

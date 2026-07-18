@@ -1,7 +1,7 @@
 ---
 title: "暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁"
 date: 2026-04-23T14:17:00+09:00
-lastmod: 2026-07-12T00:00:00+09:00
+lastmod: 2026-07-16T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["暗号資産", "海外送金"]
@@ -32,7 +32,7 @@ cover:
 - ステーブルコインがいま海外送金で注目される理由と現在地
 - 普及の最大の壁であるAML（マネーロンダリング対策）と、主要法域（EU MiCA・日本改正資金決済法・米国GENIUS Act）の立法動向
 
-> 銀行海外送金（コルレス銀行・SWIFT）の仕組みは「[海外送金の仕組み｜SWIFT・コルレス銀行で3,000円＋数日の正体を解説](/posts/overseas-remittance-mechanism/)」、Wise・Revolutのローカル決済プール方式は「[Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/)」で扱っています。
+> 銀行海外送金（コルレス銀行・SWIFT）の仕組みは「[コルレス銀行とは？海外送金の仕組みと中継銀行手数料を金融SEが解説](/posts/overseas-remittance-mechanism/)」、Wise・Revolutのローカル決済プール方式は「[Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/)」で扱っています。
 
 ---
 
@@ -246,9 +246,10 @@ Wise・Revolutが「コルレス網を迂回する規制業者」として銀行
 
 ## 関連記事
 
-- [海外送金の仕組み（SWIFT・コルレス銀行）](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 従来型の国際送金の仕組み
+- [コルレス銀行とは？海外送金の仕組みと中継銀行手数料を金融SEが解説](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 従来型の国際送金の仕組み
 - [Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](/posts/wise-revolut-fintech-remittance/) — 非ブロックチェーン型の低コスト送金
 - [暗号資産取引所の選び方｜安全性・手数料・金融グループ傘下で比較2026](/posts/crypto-exchange-financial-group-2026/) — ステーブルコインを扱う取引所選び
+- [銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する](/posts/bank-core-system-cloud/) — 決済を支える基幹システムの話
 
 ---
 

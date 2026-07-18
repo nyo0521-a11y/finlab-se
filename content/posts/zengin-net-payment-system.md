@@ -210,6 +210,7 @@ cover:
 
 - [日銀ネットとRTGS｜国内大口決済の仕組み](https://finlab-se.com/posts/boj-net-rtgs-international/) — 全銀ネットと対になる資金決済
 - [コルレス銀行とは？海外送金の仕組みと中継銀行手数料を金融SEが解説](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 国内決済との違い
+- [Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](https://finlab-se.com/posts/wise-revolut-fintech-remittance/) — 銀行インフラを迂回するFinTechとの対比
 - [暗号資産・ステーブルコインによる送金](https://finlab-se.com/posts/crypto-stablecoin-remittance/) — 銀行ネットワークを介さない送金という選択肢
 - [銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する](/posts/bank-core-system-cloud/) — 決済を支える基幹システム
 

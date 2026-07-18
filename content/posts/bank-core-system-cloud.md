@@ -1,6 +1,7 @@
 ---
 title: "銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する"
 date: 2026-04-24T07:30:00+09:00
+lastmod: 2026-07-16T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["金融インフラ", "金融SE"]
@@ -287,6 +288,10 @@ cover:
 - [金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ](https://finlab-se.com/posts/finance-se-20years-lessons/) — 銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点
 - [ネット銀行は危ない？多重防御の仕組みと個人ができるフィッシング対策4つ｜金融SE解説](https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/) — ネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも…
 - [モアタイムシステムとは？全銀ネットで振込が24時間即時着金する仕組み｜金融SE解説](https://finlab-se.com/posts/zengin-net-payment-system/) — モアタイムシステム（モアタイム）とは何か
+- [日銀ネットとは？銀行間決済RTGSの仕組み｜Fedwire・CHIPS・TARGET2と比較解説](https://finlab-se.com/posts/boj-net-rtgs-international/) — 銀行間の資金そのものを動かす基盤インフラ
+- [コルレス銀行とは？海外送金の仕組みと中継銀行手数料を金融SEが解説](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 国内の勘定系システムが海外送金でどう繋がるか
+- [Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み](https://finlab-se.com/posts/wise-revolut-fintech-remittance/) — 既存の銀行インフラを迂回するFinTechの設計思想
+- [暗号資産とステーブルコインで海外送金はどう変わるか｜リバイアサンの思想とマネロンの壁](https://finlab-se.com/posts/crypto-stablecoin-remittance/) — 銀行インフラそのものを介さない送金という選択肢
 
 ## 参考文献
 
