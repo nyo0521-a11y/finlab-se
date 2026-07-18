@@ -5,7 +5,7 @@ lastmod: 2026-07-18T00:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["Claude Code", "ブログ運営"]
-description: "Claude Codeに「ブログをリデザインして」と丸投げするだけで完成。AI任せの刷新プロセス体験記。"
+description: "「ブログをリデザインして」とClaude Codeに一言渡すだけで、コードを1行も書かずにデザイン刷新が完成。Claude Designがモックアップを作り、Claude Codeが実装まで担う2段階フローを、非エンジニアがPaperMod標準から脱却した実体験で紹介します。"
 showToc: true
 cover:
   image: "/images/thumb-blog-redesign-with-claude-code.png"
@@ -14,7 +14,7 @@ cover:
   hiddenInList: false
 ---
 
-「有名ブログって、トップページからしてデザインが洗練されているな」——個人ブログを続けていると、ふとそう感じる瞬間がありませんか。
+Anthropicが新たにリリースした「Claude Design」を使ってブログをリデザインしました。「有名ブログって、トップページからしてデザインが洗練されているな」——個人ブログを続けていると、ふとそう感じる瞬間がありませんか。
 
 その憧れと自分のブログを見比べると、こんなもどかしさが残ります。
 
