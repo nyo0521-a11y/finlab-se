@@ -1,11 +1,11 @@
 ---
 title: "Wise・Revolutはなぜ安い？コルレス網を迂回するFinTech送金の仕組み"
 date: 2026-04-22T07:00:00+09:00
-lastmod: 2026-07-16T00:00:00+09:00
+lastmod: 2026-07-18T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["海外送金", "金融インフラ"]
-description: "Wise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。"
+description: "海外送金でWiseとRevolutはどちらが安い？銀行の1/10の手数料を実現するローカル決済プール方式とネッティングの仕組みを、コルレス銀行を迂回する構造から金融SEが比較解説します。"
 showToc: true
 cover:
   image: "/images/thumb-wise-revolut-fintech-remittance.png"
