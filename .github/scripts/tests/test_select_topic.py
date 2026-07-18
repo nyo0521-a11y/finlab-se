@@ -239,3 +239,90 @@ def test_select_retry_message_includes_previous_text_and_overflow(tmp_path):
     assert long_text in retry_user
     over_by = count_x_length(long_text) - MAX_LEN
     assert str(over_by) in retry_user
+
+
+from select_topic import trim_hashtags_to_fit, RESCUE_MARGIN
+
+
+def test_trim_hashtags_returns_unchanged_when_fits():
+    text = "本文 https://finlab-se.com/posts/loan/ #金利"
+    assert trim_hashtags_to_fit(text, MAX_LEN) == text
+
+
+def test_trim_hashtags_drops_trailing_tag_to_fit():
+    # 本文240 + 空白1 + URL23 + " #住宅ローン"12 + " #金利"6 = 282 → 末尾タグ削除で276
+    text = "あ" * 120 + " https://finlab-se.com/posts/loan/ #住宅ローン #金利"
+    got = trim_hashtags_to_fit(text, MAX_LEN)
+    assert got is not None
+    assert count_x_length(got) <= MAX_LEN
+    assert got.endswith("#住宅ローン")
+    assert "#金利" not in got
+
+
+def test_trim_hashtags_keeps_at_least_one_tag():
+    # タグを全部削らないと収まらないケースは None（本文自体が長すぎる）
+    text = "あ" * 140 + " #金利"
+    assert trim_hashtags_to_fit(text, MAX_LEN) is None
+
+
+def test_select_rescues_slight_overflow_without_retry(tmp_path):
+    """僅差超過（RESCUE_MARGIN以内）はClaudeに再依頼せず末尾タグ削除で救済する。"""
+    repo = _make_repo(tmp_path)
+    now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
+    # 282字（2字超過）
+    text = "あ" * 120 + " https://finlab-se.com/posts/loan/ #住宅ローン #金利"
+    assert 0 < count_x_length(text) - MAX_LEN <= RESCUE_MARGIN
+    calls = {"n": 0}
+
+    def fake_call(system, user):
+        calls["n"] += 1
+        return {"selected_post_path": "content/posts/loan.md", "text": text,
+                "topic_reason": "x", "candidates": []}
+
+    out = select(NEWS, repo, now=now, call=fake_call)
+    assert calls["n"] == 1  # 再依頼なし
+    assert out["selected_post_path"] == "content/posts/loan.md"
+    assert count_x_length(out["text"]) <= MAX_LEN
+    assert "#金利" not in out["text"]
+    assert out["attempts"][0]["rescued"] is True
+
+
+def test_select_final_rescue_after_retries(tmp_path):
+    """大幅超過で再依頼も失敗した場合、フォールバック前にタグ削除の救済を試す。"""
+    repo = _make_repo(tmp_path)
+    now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
+    # 308字（28字超過 > RESCUE_MARGIN）、タグ2個削れば280字ちょうど
+    text = ("あ" * 121 + " https://finlab-se.com/posts/loan/"
+            " #高配当株投資 #長期分散投資 #資産形成入門")
+    assert count_x_length(text) - MAX_LEN > RESCUE_MARGIN
+    calls = {"n": 0}
+
+    def fake_call(system, user):
+        calls["n"] += 1
+        return {"selected_post_path": "content/posts/loan.md", "text": text,
+                "topic_reason": "x", "candidates": []}
+
+    out = select(NEWS, repo, now=now, call=fake_call)
+    assert calls["n"] == 3  # 初回＋短縮再依頼2回は実施される
+    assert out["selected_post_path"] == "content/posts/loan.md"
+    assert count_x_length(out["text"]) <= MAX_LEN
+    assert out["text"].endswith("#高配当株投資")
+
+
+def test_retry_message_includes_japanese_char_hint(tmp_path):
+    """再依頼文に「日本語およそ○文字ぶん」の具体的な削り量が入る。"""
+    repo = _make_repo(tmp_path)
+    now = datetime(2026, 6, 30, 7, 30, tzinfo=JST)
+    long_text = "あ" * 200 + " https://finlab-se.com/posts/loan/"
+    seen_users = []
+
+    def fake_call(system, user):
+        seen_users.append(user)
+        return {"selected_post_path": "content/posts/loan.md", "text": long_text,
+                "topic_reason": "x", "candidates": []}
+
+    select(NEWS, repo, now=now, call=fake_call)
+    over_by = count_x_length(long_text) - MAX_LEN
+    over_by_jp = (over_by + 1) // 2
+    assert f"日本語でおよそ{over_by_jp}文字ぶん" in seen_users[1]
+    assert "ハッシュタグを1個減らし" in seen_users[1]

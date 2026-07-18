@@ -41,6 +41,26 @@ def count_x_length(text: str) -> int:
     return body + 23 * len(urls)
 
 
+_HASHTAG_RE = _re.compile(r"#[^\s#]+")
+_HASHTAG_TAIL_RE = _re.compile(r"[\s　]*#[^\s#]+[\s　]*$")
+
+
+def trim_hashtags_to_fit(text: str, max_len: int) -> str | None:
+    """末尾のハッシュタグを1個ずつ削って max_len 以内に収める（機械的救済）。
+
+    ハッシュタグは最低1個残す。それでも収まらなければ None。
+    """
+    current = text
+    while count_x_length(current) > max_len:
+        if len(_HASHTAG_RE.findall(current)) <= 1:
+            return None
+        trimmed = _HASHTAG_TAIL_RE.sub("", current)
+        if trimmed == current:
+            return None
+        current = trimmed
+    return current
+
+
 def _parse_ts(value):
     if value is None:
         return _EPOCH
@@ -125,6 +145,9 @@ def load_permanently_excluded(repo_root: Path) -> set:
 
 MODEL = "claude-opus-4-8"
 MAX_LEN = 280
+# 超過がこの範囲内なら、Claudeに再依頼せず末尾ハッシュタグの機械的削除で救済する
+# （X換算24字 ≒ ハッシュタグ2個ぶん。それ以上の超過は文章自体が長いので短縮再依頼へ）
+RESCUE_MARGIN = 24
 
 _SELECT_TOOL = {
     "name": "select_article",
@@ -153,8 +176,9 @@ _SYSTEM = (
     "- 手順: (1)ホットな話題を上位5件ランク付け (2)各話題に自然にマッチする記事候補を挙げる"
     "(3)マッチが成立した話題をホットな順に見て最上位の記事を採用。\n"
     "- こじつけ禁止。自然に合う記事が無ければ selected_post_path を null にする。\n"
-    "- 投稿文は250字以内を目標に短く作る（上限はX換算280字。換算ルール: 半角英数字・半角記号は1字、"
-    "それ以外の文字＝日本語・全角記号・半角カナ・絵文字はすべて2字、URLは長さに関係なく1本23字）、1段落推奨、"
+    "- 投稿文の長さ: URL・ハッシュタグを除いた日本語の本文を100文字以内に収める"
+    "（Xの上限は換算280字＝日本語2字換算・URL23字のため、本文100文字＋URL＋タグでほぼ満枠になる）。"
+    "字数を数えて調整するのではなく、最初から2〜3文の短い文章として書くこと。1段落推奨、"
     "煽り表現（爆益・億り人・必ず儲かる・○○一択）禁止、丁寧で論理的。ハッシュタグ1〜3個。\n"
     "- 投稿文には選んだ記事のURLを必ず含める。\n"
     "- candidates には検討した話題と候補記事を記録する。"
@@ -214,19 +238,38 @@ def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dic
                     "topic_reason": result.get("topic_reason", ""),
                     "candidates": result.get("candidates", []),
                     **({"attempts": attempts} if attempts else {})}
+        if length - MAX_LEN <= RESCUE_MARGIN:
+            rescued = trim_hashtags_to_fit(text, MAX_LEN)
+            if rescued is not None:
+                attempts.append({"length": length, "text": text, "rescued": True})
+                return {"selected_post_path": sel, "text": rescued,
+                        "topic_reason": result.get("topic_reason", ""),
+                        "candidates": result.get("candidates", []),
+                        "attempts": attempts}
         attempts.append({"length": length, "text": text})
         if attempt < 2:
             over_by = length - MAX_LEN
+            over_by_jp = (over_by + 1) // 2  # 日本語1文字=換算2字
             retry_user = (
                 user
                 + "\n\n直前に生成したこの投稿文はX換算で280字を"
-                + f"{over_by}字超過しました（換算ルール: 半角英数字・半角記号は1字、"
-                + "それ以外の文字はすべて2字、URLは1本23字）。\n"
+                + f"{over_by}字超過しました。日本語でおよそ{over_by_jp}文字ぶん削る必要があります。\n"
                 + f"直前の投稿文:\n{text}\n\n"
-                + "同じ記事のまま、上記の文章を実際に削って280字以内に収めて作り直してください。"
-                + "新しい文章を考え直すのではなく、上の文章から不要な語句を削る形にしてください。"
+                + "同じ記事のまま、上記の文章から実際に削って280字以内に収めてください。"
+                + "まず末尾のハッシュタグを1個減らし、それでも足りなければ本文の不要な語句"
+                + f"（形容・言い換え・重複表現）を{over_by_jp}文字より多めに削ってください。"
+                + "新しい文章を考え直すのではなく、上の文章を削る形にしてください。"
             )
             result = call(system, retry_user)
+    # 最後の手段: 短い試行から順にハッシュタグを削って救済（フォールバックより話題連動を優先）
+    for a in sorted(attempts, key=lambda a: a["length"]):
+        rescued = trim_hashtags_to_fit(a["text"], MAX_LEN)
+        if rescued is not None:
+            a["rescued"] = True
+            return {"selected_post_path": sel, "text": rescued,
+                    "topic_reason": result.get("topic_reason", ""),
+                    "candidates": result.get("candidates", []),
+                    "attempts": attempts}
     return {"selected_post_path": None, "reason": "text too long after retry",
             "candidates": result.get("candidates", []), "attempts": attempts}
 
