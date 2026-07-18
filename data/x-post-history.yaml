@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-19T07:31:32+09:00'
+    text: 
+      「食料品の消費税を1%に下げても価格高で恩恵が薄い」との解説が話題です。減税と現金給付、家計にはどちらが得なのでしょうか。年収・世帯人数別に試算し、逆進性と即効性の2つの判断軸で整理しました。
+    tweet_id: '2078608638013325807'
+    tweet_url: https://x.com/i/web/status/2078608638013325807
+    type: topic
+    post_path: content/posts/shohizei-vs-kyufu.md
   - posted_at: '2026-07-18T21:06:18+09:00'
     text: "【おすすめ📖】\n日銀ネットとRTGSの仕組みを、米Fedwire・CHIPS・欧TARGET2と比較しながら金融SEが解説。銀行間決済の裏側がわかる。\n\
       \nhttps://finlab-se.com/posts/boj-net-rtgs-international/\n\n#金融インフラ"
@@ -353,11 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2070116222503666126
     type: new
     post_path: content/posts/smbc-gold-nl-100man-review.md
-  - posted_at: '2026-06-25T07:05:46+09:00'
-    text: "【オルカンvsS&P500が話題】「直近1年でS&P500が逆転」と注目されていますが、過去リターンで選ぶのは判断軸が逆です。金融SEが3つの判断軸で「迷ったらオルカン」の理由を解説します。\n\
-      https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/\n#新NISA #オルカン
-      #S&P500"
-    tweet_id: '2069904841820815607'
-    tweet_url: https://x.com/i/web/status/2069904841820815607
-    type: topic
-    post_path: content/posts/all-country-vs-sp500-index-fund-2026.md

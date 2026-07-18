@@ -412,8 +412,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/shohizei-vs-kyufu.md
-  last_promoted: '2026-07-09T21:05:54+09:00'
-  promote_count: 1
+  last_promoted: '2026-07-19T07:31:33+09:00'
+  promote_count: 2
   priority: normal
 - post_path: content/posts/hdv-nisa-exclusion.md
   last_promoted: '2026-07-15T21:05:50+09:00'
