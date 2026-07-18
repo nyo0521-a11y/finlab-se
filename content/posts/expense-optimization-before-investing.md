@@ -236,7 +236,7 @@ cover:
 ## 関連記事
 
 - [金融機関で20年見てきたお金の話](https://finlab-se.com/posts/finance-insider-money-habits/) — 金融機関の中から見えた「お金が貯まる人・貯まらない人」の習慣の話です
-- [2026年4月から食品2,798品目が値上げ──家計の「固定費見直し」を投資の元手に変える順番](https://finlab-se.com/posts/expense-optimization-nisa-investment/) — 2026年4月に食品2,798品目値上げ
+- [食品2,798品目値上げ｜固定費見直しでNISA積立を増やす方法](https://finlab-se.com/posts/expense-optimization-nisa-investment/) — 2026年4月に食品2,798品目値上げ
 - [マネーフォワードMEで家計簿を自動化｜金融SEが解説する5つの理由](https://finlab-se.com/posts/household-budget-app-comparison-2026/) — マネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説
 - [夏のボーナスの投資使い方を決める4ステップ【後悔しないチェック】](https://finlab-se.com/posts/bonus-investment-checkup-4steps/) — 夏のボーナスを投資に使う前に確認したい4つのチェックポイント
 
