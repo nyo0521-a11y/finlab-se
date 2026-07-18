@@ -9,7 +9,7 @@ description: "高配当株投資を始める前に確認すべきは支出の最
 showToc: true
 cover:
   image: "/images/thumb-expense-optimization-before-investing.jpg"
-  alt: "支出最適化のイメージ"
+  alt: "高配当株投資より先に支出の最適化をやることを天秤で示すイメージ"
   relative: false
   hiddenInList: false
 ---
