@@ -496,7 +496,7 @@ Claude Codeは「情報収集・集計・整形・可視化」は極めて得意
 Claude Codeで資産管理を自動化する活用例は、こちらもあわせて参考にしてください。
 
 - [Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/)
-- [Claude Codeの「許可」待ちをほぼゼロにする設定方法｜セキュリティを保ちながら快適に使う](https://finlab-se.com/posts/claude-code-reduce-permission-prompts/)
+- [Claude Codeの許可待ちを減らす設定｜settings.json/CLAUDE.md](https://finlab-se.com/posts/claude-code-reduce-permission-prompts/)
 - [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](https://finlab-se.com/posts/highyield-portfolio-management/) — カレンダーで見えた谷月・山月を、月次管理の仕組みにどう組み込むか
 - [2026年3月期「増配ラッシュ」をどう読むか〜決算シーズンの高配当株投資家の歩き方〜](https://finlab-se.com/posts/dividend-increase-season-2026/) — カレンダーの数字が動く決算シーズンの読み方
 
