@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-20T07:31:19+09:00'
+    text: '夏のボーナスの使い道に迷っていませんか。生活防衛資金・NISA枠・ポートフォリオの偏り・固定費の4点を順に見直すと、投資に回す額を後悔なく決められます。国家公務員の夏ボーナス話題を機に、自分の一歩を考える記事です。
+      https://finlab-se.com/posts/bonus-investment-checkup-4steps/ #ボーナス #NISA #資産形成'
+    tweet_id: '2078970971407421734'
+    tweet_url: https://x.com/i/web/status/2078970971407421734
+    type: topic
+    post_path: content/posts/bonus-investment-checkup-4steps.md
   - posted_at: '2026-07-19T21:06:11+09:00'
     text: "【おすすめ📖】\nコードを1行も書かずに、Claude Codeとの対話だけで投資シミュレーターとブログを2週間で立ち上げた体験記。\n\n\
       https://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #ブログ運営"
@@ -352,11 +359,3 @@ history:
     tweet_url: https://x.com/i/web/status/2070478606527037453
     type: rotation
     post_path: content/posts/credit-card-recommendation-2026.md
-  - posted_at: '2026-06-26T07:05:45+09:00'
-    text: "【金利上昇が話題】個人向け国債が年2.0%、住宅ローンも固定か変動か悩む人が増えています。変動の借換えが得かは残債・金利差・残期間の3条件で決まります。損益分岐を試算した記事です。\n\
-      https://finlab-se.com/posts/mortgage-rate-refinance-simulation/\n#住宅ローン #変動金利
-      #日銀"
-    tweet_id: '2070267227333668963'
-    tweet_url: https://x.com/i/web/status/2070267227333668963
-    type: topic
-    post_path: content/posts/mortgage-rate-refinance-simulation.md
