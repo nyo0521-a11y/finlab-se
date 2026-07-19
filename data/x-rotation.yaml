@@ -75,8 +75,8 @@ rotation:
 - post_path: content/posts/claude-code-blog-experience.md
     # title: Claude Codeでブログを作った話
     # date: 2026-04-12
-  last_promoted: '2026-06-01T21:06:27+09:00'
-  promote_count: 2
+  last_promoted: '2026-07-19T21:06:11+09:00'
+  promote_count: 3
   priority: normal
 
 - post_path: content/posts/consecutive-dividend-growth.md

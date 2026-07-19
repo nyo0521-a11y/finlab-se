@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-19T21:06:11+09:00'
+    text: "【おすすめ📖】\nコードを1行も書かずに、Claude Codeとの対話だけで投資シミュレーターとブログを2週間で立ち上げた体験記。\n\n\
+      https://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #ブログ運営"
+    tweet_id: '2078813650219921409'
+    tweet_url: https://x.com/i/web/status/2078813650219921409
+    type: rotation
+    post_path: content/posts/claude-code-blog-experience.md
   - posted_at: '2026-07-19T07:31:32+09:00'
     text: 
       「食料品の消費税を1%に下げても価格高で恩恵が薄い」との解説が話題です。減税と現金給付、家計にはどちらが得なのでしょうか。年収・世帯人数別に試算し、逆進性と即効性の2つの判断軸で整理しました。
@@ -353,10 +360,3 @@ history:
     tweet_url: https://x.com/i/web/status/2070267227333668963
     type: topic
     post_path: content/posts/mortgage-rate-refinance-simulation.md
-  - posted_at: '2026-06-25T21:05:43+09:00'
-    text: "【新着📝】\n三井住友カード ゴールド(NL)の100万円修行を達成した筆者が、その後は年100万円に届かず継続特典を得られていない現実を正直に公開。何円使う人なら得かを損益分岐で整理した実録レビューです。\n\
-      \nhttps://finlab-se.com/posts/smbc-gold-nl-100man-review/"
-    tweet_id: '2070116222503666126'
-    tweet_url: https://x.com/i/web/status/2070116222503666126
-    type: new
-    post_path: content/posts/smbc-gold-nl-100man-review.md
