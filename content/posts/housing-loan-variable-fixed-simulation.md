@@ -299,5 +299,5 @@ cover:
 ## 関連記事
 
 - [固定金利の正体はデリバティブ——フラット35が安い理由を金融エンジニアが解説](/posts/housing-loan-fixed-rate-derivative-flat35/) — 固定金利の仕組みを解説
-- [日銀の政策金利と住宅ローン変動金利 — 借換え判断のシミュレーション実例](/posts/mortgage-rate-refinance-simulation/) — 金利が動くと返済はどう変わるか
+- [日銀の利上げと住宅ローン借換え判断——3条件シミュレーション](/posts/mortgage-rate-refinance-simulation/) — 金利が動くと返済はどう変わるか
 - [繰り上げ返済と投資どっち？配当で住宅ローンを賄えるか金融SEが試算](/posts/mortgage-prepayment-vs-investment-yieldgap/) — 返済と運用の損得を判断
