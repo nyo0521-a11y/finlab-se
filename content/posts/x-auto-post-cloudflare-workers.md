@@ -283,4 +283,4 @@ Claude Codeへの依頼例としては、次のような形が有効です。
 ## 関連記事
 
 - [Xの自動投稿の\"中身\"をClaude Codeに任せる｜毎朝ニュースから紹介記事を選ぶAI活用](/posts/claude-code-x-news-linked-post/) — この記事の次のステップ。投稿する記事の選定をClaude Codeがニュース連動で自動化する仕組み
-- [Cloudflare Pagesでブログを公開するまでの仕組みを整理してみた——Draft確認から投稿予約まで](/posts/cloudflare-pages-blog-publish-flow/) — 本記事で触れた「朝の自動ビルドで記事が公開される」仕組みの解説
+- [Cloudflare Pagesのブログ公開フロー｜Draft確認と予約投稿の仕組み](/posts/cloudflare-pages-blog-publish-flow/) — 本記事で触れた「朝の自動ビルドで記事が公開される」仕組みの解説
