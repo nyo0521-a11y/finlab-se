@@ -1,6 +1,7 @@
 ---
 title: "106万円の壁撤廃｜手取りはいくら減り年金はいくら増えるか【月収別試算】"
 date: 2026-06-04T05:30:00+09:00
+lastmod: 2026-07-20T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["社会保険", "年収の壁"]
@@ -191,7 +192,7 @@ cover:
 
 - [年収の壁2026年版：4つの壁の全体マップ](/posts/income-wall-2026/)
 - [税の壁 vs 社保の壁の考え方](/posts/income-wall-framework/)
-- [健康保険の被扶養者・130万円ラインと2026年改正](/posts/health-insurance-dependent-2026/)
+- [2026年4月から健康保険の扶養認定が労働契約ベースへ｜一時的な残業で扶養外れが解消](/posts/health-insurance-dependent-2026/)
 - [投資の前にやる支出最適化](/posts/expense-optimization-before-investing/)
 
 ---
