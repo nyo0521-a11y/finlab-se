@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-20T21:06:01+09:00'
+    text: "【おすすめ📖】\n金利を一番知るはずの金融機関の人が借金を多用していた。20年の金融SEが現場で見た意外な光景とリボの本当の怖さを解説。\n\n\
+      https://finlab-se.com/posts/finance-insider-money-habits/\n\n#住宅ローン #金融SE"
+    tweet_id: '2079175994485989485'
+    tweet_url: https://x.com/i/web/status/2079175994485989485
+    type: rotation
+    post_path: content/posts/finance-insider-money-habits.md
   - posted_at: '2026-07-20T07:31:19+09:00'
     text: '夏のボーナスの使い道に迷っていませんか。生活防衛資金・NISA枠・ポートフォリオの偏り・固定費の4点を順に見直すと、投資に回す額を後悔なく決められます。国家公務員の夏ボーナス話題を機に、自分の一歩を考える記事です。
       https://finlab-se.com/posts/bonus-investment-checkup-4steps/ #ボーナス #NISA #資産形成'
@@ -352,10 +359,3 @@ history:
     tweet_url: https://x.com/i/web/status/2070629604411199833
     type: topic
     post_path: content/posts/index-investing-10years-honest-review.md
-  - posted_at: '2026-06-26T21:05:42+09:00'
-    text: "【おすすめ📖】\nクレカ選びは経済圏が先。楽天・ドコモ・SBI・au別に最適な1枚を比較し、積立還元率の損益分岐点を数字で解説。\n\nhttps://finlab-se.com/posts/credit-card-recommendation-2026/\n\
-      \n#クレジットカード #NISA #証券会社"
-    tweet_id: '2070478606527037453'
-    tweet_url: https://x.com/i/web/status/2070478606527037453
-    type: rotation
-    post_path: content/posts/credit-card-recommendation-2026.md
