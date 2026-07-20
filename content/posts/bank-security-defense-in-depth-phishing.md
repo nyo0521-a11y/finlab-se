@@ -1,6 +1,7 @@
 ---
 title: "ネット銀行は危ない？多重防御の仕組みと個人ができるフィッシング対策4つ｜金融SE解説"
 date: 2026-05-17T05:30:00+09:00
+lastmod: 2026-07-20T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["金融インフラ", "ネット銀行"]
@@ -177,7 +178,7 @@ TOTPはGoogle Authenticatorや1Passwordなどのアプリが、30秒ごとに変
 
 ### 金融機関側の対応状況
 
-2026年5月時点で、主要なネット銀行・ネット証券の多くがパスキーまたはFIDO2デバイス認証への対応を進めています。各社の対応状況の最新比較は、関連記事「<a href="https://finlab-se.com/posts/securities-selection-for-index-and-dividend/">高配当株とインデックス投資のための証券会社の選び方</a>」のセキュリティ章でも整理しています。
+2026年5月時点で、主要なネット銀行・ネット証券の多くがパスキーまたはFIDO2デバイス認証への対応を進めています。各社の対応状況の最新比較は、関連記事「<a href="https://finlab-se.com/posts/securities-selection-for-index-and-dividend/">インデックス積立・高配当株投資に合った証券会社の選び方</a>」のセキュリティ章でも整理しています。
 
 ---
 
@@ -385,7 +386,7 @@ GoogleやAppleのパスワード管理機能（iCloudキーチェーン）、あ
 - <a href="https://finlab-se.com/posts/bank-core-system-cloud/">銀行の勘定系システムがクラウド化される背景｜金融SEが見る変革の本質</a>——多重防御の土台にある勘定系システムそのものの構造を解説
 - <a href="https://finlab-se.com/posts/zengin-net-payment-system/">全銀ネットの仕組み｜日本の銀行間送金を支える決済システム</a>——口座から口座へのお金の流れを支える基盤
 - <a href="https://finlab-se.com/posts/recommended-net-bank-2026/">ネット銀行のおすすめ2026年版｜金融SEが選ぶメイン口座とサブ口座の使い分け</a>——多重防御の前提となる「使う銀行」の選び方
-- <a href="https://finlab-se.com/posts/securities-selection-for-index-and-dividend/">高配当株とインデックス投資のための証券会社の選び方</a>——証券会社のセキュリティ比較を含む口座選び
+- <a href="https://finlab-se.com/posts/securities-selection-for-index-and-dividend/">インデックス積立・高配当株投資に合った証券会社の選び方</a>——証券会社のセキュリティ比較を含む口座選び
 
 ---
 
