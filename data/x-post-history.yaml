@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-21T07:31:24+09:00'
+    text: '米国株が調整し、ヘッジファンドのハイテク株売却も伝わっています。相場が下がる局面こそ、高配当株の「買い時」を利回りで冷静に見極めたいところ。VYM・HDV・SCHDの実例で、過去平均との比較から割安を判断する方法を整理しました。
+      #高配当株 #SCHD #資産運用'
+    tweet_id: '2079333377090494916'
+    tweet_url: https://x.com/i/web/status/2079333377090494916
+    type: topic
+    post_path: content/posts/highyield-buying-timing.md
   - posted_at: '2026-07-20T21:06:01+09:00'
     text: "【おすすめ📖】\n金利を一番知るはずの金融機関の人が借金を多用していた。20年の金融SEが現場で見た意外な光景とリボの本当の怖さを解説。\n\n\
       https://finlab-se.com/posts/finance-insider-money-habits/\n\n#住宅ローン #金融SE"
@@ -351,11 +358,3 @@ history:
     tweet_url: https://x.com/i/web/status/2070840995575423351
     type: rotation
     post_path: content/posts/crypto-exchange-financial-group-2026.md
-  - posted_at: '2026-06-27T07:05:43+09:00'
-    text: "【株価が急落して話題】日経平均が大幅反落しAI関連株に売りが広がっています。こんなときに読みたいのが、暴落を何度も経験した金融SEがインデックス投資10年で得た「暴落耐性」の話。狼狽売りを避けるヒントになります。\n\
-      https://finlab-se.com/posts/index-investing-10years-honest-review/\n#インデックス投資
-      #暴落 #新NISA"
-    tweet_id: '2070629604411199833'
-    tweet_url: https://x.com/i/web/status/2070629604411199833
-    type: topic
-    post_path: content/posts/index-investing-10years-honest-review.md
