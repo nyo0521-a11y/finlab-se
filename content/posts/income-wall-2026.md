@@ -199,7 +199,7 @@ cover:
 ## 関連記事
 
 - [年収の壁とは何か——「税金の壁」と「社保の壁」2種類で全部わかる](https://finlab-se.com/posts/income-wall-framework/) — 年収の壁は「税金の壁」と「社保の壁」の2種類に分けると構造が見える
-- [2026年4月から健康保険の扶養認定が労働契約ベースへ｜一時的な残業で扶養外れが解消](https://finlab-se.com/posts/health-insurance-dependent-2026/) — 2026年4月から被扶養者認定が「労働契約ベース」に変更
+- [健康保険の扶養認定が労働契約ベースへ｜残業しても扶養は外れにくい](https://finlab-se.com/posts/health-insurance-dependent-2026/) — 2026年4月から被扶養者認定が「労働契約ベース」に変更
 - [106万円の壁撤廃｜手取りはいくら減り年金はいくら増えるか【月収別試算】](https://finlab-se.com/posts/income-wall-106-takehome-pension-2026/) — 2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか
 
 ## 参考文献
