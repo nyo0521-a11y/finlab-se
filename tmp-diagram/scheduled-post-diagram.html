@@ -157,9 +157,9 @@
     font-size: 17px;
     margin-bottom: 6px;
   }
-  .cron-box.check { background: #e8f0fe; border: 2px solid #4a7fc1; }
-  .cron-box.move  { background: #fff3cd; border: 2px solid #f0a500; }
-  .cron-box.pub   { background: #d4edda; border: 2px solid #28a745; }
+  .cron-box.worker { background: #fff1e0; border: 2px solid #f6821f; }
+  .cron-box.build  { background: #e8f0fe; border: 2px solid #4a7fc1; }
+  .cron-box.pub    { background: #d4edda; border: 2px solid #28a745; }
 
   .cron-arrow {
     width: 56px;
@@ -212,29 +212,29 @@
   </div>
 </div>
 
-<!-- 下段：cronの動き -->
+<!-- 下段：Cloudflare Workerによる起動フロー -->
 <div class="section">
-  <div class="section-title">⏱ cronが1時間ごとに自動チェック（毎時0分）</div>
+  <div class="section-title">⏰ Cloudflare Workerが決まった時刻にGitHub Actionsを起動</div>
   <div class="cron-flow">
-    <div class="cron-box check">
-      <div class="cron-box-label">📋 チェック</div>
-      <div>確認用フォルダの<br>記事を全件確認<br>（毎時0分に実行）</div>
+    <div class="cron-box worker">
+      <div class="cron-box-label">☁ Cloudflare Worker</div>
+      <div>決まった時刻に<br>GitHub Actionsを起動<br>（5:35 メイン／6:35 救済）</div>
     </div>
-    <div class="cron-arrow">→<div class="cron-arrow-label">対象記事<br>を検知</div></div>
-    <div class="cron-box move">
-      <div class="cron-box-label">📁 移動</div>
-      <div>確認用フォルダから<br>公開用フォルダへ<br>自動で移動</div>
+    <div class="cron-arrow">→<div class="cron-arrow-label">起動の<br>合図</div></div>
+    <div class="cron-box build">
+      <div class="cron-box-label">⚙ ビルド・デプロイ</div>
+      <div>GitHub ActionsがHugoで<br>変換し、Cloudflare Pages<br>へ自動配置</div>
     </div>
     <div class="cron-arrow">→<div class="cron-arrow-label">自動で<br>実行</div></div>
     <div class="cron-box pub">
       <div class="cron-box-label">🌐 本番公開</div>
-      <div>変換・Web公開が<br>実行され<br>記事が公開される</div>
+      <div>公開日時を過ぎた<br>記事が<br>本番サイトに反映される</div>
     </div>
   </div>
 </div>
 
 <div class="note">
-  💡 cronは<strong>毎時0分</strong>に動きます。8時01分を過ぎてしまった場合、次のチェックは9時00分になるため、最大59分のずれが生じます。
+  💡 GitHub Actions自身のcron（毎時実行）は廃止されました。現在はCloudflare Workerが<strong>5:35（メイン）・6:35（救済）</strong>の1日2回、決まった時刻にビルドのきっかけを送る方式です。
 </div>
 
 </body>
