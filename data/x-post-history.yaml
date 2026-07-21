@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-07-22T07:32:07+09:00'
+    text: '米ドル円が一時163円台と1986年以来の円安水準に。市場では160円超が「新常態」との見方も広がっています。為替に振り回されないため、S&P500とオルカンをどう使い分けるか、インデックス投資10年の実体験を整理しました。
+      https://finlab-se.com/posts/index-investing-10years-honest-review/ #NISA #円安
+      #インデックス投資'
+    tweet_id: '2079695945776718265'
+    tweet_url: https://x.com/i/web/status/2079695945776718265
+    type: topic
+    post_path: content/posts/index-investing-10years-honest-review.md
   - posted_at: '2026-07-21T21:06:37+09:00'
     text: "【新着📝】\n変動金利が上がる中、住宅ローンを全額ではなく一部繰り上げ返済にした理由を金融SEが実例で解説。\n\nhttps://finlab-se.com/posts/mortgage-partial-prepayment/\n\
       \n#住宅ローン #繰り上げ返済 #変動金利"
@@ -350,10 +358,3 @@ history:
     tweet_url: https://x.com/i/web/status/2071203390630039645
     type: new
     post_path: content/posts/ai-asset-management-robo-advisor-2026.md
-  - posted_at: '2026-06-28T07:05:40+09:00'
-    text: "【おすすめ📖】\n2026年4月に食品2,798品目値上げ。固定費削減でNISA積立を増やす具体的な手順を解説。\n\nhttps://finlab-se.com/posts/expense-optimization-nisa-investment/\n\
-      \n#家計管理 #NISA #MoneyForward"
-    tweet_id: '2070991981782655482'
-    tweet_url: https://x.com/i/web/status/2070991981782655482
-    type: rotation
-    post_path: content/posts/expense-optimization-nisa-investment.md
