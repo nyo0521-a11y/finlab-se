@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-21T21:06:37+09:00'
+    text: "【新着📝】\n変動金利が上がる中、住宅ローンを全額ではなく一部繰り上げ返済にした理由を金融SEが実例で解説。\n\nhttps://finlab-se.com/posts/mortgage-partial-prepayment/\n\
+      \n#住宅ローン #繰り上げ返済 #変動金利"
+    tweet_id: '2079538535158169864'
+    tweet_url: https://x.com/i/web/status/2079538535158169864
+    type: new
+    post_path: content/posts/mortgage-partial-prepayment.md
   - posted_at: '2026-07-21T07:31:24+09:00'
     text: '米国株が調整し、ヘッジファンドのハイテク株売却も伝わっています。相場が下がる局面こそ、高配当株の「買い時」を利回りで冷静に見極めたいところ。VYM・HDV・SCHDの実例で、過去平均との比較から割安を判断する方法を整理しました。
       #高配当株 #SCHD #資産運用'
@@ -350,11 +357,3 @@ history:
     tweet_url: https://x.com/i/web/status/2070991981782655482
     type: rotation
     post_path: content/posts/expense-optimization-nisa-investment.md
-  - posted_at: '2026-06-27T21:05:42+09:00'
-    text: "【おすすめ📖】\n高配当株や投資信託に加え暗号資産も検討し始めた方向けに、取引所選びの5つの視点（手数料・取引ボリューム・レンディング・親会社資本力・金融グループ所属）をFTX破綻・Coincheck事件…\n\
-      \nhttps://finlab-se.com/posts/crypto-exchange-financial-group-2026/\n\n#暗号資産
-      #レビュー"
-    tweet_id: '2070840995575423351'
-    tweet_url: https://x.com/i/web/status/2070840995575423351
-    type: rotation
-    post_path: content/posts/crypto-exchange-financial-group-2026.md
