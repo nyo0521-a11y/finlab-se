@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-22T21:06:33+09:00'
+    text: "【おすすめ📖】\n高配当バリュー株が話題になっても、選ぶ基準は「連続増配」「財務健全性」「配当を減らしていないか」の3つで変わりません。YOC（取得利回り）の計算方法と、花王・ニトリなど連続増配9社の実例つきで金融SEが解説します。\n\
+      \nhttps://finlab-se.com/posts/consecutive-dividend-growth/"
+    tweet_id: '2079900904724013495'
+    tweet_url: https://x.com/i/web/status/2079900904724013495
+    type: rotation
+    post_path: content/posts/consecutive-dividend-growth.md
   - posted_at: '2026-07-22T07:32:07+09:00'
     text: '米ドル円が一時163円台と1986年以来の円安水準に。市場では160円超が「新常態」との見方も広がっています。為替に振り回されないため、S&P500とオルカンをどう使い分けるか、インデックス投資10年の実体験を整理しました。
       https://finlab-se.com/posts/index-investing-10years-honest-review/ #NISA #円安
@@ -351,10 +358,3 @@ history:
     tweet_url: https://x.com/i/web/status/2071354371959292085
     type: topic
     post_path: content/posts/pension-macroeconomic-slide-2026.md
-  - posted_at: '2026-06-28T21:05:44+09:00'
-    text: "【新着📝】\n「AI資産運用」「AI投資」と聞くと最先端に思えますが、生成AIが未来の相場を予測して運用する商品ではありません。\n\nhttps://finlab-se.com/posts/ai-asset-management-robo-advisor-2026/\n\
-      \n#AI活用 #インデックス投資 #ポートフォリオ"
-    tweet_id: '2071203390630039645'
-    tweet_url: https://x.com/i/web/status/2071203390630039645
-    type: new
-    post_path: content/posts/ai-asset-management-robo-advisor-2026.md
