@@ -106,7 +106,7 @@ cover:
 具体的な流れは次の通りです。
 
 1. **前夜22:00と翌朝6:30（Claude Codeの担当）**：その時点の経済・金融ニュースを集め、関連する自分の記事を1本選び、投稿文を作って「準備メモ」に書き出します。朝6:30に動いたときは、前夜22:00の内容をより新しい話題で上書きします（新しい話題を優先するためです）。
-2. **朝7:05（前回作った仕組みの担当）**：定時の自動投稿が動き、まず「準備メモ」を最優先で確認します。中身があればそれをXへ投稿し、投稿後はメモを空にします。
+2. **朝7:30（前回作った仕組みの担当）**：定時の自動投稿が動き、まず「準備メモ」を最優先で確認します。中身があればそれをXへ投稿し、投稿後はメモを空にします。
 
 ここで誤解しやすいのが、「Claude CodeがXに投稿しているのでは？」という点です。そうではありません。<strong>Claude Codeは投稿する記事と文章を準備メモに用意するだけ</strong>で、実際にXへ送り出すのは前回作った定時投稿の仕組み（Cloudflare Workersのタイマーが起動するGitHub Actions）です。
 
@@ -228,7 +228,7 @@ AIに任せる、というと全部おまかせのイメージがありますが
 
 ## 関連記事
 
-- [Xの自動投稿を自作する｜Cloudflare WorkersとGitHub Actionsで定時投稿（cronズレも解決）](https://finlab-se.com/posts/x-auto-post-cloudflare-workers/) — この記事の土台にあたる「定時にXへ自動投稿する仕組み」の作り方
+- [X自動投稿の作り方｜GitHub Actionsのcronズレを解決](https://finlab-se.com/posts/x-auto-post-cloudflare-workers/) — この記事の土台にあたる「定時にXへ自動投稿する仕組み」の作り方
 - [Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/) — 同じく「判断の枠を渡してAIに回させる」考え方を資産管理に応用した例
 - [Cloudflare Pagesのブログ公開フロー｜Draft確認と予約投稿の仕組み](/posts/cloudflare-pages-blog-publish-flow/) — 本記事で触れた「朝の自動ビルドで記事が公開される」仕組みの解説
 
