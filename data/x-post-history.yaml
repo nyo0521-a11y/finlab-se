@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-23T21:06:36+09:00'
+    text: "【おすすめ📖】\n年会費無料なのになぜ1%も還元されるのか。カード会社は慈善事業ではないのに黒字になる理由を、…\n\nhttps://finlab-se.com/posts/credit-card-free-annual-fee-model/\n\
+      \n#クレジットカード #ポイント還元 #金融SE"
+    tweet_id: '2080263305894166990'
+    tweet_url: https://x.com/i/web/status/2080263305894166990
+    type: rotation
+    post_path: content/posts/credit-card-free-annual-fee-model.md
   - posted_at: '2026-07-23T07:32:02+09:00'
     text: 
       円安・金利をめぐる政策の議論が続き、金利上昇局面での資金の置きどころに関心が集まっています。個人向け国債と定期預金・株式の使い分けを「いつ使うお金か」で整理しました。落ち着いて資産配分を見直したい方へ。
@@ -350,10 +357,3 @@ history:
     tweet_url: https://x.com/i/web/status/2071716780628988273
     type: topic
     post_path: content/posts/housing-loan-variable-fixed-simulation.md
-  - posted_at: '2026-06-29T21:05:52+09:00'
-    text: "【おすすめ📖】\n住民税決定通知書からふるさと納税の控除を確認する手順を、寄付額−2,000円の計算式・記載欄・ズレた場合の対処までまとめました。\n\
-      \nhttps://finlab-se.com/posts/furusato-tax-jumin-tax-notification/\n\n#節税 #年収の壁"
-    tweet_id: '2071565810838180220'
-    tweet_url: https://x.com/i/web/status/2071565810838180220
-    type: rotation
-    post_path: content/posts/furusato-tax-jumin-tax-notification.md
