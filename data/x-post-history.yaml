@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-24T07:32:14+09:00'
+    text: 
+      「マグニフィセント7が130兆円消失、AI投資への懸念」というニュースが話題です。生成AIは万能ではなく、AI資産運用に「できること・できないこと」を切り分けて理解しておくことが大切です。ロボアドの正体を金融SEがやさしく整理しました。
+    tweet_id: '2080420751484793268'
+    tweet_url: https://x.com/i/web/status/2080420751484793268
+    type: topic
+    post_path: content/posts/ai-asset-management-robo-advisor-2026.md
   - posted_at: '2026-07-23T21:06:36+09:00'
     text: "【おすすめ📖】\n年会費無料なのになぜ1%も還元されるのか。カード会社は慈善事業ではないのに黒字になる理由を、…\n\nhttps://finlab-se.com/posts/credit-card-free-annual-fee-model/\n\
       \n#クレジットカード #ポイント還元 #金融SE"
@@ -349,11 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2071801595973476420
     type: rotation
     post_path: content/posts/health-insurance-dependent-2026.md
-  - posted_at: '2026-06-30T07:05:46+09:00'
-    text: "【住宅ローン金利が話題】フラット35が3.2%に上昇し、変動か10年固定か悩む人が増えています。固定金利は実質「保険料」。差額を繰り上げ返済に回す戦略で3000万円35年を試算した記事が参考になります。\n\
-      https://finlab-se.com/posts/housing-loan-variable-fixed-simulation/\n#住宅ローン
-      #変動金利 #フラット35"
-    tweet_id: '2071716780628988273'
-    tweet_url: https://x.com/i/web/status/2071716780628988273
-    type: topic
-    post_path: content/posts/housing-loan-variable-fixed-simulation.md
