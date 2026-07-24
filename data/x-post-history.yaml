@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-24T21:06:37+09:00'
+    text: "【おすすめ📖】\n2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか。8.8万・10万・12万円の保険料負担、厚生年金で増える年金額と損益分岐、障害・遺族年金の保障メリットまで試算します。\n\
+      \nhttps://finlab-se.com/posts/income-wall-106-takehome-pension-2026/"
+    tweet_id: '2080625699413766612'
+    tweet_url: https://x.com/i/web/status/2080625699413766612
+    type: rotation
+    post_path: content/posts/income-wall-106-takehome-pension-2026.md
   - posted_at: '2026-07-24T07:32:14+09:00'
     text: 
       「マグニフィセント7が130兆円消失、AI投資への懸念」というニュースが話題です。生成AIは万能ではなく、AI資産運用に「できること・できないこと」を切り分けて理解しておくことが大切です。ロボアドの正体を金融SEがやさしく整理しました。
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2071803506663850116
     type: topic
     post_path: content/posts/nikkei-60000-highyield-mindset.md
-  - posted_at: '2026-06-30T12:42:47+09:00'
-    text: "【おすすめ📖】\n2026年4月から被扶養者認定が「労働契約ベース」に変更。130万超でも扶養が外れない新ルールを解説。\n\nhttps://finlab-se.com/posts/health-insurance-dependent-2026/\n\
-      \n#社会保険 #年収の壁 #2026年改正"
-    tweet_id: '2071801595973476420'
-    tweet_url: https://x.com/i/web/status/2071801595973476420
-    type: rotation
-    post_path: content/posts/health-insurance-dependent-2026.md
