@@ -26,7 +26,7 @@ cover:
 
 この3軸で十分な理由は、資産を「増やす場所」が証券口座（株・投資信託）であり、銀行は「資金をスムーズに動かす場所」だからです。本記事では4つの銀行を同じ評価軸で比較し、どのパターンの人に何が合うかを整理します。
 
-本記事は特定の銀行を推奨するものではありません。各銀行のサービス内容はご自身でも最新情報をご確認ください。なお、本記事にはアフィリエイトリンクが含まれます。
+各銀行のサービス内容はご自身でも最新情報をご確認ください。なお、本記事にはアフィリエイトリンクが含まれます。
 
 > **📌 この記事の使い方**
 > 「自分に合う銀行を知りたい」という方は、**比較表とパターン別まとめだけ読めば答えが出ます**。気になった銀行の節だけ読み進めてください。各機能の詳細説明は読み飛ばしても問題ありません。
@@ -161,7 +161,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 </tr>
 <tr>
 <td style="background:#f8fafc;border:1px solid #e2e8f0;padding:14px 14px;font-weight:700;font-size:13px;vertical-align:middle;line-height:1.6;">振込手数料<br>無料回数</td>
-<td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">30万円：月1回<br>50万円：月5回<br>※アプリATM無制限</div></td>
+<td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">30万円：月1回<br>50万円：月5回</div></td>
 <td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">30万円：月1回<br>50万円：月2回</div></td>
 <td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">全水準：月2回<br>（300万円未満は<br>ノーマル固定）<br>※Sony Bank WALLET利用時</div></td>
 <td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">30万円：月3回<br>50万円：不確定※</div></td>
@@ -205,11 +205,11 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 #### ③ コンビニATM利用料
 
-スマートプログラムのランクに応じた無料回数が適用されます。預金残高30万円で月2回、50万円で月5回。残高条件だけでなく、SBI証券での投資信託の自動積立設定や外貨預金の保有などの取引でもランク達成に貢献するため、投資家はランクを上げやすい設計です。スマホATM（アプリATM）については⑤のとおり、ランクに関わらず全員・無制限・無料が継続しています。
+預金残高に応じてATM手数料の無料回数が変わります。30万円で月2回、50万円で月5回です※。残高条件だけでなく、SBI証券での投資信託の自動積立設定や外貨預金の保有などの取引条件でも無料回数を増やせるため、投資家は上位の枠に届きやすい設計です。スマホATM（アプリATM）は⑤のとおり、条件に関わらず全員・無制限・無料です。
 
 #### ④ 振込手数料
 
-スマートプログラムのランクに応じた無料枠が適用されます。預金残高30万円で月1回、50万円で月5回無料。証券口座との連携設定や積立設定によってランクアップをねらえる点は、投資家にとって有利に働きます。
+預金残高に応じて振込手数料の無料回数が変わります。30万円で月1回、50万円で月5回無料です※。証券口座との連携設定や積立設定でも無料回数を増やせる点は、投資家にとって有利に働きます。
 
 #### ⑤ スマホATM（アプリATM）
 
@@ -218,7 +218,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 #### 注意点
 
 - SBI証券以外の証券口座をメインにしている場合、証券連携のメリットは受けられません
-- スマートプログラムは2026年5月改定でランク達成条件が変更されています。最新の条件は公式サイトでご確認ください
+- ※無料回数の段階は正式名称「スマートプログラム」によるランク制です。2026年5月改定でランク達成条件が変更されています。最新の条件は公式サイトでご確認ください
 
 <strong>SBI証券で投資を進めるなら、住信SBIネット銀行との組み合わせが答えです。証券連携・家計管理・現金引き出しをこの一口座で完結できます。</strong>
 
@@ -238,15 +238,17 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 #### ③ コンビニATM利用料
 
-ハッピープログラムのランクに応じた無料回数が適用されます。預金残高30万円で月1回、50万円で月2回。楽天証券との連携設定・楽天カードの引落設定・毎月の投資信託取引などでランクが上がり、最上位ランクではATM月7回まで無料になります。残高だけでなく楽天サービスとの連携数がランクアップの鍵になります。
+預金残高に応じてATM手数料の無料回数が変わります。30万円で月1回、50万円で月2回です※。楽天証券との連携設定・楽天カードの引落設定・毎月の投資信託取引などの条件を満たすとさらに回数が増え、最大で月7回まで無料になります。残高だけでなく楽天サービスとの連携数が無料回数を増やす鍵になります。
 
 #### ④ 振込手数料
 
-ハッピープログラムのランクに応じた無料枠が適用されます。預金残高30万円で月1回、50万円で月2回。最上位ランクでは月3回無料です。
+預金残高に応じて振込手数料の無料回数が変わります。30万円で月1回、50万円で月2回です※。条件を満たすと最大で月3回まで無料になります。
 
 #### ⑤ スマホATM
 
 2025年12月よりスマホATMサービスが開始されています。キャッシュカード不要でATM入出金が可能です。
+
+※無料回数の段階は正式名称「ハッピープログラム」によるランク制です。詳細条件は公式サイトでご確認ください。
 
 <strong>楽天証券をメインにしており、楽天経済圏を活用しているなら候補になります。そうでない場合は住信SBIネット銀行の方が使いやすい場合がほとんどです。</strong>
 
@@ -266,15 +268,17 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 #### ③ コンビニATM利用料
 
-誰でも無条件で月4回無料（ランクなし・残高条件なし）。これがソニー銀行の大きな特徴です。残高が少なくても、口座開設直後からコンビニATMを月4回まで手数料無料で使えます。Club SプログラムでSony Bank WALLETの利用などが積み上がると上位ランクになり、最上位ではATM無制限無料になります。
+誰でも無条件で月4回無料です。残高条件がないのがソニー銀行の大きな特徴で、口座開設直後からコンビニATMを月4回まで手数料無料で使えます。Sony Bank WALLETの利用などの条件を満たすとさらに回数が増え、最上位ではATM無制限無料になります※。
 
 #### ④ 振込手数料
 
-月1回は無条件で無料。さらにSony Bank WALLETを保有していることで、合計月2回無料になります（ノーマルランク）。Club Sプログラムの上位ランクでは最大月11回まで無料になります。ただし残高300万円未満はノーマルランク固定のため、残高が少ない段階では月1〜2回が上限です。
+月1回は無条件で無料です。さらにSony Bank WALLETを保有していることで、合計月2回無料になります。条件を満たすと最大月11回まで無料になりますが※、残高300万円未満では月1〜2回が上限です。
 
 #### ⑤ スマホATM
 
 2025年9月よりスマホATMサービスが開始されています。キャッシュカード不要でATM入出金が可能です。
+
+※無料回数の段階は正式名称「Club Sプログラム」によるランク制です。詳細条件は公式サイトでご確認ください。
 
 <strong>投資よりも「日常の銀行管理」を整えたい人や、証券口座をそれほど頻繁に使わない人には合いやすい選択です。</strong>
 
@@ -294,15 +298,17 @@ auカブコム証券または三菱UFJ eスマート証券との連携で、銀�
 
 #### ③ コンビニATM利用料
 
-じぶんプラスプログラムのランクに応じた無料回数が適用されます。残高30万円のスタンプ1個で基本ステージのATM月2回無料になり、au・UQ mobileの携帯料金の支払い設定など他の条件でもう1つスタンプを獲得するとシルバーステージ（ATM月5回無料）に上がります。auユーザーは携帯料金の支払い設定でスタンプが貯まりやすく、シルバー到達のハードルが低い設計です。
+預金残高に応じてATM手数料の無料回数が変わります。30万円で月2回、条件を追加で満たすと月5回まで増やせます※。au・UQ mobileの携帯料金の支払い設定を組み合わせると条件を満たしやすく、auユーザーは無料回数を増やしやすい設計です。
 
 #### ④ 振込手数料
 
-じぶんプラスプログラムのランクに応じた無料枠が適用されます。残高30万円のスタンプ1個で基本ステージの振込月3回無料になります。auユーザーは携帯料金の支払い設定でもう1つスタンプが貯まりやすく、ランクアップのハードルが低い設計です。
+預金残高に応じて振込手数料の無料回数が変わります。30万円で月3回です※。au・UQ mobileの携帯料金の支払い設定を組み合わせると条件を満たしやすく、auユーザーはランクアップのハードルが低い設計です。
 
 #### ⑤ スマホATM
 
 スマホATMサービスに対応しています。キャッシュカード不要でATM入出金が可能です。
+
+※無料回数の段階は正式名称「じぶんプラス」によるスタンプ制です（残高スタンプ1個＋他条件1個の獲得で上位ランクへ昇格）。詳細条件は公式サイトでご確認ください。
 
 <strong>au経済圏を軸にしている方には候補になりますが、そうでない場合は住信SBIネット銀行または楽天銀行を先に検討してください。</strong>
 
@@ -316,7 +322,7 @@ auカブコム証券または三菱UFJ eスマート証券との連携で、銀�
 
 <strong>それが「振込を月に何度も使う場面がある人」です。</strong>副業収入の支払い、フリーランスの外注費、個人間の立替清算など、他行への振込が頻繁に発生する方にとって、振込手数料は積み重なると無視できないコストです。
 
-SBI新生銀行はSBI証券との連携設定（SBI新生コネクト）をするだけで自動的にダイヤモンドステージに昇格し、振込手数料が月10回無料になります。残高条件は不要です。住信SBIネット銀行の振込無料枠（残高50万円で月5回）を上回る枠を、残高条件なしで得られる点が特徴です。
+SBI新生銀行はSBI証券との連携設定（SBIハイパー預金）をするだけで自動的にダイヤモンドステージに昇格し、振込手数料が月10回無料になります。残高条件は不要です。住信SBIネット銀行の振込無料枠（残高50万円で月5回）を上回る枠を、残高条件なしで得られる点が特徴です。
 
 #### 使い方のイメージ
 
