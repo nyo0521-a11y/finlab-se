@@ -6,7 +6,11 @@ categories: ["金融ニュース"]
 tags: ["高額療養費", "社会保険", "2026年改正", "生活防衛資金"]
 description: "2026年8月から高額療養費の自己負担限度額が引き上げられ、あわせて年間上限が新設されます。年収約770万円以下なら年53万円。医療費の最悪ケースに金額が付いたことで、医療保険が必要かを計算で判断できるようになります。厚労省資料をもとに整理しました。"
 showToc: true
-# cover: サムネイル未作成（後工程で作成予定）。予定パス: /images/thumb-kougaku-iryohi-nenkanjougen.jpg
+cover:
+  image: "/images/thumb-kougaku-iryohi-nenkanjougen.png"
+  alt: "医療費の備えはいくらで足りるか。2026年8月 高額療養費に年間上限が新設"
+  relative: false
+  hiddenInList: false
 ---
 
 入院や手術で医療費が高額になっても、公的保険の高額療養費制度があるから大丈夫——そう聞いて安心している方は多いと思います。
