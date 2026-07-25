@@ -491,7 +491,7 @@ NISAのつみたて投資枠は、制度上インデックスファンドなど�
 ## 関連記事
 
 - [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/)
-- [投資家の銀行選びがネット銀行一択になる理由](/posts/recommended-net-bank-2026/)
+- [証券連携で選ぶネット銀行4選｜金利を追わない銀行選び2026](/posts/recommended-net-bank-2026/)
 - [投資を始める前に最適化すべき支出とは](/posts/expense-optimization-before-investing/)
 
 ---

@@ -401,7 +401,7 @@ SBI VCトレードは、SBIホールディングスの時価総額（約2兆円�
 
 ## 関連記事
 
-- [投資家向けネット銀行おすすめ4選｜証券連携・手数料・目的別口座で比較2026](https://finlab-se.com/posts/recommended-net-bank-2026/)
+- [証券連携で選ぶネット銀行4選｜金利を追わない銀行選び2026](https://finlab-se.com/posts/recommended-net-bank-2026/)
 - [暗号資産・ステーブルコイン送金（海外送金シリーズ第3弾）](https://finlab-se.com/posts/crypto-stablecoin-remittance/)
 
 ---

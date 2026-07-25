@@ -1,5 +1,5 @@
 ---
-title: "投資家向けネット銀行おすすめ4選｜証券連携・手数料・目的別口座で比較2026"
+title: "証券連携で選ぶネット銀行4選｜金利を追わない銀行選び2026"
 date: 2026-05-05T06:30:00+09:00
 lastmod: 2026-07-12T00:00:00+09:00
 draft: false
@@ -9,7 +9,7 @@ description: "証券口座と連携できる銀行選びを最優先に、住信
 showToc: true
 cover:
   image: "/images/thumb-recommended-net-bank-2026.jpg"
-  alt: "投資家向けネット銀行おすすめ4選 証券連携比較2026"
+  alt: "証券連携で選ぶネット銀行4選 金利を追わない銀行選び2026"
   relative: false
   hiddenInList: false
 ---
