@@ -16,15 +16,15 @@ cover:
 
 証券口座を開いたけど、銀行口座はどれにすればいいのか迷っている——。
 
-どれを選ぶか決めかねていると、こんな迷いが出てきます。
+銀行選びで迷っていると、次のような疑問が浮かんできます。
 
 - 「金利が高い銀行にお金を移した方がいいのかな？」
 - 「証券口座との連携って、銀行によって何が違うの？」
 - 「生活費と投資資金を同じ口座で管理していいのか不安」
 
-<strong>結論から言うと、銀行は「管理のしやすさ」「証券連携」「手数料」の3軸で選ぶことです。</strong>金利の差を追いかける必要はありません。
+<strong>銀行は「管理のしやすさ」「証券連携」「手数料」の3軸で選ぶことです。</strong>金利の差を追いかける必要はありません。
 
-なぜこの3軸で十分なのか。それは、資産を「増やす場所」は証券口座（株・投資信託）であり、銀行は「資金をスムーズに動かす場所」だからです。本記事では5つの銀行を同じ評価軸で比較し、どのパターンの人に何が合うかを整理します。
+この3軸で十分な理由は、資産を「増やす場所」が証券口座（株・投資信託）であり、銀行は「資金をスムーズに動かす場所」だからです。本記事では4つの銀行を同じ評価軸で比較し、どのパターンの人に何が合うかを整理します。
 
 本記事は特定の銀行を推奨するものではありません。各銀行のサービス内容はご自身でも最新情報をご確認ください。なお、本記事にはアフィリエイトリンクが含まれます。
 
@@ -51,7 +51,7 @@ cover:
 
 ## この記事でわかること
 
-- 投資家が銀行に求めるべき5つの機能
+- 投資家が銀行に求めたい5つの機能
 - 主要4銀行（住信SBI・楽天・ソニー・auじぶん）の機能比較
 - パターン別「どの銀行が合うか」の判断軸
 
@@ -76,11 +76,11 @@ cover:
 ---
 
 
-## 投資家が銀行に求めるべき5つの機能
+## 投資家が銀行に求めたい5つの機能
 
-{{< figure src="/images/bank-5axis-overview.png" alt="投資家が銀行に求めるべき5つの機能" >}}
+{{< figure src="/images/bank-5axis-overview.png" alt="投資家が銀行に求めたい5つの機能" >}}
 
-銀行を選ぶ際は、以下の5軸で評価することをおすすめします。
+銀行を選ぶ際は、先ほどの3軸（管理のしやすさ・証券連携・手数料）をより具体的な評価項目に分解した、以下の5軸で評価することをおすすめします。
 
 <strong>① 証券会社との連携</strong>
 
@@ -108,9 +108,9 @@ cover:
 
 楽天銀行やauじぶん銀行には、経済圏ユーザー向けの追加メリットがあります。ただし、銀行単体が経済圏に与えるインパクトは限定的です。
 
-楽天銀行は、楽天カードの引き落とし口座を楽天銀行に設定すると、楽天市場でのSPU（スーパーポイントアッププログラム）が最大+0.5倍になります（引き落とし設定のみの場合は+0.3倍）。ただし上限は月1,000ポイントの期間限定ポイントです。楽天市場を毎月まとまった金額で利用しない限り、銀行を変える動機になるほどの金額にはなりにくいです。
+楽天銀行は、楽天カードの引き落とし口座を楽天銀行に設定すると、楽天市場でのSPU（スーパーポイントアッププログラム）が最大+0.5倍になります。引き落とし設定のみの場合は+0.3倍です。ただし上限は月1,000ポイントの期間限定ポイントです。楽天市場を毎月まとまった金額で利用しない限り、銀行を変える動機になるほどの金額にはなりにくいです。
 
-auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴールドカードを組み合わせることで、最大4,500円相当/月のキャッシュバック・ポイント還元を受けられます（2025年12月開始の「auバリューリンク マネ活2」）。ただしこれはau経済圏のヘビーユーザーを前提とした組み合わせであり、auを利用していない方には関係のない話です。
+auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴールドカードを組み合わせることで、最大4,500円相当/月のキャッシュバック・ポイント還元を受けられます。この特典は2025年12月開始の「auバリューリンク マネ活2」によるものです。ただしこれはau経済圏のヘビーユーザーを前提とした組み合わせであり、auを利用していない方には関係のない話です。
 
 銀行を経済圏メリットで選ぶのは、すでにその経済圏を積極的に活用している場合に限られます。資産形成の観点では、証券連携・手数料・管理のしやすさで選ぶほうが本質的な判断ができるため、今回は評価軸に含めていません。
 
@@ -124,7 +124,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 ---
 
-## 5銀行の総合比較表（2026年5月時点）
+## 4銀行の総合比較表（2026年5月時点）
 
 <div style="overflow-x:auto;margin:24px 0;">
 <table style="width:100%;border-collapse:collapse;font-size:14px;">
@@ -149,7 +149,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 <td style="background:#f8fafc;border:1px solid #e2e8f0;padding:14px 14px;font-weight:700;font-size:13px;vertical-align:middle;line-height:1.6;">目的別口座<br>（サブ口座機能）</td>
 <td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">あり<br>最大10口座<br>目標金額/期間設定可</div></td>
 <td style="position:relative;background-color:#fef2f2;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:72px;color:#dc2626;opacity:0.25;font-weight:900;line-height:1;pointer-events:none;user-select:none;">ー</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">なし</div></td>
-<td style="position:relative;background-color:#eff6ff;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:62px;color:#2563eb;opacity:0.13;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">あり<br>「貯金箱」機能<br>最大5口座</div></td>
+<td style="position:relative;background-color:#fef2f2;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:72px;color:#dc2626;opacity:0.25;font-weight:900;line-height:1;pointer-events:none;user-select:none;">ー</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">なし<br>（旧「貯金箱」機能は<br>2020年に終了）</div></td>
 <td style="position:relative;background-color:#fef2f2;border:1px solid #e2e8f0;padding:16px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:72px;color:#dc2626;opacity:0.25;font-weight:900;line-height:1;pointer-events:none;user-select:none;">ー</div><div style="position:relative;font-size:13px;font-weight:600;color:#1e293b;line-height:1.6;">なし</div></td>
 </tr>
 <tr>
@@ -175,9 +175,9 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 </tr>
 <tr style="border-top:3px solid #1e293b;border-bottom:3px solid #1e293b;">
 <td style="background:#1e293b;border:1px solid #334155;padding:16px 14px;font-weight:700;font-size:13px;vertical-align:middle;line-height:1.6;color:#f8fafc;text-align:center;">★<br>総合<br>評価</td>
-<td style="position:relative;background-color:#dcfce7;border:1px solid #e2e8f0;padding:24px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:90px;color:#16a34a;opacity:0.20;font-weight:900;line-height:1;pointer-events:none;user-select:none;">◎</div><div style="position:relative;font-size:13px;font-weight:700;color:#1e293b;line-height:1.8;">SBI証券とセットで住信SBI銀行が最強コンビ</div></td>
+<td style="position:relative;background-color:#dcfce7;border:1px solid #e2e8f0;padding:24px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:90px;color:#16a34a;opacity:0.20;font-weight:900;line-height:1;pointer-events:none;user-select:none;">◎</div><div style="position:relative;font-size:13px;font-weight:700;color:#1e293b;line-height:1.8;">SBI証券とセットで住信SBIネット銀行が最強コンビ</div></td>
 <td style="position:relative;background-color:#dbeafe;border:1px solid #e2e8f0;padding:24px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:90px;color:#2563eb;opacity:0.20;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:700;color:#1e293b;line-height:1.8;">楽天証券・楽天経済圏ユーザーに最適。目的別口座なしが弱点</div></td>
-<td style="position:relative;background-color:#dbeafe;border:1px solid #e2e8f0;padding:24px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:90px;color:#2563eb;opacity:0.20;font-weight:900;line-height:1;pointer-events:none;user-select:none;">○</div><div style="position:relative;font-size:13px;font-weight:700;color:#1e293b;line-height:1.8;">住信SBIと楽天を使わない場合の有力な選択肢。ATM手数料が残高条件なしで月4回無料</div></td>
+<td style="position:relative;background-color:#fef9c3;border:1px solid #e2e8f0;padding:24px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:90px;color:#ca8a04;opacity:0.20;font-weight:900;line-height:1;pointer-events:none;user-select:none;">△</div><div style="position:relative;font-size:13px;font-weight:700;color:#1e293b;line-height:1.8;">証券連携なし。残高条件なしのATM無料は魅力だが、証券連携を重視する本記事の観点ではやや見劣り</div></td>
 <td style="position:relative;background-color:#fef9c3;border:1px solid #e2e8f0;padding:24px 10px;text-align:center;vertical-align:middle;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:90px;color:#ca8a04;opacity:0.20;font-weight:900;line-height:1;pointer-events:none;user-select:none;">△</div><div style="position:relative;font-size:13px;font-weight:700;color:#1e293b;line-height:1.8;">au経済圏向け。SBI・楽天ユーザーには恩恵が薄い</div></td>
 </tr>
 </tbody>
@@ -189,7 +189,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 ## 各銀行の詳細レビュー
 
-### 住信SBIネット銀行｜SBI証券ユーザーならこの一択
+### 住信SBIネット銀行｜SBI証券ユーザーの第一候補
 
 <a href="/posts/securities-selection-for-index-and-dividend/">別記事の証券口座比較</a>では、SBI証券を最もおすすめという結論を出しています。その前提に立つと、銀行選びの答えはシンプルです。<strong>住信SBIネット銀行とSBI証券を組み合わせるのが、資産形成における最強のコンボです。</strong>
 
@@ -197,7 +197,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 #### ① 証券連携（SBIハイブリッド預金）
 
-銀行口座の残高がそのままSBI証券の買付余力に反映されます。株を買いたいときに資金移動の手間がなく、タイムラグも生じません。連携設定により普通預金金利が優遇金利0.31%に引き上げられます（通常0.001%）。SBI証券で投資を続けるほど、この連携の恩恵が大きくなります。
+銀行口座の残高がそのままSBI証券の買付余力に反映されます。株を買いたいときに資金移動の手間がなく、タイムラグも生じません。連携設定により普通預金金利は通常0.30%から優遇金利0.31%へわずかに上乗せされます。SBI証券で投資を続けるほど、この連携の恩恵が大きくなります。
 
 #### ② 目的別口座
 
@@ -254,7 +254,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 ### ソニー銀行｜証券連携不要の人・保守的な運用の人向け
 
-<strong>証券会社との連携がなく、投資メインの観点では機能が限られます。一方で、目的別口座（「円預金の分割管理」機能）があり、お金の管理を視覚的に整理したい人には合います。</strong>
+<strong>証券会社との連携がなく、投資メインの観点では機能が限られます。一方で、残高条件なしで無条件にATM・振込手数料が無料になる点は、他行にはない特徴です。</strong>
 
 #### ① 証券連携
 
@@ -262,7 +262,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 #### ② 目的別口座
 
-「貯金箱」機能で最大5口座まで作成できます。用途ごとにお金を分けて管理でき、視覚的に把握しやすい設計です。
+ありません。かつては「貯金箱」機能で最大5口座まで作成できましたが、2020年にサービス終了しており、2025年5月のリニューアルでも復活していません。用途ごとに分けて管理したい場合は、住信SBIネット銀行の目的別口座（最大10口座）が候補になります。
 
 #### ③ コンビニATM利用料
 
@@ -270,7 +270,7 @@ auじぶん銀行は、au対象料金プランに加入したうえでau PAYゴ�
 
 #### ④ 振込手数料
 
-月1回は無条件で無料。さらにSony Bank WALLETを月2回以上利用することで、合計月2回無料になります（ノーマルランク）。Club Sプログラムの上位ランクでは最大月11回まで無料になります。ただし残高300万円未満はノーマルランク固定のため、残高が少ない段階では月1〜2回が上限です。
+月1回は無条件で無料。さらにSony Bank WALLETを保有していることで、合計月2回無料になります（ノーマルランク）。Club Sプログラムの上位ランクでは最大月11回まで無料になります。ただし残高300万円未満はノーマルランク固定のため、残高が少ない段階では月1〜2回が上限です。
 
 #### ⑤ スマホATM
 
@@ -294,11 +294,11 @@ auカブコム証券または三菱UFJ eスマート証券との連携で、銀�
 
 #### ③ コンビニATM利用料
 
-じぶんプラスプログラムのランクに応じた無料回数が適用されます。残高30万円を目安にシルバーランクを目指すことができますが、スタンプ制のため残高スタンプ1個に加えて他条件1個の達成が必要です。au・UQ mobileの携帯料金の支払い設定でもスタンプが貯まるため、auユーザーはシルバー達成（ATM月2回無料）が容易です。
+じぶんプラスプログラムのランクに応じた無料回数が適用されます。残高30万円のスタンプ1個で基本ステージのATM月2回無料になり、au・UQ mobileの携帯料金の支払い設定など他の条件でもう1つスタンプを獲得するとシルバーステージ（ATM月5回無料）に上がります。auユーザーは携帯料金の支払い設定でスタンプが貯まりやすく、シルバー到達のハードルが低い設計です。
 
 #### ④ 振込手数料
 
-じぶんプラスプログラムのランクに応じた無料枠が適用されます。残高30万円（シルバー相当のスタンプ達成）で月3回無料。auユーザーであればランクアップのハードルが低く、無料枠を活用しやすい設計です。
+じぶんプラスプログラムのランクに応じた無料枠が適用されます。残高30万円のスタンプ1個で基本ステージの振込月3回無料になります。auユーザーは携帯料金の支払い設定でもう1つスタンプが貯まりやすく、ランクアップのハードルが低い設計です。
 
 #### ⑤ スマホATM
 
@@ -338,10 +338,10 @@ SBI新生銀行はSBI証券との連携設定（SBI新生コネクト）をす�
 
 | あなたの状況 | おすすめ |
 |---|---|
-| SBI証券で投資している（もしくは楽天証券を使っていない） | <strong>住信SBIネット銀行</strong>一択に近い |
+| SBI証券で投資している | <strong>住信SBIネット銀行</strong>が第一候補 |
 | 楽天証券で投資している | <strong>楽天銀行</strong>（マネーブリッジ設定を忘れずに） |
-| 住信SBI銀行を使えない、および、楽天証券を使っていない | <strong>ソニー銀行</strong>（目的別口座＋手数料優遇） |
-| au経済圏を強化したい | <strong>auじぶん銀行</strong>を追加で検討 |
+| auカブコム証券・三菱UFJ eスマート証券で投資している | <strong>auじぶん銀行</strong>（証券連携の優遇金利は最高水準） |
+| 上記のいずれにも当てはまらない、または残高条件なしの手数料無料を優先したい | <strong>ソニー銀行</strong>（証券連携はないが無条件で手数料優遇） |
 
 「どの証券会社をメインにするか」が、ネット銀行選びの出発点です。まだ証券口座を選んでいない方は、先に証券口座を決めることをおすすめします。
 
@@ -352,10 +352,10 @@ SBI新生銀行はSBI証券との連携設定（SBI新生コネクト）をす�
 この記事で伝えたかったことを整理します。
 
 - <strong>銀行口座は「増やす場所」ではなく「管理する場所」</strong>。金利差よりも使い勝手を優先する
-- 評価すべき5軸は「証券連携」「目的別口座」「ATM利用料無料枠」「振込手数料無料枠」「スマホATM」
+- 比較した5軸は「証券連携」「目的別口座」「ATM利用料無料枠」「振込手数料無料枠」「スマホATM」
 - <strong>SBI証券ユーザーなら住信SBIネット銀行が第一候補</strong>。楽天証券ユーザーは楽天銀行が合いやすい
-- 住信SBI銀行を使えない、かつ楽天証券を使っていない場合はソニー銀行が有力な選択肢になる
-- au経済圏の方はauじぶん銀行を追加で検討する価値がある
+- auカブコム証券・三菱UFJ eスマート証券を使っているなら、auじぶん銀行も証券連携の恩恵がある
+- いずれの証券会社にも当てはまらない、または残高条件なしの手数料無料を優先したい場合はソニー銀行も選択肢になる
 
 まだ住信SBIネット銀行を持っていない方は、SBI証券と合わせて開設を検討してみてください。口座開設自体は無料で、使わなくても維持費はかかりません。
 
