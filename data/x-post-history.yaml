@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-25T21:06:33+09:00'
+    text: "【おすすめ📖】\nクレカの1%還元、その原資はどこから出ている？正体は加盟店が払う「インターチェンジフィー」です。イシュア・アクワイアラ・ブランド3者の取り分の流れを、1,000円の買い物を例に金融SEが図解で解説します。\n\
+      \nhttps://finlab-se.com/posts/credit-card-interchange-fee/"
+    tweet_id: '2080988069012893957'
+    tweet_url: https://x.com/i/web/status/2080988069012893957
+    type: rotation
+    post_path: content/posts/credit-card-interchange-fee.md
   - posted_at: '2026-07-25T07:32:07+09:00'
     text: 
       日本郵便をかたる詐欺で200万円の被害が報じられています。金融機関は多重防御で守られていますが、個人側の対策も重要です。パスキー有効化・URL不用意に踏まない・取引通知ON・パスワードマネージャーの4対策を金融SEが解説します。
@@ -348,11 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2072085657887953094
     type: rotation
     post_path: content/posts/ideco-withdrawal-guide.md
-  - posted_at: '2026-06-30T21:05:46+09:00'
-    text: "【おすすめ📖】\niDeCoはNISAより手取りで有利か？退職金なしなら約382万円差。退職金ありなら99万円差まで縮む。シミュレーションで確認。\n\
-      \nhttps://finlab-se.com/posts/ideco-nisa-tax-comparison/\n\n#iDeCo確定拠出年金 #NISA
-      #節税"
-    tweet_id: '2071928175332827532'
-    tweet_url: https://x.com/i/web/status/2071928175332827532
-    type: rotation
-    post_path: content/posts/ideco-nisa-tax-comparison.md
