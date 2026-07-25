@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-26T07:32:11+09:00'
+    text: 
+      日銀の金融政策決定会合が近づき、利上げの行方に注目が集まっています。変動金利の住宅ローンを借り換えるべきかは、残債・金利差・残期間の3条件で損益分岐が変わります。試算の考え方を整理しました。
+    tweet_id: '2081145515039707354'
+    tweet_url: https://x.com/i/web/status/2081145515039707354
+    type: topic
+    post_path: content/posts/mortgage-rate-refinance-simulation.md
   - posted_at: '2026-07-25T21:06:33+09:00'
     text: "【おすすめ📖】\nクレカの1%還元、その原資はどこから出ている？正体は加盟店が払う「インターチェンジフィー」です。イシュア・アクワイアラ・ブランド3者の取り分の流れを、1,000円の買い物を例に金融SEが図解で解説します。\n\
       \nhttps://finlab-se.com/posts/credit-card-interchange-fee/"
@@ -347,11 +354,3 @@ history:
     tweet_url: https://x.com/i/web/status/2072290642680590444
     type: rotation
     post_path: content/posts/income-wall-framework.md
-  - posted_at: '2026-07-01T07:31:33+09:00'
-    text: "【おすすめ📖】\niDeCoの受け取り方は一時金・年金形式・併用の3択です。退職所得控除・2分の1課税・10年ルール・退職後の健康保険まで、手取りに直結する論点を整理します。\n\
-      \nhttps://finlab-se.com/posts/ideco-withdrawal-guide/\n\n#iDeCo確定拠出年金 #老後資金年金
-      #社会保険"
-    tweet_id: '2072085657887953094'
-    tweet_url: https://x.com/i/web/status/2072085657887953094
-    type: rotation
-    post_path: content/posts/ideco-withdrawal-guide.md
