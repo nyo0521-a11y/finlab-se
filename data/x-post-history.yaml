@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-07-26T21:06:13+09:00'
+    text: "【おすすめ📖】\nウェルスナビの手数料年1%は高いのか。インデックス投信（オルカン等）と30年間の長期コストを試算し、手数料差を金額で比較します。\n\
+      \nhttps://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/\n\n#インデックス投資
+      #NISA"
+    tweet_id: '2081350374016086135'
+    tweet_url: https://x.com/i/web/status/2081350374016086135
+    type: rotation
+    post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md
   - posted_at: '2026-07-26T07:32:11+09:00'
     text: 
       日銀の金融政策決定会合が近づき、利上げの行方に注目が集まっています。変動金利の住宅ローンを借り換えるべきかは、残債・金利差・残期間の3条件で損益分岐が変わります。試算の考え方を整理しました。
@@ -347,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2072448138686668980
     type: rotation
     post_path: content/posts/kodomo-nisa-2027.md
-  - posted_at: '2026-07-01T21:06:05+09:00'
-    text: "【おすすめ📖】\n年収の壁は「税金の壁」と「社保の壁」の2種類に分けると構造が見える。仕組みと自分に関係する壁の確認フローを解説。\n\nhttps://finlab-se.com/posts/income-wall-framework/\n\
-      \n#年収の壁 #社会保険 #節税"
-    tweet_id: '2072290642680590444'
-    tweet_url: https://x.com/i/web/status/2072290642680590444
-    type: rotation
-    post_path: content/posts/income-wall-framework.md
