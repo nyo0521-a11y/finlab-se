@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-27T07:31:42+09:00'
+    text: 
+      米ナスダックが4月以来の大幅下落、AI巨額投資への警戒が広がっています。今週は日米テック決算やFOMCも控え、指数の値動きに神経質になりやすい局面です。高配当株投資家がこうした相場でやってはいけない3つを整理しました。
+    tweet_id: '2081507781325250840'
+    tweet_url: https://x.com/i/web/status/2081507781325250840
+    type: topic
+    post_path: content/posts/nikkei-60000-highyield-mindset.md
   - posted_at: '2026-07-26T21:06:13+09:00'
     text: "【おすすめ📖】\nウェルスナビの手数料年1%は高いのか。インデックス投信（オルカン等）と30年間の長期コストを試算し、手数料差を金額で比較します。\n\
       \nhttps://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/\n\n#インデックス投資
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2072653058236985659
     type: rotation
     post_path: content/posts/mutual-fund-real-cost-2026.md
-  - posted_at: '2026-07-02T07:31:55+09:00'
-    text: "【おすすめ📖】\n2027年スタートのこどもNISA（こども支援NISA）。概要とジュニアNISAとの違いを解説。\n\nhttps://finlab-se.com/posts/kodomo-nisa-2027/\n\
-      \n#NISA"
-    tweet_id: '2072448138686668980'
-    tweet_url: https://x.com/i/web/status/2072448138686668980
-    type: rotation
-    post_path: content/posts/kodomo-nisa-2027.md
