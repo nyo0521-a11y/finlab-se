@@ -92,4 +92,4 @@ cover:
 
 - [金融機関で20年見てきたお金の話](/posts/finance-insider-money-habits/) — シリーズ第1弾。「お金が貯まるかどうかは知識より習慣」という、内側から見えた本音をお伝えしています。
 - [マネーフォワードMEで家計簿を自動化｜金融SEが解説する5つの理由](https://finlab-se.com/posts/household-budget-app-comparison-2026/) — キャッシュレスの効果を最大化する家計管理アプリの選び方を解説しています。
-- [投資家の銀行選びがネット銀行一択になる理由｜2026年版比較](https://finlab-se.com/posts/recommended-net-bank-2026/) — キャンペーンに振り回されず、手数料・金利・使い勝手で選ぶネット銀行の比較記事です。
+- [証券連携で選ぶネット銀行4選｜金利を追わない銀行選び2026](https://finlab-se.com/posts/recommended-net-bank-2026/) — キャンペーンに振り回されず、手数料・金利・使い勝手で選ぶネット銀行の比較記事です。
