@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-27T21:06:12+09:00'
+    text: "【新着📝】\n2026年8月から高額療養費の自己負担限度額が引き上げられ、あわせて年間上限が新設されます。年収約770万円以下なら年53万円。\n\
+      \nhttps://finlab-se.com/posts/kougaku-iryohi-nenkanjougen/\n\n#高額療養費 #社会保険 #2026年改正"
+    tweet_id: '2081712755305046104'
+    tweet_url: https://x.com/i/web/status/2081712755305046104
+    type: new
+    post_path: content/posts/kougaku-iryohi-nenkanjougen.md
   - posted_at: '2026-07-27T07:31:42+09:00'
     text: 
       米ナスダックが4月以来の大幅下落、AI巨額投資への警戒が広がっています。今週は日米テック決算やFOMCも控え、指数の値動きに神経質になりやすい局面です。高配当株投資家がこうした相場でやってはいけない3つを整理しました。
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2072810517001879757
     type: topic
     post_path: content/posts/bonus-investment-checkup-4steps.md
-  - posted_at: '2026-07-02T21:06:12+09:00'
-    text: "【おすすめ📖】\n投資信託の「実質コスト（隠れコスト）」は運用報告書のどこを見れば確認できるのか。信託報酬との違い、2024年から始まった総経費率の見方、隠れコストの内訳と調べ方を金融SEが会計視点で解説。\n\
-      \nhttps://finlab-se.com/posts/mutual-fund-real-cost-2026/\n\n#インデックス投資"
-    tweet_id: '2072653058236985659'
-    tweet_url: https://x.com/i/web/status/2072653058236985659
-    type: rotation
-    post_path: content/posts/mutual-fund-real-cost-2026.md

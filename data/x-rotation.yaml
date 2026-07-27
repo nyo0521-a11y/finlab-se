@@ -423,3 +423,7 @@ rotation:
   last_promoted: '2026-07-21T21:06:37+09:00'
   promote_count: 1
   priority: normal
+- post_path: content/posts/kougaku-iryohi-nenkanjougen.md
+  last_promoted: '2026-07-27T21:06:12+09:00'
+  promote_count: 1
+  priority: normal
