@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-28T07:31:41+09:00'
+    text: '老後資金への不安が話題ですが、「いくら取り崩せば安心か」は感覚では決められません。トリニティスタディの4%ルールを起点に、モンテカルロで成功率を測り毎年調整する考え方を金融SEが整理しました。
+      https://finlab-se.com/posts/montecarlo-background/ #資産形成 #FIRE'
+    tweet_id: '2081870163008172110'
+    tweet_url: https://x.com/i/web/status/2081870163008172110
+    type: topic
+    post_path: content/posts/montecarlo-background.md
   - posted_at: '2026-07-27T21:06:12+09:00'
     text: "【新着📝】\n2026年8月から高額療養費の自己負担限度額が引き上げられ、あわせて年間上限が新設されます。年収約770万円以下なら年53万円。\n\
       \nhttps://finlab-se.com/posts/kougaku-iryohi-nenkanjougen/\n\n#高額療養費 #社会保険 #2026年改正"
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2073015449747415286
     type: new
     post_path: content/posts/individual-jgb-vs-deposit-2026.md
-  - posted_at: '2026-07-03T07:31:53+09:00'
-    text: "大手企業の夏のボーナスが初めて平均100万円を超えたと報じられました。投資に回す前に、生活防衛資金・NISA枠・ポートフォリオの偏り・固定費の4点を順に確認しておくと、後悔のない配分を落ち着いて決められます。チェック手順を整理しました。\n\
-      https://finlab-se.com/posts/bonus-investment-checkup-4steps/\n#ボーナス #資産形成 #NISA"
-    tweet_id: '2072810517001879757'
-    tweet_url: https://x.com/i/web/status/2072810517001879757
-    type: topic
-    post_path: content/posts/bonus-investment-checkup-4steps.md
