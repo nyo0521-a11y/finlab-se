@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-28T21:06:45+09:00'
+    text: "【おすすめ📖】\ndカード・三井住友NL・楽天・PayPayカード改定を整理。「また改悪か」に振り回されない判断軸を解説。\n\nhttps://finlab-se.com/posts/credit-card-reform-2026/\n\
+      \n#クレジットカード #ポイント還元"
+    tweet_id: '2082075282220130325'
+    tweet_url: https://x.com/i/web/status/2082075282220130325
+    type: rotation
+    post_path: content/posts/credit-card-reform-2026.md
   - posted_at: '2026-07-28T07:31:41+09:00'
     text: '老後資金への不安が話題ですが、「いくら取り崩せば安心か」は感覚では決められません。トリニティスタディの4%ルールを起点に、モンテカルロで成功率を測り毎年調整する考え方を金融SEが整理しました。
       https://finlab-se.com/posts/montecarlo-background/ #資産形成 #FIRE'
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2073172907887329443
     type: topic
     post_path: content/posts/index-investing-10years-honest-review.md
-  - posted_at: '2026-07-03T21:06:12+09:00'
-    text: "【新着📝】\n個人向け国債は定期預金や株式とどう使い分ける？金利上昇で利率1.7%台になった今、「いつ使うお金か（短期・中期・長期）」とリスク許容度で置きどころを整理。即時の待機資金には向かない理由も、金融SEが正直に解説します。\n\
-      \nhttps://finlab-se.com/posts/individual-jgb-vs-deposit-2026/"
-    tweet_id: '2073015449747415286'
-    tweet_url: https://x.com/i/web/status/2073015449747415286
-    type: new
-    post_path: content/posts/individual-jgb-vs-deposit-2026.md
