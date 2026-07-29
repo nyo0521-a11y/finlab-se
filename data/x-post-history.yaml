@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-29T21:06:39+09:00'
+    text: "【おすすめ📖】\n金融SEの筆者が、日本株102銘柄・24業種に分散した高配当株ポートフォリオを公開。米国ETFとの比率・セクター配分・利回り目標まで、なぜこの配分にしたかを実データで解説します。\n\
+      \nhttps://finlab-se.com/posts/highyield-portfolio-2026-breakdown/"
+    tweet_id: '2082437646815490171'
+    tweet_url: https://x.com/i/web/status/2082437646815490171
+    type: rotation
+    post_path: content/posts/highyield-portfolio-2026-breakdown.md
   - posted_at: '2026-07-29T07:32:17+09:00'
     text: 
       半導体・AI関連株が世界的に急落し、キオクシアはストップ安に。値動きの荒い局面ほど、投資先の分散と資産の置き場の安全性を見直したいところです。取引所選びの視点を金融SEが整理しました。
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2073535309497733440
     type: rotation
     post_path: content/posts/securities-selection-for-index-and-dividend.md
-  - posted_at: '2026-07-04T21:06:11+09:00'
-    text: "【おすすめ📖】\n証券口座と連携できる銀行選びを最優先に、住信SBI・楽天・ソニー・auじぶんを5軸で比較。SBI証券・楽天証券ユーザーの口座選びや、目的別口座・ATM・振込手数料の違いもまとめて解説します。\n\
-      \nhttps://finlab-se.com/posts/recommended-net-bank-2026/\n\n#ネット銀行"
-    tweet_id: '2073377832898895933'
-    tweet_url: https://x.com/i/web/status/2073377832898895933
-    type: rotation
-    post_path: content/posts/recommended-net-bank-2026.md
