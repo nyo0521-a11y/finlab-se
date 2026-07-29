@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-30T07:32:08+09:00'
+    text: 
+      米国株が大幅下落し、AI・半導体投資への懸念が意識されています。相場が揺れる局面こそ、指数選びの軸を「過去リターン」ではなく理論で持つことが大切です。オルカンとS&P500の判断軸を金融SEが整理しました。
+    tweet_id: '2082595053479014823'
+    tweet_url: https://x.com/i/web/status/2082595053479014823
+    type: topic
+    post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
   - posted_at: '2026-07-29T21:06:39+09:00'
     text: "【おすすめ📖】\n金融SEの筆者が、日本株102銘柄・24業種に分散した高配当株ポートフォリオを公開。米国ETFとの比率・セクター配分・利回り目標まで、なぜこの配分にしたかを実データで解説します。\n\
       \nhttps://finlab-se.com/posts/highyield-portfolio-2026-breakdown/"
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2073740236106985627
     type: rotation
     post_path: content/posts/x-auto-post-cloudflare-workers.md
-  - posted_at: '2026-07-05T07:31:57+09:00'
-    text: "【おすすめ📖】\n投資スタイル別の証券会社選びを解説。SBI・楽天・マネックス・UFJ eスマートを5観点で比較。\n\nhttps://finlab-se.com/posts/securities-selection-for-index-and-dividend/\n\
-      \n#証券会社 #高配当株 #インデックス投資"
-    tweet_id: '2073535309497733440'
-    tweet_url: https://x.com/i/web/status/2073535309497733440
-    type: rotation
-    post_path: content/posts/securities-selection-for-index-and-dividend.md
