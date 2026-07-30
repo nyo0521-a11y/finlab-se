@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-07-30T21:06:42+09:00'
+    text: "【おすすめ📖】\n高配当株投資を始める前に確認すべきは支出の最適化です。月1万円の支出削減は、利回り4%・300万円分の投資と同じ家計インパクトがあり、しかも今すぐ効果が出ます。\n\
+      \nhttps://finlab-se.com/posts/expense-optimization-before-investing/\n\n#家計管理
+      #高配当株"
+    tweet_id: '2082800047209488448'
+    tweet_url: https://x.com/i/web/status/2082800047209488448
+    type: rotation
+    post_path: content/posts/expense-optimization-before-investing.md
   - posted_at: '2026-07-30T07:32:08+09:00'
     text: 
       米国株が大幅下落し、AI・半導体投資への懸念が意識されています。相場が揺れる局面こそ、指数選びの軸を「過去リターン」ではなく理論で持つことが大切です。オルカンとS&P500の判断軸を金融SEが整理しました。
@@ -348,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2073897633219752372
     type: topic
     post_path: content/posts/mortgage-rate-refinance-simulation.md
-  - posted_at: '2026-07-05T21:06:15+09:00'
-    text: "【おすすめ📖】\nXの自動投稿をほぼ無料で自作した記録。GitHub Actionsのcronが数時間ズレる問題に直面し、…\n\nhttps://finlab-se.com/posts/x-auto-post-cloudflare-workers/\n\
-      \n#ブログ運営 #AI活用 #ClaudeCode"
-    tweet_id: '2073740236106985627'
-    tweet_url: https://x.com/i/web/status/2073740236106985627
-    type: rotation
-    post_path: content/posts/x-auto-post-cloudflare-workers.md
