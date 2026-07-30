@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-31T07:32:04+09:00'
+    text: '高市総理が食料品の消費税「8%→1%」減税を表明し、話題になっています。給付付き税額控除や現金給付との比較も含め、家計にどう効くのかは年収・世帯人数で変わります。減税と給付、どちらが得かを年収別に試算しました。
+      https://finlab-se.com/posts/shohizei-vs-kyufu/ #消費税 #家計'
+    tweet_id: '2082957424844001517'
+    tweet_url: https://x.com/i/web/status/2082957424844001517
+    type: topic
+    post_path: content/posts/shohizei-vs-kyufu.md
   - posted_at: '2026-07-30T21:06:42+09:00'
     text: "【おすすめ📖】\n高配当株投資を始める前に確認すべきは支出の最適化です。月1万円の支出削減は、利回り4%・300万円分の投資と同じ家計インパクトがあり、しかも今すぐ効果が出ます。\n\
       \nhttps://finlab-se.com/posts/expense-optimization-before-investing/\n\n#家計管理
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2074102611003822556
     type: new
     post_path: content/posts/nikkei-progressive-index.md
-  - posted_at: '2026-07-06T07:31:41+09:00'
-    text: '長期金利3％が視野に入り、「金利のある時代」が現実味を帯びてきました。気になるのは住宅ローンの変動金利。利上げ局面で借換えが得になるかは、残債・金利差・残り期間の3条件で損益分岐が変わります。感覚ではなく数字で判断する方法を整理しました。
-      https://finlab-se.com/posts/mortgage-rate-refinance-simulation/ #住宅ローン #金利'
-    tweet_id: '2073897633219752372'
-    tweet_url: https://x.com/i/web/status/2073897633219752372
-    type: topic
-    post_path: content/posts/mortgage-rate-refinance-simulation.md
