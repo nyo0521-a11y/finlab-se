@@ -1,6 +1,7 @@
 ---
 title: "iDeCoの受け取り方を徹底解説——一時金・年金・併用の損得を整理する"
 date: 2026-05-13T05:30:00+09:00
+lastmod: 2026-07-29T12:00:00+09:00
 categories: ["資産形成"]
 tags: ["iDeCo・確定拠出年金", "老後資金・年金", "社会保険"]
 description: "iDeCoの受け取り方は一時金・年金形式・併用の3択です。退職所得控除・2分の1課税・10年ルール・退職後の健康保険まで、手取りに直結する論点を整理します。"
@@ -390,7 +391,7 @@ iDeCoの受け取り方は「iDeCo残高が退職所得控除の範囲に収ま�
 ## 関連記事
 
 - [iDeCoとNISAはどちらが得か？退職金の有無で答えが変わる理由](https://finlab-se.com/posts/ideco-nisa-tax-comparison/) — iDeCoはNISAより手取りで有利か？退職金なしなら約382万円差
-- [【2026年改正】iDeCoは社会保険料・所得税が下がる？節税効果を年収別に試算](https://finlab-se.com/posts/ideco-2026-reform/) — 2026年改正でiDeCoの掛金上限が月6
+- [【2026年改正】iDeCoは社会保険料・所得税が下がる？節税効果を年収別に試算](https://finlab-se.com/posts/ideco-2026-reform/) — 2026年改正でiDeCoの掛金上限が月6.2万円に拡大。年収別の節税額を試算しています
 - [マッチング拠出かiDeCoか 企業型DC向け判断フロー 2026年改正対応](https://finlab-se.com/posts/corporate-dc-ideco-flowchart-2026/) — 企業型DC加入者がマッチング拠出とiDeCoのどちらを選ぶべきか、2026年改正後の手数…
 
 ## 参考文献
