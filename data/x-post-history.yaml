@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-01T07:31:34+09:00'
+    text: '大手行が定期預金金利を引き上げ、住宅ローン固定金利も上昇と、金利のある世界が続いています。個人向け国債は利率1.7%台に。定期預金や株式との使い分けを「いつ使うお金か」で整理しました。
+      https://finlab-se.com/posts/individual-jgb-vs-deposit-2026/ #個人向け国債 #資産形成'
+    tweet_id: '2083319686939259284'
+    tweet_url: https://x.com/i/web/status/2083319686939259284
+    type: topic
+    post_path: content/posts/individual-jgb-vs-deposit-2026.md
   - posted_at: '2026-07-31T21:06:03+09:00'
     text: "【おすすめ📖】\n銀行・クレジットカード・国際規制システムを渡り歩いた金融SE20年のリアルな現場感覚を、金融SE自身が率直に綴ります。\n\n\
       https://finlab-se.com/posts/finance-se-20years-lessons/\n\n#金融SE #金融インフラ"
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2074464868082536533
     type: rotation
     post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
-  - posted_at: '2026-07-07T07:32:00+09:00'
-    text: 'クレカ決済代行の破産が話題です。カード決済は加盟店の裏側で「加盟店→決済代行/アクワイアラ→国際ブランド→イシュア」と複数社が連携し、わずか0.1秒でオーソリが完了します。普段は見えない決済インフラの流れを金融SEが図解しました。https://finlab-se.com/posts/credit-card-payment-flow/
-      #クレジットカード'
-    tweet_id: '2074260099464352130'
-    tweet_url: https://x.com/i/web/status/2074260099464352130
-    type: topic
-    post_path: content/posts/credit-card-payment-flow.md
