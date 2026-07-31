@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-07-31T21:06:03+09:00'
+    text: "【おすすめ📖】\n銀行・クレジットカード・国際規制システムを渡り歩いた金融SE20年のリアルな現場感覚を、金融SE自身が率直に綴ります。\n\n\
+      https://finlab-se.com/posts/finance-se-20years-lessons/\n\n#金融SE #金融インフラ"
+    tweet_id: '2083162270897418454'
+    tweet_url: https://x.com/i/web/status/2083162270897418454
+    type: rotation
+    post_path: content/posts/finance-se-20years-lessons.md
   - posted_at: '2026-07-31T07:32:04+09:00'
     text: '高市総理が食料品の消費税「8%→1%」減税を表明し、話題になっています。給付付き税額控除や現金給付との比較も含め、家計にどう効くのかは年収・世帯人数で変わります。減税と給付、どちらが得かを年収別に試算しました。
       https://finlab-se.com/posts/shohizei-vs-kyufu/ #消費税 #家計'
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2074260099464352130
     type: topic
     post_path: content/posts/credit-card-payment-flow.md
-  - posted_at: '2026-07-06T21:06:12+09:00'
-    text: "【新着📝】\n「減配しない会社」だけを集めた日経累進高配当株指数の採用30銘柄を一覧化。過去10年の純利益データによる業績安定度マーク付きで、SBI・楽天証券のNISA成長投資枠で丸ごと買う方法まで解説します。\n\
-      \nhttps://finlab-se.com/posts/nikkei-progressive-index/"
-    tweet_id: '2074102611003822556'
-    tweet_url: https://x.com/i/web/status/2074102611003822556
-    type: new
-    post_path: content/posts/nikkei-progressive-index.md
