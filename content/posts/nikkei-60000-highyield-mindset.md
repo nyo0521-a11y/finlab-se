@@ -1,7 +1,7 @@
 ---
 title: "株価最高値の時代に高配当株投資家がやってはいけない3つのこと"
 date: 2026-04-29T06:00:00+09:00
-lastmod: 2026-07-20T06:00:00+09:00
+lastmod: 2026-07-30T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "日本株"]
@@ -218,9 +218,9 @@ cover:
 
 ## 関連記事
 
-- [【高配当株】買い時はいつ？配当利回りで割安を見極める方法｜VYM・HDV・SCHD実例](https://finlab-se.com/posts/highyield-buying-timing/) — 高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD…
-- [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](https://finlab-se.com/posts/highyield-portfolio-management/) — 高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実…
-- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/) — 高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結…
+- [【高配当株】買い時はいつ？配当利回りで割安を見極める方法｜VYM・HDV・SCHD実例](https://finlab-se.com/posts/highyield-buying-timing/) — 高配当株の買い時を配当利回りの過去平均との比較で判断する方法を、VYM・HDV・SCHD等の実例で解説しています
+- [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](https://finlab-se.com/posts/highyield-portfolio-management/) — 高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介しています
+- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/) — 高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結論を数字で逆算しています
 
 ## 参考文献・出典
 

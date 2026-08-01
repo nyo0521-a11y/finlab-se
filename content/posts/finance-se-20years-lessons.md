@@ -1,7 +1,7 @@
 ---
 title: "金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ"
 date: 2026-04-24T14:00:00+09:00
-lastmod: 2026-07-18T00:00:00+09:00
+lastmod: 2026-07-30T00:00:00+09:00
 draft: false
 categories: ["金融の仕組み"]
 tags: ["金融SE", "金融インフラ"]
@@ -103,4 +103,4 @@ cover:
 
 - [銀行の勘定系システムのクラウド移行——進む理由と、まだ進まない理由を中の人が解説する](https://finlab-se.com/posts/bank-core-system-cloud/) — なぜ銀行の勘定系がクラウドへ移行するのか
 - [金融機関で20年見てきたお金の話](https://finlab-se.com/posts/finance-insider-money-habits/) — 金利を一番知るはずの金融機関の人が借金を多用していた
-- [金融機関で20年見てきたお金の話｜キャッシュレス・保険・銀行の本音](https://finlab-se.com/posts/finance-insider-cashless-and-sales/) — 金融機関に20年勤めた筆者が、キャッシュレスの早さ・保険の実態・銀行の短期目線を内側の肌…
+- [金融機関で20年見てきたお金の話｜キャッシュレス・保険・銀行の本音](https://finlab-se.com/posts/finance-insider-cashless-and-sales/) — 金融機関に20年勤めた筆者が、キャッシュレスの早さ・保険の実態・銀行の短期目線を内側の肌感覚で綴っています

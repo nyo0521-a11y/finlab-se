@@ -1,7 +1,7 @@
 ---
 title: "Claude Codeの許可待ちを減らす設定｜settings.json/CLAUDE.md"
 date: 2026-04-26T21:00:00+09:00
-lastmod: 2026-07-18T00:00:00+09:00
+lastmod: 2026-07-30T00:00:00+09:00
 draft: false
 description: "Claude Codeの許可ダイアログを減らす方法。settings.jsonとCLAUDE.mdにコピペ用プロンプトを貼るだけで、危険な操作だけをブロックする設定が完成し、許可待ちがほぼゼロになります。denyリストの作り方まで具体的に解説します。"
 tags: ["Claude Code", "AI活用"]
@@ -303,5 +303,5 @@ Claude Code の許可問題を解決するポイントをまとめます。
 ## 関連記事
 
 - [Claude Codeでブログを作った話 ── シミュレーターから始まったこのサイトの開設記](https://finlab-se.com/posts/claude-code-blog-experience/) — 投資シミュレーターを作ろうとしたらブログまで作っていた話
-- [Claude Codeで「配当金カレンダー」を自動生成｜CSV1枚で年間配当を可視化](https://finlab-se.com/posts/claude-code-dividend-calendar/) — 保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成…
-- [Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/) — MoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Code…
+- [Claude Codeで「配当金カレンダー」を自動生成｜CSV1枚で年間配当を可視化](https://finlab-se.com/posts/claude-code-dividend-calendar/) — 保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成する手順です
+- [Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー](https://finlab-se.com/posts/asset-management-claude-code/) — MoneyForward更新から貸借対照表転記まで、月次資産管理をClaude Codeへの指示だけで回す方法です

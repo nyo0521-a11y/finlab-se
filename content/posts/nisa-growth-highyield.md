@@ -1,7 +1,7 @@
 ---
 title: "新NISAの成長投資枠で高配当株を買う戦略｜インデックス投資との使い分け方"
 date: 2026-04-16T09:01:00+09:00
-lastmod: 2026-07-12T00:00:00+09:00
+lastmod: 2026-07-30T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["NISA", "高配当株", "インデックス投資"]
@@ -306,7 +306,7 @@ VYMなどの米国ETFの配当金には、NISA口座であっても米国の源�
 
 - [【新NISA】5つの落とし穴と回避策｜本当に怖いのは1つだけ｜金融SE解説](https://finlab-se.com/posts/new-nisa-pitfalls-5-patterns/) — 新NISAで損する5つの落とし穴を金融SE20年が整理
 - [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](https://finlab-se.com/posts/highyield-investment-strategy/) — 米国株はETF、日本株は個別株で運用する理由
-- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/) — 高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結…
+- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/) — 高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結論を数字で逆算しています
 
 ---
 

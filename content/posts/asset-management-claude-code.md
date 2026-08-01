@@ -1,7 +1,7 @@
 ---
 title: "Claude Codeで資産記録を自動化した｜出力フォーマットを渡すだけの月次管理フロー"
 date: 2026-04-17T08:00:00+09:00
-lastmod: 2026-07-07T00:00:00+09:00
+lastmod: 2026-07-30T00:00:00+09:00
 draft: false
 categories: ["AI活用"]
 tags: ["Claude Code", "家計管理", "MoneyForward"]
@@ -258,9 +258,9 @@ Claude Codeは[Anthropic公式サイト](https://claude.com/product/claude-code)
 
 ## 関連記事
 
-- [Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化](https://finlab-se.com/posts/claude-code-dividend-calendar/) — 保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成…
+- [Claude Codeで「配当金カレンダー」を自動生成する｜保有銘柄CSVを渡すだけで年間キャッシュフローを可視化](https://finlab-se.com/posts/claude-code-dividend-calendar/) — 保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成する手順です
 - [マネーフォワードMEで家計簿を自動化｜金融SEが解説する5つの理由](https://finlab-se.com/posts/household-budget-app-comparison-2026/) — マネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説
-- [Claude Codeで「FIRE家計簿」を作る｜支出を生存費と豊かさ費に自動仕分け](https://finlab-se.com/posts/claude-code-fire-budget/) — Claude CodeでMoneyForwardの家計明細を自動取得し、支出を①生存費と…
+- [Claude Codeで「FIRE家計簿」を作る｜支出を生存費と豊かさ費に自動仕分け](https://finlab-se.com/posts/claude-code-fire-budget/) — Claude CodeでMoneyForwardの家計明細を自動取得し、支出を生存費と豊かさ費に自動仕分けする方法です
 
 ---
 

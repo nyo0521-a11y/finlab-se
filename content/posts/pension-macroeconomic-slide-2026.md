@@ -1,7 +1,7 @@
 ---
 title: "2026年度の年金改定率と「マクロ経済スライド」— 現役世代が今から備える3つの行動"
 date: 2026-04-20
-lastmod: 2026-07-15T00:00:00+09:00
+lastmod: 2026-07-30T00:00:00+09:00
 description: "2026年度の年金改定率は名目+1.9〜2.0%でもマクロ経済スライドにより実質は目減りします。月22万円の年金が20年後にいくらの購買力になるかを試算し、調整の歯止め（財政均衡期間・キャリーオーバー）の仕組みと、iDeCo・NISA・高配当株で備える3つの行動を金融SEが解説します。"
 tags: ["老後資金・年金", "iDeCo・確定拠出年金", "NISA"]
 showToc: true
@@ -200,7 +200,7 @@ NISAで高配当株を保有する戦略については、別記事「[新NISA�
 
 - [iDeCoとNISAはどちらが得か？退職金の有無で答えが変わる理由](https://finlab-se.com/posts/ideco-nisa-tax-comparison/) — iDeCoはNISAより手取りで有利か？退職金なしなら約382万円差
 - [iDeCoの受け取り方を徹底解説——一時金・年金・併用の損得を整理する](https://finlab-se.com/posts/ideco-withdrawal-guide/) — iDeCoの受け取り方は一時金・年金形式・併用の3択です
-- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/) — 高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結…
+- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/) — 高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結論を数字で逆算しています
 
 ## 参考文献
 

@@ -1,7 +1,7 @@
 ---
 title: "クレカ積立おすすめの選び方｜経済圏と損益分岐点で1枚に絞る方法"
 date: 2026-05-08T06:30:00+09:00
-lastmod: 2026-07-07T00:00:00+09:00
+lastmod: 2026-07-30T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["クレジットカード", "NISA", "証券会社", "ポイント還元"]
@@ -482,6 +482,6 @@ NISAの活用については[こちらの記事](/posts/nisa-growth-highyield/)�
 
 ## 関連記事
 
-- [三井住友カード ゴールド(NL)の100万円修行は本当に得か？金融SEが損益分岐を正直レビュー](https://finlab-se.com/posts/smbc-gold-nl-100man-review/) — 三井住友カード ゴールド(NL)の100万円修行を達成した筆者が、その後は年100万円に…
+- [三井住友カード ゴールド(NL)の100万円修行は本当に得か？金融SEが損益分岐を正直レビュー](https://finlab-se.com/posts/smbc-gold-nl-100man-review/) — 三井住友カード ゴールド(NL)の100万円修行を達成した筆者が、その後は年100万円に届かず継続特典を得られていない現実を正直に公開しています
 - [クレカ改悪2026年まとめ：dカード・三井住友ゴールドNL・楽天・PayPayカードの改定内容と、振り回されないための判断軸](https://finlab-se.com/posts/credit-card-reform-2026/) — dカード・三井住友NL・楽天・PayPayカード改定を整理
 - [なぜ年会費無料のクレカでも1%還元できるのか｜カード会社が損をしない仕組み](https://finlab-se.com/posts/credit-card-free-annual-fee-model/) — 年会費ゼロで1%以上のポイントが付くクレカの仕組みを、金融SE視点の収益構造で解説
