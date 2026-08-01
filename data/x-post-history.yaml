@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-01T21:06:09+09:00'
+    text: "【おすすめ📖】\nClaude CodeでMoneyForwardの家計明細を自動取得し、支出を①生存費と②豊かさ費に自動仕分け。1年分（約1,000件）を約1時間で集計し、サイドFIREに必要な資産を逆算した実体験です。\n\
+      \nhttps://finlab-se.com/posts/claude-code-fire-budget/"
+    tweet_id: '2083524682423369790'
+    tweet_url: https://x.com/i/web/status/2083524682423369790
+    type: rotation
+    post_path: content/posts/claude-code-fire-budget.md
   - posted_at: '2026-08-01T07:31:34+09:00'
     text: '大手行が定期預金金利を引き上げ、住宅ローン固定金利も上昇と、金利のある世界が続いています。個人向け国債は利率1.7%台に。定期預金や株式との使い分けを「いつ使うお金か」で整理しました。
       https://finlab-se.com/posts/individual-jgb-vs-deposit-2026/ #個人向け国債 #資産形成'
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2074622368534716536
     type: topic
     post_path: content/posts/ai-asset-management-robo-advisor-2026.md
-  - posted_at: '2026-07-07T21:05:41+09:00'
-    text: "【おすすめ📖】\n銀行の固定金利は『変動金利＋金利スワップ』の構造。フラット35が安いのはこの仕組みを使わず証券化で調達するから、を解説します。\n\
-      \nhttps://finlab-se.com/posts/fixed-rate-flat35/\n\n#住宅ローン"
-    tweet_id: '2074464868082536533'
-    tweet_url: https://x.com/i/web/status/2074464868082536533
-    type: rotation
-    post_path: content/posts/housing-loan-fixed-rate-derivative-flat35.md
