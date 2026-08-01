@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-02T07:31:35+09:00'
+    text: '8月14日は年金支給日。受給額の話題が増える時期ですが、マクロ経済スライドにより名目が増えても購買力は実質目減りします。仕組みと現役世代が今からできる3つの備えを整理しました。https://finlab-se.com/posts/pension-macroeconomic-slide-2026/
+      #年金 #資産形成'
+    tweet_id: '2083682077082357985'
+    tweet_url: https://x.com/i/web/status/2083682077082357985
+    type: topic
+    post_path: content/posts/pension-macroeconomic-slide-2026.md
   - posted_at: '2026-08-01T21:06:09+09:00'
     text: "【おすすめ📖】\nClaude CodeでMoneyForwardの家計明細を自動取得し、支出を①生存費と②豊かさ費に自動仕分け。1年分（約1,000件）を約1時間で集計し、サイドFIREに必要な資産を逆算した実体験です。\n\
       \nhttps://finlab-se.com/posts/claude-code-fire-budget/"
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2074827363234320478
     type: rotation
     post_path: content/posts/new-nisa-pitfalls-5-patterns.md
-  - posted_at: '2026-07-08T07:31:32+09:00'
-    text: 'AI相場の持続性に疑念が広がり、半導体株に売りが出ています。話題の“AI資産運用”も、生成AIが相場を予測してくれる商品ではありません。ロボアドの正体と、AIにできること・できないことを金融SEが整理しました。https://finlab-se.com/posts/ai-asset-management-robo-advisor-2026/
-      #AI投資 #資産運用'
-    tweet_id: '2074622368534716536'
-    tweet_url: https://x.com/i/web/status/2074622368534716536
-    type: topic
-    post_path: content/posts/ai-asset-management-robo-advisor-2026.md
