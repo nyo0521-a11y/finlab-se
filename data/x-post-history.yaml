@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-03T07:31:33+09:00'
+    text: 
+      日米が円安阻止へ共同声明、財務相が対応表明との報道です。為替と金利の連動は住宅ローンにも波及します。変動金利の利上げ局面で借り換えが得かを、残債・金利差・残期間の3条件で試算しました。判断の目安に。
+    tweet_id: '2084044459923370361'
+    tweet_url: https://x.com/i/web/status/2084044459923370361
+    type: topic
+    post_path: content/posts/mortgage-rate-refinance-simulation.md
   - posted_at: '2026-08-02T21:06:10+09:00'
     text: "【おすすめ📖】\n米国株はETF、日本株は個別株で運用する理由。VYM・HDV・SCHDの使い分けと投資戦略の全体像。\n\nhttps://finlab-se.com/posts/highyield-investment-strategy/\n\
       \n#高配当株 #ETF #日本株"
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2075189698771706227
     type: new
     post_path: content/posts/shohizei-vs-kyufu.md
-  - posted_at: '2026-07-09T07:31:55+09:00'
-    text: 'クレカ決済代行「全東信」の破産で、飲食店の売上回収や地銀の焦げ付きが波及して話題です。金融サービスを使う個人が過度に不安にならないために、ネット銀行の多重防御と個人でできるフィッシング対策4つを金融SEが整理しました。https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/
-      #ネット銀行 #セキュリティ'
-    tweet_id: '2074984853771313595'
-    tweet_url: https://x.com/i/web/status/2074984853771313595
-    type: topic
-    post_path: content/posts/bank-security-defense-in-depth-phishing.md
