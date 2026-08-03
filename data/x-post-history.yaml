@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-04T07:31:39+09:00'
+    text: 'ビットコインの大規模盗難が報じられました。暗号資産は「安全」と語られがちですが、その安全性は仕組みへの理解があってこそ。ステーブルコインや海外送金の背景にある思想と規制の壁を、金融SEが整理しました。https://finlab-se.com/posts/crypto-stablecoin-remittance/
+      #暗号資産 #金融リテラシー'
+    tweet_id: '2084406869381046733'
+    tweet_url: https://x.com/i/web/status/2084406869381046733
+    type: topic
+    post_path: content/posts/crypto-stablecoin-remittance.md
   - posted_at: '2026-08-03T21:06:06+09:00'
     text: "【新着📝】\n保険窓口で変額保険を勧められた方へ。保険料には保険関係費などNISAにはない手数料が重なり、同じ運用成績でも受取額に差が出ます。手数料を分解しNISAと数値比較。解約判断の目安・目論見書の見方も金融SEが解説します。\n\
       \nhttps://finlab-se.com/posts/hengakuhoken-vs-nisa/"
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2075552125157826949
     type: rotation
     post_path: content/posts/wise-revolut-fintech-remittance.md
-  - posted_at: '2026-07-10T07:31:59+09:00'
-    text: "【おすすめ📖】\n「減配せず維持または増配」を公約する累進配当株。連続増配株との違いや商社株が注目される理由を解説。\n\nhttps://finlab-se.com/posts/progressive-dividend-stocks/\n\
-      \n#高配当株 #日本株"
-    tweet_id: '2075347258397294949'
-    tweet_url: https://x.com/i/web/status/2075347258397294949
-    type: rotation
-    post_path: content/posts/progressive-dividend-stocks.md
