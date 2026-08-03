@@ -230,6 +230,9 @@ FTX事件で示されたように、海外取引所は日本の分別管理義�
 | <a href="https://wallet.rakuten.co.jp/" target="_blank" rel="noopener noreferrer">楽天ウォレット</a> | 楽天グループ | 約1兆6,600億円 | ▲1,424億円/年 ※8 | なし（販売所のみ） | 非開示 | なし | なし |
 | <a href="https://zaif.jp/" target="_blank" rel="noopener noreferrer">Zaif</a> | 独立系 ※3 | 非上場 | 非開示 | あり | 非開示 | なし | あり（2018年） |
 
+<details>
+<summary>表の数値の根拠・注記（会計基準の違いなど）を見る（クリックで展開）</summary>
+
 <small>
 ※1 bitFlyerは現物＋先物合算で10年連続国内No.1（2025年・同社発表）だが、取引高の具体的数値は非開示。<br>
 ※2 マネックスグループ決算補足資料（2025年3月期通期）。取引所取引高5兆2,460億円＋販売所売買代金3,375億円の合計。<br>
@@ -241,6 +244,8 @@ FTX事件で示されたように、海外取引所は日本の分別管理義�
 ※8 楽天グループ連結営業損益（IFRS）の2021〜2025年12月期5年平均（▲1,947億円→▲3,716億円→▲2,129億円→+530億円→+144億円の単純平均）。2024年12月期に初黒字転換。<br>
 ※9 GMOインターネットグループ連結営業利益（日本基準）の2021〜2025年12月期5年平均。概ね増益基調で推移。
 </small>
+
+</details>
 
 ### GMOコイン
 
@@ -345,6 +350,11 @@ SBI VCトレードは、SBIホールディングスの時価総額（約2兆円�
 
 今回の調査で改めて注目したのがGMOコインです。GMOフィナンシャルHDという大手グループの傘下であることに加え、BTC（年率1.3%）・XRP（年率1.0%）のレンディングやETHのステーキングサービスも充実しており、レンディング目的での利用先として魅力的です。近く口座開設を申し込む予定で、実際の使用感が確認できたらあらためてレポートしたいと思います。
 
+<strong>まず検討したい2社</strong>（保管の安全性重視ならSBI VCトレード、使い慣れた口座を重視するならCoincheck）：
+
+- <a href="https://www.sbivc.co.jp/entry" target="_blank" rel="noopener noreferrer">SBI VCトレード 口座開設（公式）</a>
+- <a href="https://coincheck.com/ja/sign_up" target="_blank" rel="noopener noreferrer">Coincheck 口座開設（公式）</a>
+
 ---
 
 ## 購入と保管：1社で完結すべきか、別々にすべきか
@@ -370,23 +380,17 @@ SBI VCトレードは、SBIホールディングスの時価総額（約2兆円�
 
 ---
 
-## 口座開設はこちら
+## 関連記事
 
-> 以下の口座開設リンクには、一部アフィリエイトリンクを含みます（PR）。
-
-<!-- アフィリエイトリンクは後ほど差し替え予定 -->
-- <a href="https://coin.z.com/jp/register/" target="_blank" rel="noopener noreferrer">GMOコイン 口座開設（公式）</a>
-- <a href="https://www.sbivc.co.jp/entry" target="_blank" rel="noopener noreferrer">SBI VCトレード 口座開設（公式）</a>
-- <a href="https://www.bitpoint.co.jp/" target="_blank" rel="noopener noreferrer">BITPOINT 口座開設（公式）</a>
-- <a href="https://coincheck.com/ja/sign_up" target="_blank" rel="noopener noreferrer">Coincheck 口座開設（公式）</a>
-- <a href="https://bitflyer.com/ja-jp/signup" target="_blank" rel="noopener noreferrer">bitFlyer 口座開設（公式）</a>
-- <a href="https://wallet.rakuten.co.jp/" target="_blank" rel="noopener noreferrer">楽天ウォレット 口座開設（公式）</a>
-- <a href="https://zaif.jp/" target="_blank" rel="noopener noreferrer">Zaif 口座開設（公式）</a>
+- [証券連携で選ぶネット銀行4選｜金利を追わない銀行選び2026](https://finlab-se.com/posts/recommended-net-bank-2026/)
+- [暗号資産・ステーブルコイン送金（海外送金シリーズ第3弾）](https://finlab-se.com/posts/crypto-stablecoin-remittance/)
 
 ---
 
-## 参考リンク
+## 参考文献・出典
 
+- [暗号資産の利用者のみなさまへ｜金融庁](https://www.fsa.go.jp/policy/virtual_currency/index.html)
+- [暗号資産交換業者登録一覧（PDF）｜金融庁](https://www.fsa.go.jp/menkyo/menkyoj/kasoutuka.pdf)
 - [SBI VCトレード｜会社概要](https://www.sbivc.co.jp/company-profile)
 - [SBI VCトレード｜BITPOINT合併発表](https://www.sbivc.co.jp/newsview/fbx3bt2fbywm)
 - [SBI VCトレード｜BITPOINT合併完了](https://www.sbivc.co.jp/newsview/umhk6419ku)
@@ -400,14 +404,4 @@ SBI VCトレードは、SBIホールディングスの時価総額（約2兆円�
 
 ---
 
-## 関連記事
-
-- [証券連携で選ぶネット銀行4選｜金利を追わない銀行選び2026](https://finlab-se.com/posts/recommended-net-bank-2026/)
-- [暗号資産・ステーブルコイン送金（海外送金シリーズ第3弾）](https://finlab-se.com/posts/crypto-stablecoin-remittance/)
-
----
-
-## 参考文献
-
-- [暗号資産の利用者のみなさまへ｜金融庁](https://www.fsa.go.jp/policy/virtual_currency/index.html)
-- [暗号資産交換業者登録一覧（PDF）｜金融庁](https://www.fsa.go.jp/menkyo/menkyoj/kasoutuka.pdf)
+> 本記事は一部にアフィリエイトリンクを含みます（PR）。口座開設・サービス利用の是非はご自身でご判断ください。各社の口座開設リンクは本文中の各社紹介セクションに掲載しています。
