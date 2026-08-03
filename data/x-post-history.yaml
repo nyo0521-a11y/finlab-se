@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-03T21:06:06+09:00'
+    text: "【新着📝】\n保険窓口で変額保険を勧められた方へ。保険料には保険関係費などNISAにはない手数料が重なり、同じ運用成績でも受取額に差が出ます。手数料を分解しNISAと数値比較。解約判断の目安・目論見書の見方も金融SEが解説します。\n\
+      \nhttps://finlab-se.com/posts/hengakuhoken-vs-nisa/"
+    tweet_id: '2084249444615364996'
+    tweet_url: https://x.com/i/web/status/2084249444615364996
+    type: new
+    post_path: content/posts/hengakuhoken-vs-nisa.md
   - posted_at: '2026-08-03T07:31:33+09:00'
     text: 
       日米が円安阻止へ共同声明、財務相が対応表明との報道です。為替と金利の連動は住宅ローンにも波及します。変動金利の利上げ局面で借り換えが得かを、残債・金利差・残期間の3条件で試算しました。判断の目安に。
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2075347258397294949
     type: rotation
     post_path: content/posts/progressive-dividend-stocks.md
-  - posted_at: '2026-07-09T21:05:54+09:00'
-    text: "【新着📝】\nうちだと結局いくら浮くの？食料品の消費税減税（8%→1%）と現金給付5万円を年収・世帯人数別に比較試算。逆進性・即効性という2つの判断軸で損得が逆転する分岐点を解説します（未決定の案のため試算時点の前提付き）。\n\
-      \nhttps://finlab-se.com/posts/shohizei-vs-kyufu/"
-    tweet_id: '2075189698771706227'
-    tweet_url: https://x.com/i/web/status/2075189698771706227
-    type: new
-    post_path: content/posts/shohizei-vs-kyufu.md
