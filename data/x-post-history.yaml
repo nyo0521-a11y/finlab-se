@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-05T07:31:29+09:00'
+    text: 
+      ドル円が163円台から156円台へ急変し、新NISAの一括投資と積立投資の考え方が注目されています。相場が動くときこそ大切なのは、暴落時の早期売却を避けること。新NISAで本当に怖い落とし穴を金融SEが整理しました。
+    tweet_id: '2084769216352182712'
+    tweet_url: https://x.com/i/web/status/2084769216352182712
+    type: topic
+    post_path: content/posts/new-nisa-pitfalls-5-patterns.md
   - posted_at: '2026-08-04T21:06:07+09:00'
     text: "【おすすめ📖】\n高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。\n\nhttps://finlab-se.com/posts/highyield-portfolio-management/\n\
       \n#高配当株 #ポートフォリオ #MoneyForward"
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2075914600055448053
     type: rotation
     post_path: content/posts/household-budget-app-comparison-2026.md
-  - posted_at: '2026-07-11T07:31:25+09:00'
-    text: '夏のボーナスの使い道、悩みますよね。まず投資に回す前に確認したいのは、生活防衛資金・NISA枠の残り・ポートフォリオの偏り・固定費の4点です。この順番で見直すと、勢いで使って後悔することが減ります。金融SEが4ステップで整理しました。
-      https://finlab-se.com/posts/bonus-investment-checkup-4steps/ #新NISA #資産形成'
-    tweet_id: '2075709505174724761'
-    tweet_url: https://x.com/i/web/status/2075709505174724761
-    type: topic
-    post_path: content/posts/bonus-investment-checkup-4steps.md
