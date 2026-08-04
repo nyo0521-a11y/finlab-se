@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-04T21:06:07+09:00'
+    text: "【おすすめ📖】\n高配当株ポートフォリオ管理の4原則と、スプレッドシート×Claude Codeを使った実装例を紹介。\n\nhttps://finlab-se.com/posts/highyield-portfolio-management/\n\
+      \n#高配当株 #ポートフォリオ #MoneyForward"
+    tweet_id: '2084611837731951024'
+    tweet_url: https://x.com/i/web/status/2084611837731951024
+    type: rotation
+    post_path: content/posts/highyield-portfolio-management.md
   - posted_at: '2026-08-04T07:31:39+09:00'
     text: 'ビットコインの大規模盗難が報じられました。暗号資産は「安全」と語られがちですが、その安全性は仕組みへの理解があってこそ。ステーブルコインや海外送金の背景にある思想と規制の壁を、金融SEが整理しました。https://finlab-se.com/posts/crypto-stablecoin-remittance/
       #暗号資産 #金融リテラシー'
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2075709505174724761
     type: topic
     post_path: content/posts/bonus-investment-checkup-4steps.md
-  - posted_at: '2026-07-10T21:06:03+09:00'
-    text: "【おすすめ📖】\nWise・Revolutが銀行の1/10の手数料で送金できる理由。ローカルプール方式の仕組みを解説。\n\nhttps://finlab-se.com/posts/wise-revolut-fintech-remittance/\n\
-      \n#海外送金 #金融インフラ"
-    tweet_id: '2075552125157826949'
-    tweet_url: https://x.com/i/web/status/2075552125157826949
-    type: rotation
-    post_path: content/posts/wise-revolut-fintech-remittance.md
