@@ -354,7 +354,7 @@ eMAXIS Slim 全世界株式（オール・カントリー）・楽天・プラ�
 
 ## 関連記事
 
-- [オルカンとS&P500どっち？「迷ったらオルカン」の理由を金融SEが3つの判断軸で解説](/posts/all-country-vs-sp500-index-fund-2026/) — 新NISAで「何を買うか」の判断軸を整理した記事
+- [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](/posts/all-country-vs-sp500-index-fund-2026/) — 新NISAで「何を買うか」の判断軸を整理した記事
 - [投資信託の実質コストとは｜信託報酬の表示値だけでは見えない隠れコスト](https://finlab-se.com/posts/mutual-fund-real-cost-2026/) — 落とし穴3の深掘り。運用報告書の見方まで解説
 - [新NISAの成長投資枠で高配当株を買う戦略｜インデックス投資との使い分け方](https://finlab-se.com/posts/nisa-growth-highyield/) — つみたて枠と成長投資枠の使い分け方
 - [投資を始める前の固定費見直し4ステップ](https://finlab-se.com/posts/expense-optimization-before-investing/) — 暴落時に売らないための土台作り

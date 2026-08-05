@@ -32,7 +32,7 @@ cover:
 
 ---
 
-> **この記事の位置づけ**：本記事は投資信託の隠れコスト（総経費率）の調べ方に特化しています。どのインデックスファンドを選ぶかの判断軸は「[オルカンとS&P500どっち？「迷ったらオルカン」の理由を金融SEが3つの判断軸で解説](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)」で解説しています。
+> **この記事の位置づけ**：本記事は投資信託の隠れコスト（総経費率）の調べ方に特化しています。どのインデックスファンドを選ぶかの判断軸は「[オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)」で解説しています。
 
 ## この記事でわかること
 
@@ -456,7 +456,7 @@ eMAXIS Slim シリーズの主要4ファンドで、実質コスト感をざっ�
 
 詳しくは併せて以下の記事もご覧ください。
 
-- [オルカンとS&P500どっち？「迷ったらオルカン」の理由を金融SEが3つの判断軸で解説](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
+- [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
 
 ---
 
@@ -480,7 +480,7 @@ eMAXIS Slim シリーズの主要4ファンドで、実質コスト感をざっ�
 
 ## 関連記事
 
-- [オルカンとS&P500どっち？「迷ったらオルカン」の理由を金融SEが3つの判断軸で解説](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/) — 本記事と双方向リンクの核。コスト構造を踏まえた銘柄選びへ
+- [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/) — 本記事と双方向リンクの核。コスト構造を踏まえた銘柄選びへ
 - [新NISAの成長投資枠で高配当株を買う戦略｜インデックス投資との使い分け方](/posts/nisa-growth-highyield/) — 実質コストの低い投信を NISA でどう使い分けるか
 - [ボーナス投資の見直し4ステップ](https://finlab-se.com/posts/bonus-investment-checkup-4steps/) — 実質コストを確認した後の運用見直しアクションへ
 - [インデックス積立・高配当株投資に合った証券会社の選び方](/posts/securities-selection-for-index-and-dividend/) — 実質コストの観点を踏まえた証券会社選び

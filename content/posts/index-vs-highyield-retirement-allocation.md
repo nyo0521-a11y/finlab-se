@@ -313,7 +313,7 @@ cover:
 - [iDeCoとNISAはどちらが得か？退職金の有無で答えが変わる理由](https://finlab-se.com/posts/ideco-nisa-tax-comparison/)
 
 ### パターンA（インデックス軸）を検討する方へ
-- [オルカンとS&P500どっち？「迷ったらオルカン」の理由を金融SEが3つの判断軸で解説](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
+- [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
 - [投資信託の実質コスト比較｜全世界株式インデックス4ファンドの隠れコストを金融SEが解説](https://finlab-se.com/posts/mutual-fund-real-cost-2026/)
 
 ### 先に支出最適化が必要な方へ

@@ -249,7 +249,7 @@ SBI証券や楽天証券では、定額・定率での自動取り崩しサー�
 
 - [金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ](https://finlab-se.com/posts/finance-se-20years-lessons/) — 投資歴と同じ時間軸で、金融SEとしてのキャリアを振り返った話です
 - [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/)
-- [オルカンとS&P500どっち？「迷ったらオルカン」の理由を金融SEが3つの判断軸で解説](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
+- [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
 - [投資信託の実質コスト比較｜全世界株式インデックス4ファンドの隠れコストを金融SEが解説](https://finlab-se.com/posts/mutual-fund-real-cost-2026/)
 - [モンテカルロシミュレーターの使い方](https://finlab-se.com/posts/montecarlo-tool-usage/)
 
