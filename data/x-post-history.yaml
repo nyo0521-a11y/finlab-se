@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-05T21:06:09+09:00'
+    text: "【おすすめ📖】\n高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。\n\nhttps://finlab-se.com/posts/highyield-stock-selection-criteria/\n\
+      \n#高配当株"
+    tweet_id: '2084974236913787211'
+    tweet_url: https://x.com/i/web/status/2084974236913787211
+    type: rotation
+    post_path: content/posts/highyield-stock-selection-criteria.md
   - posted_at: '2026-08-05T07:31:29+09:00'
     text: 
       ドル円が163円台から156円台へ急変し、新NISAの一括投資と積立投資の考え方が注目されています。相場が動くときこそ大切なのは、暴落時の早期売却を避けること。新NISAで本当に怖い落とし穴を金融SEが整理しました。
@@ -348,11 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2076072060078440609
     type: topic
     post_path: content/posts/finance-insider-cashless-and-sales.md
-  - posted_at: '2026-07-11T21:06:24+09:00'
-    text: "【おすすめ📖】\nマネーフォワードMEを10年使う金融SEが、家計簿を自動化する5つの理由を解説。キャッシュレス決済の自動取込が決定打です。\n\
-      \nhttps://finlab-se.com/posts/household-budget-app-comparison-2026/\n\n#MoneyForward
-      #家計管理 #AI活用"
-    tweet_id: '2075914600055448053'
-    tweet_url: https://x.com/i/web/status/2075914600055448053
-    type: rotation
-    post_path: content/posts/household-budget-app-comparison-2026.md
