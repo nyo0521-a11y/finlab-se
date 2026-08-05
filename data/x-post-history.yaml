@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-06T07:31:29+09:00'
+    text: 
+      日銀の協調介入や9月利上げ観測で為替・株価が揺れています。日経平均は続急騰しましたが、指数の上昇は一部銘柄に偏っているのが実情です。株価最高値の局面で高配当株投資家が避けたい判断を整理しました。
+    tweet_id: '2085131603848646832'
+    tweet_url: https://x.com/i/web/status/2085131603848646832
+    type: topic
+    post_path: content/posts/nikkei-60000-highyield-mindset.md
   - posted_at: '2026-08-05T21:06:09+09:00'
     text: "【おすすめ📖】\n高配当株の銘柄選定を3ステップで解説。利回り→財務チェック→セクター分散の基準と根拠を公開。\n\nhttps://finlab-se.com/posts/highyield-stock-selection-criteria/\n\
       \n#高配当株"
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2076276991599206577
     type: rotation
     post_path: content/posts/zengin-net-payment-system.md
-  - posted_at: '2026-07-12T07:32:05+09:00'
-    text: '「夜の街を支えた金融インフラ」全東信が負債1151億円で破綻、というニュースが話題です。金融機関の内側で20年見てきたお金の話——キャッシュレスの速さ、保険の実態、銀行の短期目線を現場の肌感覚で綴った体験エッセイです。
-      https://finlab-se.com/posts/finance-insider-cashless-and-sales/ #金融 #キャッシュレス'
-    tweet_id: '2076072060078440609'
-    tweet_url: https://x.com/i/web/status/2076072060078440609
-    type: topic
-    post_path: content/posts/finance-insider-cashless-and-sales.md
