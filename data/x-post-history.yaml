@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-07T07:31:30+09:00'
+    text: 
+      iDeCoの掛金上限引き上げや退職所得控除の見直しが話題です。改正で何がどう変わるのか、節税効果は年収によってどれくらい違うのかを試算しました。制度の全体像を整理したい方の参考になれば幸いです。
+    tweet_id: '2085493999029170470'
+    tweet_url: https://x.com/i/web/status/2085493999029170470
+    type: topic
+    post_path: content/posts/ideco-2026-reform.md
   - posted_at: '2026-08-06T07:31:29+09:00'
     text: 
       日銀の協調介入や9月利上げ観測で為替・株価が揺れています。日経平均は続急騰しましたが、指数の上昇は一部銘柄に偏っているのが実情です。株価最高値の局面で高配当株投資家が避けたい判断を整理しました。
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2076434497227092005
     type: rotation
     post_path: content/posts/dividend-life-calculation.md
-  - posted_at: '2026-07-12T21:06:25+09:00'
-    text: "【おすすめ📖】\nモアタイムシステム（モアタイム）とは何か。全銀ネット上で振込が24時間365日即時着金する仕組みを、コアタイムとの違い・参加銀行の注意点・使えないケースまで金融SEが解説。\n\
-      \nhttps://finlab-se.com/posts/zengin-net-payment-system/\n\n#金融インフラ"
-    tweet_id: '2076276991599206577'
-    tweet_url: https://x.com/i/web/status/2076276991599206577
-    type: rotation
-    post_path: content/posts/zengin-net-payment-system.md
