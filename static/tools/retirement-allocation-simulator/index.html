@@ -374,7 +374,7 @@
         <h3><span class="num">01</span> 目標と条件</h3>
 
         <label class="field">
-          <span class="lbl">年間老後資金（不足額）</span>
+          <span class="lbl">年間老後資金（不足額）<small>（手取りベース）</small></span>
           <div class="suffix">
             <input class="ipt" type="number" id="inp-target" value="200" min="0" max="9999" step="10" />
             <span class="unit">万円 / 年</span>
@@ -415,7 +415,7 @@
         <h3><span class="num">02</span> 現在の保有状況 <small style="font-family:var(--gothic);font-size:11px;color:var(--muted);font-weight:400">(任意)</small></h3>
 
         <label class="field">
-          <span class="lbl">現在の年間配当金</span>
+          <span class="lbl">現在の年間配当金<small>（実際の受取額＝手取り）</small></span>
           <div class="suffix">
             <input class="ipt" type="number" id="inp-currentHdDiv" value="0" min="0" max="9999" step="0.1" />
             <span class="unit">万円 / 年</span>
@@ -469,8 +469,16 @@
           <input type="range" id="sl-withdrawRate" min="2" max="6" step="0.1" value="4" />
         </div>
 
+        <div class="slider-combo">
+          <div class="top">
+            <span class="nm">想定税率（配当・取崩しにかかる税金）</span>
+            <span class="val"><span id="disp-taxRate">20.3</span><small>%</small></span>
+          </div>
+          <input type="range" id="sl-taxRate" min="0" max="30" step="0.1" value="20.3" />
+        </div>
+
         <div class="scribble"></div>
-        <div class="hint">※ 4%ルール（米国トリニティスタディ）を初期値に。利回りはセクター・銘柄・年代で変動します。目標年まではインデックス投資は積立のみで取崩しはせず、目標年到達時から取崩し率を適用します。</div>
+        <div class="hint">※ 4%ルール（米国トリニティスタディ）を初期値に。利回りはセクター・銘柄・年代で変動します。目標年まではインデックス投資は積立のみで取崩しはせず、目標年到達時から取崩し率を適用します。以降の金額はすべて<strong>税引後の手取りベース</strong>で表示します（初期値20.315%＝特定口座の税率。NISA口座なら0%に）。</div>
       </div>
     </div>
 
@@ -505,7 +513,7 @@
         <div class="single-result">
           <h3>高配当株100% で目標達成できます <span class="ibadge ok">OK</span></h3>
           <div class="result-row">
-            <span class="lbl">合計年間収入（最終年）</span>
+            <span class="lbl">合計年間収入（最終年・手取り）</span>
             <span class="val big" id="single-total">－</span>
           </div>
           <div class="result-row">
@@ -534,7 +542,7 @@
         <div class="result-card a">
           <h3>パターンA <span class="tag" style="font-family:var(--mono);font-size:11px;padding:2px 7px;border:1.2px solid var(--ink);border-radius:6px;background:var(--paper);">インデックス軸</span> <span class="ibadge ok" id="badge-a">OK</span></h3>
           <div class="result-row">
-            <span class="lbl">合計年間収入（配当＋取崩し）</span>
+            <span class="lbl">合計年間収入（配当＋取崩し・手取り）</span>
             <span class="val big" id="val-a-income">－</span>
           </div>
           <div class="result-row">
@@ -564,7 +572,7 @@
         <div class="result-card b">
           <h3>パターンB <span class="tag" style="font-family:var(--mono);font-size:11px;padding:2px 7px;border:1.2px solid var(--ink);border-radius:6px;background:var(--paper);">高配当株軸</span> <span class="ibadge ok" id="badge-b">OK</span></h3>
           <div class="result-row">
-            <span class="lbl">合計年間収入（配当＋取崩し）</span>
+            <span class="lbl">合計年間収入（配当＋取崩し・手取り）</span>
             <span class="val big" id="val-b-income">－</span>
           </div>
           <div class="result-row">
@@ -674,7 +682,7 @@
 </section>
 
 <div class="disclaimer">
-  ※ 本シミュレータは試算用です。実際の運用成果を保証するものではありません。税金・手数料は考慮していません。
+  ※ 本シミュレータは試算用です。実際の運用成果を保証するものではありません。表示金額は入力した想定税率で一律簡易計算した手取りベースの概算です（NISA/課税口座の区分・取得価額による違いは考慮していません）。手数料は考慮していません。
 </div>
 
 <footer>© finlab-se / 金融エンジニアの資産運用実験室 · 数値はシミュレーションです</footer>
@@ -690,10 +698,14 @@
 
   // ===================================================
   // 高配当株シミュレーション
+  // 画面表示・目標判定はすべて税引後（手取り）ベースに統一する。
+  // currentHdDiv は「実際の受取額（＝すでに税引後）」として入力される前提なので変換しない。
+  // 新規積立分から生まれる配当のみ、想定税率を掛けて手取り換算する。
   // ===================================================
   function simHD(hdAnnual, params) {
-    const { years, hdRate, divGrowth, currentHdDiv } = params;
-    // 既存資産は「現在の年配当 ÷ 購入時利回り」で逆算（既存ポートフォリオを購入時相当の元本に換算）
+    const { years, hdRate, divGrowth, currentHdDiv, taxRate } = params;
+    const netFactor = 1 - taxRate;
+    // 既存資産は「現在の年配当（手取り）÷ 購入時利回り（税引前ベース）」で逆算
     const currentHdAsset = (hdRate > 0) ? currentHdDiv / hdRate : 0;
     let hdAsset = currentHdAsset;
     let hdDiv   = currentHdDiv;
@@ -701,8 +713,8 @@
     for (let n = 1; n <= years; n++) {
       // 元本は積立分のみ加算（配当は再投資せず使う前提なので、株価成長は考慮しない）
       hdAsset = hdAsset + hdAnnual;
-      // 配当は「既存分が増配率で成長 + 今年の新規投資による新規配当」で増える
-      hdDiv   = hdDiv * (1 + divGrowth) + hdAnnual * hdRate;
+      // 配当は「既存分（手取り）が増配率で成長 + 今年の新規投資による新規配当の手取り分」で増える
+      hdDiv   = hdDiv * (1 + divGrowth) + hdAnnual * hdRate * netFactor;
       rows.push({ hdAsset, hdDiv });
     }
     return rows;
@@ -711,17 +723,20 @@
   // ===================================================
   // インデックスシミュレーション
   // 目標年まで取崩しせず、最終年(=目標年)のみ取崩し率を適用して年取崩し額を算出
+  // 資産額そのものは非課税（含み益）のまま複利成長させ、取崩し（＝利益確定）時のみ
+  // 想定税率を掛けて手取り換算する。
   // ===================================================
   function simIDX(idxAnnual, params) {
-    const { years, idxRate, withdrawRate, currentIdxAsset } = params;
+    const { years, idxRate, withdrawRate, currentIdxAsset, taxRate } = params;
+    const netFactor = 1 - taxRate;
     let idxAsset = currentIdxAsset;
     const rows = [];
     for (let n = 1; n <= years; n++) {
       // 期末払いモデル（annuity ordinary）：既存資産が複利成長してから当年の投資を加算
       // FV = PMT × [((1+r)^n − 1) / r] になるため、記事の計算式と一致
       idxAsset = idxAsset * (1 + idxRate) + idxAnnual;
-      // idxWithdraw は「もし今この資産を取崩したら」の年取崩し額（最終年のみ意味を持つ）
-      const idxWithdraw = idxAsset * withdrawRate;
+      // idxWithdraw は「もし今この資産を取崩したら」の年取崩し額（手取りベース、最終年のみ意味を持つ）
+      const idxWithdraw = idxAsset * withdrawRate * netFactor;
       rows.push({ idxAsset, idxWithdraw });
     }
     return rows;
@@ -827,10 +842,11 @@
     const divGrowth       = parseFloat(document.getElementById('sl-divGrowth').value) / 100;
     const idxRate         = parseFloat(document.getElementById('sl-idxRate').value)   / 100;
     const withdrawRate    = parseFloat(document.getElementById('sl-withdrawRate').value) / 100;
+    const taxRate          = parseFloat(document.getElementById('sl-taxRate').value)      / 100;
     const currentHdDiv    = parseFloat(document.getElementById('inp-currentHdDiv').value)    || 0;
     const currentIdxAsset = parseFloat(document.getElementById('inp-currentIdxAsset').value) || 0;
 
-    const params = { target, years, totalAnnual, hdRate, divGrowth, idxRate, withdrawRate, currentHdDiv, currentIdxAsset };
+    const params = { target, years, totalAnnual, hdRate, divGrowth, idxRate, withdrawRate, taxRate, currentHdDiv, currentIdxAsset };
 
     // 目標年・投資期間スライダーを連動
     document.getElementById('inp-targetYear').value = BASE_YEAR + years;
@@ -839,6 +855,7 @@
     document.getElementById('disp-divGrowth').textContent   = fmt1(parseFloat(document.getElementById('sl-divGrowth').value));
     document.getElementById('disp-idxRate').textContent     = fmt1(parseFloat(document.getElementById('sl-idxRate').value));
     document.getElementById('disp-withdrawRate').textContent = fmt1(parseFloat(document.getElementById('sl-withdrawRate').value));
+    document.getElementById('disp-taxRate').textContent      = fmt1(parseFloat(document.getElementById('sl-taxRate').value));
 
     const result = runAll(params);
     const { hdAllOK, hdAllDiv, hdAllAsset, hdAllIdxWith, hdAllIdxAsset, hdAllTotal, patternA, patternB } = result;
@@ -1213,7 +1230,7 @@
     update();
   });
 
-  ['sl-hdRate', 'sl-divGrowth', 'sl-idxRate', 'sl-withdrawRate'].forEach(id => {
+  ['sl-hdRate', 'sl-divGrowth', 'sl-idxRate', 'sl-withdrawRate', 'sl-taxRate'].forEach(id => {
     document.getElementById(id).addEventListener('input', update);
   });
 
