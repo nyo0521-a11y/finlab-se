@@ -207,7 +207,7 @@ cover:
 
 ## 関連記事
 
-- [投資信託の隠れコストの調べ方｜運用報告書と総経費率の見方を金融SEが解説](https://finlab-se.com/posts/mutual-fund-real-cost-2026/) — 「見えない手数料」の読み方を、投資信託の運用報告書で確認したい方はこちら
+- [投資信託の実質コスト・隠れコストの調べ方｜運用報告書と総経費率の見方](https://finlab-se.com/posts/mutual-fund-real-cost-2026/) — 「見えない手数料」の読み方を、投資信託の運用報告書で確認したい方はこちら
 - [ウェルスナビの手数料は高い？インデックス投信と30年比較](https://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/) — 「おまかせ」の手数料が長期でどれだけ効くかを金額で見たい方はこちら
 - [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/) — 分けた資産形成側で「何を買うか」を決めたい方はこちら
 - [新NISAでやりがちな5つの落とし穴](https://finlab-se.com/posts/new-nisa-pitfalls-5-patterns/) — 保障と投資を混ぜないなど、NISA運用でつまずきやすい点を整理したい方はこちら
