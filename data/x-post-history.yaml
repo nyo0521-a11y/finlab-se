@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-08T07:31:25+09:00'
+    text: 
+      「銀行員の平均年収」がトップで初の900万円超え、平均も684万円に上昇というニュースが話題です。金融機関の内側では実際どうお金が動いているのか。20年勤めた金融SEが、キャッシュレスや銀行の本音を綴ったエッセイです。
+    tweet_id: '2085856362429399045'
+    tweet_url: https://x.com/i/web/status/2085856362429399045
+    type: topic
+    post_path: content/posts/finance-insider-cashless-and-sales.md
   - posted_at: '2026-08-07T21:06:02+09:00'
     text: "【おすすめ📖】\nSBI証券のS株（単元未満株）で高配当株100銘柄超を少しずつ買い集めてきた筆者の正直レビュー。\n\nhttps://finlab-se.com/posts/sbi-securities-honest-review/\n\
       \n#証券会社 #高配当株 #NISA"
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2076796822572417328
     type: topic
     post_path: content/posts/crypto-stablecoin-remittance.md
-  - posted_at: '2026-07-13T21:06:28+09:00'
-    text: "【おすすめ📖】\n「年◯◯万円の配当が欲しい」目標から必要な平均利回りを逆算する無料シミュレーターの使い方。\n\nhttps://finlab-se.com/posts/dividend-target-simulator-tool-usage/\n\
-      \n#高配当株 #シミュレーション #ClaudeCode"
-    tweet_id: '2076639393037570359'
-    tweet_url: https://x.com/i/web/status/2076639393037570359
-    type: rotation
-    post_path: content/posts/dividend-target-simulator-tool-usage.md
