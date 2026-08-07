@@ -509,7 +509,7 @@
             <input type="number" id="stdDev" value="19.50" min="1" max="50" step="0.01" required>
           </div>
         </div>
-        <div id="monthly-convert-hint" class="small-hint blue" style="margin-top:4px;display:none">月次変換：μ/12, σ/√12 を自動適用します</div>
+        <div id="monthly-convert-hint" class="small-hint blue" style="margin-top:4px;display:none">月次変換：年率の平均・リスクを対数正規分布のパラメータに変換したうえで、μ/12・σ/√12で月次化します</div>
 
         <hr class="divider">
 
@@ -689,7 +689,7 @@ function setSimMode(mode) {
     monthlyNote.style.display = 'none';
     bufSub.innerHTML = '初年度の取崩しは必ず現金から。以降は資産下落時に現金優先。<br>金額は「年間取崩額 × 年数」で自動計算します。';
   } else {
-    hint.textContent = '月初に取崩し→月次リターンを適用（年率統計を μ/12, σ/√12 に変換）';
+    hint.textContent = '月初に取崩し→月次リターンを適用（年率の平均・リスクを対数正規分布に変換したうえで月次化）';
     hint.className = 'small-hint green';
     monthlyNote.style.display = '';
     bufSub.innerHTML = '初月の取崩しは必ず現金から。以降は資産下落時に現金優先。<br>金額は「年間取崩額 × 年数」で自動計算します。';
