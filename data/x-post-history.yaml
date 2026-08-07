@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-07T21:06:02+09:00'
+    text: "【おすすめ📖】\nSBI証券のS株（単元未満株）で高配当株100銘柄超を少しずつ買い集めてきた筆者の正直レビュー。\n\nhttps://finlab-se.com/posts/sbi-securities-honest-review/\n\
+      \n#証券会社 #高配当株 #NISA"
+    tweet_id: '2085698981925986722'
+    tweet_url: https://x.com/i/web/status/2085698981925986722
+    type: rotation
+    post_path: content/posts/sbi-securities-honest-review.md
   - posted_at: '2026-08-07T07:31:30+09:00'
     text: 
       iDeCoの掛金上限引き上げや退職所得控除の見直しが話題です。改正で何がどう変わるのか、節税効果は年収によってどれくらい違うのかを試算しました。制度の全体像を整理したい方の参考になれば幸いです。
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2076639393037570359
     type: rotation
     post_path: content/posts/dividend-target-simulator-tool-usage.md
-  - posted_at: '2026-07-13T07:32:17+09:00'
-    text: "【おすすめ📖】\n配当金生活には結局いくら必要なのか。年間生活費200万円を例に、税引前利回り別（3.0〜4.5%）の必要元本を特定口座・NISA口座それぞれで計算し、…\n\
-      \nhttps://finlab-se.com/posts/dividend-life-calculation/\n\n#高配当株 #FIRE取り崩し"
-    tweet_id: '2076434497227092005'
-    tweet_url: https://x.com/i/web/status/2076434497227092005
-    type: rotation
-    post_path: content/posts/dividend-life-calculation.md
