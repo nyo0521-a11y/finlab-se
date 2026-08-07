@@ -399,7 +399,7 @@
 
       <div class="field">
         <label>初期資産額 <span class="hint">（万円）</span></label>
-        <input type="number" id="initialPortfolio" value="3000" min="100" step="100"
+        <input type="number" id="initialPortfolio" value="3000" min="100" step="100" required
                oninput="syncWithdrawalDefault()">
       </div>
 
@@ -413,14 +413,14 @@
 
       <div id="field-withdrawal-amount" class="field">
         <label>年間取崩額 <span class="hint">（万円/年）</span></label>
-        <input type="number" id="withdrawalAmount" value="120" min="1" step="10"
+        <input type="number" id="withdrawalAmount" value="120" min="0" step="10" required
                oninput="updateWdHint()">
         <div id="wd-hint" class="small-hint blue"></div>
       </div>
 
       <div id="field-withdrawal-rate" class="field" style="display:none">
         <label>年間取崩率 <span class="hint">（%）</span></label>
-        <input type="number" id="withdrawalRate" value="4" min="0.1" max="20" step="0.1"
+        <input type="number" id="withdrawalRate" value="4" min="0.1" max="20" step="0.1" required
                oninput="updateWdHint()">
         <div id="wd-hint-rate" class="small-hint blue"></div>
       </div>
@@ -428,7 +428,7 @@
       <div id="field-min-wd" style="display:none">
         <div class="field">
           <label>最低取崩額 <span class="hint">（万円/年）</span></label>
-          <input type="number" id="minWithdrawal" value="120" min="0" step="10">
+          <input type="number" id="minWithdrawal" value="120" min="0" step="10" required>
           <div class="small-hint orange">残高×取崩率がこの金額を下回っても、この金額は必ず取り崩します</div>
         </div>
       </div>
@@ -437,8 +437,8 @@
 
       <div class="field">
         <label>成功判定金額 <span class="hint">（万円）</span></label>
-        <input type="number" id="successThreshold" value="0" min="0" step="100">
-        <div class="small-hint orange">総資産（投資＋現金バッファ）がこの金額を下回ったら「失敗」とみなします</div>
+        <input type="number" id="successThreshold" value="0" min="0" step="100" required>
+        <div class="small-hint orange">総資産（投資＋現金バッファ）がこの金額を下回ったら「失敗」とみなします（総資産がちょうど0円になった場合も、この設定に関わらず「失敗」です）</div>
       </div>
     </div>
 
@@ -457,7 +457,7 @@
 
       <div class="field">
         <label>シミュレーション期間 <span class="hint">（年）</span></label>
-        <input type="number" id="simYears" value="30" min="5" max="80" step="1">
+        <input type="number" id="simYears" value="30" min="5" max="80" step="1" required>
         <div class="small-hint">例：46歳〜100歳 → 54年間</div>
       </div>
 
@@ -477,16 +477,16 @@
 
       <div class="field">
         <label>現金バッファ <span class="hint">（年分）</span></label>
-        <input type="number" id="cashBufferYears" value="1" min="0" max="10" step="0.5"
+        <input type="number" id="cashBufferYears" value="1" min="0" max="10" step="0.5" required
                oninput="updateCashHint()">
         <div id="cash-buffer-sub" class="small-hint">初年度（初月）の取崩しは必ず現金から。以降は資産下落時に現金優先。<br>金額は「年間取崩額 × 年数」で自動計算します。</div>
       </div>
 
       <div class="field">
         <label>現金バッファ発動ライン <span class="hint">（初期からの下落率 %）</span></label>
-        <input type="number" id="dropThreshold" value="10" min="0" max="100" step="1"
+        <input type="number" id="dropThreshold" value="10" min="0" max="100" step="1" required
                oninput="updateCashHint()">
-        <div class="small-hint" style="margin-top:3px">例：10 と入力 → ポートフォリオが初期から <strong>10%以上</strong> 下落したとき現金を使用</div>
+        <div class="small-hint" style="margin-top:3px">例：10 と入力 → ポートフォリオが初期から <strong>10%を超えて</strong> 下落したとき現金を使用</div>
       </div>
 
       <div id="cash-hint" class="note" style="margin-top:10px;"></div>
@@ -502,11 +502,11 @@
         <div class="two-col">
           <div class="field">
             <label>期待リターン <span class="hint">（%）</span></label>
-            <input type="number" id="expectedReturn" value="11.79" min="-5" max="20" step="0.01">
+            <input type="number" id="expectedReturn" value="11.79" min="-5" max="20" step="0.01" required>
           </div>
           <div class="field">
             <label>リスク <span class="hint">（標準偏差%）</span></label>
-            <input type="number" id="stdDev" value="19.50" min="1" max="50" step="0.01">
+            <input type="number" id="stdDev" value="19.50" min="1" max="50" step="0.01" required>
           </div>
         </div>
         <div id="monthly-convert-hint" class="small-hint blue" style="margin-top:4px;display:none">月次変換：μ/12, σ/√12 を自動適用します</div>
@@ -516,12 +516,12 @@
         <div class="two-col" style="margin-bottom:6px">
           <div class="field">
             <label>インフレ率 <span class="hint">（平均 %）</span></label>
-            <input type="number" id="inflationRate" value="1.6" min="-2" max="10" step="0.1"
+            <input type="number" id="inflationRate" value="1.6" min="-2" max="10" step="0.1" required
                    oninput="updateInflHint()">
           </div>
           <div class="field">
             <label>標準偏差 <span class="hint">（%、0=固定）</span></label>
-            <input type="number" id="inflationStdDev" value="1.0" min="0" max="5" step="0.1"
+            <input type="number" id="inflationStdDev" value="1.0" min="0" max="5" step="0.1" required
                    oninput="updateInflHint()">
           </div>
         </div>
@@ -554,24 +554,24 @@
       <div class="body">
         <div class="field">
           <label>外貨建て資産比率 <span class="hint">（%、0=為替影響なし）</span></label>
-          <input type="number" id="fxRatio" value="100" min="0" max="100" step="10">
+          <input type="number" id="fxRatio" value="100" min="0" max="100" step="10" required>
           <div class="small-hint">100%=全額外貨建て（S&amp;P500等）、0%=国内資産のみ</div>
         </div>
 
         <div class="two-col">
           <div class="field">
             <label>為替変動率 <span class="hint">（平均 %）</span></label>
-            <input type="number" id="fxMean" value="0" min="-10" max="10" step="0.1">
+            <input type="number" id="fxMean" value="0" min="-10" max="10" step="0.1" required>
           </div>
           <div class="field">
             <label>標準偏差 <span class="hint">（%）</span></label>
-            <input type="number" id="fxStd" value="10.0" min="0" max="30" step="0.5">
+            <input type="number" id="fxStd" value="10.0" min="0" max="30" step="0.5" required>
           </div>
         </div>
 
         <div class="field" style="margin-top:10px">
           <label>株式リターンとの相関係数</label>
-          <input type="number" id="fxCorr" value="0.3" min="-1" max="1" step="0.1">
+          <input type="number" id="fxCorr" value="0.3" min="-1" max="1" step="0.1" required>
           <div class="small-hint">正の値：株高時に円安（外貨資産に有利）。S&amp;P500参考値：約0.3</div>
         </div>
 
@@ -761,7 +761,7 @@ function updateCashHint() {
     el.innerHTML =
       `現金バッファ <strong>${bufYears}年分（${cashAmt.toLocaleString()}万円）</strong>：` +
       `${simMode === 'annual' ? '初年度' : '初月'}は必ず現金から。${periodLabel}、ポートフォリオが初期（${initPortfolio.toLocaleString()}万円）から` +
-      ` <strong style="color:#c53030">${dropPct}%下落</strong>（${triggerAmt.toLocaleString()}万円以下）で現金を優先使用。` +
+      ` <strong style="color:#c53030">${dropPct}%を超えて下落</strong>（${triggerAmt.toLocaleString()}万円未満）で現金を優先使用。` +
       `現金枯渇後は通常取崩しに戻ります。`;
     el.style.borderLeftColor = '#ef4444';
   }
@@ -803,6 +803,15 @@ function fmtMan(val) {
 // メインシミュレーション
 // ────────────────────────────────────────────────────
 async function runSimulation() {
+  // 折り畳みパネル（04/05）内の項目も計算には使われるため、検証前に開いておく
+  document.querySelectorAll('.panel-left > details').forEach(d => d.open = true);
+
+  let allValid = true;
+  document.querySelectorAll('.panel-left input[type="number"]').forEach(el => {
+    if (el.offsetParent !== null && !el.reportValidity()) allValid = false;
+  });
+  if (!allValid) return;
+
   const initialPortfolio = parseFloat(document.getElementById('initialPortfolio').value) * 10000;
   const wdRate           = parseFloat(document.getElementById('withdrawalRate').value)    / 100;
   const wdAmount         = parseFloat(document.getElementById('withdrawalAmount').value || 0) * 10000;
@@ -822,16 +831,21 @@ async function runSimulation() {
   const numSims          = parseInt(document.getElementById('numSims').value);
 
   // ── 年次パラメータ（対数正規） ──
-  const muLog    = Math.log(1 + mu)    - 0.5 * sigma  * sigma;
-  const muFxLog  = Math.log(1 + fxMean) - 0.5 * fxStd * fxStd;
-  const fxActive = fxRatio > 0 && fxStd >= 0;
-  const sqrtRho2 = Math.sqrt(Math.max(0, 1 - fxCorr * fxCorr));
+  // 入力欄の標準偏差は「単純（算術）リターン」のブレ幅（例：Damodaranの19.50%）として扱う。
+  // 対数正規モデルの対数リターン標準偏差(sigmaLog)に変換してから、
+  // 単純リターンの期待値がmuに一致するようmuLogを求める。
+  const sigmaLog   = Math.sqrt(Math.log(1 + (sigma  * sigma)  / ((1 + mu)     * (1 + mu))));
+  const muLog      = Math.log(1 + mu)     - 0.5 * sigmaLog * sigmaLog;
+  const fxStdLog   = Math.sqrt(Math.log(1 + (fxStd  * fxStd)  / ((1 + fxMean) * (1 + fxMean))));
+  const muFxLog    = Math.log(1 + fxMean) - 0.5 * fxStdLog * fxStdLog;
+  const fxActive   = fxRatio > 0 && fxStd >= 0;
+  const sqrtRho2   = Math.sqrt(Math.max(0, 1 - fxCorr * fxCorr));
 
   // ── 月次パラメータ（年次を変換） ──
-  const muLogM   = muLog   / 12;
-  const sigmaM   = sigma   / Math.sqrt(12);
-  const muFxLogM = muFxLog / 12;
-  const fxStdM   = fxStd   / Math.sqrt(12);
+  const muLogM     = muLog    / 12;
+  const sigmaLogM  = sigmaLog / Math.sqrt(12);
+  const muFxLogM   = muFxLog  / 12;
+  const fxStdLogM  = fxStdLog / Math.sqrt(12);
 
   const initialWd    = withdrawalMode === 'fixed_infl' ? wdAmount : initialPortfolio * wdRate;
   const cashBuffer   = cashBufferYears * initialWd;
@@ -893,11 +907,11 @@ async function runSimulation() {
 
         // 年間リターン適用
         const [Z1, Z2] = randNorm2();
-        const stockLogReturn = muLog + sigma * Z1;
+        const stockLogReturn = muLog + sigmaLog * Z1;
         let totalLogReturn = stockLogReturn;
         if (fxActive) {
           const Zfx = fxCorr * Z1 + sqrtRho2 * Z2;
-          totalLogReturn = stockLogReturn + fxRatio * (muFxLog + fxStd * Zfx);
+          totalLogReturn = stockLogReturn + fxRatio * (muFxLog + fxStdLog * Zfx);
         }
         portfolio = Math.max(portfolio, 0) * Math.exp(totalLogReturn);
 
@@ -972,24 +986,30 @@ async function runSimulation() {
 
         // 月次リターン適用
         const [Z1, Z2] = randNorm2();
-        const stockLogReturn = muLogM + sigmaM * Z1;
+        const stockLogReturn = muLogM + sigmaLogM * Z1;
         let totalLogReturn = stockLogReturn;
         if (fxActive) {
           const Zfx = fxCorr * Z1 + sqrtRho2 * Z2;
-          totalLogReturn = stockLogReturn + fxRatio * (muFxLogM + fxStdM * Zfx);
+          totalLogReturn = stockLogReturn + fxRatio * (muFxLogM + fxStdLogM * Zfx);
         }
         portfolio = Math.max(portfolio, 0) * Math.exp(totalLogReturn);
 
+        // 毎月：成功判定（残高が基準を下回ったら即座に失敗）
+        const totalThisMonth = portfolio + cash;
+        if (totalThisMonth <= 0 || totalThisMonth < successThreshold) {
+          portfolio = 0; cash = 0; alive = false;
+        }
+
         // 年末処理：インフレ調整＆パス記録
         if ((m + 1) % 12 === 0) {
-          const inflThisYear = (inflStd > 0) ? randNorm(inflMean, inflStd) : inflMean;
-          if (withdrawalMode === 'fixed_infl') {
-            if (inflThisYear > 0 || deflMode === 'reduce') { annualWd *= (1 + inflThisYear); monthlyWd = annualWd / 12; }
-          } else {
-            if (inflThisYear > 0 || deflMode === 'reduce') currentMinWdM *= (1 + inflThisYear);
+          if (alive) {
+            const inflThisYear = (inflStd > 0) ? randNorm(inflMean, inflStd) : inflMean;
+            if (withdrawalMode === 'fixed_infl') {
+              if (inflThisYear > 0 || deflMode === 'reduce') { annualWd *= (1 + inflThisYear); monthlyWd = annualWd / 12; }
+            } else {
+              if (inflThisYear > 0 || deflMode === 'reduce') currentMinWdM *= (1 + inflThisYear);
+            }
           }
-          const total = portfolio + cash;
-          if (total <= 0 || total < successThreshold) { portfolio = 0; cash = 0; alive = false; }
           path.push((portfolio + cash) / 10000);
         }
       }
@@ -1068,6 +1088,12 @@ function renderResults(d) {
                   : d.successRate >= 60 ? 'success-rate warn'
                   : 'success-rate danger';
   const thresholdLabel = fmtMan(d.successThreshold / 10000);
+  // 実際の判定は「total > 0 かつ total >= 成功判定金額」。
+  // 成功判定金額が0円のときは「総資産がちょうど0円」も失敗になるため、
+  // 不等号の向き・文言をその場合だけ変える。
+  const succSymbol = d.successThreshold > 0 ? '≥' : '&gt;';
+  const failSymbol = d.successThreshold > 0 ? '&lt;' : '≤';
+  const succWord    = d.successThreshold > 0 ? `${thresholdLabel} 以上` : `${thresholdLabel} を上回っている状態`;
   const inflNote = d.inflStd > 0
     ? `平均 ${(d.inflMean*100).toFixed(1)}%・標準偏差 ${(d.inflStd*100).toFixed(1)}%（変動）`
     : `${(d.inflMean*100).toFixed(1)}%（固定）`;
@@ -1099,7 +1125,7 @@ function renderResults(d) {
       <div class="metric-card">
         <div class="metric-label">失敗率</div>
         <div class="metric-value small" style="color:var(--danger)">${(100-d.successRate).toFixed(1)}<span style="font-size:.85rem">%</span></div>
-        <div class="metric-sub">残高 &lt; ${thresholdLabel}</div>
+        <div class="metric-sub">残高 ${failSymbol} ${thresholdLabel}</div>
       </div>
       <div class="metric-card">
         <div class="metric-label">名目中央値</div>
@@ -1119,7 +1145,7 @@ function renderResults(d) {
         <div class="chart-wrap"><canvas id="chartPortfolio"></canvas></div>
       </div>
       <div class="chart-card">
-        <div class="chart-title"><span class="num">B</span> 年別資産生存率（残高 ≥ ${thresholdLabel}）</div>
+        <div class="chart-title"><span class="num">B</span> 年別資産生存率（残高 ${succSymbol} ${thresholdLabel}）</div>
         <div class="chart-wrap"><canvas id="chartSurvival"></canvas></div>
       </div>
     </div>
@@ -1128,7 +1154,7 @@ function renderResults(d) {
       <h3><span class="num">C</span> シミュレーション統計サマリー</h3>
       <table class="stats-table">
         <tr><th>指標</th><th style="text-align:right">値</th></tr>
-        <tr><td>成功率（総資産が常に ${thresholdLabel} 以上）</td><td>${d.successRate.toFixed(2)}%</td></tr>
+        <tr><td>成功率（総資産が常に ${succWord}）</td><td>${d.successRate.toFixed(2)}%</td></tr>
         <tr><td>失敗率</td><td>${(100 - d.successRate).toFixed(2)}%</td></tr>
         <tr class="section-row"><td colspan="2">── 最終資産分布（名目）──</td></tr>
         <tr><td>上位10%（楽観）</td><td>${d.p90Final}</td></tr>
@@ -1144,7 +1170,7 @@ function renderResults(d) {
         <tr class="section-row"><td colspan="2">── 現金バッファ ──</td></tr>
         <tr><td>初期現金バッファ</td><td>${fmtMan(d.cashBuffer / 10000)}</td></tr>
         <tr><td>発動ライン</td><td>初期（${fmtMan(d.initialPortfolio / 10000)}）から ${(d.dropThreshold*100).toFixed(0)}% 下落時</td></tr>
-        <tr><td>発動閾値</td><td>${fmtMan(d.initialPortfolio * (1 - d.dropThreshold) / 10000)} 以下</td></tr>
+        <tr><td>発動閾値</td><td>${fmtMan(d.initialPortfolio * (1 - d.dropThreshold) / 10000)} 未満</td></tr>
         <tr><td>平均現金使用期間（1試行あたり）</td><td>${d.avgCashPeriods.toFixed(1)} ${periodUnit}</td></tr>
         ${d.avgCashCoverRate !== null ? `<tr><td>現金使用期間の平均カバー率</td><td>${d.avgCashCoverRate.toFixed(1)}%</td></tr>` : ''}
         ` : ''}
@@ -1163,7 +1189,7 @@ function renderResults(d) {
         ? `• 取崩額：初年度 ${fmtMan(d.initialWd/10000)}/年${d.simMode === 'monthly' ? `（月${fmtMan(d.initialWd/12/10000)}）` : ''}、以降インフレ時に増額、デフレ時は${deflMode === 'reduce' ? '減額' : '変更なし'}<br>`
         : `• 取崩額：${d.simMode === 'monthly' ? '毎月' : '毎年'}の残高 × ${d.simMode === 'monthly' ? (d.wdRate/12*100).toFixed(3)+'%（年率'+(d.wdRate*100).toFixed(1)+'%の1/12）' : (d.wdRate*100).toFixed(1)+'%'}、インフレ連動、デフレ時は${deflMode === 'reduce' ? '減額' : '変更なし'}<br>`
       }
-      • 成功基準：総資産（投資＋現金）≥ <strong>${thresholdLabel}</strong><br>
+      • 成功基準：総資産（投資＋現金）${succSymbol} <strong>${thresholdLabel}</strong>${d.successThreshold === 0 ? '（ちょうど0円は失敗扱い）' : ''}<br>
       ${d.cashBuffer > 0 ? `• 現金バッファ ${fmtMan(d.cashBuffer/10000)}：ポートフォリオが初期から${(d.dropThreshold*100).toFixed(0)}%下落で現金優先取崩し<br>` : ''}
       • 本ツールは参考目的です。各${d.simMode === 'annual' ? '年' : '月'}のリターン独立性を仮定（自己相関は非考慮）
     </div>
