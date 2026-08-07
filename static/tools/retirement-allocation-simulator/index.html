@@ -748,41 +748,50 @@
 
   // ===================================================
   // メイン計算
-  // 全 hdAnnual を 0.1 刻みで線形探索し、target達成範囲を求める
-  //   - パターンA = インデックス軸 = target達成かつ hdAnnual 最小（IDX最大）
+  //   - パターンA = インデックス軸 = インデックス単体で目標を満たす必要最小投資額を求め、
+  //                 残りをすべて高配当株に回す（余剰分は高配当株の配当として上乗せされる）
   //   - パターンB = 高配当株軸    = target達成かつ hdAnnual 最大（HD最大）
   // ===================================================
   function runAll(params) {
-    const { target, totalAnnual } = params;
+    const { target, totalAnnual, years } = params;
 
     // ステップ1: 高配当株100%
     const hdAllAlloc = evalAllocation(totalAnnual, params);
     const hdAllOK = hdAllAlloc.totalIncome >= target;
 
-    // 0.1万円刻みで全配分を試し、target達成する hdAnnual の範囲を求める
     const STEP = 0.1;
-    let minHdOK = null;  // パターンA候補: 最小 hdAnnual
-    let maxHdOK = null;  // パターンB候補: 最大 hdAnnual
     const N = Math.round(totalAnnual / STEP);
+
+    // パターンA: インデックス軸
+    // インデックス単体（高配当株の積立はゼロと仮定）で target を満たす最小の idxAnnual を探す
+    let idxMinForTarget = null;
     for (let i = 0; i <= N; i++) {
-      const hdA = +(i * STEP).toFixed(2);
-      const alloc = evalAllocation(hdA, params);
-      if (alloc.totalIncome >= target) {
-        if (minHdOK === null) minHdOK = hdA;
-        maxHdOK = hdA;
+      const idxA = +(i * STEP).toFixed(2);
+      const idxRows = simIDX(idxA, params);
+      if (idxRows[years - 1].idxWithdraw >= target) {
+        idxMinForTarget = idxA;
+        break;
       }
     }
 
-    // パターンA: インデックス軸 (HD最小化 = IDX最大化)
     let patternA;
-    if (minHdOK !== null) {
-      patternA = { ...evalAllocation(minHdOK, params), ok: true };
+    if (idxMinForTarget !== null) {
+      // 必要最小限のインデックス投資額以外は、すべて高配当株に回す
+      const hdA_annual = totalAnnual - idxMinForTarget;
+      patternA = { ...evalAllocation(hdA_annual, params), ok: true };
     } else {
-      // 達成不可：参考値として HD0 (IDX100%) を表示
+      // インデックス単体（100%投資）でも届かない：参考値として IDX100% を表示
       patternA = { ...evalAllocation(0, params), ok: false };
     }
 
     // パターンB: 高配当株軸 (HD最大化)
+    // 0.1万円刻みで全配分を試し、target達成する hdAnnual の最大値を求める
+    let maxHdOK = null;
+    for (let i = 0; i <= N; i++) {
+      const hdA = +(i * STEP).toFixed(2);
+      const alloc = evalAllocation(hdA, params);
+      if (alloc.totalIncome >= target) maxHdOK = hdA;
+    }
     let patternB;
     if (maxHdOK !== null) {
       patternB = { ...evalAllocation(maxHdOK, params), ok: true };
