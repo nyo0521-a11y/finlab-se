@@ -339,12 +339,21 @@
       <div class="sketch-card">
         <h3><span class="num">02</span> 入金・期間</h3>
         <label class="field">
-          <span class="lbl">今後の入金額（累計）</span>
+          <span class="lbl">今すぐ投資できる金額</span>
           <div class="suffix">
-            <input type="number" id="n_future" value="2000" min="0" max="100000" step="10" />
+            <input type="number" id="n_futureNow" value="500" min="0" max="100000" step="10" />
             <span class="unit">万円</span>
           </div>
         </label>
+
+        <label class="field" style="margin-top:10px">
+          <span class="lbl">今後投資予定額（時期未定・累計）</span>
+          <div class="suffix">
+            <input type="number" id="n_futureLater" value="1500" min="0" max="100000" step="10" />
+            <span class="unit">万円</span>
+          </div>
+        </label>
+        <div class="hint" style="margin-top:4px">「今すぐ投資できる金額」は投資期間まるまる増配成長を見込みます。「今後投資予定額」は投資タイミングが未定のため、控えめに投資期間の半分の期間だけ増配成長したものとして計算します。</div>
 
         <div class="slider-combo" style="margin-top:14px">
           <div class="top">
@@ -475,38 +484,42 @@ const state = {
   target: 120,        // 目標年間配当額（万円）
   isAfterTax: false,  // 税引後入力か
   current: 0,         // 現在の年間配当額・税引前（万円）
-  future: 2000,       // 今後の入金額・累計（万円）
+  futureNow: 500,      // A: 今すぐ投資できる金額（万円） - フル増配成長
+  futureLater: 1500,   // B: 今後投資予定額・時期未定・累計（万円） - 半期間の増配成長
   years: 15,          // 目標達成までの投資期間（年）
-  growth: 3,          // 想定増配率（%）
+  growth: 3,            // 想定増配率（%）
 };
 
 const TAX_RATE = 0.20315;  // 配当課税（所得税15.315%＋住民税5%）
 const NET_FACTOR = 1 - TAX_RATE; // 0.79685
 
 // ----- core calculation -----
-// 必要利回りを逆算する（現在の配当を控除する版）：
+// 必要利回りを逆算する（現在の配当を控除し、A/Bで増配成長の重みを変える版）：
 //   targetPretax = 税引前換算の目標額（万円）
-//   現在配当 c は同じ増配率 g で N年後に c*(1+g)^N に成長
-//   今後入金 F を今買うべき利回り Y0 で買うと、N年後の配当は F * Y0 * (1+g)^N
-//   合計が targetPretax と等しい：(c + F*Y0) * (1+g)^N = targetPretax
-//   → Y0 = (targetPretax / (1+g)^N - c) / F
+//   現在配当 current は同じ増配率 g で N年後に current*(1+g)^N に成長
+//   A（今すぐ投資できる金額）は N年分フルの増配成長: A*Y0*(1+g)^N
+//   B（今後投資予定額・時期未定）は投資タイミング未定のため N/2年分だけ増配成長: B*Y0*(1+g)^(N/2)
+//   合計が targetPretax と等しい：
+//     current*(1+g)^N + A*Y0*(1+g)^N + B*Y0*(1+g)^(N/2) = targetPretax
+//   → Y0 = (targetPretax - current*(1+g)^N) / (A*(1+g)^N + B*(1+g)^(N/2))
 function calcRequiredYield(s){
   const targetPretax = s.isAfterTax ? s.target / NET_FACTOR : s.target;
-  const growthFactor = Math.pow(1 + s.growth/100, s.years);
-  const targetTodayBasis = targetPretax / growthFactor; // 今日基準の必要配当
-  const remainingNeeded = targetTodayBasis - s.current; // 今後の入金で稼ぐべき今日基準の配当
-  const totalInvested = s.future;
+  const growthFull = Math.pow(1 + s.growth/100, s.years);
+  const growthHalf = Math.pow(1 + s.growth/100, s.years / 2);
+  const currentAtN = s.current * growthFull;
+  const remainingAtN = targetPretax - currentAtN; // N年後時点で新規資金が稼ぐべき配当額
+  const totalInvested = s.futureNow * growthFull + s.futureLater * growthHalf;
   if(totalInvested <= 0){
-    // 入金なしでも現在配当だけで目標到達なら 0%、そうでなければ達成不可
-    if(remainingNeeded <= 0) return { y: 0, yAtN: 0, totalInvested, targetPretax, achieved: true };
+    // 新規投資なしでも現在配当だけで目標到達なら 0%、そうでなければ達成不可
+    if(remainingAtN <= 0) return { y: 0, yAtN: 0, totalInvested, targetPretax, achieved: true };
     return { y: Infinity, yAtN: Infinity, totalInvested, targetPretax };
   }
-  if(remainingNeeded <= 0){
+  if(remainingAtN <= 0){
     // 既に現在配当だけで（増配込みで）目標到達
     return { y: 0, yAtN: 0, totalInvested, targetPretax, achieved: true };
   }
-  const y = (remainingNeeded / totalInvested) * 100;
-  const yAtN = y * growthFactor;
+  const y = (remainingAtN / totalInvested) * 100;
+  const yAtN = y * growthFull;
   return { y, yAtN, totalInvested, targetPretax };
 }
 
@@ -608,7 +621,8 @@ const els = {
   vTarget: document.getElementById('v_target'),
   taxToggle: document.getElementById('taxToggle'),
   nCurrent: document.getElementById('n_current'),
-  nFuture: document.getElementById('n_future'),
+  nFutureNow: document.getElementById('n_futureNow'),
+  nFutureLater: document.getElementById('n_futureLater'),
   rYears: document.getElementById('r_years'),
   vYears: document.getElementById('v_years'),
   growthChips: document.getElementById('growthChips'),
@@ -819,9 +833,15 @@ els.nCurrent.addEventListener('input', () => {
   update();
 });
 
-// future contribution (累計万円)
-els.nFuture.addEventListener('input', () => {
-  state.future = clamp(+els.nFuture.value || 0, 0, 100000);
+// futureNow: A（今すぐ投資できる金額）
+els.nFutureNow.addEventListener('input', () => {
+  state.futureNow = clamp(+els.nFutureNow.value || 0, 0, 100000);
+  update();
+});
+
+// futureLater: B（今後投資予定額・時期未定・累計）
+els.nFutureLater.addEventListener('input', () => {
+  state.futureLater = clamp(+els.nFutureLater.value || 0, 0, 100000);
   update();
 });
 
