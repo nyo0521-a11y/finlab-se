@@ -174,4 +174,4 @@ ATM手数料・振込手数料の無料回数が多いことは、そもそも�
 
 - [証券連携で選ぶネット銀行4選｜金利を追わない銀行選び2026](/posts/recommended-net-bank-2026/) — 住信SBI・楽天・ソニー・auじぶんを比較
 - [SBI証券のS株で高配当株100銘柄超を買った正直レビュー](/posts/sbi-securities-honest-review/) — 銀行とセットで使う証券口座
-- [ネット銀行は危ない？多重防御の仕組みと個人ができるフィッシング対策4つ｜金融SE解説](/posts/bank-security-defense-in-depth-phishing/) — ネット銀行の安全性の仕組み
+- [ネット銀行は危ない？多重防御の仕組みとフィッシング対策4つ](/posts/bank-security-defense-in-depth-phishing/) — ネット銀行の安全性の仕組み

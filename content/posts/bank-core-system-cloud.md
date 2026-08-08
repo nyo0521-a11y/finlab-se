@@ -286,7 +286,7 @@ cover:
 ## 関連記事
 
 - [金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ](https://finlab-se.com/posts/finance-se-20years-lessons/) — 銀行・クレカ・国際規制システムを渡り歩いた金融SE20年の視点
-- [ネット銀行は危ない？多重防御の仕組みと個人ができるフィッシング対策4つ｜金融SE解説](https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/) — ネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、個人ができる4つの対策を解説しています
+- [ネット銀行は危ない？多重防御の仕組みとフィッシング対策4つ](https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/) — ネット銀行・ネット証券は危ない、と思っていませんか？実は金融機関は「多重防御」で何重にも守られていて、個人ができる4つの対策を解説しています
 - [モアタイムシステムとは？全銀ネットで振込が24時間即時着金する仕組み｜金融SE解説](https://finlab-se.com/posts/zengin-net-payment-system/) — モアタイムシステム（モアタイム）とは何か
 - [日銀ネットとは？銀行間決済RTGSの仕組み｜Fedwire・CHIPS・TARGET2と比較解説](https://finlab-se.com/posts/boj-net-rtgs-international/) — 銀行間の資金そのものを動かす基盤インフラ
 - [コルレス銀行とは？海外送金の仕組みと中継銀行手数料を金融SEが解説](https://finlab-se.com/posts/overseas-remittance-mechanism/) — 国内の勘定系システムが海外送金でどう繋がるか
