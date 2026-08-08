@@ -671,7 +671,7 @@ function update(){
 // rows: 今後の入金額: x0.7, x1.0, x1.3 ; cols: years: base-3, base, base+3
 function drawHeatmap(){
   const baseY = state.years;
-  const baseF = state.future;
+  const baseF = state.futureLater;
   const yrsArr = [Math.max(1, baseY - 3), baseY, Math.min(40, baseY + 3)];
   const fArr   = [Math.max(0, Math.round(baseF * 0.7)), baseF, Math.round(baseF * 1.3)];
 
@@ -717,7 +717,7 @@ function buildChartData(){
   for(let t = 0; t <= state.years; t++){
     labels.push('Y' + t);
     // 累計入金額は t=0 のみ表示（一括投入の前提を明示）
-    const principal = state.future;
+    const principal = state.futureLater;
     // 一括投入分の配当：利回りは増配で yNow * (1+g)^t
     const divFuture = principal * yNow * Math.pow(1 + g, t);
     // 現在配当も同じ増配率で成長
