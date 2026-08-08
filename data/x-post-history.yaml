@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-08T21:05:53+09:00'
+    text: "【おすすめ📖】\n企業型DB・企業型DC・iDeCoの違いを年金の3階建て構造で整理。マッチング拠出・選択制DCの仕組み、掛金全額所得控除など3つの税メリット、…\n\
+      \nhttps://finlab-se.com/posts/ideco-dc-basics/\n\n#iDeCo確定拠出年金 #老後資金年金 #NISA"
+    tweet_id: '2086061331992428830'
+    tweet_url: https://x.com/i/web/status/2086061331992428830
+    type: rotation
+    post_path: content/posts/ideco-dc-basics.md
   - posted_at: '2026-08-08T07:31:25+09:00'
     text: 
       「銀行員の平均年収」がトップで初の900万円超え、平均も684万円に上昇というニュースが話題です。金融機関の内側では実際どうお金が動いているのか。20年勤めた金融SEが、キャッシュレスや銀行の本音を綴ったエッセイです。
@@ -347,11 +354,3 @@ history:
     tweet_url: https://x.com/i/web/status/2077001801283318006
     type: rotation
     post_path: content/posts/montecarlo-tool-usage.md
-  - posted_at: '2026-07-14T07:32:02+09:00'
-    text: 'コンビニでステーブルコイン決済の実証実験が始まるとのニュース。「1コイン＝1ドル」を保つ仕組みや、海外送金がどう変わるのか、規制（MiCA・GENIUS
-      Act）の壁まで、金融SEの視点で整理しました。決済の裏側を知っておくと理解が早まります。 https://finlab-se.com/posts/crypto-stablecoin-remittance/
-      #ステーブルコイン #暗号資産'
-    tweet_id: '2076796822572417328'
-    tweet_url: https://x.com/i/web/status/2076796822572417328
-    type: topic
-    post_path: content/posts/crypto-stablecoin-remittance.md
