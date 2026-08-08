@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-09T07:31:40+09:00'
+    text: '消費税減税と現金給付、家計にとって結局どちらが得か。「減税は高所得者に効果が偏る」との指摘もあり判断は簡単ではありません。食料品減税と5万円給付を年収・世帯人数別に試算し、損得が逆転する分岐点を整理しました。https://finlab-se.com/posts/shohizei-vs-kyufu/
+      #消費税 #物価高対策'
+    tweet_id: '2086218816305222082'
+    tweet_url: https://x.com/i/web/status/2086218816305222082
+    type: topic
+    post_path: content/posts/shohizei-vs-kyufu.md
   - posted_at: '2026-08-08T21:05:53+09:00'
     text: "【おすすめ📖】\n企業型DB・企業型DC・iDeCoの違いを年金の3階建て構造で整理。マッチング拠出・選択制DCの仕組み、掛金全額所得控除など3つの税メリット、…\n\
       \nhttps://finlab-se.com/posts/ideco-dc-basics/\n\n#iDeCo確定拠出年金 #老後資金年金 #NISA"
@@ -346,11 +353,3 @@ history:
     tweet_url: https://x.com/i/web/status/2077159300829778102
     type: topic
     post_path: content/posts/pension-macroeconomic-slide-2026.md
-  - posted_at: '2026-07-14T21:06:33+09:00'
-    text: "【おすすめ📖】\n自分の資産額・取崩し額・現金バッファを入力するだけで、最大100万通りの未来シナリオからFIRE計画の成功率を算出できる無料シミュレーターの使い方を解…\n\
-      \nhttps://finlab-se.com/posts/montecarlo-tool-usage/\n\n#シミュレーション #FIRE取り崩し
-      #インデックス投資"
-    tweet_id: '2077001801283318006'
-    tweet_url: https://x.com/i/web/status/2077001801283318006
-    type: rotation
-    post_path: content/posts/montecarlo-tool-usage.md
