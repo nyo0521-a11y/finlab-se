@@ -435,7 +435,7 @@
 
         <div class="sketch-card">
           <h3><span class="num">06</span> 年次推移</h3>
-          <div class="hint" style="margin-bottom:8px">累計入金額（グレー・Y0のみ）と年間配当額（緑）の推移 ※ 今後の入金額を t=0 で一括投入する前提</div>
+          <div class="hint" style="margin-bottom:8px">累計投資額（グレー・Y0のみ）と年間配当額（緑）の推移 ※ A(今すぐ投資できる金額)は投資期間まるまる、B(今後投資予定額)は時期未定のため投資期間の半分だけ、それぞれ増配成長したものとして計算</div>
           <div class="chartWrap"><canvas id="chart"></canvas></div>
           <div class="legend2">
             <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計入金額（Y0）</span>
@@ -711,20 +711,23 @@ function labelForYield(y){
 let chart = null;
 function buildChartData(){
   const labels = [], principalArr = [], divArr = [];
-  // このツールは「今後の入金額をいま追加投資する」前提で必要利回りを逆算しているので、
-  // チャートも積立ではなく t=0 で一括投入したシナリオを描く。
+  // このツールは「A(今すぐ投資できる金額)をいま投資、B(今後投資予定額)は時期未定のため
+  // 半期間だけ増配成長」という前提で必要利回りを逆算しているので、
+  // チャートもその前提に沿って t=0 時点の投資元本と、年ごとの配当額を描く。
   const r = calcRequiredYield(state);
   const yNow = isFinite(r.y) ? r.y / 100 : 0;
   const g = state.growth / 100;
   for(let t = 0; t <= state.years; t++){
     labels.push('Y' + t);
-    // 累計入金額は t=0 のみ表示（一括投入の前提を明示）
-    const principal = state.futureLater;
-    // 一括投入分の配当：利回りは増配で yNow * (1+g)^t
-    const divFuture = principal * yNow * Math.pow(1 + g, t);
+    // 累計投資額（A+B、増配成長前の単純合計）は t=0 のみ表示
+    const principal = state.futureNow + state.futureLater;
+    // A分の配当：yNowで買った利回りが年数分フルに増配成長
+    const divFutureNow = state.futureNow * yNow * Math.pow(1 + g, t);
+    // B分の配当：同じ利回りだが、半期間分の増配成長を上限として t 年時点の成長を反映
+    const divFutureLater = state.futureLater * yNow * Math.pow(1 + g, Math.min(t, state.years / 2));
     // 現在配当も同じ増配率で成長
     const divCurrent = state.current * Math.pow(1 + g, t);
-    const div = divFuture + divCurrent;
+    const div = divFutureNow + divFutureLater + divCurrent;
     principalArr.push(t === 0 ? Math.round(principal) : null);
     divArr.push(Math.round(div * 10) / 10);
   }
@@ -816,6 +819,7 @@ els.nTarget.addEventListener('input', () => {
   const v = clamp(+els.nTarget.value || 0, 12, 600);
   state.target = v;
   els.rTarget.value = v;
+  els.nTarget.value = v;
   update();
 });
 
