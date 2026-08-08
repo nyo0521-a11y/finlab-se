@@ -7,3 +7,6 @@ tmp-diagram/
 # Python cache
 __pycache__/
 *.pyc
+
+# Worktrees
+.worktrees/
