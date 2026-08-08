@@ -422,9 +422,9 @@
       <div class="subgrid">
         <div class="sketch-card">
           <h3><span class="num">05</span> 感度マトリクス</h3>
-          <div class="hint" style="margin-bottom:8px">期間 × 今後の入金額で必要利回りがどう動くか</div>
+          <div class="hint" style="margin-bottom:8px">期間 × B(今後投資予定額)で必要利回りがどう動くか。A(今すぐ投資できる金額)は現在の入力値で固定。</div>
           <div class="heat-wrap">
-            <div class="hyl">今後の入金額 →</div>
+            <div class="hyl">B: 今後投資予定額 →</div>
             <div>
               <div class="heat" id="heat">
                 <!-- filled by JS -->
@@ -668,22 +668,24 @@ function update(){
 }
 
 // ----- heatmap (3x3) -----
-// rows: 今後の入金額: x0.7, x1.0, x1.3 ; cols: years: base-3, base, base+3
+// rows: B(今後投資予定額): x0.7, x1.0, x1.3 ; cols: years: base-3, base, base+3
+// A(今すぐ投資できる金額)は state.futureNow の現在値で固定
 function drawHeatmap(){
   const baseY = state.years;
-  const baseF = state.futureLater;
+  const baseB = state.futureLater;
   const yrsArr = [Math.max(1, baseY - 3), baseY, Math.min(40, baseY + 3)];
-  const fArr   = [Math.max(0, Math.round(baseF * 0.7)), baseF, Math.round(baseF * 1.3)];
+  const bArr   = [Math.max(0, Math.round(baseB * 0.7)), baseB, Math.round(baseB * 1.3)];
 
   let html = '';
   // header row
   html += '<div class="haxis"></div>';
   yrsArr.forEach(y => { html += `<div class="haxis">${y}年</div>`; });
-  // body rows (rows = 今後の入金額)
-  fArr.forEach((fv, ri) => {
-    html += `<div class="haxis">${fv}万</div>`;
+  // body rows (rows = B: 今後投資予定額、A+B合計を併記)
+  bArr.forEach((bv, ri) => {
+    const total = state.futureNow + bv;
+    html += `<div class="haxis">${bv}万<br><span style="opacity:.7;font-size:11px">(計${total}万)</span></div>`;
     yrsArr.forEach((yr, ci) => {
-      const r = calcRequiredYield({...state, future: fv, years: yr});
+      const r = calcRequiredYield({...state, futureLater: bv, years: yr});
       const cls = heatClass(r.y);
       const isCenter = (ri === 1 && ci === 1);
       const yTxt = isFinite(r.y) ? r.y.toFixed(1) + '%' : '∞';
