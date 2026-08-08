@@ -291,7 +291,7 @@
 
 <div class="intro">
   <h1>配当目標 → 必要利回りを逆算する。</h1>
-  <p>「年◯◯万円の配当が欲しい」というゴールから、<b>いま買うべき平均配当利回り</b>を逆算します。月の入金額・投資期間・増配率を動かしながら、現実的な達成プランを探してください。</p>
+  <p>「年◯◯万円の配当が欲しい」というゴールから、<b>いま買うべき平均配当利回り</b>を逆算します。投資できる金額・投資期間・増配率を動かしながら、現実的な達成プランを探してください。</p>
   <div class="note">
     <span><span class="dot" style="background:#4ade80"></span> 緑=ETF中心で到達</span>
     <span><span class="dot" style="background:#86efac"></span> 薄緑=個別株ミックス</span>
@@ -438,7 +438,7 @@
           <div class="hint" style="margin-bottom:8px">累計投資額（グレー・Y0のみ）と年間配当額（緑）の推移 ※ A(今すぐ投資できる金額)は投資期間まるまる、B(今後投資予定額)は時期未定のため投資期間の半分だけ、それぞれ増配成長したものとして計算</div>
           <div class="chartWrap"><canvas id="chart"></canvas></div>
           <div class="legend2">
-            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計入金額（Y0）</span>
+            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計投資額（Y0）</span>
             <span class="k"><span class="sw" style="background:#4ade80"></span>年間配当額</span>
           </div>
         </div>
@@ -508,6 +508,7 @@ function calcRequiredYield(s){
   const growthHalf = Math.pow(1 + s.growth/100, s.years / 2);
   const currentAtN = s.current * growthFull;
   const remainingAtN = targetPretax - currentAtN; // N年後時点で新規資金が稼ぐべき配当額
+  // totalInvested is growth-weighted (A*(1+g)^n + B*(1+g)^(n/2)), not raw invested capital
   const totalInvested = s.futureNow * growthFull + s.futureLater * growthHalf;
   if(totalInvested <= 0){
     // 新規投資なしでも現在配当だけで目標到達なら 0%、そうでなければ達成不可
@@ -723,8 +724,11 @@ function buildChartData(){
     const principal = state.futureNow + state.futureLater;
     // A分の配当：yNowで買った利回りが年数分フルに増配成長
     const divFutureNow = state.futureNow * yNow * Math.pow(1 + g, t);
-    // B分の配当：同じ利回りだが、半期間分の増配成長を上限として t 年時点の成長を反映
-    const divFutureLater = state.futureLater * yNow * Math.pow(1 + g, Math.min(t, state.years / 2));
+    // B分の配当：投資タイミングが未定のため、投資期間の半分までは寄与ゼロとし、
+    // そこから残り半分の期間で増配成長する（t=years時点でA同様のフル成長と同じ値に収束）
+    const divFutureLater = t < state.years / 2
+      ? 0
+      : state.futureLater * yNow * Math.pow(1 + g, t - state.years / 2);
     // 現在配当も同じ増配率で成長
     const divCurrent = state.current * Math.pow(1 + g, t);
     const div = divFutureNow + divFutureLater + divCurrent;
@@ -750,7 +754,7 @@ function drawChart(){
       datasets:[
         {
           type:'bar',
-          label:'累計入金額 (万円)',
+          label:'累計投資額 (万円)',
           data:d.principalArr,
           backgroundColor:'rgba(203,213,225,.85)',
           borderColor:'#475569',
@@ -793,7 +797,7 @@ function drawChart(){
           position:'left',
           grid:{color:'rgba(29,36,48,.08)'},
           ticks:{font:{family:'JetBrains Mono', size:10}, callback:v=>v+'万'},
-          title:{display:true, text:'累計入金額', font:{family:'Kalam', size:12}}
+          title:{display:true, text:'累計投資額', font:{family:'Kalam', size:12}}
         },
         y1:{
           position:'right',
@@ -816,11 +820,15 @@ els.rTarget.addEventListener('input', () => {
   update();
 });
 els.nTarget.addEventListener('input', () => {
-  const v = clamp(+els.nTarget.value || 0, 12, 600);
+  const raw = +els.nTarget.value;
+  const v = clamp(raw || 0, 12, 600);
   state.target = v;
   els.rTarget.value = v;
-  els.nTarget.value = v;
+  if (raw > 600) els.nTarget.value = v;  // only force-correct the over-cap case immediately
   update();
+});
+els.nTarget.addEventListener('change', () => {
+  els.nTarget.value = state.target;  // normalize display (e.g. clamp to 12 minimum) once the user leaves the field
 });
 
 // tax toggle
