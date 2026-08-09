@@ -719,10 +719,13 @@ function buildChartData(){
   const yNow = isFinite(r.y) ? r.y / 100 : 0;
   const g = state.growth / 100;
   const taxFactor = state.isAfterTax ? NET_FACTOR : 1; // 税引後モードならチャートの配当額も税引後換算する
+  const principalMidT = Math.ceil(state.years / 2); // Bの投資が実行されたとみなす年（divFutureLaterの発生条件と一致させる）
   for(let t = 0; t <= state.years; t++){
     labels.push('Y' + t);
-    // 累計投資額（A+B、増配成長前の単純合計）は t=0 のみ表示
-    const principal = state.futureNow + state.futureLater;
+    // 累計投資額：Y0はA(今すぐ投資できる金額)のみ、B(今後投資予定額)が実行される中間時点でA+Bに切り替わる
+    let principalPoint = null;
+    if (t === 0) principalPoint = state.futureNow;
+    else if (t === principalMidT) principalPoint = state.futureNow + state.futureLater;
     // A分の配当：yNowで買った利回りが年数分フルに増配成長
     const divFutureNow = state.futureNow * yNow * Math.pow(1 + g, t);
     // B分の配当：投資タイミングが未定のため、投資期間の半分までは寄与ゼロとし、
@@ -733,7 +736,7 @@ function buildChartData(){
     // 現在配当も同じ増配率で成長
     const divCurrent = state.current * Math.pow(1 + g, t);
     const div = (divFutureNow + divFutureLater + divCurrent) * taxFactor;
-    principalArr.push(t === 0 ? Math.round(principal) : null);
+    principalArr.push(principalPoint !== null ? Math.round(principalPoint) : null);
     divArr.push(Math.round(div * 10) / 10);
   }
   return { labels, principalArr, divArr };
