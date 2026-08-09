@@ -291,7 +291,7 @@
 
 <div class="intro">
   <h1>配当目標 → 必要利回りを逆算する。</h1>
-  <p>「年◯◯万円の配当が欲しい」というゴールから、<b>いま買うべき平均配当利回り</b>を逆算します。投資できる金額・投資期間・増配率を動かしながら、現実的な達成プランを探してください。</p>
+  <p>「年◯◯万円の配当が欲しい」というゴールから、<b>目標達成に必要な平均配当利回り</b>を逆算します。投資できる金額・投資期間・増配率を動かしながら、現実的な達成プランを探してください。</p>
   <div class="note">
     <span><span class="dot" style="background:#4ade80"></span> 緑=ETF中心で到達</span>
     <span><span class="dot" style="background:#86efac"></span> 薄緑=個別株ミックス</span>
@@ -353,7 +353,7 @@
             <span class="unit">万円</span>
           </div>
         </label>
-        <div class="hint" style="margin-top:4px">「今すぐ投資できる金額」は投資期間まるまる増配成長を見込みます。「今後投資予定額」は投資タイミングが未定のため、控えめに投資期間の半分の期間だけ増配成長したものとして計算します。</div>
+        <div class="hint" style="margin-top:4px">「今すぐ投資できる金額」は投資期間まるまる増配成長を見込みます。「今後投資予定額」は投資タイミングが未定のため、便宜上、投資期間の中間時点で一括投資したものとして計算します。</div>
 
         <div class="slider-combo" style="margin-top:14px">
           <div class="top">
@@ -385,7 +385,7 @@
     <div class="right">
       <div class="hero">
         <div>
-          <div class="lead">あなたの目標に届くために、いま買うべき</div>
+          <div class="lead">あなたの目標に届くために、必要な</div>
           <div class="headline">平均配当利回りは</div>
           <div class="big">
             <span class="yieldNum yieldBig" id="yieldVal">4.8</span>
@@ -435,10 +435,10 @@
 
         <div class="sketch-card">
           <h3><span class="num">06</span> 年次推移</h3>
-          <div class="hint" style="margin-bottom:8px">累計投資額（グレー・Y0のみ）と年間配当額（緑）の推移 ※ A(今すぐ投資できる金額)は投資期間まるまる、B(今後投資予定額)は時期未定のため投資期間の半分だけ、それぞれ増配成長したものとして計算</div>
+          <div class="hint" style="margin-bottom:8px">累計投資額（グレー・Y0とB投資時点）と年間配当額（緑）の推移 ※ A(今すぐ投資できる金額)は投資期間まるまる増配成長、B(今後投資予定額)は時期未定のため投資期間の中間時点で一括投資したものとして計算</div>
           <div class="chartWrap"><canvas id="chart"></canvas></div>
           <div class="legend2">
-            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計投資額（Y0）</span>
+            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計投資額</span>
             <span class="k"><span class="sw" style="background:#4ade80"></span>年間配当額</span>
           </div>
         </div>
@@ -713,15 +713,19 @@ let chart = null;
 function buildChartData(){
   const labels = [], principalArr = [], divArr = [];
   // このツールは「A(今すぐ投資できる金額)をいま投資、B(今後投資予定額)は時期未定のため
-  // 半期間だけ増配成長」という前提で必要利回りを逆算しているので、
+  // 投資期間の中間時点で一括投資」という前提で必要利回りを逆算しているので、
   // チャートもその前提に沿って t=0 時点の投資元本と、年ごとの配当額を描く。
   const r = calcRequiredYield(state);
   const yNow = isFinite(r.y) ? r.y / 100 : 0;
   const g = state.growth / 100;
+  const taxFactor = state.isAfterTax ? NET_FACTOR : 1; // 税引後モードならチャートの配当額も税引後換算する
+  const principalMidT = Math.ceil(state.years / 2); // Bの投資が実行されたとみなす年（divFutureLaterの発生条件と一致させる）
   for(let t = 0; t <= state.years; t++){
     labels.push('Y' + t);
-    // 累計投資額（A+B、増配成長前の単純合計）は t=0 のみ表示
-    const principal = state.futureNow + state.futureLater;
+    // 累計投資額：Y0はA(今すぐ投資できる金額)のみ、B(今後投資予定額)が実行される中間時点でA+Bに切り替わる
+    let principalPoint = null;
+    if (t === 0) principalPoint = state.futureNow;
+    else if (t === principalMidT) principalPoint = state.futureNow + state.futureLater;
     // A分の配当：yNowで買った利回りが年数分フルに増配成長
     const divFutureNow = state.futureNow * yNow * Math.pow(1 + g, t);
     // B分の配当：投資タイミングが未定のため、投資期間の半分までは寄与ゼロとし、
@@ -731,8 +735,8 @@ function buildChartData(){
       : state.futureLater * yNow * Math.pow(1 + g, t - state.years / 2);
     // 現在配当も同じ増配率で成長
     const divCurrent = state.current * Math.pow(1 + g, t);
-    const div = divFutureNow + divFutureLater + divCurrent;
-    principalArr.push(t === 0 ? Math.round(principal) : null);
+    const div = (divFutureNow + divFutureLater + divCurrent) * taxFactor;
+    principalArr.push(principalPoint !== null ? Math.round(principalPoint) : null);
     divArr.push(Math.round(div * 10) / 10);
   }
   return { labels, principalArr, divArr };
@@ -843,20 +847,38 @@ els.taxToggle.addEventListener('click', e => {
 
 // current dividend (税引前 万円/年)
 els.nCurrent.addEventListener('input', () => {
-  state.current = clamp(+els.nCurrent.value || 0, 0, 10000);
+  const raw = +els.nCurrent.value;
+  const v = clamp(raw || 0, 0, 10000);
+  state.current = v;
+  if (raw > 10000) els.nCurrent.value = v;
   update();
+});
+els.nCurrent.addEventListener('change', () => {
+  els.nCurrent.value = state.current;
 });
 
 // futureNow: A（今すぐ投資できる金額）
 els.nFutureNow.addEventListener('input', () => {
-  state.futureNow = clamp(+els.nFutureNow.value || 0, 0, 100000);
+  const raw = +els.nFutureNow.value;
+  const v = clamp(raw || 0, 0, 100000);
+  state.futureNow = v;
+  if (raw > 100000) els.nFutureNow.value = v;
   update();
+});
+els.nFutureNow.addEventListener('change', () => {
+  els.nFutureNow.value = state.futureNow;
 });
 
 // futureLater: B（今後投資予定額・時期未定・累計）
 els.nFutureLater.addEventListener('input', () => {
-  state.futureLater = clamp(+els.nFutureLater.value || 0, 0, 100000);
+  const raw = +els.nFutureLater.value;
+  const v = clamp(raw || 0, 0, 100000);
+  state.futureLater = v;
+  if (raw > 100000) els.nFutureLater.value = v;
   update();
+});
+els.nFutureLater.addEventListener('change', () => {
+  els.nFutureLater.value = state.futureLater;
 });
 
 // years
