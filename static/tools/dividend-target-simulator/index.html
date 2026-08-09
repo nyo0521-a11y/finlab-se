@@ -718,6 +718,7 @@ function buildChartData(){
   const r = calcRequiredYield(state);
   const yNow = isFinite(r.y) ? r.y / 100 : 0;
   const g = state.growth / 100;
+  const taxFactor = state.isAfterTax ? NET_FACTOR : 1; // 税引後モードならチャートの配当額も税引後換算する
   for(let t = 0; t <= state.years; t++){
     labels.push('Y' + t);
     // 累計投資額（A+B、増配成長前の単純合計）は t=0 のみ表示
@@ -731,7 +732,7 @@ function buildChartData(){
       : state.futureLater * yNow * Math.pow(1 + g, t - state.years / 2);
     // 現在配当も同じ増配率で成長
     const divCurrent = state.current * Math.pow(1 + g, t);
-    const div = divFutureNow + divFutureLater + divCurrent;
+    const div = (divFutureNow + divFutureLater + divCurrent) * taxFactor;
     principalArr.push(t === 0 ? Math.round(principal) : null);
     divArr.push(Math.round(div * 10) / 10);
   }
