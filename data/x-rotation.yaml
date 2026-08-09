@@ -256,8 +256,8 @@ rotation:
   promote_count: 3
   priority: normal
 - post_path: content/posts/bonus-investment-checkup-4steps.md
-  last_promoted: '2026-07-20T07:31:20+09:00'
-  promote_count: 4
+  last_promoted: '2026-08-10T07:31:43+09:00'
+  promote_count: 5
   priority: normal
 - post_path: content/posts/claude-code-dividend-calendar.md
   last_promoted: '2026-06-20T21:05:33+09:00'
@@ -380,8 +380,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/sumishin-sbi-net-bank-honest-review.md
-  last_promoted: '2026-06-14T07:05:25+09:00'
-  promote_count: 1
+  last_promoted: '2026-08-09T21:06:15+09:00'
+  promote_count: 2
   priority: normal
 - post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md
   last_promoted: '2026-07-26T21:06:13+09:00'
