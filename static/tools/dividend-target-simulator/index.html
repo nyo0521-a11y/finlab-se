@@ -729,7 +729,7 @@ function buildChartData(){
     // A分の配当：yNowで買った利回りが年数分フルに増配成長
     const divFutureNow = state.futureNow * yNow * Math.pow(1 + g, t);
     // B分の配当：投資タイミングが未定のため、投資期間の半分までは寄与ゼロとし、
-    // そこから残り半分の期間で増配成長する（t=years時点でA同様のフル成長と同じ値に収束）
+    // そこから残り半分の期間で増配成長する（目標年時点で半期間分の増配成長に到達）
     const divFutureLater = t < state.years / 2
       ? 0
       : state.futureLater * yNow * Math.pow(1 + g, t - state.years / 2);
