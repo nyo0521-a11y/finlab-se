@@ -435,10 +435,10 @@
 
         <div class="sketch-card">
           <h3><span class="num">06</span> 年次推移</h3>
-          <div class="hint" style="margin-bottom:8px">累計投資額（グレー・Y0のみ）と年間配当額（緑）の推移 ※ A(今すぐ投資できる金額)は投資期間まるまる、B(今後投資予定額)は時期未定のため投資期間の半分だけ、それぞれ増配成長したものとして計算</div>
+          <div class="hint" style="margin-bottom:8px">累計投資額（グレー・Y0とB投資時点）と年間配当額（緑）の推移 ※ A(今すぐ投資できる金額)は投資期間まるまる増配成長、B(今後投資予定額)は時期未定のため投資期間の中間時点で一括投資したものとして計算</div>
           <div class="chartWrap"><canvas id="chart"></canvas></div>
           <div class="legend2">
-            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計投資額（Y0）</span>
+            <span class="k"><span class="sw" style="background:#cbd5e1"></span>累計投資額</span>
             <span class="k"><span class="sw" style="background:#4ade80"></span>年間配当額</span>
           </div>
         </div>
@@ -713,7 +713,7 @@ let chart = null;
 function buildChartData(){
   const labels = [], principalArr = [], divArr = [];
   // このツールは「A(今すぐ投資できる金額)をいま投資、B(今後投資予定額)は時期未定のため
-  // 半期間だけ増配成長」という前提で必要利回りを逆算しているので、
+  // 投資期間の中間時点で一括投資」という前提で必要利回りを逆算しているので、
   // チャートもその前提に沿って t=0 時点の投資元本と、年ごとの配当額を描く。
   const r = calcRequiredYield(state);
   const yNow = isFinite(r.y) ? r.y / 100 : 0;
