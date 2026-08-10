@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-10T21:06:16+09:00'
+    text: "【おすすめ📖】\n103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。\n\nhttps://finlab-se.com/posts/income-wall-2026/\n\
+      \n#年収の壁 #社会保険 #2026年改正"
+    tweet_id: '2086786203865800849'
+    tweet_url: https://x.com/i/web/status/2086786203865800849
+    type: rotation
+    post_path: content/posts/income-wall-2026.md
   - posted_at: '2026-08-10T07:31:43+09:00'
     text: '夏のボーナス平均妥結額が過去最高の104万円と報じられました。使う前に、生活防衛資金・NISA枠・ポートフォリオの偏り・固定費の4点を順に確認すると、迷わず配分を決められます。チェック手順をまとめました。
       https://finlab-se.com/posts/bonus-investment-checkup-4steps/ #ボーナス #NISA #資産形成'
@@ -347,10 +354,3 @@ history:
     tweet_url: https://x.com/i/web/status/2077726414263013851
     type: rotation
     post_path: content/posts/asset-management-claude-code.md
-  - posted_at: '2026-07-16T07:31:49+09:00'
-    text: '新NISAの買付額が71兆円を突破し、オルカンの陰で半導体ファンドが猛追との報道が話題です。過去のリターンやテーマの勢いだけで選ぶと判断がぶれます。オルカンとS&P500を3つの判断軸で整理し、自分の答えを出す方法を金融SEが解説しました。https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/
-      #新NISA #インデックス投資'
-    tweet_id: '2077521543614312605'
-    tweet_url: https://x.com/i/web/status/2077521543614312605
-    type: topic
-    post_path: content/posts/all-country-vs-sp500-index-fund-2026.md
