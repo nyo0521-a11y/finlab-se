@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-08-11T07:31:44+09:00'
+    text: '企業へのサイバー攻撃や情報漏えいのニュースが続いています。金融機関は多重防御で守られていますが、個人側もパスキー有効化やURLの確認など基本の対策が重要です。フィッシングから口座を守る4つのポイントを整理しました。
+      https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/ #セキュリティ
+      #ネット銀行'
+    tweet_id: '2086943607102083096'
+    tweet_url: https://x.com/i/web/status/2086943607102083096
+    type: topic
+    post_path: content/posts/bank-security-defense-in-depth-phishing.md
   - posted_at: '2026-08-10T21:06:16+09:00'
     text: "【おすすめ📖】\n103万・106万・130万・178万円の壁が2026年に変わる。変更内容と影響を立場別に整理。\n\nhttps://finlab-se.com/posts/income-wall-2026/\n\
       \n#年収の壁 #社会保険 #2026年改正"
@@ -346,11 +354,3 @@ history:
     tweet_url: https://x.com/i/web/status/2077883915747139675
     type: rotation
     post_path: content/posts/bank-core-system-cloud.md
-  - posted_at: '2026-07-16T21:05:54+09:00'
-    text: "【おすすめ📖】\n毎月の資産記録が続かない人へ。MoneyForwardの残高更新→スプレッドシートの資産推移表→貸借対照表Excelという3ステップを、…\n\
-      \nhttps://finlab-se.com/posts/asset-management-claude-code/\n\n#ClaudeCode #家計管理
-      #MoneyForward"
-    tweet_id: '2077726414263013851'
-    tweet_url: https://x.com/i/web/status/2077726414263013851
-    type: rotation
-    post_path: content/posts/asset-management-claude-code.md
