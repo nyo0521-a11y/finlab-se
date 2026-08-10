@@ -24,6 +24,8 @@ cover:
 
 <small>※ 本記事には一部アフィリエイトリンクを含みます。紹介している証券会社はすべて筆者自身の利用経験または一次情報をもとに選定しており、報酬を優先した選定はしていません。</small>
 
+> **この記事の位置づけ**：本記事は10年間インデックス投資を続けてきた実体験・心境の変化をまとめたエッセイです。年金見込み額をもとに「インデックス投資が本当に必要か」を数字で逆算したい方は、姉妹記事「[高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/)」をご覧ください。
+
 ## この記事でわかること
 
 - 投資初期の「迷走期」を経てインデックス投資にたどり着いた経緯
@@ -251,7 +253,7 @@ SBI証券や楽天証券では、定額・定率での自動取り崩しサー�
 ## 関連記事
 
 - [金融SEを20年やって学んだこと——本番を守る矜持と、仕事のダイナミックさ](https://finlab-se.com/posts/finance-se-20years-lessons/) — 投資歴と同じ時間軸で、金融SEとしてのキャリアを振り返った話です
-- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/)
+- [高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論](https://finlab-se.com/posts/index-vs-highyield-retirement-allocation/) — 本記事の実体験を踏まえ、年金見込み額から必要な投資額を数字で逆算する記事です
 - [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
 - [投資信託の実質コスト比較｜全世界株式インデックス4ファンドの隠れコストを金融SEが解説](https://finlab-se.com/posts/mutual-fund-real-cost-2026/)
 - [モンテカルロシミュレーターの使い方](https://finlab-se.com/posts/montecarlo-tool-usage/)
