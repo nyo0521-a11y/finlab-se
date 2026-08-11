@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-08-11T21:06:17+09:00'
+    text: "【新着📝】\n不動産クラウドファンディングで貸し倒れ（デフォルト）を経験しました。担保付き・案件分散でも防げず、「失敗」「やめとけ」と言われる理由は、…\n\
+      \nhttps://finlab-se.com/posts/realestate-cf-default/\n\n#不動産クラウドファンディング #ソーシャルレンディング
+      #レビュー"
+    tweet_id: '2087148596869149151'
+    tweet_url: https://x.com/i/web/status/2087148596869149151
+    type: new
+    post_path: content/posts/realestate-cf-default.md
   - posted_at: '2026-08-11T07:31:44+09:00'
     text: '企業へのサイバー攻撃や情報漏えいのニュースが続いています。金融機関は多重防御で守られていますが、個人側もパスキー有効化やURLの確認など基本の対策が重要です。フィッシングから口座を守る4つのポイントを整理しました。
       https://finlab-se.com/posts/bank-security-defense-in-depth-phishing/ #セキュリティ
@@ -347,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2078088801986269453
     type: rotation
     post_path: content/posts/blog-redesign-with-claude-code.md
-  - posted_at: '2026-07-17T07:31:45+09:00'
-    text: "【おすすめ📖】\nなぜ銀行の勘定系がクラウドへ移行するのか。金融SE20年の視点で技術・難しさ・変化を解説。\n\nhttps://finlab-se.com/posts/bank-core-system-cloud/\n\
-      \n#金融インフラ #金融SE"
-    tweet_id: '2077883915747139675'
-    tweet_url: https://x.com/i/web/status/2077883915747139675
-    type: rotation
-    post_path: content/posts/bank-core-system-cloud.md
