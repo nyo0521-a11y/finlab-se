@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-13T07:32:51+09:00'
+    text: 
+      鶏肉・豚肉の小売価格が過去最高、食料品の値上げが続いています。食費を削るより先に、通信・保険などの固定費を見直すのが効果的です。削れた差額をNISA積立に回す手順をまとめました。
+    tweet_id: '2087668662631018497'
+    tweet_url: https://x.com/i/web/status/2087668662631018497
+    type: topic
+    post_path: content/posts/expense-optimization-nisa-investment.md
   - posted_at: '2026-08-12T21:06:07+09:00'
     text: "【おすすめ📖】\nNISA成長投資枠で高配当株を10年保有すると、非課税効果だけでVYMは約16万円、日本株は約24万円の差が生まれます。\n\
       \nhttps://finlab-se.com/posts/nisa-growth-highyield/\n\n#NISA #高配当株 #インデックス投資"
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2078608638013325807
     type: topic
     post_path: content/posts/shohizei-vs-kyufu.md
-  - posted_at: '2026-07-18T21:06:18+09:00'
-    text: "【おすすめ📖】\n日銀ネットとRTGSの仕組みを、米Fedwire・CHIPS・欧TARGET2と比較しながら金融SEが解説。銀行間決済の裏側がわかる。\n\
-      \nhttps://finlab-se.com/posts/boj-net-rtgs-international/\n\n#金融インフラ"
-    tweet_id: '2078451290460618808'
-    tweet_url: https://x.com/i/web/status/2078451290460618808
-    type: rotation
-    post_path: content/posts/boj-net-rtgs-international.md
