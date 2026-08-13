@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-13T21:06:14+09:00'
+    text: "【おすすめ📖】\nコルレス銀行とは何か。海外送金が手数料3,000円＋数日かかる理由を、コルレス手数料（中継銀行手数料）・為替スプレッド・SWIFTの流れから金融SEが解説。中継銀行とコルレス銀行の違いも分かります。\n\
+      \nhttps://finlab-se.com/posts/overseas-remittance-mechanism/"
+    tweet_id: '2087873357328863444'
+    tweet_url: https://x.com/i/web/status/2087873357328863444
+    type: rotation
+    post_path: content/posts/overseas-remittance-mechanism.md
   - posted_at: '2026-08-13T07:32:51+09:00'
     text: 
       鶏肉・豚肉の小売価格が過去最高、食料品の値上げが続いています。食費を削るより先に、通信・保険などの固定費を見直すのが効果的です。削れた差額をNISA積立に回す手順をまとめました。
@@ -348,10 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2078813650219921409
     type: rotation
     post_path: content/posts/claude-code-blog-experience.md
-  - posted_at: '2026-07-19T07:31:32+09:00'
-    text: 
-      「食料品の消費税を1%に下げても価格高で恩恵が薄い」との解説が話題です。減税と現金給付、家計にはどちらが得なのでしょうか。年収・世帯人数別に試算し、逆進性と即効性の2つの判断軸で整理しました。
-    tweet_id: '2078608638013325807'
-    tweet_url: https://x.com/i/web/status/2078608638013325807
-    type: topic
-    post_path: content/posts/shohizei-vs-kyufu.md
