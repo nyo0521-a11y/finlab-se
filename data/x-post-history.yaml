@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-15T07:31:30+09:00'
+    text: 
+      株主優待や配当を目的に個別株を買ってみたい方へ。SBI証券のS株で高配当株100銘柄超を少しずつ買い集めた実体験を、強みと不満点を含め正直にまとめました。銘柄分散の始め方の参考にどうぞ。
+    tweet_id: '2088393097717645350'
+    tweet_url: https://x.com/i/web/status/2088393097717645350
+    type: topic
+    post_path: content/posts/sbi-securities-honest-review.md
   - posted_at: '2026-08-14T21:05:57+09:00'
     text: "【おすすめ📖】\n住宅ローンは繰り上げ返済と投資どっち？配当や取り崩しで返済を賄えるかを固定・変動の実値で試算。変動0.99%なら配当で賄え、固定3.21%では届きません。\n\
       \nhttps://finlab-se.com/posts/mortgage-prepayment-vs-investment-yieldgap/\n\n\
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2079175994485989485
     type: rotation
     post_path: content/posts/finance-insider-money-habits.md
-  - posted_at: '2026-07-20T07:31:19+09:00'
-    text: '夏のボーナスの使い道に迷っていませんか。生活防衛資金・NISA枠・ポートフォリオの偏り・固定費の4点を順に見直すと、投資に回す額を後悔なく決められます。国家公務員の夏ボーナス話題を機に、自分の一歩を考える記事です。
-      https://finlab-se.com/posts/bonus-investment-checkup-4steps/ #ボーナス #NISA #資産形成'
-    tweet_id: '2078970971407421734'
-    tweet_url: https://x.com/i/web/status/2078970971407421734
-    type: topic
-    post_path: content/posts/bonus-investment-checkup-4steps.md
