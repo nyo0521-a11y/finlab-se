@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-08-14T21:05:57+09:00'
+    text: "【おすすめ📖】\n住宅ローンは繰り上げ返済と投資どっち？配当や取り崩しで返済を賄えるかを固定・変動の実値で試算。変動0.99%なら配当で賄え、固定3.21%では届きません。\n\
+      \nhttps://finlab-se.com/posts/mortgage-prepayment-vs-investment-yieldgap/\n\n\
+      #住宅ローン #NISA #高配当株"
+    tweet_id: '2088235673060807019'
+    tweet_url: https://x.com/i/web/status/2088235673060807019
+    type: rotation
+    post_path: content/posts/mortgage-prepayment-vs-investment-yieldgap.md
   - posted_at: '2026-08-13T21:06:14+09:00'
     text: "【おすすめ📖】\nコルレス銀行とは何か。海外送金が手数料3,000円＋数日かかる理由を、コルレス手数料（中継銀行手数料）・為替スプレッド・SWIFTの流れから金融SEが解説。中継銀行とコルレス銀行の違いも分かります。\n\
       \nhttps://finlab-se.com/posts/overseas-remittance-mechanism/"
@@ -348,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2078970971407421734
     type: topic
     post_path: content/posts/bonus-investment-checkup-4steps.md
-  - posted_at: '2026-07-19T21:06:11+09:00'
-    text: "【おすすめ📖】\nコードを1行も書かずに、Claude Codeとの対話だけで投資シミュレーターとブログを2週間で立ち上げた体験記。\n\n\
-      https://finlab-se.com/posts/claude-code-blog-experience/\n\n#ClaudeCode #ブログ運営"
-    tweet_id: '2078813650219921409'
-    tweet_url: https://x.com/i/web/status/2078813650219921409
-    type: rotation
-    post_path: content/posts/claude-code-blog-experience.md
