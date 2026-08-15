@@ -212,7 +212,7 @@ cover:
 
 ## 関連記事
 
-- [インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](https://finlab-se.com/posts/index-investing-10years-honest-review/) — 本記事のクラウドファンディング期を含む、投資遍歴の全体像を書いた記事です
+- [インデックス投資10年の本音——暴落耐性と出口問題](https://finlab-se.com/posts/index-investing-10years-honest-review/) — 本記事のクラウドファンディング期を含む、投資遍歴の全体像を書いた記事です
 - [高配当株の銘柄選定基準](https://finlab-se.com/posts/highyield-stock-selection-criteria/) — 「自分で検証できる投資」の具体例として、公開情報から銘柄を判断する基準をまとめています
 - [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](https://finlab-se.com/posts/highyield-investment-strategy/) — クラウドファンディングを経て今の戦略に至った経緯にも触れています
 - [配当金生活に必要な資産額を計算する｜インデックス投資取り崩しとの比較シミュレーション](https://finlab-se.com/posts/dividend-life-calculation/) — 利回りの数字を必要元本から逆算して確かめる方法です

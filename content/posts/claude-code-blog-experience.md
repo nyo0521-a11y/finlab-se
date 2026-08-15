@@ -210,4 +210,4 @@ Claude Codeを使ったブログ運用の仕組み化については、こちら
 このブログの本題である資産運用の記事は、こちらから読めます。
 
 - [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/)
-- [インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](/posts/index-investing-10years-honest-review/)
+- [インデックス投資10年の本音——暴落耐性と出口問題](/posts/index-investing-10years-honest-review/)

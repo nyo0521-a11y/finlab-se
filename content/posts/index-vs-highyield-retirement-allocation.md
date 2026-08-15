@@ -24,7 +24,7 @@ cover:
 
 ただし、「賄えるかどうか」を感覚で判断してはいけません。本記事では、年金見込み額からの逆算で、自分にインデックス投資が必要なタイプかどうかを数字で確認していきます。
 
-> **この記事の位置づけ**：本記事は年金見込み額をもとにした「数字での逆算」に特化しています。実際に10年間インデックス投資を続けてきた実体験や心境の変化は、姉妹記事「[インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](https://finlab-se.com/posts/index-investing-10years-honest-review/)」で語っています。
+> **この記事の位置づけ**：本記事は年金見込み額をもとにした「数字での逆算」に特化しています。実際に10年間インデックス投資を続けてきた実体験や心境の変化は、姉妹記事「[インデックス投資10年の本音——暴落耐性と出口問題](https://finlab-se.com/posts/index-investing-10years-honest-review/)」で語っています。
 
 ---
 
@@ -334,7 +334,7 @@ cover:
 ### パターンA（インデックス軸）を検討する方へ
 - [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
 - [投資信託の実質コスト比較｜全世界株式インデックス4ファンドの隠れコストを金融SEが解説](https://finlab-se.com/posts/mutual-fund-real-cost-2026/)
-- [インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](https://finlab-se.com/posts/index-investing-10years-honest-review/) — 数字の逆算だけでなく、実際に10年続けてきた実体験や心境の変化も知りたい方へ
+- [インデックス投資10年の本音——暴落耐性と出口問題](https://finlab-se.com/posts/index-investing-10years-honest-review/) — 数字の逆算だけでなく、実際に10年続けてきた実体験や心境の変化も知りたい方へ
 
 ### 先に支出最適化が必要な方へ
 - [高配当株より先に支出最適化を進めるべき理由](https://finlab-se.com/posts/expense-optimization-before-investing/)

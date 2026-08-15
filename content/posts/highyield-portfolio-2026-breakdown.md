@@ -69,7 +69,7 @@ cover:
 なお、この「なぜ高配当株か」という設計思想は、別記事でより詳しく掘り下げています。あわせてご覧ください。
 
 - [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/)
-- [インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](/posts/index-investing-10years-honest-review/)
+- [インデックス投資10年の本音——暴落耐性と出口問題](/posts/index-investing-10years-honest-review/)
 
 ---
 
@@ -98,7 +98,7 @@ cover:
 
 そのとき、もしインデックスの取り崩しに心理的なハードルがなければ、運用をシンプルにする選択肢が増えます。だからこそ、インデックスの取り崩しが「方法面・心理面で本当に問題ないのか」を、これから自分自身で実験していきたいと考えています。取り崩し方法そのものの不安は、別記事で紹介した通り、理論的にはすでに解決の見通しが立っています。
 
-- [インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](/posts/index-investing-10years-honest-review/)
+- [インデックス投資10年の本音——暴落耐性と出口問題](/posts/index-investing-10years-honest-review/)
 
 この比率は、各人のライフプラン・年齢・投資目的によって大きく変わります。正解はありません。「インデックスだけで十分」という考え方も十分合理的です。
 
@@ -292,7 +292,7 @@ ETFの買い方は、日本個別株の「3.8〜4%」とは別で、<strong>そ�
 
 - [高配当株投資の全体戦略を公開｜なぜ米国ETF＋日本個別株に分けるのか](/posts/highyield-investment-strategy/)
 - [高配当株ポートフォリオ管理の設計原則｜月次運用を仕組み化するために考えたこと](/posts/highyield-portfolio-management/)
-- [インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](/posts/index-investing-10years-honest-review/)
+- [インデックス投資10年の本音——暴落耐性と出口問題](/posts/index-investing-10years-honest-review/)
 
 ---
 

@@ -174,7 +174,7 @@ Guyton-Klinger（ガイトン・クリンガー）という研究者が提唱し
 
 - [取り崩しシミュレーション無料ツールの使い方｜あなたのFIRE計画、何%成功する？](https://finlab-se.com/posts/montecarlo-tool-usage/) — 資産・取崩し・運用条件を入力するだけで最大100万通りの未来をシミュレーションする無料ツールの使い方です
 - [配当金生活に必要な資産額を計算する｜インデックス投資取り崩しとの比較シミュレーション](https://finlab-se.com/posts/dividend-life-calculation/) — 年間200万円を配当で賄うのに必要な元本を計算
-- [インデックス投資10年の本音——金融SEが語る暴落耐性と出口問題の解決策](https://finlab-se.com/posts/index-investing-10years-honest-review/) — クラファン・暗号資産を経てインデックス投資10年
+- [インデックス投資10年の本音——暴落耐性と出口問題](https://finlab-se.com/posts/index-investing-10years-honest-review/) — クラファン・暗号資産を経てインデックス投資10年
 
 ## 参考文献
 
