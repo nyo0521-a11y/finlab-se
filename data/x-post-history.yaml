@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-15T21:05:53+09:00'
+    text: "【おすすめ📖】\n高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結論を数字で逆算します。\n\nhttps://finlab-se.com/posts/index-vs-highyield-retirement-allocation/\n\
+      \n#高配当株 #インデックス投資 #老後資金年金"
+    tweet_id: '2088598046867177782'
+    tweet_url: https://x.com/i/web/status/2088598046867177782
+    type: rotation
+    post_path: content/posts/index-vs-highyield-retirement-allocation.md
   - posted_at: '2026-08-15T07:31:30+09:00'
     text: 
       株主優待や配当を目的に個別株を買ってみたい方へ。SBI証券のS株で高配当株100銘柄超を少しずつ買い集めた実体験を、強みと不満点を含め正直にまとめました。銘柄分散の始め方の参考にどうぞ。
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2079333377090494916
     type: topic
     post_path: content/posts/highyield-buying-timing.md
-  - posted_at: '2026-07-20T21:06:01+09:00'
-    text: "【おすすめ📖】\n金利を一番知るはずの金融機関の人が借金を多用していた。20年の金融SEが現場で見た意外な光景とリボの本当の怖さを解説。\n\n\
-      https://finlab-se.com/posts/finance-insider-money-habits/\n\n#住宅ローン #金融SE"
-    tweet_id: '2079175994485989485'
-    tweet_url: https://x.com/i/web/status/2079175994485989485
-    type: rotation
-    post_path: content/posts/finance-insider-money-habits.md
