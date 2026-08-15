@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-16T07:31:18+09:00'
+    text: '日銀の追加利上げ観測が強まっています。変動金利の上昇局面で住宅ローンの借り換えが得かは、残債・金利差・残期間の3条件で判断できます。損益分岐の目安と諸費用の落とし穴を試算で整理しました。
+      https://finlab-se.com/posts/mortgage-rate-refinance-simulation/ #住宅ローン #日銀 #資産形成'
+    tweet_id: '2088755437692715039'
+    tweet_url: https://x.com/i/web/status/2088755437692715039
+    type: topic
+    post_path: content/posts/mortgage-rate-refinance-simulation.md
   - posted_at: '2026-08-15T21:05:53+09:00'
     text: "【おすすめ📖】\n高配当株投資家にインデックス投資は必要か？年金＋配当金で生活費を賄えるなら不要、という結論を数字で逆算します。\n\nhttps://finlab-se.com/posts/index-vs-highyield-retirement-allocation/\n\
       \n#高配当株 #インデックス投資 #老後資金年金"
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2079538535158169864
     type: new
     post_path: content/posts/mortgage-partial-prepayment.md
-  - posted_at: '2026-07-21T07:31:24+09:00'
-    text: '米国株が調整し、ヘッジファンドのハイテク株売却も伝わっています。相場が下がる局面こそ、高配当株の「買い時」を利回りで冷静に見極めたいところ。VYM・HDV・SCHDの実例で、過去平均との比較から割安を判断する方法を整理しました。
-      #高配当株 #SCHD #資産運用'
-    tweet_id: '2079333377090494916'
-    tweet_url: https://x.com/i/web/status/2079333377090494916
-    type: topic
-    post_path: content/posts/highyield-buying-timing.md
