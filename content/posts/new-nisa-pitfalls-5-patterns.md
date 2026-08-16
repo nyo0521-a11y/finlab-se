@@ -1,7 +1,7 @@
 ---
 title: "【新NISA】5つの落とし穴と回避策｜本当に怖いのは1つだけ｜金融SE解説"
 date: 2026-05-24T05:30:00+09:00
-lastmod: 2026-07-12T00:00:00+09:00
+lastmod: 2026-08-16T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["NISA", "インデックス投資"]
@@ -348,7 +348,7 @@ eMAXIS Slim 全世界株式（オール・カントリー）・楽天・プラ�
 - <a href="https://www.sbisec.co.jp/" target="_blank" rel="noopener">SBI証券（公式サイト）</a> — 投信取扱本数が業界最多級・三井住友カード積立還元・住信SBIネット銀行との連携
 - <a href="https://ad2.trafficgate.net/t/r/1181/738/301501_396856" target="_blank" rel="nofollow sponsored noopener">楽天証券（公式サイト）</a> — UIが分かりやすく初心者向け・楽天カード積立・楽天銀行連携で買付余力が自動反映
 
-迷ったら**SBI証券**を選んでおけば失敗しにくいですが、楽天経済圏を活用している方は**楽天証券**が合いやすい構成です。詳しい比較は[インデックス積立・高配当株投資に合った証券会社の選び方](/posts/securities-selection-for-index-and-dividend/)で解説しています。
+迷ったら**SBI証券**を選んでおけば失敗しにくいですが、楽天経済圏を活用している方は**楽天証券**が合いやすい構成です。詳しい比較は[インデックス積立・高配当株投資に合った証券会社の選び方](/posts/securities-selection-for-index-and-dividend/)で解説しています。成長投資枠で高配当株の単元未満株（S株）を使い込んだ実体験は、[SBI証券のS株で高配当株100銘柄超を買った正直レビュー](https://finlab-se.com/posts/sbi-securities-honest-review/)にまとめています。
 
 ---
 

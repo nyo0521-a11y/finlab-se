@@ -1,7 +1,7 @@
 ---
 title: "高配当株投資のみでインデックス投資は不要なのか？年金＋配当金で逆算した結論"
 date: 2026-05-18T05:30:00+09:00
-lastmod: 2026-08-11T00:00:00+09:00
+lastmod: 2026-08-16T00:00:00+09:00
 draft: false
 categories: ["資産形成"]
 tags: ["高配当株", "インデックス投資", "老後資金・年金", "NISA", "ポートフォリオ"]
@@ -203,7 +203,7 @@ cover:
 - 銘柄選定の手間をかけたくない
 - 再現性を重視する
 
-リベ大や<a href="https://libecity.com/" target="_blank" rel="noopener">リベシティ</a>が基本パターンとして推奨しているのもこの型です。初心者はまず、老後資金を貯めるためのインデックス投資から始めます。老後資金のめどがついたところで、キャッシュフローを増やす高配当株投資を「性に合う人は」試してみる、というスタンスで紹介されています。
+リベ大や<a href="https://libecity.com/" target="_blank" rel="noopener">リベシティ</a>が基本パターンとして推奨しているのもこの型です。初心者はまず、老後資金を貯めるためのインデックス投資から始めます。老後資金のめどがついたところで、キャッシュフローを増やす高配当株投資を「性に合う人は」試してみる、というスタンスで紹介されています。4%ルールで取り崩す設計が自分の数字で何%の確率で成功するかは、[取り崩しシミュレーション無料ツールの使い方](https://finlab-se.com/posts/montecarlo-tool-usage/)で確認できます。
 
 ### パターンB：高配当株とインデックスを併用する
 
@@ -335,6 +335,7 @@ cover:
 - [オルカンとS&P500どっち？迷ったらオルカンの理由【3つの判断軸】](https://finlab-se.com/posts/all-country-vs-sp500-index-fund-2026/)
 - [投資信託の実質コスト比較｜全世界株式インデックス4ファンドの隠れコストを金融SEが解説](https://finlab-se.com/posts/mutual-fund-real-cost-2026/)
 - [インデックス投資10年の本音——暴落耐性と出口問題](https://finlab-se.com/posts/index-investing-10years-honest-review/) — 数字の逆算だけでなく、実際に10年続けてきた実体験や心境の変化も知りたい方へ
+- [取り崩しシミュレーション無料ツールの使い方｜あなたのFIRE計画、何%成功する？](https://finlab-se.com/posts/montecarlo-tool-usage/) — 4%ルール取り崩しの成功率を自分の数字で確認するツール
 
 ### 先に支出最適化が必要な方へ
 - [高配当株より先に支出最適化を進めるべき理由](https://finlab-se.com/posts/expense-optimization-before-investing/)

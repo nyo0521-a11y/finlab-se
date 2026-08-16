@@ -1,7 +1,7 @@
 ---
 title: "【ツール紹介】必要配当利回り逆算シミュレータ ～「年◯◯万円欲しい」から逆算する高配当株設計～"
 date: 2026-04-19T09:00:00+09:00
-lastmod: 2026-07-15T00:00:00+09:00
+lastmod: 2026-08-16T00:00:00+09:00
 draft: false
 categories: ["高配当株投資"]
 tags: ["高配当株", "シミュレーション", "Claude Code", "ポートフォリオ"]
@@ -195,6 +195,7 @@ cover:
 - [高配当株の銘柄選定基準](/posts/highyield-stock-selection-criteria/) — 配当利回り3.8%・ポートフォリオ割合1%未満などの基準の根拠
 - [高配当ポートフォリオの管理術](/posts/highyield-portfolio-management/) — 構築後の維持・買い増し・リバランスの実務
 - [配当だけで暮らす ── 必要資産額の計算](/posts/dividend-life-calculation/) — 「年◯◯万円欲しい」から必要資産額を求める姉妹記事
+- [取り崩しシミュレーション無料ツールの使い方｜あなたのFIRE計画、何%成功する？](https://finlab-se.com/posts/montecarlo-tool-usage/) — 「積み立てて取り崩す」インデックス投資の出口を検討したい方向けの姉妹シミュレーター
 
 ---
 
