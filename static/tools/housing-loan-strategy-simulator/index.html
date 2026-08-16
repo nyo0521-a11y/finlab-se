@@ -463,5 +463,354 @@
 
 <footer>housing-loan-strategy-simulator v1 ／ finlab-se.com</footer>
 
+<script>
+// ===== CALC-LOGIC-START =====
+/**
+ * 元利均等返済の月額支払額を計算する。
+ * @param {number} principal - 借入元本（円）
+ * @param {number} annualRatePercent - 年利（%表記。例: 1.96 は年1.96%）
+ * @param {number} months - 返済回数（月）
+ * @returns {number} 月額支払額（円）
+ */
+function amortizePayment(principal, annualRatePercent, months) {
+  const r = (annualRatePercent / 100) / 12;
+  if (r === 0) return principal / months;
+  return principal * r * Math.pow(1 + r, months) / (Math.pow(1 + r, months) - 1);
+}
+
+/**
+ * 固定金利(フラット35S型・2段階)の完済までの総支払額を計算する。
+ * @param {number} principal - 借入元本（円）
+ * @param {number} fixedRate1Percent - 当初金利引下げ適用後の金利（%）
+ * @param {number} fixedYears1 - 金利引下げ期間（年）
+ * @param {number} fixedRate2Percent - 引下げ終了後の基準金利（%）
+ * @param {number} years - 返済期間（年）
+ * @returns {{payment1:number, payment2:number, n1Months:number, totalMonths:number, totalPaid:number, totalInterest:number}}
+ */
+function simulateFixed(principal, fixedRate1Percent, fixedYears1, fixedRate2Percent, years) {
+  const totalMonths = years * 12;
+  const n1Months = fixedYears1 * 12;
+  const n2Months = totalMonths - n1Months;
+  const payment1 = amortizePayment(principal, fixedRate1Percent, totalMonths);
+  const rm1 = (fixedRate1Percent / 100) / 12;
+  let balance = principal;
+  for (let m = 0; m < n1Months; m++) {
+    const interest = balance * rm1;
+    const princ = payment1 - interest;
+    balance -= princ;
+  }
+  const payment2 = amortizePayment(balance, fixedRate2Percent, n2Months);
+  const totalPaid = n1Months * payment1 + n2Months * payment2;
+  const totalInterest = totalPaid - principal;
+  return { payment1, payment2, n1Months, totalMonths, totalPaid, totalInterest };
+}
+
+/**
+ * 「固定金利と同額を毎月支払い、差額を繰り上げ返済に充てる」戦略の月次シミュレーション。
+ * 変動金利は rateStepMonths ごとに rateStepAmountPercent だけ上昇し、endRatePercent で頭打ちになる。
+ * @returns {{feasible:boolean, totalPaid:number|null, totalInterest:number|null, months:number|null, reason:'interest-exceeds-payment'|'max-duration-exceeded'|null}}
+ */
+function simulateStrategy(
+  principal, payment1, payment2, n1Months, totalMonths,
+  variableStartPercent, endRatePercent,
+  rateStepMonths = 6, rateStepAmountPercent = 0.3, maxExtraMonths = 120
+) {
+  let balance = principal;
+  let totalPaid = 0;
+  let totalInterest = 0;
+  let month = 0;
+  const maxMonths = totalMonths + maxExtraMonths;
+
+  while (balance > 0.01 && month < maxMonths) {
+    const targetPayment = month < n1Months ? payment1 : payment2;
+    const stepsElapsed = Math.floor(month / rateStepMonths);
+    let ratePercent = variableStartPercent + stepsElapsed * rateStepAmountPercent;
+    ratePercent = Math.min(ratePercent, endRatePercent);
+    const monthlyRate = (ratePercent / 100) / 12;
+    const interest = balance * monthlyRate;
+
+    if (interest >= targetPayment) {
+      // 毎月の返済額が利息を下回るため元本が減らない状態。試算不能とする。
+      return { feasible: false, totalPaid: null, totalInterest: null, months: null, reason: 'interest-exceeds-payment' };
+    }
+
+    let principalPaid = targetPayment - interest;
+    let actualPayment = targetPayment;
+    if (principalPaid > balance) {
+      // 最終月は残高+利息ちょうどに切り詰める（過払い防止）
+      principalPaid = balance;
+      actualPayment = balance + interest;
+    }
+    balance -= principalPaid;
+    totalPaid += actualPayment;
+    totalInterest += interest;
+    month++;
+  }
+
+  if (balance > 0.01) {
+    // 計算打ち切り猶予(maxExtraMonths)に達しても完済しなかった（返済額が利息をわずかに上回るだけ等）
+    return { feasible: false, totalPaid: null, totalInterest: null, months: null, reason: 'max-duration-exceeded' };
+  }
+
+  return { feasible: true, totalPaid, totalInterest, months: month, reason: null };
+}
+
+/**
+ * 変動金利の最終到達点をレンジ・刻み幅でスイープし、感応度データを生成する。
+ * sensitivityStepPt は表示専用（何本の点を出すか）で、simulateStrategy内部の金利上昇ペースとは無関係。
+ * @returns {Array<{endRate:number, feasible:boolean, totalPaid:number|null, diff:number|null}>}
+ */
+function buildSensitivity(principal, fixedResult, variableStartPercent, rangeMaxPt, sensitivityStepPt) {
+  // 呼び出し側(recalculate)でvalidateInputsによりsensitivityStepPt > 0を保証する想定だが、
+  // 万一0以下の値が渡された場合に無限ループ・メモリ枯渇を起こさないよう、ここでも安全弁を設ける。
+  if (!(sensitivityStepPt > 0) || !Number.isFinite(sensitivityStepPt)) {
+    throw new Error('sensitivityStepPt must be a positive finite number');
+  }
+  const MAX_POINTS = 1000;
+  const points = [];
+  const cap = variableStartPercent + rangeMaxPt;
+  let endRate = variableStartPercent;
+  while (true) {
+    if (points.length >= MAX_POINTS) {
+      // 上限までスイープしきれていないのに黙って打ち切ると、findBreakevenが不完全なデータから
+      // 「常に戦略が有利」等の誤った判定を返しかねない。silent truncationにせず必ずエラーにする。
+      // validateInputsのMAX_SENSITIVITY_POINTSチェックにより通常はここに到達しない想定。
+      throw new Error('sensitivity points exceeded MAX_POINTS before reaching rangeMaxPt; check validateInputs guard');
+    }
+    const clamped = Math.min(endRate, cap);
+    const strat = simulateStrategy(
+      principal, fixedResult.payment1, fixedResult.payment2,
+      fixedResult.n1Months, fixedResult.totalMonths,
+      variableStartPercent, clamped
+    );
+    points.push({
+      endRate: clamped,
+      feasible: strat.feasible,
+      totalPaid: strat.totalPaid,
+      months: strat.feasible ? strat.months : null,
+      diff: strat.feasible ? (fixedResult.totalPaid - strat.totalPaid) : null,
+      reason: strat.reason,
+    });
+    if (clamped >= cap - 1e-9) break;
+    endRate += sensitivityStepPt;
+  }
+  return points;
+}
+
+/**
+ * 感応度データから損益分岐点（変動金利の到達値）を線形補間で求める。
+ * @returns {{status: 'crosses'|'always-strategy'|'always-fixed'|'no-data', endRate: number|null}}
+ */
+function findBreakeven(points) {
+  const feasible = points.filter(p => p.feasible);
+  if (feasible.length === 0) return { status: 'no-data', endRate: null };
+
+  for (let i = 0; i < feasible.length - 1; i++) {
+    const a = feasible[i], b = feasible[i + 1];
+    if (a.diff >= 0 && b.diff < 0) {
+      const t = a.diff / (a.diff - b.diff);
+      const endRate = a.endRate + t * (b.endRate - a.endRate);
+      return { status: 'crosses', endRate };
+    }
+  }
+  if (feasible[feasible.length - 1].diff >= 0) return { status: 'always-strategy', endRate: null };
+  return { status: 'always-fixed', endRate: null };
+}
+
+/**
+ * 参考金利の確認日から staleDays 日以上経過しているかを判定する。
+ * @param {string} referenceDateISO - 例: "2026-08-15"
+ * @param {Date} now - 現在時刻
+ * @param {number} staleDays - 鮮度の閾値（日数）。デフォルト90
+ * @returns {boolean}
+ */
+function isReferenceStale(referenceDateISO, now, staleDays = 90) {
+  const ref = new Date(referenceDateISO + 'T00:00:00+09:00');
+  const diffDays = (now - ref) / (1000 * 60 * 60 * 24);
+  return diffDays >= staleDays; // 仕様「確認日から90日以上経過していないか」に合わせ、90日ちょうども警告対象に含める
+}
+
+/**
+ * ツールの全入力値を計算前に検証する。sensitivityStepが0以下だとbuildSensitivityが
+ * 無限ループしメモリを食い潰すため、ここで必ず弾く。
+ * @returns {{valid:boolean, message:string|null}}
+ */
+function validateInputs(inputs) {
+  const { principal, years, fixedRate1, fixedYears1, fixedRate2, variableStart, rangeMax, sensitivityStep } = inputs;
+  const allValues = [principal, years, fixedRate1, fixedYears1, fixedRate2, variableStart, rangeMax, sensitivityStep];
+
+  if (allValues.some(v => typeof v !== 'number' || !Number.isFinite(v))) {
+    return { valid: false, message: '入力値に空欄または数値以外の値があります。すべての項目に数値を入力してください。' };
+  }
+  if (!(principal > 0)) {
+    return { valid: false, message: '借入額は0より大きい値を入力してください。' };
+  }
+  if (!(Number.isInteger(years) && years >= 1)) {
+    return { valid: false, message: '返済期間は1以上の整数（年）で入力してください。' };
+  }
+  if (fixedRate1 < 0 || fixedRate2 < 0 || variableStart < 0) {
+    return { valid: false, message: '金利は0以上の値を入力してください。' };
+  }
+  if (!(Number.isInteger(fixedYears1) && fixedYears1 >= 0 && fixedYears1 < years)) {
+    return { valid: false, message: '金利引下げ期間は0以上、かつ返済期間より短い整数（年）で入力してください。' };
+  }
+  if (!(rangeMax >= 0)) {
+    return { valid: false, message: '感応度レンジの上昇幅は0以上の値を入力してください。' };
+  }
+  if (!(sensitivityStep > 0)) {
+    return { valid: false, message: '感応度レンジの刻み幅は0より大きい値を入力してください。' };
+  }
+  const MAX_SENSITIVITY_POINTS = 1000;
+  const requiredPoints = Math.ceil(rangeMax / sensitivityStep) + 1; // buildSensitivityは始点も1点として数えるため+1
+  if (requiredPoints > MAX_SENSITIVITY_POINTS) {
+    return { valid: false, message: '感応度レンジの刻み幅が上昇幅に対して細かすぎます。刻み幅を大きくするか、上昇幅を小さくしてください。' };
+  }
+  return { valid: true, message: null };
+}
+// ===== CALC-LOGIC-END =====
+
+const REFERENCE_DATE = '2026-08-15';
+
+function readNumber(id) {
+  // Number('') は 0 になってしまい、0を許容する項目（金利・引下げ期間等）で
+  // 空欄が「正常な0」として通ってしまうため、空欄は明示的にNaNへ変換する
+  const raw = document.getElementById(id).value.trim();
+  return raw === '' ? NaN : Number(raw);
+}
+
+function readInputs() {
+  return {
+    principal: readNumber('inp-principal') * 10000,
+    years: readNumber('inp-years'),
+    fixedRate1: readNumber('inp-fixedRate1'),
+    fixedYears1: readNumber('inp-fixedYears1'),
+    fixedRate2: readNumber('inp-fixedRate2'),
+    variableStart: readNumber('inp-variableStart'),
+    rangeMax: readNumber('inp-rangeMax'),
+    sensitivityStep: readNumber('inp-sensitivityStep'),
+  };
+}
+
+function formatMan(yen) {
+  return Math.round(yen / 10000).toLocaleString('ja-JP');
+}
+
+function updateRangePreview(inputs) {
+  const final = (inputs.variableStart + inputs.rangeMax).toFixed(2);
+  document.getElementById('range-preview').textContent =
+    `現在${inputs.variableStart}% + 上昇幅${inputs.rangeMax}pt ＝ 最終${final}%まで試算`;
+}
+
+function updateStaleWarning() {
+  const stale = isReferenceStale(REFERENCE_DATE, new Date());
+  document.getElementById('stale-warning').classList.toggle('show', stale);
+}
+
+function renderResults(inputs, fixedResult, points, breakeven) {
+  const container = document.getElementById('results');
+
+  let breakevenHtml = '';
+  if (breakeven.status === 'crosses') {
+    breakevenHtml = `<div class="badge"><div class="swatch" style="background:var(--warn)">!</div>
+      <div><div class="t">変動金利が ${breakeven.endRate.toFixed(2)}% まで上がると、固定金利に追いつかれます</div>
+      <div class="s">それより低いうちは戦略が有利、それを超えると固定が有利になります</div></div></div>`;
+  } else if (breakeven.status === 'always-strategy') {
+    breakevenHtml = `<div class="badge ok"><div class="swatch">◎</div>
+      <div><div class="t">このレンジでは常に戦略が有利です</div>
+      <div class="s">上昇幅の設定を広げると逆転点が見つかる場合があります</div></div></div>`;
+  } else if (breakeven.status === 'always-fixed') {
+    breakevenHtml = `<div class="badge ng"><div class="swatch">×</div>
+      <div><div class="t">このレンジでは常に固定金利が有利です</div>
+      <div class="s">変動金利の起点が固定金利よりかなり高い可能性があります</div></div></div>`;
+  } else {
+    breakevenHtml = `<div class="badge"><div class="swatch">?</div>
+      <div><div class="t">このレンジでは試算できませんでした</div>
+      <div class="s">現在の変動金利や上昇幅の設定を見直してください</div></div></div>`;
+  }
+
+  // 損益分岐点をまたぐ2行（symbol反転の直前・直後）のインデックスを特定する
+  const feasibleIndexes = points.map((p, i) => p.feasible ? i : -1).filter(i => i >= 0);
+  let breakevenRowIndexes = [];
+  if (breakeven.status === 'crosses') {
+    for (let k = 0; k < feasibleIndexes.length - 1; k++) {
+      const a = points[feasibleIndexes[k]], b = points[feasibleIndexes[k + 1]];
+      if (a.diff >= 0 && b.diff < 0) {
+        breakevenRowIndexes = [feasibleIndexes[k], feasibleIndexes[k + 1]];
+        break;
+      }
+    }
+  }
+
+  const INFEASIBLE_MESSAGES = {
+    'interest-exceeds-payment': '試算不能（毎月の返済額が利息を下回ります）',
+    'max-duration-exceeded': '試算不能（この前提では完済までの期間が非常に長くなり、比較対象外です）',
+  };
+
+  const fixedYearsLabel = `${inputs.years}年`;
+  const rows = points.map((p, i) => {
+    const highlightClass = breakevenRowIndexes.includes(i) ? 'last-row' : '';
+    if (!p.feasible) {
+      const msg = INFEASIBLE_MESSAGES[p.reason] || '試算不能';
+      return `<tr class="${highlightClass}" data-index="${i}"><td>${p.endRate.toFixed(2)}%</td><td class="infeasible" colspan="4">${msg}</td></tr>`;
+    }
+    const strategyYearsLabel = `${(p.months / 12).toFixed(1)}年`;
+    return `<tr class="${highlightClass}" data-index="${i}" style="cursor:pointer">
+      <td>${p.endRate.toFixed(2)}%</td>
+      <td>${strategyYearsLabel} <span class="sub">(固定 ${fixedYearsLabel})</span></td>
+      <td>${formatMan(p.totalPaid)}万円 <span class="sub">(固定 ${formatMan(fixedResult.totalPaid)}万円)</span></td>
+      <td class="gap-val ${p.diff >= 0 ? 'pos' : 'neg'}">${p.diff >= 0 ? '戦略+' : '固定+'}${formatMan(Math.abs(p.diff))}万円</td>
+    </tr>`;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="sketch-card">
+      <h3><span class="num">結果</span> 損益分岐点</h3>
+      ${breakevenHtml}
+    </div>
+    <div class="sketch-card">
+      <h3><span class="num">表</span> 感応度テーブル</h3>
+      <p class="hint">行をクリックすると詳細が下に表示されます</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>変動金利到達点</th><th>完済年数</th><th>総支払額</th><th>差額</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+
+  container.querySelectorAll('tbody tr[data-index]').forEach(tr => {
+    tr.addEventListener('click', () => {
+      const idx = Number(tr.dataset.index);
+      if (typeof renderScenarioDetail === 'function') renderScenarioDetail(points[idx], fixedResult);
+    });
+  });
+}
+
+function recalculate() {
+  const inputs = readInputs();
+  updateRangePreview(inputs);
+  updateStaleWarning();
+
+  const errorEl = document.getElementById('input-error');
+  const validation = validateInputs(inputs);
+  if (!validation.valid) {
+    errorEl.textContent = validation.message;
+    errorEl.style.display = 'block';
+    document.getElementById('results').innerHTML = '';
+    return;
+  }
+  errorEl.style.display = 'none';
+
+  const fixedResult = simulateFixed(inputs.principal, inputs.fixedRate1, inputs.fixedYears1, inputs.fixedRate2, inputs.years);
+  const points = buildSensitivity(inputs.principal, fixedResult, inputs.variableStart, inputs.rangeMax, inputs.sensitivityStep);
+  const breakeven = findBreakeven(points);
+  renderResults(inputs, fixedResult, points, breakeven);
+}
+
+document.querySelectorAll('.ipt').forEach(el => el.addEventListener('input', recalculate));
+recalculate();
+</script>
+
 </body>
 </html>
