@@ -8,6 +8,7 @@
 {{- define "main" -}}
 
 {{- $taxonomy := .Data.Singular -}}
+{{- $plural := .Data.Plural -}}
 {{- $terms := .Data.Terms -}}
 
 <!-- ================================================== -->
@@ -67,9 +68,18 @@
         {{- $latest := index $taxo.Pages 0 -}}
         {{- $cover := "" -}}
         {{- with $latest.Params.cover.image }}{{ $cover = . }}{{ end -}}
-        {{- $catPage := site.GetPage (printf "/categories/%s" $name) -}}
+        {{- /* リンク先はターム自身のページから取得する。
+               このテンプレートは /categories/ と /tags/ の両方で使われるため、
+               "/categories/" を決め打ちにすると /tags/ のカードが存在しない
+               /categories/<タグ名>/ を指して404になる（2026-08-16修正）。
+               また urlize によるスラッグ推測も、日本語カテゴリ名に url: で
+               英字スラッグを割り当てている構成では404を生むため使わない。 */ -}}
         {{- $url := "" -}}
-        {{- if $catPage -}}{{- $url = $catPage.RelPermalink -}}{{- else -}}{{- $url = (printf "/categories/%s/" (urlize $name)) | relURL -}}{{- end -}}
+        {{- with $taxo.Page -}}{{- $url = .RelPermalink -}}{{- end -}}
+        {{- if not $url -}}
+          {{- with site.GetPage (printf "/%s/%s" $plural $name) -}}{{- $url = .RelPermalink -}}{{- end -}}
+        {{- end -}}
+        {{- if not $url -}}{{- continue -}}{{- end -}}
       <a href="{{ $url }}" class="term-card">
         <div class="term-thumb {{ if not $cover }}no-img{{ end }}">
           {{- with $cover }}

@@ -8,3 +8,13 @@
 /categories/税制・制度解説/*       /categories/news/:splat    301
 /categories/税制制度解説/*        /categories/news/:splat    301
 /categories/クレジットカード/*     /categories/finance-system/:splat    301
+
+# 現行6カテゴリの「日本語名そのままのURL」→ 英字スラッグURL（2026-08-16 追加）
+# categories/<名前>/_index.md の url: で英字スラッグへ変更した際、
+# 変更前の日本語URLが404のまま残っていた（GSCで /categories/金融の仕組み/ を検出）。
+/categories/AI活用/*              /categories/ai/:splat                301
+/categories/資産形成/*             /categories/asset-building/:splat    301
+/categories/金融の仕組み/*         /categories/finance-system/:splat    301
+/categories/高配当株投資/*         /categories/high-yield/:splat        301
+/categories/金融ニュース/*         /categories/news/:splat              301
+/categories/お知らせ/*             /categories/announcement/:splat      301

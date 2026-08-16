@@ -63,8 +63,14 @@
     {{- if $scope }}
     <div class="pillar-scope" aria-label="このPillarに含まれるカテゴリ">
       <span class="pillar-scope-label">含まれるカテゴリ:</span>
+      {{- /* カテゴリ名は日本語で、_index.md の url: により英字スラッグへ変換されている。
+             urlize でスラッグを推測すると /categories/金融の仕組み/ のような
+             存在しないURLになり404になる（2026-08-16修正）。
+             実ページを引いて RelPermalink を使い、無ければチップを出さない。 */ -}}
       {{- range $c := $scope }}
-      <a class="pillar-scope-chip" href="{{ printf "/categories/%s/" (urlize $c) | relURL }}">{{ $c }}</a>
+      {{- with site.GetPage (printf "/categories/%s" $c) }}
+      <a class="pillar-scope-chip" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- end }}
       {{- end }}
     </div>
     {{- end }}
