@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-17T07:31:27+09:00'
+    text: '日経平均が最高値圏をうかがい、S&P500も最高値を更新しています。ただ上昇幅の多くは一部の大型株の寄与で、指数の華やかさと個別株の実態にはズレがあります。高値局面こそ、買い増しルールを崩さない判断軸を確認しておきたいところです。
+      https://finlab-se.com/posts/nikkei-60000-highyield-mindset/ #高配当株 #資産形成'
+    tweet_id: '2089117864259420432'
+    tweet_url: https://x.com/i/web/status/2089117864259420432
+    type: topic
+    post_path: content/posts/nikkei-60000-highyield-mindset.md
   - posted_at: '2026-08-16T21:05:51+09:00'
     text: "【おすすめ📖】\n保有銘柄CSVをClaude Codeに渡すだけで、月別配当キャッシュフロー表を自動生成する手順。\n\nhttps://finlab-se.com/posts/claude-code-dividend-calendar/\n\
       \n#ClaudeCode #高配当株 #AI活用"
@@ -348,11 +355,3 @@ history:
     tweet_url: https://x.com/i/web/status/2079900904724013495
     type: rotation
     post_path: content/posts/consecutive-dividend-growth.md
-  - posted_at: '2026-07-22T07:32:07+09:00'
-    text: '米ドル円が一時163円台と1986年以来の円安水準に。市場では160円超が「新常態」との見方も広がっています。為替に振り回されないため、S&P500とオルカンをどう使い分けるか、インデックス投資10年の実体験を整理しました。
-      https://finlab-se.com/posts/index-investing-10years-honest-review/ #NISA #円安
-      #インデックス投資'
-    tweet_id: '2079695945776718265'
-    tweet_url: https://x.com/i/web/status/2079695945776718265
-    type: topic
-    post_path: content/posts/index-investing-10years-honest-review.md
