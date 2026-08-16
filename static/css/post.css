@@ -43,40 +43,11 @@
 .post .main { padding: 0; max-width: none; margin: 0; }
 
 /* =====================================================
-   TOP BAR (about / home / list と完全共通の見た目)
+   TOP BAR
+   static/css/site-header.css に統合済み（2026-08-16）。
+   .topbar / .brand* / .nav* はページ非スコープの共通スタイルに一本化したため、
+   ここでの重複定義は削除した（.ic のアイコンサイズ指定のみ残す）。
    ===================================================== */
-.post .topbar {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.post .topbar-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 64px;
-}
-.post .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; }
-.post .brand-mark {
-  width: 30px; height: 30px; border-radius: 9px;
-  background: var(--ink);
-  position: relative; overflow: hidden; flex-shrink: 0;
-}
-.post .brand-mark::before {
-  content: ""; position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, transparent 55%, var(--accent-600) 55%, var(--accent-600) 62%, transparent 62%),
-    linear-gradient(180deg, transparent 68%, var(--accent-600) 68%, var(--accent-600) 72%, transparent 72%);
-}
-.post .brand-name { font-size: 14px; letter-spacing: .02em; white-space: nowrap; }
-.post .brand-sub  { font-size: 11px; color: var(--ink-3); font-weight: 400; margin-top: 1px; }
-.post .nav { display: flex; align-items: center; gap: 22px; font-size: 13.5px; color: var(--ink-2); }
-.post .nav a:hover, .post .nav a.is-current { color: var(--accent-700); }
-.post .nav a.is-current { font-weight: 600; }
-.post .nav .search-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
-  background: var(--bg-soft); white-space: nowrap;
-}
 .post .ic { width: 14px; height: 14px; stroke-width: 2; }
 
 /* =====================================================
@@ -468,26 +439,11 @@
 .post-related-date { font-size: 11.5px; color: var(--ink-3); }
 
 /* =====================================================
-   FOOTER (about-footer と同じダークバンド)
+   FOOTER
+   実際のHTML要素は <footer class="site-footer"> のみで、.post-footer-band は
+   一致しないため元々効いていなかった。static/css/site-header.css の
+   .site-footer 系スタイルに統合済み（2026-08-16）。
    ===================================================== */
-.post-footer-band {
-  background: #0e1410;
-  color: #c8cfc8;
-  padding: 32px 0;
-  margin-top: 0;
-}
-.post-footer-band .foot {
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 16px;
-  font-size: 13px;
-}
-.post-footer-band .foot-brand {
-  display: flex; align-items: center; gap: 10px;
-  color: #fff; font-weight: 600;
-}
-.post-footer-band .foot-links { display: flex; gap: 18px; color: #c8cfc8; }
-.post-footer-band .foot-links a:hover { color: #fff; }
-.post-footer-band .foot-copy { color: #828982; font-size: 12px; }
 
 /* =====================================================
    モバイル対応
@@ -501,9 +457,5 @@
   .post .post-content h3 { font-size: 16.5px; margin: 28px 0 10px; }
   .post .post-content pre { font-size: 12.5px; padding: 12px 14px; border-radius: 8px; }
   .post-related { padding: 36px 0; }
-  .post .topbar-inner { height: 56px; }
-  .post .brand-name { font-size: 13px; }
-  .post .nav { gap: 14px; font-size: 12.5px; }
-  .post .nav .lk { display: none; }
-  .post .nav .search-btn { padding: 5px 10px; }
+  /* .topbar 系のモバイル対応は static/css/site-header.css に統合済み（2026-08-16） */
 }

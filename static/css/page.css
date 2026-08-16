@@ -41,41 +41,10 @@
 .page #site-banner { display: none !important; }
 .page .main { padding: 0; max-width: none; margin: 0; }
 
-/* ===== TOP BAR (about/home/term と共通の見た目) ===== */
-.page .topbar {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.page .topbar-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 64px;
-}
-.page .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
-.page .brand:hover { text-decoration: none; }
-.page .brand-mark {
-  width: 30px; height: 30px; border-radius: 9px;
-  background: var(--ink);
-  position: relative; overflow: hidden; flex-shrink: 0;
-}
-.page .brand-mark::before {
-  content: ""; position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, transparent 55%, var(--accent-600) 55%, var(--accent-600) 62%, transparent 62%),
-    linear-gradient(180deg, transparent 68%, var(--accent-600) 68%, var(--accent-600) 72%, transparent 72%);
-}
-.page .brand-name { font-size: 14px; letter-spacing: .02em; white-space: nowrap; }
-.page .brand-sub  { font-size: 11px; color: var(--ink-3); font-weight: 400; margin-top: 1px; }
-.page .nav { display: flex; align-items: center; gap: 22px; font-size: 13.5px; color: var(--ink-2); }
-.page .nav a { color: var(--ink-2); }
-.page .nav a:hover, .page .nav a.is-current { color: var(--accent-700); text-decoration: none; }
-.page .nav a.is-current { font-weight: 600; }
-.page .nav .search-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
-  background: var(--bg-soft); white-space: nowrap;
-}
+/* ===== TOP BAR =====
+   static/css/site-header.css に統合済み（2026-08-16）。
+   .topbar / .brand* / .nav* はページ非スコープの共通スタイルに一本化したため、
+   ここでの重複定義は削除した（.ic のアイコンサイズ指定のみ残す）。 */
 .page .ic { width: 14px; height: 14px; stroke-width: 2; }
 
 /* ===== HERO ===== */
@@ -203,31 +172,14 @@
   font-size: 14px;
 }
 
-/* ===== FOOTER ===== */
-.page-footer {
-  background: #0e1410;
-  color: #c8cfc8;
-  padding: 32px 0;
-  margin-top: 24px;
-}
-.page-footer .foot {
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 16px;
-  font-size: 13px;
-}
-.page-footer .foot-brand {
-  display: flex; align-items: center; gap: 10px;
-  color: #fff; font-weight: 600;
-}
-.page-footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
-.page-footer .foot-links a { color: #c8cfc8; }
-.page-footer .foot-links a:hover { color: #fff; text-decoration: none; }
-.page-footer .foot-copy { color: #828982; font-size: 12px; }
+/* ===== FOOTER =====
+   実際のHTML要素は <footer class="site-footer"> のみで、.page-footer は
+   一致しないため元々効いていなかった。static/css/site-header.css の
+   .site-footer 系スタイルに統合済み（2026-08-16）。 */
 
-/* ===== Responsive ===== */
+/* ===== Responsive =====
+   .topbar 系のモバイル対応は static/css/site-header.css に統合済み（2026-08-16） */
 @media (max-width: 640px) {
-  .page .nav { gap: 14px; font-size: 12.5px; }
-  .page .brand-sub { display: none; }
   .page-hero { padding: 40px 0 28px; }
   .page-section { padding: 32px 0 48px; }
   .page-prose h2 { font-size: 19px; margin-top: 36px; }

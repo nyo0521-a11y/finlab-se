@@ -1,0 +1,157 @@
+/* =================================================================
+   site-header.css
+   - 全ページ共通のヘッダー(.topbar)とフッター(.site-footer)のスタイル
+   - body class（home / post / about / term / terms / posts-list / page）
+     を問わず同一の見た目になるよう、あえてページスコープを付けずに定義する
+   - 2026-08-16: home.css / post.css / about.css / category.css / list.css /
+     page.css の7ファイルに重複定義されていた .topbar 系スタイルを集約し、
+     ページごとに 60px/82%グループ と 64px/92%グループ に分かれていた見た目を
+     読者の滞在時間が長い記事・固定・Aboutページ側（64px/92%/z-index:50）に統一した。
+   - フッターは従来 layouts/partials/extend_head.html のインライン<style>で
+     全ページ共通に適用していたダークバンド仕様をこのファイルに移設した。
+     実際のHTML要素は <footer class="site-footer"> のみのため、各ページ用CSS側の
+     .home-footer / .post-footer-band / .page-footer / .about-footer /
+     .cat-footer / .list-footer 等の個別命名セレクタは元々一致せず効いていなかった
+     （このファイルへの一本化にあわせて各ページCSSから削除済み）。
+   - このファイルは layouts/partials/head.html から全ページで読み込む。
+   - 注意: svg.ic のアイコンサイズ指定は各ページCSS側に残している。
+     .ic はヘッダー/フッターの検索・RSSアイコンだけでなく、ホーム/カテゴリ等の
+     本文セクション内のアイコンにも共通で使われている汎用クラスのため、
+     このファイルでは意図的に触れていない。
+   ================================================================= */
+
+/* ===== ヘッダー/フッター専用デザイントークン =====
+   各ページ本文用の --ink 等（.home / .post 等にスコープされたトークン）には
+   依存させず、ヘッダー・フッターだけで完結する固定値として定義する。 */
+:root {
+  --hdr-ink:        #1a1f1a;
+  --hdr-ink-2:      #4a4f4a;
+  --hdr-ink-3:      #6a706a;
+  --hdr-line:       #e3e5e3;
+  --hdr-bg-soft:    #f7f8f7;
+  --hdr-accent-600: #318a45;
+  --hdr-accent-700: #2a7a3a;
+}
+
+/* ===== TOP BAR =====
+   高さ64px / 背景不透明度92% / blur(saturate180%) / z-index:50 に統一
+   （旧: home.css / category.css(.term,.terms) / list.css は 60px・82%・z-index:30 だった） */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--hdr-line);
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--hdr-ink);
+}
+.brand:hover { text-decoration: none; }
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--hdr-ink);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.brand-mark::before,
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.brand-mark::before {
+  background:
+    linear-gradient(180deg, transparent 55%, var(--hdr-accent-600) 55%, var(--hdr-accent-600) 62%, transparent 62%),
+    linear-gradient(180deg, transparent 68%, var(--hdr-accent-600) 68%, var(--hdr-accent-600) 72%, transparent 72%);
+}
+.brand-mark::after {
+  background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, .15), transparent 50%);
+}
+.brand-name { font-size: 14px; letter-spacing: .02em; white-space: nowrap; }
+.brand-sub  { font-size: 11px; color: var(--hdr-ink-3); font-weight: 400; margin-top: 1px; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 13.5px;
+  color: var(--hdr-ink-2);
+}
+.nav a { color: var(--hdr-ink-2); transition: color .15s; }
+.nav a:hover,
+.nav a.is-current { color: var(--hdr-accent-700); }
+.nav a.is-current { font-weight: 600; }
+.nav .search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--hdr-line);
+  border-radius: 999px;
+  background: var(--hdr-bg-soft);
+  color: var(--hdr-ink-2);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .topbar-inner    { height: 56px; }
+  .brand-name      { font-size: 13px; }
+  .brand-sub       { display: none; }
+  .nav             { gap: 14px; font-size: 12.5px; }
+  .nav .lk         { display: none; }
+  .nav .search-btn { padding: 5px 10px; }
+}
+
+/* ===== SITE FOOTER =====
+   ダークバンド仕様（従来 extend_head.html のインラインstyleで全ページ共通に
+   適用していたものと同一の値。動作確認済みのため値は変更していない） */
+.site-footer {
+  background: #0e1410;
+  color: #c8cfc8;
+  padding: 32px 0;
+  margin-top: 24px;
+}
+.site-footer .foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+}
+.site-footer .foot-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 600;
+}
+.site-footer .foot-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: #c8cfc8;
+}
+.site-footer .foot-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #c8cfc8;
+}
+.site-footer .foot-links a:hover { color: #fff; text-decoration: none; }
+.site-footer .foot-copy { color: #828982; font-size: 12px; font-family: var(--font-num, inherit); }

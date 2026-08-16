@@ -53,42 +53,10 @@
 .terms > header.header, .terms > footer.footer { display: none !important; }
 .term .main, .terms .main { padding: 0; max-width: none; margin: 0; }
 
-/* ===== Top bar (home.css と同等) ===== */
-.term .topbar, .terms .topbar {
-  position: sticky; top: 0; z-index: 30;
-  background: rgba(255,255,255,.82);
-  backdrop-filter: saturate(140%) blur(12px);
-  -webkit-backdrop-filter: saturate(140%) blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.term .topbar-inner, .terms .topbar-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 60px;
-}
-.term .brand, .terms .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; }
-.term .brand-mark, .terms .brand-mark {
-  width: 30px; height: 30px; border-radius: 9px;
-  background: var(--ink); position: relative; overflow: hidden; flex-shrink: 0;
-}
-.term .brand-mark::before, .terms .brand-mark::before {
-  content: ""; position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, transparent 55%, var(--accent) 55%, var(--accent) 62%, transparent 62%),
-    linear-gradient(180deg, transparent 68%, var(--accent) 68%, var(--accent) 72%, transparent 72%);
-}
-.term .brand-name, .terms .brand-name { font-size: 14px; letter-spacing: .02em; white-space: nowrap; }
-.term .brand-sub, .terms .brand-sub { font-size: 11px; color: var(--ink-3); font-weight: 400; margin-top: 1px; }
-.term .nav, .terms .nav { display: flex; align-items: center; gap: 22px; font-size: 13.5px; color: var(--ink-2); }
-.term .nav a:hover, .terms .nav a:hover { color: var(--accent-700); }
-.term .nav .search-btn, .terms .nav .search-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid var(--line); padding: 6px 10px;
-  border-radius: 999px; color: var(--ink-3); font-size: 12.5px;
-  background: var(--bg-soft); white-space: nowrap;
-}
-@media (max-width: 720px) {
-  .term .nav .lk, .terms .nav .lk { display: none; }
-}
+/* ===== Top bar =====
+   static/css/site-header.css に統合済み（2026-08-16）。
+   .topbar / .brand* / .nav* はページ非スコープの共通スタイルに一本化したため、
+   ここでの重複定義は削除した。 */
 
 /* ===== カテゴリヘッダー ===== */
 .term .cat-header, .terms .cat-header {
@@ -297,25 +265,10 @@
   background: var(--accent); border-color: var(--accent); color: #fff;
 }
 
-/* ===== Footer ===== */
-.term .cat-footer, .terms .cat-footer {
-  border-top: 1px solid var(--line);
-  padding: 36px 0 44px;
-  background: var(--bg-soft);
-}
-.term .foot, .terms .foot {
-  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
-}
-.term .foot-brand, .terms .foot-brand {
-  display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; white-space: nowrap;
-}
-.term .foot-copy, .terms .foot-copy {
-  font-family: var(--font-num); font-size: 12px; color: var(--ink-3);
-}
-.term .foot-links, .terms .foot-links {
-  display: flex; gap: 18px; font-size: 12.5px; color: var(--ink-3); white-space: nowrap;
-}
-.term .foot-links a:hover, .terms .foot-links a:hover { color: var(--accent-700); }
+/* ===== Footer =====
+   実際のHTML要素は <footer class="site-footer"> のみで、.cat-footer は
+   一致しないため元々効いていなかった。static/css/site-header.css の
+   .site-footer 系スタイルに統合済み（2026-08-16）。 */
 
 /* Icons */
 .term svg.ic, .terms svg.ic { width: 16px; height: 16px; stroke-width: 1.8; }
