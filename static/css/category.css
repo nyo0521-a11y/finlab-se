@@ -113,6 +113,64 @@
 .term .stat-pill .stat-n { font-size: 16px; font-weight: 700; color: var(--ink); }
 .term .stat-pill .stat-l { font-size: 11px; color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; }
 
+/* ===== Pillar 本文（_index.md の Markdown / .Content） =====
+   layouts/pillars/list.html の .cat-header 直後・AdSense枠の前に出力される。
+   pillar 一覧の記事カード（cat-posts）や cat-header のカテゴリチップとは
+   別物（本文の説明文・困りごとリスト・関連カテゴリ導線）なので独立させる。
+   見出し/リンク/リストの装飾は post.css の .post-content を .term のトークンに
+   合わせて移植した（2026-08-16）。 */
+.term .cat-intro { padding: 40px 0 8px; }
+.term .cat-intro .wrap {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ink-2);
+  max-width: 720px;
+}
+.term .cat-intro h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+  margin: 40px 0 14px;
+  padding-left: 14px;
+  position: relative;
+}
+.term .cat-intro h2:first-child { margin-top: 0; }
+.term .cat-intro h2::before {
+  content: "";
+  position: absolute; left: 0; top: 5px;
+  width: 4px; height: 20px;
+  border-radius: 2px;
+  background: var(--accent-700);
+}
+.term .cat-intro p { margin: 0 0 16px; }
+.term .cat-intro p:last-child { margin-bottom: 0; }
+.term .cat-intro a {
+  color: var(--accent-700);
+  text-decoration: underline;
+  text-decoration-color: rgba(4, 120, 87, .35);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color .12s ease, text-decoration-color .12s ease;
+}
+.term .cat-intro a:hover {
+  color: var(--accent-600);
+  text-decoration-color: var(--accent-600);
+}
+.term .cat-intro strong { color: var(--ink); font-weight: 700; }
+.term .cat-intro ul,
+.term .cat-intro ol {
+  margin: 0 0 16px;
+  padding-left: 1.5em;
+}
+.term .cat-intro li { margin: 8px 0; }
+.term .cat-intro li::marker { color: var(--accent-700); }
+@media (max-width: 720px) {
+  .term .cat-intro { padding: 28px 0 4px; }
+  .term .cat-intro h2 { font-size: 18px; margin: 32px 0 12px; }
+}
+
 /* ===== AdSense plate ===== */
 .term .ad-wrap, .terms .ad-wrap { padding: 24px 0 0; }
 .term .ad-slot, .terms .ad-slot {

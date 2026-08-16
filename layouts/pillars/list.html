@@ -77,6 +77,17 @@
   </div>
 </section>
 
+<!-- ================================================== -->
+<!-- Pillar 本文（_index.md の Markdown） -->
+<!-- ================================================== -->
+{{- with .Content }}
+<section class="cat-intro">
+  <div class="wrap">
+    {{ . }}
+  </div>
+</section>
+{{- end }}
+
 <!-- AdSense slot: pillar-top -->
 <div class="wrap ad-wrap" aria-label="Advertisement slot">
   <div class="ad-slot ad-banner"></div>

@@ -51,14 +51,19 @@
   justify-content: space-between;
   height: 64px;
 }
-.brand {
+/* .topbar でスコープし詳細度を (0,2,0) に引き上げる。
+   各ページ種別CSSの `<bodyclass> a { color: inherit }`（例: .term a、.post a。
+   詳細度 0,1,1）に文字色が上書きされ、ページ種別によってブランド文字色が
+   #1a1f1a（--hdr-ink）と #0f172a（各ページの --ink）に分かれていた事象を修正
+   （2026-08-16）。 */
+.topbar .brand {
   display: flex;
   align-items: center;
   gap: 10px;
   font-weight: 600;
   color: var(--hdr-ink);
 }
-.brand:hover { text-decoration: none; }
+.topbar .brand:hover { text-decoration: none; }
 .brand-mark {
   width: 30px;
   height: 30px;
