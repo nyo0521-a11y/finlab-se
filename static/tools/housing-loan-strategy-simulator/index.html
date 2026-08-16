@@ -396,6 +396,7 @@
           </div>
         </label>
         <p class="hint" style="margin-top:10px">参考（2026年8月15日 <a href="https://www.sbiaruhi.co.jp/rate/" target="_blank" rel="noopener">ARUHI公式サイト</a> で確認）：フラット35（21〜35年・自己資金1割以上・団信込み）の基準金利（引下げ後）は3.29%。当初金利引下げは▲0.75%（3ポイント。例：子1人＋長期優良住宅の新築、子なし＋ZEH基準住宅の新築等の要件を満たす場合）を想定し2.54%としています。ポイント数・要件によって引下げ幅は変わるため、必ずリンク先で自分の条件に合う金利を確認してください。</p>
+        <div class="stale-warning" id="stale-warning-fixed">上記の参考値は確認から90日以上が経過しています。リンク先で最新の金利をご確認ください。</div>
       </div>
 
       <div class="sketch-card">
@@ -704,6 +705,7 @@ function updateRangePreview(inputs) {
 function updateStaleWarning() {
   const stale = isReferenceStale(REFERENCE_DATE, new Date());
   document.getElementById('stale-warning').classList.toggle('show', stale);
+  document.getElementById('stale-warning-fixed').classList.toggle('show', stale);
 }
 
 function renderResults(inputs, fixedResult, points, breakeven) {
@@ -799,25 +801,25 @@ function renderResults(inputs, fixedResult, points, breakeven) {
     });
   });
 
-  if (fixedResult) renderChart(points, breakeven);
+  if (fixedResult) renderChart(points, breakevenRowIndexes);
 }
 
 let sensitivityChart = null;
 
-function renderChart(points, breakeven) {
+function renderChart(points, breakevenRowIndexes) {
   const canvas = document.getElementById('sensitivityChart');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const labels = points.map(p => `${p.endRate.toFixed(2)}%`);
   const data = points.map(p => p.feasible ? Math.round(p.diff / 10000) : null);
-  const stepSize = points.length > 1 ? (points[1].endRate - points[0].endRate) : 0.25;
-  const colors = points.map(p => {
+  // 塗り色は常に符号(戦略有利=緑／固定有利=橙)だけで決める。損益分岐点の強調は
+  // 塗り色を変えるのではなく縁取りで行う（塗り色まで変えると凡例と矛盾する棒ができてしまうため）。
+  const fillColors = points.map(p => {
     if (!p.feasible) return '#e5e7eb';
-    if (breakeven.status === 'crosses' && Math.abs(p.endRate - breakeven.endRate) < stepSize) {
-      return '#f59e0b'; // 損益分岐点に近い棒を強調
-    }
     return p.diff >= 0 ? '#22c55e' : '#f59e0b';
   });
+  const borderColors = points.map((p, i) => breakevenRowIndexes.includes(i) ? '#1d2430' : fillColors[i]);
+  const borderWidths = points.map((p, i) => breakevenRowIndexes.includes(i) ? 3 : 0);
 
   if (sensitivityChart) sensitivityChart.destroy();
   sensitivityChart = new Chart(ctx, {
@@ -827,7 +829,9 @@ function renderChart(points, breakeven) {
       datasets: [{
         label: '戦略と固定の総支払差額（万円。プラス=戦略有利）',
         data,
-        backgroundColor: colors,
+        backgroundColor: fillColors,
+        borderColor: borderColors,
+        borderWidth: borderWidths,
       }],
     },
     options: {
