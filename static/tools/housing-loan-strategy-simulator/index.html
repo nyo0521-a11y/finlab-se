@@ -766,6 +766,9 @@ function renderResults(inputs, fixedResult, points, breakeven) {
     <div class="sketch-card">
       <h3><span class="num">結果</span> 損益分岐点</h3>
       ${breakevenHtml}
+      <div class="caveat-box">
+        これは「固定金利と同額を毎月支払い、差額を自主的に繰り上げ返済し続ける」という戦略の試算です。実際の変動金利ローンの契約返済額が自動でこうなるわけではありません。多くの金融機関は5年ごとに返済額を見直す「5年ルール」、見直し後も旧返済額の125%を上限とする「125%ルール」を採用しており、金利が急上昇すると利息の一部が未払いのまま繰り越される（未払利息）ことがあります。本ツールはこうした契約上のルールを反映していません。
+      </div>
     </div>
     <div class="sketch-card">
       <h3><span class="num">表</span> 感応度テーブル</h3>
@@ -777,6 +780,16 @@ function renderResults(inputs, fixedResult, points, breakeven) {
         </table>
       </div>
     </div>
+    <div class="sketch-card">
+      <h3><span class="num">図</span> 感応度グラフ</h3>
+      <div class="chartWrap"><canvas id="sensitivityChart"></canvas></div>
+    </div>
+    <div id="scenario-detail"></div>
+    <a class="rel-card" href="/posts/housing-loan-variable-fixed-simulation/">
+      <span class="kbd">ARTICLE</span>
+      <span class="tt">差額繰り上げ戦略の考え方・保険料としての捉え方・向いていない人のタイプ</span>
+      <span class="arrow">記事で詳しく解説しています →</span>
+    </a>
   `;
 
   container.querySelectorAll('tbody tr[data-index]').forEach(tr => {
@@ -785,6 +798,72 @@ function renderResults(inputs, fixedResult, points, breakeven) {
       if (typeof renderScenarioDetail === 'function') renderScenarioDetail(points[idx], fixedResult);
     });
   });
+
+  if (fixedResult) renderChart(points, breakeven);
+}
+
+let sensitivityChart = null;
+
+function renderChart(points, breakeven) {
+  const canvas = document.getElementById('sensitivityChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const labels = points.map(p => `${p.endRate.toFixed(2)}%`);
+  const data = points.map(p => p.feasible ? Math.round(p.diff / 10000) : null);
+  const stepSize = points.length > 1 ? (points[1].endRate - points[0].endRate) : 0.25;
+  const colors = points.map(p => {
+    if (!p.feasible) return '#e5e7eb';
+    if (breakeven.status === 'crosses' && Math.abs(p.endRate - breakeven.endRate) < stepSize) {
+      return '#f59e0b'; // 損益分岐点に近い棒を強調
+    }
+    return p.diff >= 0 ? '#22c55e' : '#f59e0b';
+  });
+
+  if (sensitivityChart) sensitivityChart.destroy();
+  sensitivityChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: '戦略と固定の総支払差額（万円。プラス=戦略有利）',
+        data,
+        backgroundColor: colors,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { title: { display: true, text: '万円' } } },
+    },
+  });
+}
+
+const SCENARIO_INFEASIBLE_MESSAGES = {
+  'interest-exceeds-payment': 'この到達点は試算できません。毎月の返済額が利息を下回るため、元本が減らない状態になります。',
+  'max-duration-exceeded': 'この到達点は試算できません。この前提では完済までの期間が非常に長くなり、比較対象外です。',
+};
+
+function renderScenarioDetail(point, fixedResult) {
+  const detail = document.getElementById('scenario-detail');
+  if (!detail) return;
+  if (!point.feasible) {
+    const msg = SCENARIO_INFEASIBLE_MESSAGES[point.reason] || 'この到達点は試算できません。';
+    detail.innerHTML = `<div class="sketch-card dashed"><p class="hint">${msg}</p></div>`;
+    return;
+  }
+  const message = point.diff >= 0
+    ? `固定金利を選んだ場合の追加コストは、総額で約${formatMan(point.diff)}万円——いわば"保険料"に相当します。`
+    : `この条件では、変動＋差額繰り上げ戦略の方が総支払額で約${formatMan(Math.abs(point.diff))}万円多くなります（固定金利の方が有利です）。`;
+  detail.innerHTML = `
+    <div class="sketch-card">
+      <h3><span class="num">詳細</span> 変動金利 ${point.endRate.toFixed(2)}% まで上がった場合</h3>
+      <div class="result-row"><span class="lbl">戦略の総支払額</span><span class="val">${formatMan(point.totalPaid)}万円</span></div>
+      <div class="result-row"><span class="lbl">固定の総支払額</span><span class="val">${formatMan(fixedResult.totalPaid)}万円</span></div>
+      <div class="result-divider"></div>
+      <p class="hint">${message}</p>
+    </div>
+  `;
 }
 
 function recalculate() {
