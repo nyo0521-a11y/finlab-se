@@ -160,3 +160,15 @@
 }
 .site-footer .foot-links a:hover { color: #fff; text-decoration: none; }
 .site-footer .foot-copy { color: #828982; font-size: 12px; font-family: var(--font-num, inherit); }
+
+/* =================================================================
+   広告枠の一時非表示（2026-08-17）
+   - AdSense未承認のため、空の「— Advertisement —」プレースホルダーが
+     全ページ（index/about/posts-list/term/terms/pillars/post）に
+     表示されている状態を解消する。
+   - マークアップは全箇所で aria-label="Advertisement slot" に統一されて
+     いるため、1セレクタで全ページ分を一括で隠せる。
+   - AdSense承認後は、この1ブロックを削除するだけで元の広告枠がすべて復活する。
+     テンプレート側（各 layouts/*.html）は一切変更していない。
+   ================================================================= */
+[aria-label="Advertisement slot"] { display: none; }
