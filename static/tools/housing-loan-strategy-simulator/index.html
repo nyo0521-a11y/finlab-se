@@ -738,7 +738,7 @@ function validateInputs(inputs) {
   const MAX_SENSITIVITY_POINTS = 1000;
   const requiredPoints = Math.ceil(rangeMax / sensitivityStep) + 1; // buildSensitivityは始点も1点として数えるため+1
   if (requiredPoints > MAX_SENSITIVITY_POINTS) {
-    return { valid: false, message: '感応度レンジの刻み幅が上昇幅に対して細かすぎます。刻み幅を大きくするか、上限金利を下げてください。' };
+    return { valid: false, message: '感応度レンジの刻み幅が、上限金利までの試算範囲に対して細かすぎます。刻み幅を大きくするか、上限金利を下げてください。' };
   }
   return { valid: true, message: null };
 }
@@ -789,7 +789,7 @@ function renderResults(inputs, fixedResult, points, breakeven) {
   } else if (breakeven.status === 'always-strategy') {
     breakevenHtml = `<div class="badge ok"><div class="swatch">◎</div>
       <div><div class="t">このレンジでは常に戦略が有利です</div>
-      <div class="s">上昇幅の設定を広げると逆転点が見つかる場合があります</div></div></div>`;
+      <div class="s">上限金利を高くするか、上昇ペースを速めると逆転点が見つかる場合があります</div></div></div>`;
   } else if (breakeven.status === 'always-fixed') {
     breakevenHtml = `<div class="badge ng"><div class="swatch">×</div>
       <div><div class="t">このレンジでは常に固定金利が有利です</div>
@@ -920,8 +920,8 @@ function renderChart(points, breakevenRowIndexes) {
 }
 
 const SCENARIO_INFEASIBLE_MESSAGES = {
-  'interest-exceeds-payment': 'この到達点は試算できません。毎月の返済額が利息を下回るため、元本が減らない状態になります。',
-  'max-duration-exceeded': 'この到達点は試算できません。この前提では完済までの期間が非常に長くなり、比較対象外です。',
+  'interest-exceeds-payment': 'この設定上限では試算できません。毎月の返済額が利息を下回るため、元本が減らない状態になります。',
+  'max-duration-exceeded': 'この設定上限では試算できません。この前提では完済までの期間が非常に長くなり、比較対象外です。',
 };
 
 function renderScenarioDetail(point, fixedResult) {
