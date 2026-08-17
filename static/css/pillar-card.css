@@ -1,0 +1,54 @@
+/* =================================================================
+   pillar-card.css
+   - 4本柱（Pillar）ページへの導線カード（共通コンポーネント）
+   - 使用箇所: layouts/_default/about.html（4本柱セクション）
+              layouts/index.html（トップページ「4つのテーマで書いています」セクション）
+   - 2026-08-17: about.css にあった .about-pillar-* をここへ切り出し、
+     about.css・home.css の両方から参照できるようにした
+     （topbar/footerが7ファイルに重複定義されて値が食い違った反省を踏まえた対応）。
+   - 前提CSS変数（呼び出し側の .home / .about スコープで定義済みのトークンを
+     そのまま利用する。このファイル自体はページスコープを持たない）:
+       --bg, --line, --ink, --ink-3, --accent-700
+   ================================================================= */
+
+.pillar-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.pillar-card {
+  display: flex; flex-direction: column;
+  padding: 20px 18px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: all 0.18s ease;
+}
+.pillar-card:hover {
+  border-color: var(--accent-700);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.pillar-card-eyebrow {
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent-700); font-weight: 600;
+  margin-bottom: 6px;
+}
+.pillar-card-name {
+  font-size: 16px; font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.pillar-card-desc {
+  font-size: 13px; color: var(--ink-3); line-height: 1.7;
+  flex: 1;
+  margin-bottom: 14px;
+}
+.pillar-card-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; color: var(--ink-3);
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.pillar-card-arrow { font-size: 16px; color: var(--accent-700); }

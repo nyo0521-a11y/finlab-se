@@ -110,22 +110,26 @@
     <h2 class="about-h2">このブログで扱っていること</h2>
     <p class="about-sub">4つの領域が重なる場所だけを書いています。</p>
 
-    <div class="about-pillar-grid">
+    <div class="pillar-card-grid">
       {{- range $p := $pillars }}
       {{- if $p }}
       {{- $cnt := len (where $allPosts "Params.categories" "intersect" ($p.Params.categories_in_scope | default (slice))) }}
-      <a href="{{ $p.RelPermalink }}" class="about-pillar">
-        <div class="about-pillar-eyebrow">{{ $p.Params.pillar_eyebrow | default "Pillar" }}</div>
-        <div class="about-pillar-name">{{ $p.Title }}</div>
-        <div class="about-pillar-desc">{{ $p.Params.description }}</div>
-        <div class="about-pillar-meta">
-          <span class="about-pillar-count">{{ $cnt }} articles</span>
-          <span class="about-pillar-arrow">→</span>
+      <a href="{{ $p.RelPermalink }}" class="pillar-card">
+        <div class="pillar-card-eyebrow">{{ $p.Params.pillar_eyebrow | default "Pillar" }}</div>
+        <div class="pillar-card-name">{{ $p.Title }}</div>
+        <div class="pillar-card-desc">{{ $p.Params.description }}</div>
+        <div class="pillar-card-meta">
+          <span class="pillar-card-count">{{ $cnt }} articles</span>
+          <span class="pillar-card-arrow">→</span>
         </div>
       </a>
       {{- end }}
       {{- end }}
     </div>
+
+    <p class="about-sub" style="margin-top: 16px;">
+      記事の分類には「資産形成」「高配当株投資」「AI活用」「金融の仕組み」「金融ニュース」「お知らせ」の6カテゴリを使っていますが、書き手として大切にしている軸はこの4本柱です。「資産形成」と「高配当株投資」は"土台づくりから実践まで"という一続きのテーマとしてひとつにまとめ、サイト運営の「お知らせ」は編集方針の対象外としています。
+    </p>
   </div>
 </section>
 

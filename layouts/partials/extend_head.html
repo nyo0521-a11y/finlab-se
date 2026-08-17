@@ -39,6 +39,12 @@
 {{- if $isHome }}
 <link rel="stylesheet" href="{{ "css/home.css" | relURL }}">
 {{- end }}
+{{- /* pillar-card.css: 4本柱カード（.pillar-card-grid 等）の共通スタイル。
+       about.html と index.html の両方から参照するため、about.css/home.css には含めない
+       （2026-08-17: about.css の .about-pillar-* を切り出して共通化） */ -}}
+{{- if or $isHome $isAbout }}
+<link rel="stylesheet" href="{{ "css/pillar-card.css" | relURL }}">
+{{- end }}
 {{- if or $isTerm $isTerms $isPillar }}
 <link rel="stylesheet" href="{{ "css/category.css" | relURL }}">
 {{- end }}

@@ -16,8 +16,15 @@
 {{- $cntNews      := len (where $allPosts "Params.categories" "intersect" (slice "金融ニュース")) -}}
 {{- $cntNotice    := len (where $allPosts "Params.categories" "intersect" (slice "お知らせ")) -}}
 
-{{- /* 最新記事リスト（広告枠を3記事目の後に挟むので6本まで） */ -}}
-{{- $latest := first 6 $allPosts -}}
+{{- /* 最新記事リスト（3本表示。3記事目＝最後の記事の後に広告枠を挟む） */ -}}
+{{- $latest := first 3 $allPosts -}}
+
+{{- /* 4本柱 Pillar の参照（about.html と同じロジック。2026-08-17 トップページにも導線追加） */ -}}
+{{- $pillarRecord  := site.GetPage "/pillars/asset-record" -}}
+{{- $pillarAI      := site.GetPage "/pillars/ai-money" -}}
+{{- $pillarFinance := site.GetPage "/pillars/finance-explained" -}}
+{{- $pillarNews    := site.GetPage "/pillars/news-deepdive" -}}
+{{- $pillars := slice $pillarRecord $pillarAI $pillarFinance $pillarNews -}}
 
 <!-- ================================================== -->
 <!-- TOP BAR -->
@@ -189,6 +196,38 @@
           <div class="ad-size">AdSense: in-feed / fluid</div>
         </div>
       </div>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== -->
+<!-- ④.5 PILLARS（4本柱への導線。2026-08-17追加） -->
+<!-- ================================================== -->
+<section id="pillars">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Pillars</span>
+        <h2 class="section-title">4つのテーマで書いています</h2>
+        <p class="section-sub">資産形成の実践記録・AI活用・金融の仕組み解説・制度ニュースの深掘り。この4本柱を軸にブログを構成しています。</p>
+      </div>
+    </div>
+
+    <div class="pillar-card-grid">
+      {{- range $p := $pillars }}
+      {{- if $p }}
+      {{- $cnt := len (where $allPosts "Params.categories" "intersect" ($p.Params.categories_in_scope | default (slice))) }}
+      <a href="{{ $p.RelPermalink }}" class="pillar-card">
+        <div class="pillar-card-eyebrow">{{ $p.Params.pillar_eyebrow | default "Pillar" }}</div>
+        <div class="pillar-card-name">{{ $p.Title }}</div>
+        <div class="pillar-card-desc">{{ $p.Params.description }}</div>
+        <div class="pillar-card-meta">
+          <span class="pillar-card-count">{{ $cnt }} articles</span>
+          <span class="pillar-card-arrow">→</span>
+        </div>
+      </a>
       {{- end }}
       {{- end }}
     </div>

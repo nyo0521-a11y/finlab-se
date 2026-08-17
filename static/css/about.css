@@ -199,48 +199,13 @@
 }
 .about-prose p:last-child { margin-bottom: 0; }
 
-/* ===== PILLAR GRID ===== */
-.about-pillar-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-}
-.about-pillar {
-  display: flex; flex-direction: column;
-  padding: 20px 18px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  transition: all 0.18s ease;
-}
-.about-pillar:hover {
-  border-color: var(--accent-700);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-}
-.about-pillar-eyebrow {
-  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--accent-700); font-weight: 600;
-  margin-bottom: 6px;
-}
-.about-pillar-name {
-  font-size: 16px; font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--ink);
-}
-.about-pillar-desc {
-  font-size: 13px; color: var(--ink-3); line-height: 1.7;
-  flex: 1;
-  margin-bottom: 14px;
-}
-.about-pillar-meta {
-  display: flex; align-items: center; justify-content: space-between;
-  font-size: 12px; color: var(--ink-3);
-  border-top: 1px solid var(--line);
-  padding-top: 12px;
-}
-.about-pillar-arrow { font-size: 16px; color: var(--accent-700); }
+/* ===== PILLAR GRID =====
+   実体は static/css/pillar-card.css に切り出し済み（2026-08-17）。
+   about.html 側は .pillar-card-grid / .pillar-card 系クラスを使用する。
+   トップページ（home.css）とこのファイルの両方から共通利用するため、
+   about スコープに閉じた重複定義は持たない
+   （topbar/footer が7ファイルに重複した反省を踏まえた対応）。
+   読み込みは layouts/partials/extend_head.html 側で About/Home 両方に付与している。 */
 
 /* ===== POLICY LIST ===== */
 .about-policy {
