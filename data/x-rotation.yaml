@@ -268,8 +268,8 @@ rotation:
   promote_count: 2
   priority: normal
 - post_path: content/posts/claude-code-reduce-permission-prompts.md
-  last_promoted: '2026-06-21T07:05:28+09:00'
-  promote_count: 1
+  last_promoted: '2026-08-17T21:05:56+09:00'
+  promote_count: 2
   priority: normal
 - post_path: content/posts/cloudflare-pages-blog-publish-flow.md
   last_promoted: '2026-06-24T07:05:37+09:00'
