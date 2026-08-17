@@ -422,22 +422,40 @@
           </div>
         </label>
         <label class="field" style="margin-top:10px">
-          <span class="lbl">感応度レンジの上昇幅<small>（現在からの上昇pt。%ではない）</small></span>
+          <span class="lbl">1回あたりの上昇幅<small>（目安0.3pt。2024〜2025年の銀行転嫁実績を参考にした値。変更可能）</small></span>
           <div class="suffix">
-            <input class="ipt" type="number" id="inp-rangeMax" value="3.0" min="0.5" max="10" step="0.1" />
+            <input class="ipt" type="number" id="inp-rateStepAmount" value="0.3" min="0" max="2" step="0.05" />
             <span class="unit">pt</span>
           </div>
         </label>
-        <p class="hint" id="range-preview" style="margin-top:6px"></p>
         <label class="field" style="margin-top:10px">
-          <span class="lbl">感応度レンジの刻み幅<small>（表示専用。試算結果の金額には影響しません）</small></span>
+          <span class="lbl">上昇の間隔<small>（目安6ヶ月。変更可能。最大120ヶ月＝10年）</small></span>
+          <div class="suffix">
+            <input class="ipt" type="number" id="inp-rateStepMonths" value="6" min="1" max="120" step="1" />
+            <span class="unit">ヶ月</span>
+          </div>
+        </label>
+        <label class="field" style="margin-top:10px">
+          <span class="lbl">上限金利<small>（感応度分析で試算する上限。市場の金利上限という意味ではありません）</small></span>
+          <div class="suffix">
+            <input class="ipt" type="number" id="inp-upperLimit" value="3.5" min="0" max="10" step="0.1" />
+            <span class="unit">%</span>
+          </div>
+        </label>
+        <p class="hint" style="margin-top:10px">参考：2026年8月15日確認時点の主要行の変動金利は概ね1.0〜1.3%程度です。<a href="https://mogecheck.jp/mortgage-ranking/purchase" target="_blank" rel="noopener">モゲチェックで最新金利を確認</a></p>
+        <div class="stale-warning" id="stale-warning">上記の参考値は確認から90日以上が経過しています。リンク先で最新の金利をご確認ください。</div>
+      </div>
+
+      <div class="sketch-card">
+        <h3><span class="num">04</span> シミュレーション表示設定</h3>
+        <p class="hint">ここは表・グラフの見せ方だけを決める設定です。試算結果の金額には影響しません。</p>
+        <label class="field" style="margin-top:10px">
+          <span class="lbl">感応度レンジの刻み幅<small>（表示専用）</small></span>
           <div class="suffix">
             <input class="ipt" type="number" id="inp-sensitivityStep" value="0.25" min="0.05" max="1" step="0.05" />
             <span class="unit">pt</span>
           </div>
         </label>
-        <p class="hint" style="margin-top:10px">参考：2026年8月15日確認時点の主要行の変動金利は概ね1.0〜1.3%程度です。<a href="https://mogecheck.jp/mortgage-ranking/purchase" target="_blank" rel="noopener">モゲチェックで最新金利を確認</a></p>
-        <div class="stale-warning" id="stale-warning">上記の参考値は確認から90日以上が経過しています。リンク先で最新の金利をご確認ください。</div>
       </div>
     </div>
 
@@ -737,19 +755,15 @@ function readInputs() {
     fixedYears1: readNumber('inp-fixedYears1'),
     fixedRate2: readNumber('inp-fixedRate2'),
     variableStart: readNumber('inp-variableStart'),
-    rangeMax: readNumber('inp-rangeMax'),
+    rateStepAmountPercent: readNumber('inp-rateStepAmount'),
+    rateStepMonths: readNumber('inp-rateStepMonths'),
+    upperLimit: readNumber('inp-upperLimit'),
     sensitivityStep: readNumber('inp-sensitivityStep'),
   };
 }
 
 function formatMan(yen) {
   return Math.round(yen / 10000).toLocaleString('ja-JP');
-}
-
-function updateRangePreview(inputs) {
-  const final = (inputs.variableStart + inputs.rangeMax).toFixed(2);
-  document.getElementById('range-preview').textContent =
-    `現在${inputs.variableStart}% + 上昇幅${inputs.rangeMax}pt ＝ 最終${final}%まで試算`;
 }
 
 function updateStaleWarning() {
@@ -925,7 +939,6 @@ function renderScenarioDetail(point, fixedResult) {
 
 function recalculate() {
   const inputs = readInputs();
-  updateRangePreview(inputs);
   updateStaleWarning();
 
   const errorEl = document.getElementById('input-error');
@@ -939,7 +952,11 @@ function recalculate() {
   errorEl.style.display = 'none';
 
   const fixedResult = simulateFixed(inputs.principal, inputs.fixedRate1, inputs.fixedYears1, inputs.fixedRate2, inputs.years);
-  const points = buildSensitivity(inputs.principal, fixedResult, inputs.variableStart, inputs.rangeMax, inputs.sensitivityStep);
+  const rangeMax = inputs.upperLimit - inputs.variableStart;
+  const points = buildSensitivity(
+    inputs.principal, fixedResult, inputs.variableStart, rangeMax, inputs.sensitivityStep,
+    inputs.rateStepMonths, inputs.rateStepAmountPercent
+  );
   const breakeven = findBreakeven(points);
   renderResults(inputs, fixedResult, points, breakeven);
 }
