@@ -224,8 +224,10 @@
     font-family:var(--hand);font-size:15px;color:var(--ink-2);margin-bottom:6px;font-weight:700;
   }
   .chartWrap{
-    position:relative;height:300px;border:1.5px solid var(--ink);border-radius:12px;padding:10px;background:#fff;
+    position:relative;height:300px;width:100%;max-width:100%;box-sizing:border-box;overflow:hidden;
+    border:1.5px solid var(--ink);border-radius:12px;padding:10px;background:#fff;
   }
+  #sensitivityChart{max-width:100% !important}
 
   /* ---------- table ---------- */
   .table-scroll{overflow:auto;max-height:340px;border:1.5px solid var(--ink);border-radius:10px}
@@ -236,6 +238,7 @@
   }
   thead th:first-child{text-align:center}
   tbody tr:nth-child(even){background:#fafafa}
+  tbody tr[tabindex]:focus{outline:3px solid var(--accent-2);outline-offset:-2px}
   tbody td{
     padding:6px 10px;text-align:right;color:var(--ink-2);border-bottom:1px solid #f0f0f0;
   }
@@ -282,13 +285,15 @@
 
   /* ---------- 2-col layout ---------- */
   .grid{
-    display:grid;grid-template-columns:minmax(340px, 420px) 1fr;gap:20px;
+    display:grid;grid-template-columns:minmax(340px, 420px) minmax(0, 1fr);gap:20px;
   }
-  .left{display:flex;flex-direction:column;gap:16px}
-  .right{display:flex;flex-direction:column;gap:16px}
+  .left{display:flex;flex-direction:column;gap:16px;min-width:0}
+  .right{display:flex;flex-direction:column;gap:16px;min-width:0}
 
   @media (max-width:960px){
-    .grid{grid-template-columns:1fr}
+    /* minmax(0,1fr)必須: 単なる1frだとグリッドトラックがcanvasの内在幅まで縮まず、
+       スマホ幅でページ全体が横はみ出しする（Chart.jsのcanvasが主因） */
+    .grid{grid-template-columns:minmax(0, 1fr)}
     .hero{grid-template-columns:1fr}
     .hero .side{min-width:0}
     .result-grid{grid-template-columns:1fr}
@@ -756,7 +761,7 @@ function renderResults(inputs, fixedResult, points, breakeven) {
       return `<tr class="${highlightClass}" data-index="${i}"><td>${p.endRate.toFixed(2)}%</td><td class="infeasible" colspan="4">${msg}</td></tr>`;
     }
     const strategyYearsLabel = `${(p.months / 12).toFixed(1)}年`;
-    return `<tr class="${highlightClass}" data-index="${i}" style="cursor:pointer">
+    return `<tr class="${highlightClass}" data-index="${i}" style="cursor:pointer" tabindex="0" role="button" aria-label="変動金利${p.endRate.toFixed(2)}%まで上がった場合の詳細を見る">
       <td>${p.endRate.toFixed(2)}%</td>
       <td>${strategyYearsLabel} <span class="sub">(固定 ${fixedYearsLabel})</span></td>
       <td>${formatMan(p.totalPaid)}万円 <span class="sub">(固定 ${formatMan(fixedResult.totalPaid)}万円)</span></td>
@@ -795,9 +800,16 @@ function renderResults(inputs, fixedResult, points, breakeven) {
   `;
 
   container.querySelectorAll('tbody tr[data-index]').forEach(tr => {
-    tr.addEventListener('click', () => {
+    const openDetail = () => {
       const idx = Number(tr.dataset.index);
       if (typeof renderScenarioDetail === 'function') renderScenarioDetail(points[idx], fixedResult);
+    };
+    tr.addEventListener('click', openDetail);
+    tr.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault(); // Spaceによるページスクロールを防ぐ
+        openDetail();
+      }
     });
   });
 
