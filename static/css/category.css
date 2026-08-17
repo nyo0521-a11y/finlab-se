@@ -58,16 +58,30 @@
    .topbar / .brand* / .nav* はページ非スコープの共通スタイルに一本化したため、
    ここでの重複定義は削除した。 */
 
-/* ===== カテゴリヘッダー ===== */
+/* ===== カテゴリヘッダー =====
+   about-banner.png（トップ/Aboutと同じ画像）をタイトル文字の背面に敷き、
+   全ページ統一感を出す。breadcrumb・eyebrow・h1・lede・統計ピルなど文字要素が
+   多いため、白系オーバーレイを3層（アクセント radial → 左右フェード → 上下フェード）
+   重ねて文字の可読性を最優先にする。画像はページ右側に寄せ、テキストが乗る左側は
+   オーバーレイをほぼ不透明にしている（2026-08-17追加。ダークモード非対応のため
+   var(--bg) 等トークンではなく固定rgbaを使用。このスコープに .dark 用の定義は無い）。
+   .term .cat-header, .terms .cat-header の2セレクタで /categories/<name>/ と
+   /categories/ の両方に効く。 */
 .term .cat-header, .terms .cat-header {
   padding: 56px 0 36px;
   background:
     radial-gradient(900px 360px at 85% -10%, rgba(16,185,129,.08), transparent 60%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg) 65%, var(--bg-soft) 100%);
+    linear-gradient(100deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.88) 30%, rgba(255,255,255,.60) 55%, rgba(255,255,255,.42) 78%, rgba(255,255,255,.58) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(247,248,247,.55) 78%, rgba(247,248,247,.94) 100%),
+    url("/images/about-banner.png") center right / cover no-repeat;
   border-bottom: 1px solid var(--line);
 }
 @media (max-width: 720px) {
-  .term .cat-header, .terms .cat-header { padding: 40px 0 28px; }
+  .term .cat-header, .terms .cat-header {
+    padding: 40px 0 28px;
+    /* cover指定で画像が大きく拡大されるため、変な位置で切り取られないよう中央寄せにする */
+    background-position: 0 0, 0 0, 0 0, center center;
+  }
 }
 
 .term .breadcrumb, .terms .breadcrumb {
