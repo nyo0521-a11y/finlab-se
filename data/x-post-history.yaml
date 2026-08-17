@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-18T07:31:33+09:00'
+    text: 
+      国債市場で「3%」の大台も現実味と報じられ、日銀の利上げ観測が強まっています。金利が上がる局面で、個人向け国債と定期預金・株式をどう使い分けるか。「いつ使うお金か」で整理する考え方を金融SEがまとめました。
+    tweet_id: '2089480277391183877'
+    tweet_url: https://x.com/i/web/status/2089480277391183877
+    type: topic
+    post_path: content/posts/individual-jgb-vs-deposit-2026.md
   - posted_at: '2026-08-17T21:05:56+09:00'
     text: "【おすすめ📖】\nClaude Codeの許可ダイアログを減らす方法。settings.jsonとCLAUDE.mdにコピペ用プロンプトを貼るだけで、危険な操作だけをブロックする設定が完成し、…\n\
       \nhttps://finlab-se.com/posts/claude-code-reduce-permission-prompts/\n\n#ClaudeCode
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2080263305894166990
     type: rotation
     post_path: content/posts/credit-card-free-annual-fee-model.md
-  - posted_at: '2026-07-23T07:32:02+09:00'
-    text: 
-      円安・金利をめぐる政策の議論が続き、金利上昇局面での資金の置きどころに関心が集まっています。個人向け国債と定期預金・株式の使い分けを「いつ使うお金か」で整理しました。落ち着いて資産配分を見直したい方へ。
-    tweet_id: '2080058313715445809'
-    tweet_url: https://x.com/i/web/status/2080058313715445809
-    type: topic
-    post_path: content/posts/individual-jgb-vs-deposit-2026.md
