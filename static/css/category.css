@@ -79,8 +79,19 @@
 @media (max-width: 720px) {
   .term .cat-header, .terms .cat-header {
     padding: 40px 0 28px;
-    /* cover指定で画像が大きく拡大されるため、変な位置で切り取られないよう中央寄せにする */
-    background-position: 0 0, 0 0, 0 0, center center;
+    /* モバイルは横幅が狭く、統計ピル・パンくずなど文字要素がほぼ全幅を占めるため、
+       デスクトップ側の斜めグラデーション（右側だけ画像を見せる設計）を維持したままでは
+       左右どこに文字が来ても背景画像の明るい部分に負けてコントラスト不足になりうる。
+       そのためモバイルのみ背景を単層の白ウォッシュ（rgba(255,255,255,.97) 均一）+
+       薄いアクセントradialに簡略化し、画像はほぼ透けない程度まで覆う。
+       cover指定で画像が大きく拡大されるため、変な位置で切り取られないよう中央寄せにする。
+       実測（html2canvasによるcanvas再合成、テキストを透明化してから背景のみをサンプリング
+       する方式）で、破線区切り記号「/」を除く全テキスト要素がAA基準(4.5:1)を上回ることを
+       確認済み（2026-08-17。list.css の .posts-list .list-header と同一方針）。 */
+    background:
+      radial-gradient(900px 360px at 85% -10%, rgba(16,185,129,.04), transparent 60%),
+      linear-gradient(rgba(255,255,255,.97), rgba(255,255,255,.97)),
+      url("/images/about-banner.png") center center / cover no-repeat;
   }
 }
 
