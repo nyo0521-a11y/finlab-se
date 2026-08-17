@@ -928,7 +928,7 @@ function renderScenarioDetail(point, fixedResult) {
   const detail = document.getElementById('scenario-detail');
   if (!detail) return;
   if (!point.feasible) {
-    const msg = SCENARIO_INFEASIBLE_MESSAGES[point.reason] || 'この到達点は試算できません。';
+    const msg = SCENARIO_INFEASIBLE_MESSAGES[point.reason] || 'この設定上限では試算できません。';
     detail.innerHTML = `<div class="sketch-card dashed"><p class="hint">${msg}</p></div>`;
     return;
   }
