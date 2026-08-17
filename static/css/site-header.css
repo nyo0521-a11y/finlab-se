@@ -171,4 +171,4 @@
    - AdSense承認後は、この1ブロックを削除するだけで元の広告枠がすべて復活する。
      テンプレート側（各 layouts/*.html）は一切変更していない。
    ================================================================= */
-[aria-label="Advertisement slot"] { display: none; }
+[aria-label="Advertisement slot"] { display: none !important; }
