@@ -199,6 +199,15 @@
     display:inline-block;padding:2px 8px;border-radius:999px;border:1.2px solid var(--ink);
     font-family:var(--mono);font-size:10px;font-weight:700;
   }
+
+  /* 感応度テーブルの行ごとの詳細ボタン(キーボード・スクリーンリーダー対応) */
+  .row-detail-btn{
+    display:block;margin-top:4px;padding:2px 8px;border-radius:6px;border:1.2px solid var(--ink);
+    background:var(--paper);font-family:var(--mono);font-size:10px;font-weight:700;color:var(--ink);
+    cursor:pointer;
+  }
+  .row-detail-btn:hover{background:#fff}
+  .row-detail-btn:focus-visible{outline:3px solid var(--accent-2);outline-offset:1px}
   .ibadge.ok{background:#4ade80}
   .ibadge.ng{background:#fb923c}
 
@@ -238,7 +247,6 @@
   }
   thead th:first-child{text-align:center}
   tbody tr:nth-child(even){background:#fafafa}
-  tbody tr[tabindex]:focus{outline:3px solid var(--accent-2);outline-offset:-2px}
   tbody td{
     padding:6px 10px;text-align:right;color:var(--ink-2);border-bottom:1px solid #f0f0f0;
   }
@@ -761,11 +769,14 @@ function renderResults(inputs, fixedResult, points, breakeven) {
       return `<tr class="${highlightClass}" data-index="${i}"><td>${p.endRate.toFixed(2)}%</td><td class="infeasible" colspan="4">${msg}</td></tr>`;
     }
     const strategyYearsLabel = `${(p.months / 12).toFixed(1)}年`;
-    return `<tr class="${highlightClass}" data-index="${i}" style="cursor:pointer" tabindex="0" role="button" aria-label="変動金利${p.endRate.toFixed(2)}%まで上がった場合の詳細を見る">
+    return `<tr class="${highlightClass}" data-index="${i}">
       <td>${p.endRate.toFixed(2)}%</td>
       <td>${strategyYearsLabel} <span class="sub">(固定 ${fixedYearsLabel})</span></td>
       <td>${formatMan(p.totalPaid)}万円 <span class="sub">(固定 ${formatMan(fixedResult.totalPaid)}万円)</span></td>
-      <td class="gap-val ${p.diff >= 0 ? 'pos' : 'neg'}">${p.diff >= 0 ? '戦略+' : '固定+'}${formatMan(Math.abs(p.diff))}万円</td>
+      <td class="gap-val ${p.diff >= 0 ? 'pos' : 'neg'}">
+        ${p.diff >= 0 ? '戦略+' : '固定+'}${formatMan(Math.abs(p.diff))}万円
+        <button type="button" class="row-detail-btn" data-index="${i}" aria-label="変動金利${p.endRate.toFixed(2)}%まで上がった場合の詳細を見る">詳細を見る</button>
+      </td>
     </tr>`;
   }).join('');
 
@@ -779,7 +790,7 @@ function renderResults(inputs, fixedResult, points, breakeven) {
     </div>
     <div class="sketch-card">
       <h3><span class="num">表</span> 感応度テーブル</h3>
-      <p class="hint">行をクリックすると詳細が下に表示されます</p>
+      <p class="hint">「詳細を見る」ボタンで詳細が下に表示されます</p>
       <div class="table-scroll">
         <table>
           <thead><tr><th>変動金利到達点</th><th>完済年数</th><th>総支払額</th><th>差額</th></tr></thead>
@@ -799,17 +810,10 @@ function renderResults(inputs, fixedResult, points, breakeven) {
     </a>
   `;
 
-  container.querySelectorAll('tbody tr[data-index]').forEach(tr => {
-    const openDetail = () => {
-      const idx = Number(tr.dataset.index);
+  container.querySelectorAll('.row-detail-btn[data-index]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.dataset.index);
       if (typeof renderScenarioDetail === 'function') renderScenarioDetail(points[idx], fixedResult);
-    };
-    tr.addEventListener('click', openDetail);
-    tr.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault(); // Spaceによるページスクロールを防ぐ
-        openDetail();
-      }
     });
   });
 
