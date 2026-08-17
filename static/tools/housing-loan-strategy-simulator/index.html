@@ -342,6 +342,12 @@
     background:#f8fafc;border:1.5px dashed var(--ink);border-radius:12px;
     padding:14px 16px;font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:10px;
   }
+
+  /* ---------- 上限金利未到達の注記 ---------- */
+  .reached-note{
+    display:block;margin-top:3px;font-family:var(--gothic);font-size:10px;
+    font-weight:500;color:#92400e;line-height:1.4;white-space:normal;
+  }
 </style>
 </head>
 <body>
@@ -820,13 +826,16 @@ function renderResults(inputs, fixedResult, points, breakeven) {
       return `<tr class="${highlightClass}" data-index="${i}"><td>${p.endRate.toFixed(2)}%</td><td class="infeasible" colspan="4">${msg}</td></tr>`;
     }
     const strategyYearsLabel = `${(p.months / 12).toFixed(1)}年`;
+    const reachedNote = p.reachedTarget === false
+      ? `<span class="reached-note">※完済までにこの設定上限へは到達せず、実際は${p.maxRatePercentReached.toFixed(2)}%止まりでした</span>`
+      : '';
     return `<tr class="${highlightClass}" data-index="${i}">
-      <td>${p.endRate.toFixed(2)}%</td>
+      <td>${p.endRate.toFixed(2)}%${reachedNote}</td>
       <td>${strategyYearsLabel} <span class="sub">(固定 ${fixedYearsLabel})</span></td>
       <td>${formatMan(p.totalPaid)}万円 <span class="sub">(固定 ${formatMan(fixedResult.totalPaid)}万円)</span></td>
       <td class="gap-val ${p.diff >= 0 ? 'pos' : 'neg'}">
         ${p.diff >= 0 ? '戦略+' : '固定+'}${formatMan(Math.abs(p.diff))}万円
-        <button type="button" class="row-detail-btn" data-index="${i}" aria-label="変動金利${p.endRate.toFixed(2)}%まで上がった場合の詳細を見る">詳細を見る</button>
+        <button type="button" class="row-detail-btn" data-index="${i}" aria-label="変動金利の設定上限${p.endRate.toFixed(2)}%の場合の詳細を見る">詳細を見る</button>
       </td>
     </tr>`;
   }).join('');
@@ -844,16 +853,16 @@ function renderResults(inputs, fixedResult, points, breakeven) {
       <p class="hint">「詳細を見る」ボタンで詳細が下に表示されます</p>
       <div class="table-scroll">
         <table>
-          <thead><tr><th>変動金利到達点</th><th>完済年数</th><th>総支払額</th><th>差額</th></tr></thead>
+          <thead><tr><th>変動金利の設定上限</th><th>完済年数</th><th>総支払額</th><th>差額</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
     </div>
+    <div id="scenario-detail"></div>
     <div class="sketch-card">
       <h3><span class="num">図</span> 感応度グラフ</h3>
       <div class="chartWrap"><canvas id="sensitivityChart"></canvas></div>
     </div>
-    <div id="scenario-detail"></div>
     <a class="rel-card" href="/posts/housing-loan-variable-fixed-simulation/">
       <span class="kbd">ARTICLE</span>
       <span class="tt">差額繰り上げ戦略の考え方・保険料としての捉え方・向いていない人のタイプ</span>
@@ -926,12 +935,16 @@ function renderScenarioDetail(point, fixedResult) {
   const message = point.diff >= 0
     ? `固定金利を選んだ場合の追加コストは、総額で約${formatMan(point.diff)}万円——いわば"保険料"に相当します。`
     : `この条件では、変動＋差額繰り上げ戦略の方が総支払額で約${formatMan(Math.abs(point.diff))}万円多くなります（固定金利の方が有利です）。`;
+  const reachedNote = point.reachedTarget === false
+    ? `<p class="hint" style="color:#92400e">※完済までにこの設定上限(${point.endRate.toFixed(2)}%)へは到達せず、実際に適用された金利は最大${point.maxRatePercentReached.toFixed(2)}%でした。</p>`
+    : '';
   detail.innerHTML = `
     <div class="sketch-card">
-      <h3><span class="num">詳細</span> 変動金利 ${point.endRate.toFixed(2)}% まで上がった場合</h3>
+      <h3><span class="num">詳細</span> 変動金利の設定上限を${point.endRate.toFixed(2)}%にした場合</h3>
       <div class="result-row"><span class="lbl">戦略の総支払額</span><span class="val">${formatMan(point.totalPaid)}万円</span></div>
       <div class="result-row"><span class="lbl">固定の総支払額</span><span class="val">${formatMan(fixedResult.totalPaid)}万円</span></div>
       <div class="result-divider"></div>
+      ${reachedNote}
       <p class="hint">${message}</p>
     </div>
   `;
