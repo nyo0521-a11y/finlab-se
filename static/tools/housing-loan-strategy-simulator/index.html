@@ -522,30 +522,50 @@ function simulateFixed(principal, fixedRate1Percent, fixedYears1, fixedRate2Perc
 /**
  * 「固定金利と同額を毎月支払い、差額を繰り上げ返済に充てる」戦略の月次シミュレーション。
  * 変動金利は rateStepMonths ごとに rateStepAmountPercent だけ上昇し、endRatePercent で頭打ちになる。
- * @returns {{feasible:boolean, totalPaid:number|null, totalInterest:number|null, months:number|null, reason:'interest-exceeds-payment'|'max-duration-exceeded'|null}}
+ * @returns {{feasible:boolean, totalPaid:number|null, totalInterest:number|null, months:number|null, reason:'interest-exceeds-payment'|'max-duration-exceeded'|null, reachedTarget:boolean|null, maxRatePercentReached:number|null}}
  */
 function simulateStrategy(
   principal, payment1, payment2, n1Months, totalMonths,
   variableStartPercent, endRatePercent,
   rateStepMonths = 6, rateStepAmountPercent = 0.3, maxExtraMonths = 120
 ) {
+  // validateInputs は呼び出し元(recalculate)を経由した場合の防御にすぎず、
+  // エクスポートされたこの関数を直接(テストや将来の別呼び出し元から)呼ぶ経路には効かない。
+  // rateStepMonthsが0だとMath.floor(month/0)がInfinity→NaNとなりbalanceがNaN汚染されるため、
+  // 関数自身でも独立して防御する（buildSensitivityのsensitivityStepPtガードと同じ方針）。
+  if (!Number.isInteger(rateStepMonths) || rateStepMonths < 1) {
+    throw new Error('rateStepMonths must be an integer greater than or equal to 1');
+  }
+  if (!Number.isFinite(rateStepAmountPercent) || rateStepAmountPercent < 0) {
+    throw new Error('rateStepAmountPercent must be a non-negative finite number');
+  }
+
   let balance = principal;
   let totalPaid = 0;
   let totalInterest = 0;
   let month = 0;
   const maxMonths = totalMonths + maxExtraMonths;
+  let reachedTarget = false;
+  let maxRatePercentReached = variableStartPercent;
 
   while (balance > 0.01 && month < maxMonths) {
     const targetPayment = month < n1Months ? payment1 : payment2;
     const stepsElapsed = Math.floor(month / rateStepMonths);
-    let ratePercent = variableStartPercent + stepsElapsed * rateStepAmountPercent;
-    ratePercent = Math.min(ratePercent, endRatePercent);
+    // クランプ前の理論上の金利。endRatePercentへ実際に到達したかどうかの判定に使う
+    const appliedRate = variableStartPercent + stepsElapsed * rateStepAmountPercent;
+    if (appliedRate >= endRatePercent - 1e-9) {
+      // 浮動小数点誤差(例: 1.3 + 6*0.3 は 3.1 よりわずかに小さく評価される)で
+      // 到達判定を取りこぼさないよう許容誤差を設ける
+      reachedTarget = true;
+    }
+    let ratePercent = Math.min(appliedRate, endRatePercent);
+    maxRatePercentReached = Math.max(maxRatePercentReached, ratePercent);
     const monthlyRate = (ratePercent / 100) / 12;
     const interest = balance * monthlyRate;
 
     if (interest >= targetPayment) {
       // 毎月の返済額が利息を下回るため元本が減らない状態。試算不能とする。
-      return { feasible: false, totalPaid: null, totalInterest: null, months: null, reason: 'interest-exceeds-payment' };
+      return { feasible: false, totalPaid: null, totalInterest: null, months: null, reason: 'interest-exceeds-payment', reachedTarget: null, maxRatePercentReached: null };
     }
 
     let principalPaid = targetPayment - interest;
@@ -563,18 +583,18 @@ function simulateStrategy(
 
   if (balance > 0.01) {
     // 計算打ち切り猶予(maxExtraMonths)に達しても完済しなかった（返済額が利息をわずかに上回るだけ等）
-    return { feasible: false, totalPaid: null, totalInterest: null, months: null, reason: 'max-duration-exceeded' };
+    return { feasible: false, totalPaid: null, totalInterest: null, months: null, reason: 'max-duration-exceeded', reachedTarget: null, maxRatePercentReached: null };
   }
 
-  return { feasible: true, totalPaid, totalInterest, months: month, reason: null };
+  return { feasible: true, totalPaid, totalInterest, months: month, reason: null, reachedTarget, maxRatePercentReached };
 }
 
 /**
  * 変動金利の最終到達点をレンジ・刻み幅でスイープし、感応度データを生成する。
  * sensitivityStepPt は表示専用（何本の点を出すか）で、simulateStrategy内部の金利上昇ペースとは無関係。
- * @returns {Array<{endRate:number, feasible:boolean, totalPaid:number|null, diff:number|null}>}
+ * @returns {Array<{endRate:number, feasible:boolean, totalPaid:number|null, months:number|null, diff:number|null, reason:string|null, reachedTarget:boolean|null, maxRatePercentReached:number|null}>}
  */
-function buildSensitivity(principal, fixedResult, variableStartPercent, rangeMaxPt, sensitivityStepPt) {
+function buildSensitivity(principal, fixedResult, variableStartPercent, rangeMaxPt, sensitivityStepPt, rateStepMonths = 6, rateStepAmountPercent = 0.3) {
   // 呼び出し側(recalculate)でvalidateInputsによりsensitivityStepPt > 0を保証する想定だが、
   // 万一0以下の値が渡された場合に無限ループ・メモリ枯渇を起こさないよう、ここでも安全弁を設ける。
   if (!(sensitivityStepPt > 0) || !Number.isFinite(sensitivityStepPt)) {
@@ -595,7 +615,8 @@ function buildSensitivity(principal, fixedResult, variableStartPercent, rangeMax
     const strat = simulateStrategy(
       principal, fixedResult.payment1, fixedResult.payment2,
       fixedResult.n1Months, fixedResult.totalMonths,
-      variableStartPercent, clamped
+      variableStartPercent, clamped,
+      rateStepMonths, rateStepAmountPercent
     );
     points.push({
       endRate: clamped,
@@ -604,6 +625,8 @@ function buildSensitivity(principal, fixedResult, variableStartPercent, rangeMax
       months: strat.feasible ? strat.months : null,
       diff: strat.feasible ? (fixedResult.totalPaid - strat.totalPaid) : null,
       reason: strat.reason,
+      reachedTarget: strat.reachedTarget,
+      maxRatePercentReached: strat.maxRatePercentReached,
     });
     if (clamped >= cap - 1e-9) break;
     endRate += sensitivityStepPt;
@@ -646,12 +669,19 @@ function isReferenceStale(referenceDateISO, now, staleDays = 90) {
 
 /**
  * ツールの全入力値を計算前に検証する。sensitivityStepが0以下だとbuildSensitivityが
- * 無限ループしメモリを食い潰すため、ここで必ず弾く。
+ * 無限ループしメモリを食い潰すため、ここで必ず弾く。rateStepMonthsが0だとsimulateStrategy内部で
+ * NaN汚染が起きるため、こちらも必ず弾く。
  * @returns {{valid:boolean, message:string|null}}
  */
 function validateInputs(inputs) {
-  const { principal, years, fixedRate1, fixedYears1, fixedRate2, variableStart, rangeMax, sensitivityStep } = inputs;
-  const allValues = [principal, years, fixedRate1, fixedYears1, fixedRate2, variableStart, rangeMax, sensitivityStep];
+  const {
+    principal, years, fixedRate1, fixedYears1, fixedRate2,
+    variableStart, upperLimit, rateStepMonths, rateStepAmountPercent, sensitivityStep,
+  } = inputs;
+  const allValues = [
+    principal, years, fixedRate1, fixedYears1, fixedRate2,
+    variableStart, upperLimit, rateStepMonths, rateStepAmountPercent, sensitivityStep,
+  ];
 
   if (allValues.some(v => typeof v !== 'number' || !Number.isFinite(v))) {
     return { valid: false, message: '入力値に空欄または数値以外の値があります。すべての項目に数値を入力してください。' };
@@ -668,16 +698,23 @@ function validateInputs(inputs) {
   if (!(Number.isInteger(fixedYears1) && fixedYears1 >= 0 && fixedYears1 < years)) {
     return { valid: false, message: '金利引下げ期間は0以上、かつ返済期間より短い整数（年）で入力してください。' };
   }
-  if (!(rangeMax >= 0)) {
-    return { valid: false, message: '感応度レンジの上昇幅は0以上の値を入力してください。' };
+  if (!(Number.isInteger(rateStepMonths) && rateStepMonths >= 1 && rateStepMonths <= 120)) {
+    return { valid: false, message: '上昇の間隔は1〜120の整数（ヶ月）で入力してください。' };
+  }
+  if (!(rateStepAmountPercent >= 0)) {
+    return { valid: false, message: '1回あたりの上昇幅は0以上の値を入力してください。' };
+  }
+  if (!(upperLimit > variableStart)) {
+    return { valid: false, message: '上限金利は現在の変動金利より大きい値を入力してください。' };
   }
   if (!(sensitivityStep > 0)) {
     return { valid: false, message: '感応度レンジの刻み幅は0より大きい値を入力してください。' };
   }
+  const rangeMax = upperLimit - variableStart;
   const MAX_SENSITIVITY_POINTS = 1000;
   const requiredPoints = Math.ceil(rangeMax / sensitivityStep) + 1; // buildSensitivityは始点も1点として数えるため+1
   if (requiredPoints > MAX_SENSITIVITY_POINTS) {
-    return { valid: false, message: '感応度レンジの刻み幅が上昇幅に対して細かすぎます。刻み幅を大きくするか、上昇幅を小さくしてください。' };
+    return { valid: false, message: '感応度レンジの刻み幅が上昇幅に対して細かすぎます。刻み幅を大きくするか、上限金利を下げてください。' };
   }
   return { valid: true, message: null };
 }
