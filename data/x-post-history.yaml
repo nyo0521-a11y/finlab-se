@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-19T07:31:33+09:00'
+    text: '2026年は年収の壁が大きく変わります。106万円の壁撤廃や税制改正で、パート・共働き世帯の手取りや年金は立場によって影響が分かれます。まず自分に関係する壁を整理してから働き方を考えるのがおすすめです。
+      https://finlab-se.com/posts/income-wall-2026/ #年収の壁 #社会保険 #NISA'
+    tweet_id: '2089842665080934430'
+    tweet_url: https://x.com/i/web/status/2089842665080934430
+    type: topic
+    post_path: content/posts/income-wall-2026.md
   - posted_at: '2026-08-18T21:05:56+09:00'
     text: "【おすすめ📖】\nXの自動投稿の\\\"中身\\\"＝何を投稿するかを、Claude Codeに任せた記録。毎朝その日のニュースを読んで話題に合った記事を選ばせ、検索に頼らないSNS流入を作る仕組みを、コードなしで解説します。\n\
       \nhttps://finlab-se.com/posts/claude-code-x-news-linked-post/"
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2080625699413766612
     type: rotation
     post_path: content/posts/income-wall-106-takehome-pension-2026.md
-  - posted_at: '2026-07-24T07:32:14+09:00'
-    text: 
-      「マグニフィセント7が130兆円消失、AI投資への懸念」というニュースが話題です。生成AIは万能ではなく、AI資産運用に「できること・できないこと」を切り分けて理解しておくことが大切です。ロボアドの正体を金融SEがやさしく整理しました。
-    tweet_id: '2080420751484793268'
-    tweet_url: https://x.com/i/web/status/2080420751484793268
-    type: topic
-    post_path: content/posts/ai-asset-management-robo-advisor-2026.md
