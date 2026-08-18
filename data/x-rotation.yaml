@@ -392,8 +392,8 @@ rotation:
   promote_count: 1
   priority: normal
 - post_path: content/posts/claude-code-x-news-linked-post.md
-  last_promoted: '2026-06-23T22:22:45+09:00'
-  promote_count: 1
+  last_promoted: '2026-08-18T21:05:56+09:00'
+  promote_count: 2
   priority: normal
 - post_path: content/posts/smbc-gold-nl-100man-review.md
   last_promoted: '2026-06-25T21:05:43+09:00'
