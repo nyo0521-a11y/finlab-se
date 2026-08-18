@@ -217,6 +217,7 @@ def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dic
 
     system, user = build_messages(news, catalog)
     valid_paths = {c["post_path"] for c in catalog}
+    url_by_path = {c["post_path"]: c["url"] for c in catalog}
 
     result = call(system, user)
     attempts = []  # 超過した各試行の {length, text} を記録（診断用）
@@ -232,6 +233,12 @@ def select(news: dict, repo_root: Path, now: datetime, call=_call_claude) -> dic
                     "candidates": result.get("candidates", []),
                     **({"attempts": attempts} if attempts else {})}
         text = result.get("text") or ""
+        # 注意: Claudeがシステムプロンプトの指示（URLを必ず含める）を守らず
+        # URL無しの投稿文を返すことがある（2026-07-24, 2026-08-18に朝枠で実際に発生）。
+        # 再生成させず機械的に末尾へ追記することで確実性を担保する。
+        if sel in url_by_path and not _URL_RE.search(text):
+            article_url = url_by_path[sel]
+            text = text.rstrip() + "\n\n" + article_url
         length = count_x_length(text)
         if length <= MAX_LEN:
             return {"selected_post_path": sel, "text": text,
