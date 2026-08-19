@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-19T21:05:57+09:00'
+    text: "【おすすめ📖】\nCloudflare PagesとGitHub Actionsで作るブログ公開フローの仕組みを整理しました。\n\nhttps://finlab-se.com/posts/cloudflare-pages-blog-publish-flow/\n\
+      \n#ブログ運営 #AI活用 #ClaudeCode"
+    tweet_id: '2090047614947619258'
+    tweet_url: https://x.com/i/web/status/2090047614947619258
+    type: rotation
+    post_path: content/posts/cloudflare-pages-blog-publish-flow.md
   - posted_at: '2026-08-19T07:31:33+09:00'
     text: '2026年は年収の壁が大きく変わります。106万円の壁撤廃や税制改正で、パート・共働き世帯の手取りや年金は立場によって影響が分かれます。まず自分に関係する壁を整理してから働き方を考えるのがおすすめです。
       https://finlab-se.com/posts/income-wall-2026/ #年収の壁 #社会保険 #NISA'
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2080783108496888143
     type: topic
     post_path: content/posts/bank-security-defense-in-depth-phishing.md
-  - posted_at: '2026-07-24T21:06:37+09:00'
-    text: "【おすすめ📖】\n2026年10月の106万円の壁撤廃で、社会保険に加入すると手取りは月収別にいくら減るのか。8.8万・10万・12万円の保険料負担、厚生年金で増える年金額と損益分岐、障害・遺族年金の保障メリットまで試算します。\n\
-      \nhttps://finlab-se.com/posts/income-wall-106-takehome-pension-2026/"
-    tweet_id: '2080625699413766612'
-    tweet_url: https://x.com/i/web/status/2080625699413766612
-    type: rotation
-    post_path: content/posts/income-wall-106-takehome-pension-2026.md
