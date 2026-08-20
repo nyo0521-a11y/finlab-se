@@ -1,4 +1,12 @@
 history:
+  - posted_at: '2026-08-20T21:05:50+09:00'
+    text: "【おすすめ📖】\n企業型DC加入者がマッチング拠出とiDeCoのどちらを選ぶべきか、2026年改正後の手数料・上限を踏まえて判断フローで解説します。\n\
+      \nhttps://finlab-se.com/posts/corporate-dc-ideco-flowchart-2026/\n\n#iDeCo確定拠出年金
+      #2026年改正 #節税"
+    tweet_id: '2090409973356347665'
+    tweet_url: https://x.com/i/web/status/2090409973356347665
+    type: rotation
+    post_path: content/posts/corporate-dc-ideco-flowchart-2026.md
   - posted_at: '2026-08-20T07:31:28+09:00'
     text: '米国債の買い入れオペや長期金利が動くたび、その裏では巨額の資金決済が瞬時に走っています。日銀ネットとRTGSの仕組み、米Fedwireや欧TARGET2との違いを金融SEが整理しました。決済インフラの視点でニュースを見ると理解が深まります。
       https://finlab-se.com/posts/boj-net-rtgs-international/ #日銀ネット #RTGS #金融インフラ'
@@ -349,10 +357,3 @@ history:
     tweet_url: https://x.com/i/web/status/2081145515039707354
     type: topic
     post_path: content/posts/mortgage-rate-refinance-simulation.md
-  - posted_at: '2026-07-25T21:06:33+09:00'
-    text: "【おすすめ📖】\nクレカの1%還元、その原資はどこから出ている？正体は加盟店が払う「インターチェンジフィー」です。イシュア・アクワイアラ・ブランド3者の取り分の流れを、1,000円の買い物を例に金融SEが図解で解説します。\n\
-      \nhttps://finlab-se.com/posts/credit-card-interchange-fee/"
-    tweet_id: '2080988069012893957'
-    tweet_url: https://x.com/i/web/status/2080988069012893957
-    type: rotation
-    post_path: content/posts/credit-card-interchange-fee.md
