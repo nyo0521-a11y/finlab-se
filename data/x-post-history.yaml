@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-21T07:31:30+09:00'
+    text: "NYダウが703ドル安、米長期金利も再び上昇と相場が揺れています。こうした変動局面こそ、取り崩し計画を固定額でなく毎年調整する視点が役立ちます。4%ルールの根拠とモンテカルロで考える戦略を整理しました。\n\
+      https://finlab-se.com/posts/montecarlo-background/\n#資産運用 #FIRE #インデックス投資"
+    tweet_id: '2090567426312433958'
+    tweet_url: https://x.com/i/web/status/2090567426312433958
+    type: topic
+    post_path: content/posts/montecarlo-background.md
   - posted_at: '2026-08-20T21:05:50+09:00'
     text: "【おすすめ📖】\n企業型DC加入者がマッチング拠出とiDeCoのどちらを選ぶべきか、2026年改正後の手数料・上限を踏まえて判断フローで解説します。\n\
       \nhttps://finlab-se.com/posts/corporate-dc-ideco-flowchart-2026/\n\n#iDeCo確定拠出年金
@@ -350,10 +357,3 @@ history:
     tweet_url: https://x.com/i/web/status/2081350374016086135
     type: rotation
     post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md
-  - posted_at: '2026-07-26T07:32:11+09:00'
-    text: 
-      日銀の金融政策決定会合が近づき、利上げの行方に注目が集まっています。変動金利の住宅ローンを借り換えるべきかは、残債・金利差・残期間の3条件で損益分岐が変わります。試算の考え方を整理しました。
-    tweet_id: '2081145515039707354'
-    tweet_url: https://x.com/i/web/status/2081145515039707354
-    type: topic
-    post_path: content/posts/mortgage-rate-refinance-simulation.md
