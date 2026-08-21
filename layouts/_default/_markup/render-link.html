@@ -1,0 +1,3 @@
+{{- $url := .Destination -}}
+{{- $isInternal := or (strings.HasPrefix $url "/") (strings.HasPrefix $url "#") (strings.Contains $url "finlab-se.com") -}}
+<a href="{{ $url | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if not $isInternal }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
