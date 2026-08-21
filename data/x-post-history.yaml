@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-21T21:05:57+09:00'
+    text: "【新着📝】\n純金融資産1億円以上の世帯は全体の何%か。野村総合研究所の5階層データで分布を確認したうえで、その数字が測っていないものを整理し、…\n\
+      \nhttps://finlab-se.com/posts/wealth-pyramid-trap/\n\n#資産形成 #富裕層 #入金力"
+    tweet_id: '2090772390569730496'
+    tweet_url: https://x.com/i/web/status/2090772390569730496
+    type: new
+    post_path: content/posts/wealth-pyramid-trap.md
   - posted_at: '2026-08-21T07:31:30+09:00'
     text: "NYダウが703ドル安、米長期金利も再び上昇と相場が揺れています。こうした変動局面こそ、取り崩し計画を固定額でなく毎年調整する視点が役立ちます。4%ルールの根拠とモンテカルロで考える戦略を整理しました。\n\
       https://finlab-se.com/posts/montecarlo-background/\n#資産運用 #FIRE #インデックス投資"
@@ -349,11 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2081507781325250840
     type: topic
     post_path: content/posts/nikkei-60000-highyield-mindset.md
-  - posted_at: '2026-07-26T21:06:13+09:00'
-    text: "【おすすめ📖】\nウェルスナビの手数料年1%は高いのか。インデックス投信（オルカン等）と30年間の長期コストを試算し、手数料差を金額で比較します。\n\
-      \nhttps://finlab-se.com/posts/wealthnavi-vs-index-fund-fee-2026/\n\n#インデックス投資
-      #NISA"
-    tweet_id: '2081350374016086135'
-    tweet_url: https://x.com/i/web/status/2081350374016086135
-    type: rotation
-    post_path: content/posts/wealthnavi-vs-index-fund-fee-2026.md

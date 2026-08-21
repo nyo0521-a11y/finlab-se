@@ -435,3 +435,7 @@ rotation:
   last_promoted: '2026-08-11T21:06:17+09:00'
   promote_count: 1
   priority: normal
+- post_path: content/posts/wealth-pyramid-trap.md
+  last_promoted: '2026-08-21T21:05:57+09:00'
+  promote_count: 1
+  priority: normal
