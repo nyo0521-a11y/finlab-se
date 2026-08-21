@@ -1,4 +1,11 @@
 history:
+  - posted_at: '2026-08-22T07:31:21+09:00'
+    text: '三井住友FGが初の株主優待でVポイント最大3万円相当を新設。三井住友経済圏を検討する方へ、ゴールド(NL)100万円修行が本当に得か、損益分岐を金融SEが正直にレビューしました。
+      https://finlab-se.com/posts/smbc-gold-nl-100man-review/ #三井住友 #Vポイント #クレカ積立'
+    tweet_id: '2090929775854469213'
+    tweet_url: https://x.com/i/web/status/2090929775854469213
+    type: topic
+    post_path: content/posts/smbc-gold-nl-100man-review.md
   - posted_at: '2026-08-21T21:05:57+09:00'
     text: "【新着📝】\n純金融資産1億円以上の世帯は全体の何%か。野村総合研究所の5階層データで分布を確認したうえで、その数字が測っていないものを整理し、…\n\
       \nhttps://finlab-se.com/posts/wealth-pyramid-trap/\n\n#資産形成 #富裕層 #入金力"
@@ -349,10 +356,3 @@ history:
     tweet_url: https://x.com/i/web/status/2081712755305046104
     type: new
     post_path: content/posts/kougaku-iryohi-nenkanjougen.md
-  - posted_at: '2026-07-27T07:31:42+09:00'
-    text: 
-      米ナスダックが4月以来の大幅下落、AI巨額投資への警戒が広がっています。今週は日米テック決算やFOMCも控え、指数の値動きに神経質になりやすい局面です。高配当株投資家がこうした相場でやってはいけない3つを整理しました。
-    tweet_id: '2081507781325250840'
-    tweet_url: https://x.com/i/web/status/2081507781325250840
-    type: topic
-    post_path: content/posts/nikkei-60000-highyield-mindset.md
