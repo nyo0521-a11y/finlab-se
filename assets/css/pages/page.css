@@ -42,7 +42,7 @@
 .page .main { padding: 0; max-width: none; margin: 0; }
 
 /* ===== TOP BAR =====
-   static/css/site-header.css に統合済み（2026-08-16）。
+   assets/css/pages/site-header.css に統合済み（2026-08-16）。
    .topbar / .brand* / .nav* はページ非スコープの共通スタイルに一本化したため、
    ここでの重複定義は削除した（.ic のアイコンサイズ指定のみ残す）。 */
 .page .ic { width: 14px; height: 14px; stroke-width: 2; }
@@ -174,11 +174,11 @@
 
 /* ===== FOOTER =====
    実際のHTML要素は <footer class="site-footer"> のみで、.page-footer は
-   一致しないため元々効いていなかった。static/css/site-header.css の
+   一致しないため元々効いていなかった。assets/css/pages/site-header.css の
    .site-footer 系スタイルに統合済み（2026-08-16）。 */
 
 /* ===== Responsive =====
-   .topbar 系のモバイル対応は static/css/site-header.css に統合済み（2026-08-16） */
+   .topbar 系のモバイル対応は assets/css/pages/site-header.css に統合済み（2026-08-16） */
 @media (max-width: 640px) {
   .page-hero { padding: 40px 0 28px; }
   .page-section { padding: 32px 0 48px; }

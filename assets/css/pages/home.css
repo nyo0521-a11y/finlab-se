@@ -53,7 +53,7 @@
 .home .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
 /* ===== Top bar =====
-   static/css/site-header.css に統合済み（2026-08-16）。
+   assets/css/pages/site-header.css に統合済み（2026-08-16）。
    .topbar / .brand* / .nav* はページ非スコープの共通スタイルに一本化したため、
    ここでの重複定義は削除した。 */
 
@@ -366,7 +366,7 @@
 
 /* ===== FOOTER =====
    実際のHTML要素は <footer class="site-footer"> のみで、.home-footer は
-   一致しないため元々効いていなかった。static/css/site-header.css の
+   一致しないため元々効いていなかった。assets/css/pages/site-header.css の
    .site-footer 系スタイルに統合済み（2026-08-16）。 */
 
 /* ===== AD SLOTS ===== */

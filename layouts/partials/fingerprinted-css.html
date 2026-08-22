@@ -1,0 +1,10 @@
+{{- /* Renders a fingerprinted <link rel="stylesheet"> for an assets/css resource,
+       so a deploy invalidates the browser cache immediately instead of waiting
+       out Cloudflare Pages' max-age (2026-08-17: cache-busting fix). */ -}}
+{{- $res := resources.Get .path }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $res = $res | fingerprint }}
+<link rel="stylesheet" href="{{ $res.RelPermalink }}" integrity="{{ $res.Data.Integrity }}">
+{{- else }}
+<link rel="stylesheet" href="{{ $res.RelPermalink }}">
+{{- end }}

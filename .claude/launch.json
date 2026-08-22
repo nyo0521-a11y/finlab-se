@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "static", "--listen", "3478", "--no-clipboard"],
       "port": 3478
+    },
+    {
+      "name": "finlab-hugo-build",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "public", "--listen", "3479", "--no-clipboard"],
+      "port": 3479
     }
   ]
 }

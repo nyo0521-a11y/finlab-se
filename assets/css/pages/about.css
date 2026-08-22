@@ -38,7 +38,7 @@
 .about .main { padding: 0; max-width: none; margin: 0; }
 
 /* ===== TOP BAR =====
-   static/css/site-header.css に統合済み（2026-08-16）。
+   assets/css/pages/site-header.css に統合済み（2026-08-16）。
    .topbar / .brand* / .nav* はページ非スコープの共通スタイルに一本化したため、
    ここでの重複定義は削除した（.ic のアイコンサイズ指定のみ残す）。 */
 .about .ic { width: 14px; height: 14px; stroke-width: 2; }
@@ -157,7 +157,7 @@
   .about-hero-grid { grid-template-columns: 100px 1fr; gap: 20px; }
   .about-avatar { width: 100px; height: 100px; }
   .about-avatar-fallback { font-size: 28px; }
-  /* .topbar 系のモバイル対応は static/css/site-header.css に統合済み（2026-08-16） */
+  /* .topbar 系のモバイル対応は assets/css/pages/site-header.css に統合済み（2026-08-16） */
 }
 
 /* ===== SECTION ===== */
@@ -200,7 +200,7 @@
 .about-prose p:last-child { margin-bottom: 0; }
 
 /* ===== PILLAR GRID =====
-   実体は static/css/pillar-card.css に切り出し済み（2026-08-17）。
+   実体は assets/css/pages/pillar-card.css に切り出し済み（2026-08-17）。
    about.html 側は .pillar-card-grid / .pillar-card 系クラスを使用する。
    トップページ（home.css）とこのファイルの両方から共通利用するため、
    about スコープに閉じた重複定義は持たない
@@ -294,5 +294,5 @@
 
 /* ===== FOOTER =====
    実際のHTML要素は <footer class="site-footer"> のみで、.about-footer は
-   一致しないため元々効いていなかった。static/css/site-header.css の
+   一致しないため元々効いていなかった。assets/css/pages/site-header.css の
    .site-footer 系スタイルに統合済み（2026-08-16）。 */

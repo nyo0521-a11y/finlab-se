@@ -37,31 +37,31 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 {{- end }}
 {{- if $isHome }}
-<link rel="stylesheet" href="{{ "css/home.css" | relURL }}">
+{{- partial "fingerprinted-css.html" (dict "path" "css/pages/home.css") }}
 {{- end }}
 {{- /* pillar-card.css: 4本柱カード（.pillar-card-grid 等）の共通スタイル。
        about.html と index.html の両方から参照するため、about.css/home.css には含めない
        （2026-08-17: about.css の .about-pillar-* を切り出して共通化） */ -}}
 {{- if or $isHome $isAbout }}
-<link rel="stylesheet" href="{{ "css/pillar-card.css" | relURL }}">
+{{- partial "fingerprinted-css.html" (dict "path" "css/pages/pillar-card.css") }}
 {{- end }}
 {{- if or $isTerm $isTerms $isPillar }}
-<link rel="stylesheet" href="{{ "css/category.css" | relURL }}">
+{{- partial "fingerprinted-css.html" (dict "path" "css/pages/category.css") }}
 {{- end }}
 {{- if $isPillar }}
-<link rel="stylesheet" href="{{ "css/pillar.css" | relURL }}">
+{{- partial "fingerprinted-css.html" (dict "path" "css/pages/pillar.css") }}
 {{- end }}
 {{- if $isAbout }}
-<link rel="stylesheet" href="{{ "css/about.css" | relURL }}">
+{{- partial "fingerprinted-css.html" (dict "path" "css/pages/about.css") }}
 {{- end }}
 {{- if $isPostsList }}
-<link rel="stylesheet" href="{{ "css/list.css" | relURL }}">
+{{- partial "fingerprinted-css.html" (dict "path" "css/pages/list.css") }}
 {{- end }}
 {{- if $isPostSingle }}
-<link rel="stylesheet" href="{{ "css/post.css" | relURL }}">
+{{- partial "fingerprinted-css.html" (dict "path" "css/pages/post.css") }}
 {{- end }}
 {{- if $isStaticPage }}
-<link rel="stylesheet" href="{{ "css/page.css" | relURL }}">
+{{- partial "fingerprinted-css.html" (dict "path" "css/pages/page.css") }}
 {{- end }}
 
 {{- /* 全ページ共通のサイトフッター（ダークバンド）は
