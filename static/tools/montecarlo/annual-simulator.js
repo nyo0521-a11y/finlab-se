@@ -89,11 +89,11 @@ function updateCashHint() {
     el.style.borderLeftColor = "#1d2430";
   } else if (dropPct === 0) {
     el.innerHTML = "現金バッファ <strong>" + bufYears + "年分（" + cashAmt.toLocaleString() +
-      "万円）</strong>：初年度は現金から。2年目以降、投資資産が初期額を<strong>少しでも</strong>下回れば現金を使用。";
+      "万円）</strong>：投資資産が初期額を<strong>少しでも</strong>下回れば現金を使用。";
     el.style.borderLeftColor = "#f59e0b";
   } else {
     el.innerHTML = "現金バッファ <strong>" + bufYears + "年分（" + cashAmt.toLocaleString() +
-      "万円）</strong>：初年度は必ず現金から。2年目以降、投資資産が初期（" +
+      "万円）</strong>：投資資産が初期（" +
       initPortfolio.toLocaleString() + "万円）から <strong style=\"color:#c53030\">" +
       dropPct + "%を超えて下落</strong>（" + triggerAmt.toLocaleString() +
       "万円未満）で現金を優先使用。現金枯渇後は通常取崩しに戻ります。";
@@ -274,13 +274,13 @@ function createWithdrawalSensitivityStates(initialPortfolio, initialCash, initia
   });
 }
 
-function updateWithdrawalSensitivity(states, yearIndex, grossReturn, withdrawalInflationFactor,
+function updateWithdrawalSensitivity(states, grossReturn, withdrawalInflationFactor,
     triggerLevel, successThreshold) {
   if (!states) return;
   states.forEach(function (state) {
     if (state.failed) return;
     const wdThisYear = state.withdrawal;
-    const useCash = state.cash > 0 && (yearIndex === 0 || state.portfolio < triggerLevel);
+    const useCash = state.cash > 0 && state.portfolio < triggerLevel;
     if (useCash) {
       const fromCash = Math.min(state.cash, wdThisYear);
       state.cash -= fromCash;
@@ -483,7 +483,7 @@ async function runSimulation() {
         const grossReturn = stockGross * ((1 - fxRatio) + fxRatio * fxGross);
         const simpleReturn = grossReturn - 1;
 
-        updateWithdrawalSensitivity(sensitivityStates, y, grossReturn, withdrawalInflationFactor,
+        updateWithdrawalSensitivity(sensitivityStates, grossReturn, withdrawalInflationFactor,
           triggerLevel, successThreshold);
 
         if (depleted) {
@@ -498,7 +498,7 @@ async function runSimulation() {
           ? Math.max(portfolio * wdRate, currentMinWd)
           : wd;
 
-        const useCash = cash > 0 && (y === 0 || portfolio < triggerLevel);
+        const useCash = cash > 0 && portfolio < triggerLevel;
         if (useCash) {
           totalCashPeriods++;
           const fromCash = Math.min(cash, wdThisYear);
@@ -1026,7 +1026,7 @@ function renderResults(d) {
       : "• 取崩額：毎年の年初残高 × " + (d.wdRate * 100).toFixed(1) + "%、最低額はインフレ連動<br>",
     "• 成功基準：各年末の総資産（投資＋現金）", succSymbol, " <strong>", thresholdLabel, "</strong>",
     d.successThreshold === 0 ? "（ちょうど0円は失敗扱い）" : "", "<br>",
-    d.cashBuffer > 0 ? "• 現金バッファ " + fmtMan(d.cashBuffer / 10000) + "：初年度または発動ライン割れ時に優先使用<br>" : "",
+    d.cashBuffer > 0 ? "• 現金バッファ " + fmtMan(d.cashBuffer / 10000) + "：発動ライン割れ時に優先使用<br>" : "",
     "• 各年のリターンは独立と仮定。過去に存在したかや発生頻度を判定する機能ではありません。</div>"
   ].join("");
 
