@@ -289,9 +289,10 @@
       border:1.5px solid var(--ink);background:#fff;border-radius:50%;
     }
     .metric-card.hero .band-legend{
-      display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;
+      position:relative;height:12px;font-family:var(--mono);font-size:10px;
       color:var(--muted);margin-top:6px;
     }
+    .metric-card.hero .band-legend span{position:absolute;top:0;white-space:nowrap;}
 
     /* ---------- charts ---------- */
     .charts-row{
