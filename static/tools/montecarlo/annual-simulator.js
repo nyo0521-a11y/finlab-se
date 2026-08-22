@@ -1023,7 +1023,7 @@ function renderResults(d) {
     "<div class=\"note accent\"><strong>計算条件：</strong><br>",
     "• 年初に1年分を一括取崩し、その後に年間リターンを適用<br>",
     "• 株式リターン " + (d.mu * 100).toFixed(2) + "%（年率算術平均）・リスク " + (d.sigma * 100).toFixed(2) + "%（年率）<br>",
-    "• 為替：" + fxNote + "<br>• インフレ率：" + inflNote + "（年末に調整）<br>",
+    "• 為替：" + fxNote + "<br>• インフレ率：" + inflNote + "（前年のインフレ率を翌年の取崩額に反映）<br>",
     d.wdMode === "fixed_infl"
       ? "• 取崩額：初年度 " + fmtMan(d.initialWd / 10000) + "/年、以降インフレ時に増額、デフレ時は" + (deflMode === "reduce" ? "減額" : "変更なし") + "<br>"
       : "• 取崩額：毎年の年初残高 × " + (d.wdRate * 100).toFixed(1) + "%、最低額はインフレ連動<br>",
