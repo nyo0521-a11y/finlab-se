@@ -332,13 +332,12 @@ function chooseCombinationRepresentative(records, years) {
   return records.slice().sort(function (a, b) { return score(a) - score(b); })[0];
 }
 
-function chooseCombinationExamples(combinations, sampledByCombination, years, titlePrefix) {
-  const prefix = titlePrefix || "";
+function chooseCombinationExamples(combinations, sampledByCombination, years) {
   return combinations.slice(0, 3).map(function (combo, index) {
     const record = chooseCombinationRepresentative(sampledByCombination[combo.key], years);
     return record ? {
       type: "combination",
-      title: prefix + "第" + (index + 1) + "位の組み合わせ・代表例",
+      title: "第" + (index + 1) + "位の組み合わせ・代表例",
       combination: combo,
       record: record
     } : null;
@@ -401,7 +400,6 @@ async function runSimulation() {
   const FAILURE_COMBINATION_SAMPLE_LIMIT = 200;
   const sampledPaths = [];
   const sampledFailuresByCombination = {};
-  const sampledNoLongSlumpFailuresByCombination = {};
   const failureYearCounts = new Int32Array(years + 1);
   const failureTypeCounts = {
     earlyDownturn: 0,
@@ -621,9 +619,6 @@ async function runSimulation() {
             noLongSlumpFailureSeen++;
             const comboNoSlump = combinationKey(record.tags);
             noLongSlumpCombinationCounts[comboNoSlump] = (noLongSlumpCombinationCounts[comboNoSlump] || 0) + 1;
-            if (!sampledNoLongSlumpFailuresByCombination[comboNoSlump]) sampledNoLongSlumpFailuresByCombination[comboNoSlump] = [];
-            updateReservoir(sampledNoLongSlumpFailuresByCombination[comboNoSlump], record,
-              noLongSlumpCombinationCounts[comboNoSlump], FAILURE_COMBINATION_SAMPLE_LIMIT);
           }
         }
 
@@ -731,7 +726,7 @@ async function runSimulation() {
       return total + sampledFailuresByCombination[key].length;
     }, 0);
     const noLongSlumpCombinations = summarizeFailureCombinations(
-      noLongSlumpCombinationCounts, noLongSlumpFailureSeen, 3);
+      noLongSlumpCombinationCounts, failureSeen, 3);
     const failureSummary = {
       count: failureSeen,
       q25Year: quantileFromCounts(failureYearCounts, failureSeen, 0.25),
@@ -745,8 +740,7 @@ async function runSimulation() {
       sampleSize: failureExampleSampleSize,
       combinationSampleLimit: FAILURE_COMBINATION_SAMPLE_LIMIT,
       noLongSlumpCount: noLongSlumpFailureSeen,
-      noLongSlumpCombinations: noLongSlumpCombinations,
-      noLongSlumpExamples: chooseCombinationExamples(noLongSlumpCombinations, sampledNoLongSlumpFailuresByCombination, years, "長期低迷を除く・")
+      noLongSlumpCombinations: noLongSlumpCombinations
     };
 
     const avgCashPeriods = totalCashPeriods / numSims;
@@ -928,20 +922,15 @@ function renderFailureAnalysis(d) {
       "<h4 style=\"font-family:var(--hand);margin:16px 0 8px\">「10年間の長期低迷」を含まない失敗の上位パターン</h4>",
       "<div class=\"note\" style=\"margin-bottom:10px\">失敗の多くに「10年間の長期低迷」が含まれるため、それを含まない残り（",
       f.noLongSlumpCount.toLocaleString(), "件／失敗全体の", (f.noLongSlumpCount / f.count * 100).toFixed(1),
-      "%）に絞って上位パターンを集計しています。件数・割合はこの", f.noLongSlumpCount.toLocaleString(), "件を分母にしています。</div>",
+      "%）に絞って上位パターンを集計しています。</div>",
       "<div style=\"overflow-x:auto\"><table class=\"stats-table\" style=\"min-width:620px\">",
-      "<tr><th>特徴の組み合わせ（上位3件）</th><th>シナリオ数</th><th>このグループ内の割合</th></tr>",
+      "<tr><th>特徴の組み合わせ（上位3件）</th><th>シナリオ数</th><th>失敗群内</th></tr>",
       f.noLongSlumpCombinations.map(function (combo) {
         return "<tr><td>" + combo.label + "</td><td style=\"text-align:right\">" +
           combo.count.toLocaleString() + "</td><td style=\"text-align:right\">" +
           (combo.share * 100).toFixed(1) + "%</td></tr>";
       }).join(""),
-      "</table></div>",
-      f.noLongSlumpExamples.length ? [
-        "<div class=\"failure-example-grid\" style=\"margin-top:12px\">",
-        f.noLongSlumpExamples.map(failureExampleHtml).join(""),
-        "</div>"
-      ].join("") : ""
+      "</table></div>"
     ].join("") : [
       "<div class=\"note\" style=\"margin-top:16px\">今回の失敗シナリオはすべて「10年間の長期低迷」を含んでいました。</div>"
     ].join(""),
