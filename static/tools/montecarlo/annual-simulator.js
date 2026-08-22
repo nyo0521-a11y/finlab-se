@@ -248,7 +248,7 @@ function combinationKey(tags) {
   return primary.length ? primary.join("+") : "none";
 }
 
-function summarizeFailureCombinations(counts, failureCount) {
+function summarizeFailureCombinations(counts, failureCount, limit) {
   return Object.keys(counts).map(function (key) {
     const tags = key === "none" ? ["none"] : key.split("+");
     return {
@@ -257,7 +257,7 @@ function summarizeFailureCombinations(counts, failureCount) {
       count: counts[key],
       share: failureCount ? counts[key] / failureCount : 0
     };
-  }).sort(function (a, b) { return b.count - a.count || a.label.localeCompare(b.label, "ja"); }).slice(0, 5);
+  }).sort(function (a, b) { return b.count - a.count || a.label.localeCompare(b.label, "ja"); }).slice(0, limit || 5);
 }
 
 const WITHDRAWAL_SENSITIVITY_FACTORS = [0.80, 0.90, 1.00, 1.10, 1.20];
@@ -332,12 +332,13 @@ function chooseCombinationRepresentative(records, years) {
   return records.slice().sort(function (a, b) { return score(a) - score(b); })[0];
 }
 
-function chooseCombinationExamples(combinations, sampledByCombination, years) {
+function chooseCombinationExamples(combinations, sampledByCombination, years, titlePrefix) {
+  const prefix = titlePrefix || "";
   return combinations.slice(0, 3).map(function (combo, index) {
     const record = chooseCombinationRepresentative(sampledByCombination[combo.key], years);
     return record ? {
       type: "combination",
-      title: "第" + (index + 1) + "位の組み合わせ・代表例",
+      title: prefix + "第" + (index + 1) + "位の組み合わせ・代表例",
       combination: combo,
       record: record
     } : null;
@@ -400,6 +401,7 @@ async function runSimulation() {
   const FAILURE_COMBINATION_SAMPLE_LIMIT = 200;
   const sampledPaths = [];
   const sampledFailuresByCombination = {};
+  const sampledNoLongSlumpFailuresByCombination = {};
   const failureYearCounts = new Int32Array(years + 1);
   const failureTypeCounts = {
     earlyDownturn: 0,
@@ -411,10 +413,12 @@ async function runSimulation() {
   };
   const featureOutcomeStats = createFeatureOutcomeStats();
   const failureCombinationCounts = {};
+  const noLongSlumpCombinationCounts = {};
   const sensitivitySampleSize = withdrawalMode === "fixed_infl" ? Math.min(numSims, 20000) : 0;
   const sensitivitySuccessCounts = new Int32Array(WITHDRAWAL_SENSITIVITY_FACTORS.length);
   let sampledPathSeen = 0;
   let failureSeen = 0;
+  let noLongSlumpFailureSeen = 0;
   let successCount = 0;
   let totalCashPeriods = 0;
   let totalCashCoverRatio = 0;
@@ -612,6 +616,15 @@ async function runSimulation() {
           if (!sampledFailuresByCombination[combo]) sampledFailuresByCombination[combo] = [];
           updateReservoir(sampledFailuresByCombination[combo], record,
             failureCombinationCounts[combo], FAILURE_COMBINATION_SAMPLE_LIMIT);
+
+          if (record.tags.indexOf("longSlump") < 0) {
+            noLongSlumpFailureSeen++;
+            const comboNoSlump = combinationKey(record.tags);
+            noLongSlumpCombinationCounts[comboNoSlump] = (noLongSlumpCombinationCounts[comboNoSlump] || 0) + 1;
+            if (!sampledNoLongSlumpFailuresByCombination[comboNoSlump]) sampledNoLongSlumpFailuresByCombination[comboNoSlump] = [];
+            updateReservoir(sampledNoLongSlumpFailuresByCombination[comboNoSlump], record,
+              noLongSlumpCombinationCounts[comboNoSlump], FAILURE_COMBINATION_SAMPLE_LIMIT);
+          }
         }
 
         if (withdrawalMode === "fixed_infl") {
@@ -717,6 +730,8 @@ async function runSimulation() {
     const failureExampleSampleSize = Object.keys(sampledFailuresByCombination).reduce(function (total, key) {
       return total + sampledFailuresByCombination[key].length;
     }, 0);
+    const noLongSlumpCombinations = summarizeFailureCombinations(
+      noLongSlumpCombinationCounts, noLongSlumpFailureSeen, 3);
     const failureSummary = {
       count: failureSeen,
       q25Year: quantileFromCounts(failureYearCounts, failureSeen, 0.25),
@@ -728,7 +743,10 @@ async function runSimulation() {
       combinations: failureCombinations,
       examples: chooseCombinationExamples(failureCombinations, sampledFailuresByCombination, years),
       sampleSize: failureExampleSampleSize,
-      combinationSampleLimit: FAILURE_COMBINATION_SAMPLE_LIMIT
+      combinationSampleLimit: FAILURE_COMBINATION_SAMPLE_LIMIT,
+      noLongSlumpCount: noLongSlumpFailureSeen,
+      noLongSlumpCombinations: noLongSlumpCombinations,
+      noLongSlumpExamples: chooseCombinationExamples(noLongSlumpCombinations, sampledNoLongSlumpFailuresByCombination, years, "長期低迷を除く・")
     };
 
     const avgCashPeriods = totalCashPeriods / numSims;
@@ -906,6 +924,27 @@ function renderFailureAnalysis(d) {
       examples,
       "</div>"
     ].join("") : "",
+    f.noLongSlumpCount ? [
+      "<h4 style=\"font-family:var(--hand);margin:16px 0 8px\">「10年間の長期低迷」を含まない失敗の上位パターン</h4>",
+      "<div class=\"note\" style=\"margin-bottom:10px\">失敗の多くに「10年間の長期低迷」が含まれるため、それを含まない残り（",
+      f.noLongSlumpCount.toLocaleString(), "件／失敗全体の", (f.noLongSlumpCount / f.count * 100).toFixed(1),
+      "%）に絞って上位パターンを集計しています。件数・割合はこの", f.noLongSlumpCount.toLocaleString(), "件を分母にしています。</div>",
+      "<div style=\"overflow-x:auto\"><table class=\"stats-table\" style=\"min-width:620px\">",
+      "<tr><th>特徴の組み合わせ（上位3件）</th><th>シナリオ数</th><th>このグループ内の割合</th></tr>",
+      f.noLongSlumpCombinations.map(function (combo) {
+        return "<tr><td>" + combo.label + "</td><td style=\"text-align:right\">" +
+          combo.count.toLocaleString() + "</td><td style=\"text-align:right\">" +
+          (combo.share * 100).toFixed(1) + "%</td></tr>";
+      }).join(""),
+      "</table></div>",
+      f.noLongSlumpExamples.length ? [
+        "<div class=\"failure-example-grid\" style=\"margin-top:12px\">",
+        f.noLongSlumpExamples.map(failureExampleHtml).join(""),
+        "</div>"
+      ].join("") : ""
+    ].join("") : [
+      "<div class=\"note\" style=\"margin-top:16px\">今回の失敗シナリオはすべて「10年間の長期低迷」を含んでいました。</div>"
+    ].join(""),
     "<div class=\"note\" style=\"margin-top:12px\">",
     "<strong>成功率差：</strong>「特徴あり成功率 − 特徴なし成功率」です。マイナスほど、その特徴があるシナリオで最終年まで残った割合が低かったことを示します。率にカーソルを合わせるとシナリオ数を確認できます。比較群が30シナリオ未満の場合は参考値と表示します。<br>",
     "<strong>注意：</strong>特徴は原因を断定するものではなく、成功率差も因果的な寄与度ではありません。1つのシナリオに複数付くため「失敗群内」の合計は100%にならないことがあります。",
